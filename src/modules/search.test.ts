@@ -23,6 +23,7 @@ describe("search", () => {
       "NO0010123060", // has no shortname! (#31)
       "EUR", // a currency
       "BJ0CDD2", // additionalProperty: { exchDisp: "London" }
+      'RAMXX', // a money market
     ],
   });
 

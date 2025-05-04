@@ -1,0 +1,66 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v1/finance/search?lang=en-US&region=US&quotesCount=6&newsCount=4&enableFuzzyQuery=false&quotesQueryId=tss_match_phrase_query&multiQuoteQueryId=multi_quote_single_token_query&newsQueryId=news_cie_vespa&enableCb=true&enableNavLinks=true&enableEnhancedTrivialQuery=true&q=RAMXX",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=600, stale-while-revalidate=180",
+      "content-length": "713",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Sun, 04 May 2025 04:06:02 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-search--mtls-production-sg3.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "28",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "5leo3vhk1dpta"
+    },
+    "bodyJson": {
+      "explains": [],
+      "count": 1,
+      "quotes": [
+        {
+          "exchange": "NAS",
+          "shortname": "Ramirez Government Money Market",
+          "quoteType": "MONEY_MARKET",
+          "symbol": "RAMXX",
+          "index": "quotes",
+          "score": 10004500,
+          "typeDisp": "MoneyMarket",
+          "longname": "Advisor Managed Portfolios - Ramirez Asset Management Money Market Fund",
+          "exchDisp": "NASDAQ",
+          "isYahooFinance": true
+        }
+      ],
+      "news": [],
+      "nav": [],
+      "lists": [],
+      "researchReports": [],
+      "screenerFieldResults": [],
+      "totalTime": 25,
+      "timeTakenForQuotes": 417,
+      "timeTakenForNews": 900,
+      "timeTakenForAlgowatchlist": 400,
+      "timeTakenForPredefinedScreener": 400,
+      "timeTakenForCrunchbase": 400,
+      "timeTakenForNav": 400,
+      "timeTakenForResearchReports": 0,
+      "timeTakenForScreenerField": 0,
+      "timeTakenForCulturalAssets": 0,
+      "timeTakenForSearchLists": 0
+    }
+  }
+}
