@@ -64,6 +64,11 @@ export interface SearchQuoteYahooFuture extends SearchQuoteYahoo {
   typeDisp: "Future" | "Futures";
 }
 
+export interface SearchQuoteYahooMoneyMarket extends SearchQuoteYahoo {
+  quoteType: 'MONEY_MARKET';
+  typeDisp: 'MoneyMarket';
+}
+
 export interface SearchQuoteNonYahoo {
   [key: string]: unknown;
   index: string; // '78ddc07626ff4bbcae663e88514c23a0'
@@ -105,6 +110,7 @@ export interface SearchResult {
     | SearchQuoteYahooCryptocurrency
     | SearchQuoteNonYahoo
     | SearchQuoteYahooFuture
+    | SearchQuoteYahooMoneyMarket
   >;
   news: Array<SearchNews>;
   nav: Array<unknown>;
