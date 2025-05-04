@@ -606,6 +606,73 @@
       ],
       "additionalProperties": {}
     },
+    "SearchQuoteYahooMoneyMarket": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "type": "string"
+        },
+        "isYahooFinance": {
+          "type": "boolean",
+          "const": true
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "exchDisp": {
+          "type": "string"
+        },
+        "shortname": {
+          "type": "string"
+        },
+        "longname": {
+          "type": "string"
+        },
+        "index": {
+          "type": "string",
+          "const": "quotes"
+        },
+        "score": {
+          "yahooFinanceType": "number"
+        },
+        "newListingDate": {
+          "yahooFinanceType": "date"
+        },
+        "prevName": {
+          "type": "string"
+        },
+        "nameChangeDate": {
+          "yahooFinanceType": "date"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "industry": {
+          "type": "string"
+        },
+        "dispSecIndFlag": {
+          "type": "boolean"
+        },
+        "quoteType": {
+          "type": "string",
+          "const": "MONEY_MARKET"
+        },
+        "typeDisp": {
+          "type": "string",
+          "const": "MoneyMarket"
+        }
+      },
+      "required": [
+        "exchange",
+        "index",
+        "isYahooFinance",
+        "quoteType",
+        "score",
+        "symbol",
+        "typeDisp"
+      ],
+      "additionalProperties": {}
+    },
     "SearchQuoteNonYahoo": {
       "type": "object",
       "properties": {
