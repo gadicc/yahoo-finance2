@@ -1,0 +1,105 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v8/finance/chart/LUCYW?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1704067200&period2=1704153600",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=10, stale-while-revalidate=20",
+      "content-length": "980",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Sun, 15 Jun 2025 20:52:27 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "60lf1epk4uckb"
+    },
+    "bodyJson": {
+      "chart": {
+        "result": [
+          {
+            "meta": {
+              "currency": null,
+              "symbol": "LUCYW",
+              "exchangeName": "NCM",
+              "fullExchangeName": "NasdaqCM",
+              "instrumentType": "EQUITY",
+              "firstTradeDate": 1660570200,
+              "regularMarketTime": 1749822360,
+              "hasPrePostMarketData": true,
+              "gmtoffset": -14400,
+              "timezone": "EDT",
+              "exchangeTimezoneName": "America/New_York",
+              "regularMarketPrice": 0.1246,
+              "fiftyTwoWeekHigh": 0.2,
+              "fiftyTwoWeekLow": 0.022,
+              "regularMarketDayHigh": 0.1246,
+              "regularMarketDayLow": 0.1001,
+              "regularMarketVolume": 4152,
+              "longName": "Innovative Eyewear, Inc.",
+              "chartPreviousClose": 0.051,
+              "priceHint": 4,
+              "currentTradingPeriod": {
+                "pre": {
+                  "timezone": "EDT",
+                  "end": 1749821400,
+                  "start": 1749801600,
+                  "gmtoffset": -14400
+                },
+                "regular": {
+                  "timezone": "EDT",
+                  "end": 1749844800,
+                  "start": 1749821400,
+                  "gmtoffset": -14400
+                },
+                "post": {
+                  "timezone": "EDT",
+                  "end": 1749859200,
+                  "start": 1749844800,
+                  "gmtoffset": -14400
+                }
+              },
+              "dataGranularity": "1d",
+              "range": "",
+              "validRanges": [
+                "1d",
+                "5d",
+                "1mo",
+                "3mo",
+                "6mo",
+                "1y",
+                "2y",
+                "5y",
+                "ytd",
+                "max"
+              ]
+            },
+            "indicators": {
+              "quote": [
+                {}
+              ],
+              "adjclose": [
+                {}
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}
