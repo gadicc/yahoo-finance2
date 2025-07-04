@@ -311,6 +311,8 @@ await yahooFinance.quoteSummary('WMT', { modules: [ "calendarEvents" ] });
 <a name="cashflowStatementHistory"></a>
 ### cashflowStatementHistory
 
+Note: This module no longer provides everything shown below. For more comprehensive coverage, see [fundamentalsTimeSeries](https://github.com/gadicc/node-yahoo-finance2/blob/devel/docs/modules/fundamentalsTimeSeries.md) or visit the [typescript module](https://github.com/gadicc/node-yahoo-finance2/blob/devel/src/modules/fundamentalsTimeSeries.ts) for a breakdown of available options by module.
+
 ```js
 await yahooFinance.quoteSummary('KO', { modules: [ "cashflowStatementHistory" ] });
 
@@ -350,6 +352,8 @@ await yahooFinance.quoteSummary('KO', { modules: [ "cashflowStatementHistory" ] 
 
 <a name="cashflowStatementHistoryQuarterly"></a>
 ### cashflowStatementHistoryQuarterly
+
+Note: This module no longer provides everything shown below. For more comprehensive coverage, see [fundamentalsTimeSeries](https://github.com/gadicc/node-yahoo-finance2/blob/devel/docs/modules/fundamentalsTimeSeries.md) or visit the [typescript module](https://github.com/gadicc/node-yahoo-finance2/blob/devel/src/modules/fundamentalsTimeSeries.ts) for a breakdown of available options by module.
 
 ```js
 await yahooFinance.quoteSummary('PLTR', { modules: [ "cashflowStatementHistoryQuarterly" ] });
