@@ -1237,6 +1237,10 @@
             "string"
           ],
           "description": "Filename to use for cached result"
+        },
+        "fetch": {
+          "$comment": "(input: RequestInfo | URL, init?: RequestInit) ->  Promise<Response>",
+          "description": "An alternative fetch function to use just for this call"
         }
       },
       "additionalProperties": false

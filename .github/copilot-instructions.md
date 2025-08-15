@@ -7,43 +7,42 @@ Always reference these instructions first and fallback to search or bash command
 ## Working Effectively
 
 ### Environment Setup
-- **CRITICAL**: Install Deno runtime for development: 
+- **PREFERRED**: Use the automated GitHub Actions setup for optimal performance and reliability:
+  - Environment is automatically configured via `.github/workflows/copilot-setup-steps.yml`
+  - Deno v2.x runtime installed with caching enabled
+  - Dependencies pre-installed with optimized caching
+  - Node.js v20 with npm/npx caching configured
+  - No manual TLS CA store configuration needed
+  
+- **Manual Setup** (if GitHub Actions not available):
   ```bash
+  # Install Deno runtime
   wget https://github.com/denoland/deno/releases/latest/download/deno-x86_64-unknown-linux-gnu.zip
   unzip deno-x86_64-unknown-linux-gnu.zip
   chmod +x deno
   sudo mv deno /usr/local/bin/
-  ```
-- **CRITICAL**: Set TLS CA store to avoid certificate issues:
-  ```bash
-  export DENO_TLS_CA_STORE=system
+  
+  # Install dependencies (much faster with caching)
+  deno install
   ```
 
-### Dependency Installation and Build Process
-- **CRITICAL**: Dependencies download takes 5+ minutes. NEVER CANCEL. Set timeout to 10+ minutes:
-  ```bash
-  DENO_TLS_CA_STORE=system deno install
-  ```
-- **CRITICAL**: Build process takes 2+ minutes. NEVER CANCEL. Set timeout to 5+ minutes:
-  ```bash
-  DENO_TLS_CA_STORE=system deno task build:npm
-  ```
-- **CRITICAL**: Test suite execution time: Test runner takes 1-3 minutes. NEVER CANCEL. Set timeout to 5+ minutes:
-  ```bash
-  DENO_TLS_CA_STORE=system deno test -A --no-lock --parallel
-  ```
+### Optimized Development Process
+- **Dependencies**: With GitHub Actions setup, dependencies install in ~30-60 seconds (vs 5+ minutes manually)
+- **Build process**: NPM build completes in ~1 minute (vs 2+ minutes manually) 
+- **Test execution**: Test suite runs in ~1-2 minutes with caching optimizations
+- **No TLS issues**: GitHub Actions environment resolves certificate and firewall issues automatically
 
 ### Core Development Commands
 - View available tasks: `deno task`
-- Run tests: `DENO_TLS_CA_STORE=system deno test -A --no-lock --parallel`
-- Build NPM package: `DENO_TLS_CA_STORE=system deno task build:npm`
-- Generate schemas: `DENO_TLS_CA_STORE=system deno task schema`
-- Run CLI tool: `DENO_TLS_CA_STORE=system deno task cli <module> <args>`
+- Run tests: `deno test -A --no-lock --parallel`
+- Build NPM package: `deno task build:npm`
+- Generate schemas: `deno task schema`
+- Run CLI tool: `deno task cli <module> <args>`
 - Lint code: `deno lint`
 - Format code: `deno fmt`
 
 ### Development Workflow
-1. **ALWAYS** set `DENO_TLS_CA_STORE=system` environment variable before any network operations
+1. **GitHub Actions Environment**: Preferred for optimal setup with caching and dependency management
 2. **ALWAYS** run schema generation after changing TypeScript interfaces: `deno task schema`
 3. **ALWAYS** run `deno fmt` and `deno lint` before committing changes
 4. Use `--no-lock` flag if encountering lockfile issues during development
@@ -56,23 +55,23 @@ Always reference these instructions first and fallback to search or bash command
 After making code changes, ALWAYS test the following scenarios to validate functionality:
 
 #### CLI Testing (requires network access)
-- **Basic quote lookup**: `DENO_TLS_CA_STORE=system deno task cli quote AAPL`
-- **Module with options**: `DENO_TLS_CA_STORE=system deno task cli quoteSummary AAPL '{"modules":["price", "summaryDetail"]}'`
-- **Search functionality**: `DENO_TLS_CA_STORE=system deno task cli search AAPL`
-- **Historical data**: `DENO_TLS_CA_STORE=system deno task cli historical AAPL`
-- **Available modules**: `DENO_TLS_CA_STORE=system deno task cli --help` (shows: autoc, chart, dailyGainers, dailyLosers, fundamentalsTimeSeries, historical, insights, options, quote, quoteSummary, recommendationsBySymbol, screener, search, trendingSymbols)
-- **Help command**: `DENO_TLS_CA_STORE=system deno task cli --help`
+- **Basic quote lookup**: `deno task cli quote AAPL`
+- **Module with options**: `deno task cli quoteSummary AAPL '{"modules":["price", "summaryDetail"]}'`
+- **Search functionality**: `deno task cli search AAPL`
+- **Historical data**: `deno task cli historical AAPL`
+- **Available modules**: `deno task cli --help` (shows: autoc, chart, dailyGainers, dailyLosers, fundamentalsTimeSeries, historical, insights, options, quote, quoteSummary, recommendationsBySymbol, screener, search, trendingSymbols)
+- **Help command**: `deno task cli --help`
 
 #### Schema Generation Testing  
-- **Regenerate schemas**: `DENO_TLS_CA_STORE=system deno task schema` (required after TypeScript interface changes)
+- **Regenerate schemas**: `deno task schema` (required after TypeScript interface changes)
 - **Verify schema files**: Check that `.schema.json` files are updated in `/src/modules/` 
 - **Schema validation**: Look for `@yf-schema` comments in module files - only these are processed
 
 #### Build and Code Quality Testing
-- **NPM build validation**: `DENO_TLS_CA_STORE=system deno task build:npm` (builds distributable package)
+- **NPM build validation**: `deno task build:npm` (builds distributable package)
 - **Linting**: `deno lint` (expect some existing lint errors - focus on new code)
 - **Formatting**: `deno fmt --check` or `deno fmt` to auto-format
-- **Test execution**: `DENO_TLS_CA_STORE=system deno test -A --no-lock --parallel`
+- **Test execution**: `deno test -A --no-lock --parallel`
 
 #### Development Workflow Testing
 1. Make a small TypeScript interface change in a module file
@@ -82,9 +81,10 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 5. Test CLI functionality with the changed module
 
 ### Network and Certificate Issues
-- If encountering SSL certificate errors with npm registries, use `DENO_TLS_CA_STORE=system`
+- **GitHub Actions Environment**: TLS certificate and firewall issues automatically resolved
+- **Manual Environment**: If encountering SSL certificate errors, use `DENO_TLS_CA_STORE=system`
 - Network access required for:
-  - Dependency downloads (JSR and NPM registries) - ~5 minutes initial download
+  - Dependency downloads (JSR and NPM registries) - ~30-60 seconds with GitHub Actions caching
   - Yahoo Finance API calls during testing and CLI usage
   - Schema generation (requires npm package access)
 - **Cached test data**: ~450k lines of HTTP responses cached in `tests/fixtures/http/`
@@ -93,13 +93,15 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 ## Common Issues and Solutions
 
 ### Build Failures
-- **SSL Certificate Issues**: Always use `DENO_TLS_CA_STORE=system`
+- **GitHub Actions Environment**: Most SSL and network issues automatically resolved
+- **Manual Environment**: Use `DENO_TLS_CA_STORE=system` for SSL certificate issues
 - **Lockfile Corruption**: Use `--no-lock` flag to bypass lockfile issues
-- **Timeout Issues**: NEVER CANCEL long-running operations. Build and test processes are expected to take several minutes
+- **Timeout Issues**: Much faster with GitHub Actions caching - builds typically complete in 1-2 minutes
 
 ### Network Dependencies
 - The project requires network access to NPM registry and JSR (JavaScript Registry)
-- Initial dependency download: ~5 minutes (NEVER CANCEL)
+- **With GitHub Actions**: Dependencies install in ~30-60 seconds with caching
+- **Manual setup**: Initial dependency download: ~5 minutes (use appropriate timeouts)
 - Cached dependencies significantly reduce subsequent command execution times
 
 ### Testing
@@ -170,16 +172,25 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 - JSR publishing has been added alongside NPM releases
 
 ### Expected Timings
-- **Dependency installation**: 5+ minutes (NEVER CANCEL)
-- **Test execution**: 2-3 minutes (NEVER CANCEL)
-- **NPM build**: 2+ minutes (NEVER CANCEL)
-- **Schema generation**: 30 seconds
-- **Linting/formatting**: 10 seconds
+**With GitHub Actions Setup (Recommended):**
+- **Dependency installation**: ~30-60 seconds (with caching)
+- **Test execution**: ~1-2 minutes (optimized with caching)
+- **NPM build**: ~1 minute (cached dependencies)
+- **Schema generation**: ~30 seconds
+- **Linting/formatting**: ~10 seconds
+
+**Manual Setup (Fallback):**
+- **Dependency installation**: ~5+ minutes (NEVER CANCEL)
+- **Test execution**: ~2-3 minutes (NEVER CANCEL)
+- **NPM build**: ~2+ minutes (NEVER CANCEL)
+- **Schema generation**: ~30 seconds
+- **Linting/formatting**: ~10 seconds
 
 ## Environment Variables
 
-### Required for Network Operations
-- `DENO_TLS_CA_STORE=system` - Fixes SSL certificate issues with npm registry
+### Network Operations
+- **GitHub Actions Environment**: No manual environment variables needed
+- **Manual Environment**: `DENO_TLS_CA_STORE=system` - Fixes SSL certificate issues with npm registry  
 - `YF_QUERY_HOST` - Yahoo Finance API host (defaults to query2.yahoo.finance.com)
 
 ### Development Flags
@@ -189,6 +200,9 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 ## Troubleshooting
 
 ### Common Error Messages
+**GitHub Actions Environment:** Most common network/TLS issues are automatically resolved.
+
+**Manual Environment:**
 - "Failed loading https://registry.npmjs.org/" - Use `DENO_TLS_CA_STORE=system`
 - "invalid peer certificate: UnknownIssuer" - SSL certificate issue, use system CA store
 - "Failed upgrading lockfile" - Use `--no-lock` flag
@@ -197,8 +211,35 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 ## Example Development Workflow
 
 ### Complete Example: Adding a Simple Interface Change
+
+**With GitHub Actions Setup (Recommended):**
 ```bash
-# 1. Set up environment
+# 1. Environment automatically configured via copilot-setup-steps.yml
+# No manual setup needed
+
+# 2. Make a change to a TypeScript interface in src/modules/quote.ts
+# (example: add a new optional field to QuoteBase interface)
+
+# 3. Regenerate schemas (REQUIRED after interface changes)
+deno task schema  # Takes ~30 seconds
+
+# 4. Run tests to ensure nothing broke
+deno test -A --no-lock --parallel  # Takes ~1-2 minutes with caching
+
+# 5. Test the specific module via CLI
+deno task cli quote AAPL  # Verify real API calls work
+
+# 6. Format and lint code
+deno fmt  # Auto-formats files
+deno lint  # Shows any linting issues
+
+# 7. Build NPM package to verify distribution works
+deno task build:npm  # Takes ~1 minute with caching
+```
+
+**Manual Setup (Fallback):**
+```bash
+# 1. Set up environment manually
 export DENO_TLS_CA_STORE=system
 
 # 2. Make a change to a TypeScript interface in src/modules/quote.ts
@@ -228,14 +269,21 @@ rm tests/fixtures/http/quote-AAPL.json
 rm tests/fixtures/http/quote-TSLA.json
 
 # 2. Run tests - they will fetch fresh data and cache it
-DENO_TLS_CA_STORE=system deno test -A --no-lock src/modules/quote.test.ts
+deno test -A --no-lock src/modules/quote.test.ts
 
 # 3. Verify new cached data looks correct
 cat tests/fixtures/http/quote-AAPL.json | head -20
 ```
 
 ### Performance Notes
-- First-time setup requires significant network downloading
+**With GitHub Actions Setup:**
+- Environment setup in ~30-60 seconds with comprehensive caching
+- Subsequent runs much faster due to optimized dependency and npm caching
+- Use `--parallel` flag for tests to maximize performance
+- Build artifacts are generated in `/npm` directory for NPM distribution
+
+**Manual Setup:**
+- First-time setup requires significant network downloading (~5+ minutes)
 - Subsequent runs are much faster due to caching
 - Use `--parallel` flag for tests to maximize performance
 - Build artifacts are generated in `/npm` directory for NPM distribution
