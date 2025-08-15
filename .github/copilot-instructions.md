@@ -59,6 +59,8 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 - **Basic quote lookup**: `DENO_TLS_CA_STORE=system deno task cli quote AAPL`
 - **Module with options**: `DENO_TLS_CA_STORE=system deno task cli quoteSummary AAPL '{"modules":["price", "summaryDetail"]}'`
 - **Search functionality**: `DENO_TLS_CA_STORE=system deno task cli search AAPL`
+- **Historical data**: `DENO_TLS_CA_STORE=system deno task cli historical AAPL`
+- **Available modules**: `DENO_TLS_CA_STORE=system deno task cli --help` (shows: autoc, chart, dailyGainers, dailyLosers, fundamentalsTimeSeries, historical, insights, options, quote, quoteSummary, recommendationsBySymbol, screener, search, trendingSymbols)
 - **Help command**: `DENO_TLS_CA_STORE=system deno task cli --help`
 
 #### Schema Generation Testing  
@@ -230,6 +232,31 @@ cat tests/fixtures/http/quote-AAPL.json | head -20
 - Subsequent runs are much faster due to caching
 - Use `--parallel` flag for tests to maximize performance
 - Build artifacts are generated in `/npm` directory for NPM distribution
+
+## Key Project Insights
+
+### Architecture Overview
+- **Runtime**: Deno for development, compiles to Node.js/NPM for distribution
+- **API Coverage**: Comprehensive Yahoo Finance API access (quotes, historical data, search, financials, etc.)
+- **Type Safety**: Full TypeScript with runtime validation via JSON schemas
+- **Caching**: HTTP responses cached to disk for consistent/fast testing
+- **CLI**: Full command-line interface for all modules and functions
+
+### Development Philosophy  
+- **Schema-driven**: TypeScript interfaces with `@yf-schema` generate runtime validation
+- **Test-first**: Extensive cached test data ensures consistent behavior
+- **Performance-conscious**: Parallel testing, efficient caching, minimal dependencies
+- **Cross-platform**: Develop on Deno, distribute via NPM for broad compatibility
+
+### Common Modules and Use Cases
+- **quote**: Get current stock prices and basic info
+- **quoteSummary**: Detailed financial data with submodules (earnings, balance sheet, etc.)
+- **historical**: Historical price data with date ranges
+- **search**: Find stocks/securities by symbol or name  
+- **chart**: Price charts with various timeframes and indicators
+- **trendingSymbols**: Currently trending stocks by region
+- **options**: Options chain data for stocks
+- **insights**: Market insights and analyst recommendations
 
 ## Legacy Documentation
 The project includes legacy documentation for Version 2 which used Node.js/yarn. Current development uses Deno exclusively. Ignore references to:
