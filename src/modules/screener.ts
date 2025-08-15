@@ -1,3 +1,276 @@
+/**
+ * Screener module for advanced stock screening and filtering with predefined strategies.
+ * 
+ * This module provides access to Yahoo Finance's stock screener with predefined screening
+ * criteria for various investment strategies. Essential for finding stocks that match
+ * specific financial criteria, market conditions, or investment themes.
+ * 
+ * @example Basic Usage - Day Gainers
+ * ```typescript
+ * import YahooFinance from "yahoo-finance2";
+ * const yahooFinance = new YahooFinance();
+ * 
+ * // Get today's biggest gainers
+ * const gainers = await yahooFinance.screener({
+ *   scrIds: "day_gainers",
+ *   count: 10
+ * });
+ * 
+ * console.log(`Found ${gainers.total} gainers, showing top ${gainers.count}:`);
+ * gainers.quotes.forEach((stock, index) => {
+ *   const change = stock.regularMarketChangePercent.toFixed(2);
+ *   console.log(`${index + 1}. ${stock.symbol}: +${change}%`);
+ * });
+ * ```
+ * 
+ * @example Growth Technology Stocks
+ * ```typescript
+ * // Screen for growth technology stocks
+ * const growthTech = await yahooFinance.screener({
+ *   scrIds: "growth_technology_stocks",
+ *   count: 20
+ * });
+ * 
+ * console.log('Growth Technology Stocks:');
+ * growthTech.quotes.forEach(stock => {
+ *   console.log(`${stock.symbol}: $${stock.regularMarketPrice.toFixed(2)}`);
+ *   console.log(`  Market Cap: $${(stock.marketCap / 1e9).toFixed(2)}B`);
+ *   console.log(`  PE Ratio: ${stock.trailingPE?.toFixed(2) || 'N/A'}`);
+ * });
+ * ```
+ * 
+ * @example Most Active Stocks
+ * ```typescript
+ * // Find the most actively traded stocks
+ * const mostActive = await yahooFinance.screener({
+ *   scrIds: "most_actives",
+ *   count: 15
+ * });
+ * 
+ * console.log('Most Active Stocks:');
+ * mostActive.quotes.forEach(stock => {
+ *   const volume = (stock.regularMarketVolume / 1e6).toFixed(2);
+ *   console.log(`${stock.symbol}: ${volume}M shares traded`);
+ * });
+ * ```
+ * 
+ * @example Undervalued Large Caps
+ * ```typescript
+ * // Screen for potentially undervalued large-cap stocks
+ * const undervalued = await yahooFinance.screener({
+ *   scrIds: "undervalued_large_caps",
+ *   count: 25
+ * });
+ * 
+ * // Analyze value metrics
+ * console.log('Undervalued Large Cap Analysis:');
+ * undervalued.quotes.forEach(stock => {
+ *   const pe = stock.trailingPE;
+ *   const pb = stock.priceToBook;
+ *   const marketCap = stock.marketCap / 1e9;
+ *   
+ *   console.log(`${stock.symbol}:`);
+ *   console.log(`  Market Cap: $${marketCap.toFixed(2)}B`);
+ *   console.log(`  P/E: ${pe?.toFixed(2) || 'N/A'}`);
+ *   console.log(`  P/B: ${pb?.toFixed(2) || 'N/A'}`);
+ * });
+ * ```
+ * 
+ * @example Small Cap Gainers
+ * ```typescript
+ * // Find small-cap stocks with strong performance
+ * const smallCapGainers = await yahooFinance.screener({
+ *   scrIds: "small_cap_gainers",
+ *   count: 20
+ * });
+ * 
+ * // Filter by market cap and volume for liquidity
+ * const liquidSmallCaps = smallCapGainers.quotes.filter(stock => 
+ *   stock.marketCap > 300e6 && // > $300M market cap
+ *   stock.regularMarketVolume > 100000 // > 100k daily volume
+ * );
+ * 
+ * console.log('Liquid Small Cap Gainers:');
+ * liquidSmallCaps.forEach(stock => {
+ *   const marketCap = (stock.marketCap / 1e6).toFixed(0);
+ *   const change = stock.regularMarketChangePercent.toFixed(2);
+ *   console.log(`${stock.symbol}: +${change}% (${marketCap}M cap)`);
+ * });
+ * ```
+ * 
+ * @example High Yield Bonds Analysis
+ * ```typescript
+ * // Screen for high-yield bond funds
+ * const highYieldBonds = await yahooFinance.screener({
+ *   scrIds: "high_yield_bond",
+ *   count: 30
+ * });
+ * 
+ * console.log('High Yield Bond Analysis:');
+ * highYieldBonds.quotes.forEach(fund => {
+ *   const yield = fund.trailingAnnualDividendYield;
+ *   if (yield) {
+ *     console.log(`${fund.symbol}: ${(yield * 100).toFixed(2)}% yield`);
+ *   }
+ * });
+ * ```
+ * 
+ * @example Regional Market Screening
+ * ```typescript
+ * // Screen stocks in different regions
+ * const regions = [
+ *   { region: 'US', lang: 'en-US' },
+ *   { region: 'GB', lang: 'en-GB' },
+ *   { region: 'DE', lang: 'de-DE' }
+ * ];
+ * 
+ * for (const regionConfig of regions) {
+ *   const dayGainers = await yahooFinance.screener({
+ *     scrIds: "day_gainers",
+ *     count: 5,
+ *     ...regionConfig
+ *   });
+ *   
+ *   console.log(`\nTop gainers in ${regionConfig.region}:`);
+ *   dayGainers.quotes.forEach(stock => {
+ *     const change = stock.regularMarketChangePercent.toFixed(2);
+ *     console.log(`${stock.symbol}: +${change}%`);
+ *   });
+ * }
+ * ```
+ * 
+ * @example Most Shorted Stocks Analysis
+ * ```typescript
+ * // Analyze heavily shorted stocks
+ * const mostShorted = await yahooFinance.screener({
+ *   scrIds: "most_shorted_stocks",
+ *   count: 25
+ * });
+ * 
+ * console.log('Most Shorted Stocks Analysis:');
+ * mostShorted.quotes.forEach(stock => {
+ *   const price = stock.regularMarketPrice.toFixed(2);
+ *   const change = stock.regularMarketChangePercent.toFixed(2);
+ *   
+ *   console.log(`${stock.symbol}: $${price} (${change}%)`);
+ *   
+ *   // Additional analysis could include short interest ratio
+ *   // This would require additional API calls to get detailed data
+ * });
+ * ```
+ * 
+ * @example Conservative Investment Screening
+ * ```typescript
+ * // Screen for conservative investments
+ * const conservativeFunds = await yahooFinance.screener({
+ *   scrIds: "conservative_foreign_funds",
+ *   count: 15
+ * });
+ * 
+ * const portfolioAnchors = await yahooFinance.screener({
+ *   scrIds: "portfolio_anchors",
+ *   count: 15
+ * });
+ * 
+ * console.log('Conservative Investment Options:');
+ * console.log('\nConservative Foreign Funds:');
+ * conservativeFunds.quotes.slice(0, 5).forEach(fund => {
+ *   console.log(`${fund.symbol}: ${fund.shortName}`);
+ * });
+ * 
+ * console.log('\nPortfolio Anchors:');
+ * portfolioAnchors.quotes.slice(0, 5).forEach(stock => {
+ *   console.log(`${stock.symbol}: ${stock.shortName}`);
+ * });
+ * ```
+ * 
+ * @example Mutual Fund Analysis
+ * ```typescript
+ * // Analyze top-performing mutual funds
+ * const topMutualFunds = await yahooFinance.screener({
+ *   scrIds: "top_mutual_funds",
+ *   count: 20
+ * });
+ * 
+ * const solidLargeGrowth = await yahooFinance.screener({
+ *   scrIds: "solid_large_growth_funds",
+ *   count: 15
+ * });
+ * 
+ * const solidMidcap = await yahooFinance.screener({
+ *   scrIds: "solid_midcap_growth_funds", 
+ *   count: 15
+ * });
+ * 
+ * console.log('Mutual Fund Analysis:');
+ * [
+ *   { name: 'Top Mutual Funds', data: topMutualFunds },
+ *   { name: 'Large Growth Funds', data: solidLargeGrowth },
+ *   { name: 'Midcap Growth Funds', data: solidMidcap }
+ * ].forEach(category => {
+ *   console.log(`\n${category.name}:`);
+ *   category.data.quotes.slice(0, 3).forEach(fund => {
+ *     console.log(`  ${fund.symbol}: ${fund.shortName}`);
+ *   });
+ * });
+ * ```
+ * 
+ * @example Aggressive Growth Strategy
+ * ```typescript
+ * // Screen for aggressive growth opportunities
+ * const aggressiveSmallCaps = await yahooFinance.screener({
+ *   scrIds: "aggressive_small_caps",
+ *   count: 30
+ * });
+ * 
+ * // Filter for strong recent performance
+ * const strongPerformers = aggressiveSmallCaps.quotes.filter(stock => 
+ *   stock.regularMarketChangePercent > 2 && // Up more than 2% today
+ *   stock.regularMarketVolume > 500000 &&   // Good volume
+ *   stock.marketCap > 100e6                 // Minimum $100M market cap
+ * );
+ * 
+ * console.log('Aggressive Small Cap Opportunities:');
+ * strongPerformers.forEach(stock => {
+ *   const change = stock.regularMarketChangePercent.toFixed(2);
+ *   const marketCap = (stock.marketCap / 1e6).toFixed(0);
+ *   const volume = (stock.regularMarketVolume / 1e3).toFixed(0);
+ *   
+ *   console.log(`${stock.symbol}: +${change}% | ${marketCap}M cap | ${volume}k vol`);
+ * });
+ * ```
+ * 
+ * @remarks
+ * **Available Screen IDs**: The module supports multiple predefined screens:
+ * - `day_gainers` / `day_losers` - Daily price movers
+ * - `most_actives` - Highest volume stocks
+ * - `growth_technology_stocks` - Tech growth companies
+ * - `undervalued_large_caps` / `undervalued_growth_stocks` - Value opportunities
+ * - `aggressive_small_caps` / `small_cap_gainers` - Small-cap opportunities
+ * - `most_shorted_stocks` - Heavily shorted stocks
+ * - `portfolio_anchors` - Stable large-cap stocks
+ * - `high_yield_bond` - High-yield bond funds
+ * - `top_mutual_funds` / `solid_large_growth_funds` / `solid_midcap_growth_funds` - Fund categories
+ * - `conservative_foreign_funds` - Conservative international funds
+ * 
+ * **Data Quality**: Screening results are updated regularly but may have slight
+ * delays. Always verify current prices before making investment decisions.
+ * 
+ * **Regional Support**: Most screens support regional parameters for
+ * international markets (US, GB, DE, etc.).
+ * 
+ * **Result Limits**: The `count` parameter controls how many results to return.
+ * Higher counts may take longer to process.
+ * 
+ * **Filtering**: Results can be further filtered in your code based on specific
+ * criteria like market cap, volume, price ranges, or financial ratios.
+ * 
+ * @see {@link quote} for detailed stock information
+ * @see {@link quoteSummary} for comprehensive fundamental data
+ * 
+ * @module screener
+ */
+
 import type {
   ModuleOptions,
   ModuleOptionsWithValidateFalse,
