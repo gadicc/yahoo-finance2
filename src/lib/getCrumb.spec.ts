@@ -1,7 +1,7 @@
 import env from "../env-test";
 import getCrumb, { _getCrumb, getCrumbClear } from "./getCrumb";
 import { jest } from "@jest/globals";
-import { consoleSilent, consoleRestore } from "../../tests/console.js";
+import { consoleRestore, consoleSilent } from "../../tests/console.js";
 import options from "./options.js";
 
 import { ExtendedCookieJar } from "./cookieJar.js";
@@ -76,7 +76,7 @@ describe("getCrumb", () => {
           "https://finance.yahoo.com/quote/AAPL",
           "getCrumb-quote-AAPL-no-cookies.fake.json",
           true,
-        ),
+        )
       ).rejects.toThrowError(/No set-cookie/);
     });
 

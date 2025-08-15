@@ -2,8 +2,7 @@ import csv2json from "./csv2json.js";
 
 describe("csv2json", () => {
   it("handles historical input", () => {
-    const csv =
-      "Date,Open,High,Low,Close,Adj Close,Volume\n" +
+    const csv = "Date,Open,High,Low,Close,Adj Close,Volume\n" +
       "2020-10-29,112.370003,116.930000,112.199997,115.320000,115.121384,146129200\n" +
       "2020-10-30,111.059998,111.989998,107.720001,108.860001,108.672516,190272600";
 

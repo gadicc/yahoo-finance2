@@ -69,11 +69,12 @@ describe("quoteCombine", () => {
     expect(() => yf.quoteCombine([])).toThrow(/string/);
   });
 
-  if (process.env.FETCH_DEVEL !== "nocache")
+  if (process.env.FETCH_DEVEL !== "nocache") {
     it("throws on quote() error", () => {
       const opts = { devel: "weirdJsonResult.fake.json" };
       const promise = yf.quoteCombine("fake", undefined, opts);
       jest.runAllTimers();
       return expect(promise).rejects.toThrow(/Unexpected/);
     });
+  }
 });

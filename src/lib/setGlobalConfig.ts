@@ -20,19 +20,24 @@ export default function setGlobalConfig(
   mergeObjects(this._opts, config);
 
   if (cookieJar) {
-    if (!(cookieJar instanceof ExtendedCookieJar))
+    if (!(cookieJar instanceof ExtendedCookieJar)) {
       throw new Error("cookieJar must be an instance of ExtendedCookieJar");
+    }
     this._opts.cookieJar = cookieJar;
   }
   if (logger) {
-    if (typeof logger.info !== "function")
+    if (typeof logger.info !== "function") {
       throw new Error("logger.info must be a function");
-    if (typeof logger.warn !== "function")
+    }
+    if (typeof logger.warn !== "function") {
       throw new Error("logger.warn must be a function");
-    if (typeof logger.error !== "function")
+    }
+    if (typeof logger.error !== "function") {
       throw new Error("logger.error must be a function");
-    if (typeof logger.debug !== "function")
+    }
+    if (typeof logger.debug !== "function") {
       throw new Error("logger.debug must be a function");
+    }
     this._opts.logger = logger;
   }
 }

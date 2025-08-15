@@ -1,4 +1,4 @@
-import { consoleSilent, consoleRestore } from "../../tests/console.js";
+import { consoleRestore, consoleSilent } from "../../tests/console.js";
 import testYf from "../../tests/testYf.js";
 import options from "./options.js";
 import setGlobalConfig from "./setGlobalConfig.js";

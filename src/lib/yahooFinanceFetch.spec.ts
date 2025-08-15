@@ -42,7 +42,7 @@ describe("yahooFinanceFetch", () => {
     );
   });
 
-  if (process.env.FETCH_DEVEL !== "nocache")
+  if (process.env.FETCH_DEVEL !== "nocache") {
     it("throws HTTPError if !res.ok and no error in json result", () => {
       return expect(
         yahooFinanceFetch(
@@ -52,6 +52,7 @@ describe("yahooFinanceFetch", () => {
         ),
       ).rejects.toBeInstanceOf(errors.HTTPError);
     });
+  }
 
   it("throws Error if we receive unknown error from json result", () => {
     return expect(

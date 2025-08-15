@@ -2,7 +2,7 @@ import { jest } from "@jest/globals";
 
 import validateAndCoerceTypes from "./validateAndCoerceTypes.js";
 import type { ValidateParams } from "./validateAndCoerceTypes.js";
-import { InvalidOptionsError, FailedYahooValidationError } from "./errors.js";
+import { FailedYahooValidationError, InvalidOptionsError } from "./errors.js";
 import validate from "./validate";
 
 const schema = {
@@ -71,9 +71,8 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes if data is null and type IS number|null", () => {
         const object = { numberNull: null };
-        expect(() =>
-          validateAndCoerceTypes({ ...defLogParams, object }),
-        ).not.toThrow();
+        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
+          .toThrow();
       });
 
       it("fails if data is null and type IS NOT number|null", () => {
@@ -91,9 +90,8 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes and coerces {} to null if type IS number|null", () => {
         const object = { numberNull: {} };
-        expect(() =>
-          validateAndCoerceTypes({ ...defLogParams, object }),
-        ).not.toThrow();
+        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
+          .toThrow();
         expect(object.numberNull).toBe(null);
       });
 
@@ -111,23 +109,20 @@ describe("validateAndCoerceTypes", () => {
 
       it("fails if data is not a number nor object", () => {
         const object = { number: true };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/Failed Yahoo Schema/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/Failed Yahoo Schema/);
       });
 
       it("fails if data.raw is not a number", () => {
         const object = { number: { raw: "a string" } };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/Failed Yahoo Schema/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/Failed Yahoo Schema/);
       });
 
       it("fails if string returns a NaN", () => {
         const object = { number: "not-a-number" };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/Failed Yahoo Schema/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/Failed Yahoo Schema/);
       });
     });
 
@@ -159,9 +154,8 @@ describe("validateAndCoerceTypes", () => {
 
       it("throws on non-matching strings", () => {
         const object = { date: "clearly not a date" };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/Failed Yahoo Schema/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/Failed Yahoo Schema/);
       });
 
       it("passes through Date objects", () => {
@@ -173,9 +167,8 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes if data is null and type IS date|null", () => {
         const object = { dateNull: null };
-        expect(() =>
-          validateAndCoerceTypes({ ...defLogParams, object }),
-        ).not.toThrow();
+        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
+          .toThrow();
       });
 
       it("fails if data is null and type IS NOT date|null", () => {
@@ -193,9 +186,8 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes and coerces {} to null if type IS Date|null", () => {
         const object = { dateNull: {} };
-        expect(() =>
-          validateAndCoerceTypes({ ...defLogParams, object }),
-        ).not.toThrow();
+        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
+          .toThrow();
         expect(object.dateNull).toBe(null);
       });
 
@@ -232,16 +224,14 @@ describe("validateAndCoerceTypes", () => {
 
       it("throws on invalid input", () => {
         const object = { twoNumberRange: "X - 549.19" };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/^Failed Yahoo/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/^Failed Yahoo/);
       });
 
       it("throws no matching type on weird input", () => {
         const object = { twoNumberRange: 12 };
-        expect(() =>
-          validateAndCoerceTypes({ ...defNoLogParams, object }),
-        ).toThrow(/^Failed Yahoo/);
+        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
+          .toThrow(/^Failed Yahoo/);
       });
     });
 
@@ -256,7 +246,7 @@ describe("validateAndCoerceTypes", () => {
             schemaKey: "#/definitions/HistoricalOptions",
             source: "historical-in-validate.spec",
             options: { ...defNoLogParams.options, logOptionsErrors: false },
-          }),
+          })
         ).toThrow(InvalidOptionsError);
       });
 
@@ -298,7 +288,7 @@ describe("validateAndCoerceTypes", () => {
           validateAndCoerceTypes({
             ...defNoLogParams,
             schemaKey: "SOME_MISSING_KEY",
-          }),
+          })
         ).toThrow(/No such schema/);
       });
 
@@ -326,7 +316,7 @@ describe("validateAndCoerceTypes", () => {
           validateAndCoerceTypes({
             ...defLogParams,
             object,
-          }),
+          })
         ).toThrow("Failed Yahoo Schema validation");
         console = origConsole;
 
@@ -348,7 +338,7 @@ describe("validateAndCoerceTypes", () => {
           validateAndCoerceTypes({
             ...defNoLogParams,
             object,
-          }),
+          })
         ).toThrow("Failed Yahoo Schema validation");
         console = origConsole;
 

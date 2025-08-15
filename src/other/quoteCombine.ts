@@ -1,11 +1,11 @@
 import type {
   ModuleOptions,
-  ModuleOptionsWithValidateTrue,
   ModuleOptionsWithValidateFalse,
+  ModuleOptionsWithValidateTrue,
   ModuleThis,
 } from "../lib/moduleCommon.js";
 
-import type { QuoteOptions, Quote } from "../modules/quote.js";
+import type { Quote, QuoteOptions } from "../modules/quote.js";
 import quote from "../modules/quote.js";
 
 import validateAndCoerceTypes from "../lib/validateAndCoerceTypes.js";
@@ -36,11 +36,12 @@ export default function quoteCombine(
 ): Promise<any> {
   const symbol = query;
 
-  if (typeof symbol !== "string")
+  if (typeof symbol !== "string") {
     throw new Error(
       "quoteCombine expects a string query parameter, received: " +
         JSON.stringify(symbol, null, 2),
     );
+  }
 
   validateAndCoerceTypes({
     source: "quoteCombine",
@@ -102,8 +103,9 @@ export default function quoteCombine(
           }
         })
         .catch((error) => {
-          for (let symbolPromiseCallbacks of entry.symbols.values())
+          for (let symbolPromiseCallbacks of entry.symbols.values()) {
             for (let promise of symbolPromiseCallbacks) promise.reject(error);
+          }
         });
     }, DEBOUNCE_TIME);
   });

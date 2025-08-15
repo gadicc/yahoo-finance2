@@ -1,25 +1,25 @@
 /**
  * Historical data module for retrieving price history, dividends, and stock splits.
- * 
+ *
  * This module provides historical price data, dividend payments, and stock split
- * information for financial instruments. While functional, many users prefer 
+ * information for financial instruments. While functional, many users prefer
  * the {@link chart} module which offers more flexibility and features.
- * 
+ *
  * @example Basic Price History
  * ```typescript
  * import YahooFinance from "yahoo-finance2";
  * const yahooFinance = new YahooFinance();
- * 
+ *
  * // Get 1 year of daily data
  * const history = await yahooFinance.historical('AAPL', {
  *   period1: '2023-01-01',
  *   period2: '2024-01-01'
  * });
- * 
+ *
  * console.log(history[0]); // Most recent day
  * // { date: Date, open: 150.5, high: 155.2, low: 149.8, close: 154.1, ... }
  * ```
- * 
+ *
  * @example Different Intervals
  * ```typescript
  * // Weekly data
@@ -27,14 +27,14 @@
  *   period1: '2023-01-01',
  *   interval: '1wk'
  * });
- * 
- * // Monthly data  
+ *
+ * // Monthly data
  * const monthly = await yahooFinance.historical('AAPL', {
  *   period1: '2022-01-01',
  *   interval: '1mo'
  * });
  * ```
- * 
+ *
  * @example Dividends and Splits
  * ```typescript
  * // Get dividend history
@@ -43,24 +43,24 @@
  *   events: 'dividends'
  * });
  * // Returns: [{ date: Date, dividends: 0.24 }, ...]
- * 
+ *
  * // Get stock splits
  * const splits = await yahooFinance.historical('AAPL', {
  *   period1: '2020-01-01',
- *   events: 'split'  
+ *   events: 'split'
  * });
  * // Returns: [{ date: Date, stockSplits: "4:1" }, ...]
  * ```
- * 
+ *
  * @remarks
- * **Limitations**: 
+ * **Limitations**:
  * - Intervals limited to daily ("1d"), weekly ("1wk"), monthly ("1mo")
  * - Events (prices, dividends, splits) require separate requests
  * - Consider using {@link chart} module for more flexibility
- * 
+ *
  * **Performance**: The chart module often provides better performance and
  * more features for historical data needs.
- * 
+ *
  * @module historical
  */
 
@@ -141,31 +141,31 @@ export interface HistoricalRowStockSplit {
  * Configuration options for historical data requests.
  */
 export interface HistoricalOptions {
-  /** 
+  /**
    * Start date for historical data.
    * Can be Date object, ISO string, or Unix timestamp.
    */
   period1: Date | string | number;
-  
-  /** 
+
+  /**
    * End date for historical data (defaults to current date).
    * Can be Date object, ISO string, or Unix timestamp.
    */
   period2?: Date | string | number;
-  
-  /** 
+
+  /**
    * Data interval/frequency.
    * @defaultValue "1d"
    */
   interval?: "1d" | "1wk" | "1mo"; // '1d',  TODO: all | types
-  
-  /** 
+
+  /**
    * Type of historical data to retrieve.
    * @defaultValue "history"
    */
   events?: "history" | "dividends" | "split"; // 'history',
-  
-  /** 
+
+  /**
    * Whether to include adjusted close prices.
    * @defaultValue true
    */
@@ -205,7 +205,7 @@ function nullFieldCount(object: unknown) {
 
 /**
  * Get historical price data for a symbol.
- * 
+ *
  * @param symbol - Stock symbol to get historical data for
  * @param queryOptionsOverrides - Configuration for price history
  * @param moduleOptions - Optional module configuration
@@ -220,7 +220,7 @@ export default function historical(
 
 /**
  * Get dividend history for a symbol.
- * 
+ *
  * @param symbol - Stock symbol to get dividend data for
  * @param queryOptionsOverrides - Configuration with events: "dividends"
  * @param moduleOptions - Optional module configuration
@@ -235,7 +235,7 @@ export default function historical(
 
 /**
  * Get stock split history for a symbol.
- * 
+ *
  * @param symbol - Stock symbol to get split data for
  * @param queryOptionsOverrides - Configuration with events: "split"
  * @param moduleOptions - Optional module configuration
@@ -250,7 +250,7 @@ export default function historical(
 
 /**
  * Get historical data with validation disabled.
- * 
+ *
  * @param symbol - Stock symbol to get data for
  * @param queryOptionsOverrides - Configuration options
  * @param moduleOptions - Module configuration with validateResult: false
@@ -266,33 +266,33 @@ export default function historical(
 
 /**
  * Get historical price data, dividends, or stock splits for a financial instrument.
- * 
+ *
  * This function retrieves historical data from Yahoo Finance. The type of data returned
  * depends on the `events` parameter - price history (default), dividends, or stock splits.
- * 
+ *
  * @example Price History
  * ```typescript
  * import YahooFinance from "yahoo-finance2";
  * const yahooFinance = new YahooFinance();
- * 
+ *
  * // Get 1 year of daily price data
  * const prices = await yahooFinance.historical('AAPL', {
  *   period1: '2023-01-01',
  *   period2: '2024-01-01'
  * });
- * 
+ *
  * prices.forEach(day => {
  *   console.log(`${day.date.toISOString().split('T')[0]}: $${day.close}`);
  * });
  * ```
- * 
+ *
  * @example Different Time Periods
  * ```typescript
  * // Last 30 days
  * const recent = await yahooFinance.historical('TSLA', {
  *   period1: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
  * });
- * 
+ *
  * // Specific date range
  * const range = await yahooFinance.historical('GOOGL', {
  *   period1: '2023-06-01',
@@ -300,25 +300,25 @@ export default function historical(
  *   interval: '1wk'  // Weekly data
  * });
  * ```
- * 
+ *
  * @example Dividends and Splits
  * ```typescript
  * // Get all dividends in 2023
  * const dividends = await yahooFinance.historical('MSFT', {
  *   period1: '2023-01-01',
- *   period2: '2024-01-01', 
+ *   period2: '2024-01-01',
  *   events: 'dividends'
  * });
- * 
+ *
  * // Find stock splits since 2020
  * const splits = await yahooFinance.historical('AAPL', {
  *   period1: '2020-01-01',
  *   events: 'split'
  * });
- * 
+ *
  * console.log(splits); // [{ date: Date('2020-08-31'), stockSplits: "4:1" }]
  * ```
- * 
+ *
  * @param symbol - Stock, ETF, or other financial instrument symbol.
  *                 Use search() to find valid symbols.
  * @param queryOptionsOverrides - Required configuration:
@@ -328,31 +328,31 @@ export default function historical(
  *                                - `events`: "history", "dividends", or "split"
  *                                - `includeAdjustedClose`: Include adjusted prices
  * @param moduleOptions - Optional module configuration (validateResult, etc.)
- * 
+ *
  * @returns Promise that resolves to:
  *          - Array of HistoricalRowHistory (for price data)
- *          - Array of HistoricalRowDividend (for dividend data)  
+ *          - Array of HistoricalRowDividend (for dividend data)
  *          - Array of HistoricalRowStockSplit (for split data)
- * 
+ *
  * @throws Will throw an error if:
  *         - Network request fails
  *         - Invalid symbol or date range
  *         - Validation fails (if enabled)
- * 
+ *
  * @remarks
  * **Limitations:**
  * - Limited to daily/weekly/monthly intervals only
  * - Events (prices, dividends, splits) require separate API calls
  * - Less flexible than the chart module
- * 
+ *
  * **Alternative**: Consider using {@link chart} module for:
  * - More interval options (1m, 5m, 15m, etc.)
  * - Combined events in single request
  * - Better performance for complex queries
- * 
- * **Date Formats**: Accepts Date objects, ISO strings ("2023-01-01"), 
+ *
+ * **Date Formats**: Accepts Date objects, ISO strings ("2023-01-01"),
  * or Unix timestamps (milliseconds since epoch).
- * 
+ *
  * @see {@link HistoricalOptions} for all available options
  * @see {@link chart} for a more flexible alternative
  */

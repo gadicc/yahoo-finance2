@@ -1,40 +1,40 @@
 /**
  * Insights module for retrieving analyst insights, reports, and company analysis.
- * 
+ *
  * This module provides access to research reports, analyst recommendations,
  * significant developments, and other insights for financial instruments.
- * 
+ *
  * @example Basic Usage
  * ```typescript
  * import YahooFinance from "yahoo-finance2";
  * const yahooFinance = new YahooFinance();
- * 
+ *
  * // Get insights for a symbol
  * const insights = await yahooFinance.insights('AAPL');
  * console.log(insights.recommendation); // { rating: "BUY", targetPrice: 200, ... }
  * console.log(insights.sigDevs[0]); // Recent significant development
  * ```
- * 
+ *
  * @example Working with Reports
  * ```typescript
  * const insights = await yahooFinance.insights('TSLA');
- * 
+ *
  * // Browse research reports
  * insights.reports?.forEach(report => {
  *   console.log(`${report.reportTitle} by ${report.provider}`);
  *   console.log(`Date: ${report.reportDate}`);
  * });
- * 
+ *
  * // Check significant developments
  * insights.sigDevs.forEach(dev => {
  *   console.log(`${dev.date}: ${dev.headline}`);
  * });
  * ```
- * 
+ *
  * @remarks
  * **Data Availability**: Insights data availability varies by symbol.
  * Premium content may require additional subscriptions.
- * 
+ *
  * @module insights
  */
 
@@ -58,16 +58,16 @@ const definitions = getTypedDefinitions(schema);
  */
 export interface InsightsResult {
   [key: string]: unknown;
-  
+
   /** Symbol for which insights are provided */
   symbol: string;
-  
+
   /** Basic instrument information */
   instrumentInfo?: InsightsInstrumentInfo;
-  
+
   /** Company snapshot information */
   companySnapshot?: InsightsCompanySnapshot;
-  
+
   /** Current analyst recommendation */
   recommendation?: {
     /** Target price from analysts */
@@ -77,24 +77,24 @@ export interface InsightsResult {
     /** Overall rating recommendation */
     rating: "BUY" | "SELL" | "HOLD";
   };
-  
+
   /** Upcoming events */
   events?: InsightsEvent[];
-  
+
   /** Research reports */
   reports?: InsightsReport[];
-  
+
   /** Significant developments */
   sigDevs: InsightsSigDev[];
-  
+
   /** Upsell information */
   upsell?: InsightsUpsell;
-  
+
   /** Additional research reports */
   upsellSearchDD?: {
     researchReports: InsightsResearchReport;
   };
-  
+
   /** SEC filing reports */
   secReports?: InsightsSecReport[];
 }
@@ -104,10 +104,10 @@ export interface InsightsResult {
  */
 export interface InsightsSigDev {
   [key: string]: unknown;
-  
+
   /** Headline of the development */
   headline: string;
-  
+
   /** Date of the development */
   date: Date;
 }
@@ -238,10 +238,10 @@ export interface InsightsUpsell {
 export interface InsightsOptions {
   /** Language code for results (e.g., "en-US") */
   lang?: string;
-  
+
   /** Region code for results (e.g., "US") */
   region?: string;
-  
+
   /** Number of research reports to include */
   reportsCount?: number;
 }
@@ -255,7 +255,7 @@ const queryOptionsDefaults = {
 
 /**
  * Get insights with validation enabled.
- * 
+ *
  * @param symbol - Stock symbol to get insights for
  * @param queryOptionsOverrides - Optional configuration for language, region, and report count
  * @param moduleOptions - Optional module configuration
@@ -270,7 +270,7 @@ export default function insights(
 
 /**
  * Get insights with validation disabled.
- * 
+ *
  * @param symbol - Stock symbol to get insights for
  * @param queryOptionsOverrides - Optional configuration for language, region, and report count
  * @param moduleOptions - Module configuration with validateResult: false
@@ -285,36 +285,36 @@ export default function insights(
 
 /**
  * Get analyst insights, research reports, and analysis for a financial instrument.
- * 
+ *
  * This function retrieves comprehensive analyst coverage including recommendations,
  * research reports, significant developments, and company analysis scores.
- * 
+ *
  * @example Basic Usage
  * ```typescript
  * import YahooFinance from "yahoo-finance2";
  * const yahooFinance = new YahooFinance();
- * 
+ *
  * // Get insights for a symbol
  * const insights = await yahooFinance.insights('AAPL');
- * 
+ *
  * // Check analyst recommendation
  * if (insights.recommendation) {
  *   console.log(`Rating: ${insights.recommendation.rating}`);
  *   console.log(`Target Price: $${insights.recommendation.targetPrice}`);
  * }
- * 
+ *
  * // Review significant developments
  * insights.sigDevs.forEach(dev => {
  *   console.log(`${dev.date.toISOString().split('T')[0]}: ${dev.headline}`);
  * });
  * ```
- * 
+ *
  * @example Research Reports
  * ```typescript
  * const insights = await yahooFinance.insights('TSLA', {
  *   reportsCount: 5
  * });
- * 
+ *
  * // Browse research reports
  * insights.reports?.forEach(report => {
  *   console.log(`${report.reportTitle} - ${report.provider}`);
@@ -325,23 +325,23 @@ export default function insights(
  *   }
  * });
  * ```
- * 
+ *
  * @example Company Analysis
  * ```typescript
  * const insights = await yahooFinance.insights('MSFT');
- * 
+ *
  * // Company performance vs sector
  * if (insights.companySnapshot) {
  *   const company = insights.companySnapshot.company;
  *   const sector = insights.companySnapshot.sector;
- *   
+ *
  *   console.log('Company vs Sector Scores:');
  *   console.log(`Innovation: ${company.innovativeness} vs ${sector.innovativeness}`);
  *   console.log(`Hiring: ${company.hiring} vs ${sector.hiring}`);
  *   console.log(`Sustainability: ${company.sustainability} vs ${sector.sustainability}`);
  * }
  * ```
- * 
+ *
  * @param symbol - Stock symbol to get insights for.
  *                 Use search() to find valid symbols.
  * @param queryOptionsOverrides - Optional configuration:
@@ -349,29 +349,29 @@ export default function insights(
  *                                - `region`: Market region (default: "US")
  *                                - `lang`: Language for results (default: "en-US")
  * @param moduleOptions - Optional module configuration (validateResult, etc.)
- * 
+ *
  * @returns Promise that resolves to an InsightsResult containing:
  *          - `recommendation`: Current analyst recommendation and target price
  *          - `sigDevs`: Array of significant developments and news
  *          - `reports`: Array of research reports with ratings and analysis
  *          - `companySnapshot`: Company performance scores vs sector/market
  *          - `events`: Upcoming events and earnings
- * 
+ *
  * @throws Will throw an error if:
  *         - Network request fails
  *         - Invalid symbol
  *         - Validation fails (if enabled)
- * 
+ *
  * @remarks
  * **Data Availability**: Insights data varies significantly by symbol.
  * Popular large-cap stocks typically have the most comprehensive coverage.
- * 
+ *
  * **Premium Content**: Some research reports and detailed analysis may
  * require premium subscriptions or additional access rights.
- * 
+ *
  * **Timeliness**: Recommendations and reports reflect the most recent
  * analyst coverage but may not include the very latest market developments.
- * 
+ *
  * @see {@link InsightsOptions} for all available options
  * @see {@link InsightsResult} for complete result structure
  */
