@@ -154,13 +154,20 @@ After making code changes, ALWAYS test the following scenarios to validate funct
 
 ## CI/CD Pipeline
 
-### CircleCI Build Process
-1. Install Deno runtime
-2. Install dependencies (`deno install`) - takes ~5 minutes
-3. Run tests with coverage (`deno test -A --coverage`) - takes ~3 minutes
-4. Generate coverage report (`deno coverage --lcov`)
-5. Build NPM package (`deno task build:npm`) - takes ~2 minutes
-6. Run semantic release for publishing
+### GitHub Actions Workflow (`.github/workflows/test-release.yaml`)
+1. **Environment Setup** (`.github/actions/setup` composite action):
+   - Install Deno v2.x runtime with caching enabled
+   - Install dependencies (`deno install`) - takes ~5 minutes
+   - Setup Node.js v20 with npm cache optimization
+2. **Testing**: Run tests with coverage (`deno task test --coverage`) - takes ~3 minutes
+3. **Coverage Processing**: Generate LCOV report (`deno coverage --lcov ./coverage > coverage.lcov`)
+4. **Build**: Build NPM package (`deno task build:npm`) - takes ~2 minutes
+5. **Release**: Run semantic-release for publishing to both NPM and JSR (JavaScript Registry)
+
+**Notes**: 
+- Coverage is currently generated but not yet uploaded to codecov
+- Test results are not yet used for repository badges
+- JSR publishing has been added alongside NPM releases
 
 ### Expected Timings
 - **Dependency installation**: 5+ minutes (NEVER CANCEL)
