@@ -1,3 +1,128 @@
+/**
+ * Options module for retrieving options chain data including calls, puts, and Greeks.
+ * 
+ * This module provides comprehensive options data for stocks, including all available
+ * expiration dates, strike prices, implied volatility, open interest, and other
+ * essential options trading information.
+ * 
+ * @example Basic Options Chain
+ * ```typescript
+ * import YahooFinance from "yahoo-finance2";
+ * const yahooFinance = new YahooFinance();
+ * 
+ * // Get complete options chain for Apple
+ * const optionsData = await yahooFinance.options('AAPL');
+ * 
+ * console.log('Available expirations:', optionsData.expirationDates);
+ * console.log('Available strikes:', optionsData.strikes);
+ * console.log('Underlying quote:', optionsData.quote.regularMarketPrice);
+ * 
+ * // Access the first expiration's calls and puts
+ * const firstExpiration = optionsData.options[0];
+ * console.log(`Expiration: ${firstExpiration.expirationDate}`);
+ * console.log(`Number of calls: ${firstExpiration.calls.length}`);
+ * console.log(`Number of puts: ${firstExpiration.puts.length}`);
+ * ```
+ * 
+ * @example Specific Expiration Date
+ * ```typescript
+ * // Get options for a specific expiration date
+ * const specificExpiration = await yahooFinance.options('TSLA', {
+ *   date: new Date('2024-03-15')
+ * });
+ * 
+ * // Find in-the-money calls
+ * const currentPrice = specificExpiration.quote.regularMarketPrice;
+ * const itmCalls = specificExpiration.options[0].calls.filter(call => 
+ *   call.strike < currentPrice && call.inTheMoney
+ * );
+ * 
+ * console.log(`Current stock price: $${currentPrice}`);
+ * console.log(`In-the-money calls: ${itmCalls.length}`);
+ * ```
+ * 
+ * @example Options Analysis and Screening
+ * ```typescript
+ * const optionsData = await yahooFinance.options('NVDA');
+ * const currentPrice = optionsData.quote.regularMarketPrice;
+ * 
+ * // Analyze all expirations
+ * optionsData.options.forEach(expiration => {
+ *   console.log(`\nExpiration: ${expiration.expirationDate}`);
+ *   
+ *   // Find at-the-money options
+ *   const atmCalls = expiration.calls.filter(call => 
+ *     Math.abs(call.strike - currentPrice) < 5
+ *   );
+ *   
+ *   const atmPuts = expiration.puts.filter(put => 
+ *     Math.abs(put.strike - currentPrice) < 5
+ *   );
+ *   
+ *   if (atmCalls.length > 0) {
+ *     const atmCall = atmCalls[0];
+ *     console.log(`ATM Call: Strike $${atmCall.strike}, IV: ${(atmCall.impliedVolatility * 100).toFixed(2)}%`);
+ *   }
+ *   
+ *   if (atmPuts.length > 0) {
+ *     const atmPut = atmPuts[0];
+ *     console.log(`ATM Put: Strike $${atmPut.strike}, IV: ${(atmPut.impliedVolatility * 100).toFixed(2)}%`);
+ *   }
+ * });
+ * ```
+ * 
+ * @example High Volume and Open Interest Analysis
+ * ```typescript
+ * const optionsData = await yahooFinance.options('SPY');
+ * 
+ * // Find most active options across all expirations
+ * let mostActiveOptions = [];
+ * 
+ * optionsData.options.forEach(expiration => {
+ *   const allOptions = [...expiration.calls, ...expiration.puts];
+ *   mostActiveOptions.push(...allOptions);
+ * });
+ * 
+ * // Sort by volume
+ * mostActiveOptions.sort((a, b) => (b.volume || 0) - (a.volume || 0));
+ * 
+ * console.log('Most Active Options:');
+ * mostActiveOptions.slice(0, 10).forEach((option, index) => {
+ *   const type = option.contractSymbol.includes('C') ? 'CALL' : 'PUT';
+ *   console.log(`${index + 1}. ${type} Strike $${option.strike} - Volume: ${option.volume}`);
+ * });
+ * 
+ * // Find highest open interest
+ * mostActiveOptions.sort((a, b) => (b.openInterest || 0) - (a.openInterest || 0));
+ * console.log('\nHighest Open Interest:');
+ * mostActiveOptions.slice(0, 5).forEach(option => {
+ *   console.log(`Strike $${option.strike} - OI: ${option.openInterest}`);
+ * });
+ * ```
+ * 
+ * @remarks
+ * **Data Refresh**: Options data is updated throughout the trading day.
+ * Prices, volumes, and implied volatilities change constantly during market hours.
+ * 
+ * **Expiration Processing**: All expiration dates are provided, but you can
+ * filter to specific dates using the `date` parameter.
+ * 
+ * **Mini Options**: Some stocks have mini options (10 shares instead of 100).
+ * Check the `hasMiniOptions` flag and individual contract `contractSize`.
+ * 
+ * **Liquidity**: Options with low volume or wide bid-ask spreads may be
+ * difficult to trade. Always check volume and open interest.
+ * 
+ * **Greeks**: Basic Greeks like implied volatility are provided. For advanced
+ * Greeks (delta, gamma, theta, vega), you may need to calculate them separately.
+ * 
+ * **Currency**: All option prices are in the underlying stock's currency.
+ * 
+ * @see {@link quote} for current stock price and basic data
+ * 
+ * @module options
+ */
+
 import type {
   ModuleOptions,
   ModuleOptionsWithValidateFalse,

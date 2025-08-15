@@ -1,3 +1,190 @@
+/**
+ * Fundamentals Time Series module for retrieving detailed financial statement data over time.
+ * 
+ * This module provides comprehensive time-series financial data including balance sheet,
+ * income statement, and cash flow statement items across quarterly, annual, and trailing
+ * periods. Essential for financial analysis, trend analysis, and fundamental research.
+ * 
+ * @example Basic Usage - Balance Sheet Data
+ * ```typescript
+ * import YahooFinance from "yahoo-finance2";
+ * const yahooFinance = new YahooFinance();
+ * 
+ * // Get quarterly balance sheet data for the last 2 years
+ * const balanceSheetData = await yahooFinance.fundamentalsTimeSeries('AAPL', {
+ *   period1: '2022-01-01',
+ *   period2: '2024-01-01',
+ *   type: 'quarterly',
+ *   module: 'balance-sheet'
+ * });
+ * 
+ * // Access specific metrics
+ * balanceSheetData.forEach(quarter => {
+ *   console.log(`${quarter.date}: Cash = $${quarter.quarterlyCashAndCashEquivalents}`);
+ *   console.log(`Total Assets = $${quarter.quarterlyTotalAssets}`);
+ * });
+ * ```
+ * 
+ * @example Financials (Income Statement) Analysis
+ * ```typescript
+ * // Get annual income statement data
+ * const financialsData = await yahooFinance.fundamentalsTimeSeries('MSFT', {
+ *   period1: '2020-01-01',
+ *   type: 'annual',
+ *   module: 'financials'
+ * });
+ * 
+ * // Track revenue growth over years
+ * financialsData.forEach(year => {
+ *   console.log(`${year.date.getFullYear()}: Revenue = $${year.annualTotalRevenue}`);
+ *   console.log(`Net Income = $${year.annualNetIncome}`);
+ * });
+ * 
+ * // Calculate revenue growth rate
+ * if (financialsData.length >= 2) {
+ *   const latest = financialsData[financialsData.length - 1];
+ *   const previous = financialsData[financialsData.length - 2];
+ *   const growthRate = ((latest.annualTotalRevenue - previous.annualTotalRevenue) / previous.annualTotalRevenue) * 100;
+ *   console.log(`Revenue growth: ${growthRate.toFixed(2)}%`);
+ * }
+ * ```
+ * 
+ * @example Cash Flow Analysis
+ * ```typescript
+ * // Get cash flow data for operational analysis
+ * const cashFlowData = await yahooFinance.fundamentalsTimeSeries('GOOGL', {
+ *   period1: '2022-01-01',
+ *   type: 'quarterly',
+ *   module: 'cash-flow'
+ * });
+ * 
+ * // Analyze cash generation trends
+ * cashFlowData.forEach(quarter => {
+ *   const operatingCF = quarter.quarterlyOperatingCashFlow;
+ *   const freeCF = quarter.quarterlyFreeCashFlow;
+ *   const capex = quarter.quarterlyCapitalExpenditure;
+ *   
+ *   console.log(`${quarter.date}: Operating CF = $${operatingCF}`);
+ *   console.log(`Free CF = $${freeCF}, CapEx = $${capex}`);
+ * });
+ * ```
+ * 
+ * @example Comprehensive Financial Analysis
+ * ```typescript
+ * // Get all financial data for complete analysis
+ * const allData = await yahooFinance.fundamentalsTimeSeries('NVDA', {
+ *   period1: '2023-01-01',
+ *   type: 'quarterly',
+ *   module: 'all'
+ * });
+ * 
+ * // Financial health analysis
+ * allData.forEach(quarter => {
+ *   const totalAssets = quarter.quarterlyTotalAssets;
+ *   const totalDebt = quarter.quarterlyTotalDebt;
+ *   const cash = quarter.quarterlyCashAndCashEquivalents;
+ *   const revenue = quarter.quarterlyTotalRevenue;
+ *   
+ *   // Key ratios
+ *   const debtToAssets = (totalDebt / totalAssets) * 100;
+ *   const cashRatio = (cash / totalDebt) * 100;
+ *   
+ *   console.log(`${quarter.date}:`);
+ *   console.log(`  Debt-to-Assets: ${debtToAssets.toFixed(2)}%`);
+ *   console.log(`  Cash Coverage: ${cashRatio.toFixed(2)}%`);
+ * });
+ * ```
+ * 
+ * @example Trailing Twelve Months (TTM) Data
+ * ```typescript
+ * // Get trailing 12-month data for current analysis
+ * const ttmData = await yahooFinance.fundamentalsTimeSeries('TSLA', {
+ *   period1: '2023-01-01',
+ *   type: 'trailing',
+ *   module: 'financials'
+ * });
+ * 
+ * // Get the most recent TTM figures
+ * const latest = ttmData[ttmData.length - 1];
+ * console.log(`TTM Revenue: $${latest.trailingTotalRevenue}`);
+ * console.log(`TTM Net Income: $${latest.trailingNetIncome}`);
+ * ```
+ * 
+ * @example Comparative Analysis
+ * ```typescript
+ * // Compare multiple companies
+ * const symbols = ['AAPL', 'MSFT', 'GOOGL'];
+ * const comparisons = await Promise.all(
+ *   symbols.map(symbol => 
+ *     yahooFinance.fundamentalsTimeSeries(symbol, {
+ *       period1: '2023-01-01',
+ *       type: 'annual',
+ *       module: 'financials'
+ *     })
+ *   )
+ * );
+ * 
+ * // Compare latest year revenues
+ * symbols.forEach((symbol, index) => {
+ *   const data = comparisons[index];
+ *   const latestYear = data[data.length - 1];
+ *   console.log(`${symbol}: $${latestYear.annualTotalRevenue} revenue`);
+ * });
+ * ```
+ * 
+ * @example Error Handling and Data Validation
+ * ```typescript
+ * try {
+ *   const data = await yahooFinance.fundamentalsTimeSeries('AAPL', {
+ *     period1: '2020-01-01',
+ *     type: 'quarterly',
+ *     module: 'balance-sheet'
+ *   });
+ *   
+ *   // Check for data availability
+ *   if (data.length === 0) {
+ *     console.log('No financial data available for the specified period');
+ *     return;
+ *   }
+ *   
+ *   // Validate data completeness
+ *   data.forEach(quarter => {
+ *     if (!quarter.quarterlyTotalAssets) {
+ *       console.warn(`Missing total assets data for ${quarter.date}`);
+ *     }
+ *   });
+ *   
+ * } catch (error) {
+ *   console.error('Failed to fetch fundamentals data:', error.message);
+ * }
+ * ```
+ * 
+ * @remarks
+ * **Data Types**: The module supports three reporting periods:
+ * - `quarterly`: Individual quarter reporting periods
+ * - `annual`: Full fiscal year data  
+ * - `trailing`: Rolling 12-month (TTM) data
+ * 
+ * **Module Types**: Financial statement categories:
+ * - `financials`: Income statement items (revenue, expenses, net income)
+ * - `balance-sheet`: Balance sheet items (assets, liabilities, equity)
+ * - `cash-flow`: Cash flow statement items (operating, investing, financing)
+ * - `all`: Complete financial data from all statements
+ * 
+ * **Data Availability**: Historical depth varies by company and may be limited
+ * for newer public companies. Large cap stocks typically have 5+ years of data.
+ * 
+ * **Currency**: All values are in the company's reporting currency (usually USD
+ * for US companies). Values are typically in absolute amounts, not per-share.
+ * 
+ * **Timing**: Data is typically available 1-2 days after earnings release.
+ * Trailing data is updated quarterly with the latest reported period.
+ * 
+ * @see {@link quoteSummary} for current period fundamental data
+ * 
+ * @module fundamentalsTimeSeries
+ */
+
 import type {
   ModuleOptions,
   ModuleOptionsWithValidateFalse,
