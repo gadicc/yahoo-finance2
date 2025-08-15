@@ -43,26 +43,50 @@ Always reference these instructions first and fallback to search or bash command
 - Format code: `deno fmt`
 
 ### Development Workflow
-1. **ALWAYS** set `DENO_TLS_CA_STORE=system` environment variable
+1. **ALWAYS** set `DENO_TLS_CA_STORE=system` environment variable before any network operations
 2. **ALWAYS** run schema generation after changing TypeScript interfaces: `deno task schema`
-3. **ALWAYS** run `deno fmt` and `deno lint` before committing
-4. Use `--no-lock` flag if encountering lockfile issues
-5. HTTP requests are cached in `tests/fixtures/http` - delete relevant files to refresh test data
+3. **ALWAYS** run `deno fmt` and `deno lint` before committing changes
+4. Use `--no-lock` flag if encountering lockfile issues during development
+5. HTTP requests are cached in `tests/fixtures/http` (~450k lines of test data) - delete relevant files to refresh test data
+6. When adding new modules, follow the pattern: `.ts` file with `@yf-schema` comment + `.test.ts` + schema generation
 
 ## Validation
 
 ### Manual Testing Scenarios
-- **CLI Testing**: Test the CLI by running quote lookups: `deno task cli quote AAPL`
-- **Module Testing**: Test individual modules via CLI: `deno task cli quoteSummary AAPL '{"modules":["price", "summaryDetail"]}'`
-- **Schema Validation**: Run `deno task schema` after any interface changes to regenerate JSON schemas
-- **Build Validation**: Run full build process to ensure NPM package generation works
+After making code changes, ALWAYS test the following scenarios to validate functionality:
+
+#### CLI Testing (requires network access)
+- **Basic quote lookup**: `DENO_TLS_CA_STORE=system deno task cli quote AAPL`
+- **Module with options**: `DENO_TLS_CA_STORE=system deno task cli quoteSummary AAPL '{"modules":["price", "summaryDetail"]}'`
+- **Search functionality**: `DENO_TLS_CA_STORE=system deno task cli search AAPL`
+- **Help command**: `DENO_TLS_CA_STORE=system deno task cli --help`
+
+#### Schema Generation Testing  
+- **Regenerate schemas**: `DENO_TLS_CA_STORE=system deno task schema` (required after TypeScript interface changes)
+- **Verify schema files**: Check that `.schema.json` files are updated in `/src/modules/` 
+- **Schema validation**: Look for `@yf-schema` comments in module files - only these are processed
+
+#### Build and Code Quality Testing
+- **NPM build validation**: `DENO_TLS_CA_STORE=system deno task build:npm` (builds distributable package)
+- **Linting**: `deno lint` (expect some existing lint errors - focus on new code)
+- **Formatting**: `deno fmt --check` or `deno fmt` to auto-format
+- **Test execution**: `DENO_TLS_CA_STORE=system deno test -A --no-lock --parallel`
+
+#### Development Workflow Testing
+1. Make a small TypeScript interface change in a module file
+2. Run schema generation: `deno task schema`
+3. Run tests to verify nothing broke: `deno test -A --no-lock --parallel`
+4. Format and lint: `deno fmt && deno lint`
+5. Test CLI functionality with the changed module
 
 ### Network and Certificate Issues
 - If encountering SSL certificate errors with npm registries, use `DENO_TLS_CA_STORE=system`
 - Network access required for:
-  - Dependency downloads (JSR and NPM registries)
-  - Yahoo Finance API calls during testing
-  - Schema generation (may require network access)
+  - Dependency downloads (JSR and NPM registries) - ~5 minutes initial download
+  - Yahoo Finance API calls during testing and CLI usage
+  - Schema generation (requires npm package access)
+- **Cached test data**: ~450k lines of HTTP responses cached in `tests/fixtures/http/`
+- **Offline development**: Lint, format, and local file operations work without network access
 
 ## Common Issues and Solutions
 
@@ -105,18 +129,26 @@ Always reference these instructions first and fallback to search or bash command
 
 ### Adding a New Module
 1. Create module file: `src/modules/myModule.ts`
-2. Create test file: `src/modules/myModule.test.ts`
-3. Add TypeScript interfaces with `@yf-schema` comments
-4. Run `deno task schema` to generate JSON schemas
-5. Add module to `src/index-common.ts`
+2. Add TypeScript interfaces with `@yf-schema` comment (required for schema generation)
+3. Create test file: `src/modules/myModule.test.ts` 
+4. Run `DENO_TLS_CA_STORE=system deno task schema` to generate `myModule.schema.json`
+5. Add module to `src/index-common.ts` for export
 6. Create documentation in `docs/modules/myModule.md`
 7. Update README.md to link new module documentation
+8. Test via CLI: `deno task cli myModule <symbol> <options>`
 
-### Schema Generation
-- **CRITICAL**: Schemas must be regenerated after interface changes
-- Only files with `@yf-schema` keyword are processed
-- Command: `deno task schema`
-- Automatic in VSCode with Deno extension
+### Schema Generation Details
+- **CRITICAL**: Only files with `@yf-schema` keyword are processed by schema generator
+- **CRITICAL**: Must run `deno task schema` after any interface changes
+- Schema files are automatically generated as `*.schema.json` alongside `*.ts` files
+- Schemas enable runtime validation of Yahoo Finance API responses
+- Pattern: `// @yf-schema: see the docs on how this file is automatically updated.`
+
+### Testing New Code
+- **Unit tests**: Use existing test patterns with cached HTTP responses
+- **Integration tests**: Test CLI commands with real Yahoo Finance data
+- **Schema validation**: Verify interfaces match actual API responses
+- **Cache management**: Delete specific files in `tests/fixtures/http/` to refresh data for your tests
 
 ## CI/CD Pipeline
 
@@ -152,6 +184,46 @@ Always reference these instructions first and fallback to search or bash command
 - "invalid peer certificate: UnknownIssuer" - SSL certificate issue, use system CA store
 - "Failed upgrading lockfile" - Use `--no-lock` flag
 - "JSR package manifest failed to load" - Network connectivity issue to JSR registry
+
+## Example Development Workflow
+
+### Complete Example: Adding a Simple Interface Change
+```bash
+# 1. Set up environment
+export DENO_TLS_CA_STORE=system
+
+# 2. Make a change to a TypeScript interface in src/modules/quote.ts
+# (example: add a new optional field to QuoteBase interface)
+
+# 3. Regenerate schemas (REQUIRED after interface changes)
+deno task schema  # Takes ~30 seconds
+
+# 4. Run tests to ensure nothing broke
+deno test -A --no-lock --parallel  # Takes 2-3 minutes. NEVER CANCEL.
+
+# 5. Test the specific module via CLI
+deno task cli quote AAPL  # Verify real API calls work
+
+# 6. Format and lint code
+deno fmt  # Auto-formats files
+deno lint  # Shows any linting issues
+
+# 7. Build NPM package to verify distribution works
+deno task build:npm  # Takes ~2 minutes. NEVER CANCEL.
+```
+
+### Example: Refreshing Test Data for a Module
+```bash
+# 1. Delete cached HTTP responses for specific API calls
+rm tests/fixtures/http/quote-AAPL.json
+rm tests/fixtures/http/quote-TSLA.json
+
+# 2. Run tests - they will fetch fresh data and cache it
+DENO_TLS_CA_STORE=system deno test -A --no-lock src/modules/quote.test.ts
+
+# 3. Verify new cached data looks correct
+cat tests/fixtures/http/quote-AAPL.json | head -20
+```
 
 ### Performance Notes
 - First-time setup requires significant network downloading
