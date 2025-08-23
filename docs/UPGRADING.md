@@ -45,6 +45,8 @@ Other notable changes:
   the request to Yahoo Finance from a server / serverless / edge environment and
   send that data on to the client. XXX helper APIs XXX
 
+<a name="dev"></a>
+
 **Development**:
 
 There were significant changes to the development environment, please see the
