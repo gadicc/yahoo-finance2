@@ -1,19 +1,19 @@
-# node-yahoo-finance2
+# yahoo-finance2
 
 Community API for Yahoo-Finance.
 
 Copyright (c) 2021 by Gadi Cohen and Pilwon Huh. [MIT licensed](./LICENSE).
 
 [![npm](https://img.shields.io/npm/v/yahoo-finance2)](https://www.npmjs.com/package/yahoo-finance2)
-[![Test & Release](https://github.com/gadicc/node-yahoo-finance2/actions/workflows/test-release.yaml/badge.svg)](https://github.com/gadicc/node-yahoo-finance2/actions/workflows/test-release.yaml)
-[![coverage](https://img.shields.io/codecov/c/github/gadicc/node-yahoo-finance2)](https://codecov.io/gh/gadicc/node-yahoo-finance2)
+[![Test & Release](https://github.com/gadicc/yahoo-finance2/actions/workflows/test-release.yaml/badge.svg)](https://github.com/gadicc/yahoo-finance2/actions/workflows/test-release.yaml)
+[![coverage](https://img.shields.io/codecov/c/github/gadicc/yahoo-finance2)](https://codecov.io/gh/gadicc/yahoo-finance2)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 You are reading the latest **Development docs**. For the **v2 docs**, click
-[here](https://github.com/gadicc/node-yahoo-finance2/tree/2.x). The dev docs are
-in the process of being updated for the upcoming **v3** - for more info see
+[here](https://github.com/gadicc/yahoo-finance2/tree/2.x). The dev docs are in
+the process of being updated for the upcoming **v3** - for more info see
 [UPGRADING](./docs/UPGRADING.md).
 
 [Live Demo on CodeSandbox](https://codesandbox.io/p/devbox/yahoo-finance2-nextjs-forked-233dsg)
@@ -122,10 +122,10 @@ Pull Requests welcome! Read [CONTRIBUTING.md](./CONTRIBUTING.md) and join our
 list of heroes:
 
 <!--
-![contributor-faces](https://contributors-svg.vercel.app/api/svg?user=gadicc&repo=node-yahoo-finance2)
+![contributor-faces](https://contributors-svg.vercel.app/api/svg?user=gadicc&repo=yahoo-finance2)
 -->
 
-![contributors badge](https://readme-contribs.as93.net/contributors/gadicc/node-yahoo-finance2)
+![contributors badge](https://readme-contribs.as93.net/contributors/gadicc/yahoo-finance2)
 
 ## Credits
 
