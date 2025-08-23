@@ -27,9 +27,9 @@ set up with the correct tools and important things to know for the project.
 1. `git clone https://github.com/gadicc/node-yahoo-finance2.git`
 1. `cd node-yahoo-finance2`
 
-**Default branch: devel**
+**Default branch: dev**
 
-All PRs should be submitted against the `devel` branch (github default).
+All PRs should be submitted against the `dev` branch (github default).
 
 <a name="tools"></a>
 
