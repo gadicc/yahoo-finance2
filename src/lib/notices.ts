@@ -14,7 +14,7 @@ const notices: Record<string, Notice> = {
     text:
       "Please consider completing the survey at https://bit.ly/yahoo-finance-api-feedback " +
       "if you haven't already; for more info see " +
-      "https://github.com/gadicc/node-yahoo-finance2/issues/764#issuecomment-2056623851.",
+      "https://github.com/gadicc/yahoo-finance2/issues/764#issuecomment-2056623851.",
     onceOnly: true,
   },
   ripHistorical: {
@@ -23,7 +23,7 @@ const notices: Record<string, Notice> = {
       "[Deprecated] historical() relies on an API that Yahoo have removed.  We'll " +
       "map this request to chart() for convenience, but, please consider using " +
       "chart() directly instead; for more info see " +
-      "https://github.com/gadicc/node-yahoo-finance2/issues/795.",
+      "https://github.com/gadicc/yahoo-finance2/issues/795.",
     level: "warn",
     onceOnly: true,
   },

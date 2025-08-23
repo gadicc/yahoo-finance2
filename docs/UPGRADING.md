@@ -50,6 +50,23 @@ Other notable changes:
 There were significant changes to the development environment, please see the
 [CONTRIBUTING.md](../CONTRIBUTING.md) file for more details.
 
+Additionally, the repository was renamed `node-yahoo-finance2` to
+`yahoo-finance2`, and the branches `master` and `devel` were renamed to `main`
+and `dev`, respectively. To update your local git:
+
+```bash
+# or for HTTPS: git remote set-url origin https://github.com/gadicc/yahoo-finance2.git
+git remote set-url origin git@github.com:gadicc/yahoo-finance2.git
+# or for forks: git remote set-url upstream git@github.com:gadicc/yahoo-finance2.git
+
+git branch -m devel dev
+git branch -m master main
+git fetch origin
+git branch -u origin/dev dev
+git branch -u origin/main main
+git remote set-head origin -a
+```
+
 <a name="from-v1-to-v2"></a>
 
 ## Upgrading from yahoo-finance v1 to v2 (2021)

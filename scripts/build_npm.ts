@@ -31,10 +31,10 @@ await build({
     license: "MIT",
     repository: {
       type: "git",
-      url: "git+https://github.com/gadicc/node-yahoo-finance2.git",
+      url: "git+https://github.com/gadicc/yahoo-finance2.git",
     },
     bugs: {
-      url: "https://github.com/gadicc/node-yahoo-finance2/issues",
+      url: "https://github.com/gadicc/yahoo-finance2/issues",
     },
     keywords: [
       "yahoo",
