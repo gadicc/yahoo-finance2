@@ -1,7 +1,7 @@
 import createYahooFinance from "./createYahooFinance.ts";
 import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
-import { assertSpyCall, spy } from "jsr:@std/testing/mock";
+import { spy } from "jsr:@std/testing/mock";
 import trendingSymbols from "./modules/trendingSymbols.ts";
 
 describe("createYahooFinance", () => {
@@ -45,7 +45,6 @@ describe("createYahooFinance", () => {
       const mockFetch = spy(() => Promise.resolve(new Response("{}")));
       globalThis.fetch = mockFetch;
 
-      // @ts-expect-error: fine for tests
       await yf._fetch("http://this.wont.be.used");
 
       // assertSpyCall(mockFetch, 1);  doesn't work???
@@ -62,7 +61,6 @@ describe("createYahooFinance", () => {
       expect(yf._env.fetch).toBeNull();
       expect(yf._opts.fetch).toBe(mockFetch);
 
-      // @ts-expect-error: fine for tests
       await yf._fetch("http://this.wont.be.used");
       expect(mockFetch.calls.length).toBe(1);
     });
@@ -75,7 +73,6 @@ describe("createYahooFinance", () => {
       const mockFetch = spy(() => Promise.resolve(new Response("{}")));
       yf._opts.fetch = mockFetch;
 
-      // @ts-expect-error: fine for tests
       await yf._fetch("http://this.wont.be.used");
       expect(mockFetch.calls.length).toBe(1);
     });

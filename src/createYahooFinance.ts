@@ -45,7 +45,6 @@ export class YahooFinance {
   _notices: Notices;
   // XXX TODO remove
   _env: {
-    URLSearchParams: typeof URLSearchParams;
     fetch: typeof fetch | null;
     fetchDevel?: () => typeof fetch;
   };
@@ -56,7 +55,6 @@ export class YahooFinance {
     this._moduleExec = moduleExec;
     // XXX TODO remove
     this._env = {
-      URLSearchParams,
       fetch: null,
     };
 

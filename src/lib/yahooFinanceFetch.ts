@@ -15,10 +15,11 @@ type Fetch = typeof fetch;
 interface YahooFinanceFetchThisEnv {
   // deno-lint-ignore no-explicit-any
   [key: string]: any;
-  // deno-lint-ignore no-explicit-any
-  URLSearchParams: (init?: any) => any;
   fetch: Fetch | null;
-  fetchDevel: () => Promise<Fetch>;
+  fetchDevel?: () => (
+    input: Parameters<typeof fetch>[0],
+    init?: Parameters<typeof fetch>[1],
+  ) => ReturnType<typeof fetch>;
 }
 
 interface YahooFinanceFetchThis {
@@ -29,10 +30,24 @@ interface YahooFinanceFetchThis {
   _notices: Notices;
 }
 
-interface YahooFinanceFetchModuleOptions {
-  devel?: string | boolean;
-  fetch?: Fetch;
-  fetchOptions?: RequestInit;
+export interface YahooFinanceFetchModuleOptions {
+  /** Controls for http cache
+   *  {
+   *    id: string;           // cache key
+   *    t: Deno.TestContext;  // test context
+   *    onFinish: (cb: (error?: unknown) => void) => void;
+   *  }
+   *  See `tests/common.ts` for how these are used for conditional caching.
+   */
+  devel?: {
+    id: string;
+    t: Deno.TestContext;
+    onFinish: (cb: (error?: unknown) => void) => void;
+  };
+  /** An alternative fetch function to use just for this call */
+  fetch?: typeof fetch;
+  /** Any options to pass to fetch() just for this request. */
+  fetchOptions?: Parameters<typeof fetch>[1];
   queue?: QueueOptions;
 }
 
@@ -85,12 +100,12 @@ async function yahooFinanceFetch(
   const queue = _queue;
   assertQueueOptions(queue, { ...this._opts.queue, ...moduleOpts.queue });
 
-  const { URLSearchParams, fetch: envFetch, fetchDevel } = this._env;
+  const { fetch: envFetch, fetchDevel } = this._env;
 
   /* istanbul ignore next */
   // no need to force coverage on real network request.
   const fetchFunc = moduleOpts.devel
-    ? await fetchDevel()
+    ? await fetchDevel!()
     : moduleOpts.fetch || envFetch || this._opts.fetch || globalThis.fetch;
 
   const fetchOptionsBase = {
@@ -117,7 +132,6 @@ async function yahooFinanceFetch(
     if (crumb) params.crumb = crumb;
   }
 
-  // @ts-expect-error: TODO copy interface? @types lib?
   const urlSearchParams = new URLSearchParams(params);
   const url = substituteVariables.call(this, urlBase) + "?" +
     urlSearchParams.toString();

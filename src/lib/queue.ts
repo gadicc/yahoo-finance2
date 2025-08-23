@@ -8,7 +8,8 @@ interface Job {
 
 export interface QueueOptions {
   // TODO: adds func type to json schema which is not supported
-  //_queue?: Queue;
+  // tmp enabled, might need to remove again.
+  _queue?: Queue;
   concurrency?: number;
   timeout?: number; // TODO
 }
