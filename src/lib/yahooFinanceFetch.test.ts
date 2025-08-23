@@ -115,6 +115,9 @@ describe("yahooFinanceFetch", () => {
               resolve({
                 ok: true,
                 headers: new Headers(),
+                text() {
+                  return Promise.resolve(JSON.stringify(obj));
+                },
                 json() {
                   return Promise.resolve(obj);
                 },

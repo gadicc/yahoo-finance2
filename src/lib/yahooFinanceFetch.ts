@@ -165,7 +165,21 @@ async function yahooFinanceFetch(
     this._opts.cookieJar.setFromSetCookieHeaders(setCookieHeaders, url);
   }
 
-  const result = await response[func]();
+  const responseText = await response.text();
+
+  let result = null;
+  try {
+    result = JSON.parse(responseText);
+  } catch (error) {
+    if (response.ok) {
+      if (error instanceof Error) {
+        throw new Error(
+          `Response.ok where we expect JSON, but the response was not parsable.  ` +
+            `Response: "${responseText}".  Error: "${error.message}"`,
+        );
+      }
+    }
+  }
 
   /*
     {
@@ -178,7 +192,7 @@ async function yahooFinanceFetch(
       }
     }
    */
-  if (func === "json") {
+  if (result && func === "json") {
     const keys = Object.keys(result);
     if (keys.length === 1) {
       const errorObj = result[keys[0]].error;
@@ -193,7 +207,7 @@ async function yahooFinanceFetch(
   // We do this last as it generally contains less information (e.g. no desc).
   if (!response.ok) {
     console.error(url);
-    const error = new errors.HTTPError(response.statusText);
+    const error = new errors.HTTPError(responseText || response.statusText);
     error.code = response.status;
     throw error;
   }
