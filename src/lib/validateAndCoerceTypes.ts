@@ -255,7 +255,7 @@ or open a new issue (and mention the symbol):  ${pkg.name} v${pkg.version}
 
   ${repository}/issues/new?labels=bug%2C+validation&template=validation.md&title=${title}
 
-For information on how to turn off the above logging or skip these errors, see https://github.com/gadicc/node-yahoo-finance2/tree/devel/docs/validation.md.
+For information on how to turn off the above logging or skip these errors, see https://github.com/gadicc/yahoo-finance2/tree/devel/docs/validation.md.
 
 At the end of the doc, there's also a section on how to "Help Fix Validation Errors" in case you'd like to contribute to the project.  Most of the time, these fixes are very quick and easy; it's just hard for our small core team to keep up, so help is always appreciated!
 `);

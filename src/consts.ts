@@ -1,1 +1,1 @@
-export const repository = "https://github.com/gadicc/node-yahoo-finance2";
+export const repository = "https://github.com/gadicc/yahoo-finance2";

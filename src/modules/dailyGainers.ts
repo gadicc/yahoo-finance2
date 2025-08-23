@@ -59,7 +59,7 @@
  * @throws Always throws an error explaining the deprecation and migration path
  *
  * @see {@link screener} for stock screening functionality
- * @see {@link https://github.com/gadicc/node-yahoo-finance2/blob/devel/docs/modules/screener.md} for screener documentation
+ * @see {@link https://github.com/gadicc/yahoo-finance2/blob/devel/docs/modules/screener.md} for screener documentation
  *
  * @module dailyGainers
  */
@@ -80,6 +80,6 @@ export default function dailyGainers(): never {
   throw new Error(
     "dailyGainers module has been deprecated due to reliability issues. " +
       "Use screener({ scrIds: 'day_gainers' }) instead. " +
-      "See https://github.com/gadicc/node-yahoo-finance2/blob/devel/docs/modules/screener.md for details.",
+      "See https://github.com/gadicc/yahoo-finance2/blob/devel/docs/modules/screener.md for details.",
   );
 }

@@ -23,7 +23,7 @@
  * @throws Always throws an error explaining the decommission and migration path
  *
  * @see {@link search} for symbol search functionality
- * @see {@link https://github.com/gadicc/node-yahoo-finance2/issues/337} for more details
+ * @see {@link https://github.com/gadicc/yahoo-finance2/issues/337} for more details
  *
  * @module autoc
  */
@@ -40,7 +40,7 @@
 export default function autoc(): never {
   throw new Error(
     "Yahoo decomissioned their autoc server sometime before 20 Nov 2021 " +
-      "(see https://github.com/gadicc/node-yahoo-finance2/issues/337])). " +
+      "(see https://github.com/gadicc/yahoo-finance2/issues/337])). " +
       "Use `search` instead (just like they do).",
   );
 }

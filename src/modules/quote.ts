@@ -93,7 +93,7 @@ export interface QuoteBase {
 
   /**
    * Price alert confidence level (appears/disappears based on network load)
-   * @see {@link https://github.com/gadicc/node-yahoo-finance2/issues/445}
+   * @see {@link https://github.com/gadicc/yahoo-finance2/issues/445}
    */
   customPriceAlertConfidence?: string; // "HIGH" | "LOW"; TODO: anything else?
 
@@ -164,19 +164,19 @@ export interface QuoteBase {
 
   /**
    * Earnings announcement timestamp (may be inaccurate ±2 days)
-   * @see {@link https://github.com/gadicc/node-yahoo-finance2/issues/386}
+   * @see {@link https://github.com/gadicc/yahoo-finance2/issues/386}
    */
   earningsTimestamp?: Date; // 1614200400,
 
   /**
    * Earnings period start timestamp (may be inaccurate ±2 days)
-   * @see {@link https://github.com/gadicc/node-yahoo-finance2/issues/386}
+   * @see {@link https://github.com/gadicc/yahoo-finance2/issues/386}
    */
   earningsTimestampStart?: Date; // 1614200400,
 
   /**
    * Earnings period end timestamp (may be inaccurate ±2 days)
-   * @see {@link https://github.com/gadicc/node-yahoo-finance2/issues/386}
+   * @see {@link https://github.com/gadicc/yahoo-finance2/issues/386}
    */
   earningsTimestampEnd?: Date; // 1614200400,
 
