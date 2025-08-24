@@ -27,5 +27,5 @@ export default {
     "@semantic-release/github",
   ],
   preset: "conventionalcommits",
-  repositoryUrl: "https://github.com/gadicc/node-yahoo-finance2",
+  repositoryUrl: "https://github.com/gadicc/yahoo-finance2",
 };
