@@ -6,9 +6,10 @@ await emptyDir("./npm");
 await build({
   scriptModule: "cjs",
   entryPoints: [
-    ...Object.entries(denoJson.exports).map(([name, path]) =>
-      name === "." ? path : { name, path }
-    ),
+    ...Object.entries(denoJson.exports).map(([name, path]) => ({
+      name,
+      path,
+    })),
     {
       kind: "bin",
       name: "yahoo-finance",
