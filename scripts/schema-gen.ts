@@ -1,6 +1,7 @@
 import { walk } from "@std/fs";
 import { debounce } from "@std/async/debounce";
 import { parseArgs } from "@std/cli/parse-args";
+import * as path from "@std/path";
 
 import {
   type CompletedConfig,
@@ -23,7 +24,7 @@ import yfFunctionIgnorer from "./schema/TypeFormatter/yfFunctionIgnorer.ts";
 
 const relevant = /@yf-schema/;
 
-function createSchema(path: string, force = false) {
+function createSchema(path: string, force = false, verbose = false) {
   const encoder = new TextEncoder();
   const outputPath = path.replace(/\.ts$/, ".schema.json");
 
@@ -83,12 +84,18 @@ function createSchema(path: string, force = false) {
     program = createProgram(config);
   } catch (error) {
     if (error instanceof Error) {
-      const keys = Object.getOwnPropertyNames(error);
-      for (const key of keys) {
-        console.log(key, (error as unknown as Record<string, unknown>)[key]);
+      if (verbose) {
+        const keys = Object.getOwnPropertyNames(error);
+        for (const key of keys) {
+          console.log(key, (error as unknown as Record<string, unknown>)[key]);
+        }
+      } else {
+        console.log(
+          "Error:",
+          error.message,
+          "Run with -v (verbose) for more details.",
+        );
       }
-      // or just this.  TODO, make it configurable
-      // console.log("Error:", error.message);
     } else {
       console.log(error);
     }
@@ -105,12 +112,18 @@ function createSchema(path: string, force = false) {
     _schema = generator.createSchema(config.type);
   } catch (error) {
     if (error instanceof Error) {
-      const keys = Object.getOwnPropertyNames(error);
-      for (const key of keys) {
-        console.log(key, (error as unknown as Record<string, unknown>)[key]);
+      if (verbose) {
+        const keys = Object.getOwnPropertyNames(error);
+        for (const key of keys) {
+          console.log(key, (error as unknown as Record<string, unknown>)[key]);
+        }
+      } else {
+        console.log(
+          "Error:",
+          error.message,
+          "Run with -v (verbose) for more details.",
+        );
       }
-      // or just this.  TODO, make it configurable
-      // console.log("Error:", error.message);
     } else {
       console.log(error);
     }
@@ -141,20 +154,96 @@ function createSchema(path: string, force = false) {
   Deno.writeFileSync(outputPath, encoded);
 }
 
-async function check(path: string, force = false) {
+const NPM_DEPS = ["tough-cookie"];
+
+let _denoDir: string | undefined;
+function denoDir() {
+  if (_denoDir) return _denoDir;
+  const cmd = new Deno.Command("deno", { args: ["info"] });
+  const stdout = new TextDecoder().decode(cmd.outputSync().stdout);
+  // The extra .*'s are to match ANSI escape sequences
+  _denoDir = stdout.match(/^.*DENO_DIR location:.* (.*)$/m)![1];
+  return _denoDir;
+}
+
+function depsCheck() {
+  try {
+    Deno.statSync("node_modules");
+  } catch {
+    Deno.mkdirSync("node_modules");
+  }
+
+  const denoLock = JSON.parse(Deno.readTextFileSync(`deno.lock`));
+
+  for (const name of NPM_DEPS) {
+    const joinedPath = path.join("node_modules", name);
+
+    let stat: Deno.FileInfo | null = null;
+    try {
+      stat = Deno.lstatSync(joinedPath);
+    } catch {
+      stat = null;
+    }
+
+    const specifier = denoLock.workspace.dependencies.find((dep: string) =>
+      dep.startsWith(`npm:${name}@`)
+    );
+    const depVersion = denoLock.specifiers[specifier];
+
+    if (stat) {
+      if (stat.isSymlink) {
+        const realPath = Deno.realPathSync(joinedPath);
+        const linkedVersion = realPath.split("/").pop();
+        if (linkedVersion !== depVersion) {
+          console.log(
+            "Updating node_modules/tough-cookie symlink from",
+            linkedVersion,
+            "to",
+            depVersion,
+          );
+          Deno.removeSync(joinedPath);
+          stat = null;
+        }
+      }
+    }
+
+    if (!stat) {
+      console.log(
+        "Symlinking `tough-cookie` from deno cache to `node_modules`.",
+      );
+      console.log(
+        "(This is required by ts-json-schema-generator for cookie types in options)",
+      );
+      console.log();
+
+      Deno.symlinkSync(
+        path.join(
+          denoDir(),
+          "npm",
+          "registry.npmjs.org",
+          name,
+          depVersion,
+        ),
+        path.join("node_modules", name),
+      );
+    }
+  }
+}
+
+async function check(path: string, force = false, verbose = false) {
   const file = await Deno.readTextFile(path);
   if (relevant.test(file)) {
-    createSchema(path, force);
+    createSchema(path, force, verbose);
   }
 }
 
 const debouncedCheck = debounce(check, 1000);
 
 const flags = parseArgs(Deno.args, {
-  boolean: ["watch", "force", "help"],
-  default: { watch: false, force: false, help: false },
-  negatable: ["watch", "force", "help"],
-  alias: { w: "watch", f: "force", h: "help" },
+  boolean: ["watch", "force", "help", "verbose"],
+  default: { watch: false, force: false, help: false, verbose: false },
+  negatable: ["watch", "force", "help", "verbose"],
+  alias: { w: "watch", f: "force", h: "help", v: "verbose" },
 });
 
 if (flags.help) {
@@ -166,15 +255,18 @@ Options
   -h, --help    Show this help
   -w, --watch   Watch for changes
   -f, --force   Force update of all schemas
+  -v, --verbose Show verbose output
 `);
   Deno.exit();
 }
+
+depsCheck();
 
 const files = flags._;
 if (files.length) {
   for (const file of files) {
     // Always force update for explicitly specified files
-    await check(file as string, true /* flags.force */);
+    await check(file as string, true, /* flags.force */ flags.verbose);
   }
   Deno.exit();
 }
@@ -182,7 +274,7 @@ if (files.length) {
 console.log('Scanning project for .ts files containing "@yf-schema"...');
 console.log();
 for await (const entry of walk("src", { exts: [".ts"] })) {
-  check(entry.path, flags.force);
+  check(entry.path, flags.force, flags.verbose);
 }
 console.log();
 console.log("Scan complete.");
