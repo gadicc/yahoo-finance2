@@ -550,10 +550,19 @@ export interface QuoteMoneyMarket extends QuoteBase {
   netAssets?: number; // 1
 }
 
+export interface QuoteAltSymbol extends QuoteBase {
+  quoteType: "ALTSYMBOL";
+  typeDisp: "ALTSYMBOL";
+  underlyingExchangeSymbol: string; // "ZNCN19.CMX"
+  expireDate: Date;
+  expireIsoDate: string;
+}
+
 /**
  * Union type for all possible quote data structures.
  *
  * The actual interface returned depends on the `quoteType` field:
+ * - `"ALTSYMBOL"` → QuoteAltSymbol
  * - `"EQUITY"` → QuoteEquity
  * - `"ETF"` → QuoteEtf
  * - `"CRYPTOCURRENCY"` → QuoteCryptoCurrency
@@ -567,6 +576,7 @@ export interface QuoteMoneyMarket extends QuoteBase {
  * @discriminator quoteType
  */
 export type Quote =
+  | QuoteAltSymbol
   | QuoteCryptoCurrency
   | QuoteCurrency
   | QuoteEtf

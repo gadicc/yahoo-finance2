@@ -1,0 +1,102 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v7/finance/quote?symbols=ZNC%3DF&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
+      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/yahoo-finance2)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "1740",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Sun, 24 Aug 2025 08:40:32 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-quote-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "16c3a5tkalk00"
+    },
+    "bodyJson": {
+      "quoteResponse": {
+        "result": [
+          {
+            "language": "en-US",
+            "region": "US",
+            "quoteType": "ALTSYMBOL",
+            "typeDisp": "ALTSYMBOL",
+            "quoteSourceName": "Delayed Quote",
+            "triggerable": false,
+            "customPriceAlertConfidence": "NONE",
+            "currency": "USD",
+            "exchange": "CMX",
+            "exchangeTimezoneName": "America/New_York",
+            "exchangeTimezoneShortName": "EDT",
+            "gmtOffSetMilliseconds": -14400000,
+            "market": "us24_market",
+            "esgPopulated": false,
+            "regularMarketChangePercent": 0,
+            "regularMarketPrice": 2530,
+            "corporateActions": [],
+            "regularMarketTime": 1561551027,
+            "underlyingSymbol": "ZNCQ19.CMX",
+            "underlyingExchangeSymbol": "ZNCN19.CMX",
+            "expireDate": 1564358400,
+            "expireIsoDate": "2019-07-29T00:00:00Z",
+            "fiftyDayAverage": 2297,
+            "fiftyDayAverageChange": 233,
+            "fiftyDayAverageChangePercent": 0.10143666,
+            "twoHundredDayAverage": 2297,
+            "twoHundredDayAverageChange": 233,
+            "sourceInterval": 15,
+            "exchangeDataDelayedBy": 10,
+            "tradeable": false,
+            "cryptoTradeable": false,
+            "hasPrePostMarketData": false,
+            "firstTradeDateMilliseconds": 1435550400000,
+            "priceHint": 2,
+            "regularMarketChange": 0,
+            "regularMarketDayHigh": 2530,
+            "regularMarketDayRange": "2530.0 - 2530.0",
+            "regularMarketDayLow": 2530,
+            "regularMarketVolume": 3,
+            "regularMarketPreviousClose": 2530,
+            "bid": 0,
+            "ask": 0,
+            "bidSize": 9,
+            "askSize": 9,
+            "fullExchangeName": "COMEX",
+            "regularMarketOpen": 2530,
+            "averageDailyVolume3Month": 0,
+            "averageDailyVolume10Day": 0,
+            "fiftyTwoWeekLowChange": 233,
+            "fiftyTwoWeekLowChangePercent": 0.10143666,
+            "fiftyTwoWeekRange": "2297.0 - 2530.0",
+            "fiftyTwoWeekHighChange": 0,
+            "fiftyTwoWeekHighChangePercent": 0,
+            "fiftyTwoWeekLow": 2297,
+            "fiftyTwoWeekHigh": 2530,
+            "fiftyTwoWeekChangePercent": 0,
+            "twoHundredDayAverageChangePercent": 0.10143666,
+            "openInterest": 2,
+            "shortName": "ZNC Future JUL 2019 Trading Ses",
+            "marketState": "REGULAR",
+            "symbol": "ZNC=F"
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}
