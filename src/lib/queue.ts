@@ -45,8 +45,7 @@ export default class Queue {
     if (this._running < this.concurrency) this.runNext();
   }
 
-  // deno-lint-ignore no-explicit-any
-  add(func: () => Promise<any>) {
+  add(func: () => Promise<void>) {
     return new Promise((resolve, reject) => {
       this._queue.push({ func, resolve, reject });
       this.checkQueue();
