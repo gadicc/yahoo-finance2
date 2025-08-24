@@ -45,7 +45,7 @@ export default class Queue {
     if (this._running < this.concurrency) this.runNext();
   }
 
-  add(func: () => Promise<unknown>) {
+  add(func: () => Promise<unknown>): Promise<unknown> {
     return new Promise((resolve, reject) => {
       this._queue.push({ func, resolve, reject });
       this.checkQueue();
