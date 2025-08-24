@@ -1,5 +1,5 @@
 interface Job {
-  func: () => Promise<void>;
+  func: () => Promise<unknown>;
   // deno-lint-ignore no-explicit-any
   resolve: (arg: any) => void;
   // deno-lint-ignore no-explicit-any
@@ -45,7 +45,7 @@ export default class Queue {
     if (this._running < this.concurrency) this.runNext();
   }
 
-  add(func: () => Promise<void>) {
+  add(func: () => Promise<unknown>) {
     return new Promise((resolve, reject) => {
       this._queue.push({ func, resolve, reject });
       this.checkQueue();

@@ -1,4 +1,4 @@
-import { afterAll, afterEach, beforeEach } from "@std/testing/bdd";
+import { afterAll } from "@std/testing/bdd";
 import { FakeTime } from "jsr:@std/testing/time";
 import {
   createTestYahooFinance,
@@ -15,7 +15,7 @@ const yf = new YahooFinance();
 describe("quoteCombine", () => {
   setupCache();
 
-  let fakeTime = new FakeTime();
+  const fakeTime = new FakeTime();
   afterAll(() => fakeTime.restore());
 
   // beforeEach(() => jest.useFakeTimers());
@@ -53,7 +53,7 @@ describe("quoteCombine", () => {
   it("resolves undefined for single missing symbol", (t, onFinish) => {
     const devel = { id: "quoteCombine-NONEXIST", t, onFinish };
     const promise = yf.quoteCombine("NONEXIST", undefined, { devel })
-      .then((result: any) => {
+      .then((result) => {
         expect(result).toBe(undefined);
       });
     fakeTime.runAll();
@@ -69,7 +69,7 @@ describe("quoteCombine", () => {
           expect(result.symbol).toBe("AAPL");
         }),
 
-        yf.quoteCombine("NONEXIST", undefined, opts).then((result: any) => {
+        yf.quoteCombine("NONEXIST", undefined, opts).then((result) => {
           expect(result).toBe(undefined);
         }),
       ]).then(() => {});
