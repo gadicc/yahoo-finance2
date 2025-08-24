@@ -3,6 +3,7 @@ import { debounce } from "@std/async/debounce";
 import { parseArgs } from "@std/cli/parse-args";
 
 import {
+  type CompletedConfig,
   type Config,
   createFormatter,
   createParser,
@@ -10,8 +11,8 @@ import {
   SchemaGenerator,
 } from "ts-json-schema-generator";
 
-// @ts-expect-error: no types
-import schemaWalker from "oas-schema-walker";
+// @ ts-expect-error: no types
+// import schemaWalker from "oas-schema-walker";
 // import walkerCallback from "./schema/postWalker.js";
 
 // import yfNumberTypeFormatter from "./schema/TypeFormatter/yfNumberTypeFormatter.ts";
@@ -48,12 +49,17 @@ function createSchema(path: string, force = false) {
 
   console.log("* " + path + ": creating schema...");
 
-  const config: Config = {
+  const config: CompletedConfig = {
     path,
     tsconfig: "scripts/schema-tsconfig.json",
     type: "*",
     discriminatorType: "open-api",
-  };
+    // skipTypeCheck: true,
+    additionalProperties: false,
+    jsDoc: "none",
+    expose: "export",
+    topRef: true,
+  } as Config as CompletedConfig;
 
   const formatter = createFormatter(
     config,
@@ -77,7 +83,12 @@ function createSchema(path: string, force = false) {
     program = createProgram(config);
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error.message);
+      const keys = Object.getOwnPropertyNames(error);
+      for (const key of keys) {
+        console.log(key, (error as unknown as Record<string, unknown>)[key]);
+      }
+      // or just this.  TODO, make it configurable
+      // console.log("Error:", error.message);
     } else {
       console.log(error);
     }
@@ -94,7 +105,12 @@ function createSchema(path: string, force = false) {
     _schema = generator.createSchema(config.type);
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error.message);
+      const keys = Object.getOwnPropertyNames(error);
+      for (const key of keys) {
+        console.log(key, (error as unknown as Record<string, unknown>)[key]);
+      }
+      // or just this.  TODO, make it configurable
+      // console.log("Error:", error.message);
     } else {
       console.log(error);
     }
@@ -144,13 +160,22 @@ const flags = parseArgs(Deno.args, {
 if (flags.help) {
   console.log(`
 Usage
-  $ deno task schema [options]
+  $ deno task schema [options] [files...]
 
 Options
   -h, --help    Show this help
   -w, --watch   Watch for changes
   -f, --force   Force update of all schemas
 `);
+  Deno.exit();
+}
+
+const files = flags._;
+if (files.length) {
+  for (const file of files) {
+    // Always force update for explicitly specified files
+    await check(file as string, true /* flags.force */);
+  }
   Deno.exit();
 }
 

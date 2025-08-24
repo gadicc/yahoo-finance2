@@ -1123,14 +1123,7 @@
       "additionalProperties": false
     },
     "ScreenerResult": {
-      "type": "object",
-      "discriminator": {
-        "propertyName": "canonicalName"
-      },
-      "required": [
-        "canonicalName"
-      ],
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "#/definitions/ScreenerResultAggressiveSmallCaps"
         },
@@ -1186,64 +1179,6 @@
       ],
       "additionalProperties": false
     },
-    "NamedParameters<typeof screener>": {
-      "type": "object",
-      "properties": {
-        "this": {
-          "$ref": "#/definitions/ModuleThis"
-        },
-        "queryOptionsOverrides": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/PredefinedScreenerModules"
-            },
-            {
-              "$ref": "#/definitions/ScreenerOptions"
-            }
-          ]
-        },
-        "moduleOptions": {
-          "$ref": "#/definitions/ModuleOptions"
-        }
-      },
-      "required": [
-        "this"
-      ],
-      "additionalProperties": false
-    },
-    "ModuleThis": {
-      "type": "object",
-      "properties": {
-        "_moduleExec": {}
-      },
-      "required": [
-        "_moduleExec"
-      ]
-    },
-    "ModuleOptions": {
-      "type": "object",
-      "properties": {
-        "validateOptions": {
-          "type": "boolean",
-          "description": "If false, lib won't validate and will leave that to Yahoo"
-        },
-        "validateResult": {
-          "type": "boolean",
-          "description": "If false, will pass back unvalidated / untyped result from Yahoo"
-        },
-        "devel": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Filename to use for cached result"
-        },
-        "fetch": {
-          "$comment": "(input: RequestInfo | URL, init?: RequestInit) ->  Promise<Response>",
-          "description": "An alternative fetch function to use just for this call"
-        }
-      },
-      "additionalProperties": false
-    }
+    "screener": {}
   }
 }

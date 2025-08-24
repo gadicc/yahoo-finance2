@@ -41,13 +41,14 @@ export interface YahooFinanceFetchModuleOptions {
    */
   devel?: {
     id: string;
-    t: Deno.TestContext;
+    // t: Deno.TestContext; // not used yet and causes issues with ts-json-schema
+    t: unknown;
     onFinish: (cb: (error?: unknown) => void) => void;
   };
   /** An alternative fetch function to use just for this call */
-  fetch?: typeof fetch;
+  fetch?: Fetch;
   /** Any options to pass to fetch() just for this request. */
-  fetchOptions?: Parameters<typeof fetch>[1];
+  fetchOptions?: RequestInit; // Parameters<Fetch>[1];
   queue?: QueueOptions;
 }
 

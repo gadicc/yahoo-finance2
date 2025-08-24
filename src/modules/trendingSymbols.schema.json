@@ -6,37 +6,31 @@
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Stock symbol that is trending"
+          "type": "string"
         }
       },
       "required": [
         "symbol"
       ],
-      "additionalProperties": {},
-      "description": "Individual trending symbol information."
+      "additionalProperties": {}
     },
     "TrendingSymbolsResult": {
       "type": "object",
       "properties": {
         "count": {
-          "type": "number",
-          "description": "Number of trending symbols returned"
+          "type": "number"
         },
         "quotes": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/TrendingSymbol"
-          },
-          "description": "Array of trending symbols"
+          }
         },
         "jobTimestamp": {
-          "type": "number",
-          "description": "Job timestamp for the data"
+          "type": "number"
         },
         "startInterval": {
-          "type": "number",
-          "description": "Start interval for the trending period"
+          "type": "number"
         }
       },
       "required": [
@@ -45,86 +39,23 @@
         "jobTimestamp",
         "startInterval"
       ],
-      "additionalProperties": {},
-      "description": "Complete result from trending symbols request."
+      "additionalProperties": {}
     },
     "TrendingSymbolsOptions": {
       "type": "object",
       "properties": {
         "lang": {
-          "type": "string",
-          "description": "Language code for results (e.g., \"en-US\")"
+          "type": "string"
         },
         "region": {
-          "type": "string",
-          "description": "Region code for results (e.g., \"US\")"
+          "type": "string"
         },
         "count": {
-          "type": "number",
-          "description": "Number of trending symbols to return"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Configuration options for trending symbols requests."
-    },
-    "NamedParameters<typeof trendingSymbols>": {
-      "type": "object",
-      "properties": {
-        "this": {
-          "$ref": "#/definitions/ModuleThis"
-        },
-        "query": {
-          "type": "string",
-          "description": "- Region/country code for which to get trending symbols.   Common values: \"US\", \"GB\", \"DE\", \"JP\", \"CA\", \"AU\", etc.   Use standard ISO country codes."
-        },
-        "queryOptionsOverrides": {
-          "$ref": "#/definitions/TrendingSymbolsOptions",
-          "description": "- Optional configuration:   - `count`: Number of symbols to return (default: 5)   - `lang`: Language code (default: \"en-US\")   - `region`: Region code (usually same as query)"
-        },
-        "moduleOptions": {
-          "$ref": "#/definitions/ModuleOptions",
-          "description": "- Optional module configuration (validateResult, etc.)"
-        }
-      },
-      "required": [
-        "this",
-        "query"
-      ],
-      "additionalProperties": false
-    },
-    "ModuleThis": {
-      "type": "object",
-      "properties": {
-        "_moduleExec": {}
-      },
-      "required": [
-        "_moduleExec"
-      ]
-    },
-    "ModuleOptions": {
-      "type": "object",
-      "properties": {
-        "validateOptions": {
-          "type": "boolean",
-          "description": "If false, lib won't validate and will leave that to Yahoo"
-        },
-        "validateResult": {
-          "type": "boolean",
-          "description": "If false, will pass back unvalidated / untyped result from Yahoo"
-        },
-        "devel": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Filename to use for cached result"
-        },
-        "fetch": {
-          "$comment": "(input: RequestInfo | URL, init?: RequestInit) ->  Promise<Response>",
-          "description": "An alternative fetch function to use just for this call"
+          "type": "number"
         }
       },
       "additionalProperties": false
-    }
+    },
+    "trendingSymbols": {}
   }
 }

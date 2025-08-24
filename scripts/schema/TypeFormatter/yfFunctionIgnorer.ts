@@ -5,7 +5,7 @@ import {
   type SubTypeFormatter,
 } from "ts-json-schema-generator";
 
-export default class yfNumberTypeFormatter implements SubTypeFormatter {
+export default class yfFunctionTypeFormatter implements SubTypeFormatter {
   public supportsType(type: FunctionType): boolean {
     return type instanceof FunctionType;
   }

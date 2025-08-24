@@ -6,27 +6,22 @@
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Symbol for which insights are provided"
+          "type": "string"
         },
         "instrumentInfo": {
-          "$ref": "#/definitions/InsightsInstrumentInfo",
-          "description": "Basic instrument information"
+          "$ref": "#/definitions/InsightsInstrumentInfo"
         },
         "companySnapshot": {
-          "$ref": "#/definitions/InsightsCompanySnapshot",
-          "description": "Company snapshot information"
+          "$ref": "#/definitions/InsightsCompanySnapshot"
         },
         "recommendation": {
           "type": "object",
           "properties": {
             "targetPrice": {
-              "type": "number",
-              "description": "Target price from analysts"
+              "type": "number"
             },
             "provider": {
-              "type": "string",
-              "description": "Research provider"
+              "type": "string"
             },
             "rating": {
               "type": "string",
@@ -34,41 +29,35 @@
                 "BUY",
                 "SELL",
                 "HOLD"
-              ],
-              "description": "Overall rating recommendation"
+              ]
             }
           },
           "required": [
             "provider",
             "rating"
           ],
-          "additionalProperties": false,
-          "description": "Current analyst recommendation"
+          "additionalProperties": false
         },
         "events": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/InsightsEvent"
-          },
-          "description": "Upcoming events"
+          }
         },
         "reports": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/InsightsReport"
-          },
-          "description": "Research reports"
+          }
         },
         "sigDevs": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/InsightsSigDev"
-          },
-          "description": "Significant developments"
+          }
         },
         "upsell": {
-          "$ref": "#/definitions/InsightsUpsell",
-          "description": "Upsell information"
+          "$ref": "#/definitions/InsightsUpsell"
         },
         "upsellSearchDD": {
           "type": "object",
@@ -80,23 +69,20 @@
           "required": [
             "researchReports"
           ],
-          "additionalProperties": false,
-          "description": "Additional research reports"
+          "additionalProperties": false
         },
         "secReports": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/InsightsSecReport"
-          },
-          "description": "SEC filing reports"
+          }
         }
       },
       "required": [
         "symbol",
         "sigDevs"
       ],
-      "additionalProperties": {},
-      "description": "Complete insights result for a financial instrument."
+      "additionalProperties": {}
     },
     "InsightsInstrumentInfo": {
       "type": "object",
@@ -405,21 +391,18 @@
       "type": "object",
       "properties": {
         "headline": {
-          "type": "string",
-          "description": "Headline of the development"
+          "type": "string"
         },
         "date": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of the development"
+          "format": "date-time"
         }
       },
       "required": [
         "headline",
         "date"
       ],
-      "additionalProperties": {},
-      "description": "Significant development item."
+      "additionalProperties": {}
     },
     "InsightsUpsell": {
       "type": "object",
@@ -529,79 +512,17 @@
       "type": "object",
       "properties": {
         "lang": {
-          "type": "string",
-          "description": "Language code for results (e.g., \"en-US\")"
+          "type": "string"
         },
         "region": {
-          "type": "string",
-          "description": "Region code for results (e.g., \"US\")"
+          "type": "string"
         },
         "reportsCount": {
-          "type": "number",
-          "description": "Number of research reports to include"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Configuration options for insights requests."
-    },
-    "NamedParameters<typeof insights>": {
-      "type": "object",
-      "properties": {
-        "this": {
-          "$ref": "#/definitions/ModuleThis"
-        },
-        "symbol": {
-          "type": "string",
-          "description": "- Stock symbol to get insights for.   Use search() to find valid symbols."
-        },
-        "queryOptionsOverrides": {
-          "$ref": "#/definitions/InsightsOptions",
-          "description": "- Optional configuration:   - `reportsCount`: Number of research reports (default: 2)   - `region`: Market region (default: \"US\")   - `lang`: Language for results (default: \"en-US\")"
-        },
-        "moduleOptions": {
-          "$ref": "#/definitions/ModuleOptions",
-          "description": "- Optional module configuration (validateResult, etc.)"
-        }
-      },
-      "required": [
-        "this",
-        "symbol"
-      ],
-      "additionalProperties": false
-    },
-    "ModuleThis": {
-      "type": "object",
-      "properties": {
-        "_moduleExec": {}
-      },
-      "required": [
-        "_moduleExec"
-      ]
-    },
-    "ModuleOptions": {
-      "type": "object",
-      "properties": {
-        "validateOptions": {
-          "type": "boolean",
-          "description": "If false, lib won't validate and will leave that to Yahoo"
-        },
-        "validateResult": {
-          "type": "boolean",
-          "description": "If false, will pass back unvalidated / untyped result from Yahoo"
-        },
-        "devel": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Filename to use for cached result"
-        },
-        "fetch": {
-          "$comment": "(input: RequestInfo | URL, init?: RequestInit) ->  Promise<Response>",
-          "description": "An alternative fetch function to use just for this call"
+          "type": "number"
         }
       },
       "additionalProperties": false
-    }
+    },
+    "insights": {}
   }
 }

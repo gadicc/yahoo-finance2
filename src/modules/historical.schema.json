@@ -317,68 +317,7 @@
       ],
       "additionalProperties": false
     },
-    "NamedParameters<typeof nullFieldCount>": {
-      "type": "object",
-      "properties": {
-        "object": {}
-      },
-      "required": [
-        "object"
-      ],
-      "additionalProperties": false
-    },
-    "NamedParameters<typeof historical>": {
-      "type": "object",
-      "properties": {
-        "this": {
-          "$ref": "#/definitions/ModuleThis"
-        },
-        "symbol": {
-          "type": "string"
-        },
-        "queryOptionsOverrides": {
-          "$ref": "#/definitions/HistoricalOptions"
-        },
-        "moduleOptions": {
-          "$ref": "#/definitions/ModuleOptions"
-        }
-      },
-      "required": [
-        "this",
-        "symbol",
-        "queryOptionsOverrides"
-      ],
-      "additionalProperties": false
-    },
-    "ModuleThis": {
-      "type": "object",
-      "properties": {
-        "_moduleExec": {}
-      },
-      "required": [
-        "_moduleExec"
-      ]
-    },
-    "ModuleOptions": {
-      "type": "object",
-      "properties": {
-        "validateOptions": {
-          "type": "boolean",
-          "description": "If false, lib won't validate and will leave that to Yahoo"
-        },
-        "validateResult": {
-          "type": "boolean",
-          "description": "If false, will pass back unvalidated / untyped result from Yahoo"
-        },
-        "devel": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Filename to use for cached result"
-        }
-      },
-      "additionalProperties": false
-    }
+    "nullFieldCount": {},
+    "historical": {}
   }
 }

@@ -6,56 +6,44 @@
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -71,63 +59,50 @@
         "index",
         "score"
       ],
-      "additionalProperties": {},
-      "description": "Base interface for all Yahoo Finance search quote results."
+      "additionalProperties": {}
     },
     "SearchQuoteYahooEquity": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -158,63 +133,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooOption": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -239,63 +201,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooETF": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -320,63 +269,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooFund": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -401,63 +337,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooIndex": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -482,63 +405,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooCurrency": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -563,63 +473,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooCryptocurrency": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -644,63 +541,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooFuture": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -728,63 +612,50 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteYahooMoneyMarket": {
       "type": "object",
       "properties": {
         "symbol": {
-          "type": "string",
-          "description": "Trading symbol"
+          "type": "string"
         },
         "isYahooFinance": {
           "type": "boolean",
-          "const": true,
-          "description": "Whether this result is from Yahoo Finance"
+          "const": true
         },
         "exchange": {
-          "type": "string",
-          "description": "Stock exchange code"
+          "type": "string"
         },
         "exchDisp": {
-          "type": "string",
-          "description": "Exchange display name"
+          "type": "string"
         },
         "shortname": {
-          "type": "string",
-          "description": "Short display name"
+          "type": "string"
         },
         "longname": {
-          "type": "string",
-          "description": "Full company/instrument name"
+          "type": "string"
         },
         "index": {
           "type": "string",
-          "const": "quotes",
-          "description": "Search result index identifier"
+          "const": "quotes"
         },
         "score": {
-          "type": "number",
-          "description": "Search relevance score"
+          "type": "number"
         },
         "newListingDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "New listing date for recent IPOs"
+          "format": "date-time"
         },
         "prevName": {
-          "type": "string",
-          "description": "Previous name before name change"
+          "type": "string"
         },
         "nameChangeDate": {
           "type": "string",
-          "format": "date-time",
-          "description": "Date of name change"
+          "format": "date-time"
         },
         "sector": {
-          "type": "string",
-          "description": "Business sector"
+          "type": "string"
         },
         "industry": {
           "type": "string"
@@ -809,8 +680,7 @@
         "score",
         "symbol",
         "typeDisp"
-      ],
-      "additionalProperties": {}
+      ]
     },
     "SearchQuoteNonYahoo": {
       "type": "object",
@@ -920,12 +790,10 @@
       "properties": {
         "explains": {
           "type": "array",
-          "items": {},
-          "description": "Explanatory information (usually empty)"
+          "items": {}
         },
         "count": {
-          "type": "number",
-          "description": "Total number of quote results found"
+          "type": "number"
         },
         "quotes": {
           "type": "array",
@@ -962,84 +830,66 @@
                 "$ref": "#/definitions/SearchQuoteYahooMoneyMarket"
               }
             ]
-          },
-          "description": "Array of financial instrument search results"
+          }
         },
         "news": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SearchNews"
-          },
-          "description": "Array of related news articles"
+          }
         },
         "nav": {
           "type": "array",
-          "items": {},
-          "description": "Navigation results (structure TBD)"
+          "items": {}
         },
         "lists": {
           "type": "array",
-          "items": {},
-          "description": "List results (structure TBD)"
+          "items": {}
         },
         "researchReports": {
           "type": "array",
-          "items": {},
-          "description": "Research report results (structure TBD)"
+          "items": {}
         },
         "totalTime": {
-          "type": "number",
-          "description": "Total time taken for the search request in milliseconds"
+          "type": "number"
         },
         "screenerFieldResults": {
           "type": "array",
-          "items": {},
-          "description": "Screener field results (structure TBD)"
+          "items": {}
         },
         "culturalAssets": {
           "type": "array",
-          "items": {},
-          "description": "Cultural assets results (structure TBD)"
+          "items": {}
         },
         "timeTakenForQuotes": {
-          "type": "number",
-          "description": "Time taken for quote search in milliseconds"
+          "type": "number"
         },
         "timeTakenForNews": {
-          "type": "number",
-          "description": "Time taken for news search in milliseconds"
+          "type": "number"
         },
         "timeTakenForAlgowatchlist": {
-          "type": "number",
-          "description": "Time taken for algo watchlist in milliseconds"
+          "type": "number"
         },
         "timeTakenForPredefinedScreener": {
-          "type": "number",
-          "description": "Time taken for predefined screener in milliseconds"
+          "type": "number"
         },
         "timeTakenForCrunchbase": {
-          "type": "number",
-          "description": "Time taken for Crunchbase search in milliseconds"
+          "type": "number"
         },
         "timeTakenForNav": {
-          "type": "number",
-          "description": "Time taken for navigation search in milliseconds"
+          "type": "number"
         },
         "timeTakenForResearchReports": {
-          "type": "number",
-          "description": "Time taken for research reports in milliseconds"
+          "type": "number"
         },
         "timeTakenForScreenerField": {
-          "type": "number",
-          "description": "Time taken for screener field search in milliseconds"
+          "type": "number"
         },
         "timeTakenForCulturalAssets": {
-          "type": "number",
-          "description": "Time taken for cultural assets search in milliseconds"
+          "type": "number"
         },
         "timeTakenForSearchLists": {
-          "type": "number",
-          "description": "Time taken for search lists in milliseconds"
+          "type": "number"
         }
       },
       "required": [
@@ -1062,118 +912,47 @@
         "timeTakenForCulturalAssets",
         "timeTakenForSearchLists"
       ],
-      "additionalProperties": {},
-      "description": "Complete search result containing quotes, news, and other information."
+      "additionalProperties": {}
     },
     "SearchOptions": {
       "type": "object",
       "properties": {
         "lang": {
-          "type": "string",
-          "description": "Language code for search results (e.g., \"en-US\")"
+          "type": "string"
         },
         "region": {
-          "type": "string",
-          "description": "Region code for search results (e.g., \"US\")"
+          "type": "string"
         },
         "quotesCount": {
-          "type": "number",
-          "description": "Maximum number of quote results to return"
+          "type": "number"
         },
         "newsCount": {
-          "type": "number",
-          "description": "Maximum number of news results to return"
+          "type": "number"
         },
         "enableFuzzyQuery": {
-          "type": "boolean",
-          "description": "Whether to enable fuzzy matching for search terms"
+          "type": "boolean"
         },
         "quotesQueryId": {
-          "type": "string",
-          "description": "Query ID for quotes search algorithm"
+          "type": "string"
         },
         "multiQuoteQueryId": {
-          "type": "string",
-          "description": "Query ID for multi-quote search algorithm"
+          "type": "string"
         },
         "newsQueryId": {
-          "type": "string",
-          "description": "Query ID for news search algorithm"
+          "type": "string"
         },
         "enableCb": {
-          "type": "boolean",
-          "description": "Whether to enable Crunchbase results"
+          "type": "boolean"
         },
         "enableNavLinks": {
-          "type": "boolean",
-          "description": "Whether to enable navigation links"
+          "type": "boolean"
         },
         "enableEnhancedTrivialQuery": {
-          "type": "boolean",
-          "description": "Whether to enable enhanced trivial query processing"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Configuration options for search requests."
-    },
-    "NamedParameters<typeof search>": {
-      "type": "object",
-      "properties": {
-        "this": {
-          "$ref": "#/definitions/ModuleThis"
-        },
-        "query": {
-          "type": "string",
-          "description": "- Search term. Can be:   - Stock symbol (e.g., \"AAPL\", \"MSFT\")   - Company name (e.g., \"Apple\", \"Microsoft\")   - Partial name (e.g., \"Micro\" for Microsoft)   - Keywords related to companies/industries"
-        },
-        "queryOptionsOverrides": {
-          "$ref": "#/definitions/SearchOptions",
-          "description": "- Optional configuration:   - `quotesCount`: Max quote results (default: 6)   - `newsCount`: Max news results (default: 4)   - `region`/`lang`: Regional/language settings   - `enableFuzzyQuery`: Enable fuzzy matching"
-        },
-        "moduleOptions": {
-          "$ref": "#/definitions/ModuleOptions",
-          "description": "- Optional module configuration (validateResult, etc.)"
-        }
-      },
-      "required": [
-        "this",
-        "query"
-      ],
-      "additionalProperties": false
-    },
-    "ModuleThis": {
-      "type": "object",
-      "properties": {
-        "_moduleExec": {}
-      },
-      "required": [
-        "_moduleExec"
-      ]
-    },
-    "ModuleOptions": {
-      "type": "object",
-      "properties": {
-        "validateOptions": {
-          "type": "boolean",
-          "description": "If false, lib won't validate and will leave that to Yahoo"
-        },
-        "validateResult": {
-          "type": "boolean",
-          "description": "If false, will pass back unvalidated / untyped result from Yahoo"
-        },
-        "devel": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Filename to use for cached result"
-        },
-        "fetch": {
-          "$comment": "(input: RequestInfo | URL, init?: RequestInit) ->  Promise<Response>",
-          "description": "An alternative fetch function to use just for this call"
+          "type": "boolean"
         }
       },
       "additionalProperties": false
-    }
+    },
+    "search": {}
   }
 }
