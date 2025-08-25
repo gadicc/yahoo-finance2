@@ -110,6 +110,17 @@ describe("quote", () => {
     expect(result.displayName).toBeDefined();
   });
 
+  // TODO, more generic "customFields" test?  What else is there?
+  it("passes through companyLogoUrl field", async (t, onFinish) => {
+    const devel = { id: "quote-TSLA-fields-companyLogoUrl", t, onFinish };
+    const queryOpts = { fields: ["symbol", "companyLogoUrl"] };
+    const result = await yf.quote("TSLA", queryOpts, { devel });
+    console.log(result);
+    expect(result.symbol).toBe("TSLA");
+    expect(result.companyLogoUrl).toBeDefined();
+    expect(result.logoUrl).toBeDefined();
+  });
+
   describe("return type", () => {
     it("array", async (t, onFinish) => {
       const devel = { id: "quote-AAPL-BABA", t, onFinish };

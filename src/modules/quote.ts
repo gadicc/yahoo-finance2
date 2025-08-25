@@ -379,6 +379,15 @@ export interface QuoteBase {
 
   /** Beta coefficient relative to market */
   beta?: number;
+
+  /**
+   * Link to the company logo, hosted on Yahoo's image CDN s.yimg.com.
+   * Identical to `logoUrl`.  Must be explicitly requested in `fields`. */
+  companyLogoUrl?: string;
+  /**
+   * Link to the company logo, hosted on Yahoo's image CDN s.yimg.com.
+   * Identical to `companyLogoUrl`.  Must be explicitly requested in `fields`. */
+  logoUrl?: string;
 }
 
 /*
@@ -611,6 +620,20 @@ export interface QuoteOptions {
    * Some essential fields like `language`, `quoteType`, `symbol` are always included.
    */
   fields?: QuoteField[];
+
+  // Overriding this breaks validation.
+  // formatted?: boolean;
+
+  /*
+  // Saw these in https://github.com/gadicc/yahoo-finance2/issues/876 but
+  // they don't seem to have any affect on anything.
+  imgHeights?: number;
+  imgLabels?: string;
+  imgWidths?: number;
+  */
+
+  lang?: string;
+  region?: string;
 
   /**
    * Format for the returned data:

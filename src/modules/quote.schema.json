@@ -322,6 +322,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         }
       },
       "required": [
@@ -685,6 +691,12 @@
         "beta": {
           "type": "number"
         },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
         "circulatingSupply": {
           "type": "number"
         },
@@ -711,9 +723,6 @@
           "format": "date-time"
         },
         "coinMarketCapLink": {
-          "type": "string"
-        },
-        "logoUrl": {
           "type": "string"
         }
       },
@@ -1057,6 +1066,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         }
       },
       "required": [
@@ -1399,6 +1414,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         },
         "dividendYield": {
           "type": "number"
@@ -1751,6 +1772,12 @@
         "beta": {
           "type": "number"
         },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
         "dividendRate": {
           "type": "number"
         },
@@ -2098,6 +2125,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         },
         "headSymbolAsString": {
           "type": "string"
@@ -2461,6 +2494,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         }
       },
       "required": [
@@ -2803,6 +2842,12 @@
         },
         "beta": {
           "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
         },
         "strike": {
           "type": "number"
@@ -3161,6 +3206,12 @@
         "beta": {
           "type": "number"
         },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
         "dividendRate": {
           "type": "number"
         },
@@ -3510,6 +3561,12 @@
         "beta": {
           "type": "number"
         },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
         "netAssets": {
           "type": "number"
         }
@@ -3857,6 +3914,12 @@
         "beta": {
           "type": "number"
         },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
         "underlyingExchangeSymbol": {
           "type": "string"
         },
@@ -4030,6 +4093,8 @@
         "pageViewGrowthWeekly",
         "openInterest",
         "beta",
+        "companyLogoUrl",
+        "logoUrl",
         "circulatingSupply",
         "fromCurrency",
         "toCurrency",
@@ -4039,7 +4104,6 @@
         "volumeAllCurrencies",
         "startDate",
         "coinMarketCapLink",
-        "logoUrl",
         "dividendYield",
         "netAssets",
         "netExpenseRatio",
@@ -4090,6 +4154,12 @@
             "$ref": "#/definitions/QuoteField"
           }
         },
+        "lang": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
         "return": {
           "$ref": "#/definitions/ResultType"
         }
@@ -4104,6 +4174,12 @@
           "items": {
             "$ref": "#/definitions/QuoteField"
           }
+        },
+        "lang": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
         },
         "return": {
           "type": "string",
@@ -4120,6 +4196,12 @@
           "items": {
             "$ref": "#/definitions/QuoteField"
           }
+        },
+        "lang": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
         },
         "return": {
           "type": "string",
@@ -4139,6 +4221,12 @@
           "items": {
             "$ref": "#/definitions/QuoteField"
           }
+        },
+        "lang": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
         },
         "return": {
           "type": "string",
