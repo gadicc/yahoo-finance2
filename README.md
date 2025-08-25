@@ -63,7 +63,9 @@ $ yahoo-finance search MSFT '{ "someOption": true }'
 **Importing**
 
 ```ts
+// or: const YahooFinance = require("yahoo-finance2").default;
 import YahooFinance from "yahoo-finance2";
+
 const yahooFinance = new YahooFinance();
 
 const results = await yahooFinance.search("Apple");
