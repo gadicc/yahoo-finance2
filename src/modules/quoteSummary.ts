@@ -38,7 +38,12 @@
  *
  * * **Performance**: requesting fewer modules improves response time.
  * Only request the modules you actually need.
-
+ *
+ * * **Financial Statements**: Since Nov 2024, the ~~`incomeStatementHistory*`~~,
+ *   ~~`balanceSheetHistory*`~~, ~~`cashflowStatementHistory*`~~ modules provide
+ *   almost no data.  Use the
+ *   {@linkcode [modules/fundamentalsTimeSeries] fundamentalsTimeSeries}
+ *   module instead.
  *
  * @module quoteSummary
  */
@@ -51,6 +56,7 @@ import type {
   ModuleOptionsWithValidateTrue,
   ModuleThis,
 } from "../lib/moduleCommon.ts";
+import type { YahooFinance } from "../createYahooFinance.ts";
 
 import { getTypedDefinitions } from "../lib/validate/index.ts";
 export type * from "./quoteSummary-iface.ts";
@@ -69,7 +75,9 @@ const resultsDefinitions = getTypedDefinitions(resultsSchema);
  * Each module provides different types of financial data:
  * - **Company Info**: `assetProfile`, `summaryProfile`, `quoteType`
  * - **Price Data**: `price`, `summaryDetail`
- * - **Financial Statements**: `incomeStatementHistory*`, `balanceSheetHistory*`, `cashflowStatementHistory*`
+ * - **Financial Statements**: ~~`incomeStatementHistory*`~~,
+ *   ~~`balanceSheetHistory*`~~, ~~`cashflowStatementHistory*`~~. *Use
+ *   {@linkcode [modules/fundamentalsTimeSeries] fundamentalsTimeSeries} instead!*
  * - **Analysis**: `recommendationTrend`, `upgradeDowngradeHistory`, `earnings*`
  * - **Ownership**: `institutionOwnership`, `fundOwnership`, `majorHoldersBreakdown`
  * - **Fund Specific**: `fundProfile`, `fundPerformance`, `topHoldings`
@@ -240,6 +248,28 @@ export default function quoteSummary(
   queryOptionsOverrides?: QuoteSummaryOptions,
   moduleOptions?: ModuleOptions,
 ): Promise<QuoteSummaryResult> {
+  const financeModules: QuoteSummaryModules[] = [
+    "balanceSheetHistory",
+    "balanceSheetHistoryQuarterly",
+    "cashflowStatementHistory",
+    "cashflowStatementHistoryQuarterly",
+    "incomeStatementHistory",
+    "incomeStatementHistoryQuarterly",
+  ];
+  const usedFinanceModules = financeModules.filter((m) =>
+    queryOptionsOverrides?.modules?.includes(m)
+  );
+  if (usedFinanceModules.length) {
+    // TODO https://github.com/gadicc/yahoo-finance2/issues/950
+    const yahooFinance = this as unknown as YahooFinance;
+
+    yahooFinance._opts.logger!.warn(
+      "QuoteSummary financial statements submodules like " +
+        usedFinanceModules.join(", ") +
+        " have provided almost no data since Nov 2024. Use `fundamentalsTimeSeries` instead.",
+    );
+  }
+
   return this._moduleExec({
     moduleName: "quoteSummary",
 

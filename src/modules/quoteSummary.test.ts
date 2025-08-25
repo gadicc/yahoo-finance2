@@ -1,15 +1,18 @@
 import {
   createTestYahooFinance,
   describe,
+  expect,
   it,
   setupCache,
+  spyLogger,
   testSymbols,
 } from "../../tests/common.ts";
 
 import quoteSummary, { type QuoteSummaryModules } from "./quoteSummary.ts";
 
 const YahooFinance = createTestYahooFinance({ modules: { quoteSummary } });
-const yf = new YahooFinance();
+const logger = spyLogger();
+const yf = new YahooFinance({ logger });
 
 interface itValidatesOpts {
   skip?: Array<string>;
@@ -79,6 +82,18 @@ describe("quoteSummary", () => {
   });
 
   describe("modules", () => {
+    it("deprecations", async (t, onFinish) => {
+      const logger = spyLogger();
+      const yahooFinance = new YahooFinance({ logger });
+      await yahooFinance.quoteSummary("AAPL", {
+        modules: ["balanceSheetHistory"],
+      }, {
+        devel: { id: "quoteSummary-balanceSheetHistory-AAPL", t, onFinish },
+      });
+      expect(logger.warn.calls[0].args[0].match(/fundamentalsTimeSeries/))
+        .not.toBeNull();
+    });
+
     describe("assetProfile", () => {
       itValidates("assetProfile");
     });

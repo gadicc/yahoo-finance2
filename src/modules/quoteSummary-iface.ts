@@ -107,38 +107,8 @@ export interface BalanceSheetHistory {
 }
 
 export interface BalanceSheetStatement {
-  [key: string]: unknown;
   maxAge: number;
   endDate: Date;
-  cash?: number;
-  shortTermInvestments?: number;
-  netReceivables?: number;
-  inventory?: number;
-  otherCurrentAssets?: number;
-  totalCurrentAssets?: number;
-  longTermInvestments?: number;
-  propertyPlantEquipment?: number;
-  otherAssets?: number;
-  totalAssets?: number;
-  accountsPayable?: number;
-  shortLongTermDebt?: number;
-  otherCurrentLiab?: number;
-  longTermDebt?: number;
-  otherLiab?: number;
-  totalCurrentLiabilities?: number;
-  totalLiab?: number;
-  commonStock?: number;
-  retainedEarnings?: number;
-  treasuryStock?: number;
-  otherStockholderEquity?: number;
-  totalStockholderEquity?: number;
-  netTangibleAssets?: number;
-  goodWill?: number;
-  intangibleAssets?: number;
-  deferredLongTermAssetCharges?: number;
-  deferredLongTermLiab?: number;
-  minorityInterest?: number | null;
-  capitalSurplus?: number;
 }
 
 export interface CalendarEvents {
@@ -163,35 +133,14 @@ export interface CalendarEventsEarnings {
 }
 
 export interface CashflowStatementHistory {
-  [key: string]: unknown;
   cashflowStatements: CashflowStatement[];
   maxAge: number;
 }
 
 export interface CashflowStatement {
-  [key: string]: unknown;
   maxAge: number;
   endDate: Date;
   netIncome: number;
-  depreciation?: number;
-  changeToNetincome?: number;
-  changeToAccountReceivables?: number;
-  changeToLiabilities?: number;
-  changeToInventory?: number;
-  changeToOperatingActivities?: number;
-  totalCashFromOperatingActivities?: number;
-  capitalExpenditures?: number;
-  investments?: number;
-  otherCashflowsFromInvestingActivities?: number;
-  totalCashflowsFromInvestingActivities?: number;
-  dividendsPaid?: number;
-  netBorrowings?: number;
-  otherCashflowsFromFinancingActivities?: number;
-  totalCashFromFinancingActivities?: number;
-  changeInCash?: number;
-  repurchaseOfStock?: number;
-  issuanceOfStock?: number;
-  effectOfExchangeRate?: number;
 }
 
 export interface DefaultKeyStatistics {
@@ -577,31 +526,30 @@ export interface IncomeStatementHistory {
 }
 
 export interface IncomeStatementHistoryElement {
-  [key: string]: unknown;
   maxAge: number;
   endDate: Date;
   totalRevenue: number;
   costOfRevenue: number;
   grossProfit: number;
-  researchDevelopment: number | null;
-  sellingGeneralAdministrative: number | null;
-  nonRecurring: number | null;
-  otherOperatingExpenses: number | null;
+  researchDevelopment: null;
+  sellingGeneralAdministrative: null;
+  nonRecurring: null;
+  otherOperatingExpenses: null;
   totalOperatingExpenses: number;
-  operatingIncome: number | null; // Example of null in EREGL.IS (#517)
-  totalOtherIncomeExpenseNet: number | null; // null since Since Feb 22 (#734)
+  operatingIncome: null;
+  totalOtherIncomeExpenseNet: null;
   ebit: number;
-  interestExpense: number | null;
-  incomeBeforeTax: number | null;
+  interestExpense: null;
+  incomeBeforeTax: null;
   incomeTaxExpense: number;
-  minorityInterest: number | null;
-  netIncomeFromContinuingOps: number | null;
-  discontinuedOperations: number | null;
-  extraordinaryItems: number | null;
-  effectOfAccountingCharges: number | null;
-  otherItems: number | null;
+  minorityInterest: null;
+  netIncomeFromContinuingOps: null;
+  discontinuedOperations: null;
+  extraordinaryItems: null;
+  effectOfAccountingCharges: null;
+  otherItems: null;
   netIncome: number;
-  netIncomeApplicableToCommonShares: number | null;
+  netIncomeApplicableToCommonShares: null;
 }
 
 export interface IndexTrend {

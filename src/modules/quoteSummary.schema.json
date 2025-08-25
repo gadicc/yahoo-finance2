@@ -292,103 +292,13 @@
         "endDate": {
           "type": "string",
           "format": "date-time"
-        },
-        "cash": {
-          "type": "number"
-        },
-        "shortTermInvestments": {
-          "type": "number"
-        },
-        "netReceivables": {
-          "type": "number"
-        },
-        "inventory": {
-          "type": "number"
-        },
-        "otherCurrentAssets": {
-          "type": "number"
-        },
-        "totalCurrentAssets": {
-          "type": "number"
-        },
-        "longTermInvestments": {
-          "type": "number"
-        },
-        "propertyPlantEquipment": {
-          "type": "number"
-        },
-        "otherAssets": {
-          "type": "number"
-        },
-        "totalAssets": {
-          "type": "number"
-        },
-        "accountsPayable": {
-          "type": "number"
-        },
-        "shortLongTermDebt": {
-          "type": "number"
-        },
-        "otherCurrentLiab": {
-          "type": "number"
-        },
-        "longTermDebt": {
-          "type": "number"
-        },
-        "otherLiab": {
-          "type": "number"
-        },
-        "totalCurrentLiabilities": {
-          "type": "number"
-        },
-        "totalLiab": {
-          "type": "number"
-        },
-        "commonStock": {
-          "type": "number"
-        },
-        "retainedEarnings": {
-          "type": "number"
-        },
-        "treasuryStock": {
-          "type": "number"
-        },
-        "otherStockholderEquity": {
-          "type": "number"
-        },
-        "totalStockholderEquity": {
-          "type": "number"
-        },
-        "netTangibleAssets": {
-          "type": "number"
-        },
-        "goodWill": {
-          "type": "number"
-        },
-        "intangibleAssets": {
-          "type": "number"
-        },
-        "deferredLongTermAssetCharges": {
-          "type": "number"
-        },
-        "deferredLongTermLiab": {
-          "type": "number"
-        },
-        "minorityInterest": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "capitalSurplus": {
-          "type": "number"
         }
       },
       "required": [
         "maxAge",
         "endDate"
       ],
-      "additionalProperties": {}
+      "additionalProperties": false
     },
     "CalendarEvents": {
       "type": "object",
@@ -476,7 +386,7 @@
         "cashflowStatements",
         "maxAge"
       ],
-      "additionalProperties": {}
+      "additionalProperties": false
     },
     "CashflowStatement": {
       "type": "object",
@@ -490,63 +400,6 @@
         },
         "netIncome": {
           "type": "number"
-        },
-        "depreciation": {
-          "type": "number"
-        },
-        "changeToNetincome": {
-          "type": "number"
-        },
-        "changeToAccountReceivables": {
-          "type": "number"
-        },
-        "changeToLiabilities": {
-          "type": "number"
-        },
-        "changeToInventory": {
-          "type": "number"
-        },
-        "changeToOperatingActivities": {
-          "type": "number"
-        },
-        "totalCashFromOperatingActivities": {
-          "type": "number"
-        },
-        "capitalExpenditures": {
-          "type": "number"
-        },
-        "investments": {
-          "type": "number"
-        },
-        "otherCashflowsFromInvestingActivities": {
-          "type": "number"
-        },
-        "totalCashflowsFromInvestingActivities": {
-          "type": "number"
-        },
-        "dividendsPaid": {
-          "type": "number"
-        },
-        "netBorrowings": {
-          "type": "number"
-        },
-        "otherCashflowsFromFinancingActivities": {
-          "type": "number"
-        },
-        "totalCashFromFinancingActivities": {
-          "type": "number"
-        },
-        "changeInCash": {
-          "type": "number"
-        },
-        "repurchaseOfStock": {
-          "type": "number"
-        },
-        "issuanceOfStock": {
-          "type": "number"
-        },
-        "effectOfExchangeRate": {
-          "type": "number"
         }
       },
       "required": [
@@ -554,7 +407,7 @@
         "endDate",
         "netIncome"
       ],
-      "additionalProperties": {}
+      "additionalProperties": false
     },
     "DefaultKeyStatistics": {
       "type": "object",
@@ -1911,106 +1764,61 @@
           "type": "number"
         },
         "researchDevelopment": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "sellingGeneralAdministrative": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "nonRecurring": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "otherOperatingExpenses": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "totalOperatingExpenses": {
           "type": "number"
         },
         "operatingIncome": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "totalOtherIncomeExpenseNet": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "ebit": {
           "type": "number"
         },
         "interestExpense": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "incomeBeforeTax": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "incomeTaxExpense": {
           "type": "number"
         },
         "minorityInterest": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "netIncomeFromContinuingOps": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "discontinuedOperations": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "extraordinaryItems": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "effectOfAccountingCharges": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "otherItems": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         },
         "netIncome": {
           "type": "number"
         },
         "netIncomeApplicableToCommonShares": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "null"
         }
       },
       "required": [
@@ -2039,7 +1847,7 @@
         "netIncome",
         "netIncomeApplicableToCommonShares"
       ],
-      "additionalProperties": {}
+      "additionalProperties": false
     },
     "IndexTrend": {
       "type": "object",

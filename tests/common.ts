@@ -4,12 +4,31 @@ import { type Async, expect as _expect, type Expected } from "@std/expect";
 import type { Global } from "@jest/types";
 import { getType } from "jest-get-type";
 import fetchCache, { fetchCacheSetup } from "./fetchCache.ts";
+import { spy } from "@std/testing/mock";
 
 import testSymbols from "./testSymbols.ts";
 import createYahooFinance from "../src/createYahooFinance.ts";
 
 const FETCH_DEVEL_NOCACHE = Deno.env.get("FETCH_DEVEL") === "nocache";
 const FETCH_DEVEL_RECACHE = Deno.env.get("FETCH_DEVEL") === "recache";
+
+function spyLogger(shouldLog = false) {
+  return {
+    // deno-lint-ignore no-explicit-any
+    info: spy((...args: any[]) => shouldLog && console.log(...args)),
+    // deno-lint-ignore no-explicit-any
+    warn: spy((...args: any[]) =>
+      shouldLog && console.warn(555, shouldLog, ...args)
+    ),
+    // deno-lint-ignore no-explicit-any
+    error: spy((...args: any[]) => shouldLog && console.error(...args)),
+    // deno-lint-ignore no-explicit-any
+    dir: spy((...args: any[]) => shouldLog && console.dir(...args)),
+    // deno-lint-ignore no-explicit-any
+    debug: spy((..._args: any[]) => shouldLog && console.debug(..._args)),
+    _setShouldLog: (value: boolean) => shouldLog = value,
+  };
+}
 
 function each(table: Global.EachTable) {
   const _table = table.map((item) => Array.isArray(item) ? item : [item]);
@@ -193,5 +212,6 @@ export function createTestYahooFinance<
 }
 
 export { testSymbols };
+export { spyLogger };
 export { fetchCache, fetchCacheSetup, setupCache };
-export { describe, expect, it };
+export { describe, expect, it, spy };
