@@ -1,3 +1,7 @@
+/**
+ * Yahoo Finance Crumb and Cookie Fetcher
+ * @module getCrumb
+ */
 import type { ExtendedCookieJar } from "./cookieJar.ts";
 import pkg from "../../deno.json" with { type: "json" };
 import type { Logger } from "./options.ts";
@@ -19,6 +23,22 @@ const parseHtmlEntities = (str: string) =>
 type CrumbOptions = Parameters<typeof fetch>[1] & {
   devel?: YahooFinanceFetchModuleOptions["devel"];
 };
+
+/**
+ * Returns the crumb needed for Yahoo Finance requests - from
+ * the cookieJar if it exists (where we store it with a fake URL),
+ * otherwise, follows the necessary redirect flow on Yahoo Finance
+ * to get a fresh one.
+ *
+ * @param cookieJar The cookie jar to use for storing and retrieving cookies.
+ * @param fetch The fetch function to use for making HTTP requests.
+ * @param fetchOptionsBase The base options to use for the fetch requests.
+ * @param logger The logger to use for logging debug information.
+ * @param url The URL to fetch the crumb from.
+ * @param develOverride Development options to override the default behavior.
+ * @param noCache Never use the cached crumb.
+ * @returns The fetched crumb or null if not found.
+ */
 export async function _getCrumb(
   cookieJar: ExtendedCookieJar,
   fetch: Fetch,
@@ -383,12 +403,23 @@ export async function _getCrumb(
 
 let promise: Promise<string | null> | null = null;
 
+/**
+ * Clears the stored crumb and all cookies in the given jar.
+ * Doubtful you'll ever use this outside development and testing.
+ */
 export async function getCrumbClear(cookieJar: ExtendedCookieJar) {
   crumb = null;
   promise = null;
   await cookieJar.removeAllCookies();
 }
 
+/**
+ * Gets the crumb for Yahoo Finance requests.
+ * See {@linkcode _getCrumb}.
+ *
+ * This small wrapper around the above ensures we only make one
+ * request, and queues the same return value otherwise.
+ */
 export default function getCrumb(
   cookieJar: ExtendedCookieJar,
   fetch: Fetch,
