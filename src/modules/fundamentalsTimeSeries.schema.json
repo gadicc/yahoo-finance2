@@ -1797,6 +1797,1480 @@
       ],
       "additionalProperties": false
     },
+    "FundamentalsTimeSeriesAllResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "TYPE": {
+          "type": "string",
+          "const": "ALL"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "periodType": {
+          "$ref": "#/definitions/FundamentalsTimeSeries_Period"
+        },
+        "freeCashFlow": {
+          "type": "number"
+        },
+        "foreignSales": {
+          "type": "number"
+        },
+        "domesticSales": {
+          "type": "number"
+        },
+        "adjustedGeographySegmentData": {
+          "type": "number"
+        },
+        "repurchaseOfCapitalStock": {
+          "type": "number"
+        },
+        "repaymentOfDebt": {
+          "type": "number"
+        },
+        "issuanceOfDebt": {
+          "type": "number"
+        },
+        "issuanceOfCapitalStock": {
+          "type": "number"
+        },
+        "capitalExpenditure": {
+          "type": "number"
+        },
+        "interestPaidSupplementalData": {
+          "type": "number"
+        },
+        "incomeTaxPaidSupplementalData": {
+          "type": "number"
+        },
+        "endCashPosition": {
+          "type": "number"
+        },
+        "otherCashAdjustmentOutsideChangeinCash": {
+          "type": "number"
+        },
+        "beginningCashPosition": {
+          "type": "number"
+        },
+        "effectOfExchangeRateChanges": {
+          "type": "number"
+        },
+        "changesInCash": {
+          "type": "number"
+        },
+        "otherCashAdjustmentInsideChangeinCash": {
+          "type": "number"
+        },
+        "cashFlowFromDiscontinuedOperation": {
+          "type": "number"
+        },
+        "financingCashFlow": {
+          "type": "number"
+        },
+        "cashFromDiscontinuedFinancingActivities": {
+          "type": "number"
+        },
+        "cashFlowFromContinuingFinancingActivities": {
+          "type": "number"
+        },
+        "netOtherFinancingCharges": {
+          "type": "number"
+        },
+        "interestPaidCFF": {
+          "type": "number"
+        },
+        "proceedsFromStockOptionExercised": {
+          "type": "number"
+        },
+        "cashDividendsPaid": {
+          "type": "number"
+        },
+        "preferredStockDividendPaid": {
+          "type": "number"
+        },
+        "commonStockDividendPaid": {
+          "type": "number"
+        },
+        "netPreferredStockIssuance": {
+          "type": "number"
+        },
+        "preferredStockPayments": {
+          "type": "number"
+        },
+        "preferredStockIssuance": {
+          "type": "number"
+        },
+        "netCommonStockIssuance": {
+          "type": "number"
+        },
+        "commonStockPayments": {
+          "type": "number"
+        },
+        "commonStockIssuance": {
+          "type": "number"
+        },
+        "netIssuancePaymentsOfDebt": {
+          "type": "number"
+        },
+        "netShortTermDebtIssuance": {
+          "type": "number"
+        },
+        "shortTermDebtPayments": {
+          "type": "number"
+        },
+        "shortTermDebtIssuance": {
+          "type": "number"
+        },
+        "netLongTermDebtIssuance": {
+          "type": "number"
+        },
+        "longTermDebtPayments": {
+          "type": "number"
+        },
+        "longTermDebtIssuance": {
+          "type": "number"
+        },
+        "investingCashFlow": {
+          "type": "number"
+        },
+        "cashFromDiscontinuedInvestingActivities": {
+          "type": "number"
+        },
+        "cashFlowFromContinuingInvestingActivities": {
+          "type": "number"
+        },
+        "netOtherInvestingChanges": {
+          "type": "number"
+        },
+        "interestReceivedCFI": {
+          "type": "number"
+        },
+        "dividendsReceivedCFI": {
+          "type": "number"
+        },
+        "netInvestmentPurchaseAndSale": {
+          "type": "number"
+        },
+        "saleOfInvestment": {
+          "type": "number"
+        },
+        "purchaseOfInvestment": {
+          "type": "number"
+        },
+        "netInvestmentPropertiesPurchaseAndSale": {
+          "type": "number"
+        },
+        "saleOfInvestmentProperties": {
+          "type": "number"
+        },
+        "purchaseOfInvestmentProperties": {
+          "type": "number"
+        },
+        "netBusinessPurchaseAndSale": {
+          "type": "number"
+        },
+        "saleOfBusiness": {
+          "type": "number"
+        },
+        "purchaseOfBusiness": {
+          "type": "number"
+        },
+        "netIntangiblesPurchaseAndSale": {
+          "type": "number"
+        },
+        "saleOfIntangibles": {
+          "type": "number"
+        },
+        "purchaseOfIntangibles": {
+          "type": "number"
+        },
+        "netPPEPurchaseAndSale": {
+          "type": "number"
+        },
+        "saleOfPPE": {
+          "type": "number"
+        },
+        "purchaseOfPPE": {
+          "type": "number"
+        },
+        "capitalExpenditureReported": {
+          "type": "number"
+        },
+        "operatingCashFlow": {
+          "type": "number"
+        },
+        "cashFromDiscontinuedOperatingActivities": {
+          "type": "number"
+        },
+        "cashFlowFromContinuingOperatingActivities": {
+          "type": "number"
+        },
+        "taxesRefundPaid": {
+          "type": "number"
+        },
+        "interestReceivedCFO": {
+          "type": "number"
+        },
+        "interestPaidCFO": {
+          "type": "number"
+        },
+        "dividendReceivedCFO": {
+          "type": "number"
+        },
+        "dividendPaidCFO": {
+          "type": "number"
+        },
+        "changeInWorkingCapital": {
+          "type": "number"
+        },
+        "changeInOtherWorkingCapital": {
+          "type": "number"
+        },
+        "changeInOtherCurrentLiabilities": {
+          "type": "number"
+        },
+        "changeInOtherCurrentAssets": {
+          "type": "number"
+        },
+        "changeInPayablesAndAccruedExpense": {
+          "type": "number"
+        },
+        "changeInAccruedExpense": {
+          "type": "number"
+        },
+        "changeInInterestPayable": {
+          "type": "number"
+        },
+        "changeInPayable": {
+          "type": "number"
+        },
+        "changeInDividendPayable": {
+          "type": "number"
+        },
+        "changeInAccountPayable": {
+          "type": "number"
+        },
+        "changeInTaxPayable": {
+          "type": "number"
+        },
+        "changeInIncomeTaxPayable": {
+          "type": "number"
+        },
+        "changeInPrepaidAssets": {
+          "type": "number"
+        },
+        "changeInInventory": {
+          "type": "number"
+        },
+        "changeInReceivables": {
+          "type": "number"
+        },
+        "changesInAccountReceivables": {
+          "type": "number"
+        },
+        "otherNonCashItems": {
+          "type": "number"
+        },
+        "excessTaxBenefitFromStockBasedCompensation": {
+          "type": "number"
+        },
+        "stockBasedCompensation": {
+          "type": "number"
+        },
+        "unrealizedGainLossOnInvestmentSecurities": {
+          "type": "number"
+        },
+        "provisionandWriteOffofAssets": {
+          "type": "number"
+        },
+        "assetImpairmentCharge": {
+          "type": "number"
+        },
+        "amortizationOfSecurities": {
+          "type": "number"
+        },
+        "deferredTax": {
+          "type": "number"
+        },
+        "deferredIncomeTax": {
+          "type": "number"
+        },
+        "depletion": {
+          "type": "number"
+        },
+        "depreciationAndAmortization": {
+          "type": "number"
+        },
+        "amortizationCashFlow": {
+          "type": "number"
+        },
+        "amortizationOfIntangibles": {
+          "type": "number"
+        },
+        "depreciation": {
+          "type": "number"
+        },
+        "operatingGainsLosses": {
+          "type": "number"
+        },
+        "pensionAndEmployeeBenefitExpense": {
+          "type": "number"
+        },
+        "earningsLossesFromEquityInvestments": {
+          "type": "number"
+        },
+        "gainLossOnInvestmentSecurities": {
+          "type": "number"
+        },
+        "netForeignCurrencyExchangeGainLoss": {
+          "type": "number"
+        },
+        "gainLossOnSaleOfPPE": {
+          "type": "number"
+        },
+        "gainLossOnSaleOfBusiness": {
+          "type": "number"
+        },
+        "netIncomeFromContinuingOperations": {
+          "type": "number"
+        },
+        "cashFlowsfromusedinOperatingActivitiesDirect": {
+          "type": "number"
+        },
+        "taxesRefundPaidDirect": {
+          "type": "number"
+        },
+        "interestReceivedDirect": {
+          "type": "number"
+        },
+        "interestPaidDirect": {
+          "type": "number"
+        },
+        "dividendsReceivedDirect": {
+          "type": "number"
+        },
+        "dividendsPaidDirect": {
+          "type": "number"
+        },
+        "classesofCashPayments": {
+          "type": "number"
+        },
+        "otherCashPaymentsfromOperatingActivities": {
+          "type": "number"
+        },
+        "paymentsonBehalfofEmployees": {
+          "type": "number"
+        },
+        "paymentstoSuppliersforGoodsandServices": {
+          "type": "number"
+        },
+        "classesofCashReceiptsfromOperatingActivities": {
+          "type": "number"
+        },
+        "otherCashReceiptsfromOperatingActivities": {
+          "type": "number"
+        },
+        "receiptsfromGovernmentGrants": {
+          "type": "number"
+        },
+        "receiptsfromCustomers": {
+          "type": "number"
+        },
+        "increaseDecreaseInDeposit": {
+          "type": "number"
+        },
+        "changeInFederalFundsAndSecuritiesSoldForRepurchase": {
+          "type": "number"
+        },
+        "netProceedsPaymentForLoan": {
+          "type": "number"
+        },
+        "paymentForLoans": {
+          "type": "number"
+        },
+        "proceedsFromLoans": {
+          "type": "number"
+        },
+        "proceedsPaymentInInterestBearingDepositsInBank": {
+          "type": "number"
+        },
+        "increaseinInterestBearingDepositsinBank": {
+          "type": "number"
+        },
+        "decreaseinInterestBearingDepositsinBank": {
+          "type": "number"
+        },
+        "proceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell": {
+          "type": "number"
+        },
+        "changeInLoans": {
+          "type": "number"
+        },
+        "changeInDeferredCharges": {
+          "type": "number"
+        },
+        "provisionForLoanLeaseAndOtherLosses": {
+          "type": "number"
+        },
+        "amortizationOfFinancingCostsAndDiscounts": {
+          "type": "number"
+        },
+        "depreciationAmortizationDepletion": {
+          "type": "number"
+        },
+        "realizedGainLossOnSaleOfLoansAndLease": {
+          "type": "number"
+        },
+        "allTaxesPaid": {
+          "type": "number"
+        },
+        "interestandCommissionPaid": {
+          "type": "number"
+        },
+        "cashPaymentsforLoans": {
+          "type": "number"
+        },
+        "cashPaymentsforDepositsbyBanksandCustomers": {
+          "type": "number"
+        },
+        "cashReceiptsfromFeesandCommissions": {
+          "type": "number"
+        },
+        "cashReceiptsfromSecuritiesRelatedActivities": {
+          "type": "number"
+        },
+        "cashReceiptsfromLoans": {
+          "type": "number"
+        },
+        "cashReceiptsfromDepositsbyBanksandCustomers": {
+          "type": "number"
+        },
+        "cashReceiptsfromTaxRefunds": {
+          "type": "number"
+        },
+        "AmortizationAmortizationCashFlow": {
+          "type": "number"
+        },
+        "netDebt": {
+          "type": "number"
+        },
+        "treasurySharesNumber": {
+          "type": "number"
+        },
+        "preferredSharesNumber": {
+          "type": "number"
+        },
+        "ordinarySharesNumber": {
+          "type": "number"
+        },
+        "shareIssued": {
+          "type": "number"
+        },
+        "totalDebt": {
+          "type": "number"
+        },
+        "tangibleBookValue": {
+          "type": "number"
+        },
+        "investedCapital": {
+          "type": "number"
+        },
+        "workingCapital": {
+          "type": "number"
+        },
+        "netTangibleAssets": {
+          "type": "number"
+        },
+        "capitalLeaseObligations": {
+          "type": "number"
+        },
+        "commonStockEquity": {
+          "type": "number"
+        },
+        "preferredStockEquity": {
+          "type": "number"
+        },
+        "totalCapitalization": {
+          "type": "number"
+        },
+        "totalEquityGrossMinorityInterest": {
+          "type": "number"
+        },
+        "minorityInterest": {
+          "type": "number"
+        },
+        "stockholdersEquity": {
+          "type": "number"
+        },
+        "otherEquityInterest": {
+          "type": "number"
+        },
+        "gainsLossesNotAffectingRetainedEarnings": {
+          "type": "number"
+        },
+        "otherEquityAdjustments": {
+          "type": "number"
+        },
+        "fixedAssetsRevaluationReserve": {
+          "type": "number"
+        },
+        "foreignCurrencyTranslationAdjustments": {
+          "type": "number"
+        },
+        "minimumPensionLiabilities": {
+          "type": "number"
+        },
+        "unrealizedGainLoss": {
+          "type": "number"
+        },
+        "treasuryStock": {
+          "type": "number"
+        },
+        "retainedEarnings": {
+          "type": "number"
+        },
+        "additionalPaidInCapital": {
+          "type": "number"
+        },
+        "capitalStock": {
+          "type": "number"
+        },
+        "otherCapitalStock": {
+          "type": "number"
+        },
+        "commonStock": {
+          "type": "number"
+        },
+        "preferredStock": {
+          "type": "number"
+        },
+        "totalPartnershipCapital": {
+          "type": "number"
+        },
+        "generalPartnershipCapital": {
+          "type": "number"
+        },
+        "limitedPartnershipCapital": {
+          "type": "number"
+        },
+        "totalLiabilitiesNetMinorityInterest": {
+          "type": "number"
+        },
+        "totalNonCurrentLiabilitiesNetMinorityInterest": {
+          "type": "number"
+        },
+        "otherNonCurrentLiabilities": {
+          "type": "number"
+        },
+        "liabilitiesHeldforSaleNonCurrent": {
+          "type": "number"
+        },
+        "restrictedCommonStock": {
+          "type": "number"
+        },
+        "preferredSecuritiesOutsideStockEquity": {
+          "type": "number"
+        },
+        "derivativeProductLiabilities": {
+          "type": "number"
+        },
+        "employeeBenefits": {
+          "type": "number"
+        },
+        "nonCurrentPensionAndOtherPostretirementBenefitPlans": {
+          "type": "number"
+        },
+        "nonCurrentAccruedExpenses": {
+          "type": "number"
+        },
+        "duetoRelatedPartiesNonCurrent": {
+          "type": "number"
+        },
+        "tradeandOtherPayablesNonCurrent": {
+          "type": "number"
+        },
+        "nonCurrentDeferredLiabilities": {
+          "type": "number"
+        },
+        "nonCurrentDeferredRevenue": {
+          "type": "number"
+        },
+        "nonCurrentDeferredTaxesLiabilities": {
+          "type": "number"
+        },
+        "longTermDebtAndCapitalLeaseObligation": {
+          "type": "number"
+        },
+        "longTermCapitalLeaseObligation": {
+          "type": "number"
+        },
+        "longTermDebt": {
+          "type": "number"
+        },
+        "longTermProvisions": {
+          "type": "number"
+        },
+        "currentLiabilities": {
+          "type": "number"
+        },
+        "otherCurrentLiabilities": {
+          "type": "number"
+        },
+        "currentDeferredLiabilities": {
+          "type": "number"
+        },
+        "currentDeferredRevenue": {
+          "type": "number"
+        },
+        "currentDeferredTaxesLiabilities": {
+          "type": "number"
+        },
+        "currentDebtAndCapitalLeaseObligation": {
+          "type": "number"
+        },
+        "currentCapitalLeaseObligation": {
+          "type": "number"
+        },
+        "currentDebt": {
+          "type": "number"
+        },
+        "otherCurrentBorrowings": {
+          "type": "number"
+        },
+        "lineOfCredit": {
+          "type": "number"
+        },
+        "commercialPaper": {
+          "type": "number"
+        },
+        "currentNotesPayable": {
+          "type": "number"
+        },
+        "pensionandOtherPostRetirementBenefitPlansCurrent": {
+          "type": "number"
+        },
+        "currentProvisions": {
+          "type": "number"
+        },
+        "payablesAndAccruedExpenses": {
+          "type": "number"
+        },
+        "currentAccruedExpenses": {
+          "type": "number"
+        },
+        "interestPayable": {
+          "type": "number"
+        },
+        "payables": {
+          "type": "number"
+        },
+        "otherPayable": {
+          "type": "number"
+        },
+        "duetoRelatedPartiesCurrent": {
+          "type": "number"
+        },
+        "dividendsPayable": {
+          "type": "number"
+        },
+        "totalTaxPayable": {
+          "type": "number"
+        },
+        "incomeTaxPayable": {
+          "type": "number"
+        },
+        "accountsPayable": {
+          "type": "number"
+        },
+        "totalAssets": {
+          "type": "number"
+        },
+        "totalNonCurrentAssets": {
+          "type": "number"
+        },
+        "otherNonCurrentAssets": {
+          "type": "number"
+        },
+        "definedPensionBenefit": {
+          "type": "number"
+        },
+        "nonCurrentPrepaidAssets": {
+          "type": "number"
+        },
+        "nonCurrentDeferredAssets": {
+          "type": "number"
+        },
+        "nonCurrentDeferredTaxesAssets": {
+          "type": "number"
+        },
+        "duefromRelatedPartiesNonCurrent": {
+          "type": "number"
+        },
+        "nonCurrentNoteReceivables": {
+          "type": "number"
+        },
+        "nonCurrentAccountsReceivable": {
+          "type": "number"
+        },
+        "financialAssets": {
+          "type": "number"
+        },
+        "investmentsAndAdvances": {
+          "type": "number"
+        },
+        "otherInvestments": {
+          "type": "number"
+        },
+        "investmentinFinancialAssets": {
+          "type": "number"
+        },
+        "heldToMaturitySecurities": {
+          "type": "number"
+        },
+        "availableForSaleSecurities": {
+          "type": "number"
+        },
+        "financialAssetsDesignatedasFairValueThroughProfitorLossTotal": {
+          "type": "number"
+        },
+        "tradingSecurities": {
+          "type": "number"
+        },
+        "longTermEquityInvestment": {
+          "type": "number"
+        },
+        "investmentsinJointVenturesatCost": {
+          "type": "number"
+        },
+        "investmentsInOtherVenturesUnderEquityMethod": {
+          "type": "number"
+        },
+        "investmentsinAssociatesatCost": {
+          "type": "number"
+        },
+        "investmentsinSubsidiariesatCost": {
+          "type": "number"
+        },
+        "investmentProperties": {
+          "type": "number"
+        },
+        "goodwillAndOtherIntangibleAssets": {
+          "type": "number"
+        },
+        "otherIntangibleAssets": {
+          "type": "number"
+        },
+        "goodwill": {
+          "type": "number"
+        },
+        "netPPE": {
+          "type": "number"
+        },
+        "accumulatedDepreciation": {
+          "type": "number"
+        },
+        "grossPPE": {
+          "type": "number"
+        },
+        "leases": {
+          "type": "number"
+        },
+        "constructionInProgress": {
+          "type": "number"
+        },
+        "otherProperties": {
+          "type": "number"
+        },
+        "machineryFurnitureEquipment": {
+          "type": "number"
+        },
+        "buildingsAndImprovements": {
+          "type": "number"
+        },
+        "landAndImprovements": {
+          "type": "number"
+        },
+        "properties": {
+          "type": "number"
+        },
+        "currentAssets": {
+          "type": "number"
+        },
+        "otherCurrentAssets": {
+          "type": "number"
+        },
+        "hedgingAssetsCurrent": {
+          "type": "number"
+        },
+        "assetsHeldForSaleCurrent": {
+          "type": "number"
+        },
+        "currentDeferredAssets": {
+          "type": "number"
+        },
+        "currentDeferredTaxesAssets": {
+          "type": "number"
+        },
+        "restrictedCash": {
+          "type": "number"
+        },
+        "prepaidAssets": {
+          "type": "number"
+        },
+        "inventory": {
+          "type": "number"
+        },
+        "inventoriesAdjustmentsAllowances": {
+          "type": "number"
+        },
+        "otherInventories": {
+          "type": "number"
+        },
+        "finishedGoods": {
+          "type": "number"
+        },
+        "workInProcess": {
+          "type": "number"
+        },
+        "rawMaterials": {
+          "type": "number"
+        },
+        "receivables": {
+          "type": "number"
+        },
+        "receivablesAdjustmentsAllowances": {
+          "type": "number"
+        },
+        "otherReceivables": {
+          "type": "number"
+        },
+        "duefromRelatedPartiesCurrent": {
+          "type": "number"
+        },
+        "taxesReceivable": {
+          "type": "number"
+        },
+        "accruedInterestReceivable": {
+          "type": "number"
+        },
+        "notesReceivable": {
+          "type": "number"
+        },
+        "loansReceivable": {
+          "type": "number"
+        },
+        "accountsReceivable": {
+          "type": "number"
+        },
+        "allowanceForDoubtfulAccountsReceivable": {
+          "type": "number"
+        },
+        "grossAccountsReceivable": {
+          "type": "number"
+        },
+        "cashCashEquivalentsAndShortTermInvestments": {
+          "type": "number"
+        },
+        "otherShortTermInvestments": {
+          "type": "number"
+        },
+        "cashAndCashEquivalents": {
+          "type": "number"
+        },
+        "cashEquivalents": {
+          "type": "number"
+        },
+        "cashFinancial": {
+          "type": "number"
+        },
+        "otherLiabilities": {
+          "type": "number"
+        },
+        "liabilitiesOfDiscontinuedOperations": {
+          "type": "number"
+        },
+        "subordinatedLiabilities": {
+          "type": "number"
+        },
+        "advanceFromFederalHomeLoanBanks": {
+          "type": "number"
+        },
+        "tradingLiabilities": {
+          "type": "number"
+        },
+        "duetoRelatedParties": {
+          "type": "number"
+        },
+        "securitiesLoaned": {
+          "type": "number"
+        },
+        "federalFundsPurchasedAndSecuritiesSoldUnderAgreementToRepurchase": {
+          "type": "number"
+        },
+        "financialInstrumentsSoldUnderAgreementsToRepurchase": {
+          "type": "number"
+        },
+        "federalFundsPurchased": {
+          "type": "number"
+        },
+        "totalDeposits": {
+          "type": "number"
+        },
+        "nonInterestBearingDeposits": {
+          "type": "number"
+        },
+        "interestBearingDepositsLiabilities": {
+          "type": "number"
+        },
+        "customerAccounts": {
+          "type": "number"
+        },
+        "depositsbyBank": {
+          "type": "number"
+        },
+        "otherAssets": {
+          "type": "number"
+        },
+        "assetsHeldForSale": {
+          "type": "number"
+        },
+        "deferredAssets": {
+          "type": "number"
+        },
+        "deferredTaxAssets": {
+          "type": "number"
+        },
+        "dueFromRelatedParties": {
+          "type": "number"
+        },
+        "allowanceForNotesReceivable": {
+          "type": "number"
+        },
+        "grossNotesReceivable": {
+          "type": "number"
+        },
+        "netLoan": {
+          "type": "number"
+        },
+        "unearnedIncome": {
+          "type": "number"
+        },
+        "allowanceForLoansAndLeaseLosses": {
+          "type": "number"
+        },
+        "grossLoan": {
+          "type": "number"
+        },
+        "otherLoanAssets": {
+          "type": "number"
+        },
+        "mortgageLoan": {
+          "type": "number"
+        },
+        "consumerLoan": {
+          "type": "number"
+        },
+        "commercialLoan": {
+          "type": "number"
+        },
+        "loansHeldForSale": {
+          "type": "number"
+        },
+        "derivativeAssets": {
+          "type": "number"
+        },
+        "securitiesAndInvestments": {
+          "type": "number"
+        },
+        "bankOwnedLifeInsurance": {
+          "type": "number"
+        },
+        "otherRealEstateOwned": {
+          "type": "number"
+        },
+        "foreclosedAssets": {
+          "type": "number"
+        },
+        "customerAcceptances": {
+          "type": "number"
+        },
+        "federalHomeLoanBankStock": {
+          "type": "number"
+        },
+        "securityBorrowed": {
+          "type": "number"
+        },
+        "cashCashEquivalentsAndFederalFundsSold": {
+          "type": "number"
+        },
+        "moneyMarketInvestments": {
+          "type": "number"
+        },
+        "federalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell": {
+          "type": "number"
+        },
+        "securityAgreeToBeResell": {
+          "type": "number"
+        },
+        "federalFundsSold": {
+          "type": "number"
+        },
+        "restrictedCashAndInvestments": {
+          "type": "number"
+        },
+        "restrictedInvestments": {
+          "type": "number"
+        },
+        "restrictedCashAndCashEquivalents": {
+          "type": "number"
+        },
+        "interestBearingDepositsAssets": {
+          "type": "number"
+        },
+        "cashAndDueFromBanks": {
+          "type": "number"
+        },
+        "bankIndebtedness": {
+          "type": "number"
+        },
+        "mineralProperties": {
+          "type": "number"
+        },
+        "grossProfit": {
+          "type": "number"
+        },
+        "netIncomeCommonStockholders": {
+          "type": "number"
+        },
+        "dilutedAverageShares": {
+          "type": "number"
+        },
+        "EBITDA": {
+          "type": "number"
+        },
+        "costOfRevenue": {
+          "type": "number"
+        },
+        "operatingExpense": {
+          "type": "number"
+        },
+        "normalizedIncome": {
+          "type": "number"
+        },
+        "netIncomeIncludingNoncontrollingInterests": {
+          "type": "number"
+        },
+        "netIncomeFromContinuingOperationNetMinorityInterest": {
+          "type": "number"
+        },
+        "reconciledCostOfRevenue": {
+          "type": "number"
+        },
+        "otherIncomeExpense": {
+          "type": "number"
+        },
+        "taxProvision": {
+          "type": "number"
+        },
+        "pretaxIncome": {
+          "type": "number"
+        },
+        "researchAndDevelopment": {
+          "type": "number"
+        },
+        "dilutedEPS": {
+          "type": "number"
+        },
+        "operatingIncome": {
+          "type": "number"
+        },
+        "totalRevenue": {
+          "type": "number"
+        },
+        "netIncomeFromContinuingAndDiscontinuedOperation": {
+          "type": "number"
+        },
+        "operatingRevenue": {
+          "type": "number"
+        },
+        "EBIT": {
+          "type": "number"
+        },
+        "basicEPS": {
+          "type": "number"
+        },
+        "sellingGeneralAndAdministration": {
+          "type": "number"
+        },
+        "netIncomeContinuousOperations": {
+          "type": "number"
+        },
+        "totalOperatingIncomeAsReported": {
+          "type": "number"
+        },
+        "normalizedEBITDA": {
+          "type": "number"
+        },
+        "netIncome": {
+          "type": "number"
+        },
+        "basicAverageShares": {
+          "type": "number"
+        },
+        "dilutedNIAvailtoComStockholders": {
+          "type": "number"
+        },
+        "taxRateForCalcs": {
+          "type": "number"
+        },
+        "otherNonOperatingIncomeExpenses": {
+          "type": "number"
+        },
+        "totalExpenses": {
+          "type": "number"
+        },
+        "reconciledDepreciation": {
+          "type": "number"
+        },
+        "interestIncomeNonOperating": {
+          "type": "number"
+        },
+        "interestIncome": {
+          "type": "number"
+        },
+        "netInterestIncome": {
+          "type": "number"
+        },
+        "interestExpense": {
+          "type": "number"
+        },
+        "netNonOperatingInterestIncomeExpense": {
+          "type": "number"
+        },
+        "interestExpenseNonOperating": {
+          "type": "number"
+        },
+        "sellingAndMarketingExpense": {
+          "type": "number"
+        },
+        "generalAndAdministrativeExpense": {
+          "type": "number"
+        },
+        "otherGandA": {
+          "type": "number"
+        },
+        "depreciationAmortizationDepletionIncomeStatement": {
+          "type": "number"
+        },
+        "depletionIncomeStatement": {
+          "type": "number"
+        },
+        "depreciationAndAmortizationInIncomeStatement": {
+          "type": "number"
+        },
+        "amortization": {
+          "type": "number"
+        },
+        "amortizationOfIntangiblesIncomeStatement": {
+          "type": "number"
+        },
+        "depreciationIncomeStatement": {
+          "type": "number"
+        },
+        "otherOperatingExpenses": {
+          "type": "number"
+        },
+        "totalOtherFinanceCost": {
+          "type": "number"
+        },
+        "writeOff": {
+          "type": "number"
+        },
+        "specialIncomeCharges": {
+          "type": "number"
+        },
+        "gainOnSaleOfPPE": {
+          "type": "number"
+        },
+        "gainOnSaleOfBusiness": {
+          "type": "number"
+        },
+        "gainOnSaleOfSecurity": {
+          "type": "number"
+        },
+        "otherSpecialCharges": {
+          "type": "number"
+        },
+        "minorityInterests": {
+          "type": "number"
+        },
+        "netIncomeFromTaxLossCarryforward": {
+          "type": "number"
+        },
+        "netIncomeExtraordinary": {
+          "type": "number"
+        },
+        "netIncomeDiscontinuousOperations": {
+          "type": "number"
+        },
+        "preferredStockDividends": {
+          "type": "number"
+        },
+        "otherunderPreferredStockDividend": {
+          "type": "number"
+        },
+        "dividendPerShare": {
+          "type": "number"
+        },
+        "reportedNormalizedBasicEPS": {
+          "type": "number"
+        },
+        "continuingAndDiscontinuedBasicEPS": {
+          "type": "number"
+        },
+        "basicEPSOtherGainsLosses": {
+          "type": "number"
+        },
+        "taxLossCarryforwardBasicEPS": {
+          "type": "number"
+        },
+        "normalizedBasicEPS": {
+          "type": "number"
+        },
+        "basicAccountingChange": {
+          "type": "number"
+        },
+        "basicExtraordinary": {
+          "type": "number"
+        },
+        "basicDiscontinuousOperations": {
+          "type": "number"
+        },
+        "basicContinuousOperations": {
+          "type": "number"
+        },
+        "reportedNormalizedDilutedEPS": {
+          "type": "number"
+        },
+        "continuingAndDiscontinuedDilutedEPS": {
+          "type": "number"
+        },
+        "taxLossCarryforwardDilutedEPS": {
+          "type": "number"
+        },
+        "averageDilutionEarnings": {
+          "type": "number"
+        },
+        "normalizedDilutedEPS": {
+          "type": "number"
+        },
+        "dilutedAccountingChange": {
+          "type": "number"
+        },
+        "dilutedExtraordinary": {
+          "type": "number"
+        },
+        "dilutedContinuousOperations": {
+          "type": "number"
+        },
+        "dilutedDiscontinuousOperations": {
+          "type": "number"
+        },
+        "dilutedEPSOtherGainsLosses": {
+          "type": "number"
+        },
+        "totalUnusualItemsExcludingGoodwill": {
+          "type": "number"
+        },
+        "totalUnusualItems": {
+          "type": "number"
+        },
+        "taxEffectOfUnusualItems": {
+          "type": "number"
+        },
+        "rentExpenseSupplemental": {
+          "type": "number"
+        },
+        "earningsFromEquityInterestNetOfTax": {
+          "type": "number"
+        },
+        "impairmentOfCapitalAssets": {
+          "type": "number"
+        },
+        "restructuringAndMergernAcquisition": {
+          "type": "number"
+        },
+        "securitiesAmortization": {
+          "type": "number"
+        },
+        "earningsFromEquityInterest": {
+          "type": "number"
+        },
+        "otherTaxes": {
+          "type": "number"
+        },
+        "provisionForDoubtfulAccounts": {
+          "type": "number"
+        },
+        "insuranceAndClaims": {
+          "type": "number"
+        },
+        "rentAndLandingFees": {
+          "type": "number"
+        },
+        "salariesAndWages": {
+          "type": "number"
+        },
+        "exciseTaxes": {
+          "type": "number"
+        },
+        "totalMoneyMarketInvestments": {
+          "type": "number"
+        },
+        "interestIncomeAfterProvisionForLoanLoss": {
+          "type": "number"
+        },
+        "otherThanPreferredStockDividend": {
+          "type": "number"
+        },
+        "lossonExtinguishmentofDebt": {
+          "type": "number"
+        },
+        "incomefromAssociatesandOtherParticipatingInterests": {
+          "type": "number"
+        },
+        "nonInterestExpense": {
+          "type": "number"
+        },
+        "otherNonInterestExpense": {
+          "type": "number"
+        },
+        "professionalExpenseAndContractServicesExpense": {
+          "type": "number"
+        },
+        "occupancyAndEquipment": {
+          "type": "number"
+        },
+        "equipment": {
+          "type": "number"
+        },
+        "netOccupancyExpense": {
+          "type": "number"
+        },
+        "creditLossesProvision": {
+          "type": "number"
+        },
+        "nonInterestIncome": {
+          "type": "number"
+        },
+        "otherNonInterestIncome": {
+          "type": "number"
+        },
+        "gainLossonSaleofAssets": {
+          "type": "number"
+        },
+        "gainonSaleofInvestmentProperty": {
+          "type": "number"
+        },
+        "gainonSaleofLoans": {
+          "type": "number"
+        },
+        "foreignExchangeTradingGains": {
+          "type": "number"
+        },
+        "tradingGainLoss": {
+          "type": "number"
+        },
+        "investmentBankingProfit": {
+          "type": "number"
+        },
+        "dividendIncome": {
+          "type": "number"
+        },
+        "feesAndCommissions": {
+          "type": "number"
+        },
+        "feesandCommissionExpense": {
+          "type": "number"
+        },
+        "feesandCommissionIncome": {
+          "type": "number"
+        },
+        "otherCustomerServices": {
+          "type": "number"
+        },
+        "creditCard": {
+          "type": "number"
+        },
+        "securitiesActivities": {
+          "type": "number"
+        },
+        "trustFeesbyCommissions": {
+          "type": "number"
+        },
+        "serviceChargeOnDepositorAccounts": {
+          "type": "number"
+        },
+        "totalPremiumsEarned": {
+          "type": "number"
+        },
+        "otherInterestExpense": {
+          "type": "number"
+        },
+        "interestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell": {
+          "type": "number"
+        },
+        "interestExpenseForLongTermDebtAndCapitalSecurities": {
+          "type": "number"
+        },
+        "interestExpenseForShortTermDebt": {
+          "type": "number"
+        },
+        "interestExpenseForDeposit": {
+          "type": "number"
+        },
+        "otherInterestIncome": {
+          "type": "number"
+        },
+        "interestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell": {
+          "type": "number"
+        },
+        "interestIncomeFromDeposits": {
+          "type": "number"
+        },
+        "interestIncomeFromSecurities": {
+          "type": "number"
+        },
+        "interestIncomeFromLoansAndLease": {
+          "type": "number"
+        },
+        "interestIncomeFromLeases": {
+          "type": "number"
+        },
+        "interestIncomeFromLoans": {
+          "type": "number"
+        },
+        "depreciationDepreciationIncomeStatement": {
+          "type": "number"
+        },
+        "operationAndMaintenance": {
+          "type": "number"
+        },
+        "otherCostofRevenue": {
+          "type": "number"
+        },
+        "explorationDevelopmentAndMineralPropertyLeaseExpenses": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "TYPE",
+        "date",
+        "periodType"
+      ]
+    },
     "FundamentalsTimeSeriesResult": {
       "anyOf": [
         {
@@ -1807,6 +3281,9 @@
         },
         {
           "$ref": "#/definitions/FundamentalsTimeSeriesFinancialsResult"
+        },
+        {
+          "$ref": "#/definitions/FundamentalsTimeSeriesAllResult"
         }
       ]
     },
@@ -1874,6 +3351,7 @@
     },
     "fundamentalsTimeSeries": {},
     "processQuery": {},
+    "entryType": {},
     "processResponse": {}
   }
 }

@@ -804,10 +804,17 @@ export interface FundamentalsTimeSeriesCashFlowResult {
   AmortizationAmortizationCashFlow?: number;
 }
 
+export type FundamentalsTimeSeriesAllResult =
+  & Omit<FundamentalsTimeSeriesFinancialsResult, "TYPE">
+  & Omit<FundamentalsTimeSeriesBalanceSheetResult, "TYPE">
+  & Omit<FundamentalsTimeSeriesCashFlowResult, "TYPE">
+  & { TYPE: "ALL" };
+
 export type FundamentalsTimeSeriesResult =
   | FundamentalsTimeSeriesBalanceSheetResult
   | FundamentalsTimeSeriesCashFlowResult
-  | FundamentalsTimeSeriesFinancialsResult;
+  | FundamentalsTimeSeriesFinancialsResult
+  | FundamentalsTimeSeriesAllResult;
 
 export type FundamentalsTimeSeriesResults = Array<FundamentalsTimeSeriesResult>;
 
@@ -968,6 +975,30 @@ const processQuery = function (
   };
 };
 
+type TYPES = "BALANCE_SHEET" | "CASH_FLOW" | "FINANCIALS" | "ALL" | "UNKNOWN";
+
+const typicalFields: Partial<Record<TYPES, string[]>> = {
+  BALANCE_SHEET: ["netDebt"],
+  CASH_FLOW: ["operatingCashFlow", "changeInOtherWorkingCapital"],
+  FINANCIALS: ["netIncome", "interestExpense"],
+};
+
+function entryType(entry: Record<string, unknown>): TYPES {
+  const types: TYPES[] = [];
+  for (const [type, fields] of Object.entries(typicalFields)) {
+    if (fields.some((field) => entry[field])) {
+      types.push(type as TYPES);
+    }
+  }
+  if (types.length === 0) {
+    return "UNKNOWN";
+  }
+  if (types.length === 1) {
+    return types[0];
+  }
+  return "ALL";
+}
+
 /**
  * Transforms the time-series into an array with reported values per period.
  * Each object represents a period and its properties are the data points.
@@ -1027,20 +1058,8 @@ const processResponse = function (response: any): any {
     }
   }
 
-  return Object.keys(keyedByTimestamp).map((k) => {
-    // Let's such make validation errors a bit easier to understand
-    let TYPE = "UNKNOWN - please report this issue";
-    if (keyedByTimestamp[k].netDebt) {
-      TYPE = "BALANCE_SHEET";
-    } else if (keyedByTimestamp[k].operatingCashFlow) {
-      TYPE = "CASH_FLOW";
-    } else if (keyedByTimestamp[k].netIncome) {
-      TYPE = "FINANCIALS";
-    }
-
-    return {
-      TYPE,
-      ...keyedByTimestamp[k],
-    };
-  });
+  return Object.values(keyedByTimestamp).map((entry) => ({
+    TYPE: entryType(entry),
+    ...entry,
+  }));
 };
