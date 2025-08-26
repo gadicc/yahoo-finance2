@@ -1,5 +1,6 @@
 import type { YahooFinanceOptions as YahooFinanceOptionsJSON } from "./optionsJson.ts";
 import { ExtendedCookieJar } from "./cookieJar.ts";
+import { defaultOptions as defaultQuoteCombineOptions } from "../other/quoteCombine.ts";
 
 export interface Logger {
   // deno-lint-ignore no-explicit-any
@@ -65,6 +66,7 @@ const options: YahooFinanceOptions = {
       // console.log(...args)
     },
   },
+  quoteCombine: defaultQuoteCombineOptions,
 };
 
 export default options;

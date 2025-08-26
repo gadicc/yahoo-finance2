@@ -50,6 +50,29 @@ describe("quoteCombine", () => {
     return promise;
   });
 
+  it("splits results by maxSymbolsPerRequest", async (t, onFinish) => {
+    const yf = new YahooFinance({
+      quoteCombine: { maxSymbolsPerRequest: 1 },
+    });
+
+    const promise = Promise.all([
+      yf.quoteCombine("AAPL", undefined, {
+        devel: { id: "quoteCombine-AAPL", t, onFinish },
+      }).then((result) => {
+        expect(result.symbol).toBe("AAPL");
+      }),
+
+      yf.quoteCombine("TSLA", undefined, {
+        devel: { id: "quoteCombine-TSLA", t, onFinish },
+      }).then((result) => {
+        expect(result.symbol).toBe("TSLA");
+      }),
+    ]).then(() => {});
+
+    fakeTime.runAll();
+    await promise;
+  });
+
   it("resolves undefined for single missing symbol", (t, onFinish) => {
     const devel = { id: "quoteCombine-NONEXIST", t, onFinish };
     const promise = yf.quoteCombine("NONEXIST", undefined, { devel })

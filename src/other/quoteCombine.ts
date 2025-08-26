@@ -1,7 +1,7 @@
 /**
  * Utility function will debounce multiple calls and combine them into a
  * single {@linkcode [modules/quote] quote} call, i.e. you'll call `quoteCombine()` many times, and
- * 50ms after the last call, `quote()` will be called once so that only a single
+ * 50ms (default) after the last call, `quote()` will be called once so that only a single
  * HTTP request is sent to collect the data for all symbols.
  *
  * @example
@@ -29,6 +29,10 @@
  *
  * - It's fine if your code calls `quoteCombine()` many times for the same symbol. The symbol will be queried only once, and returned many times.
  *
+ * - You can override the defaults with `const yahooFinance = new YahooFinance({
+ *     quoteCombine: QuoteCombineOptions
+ *   })`, see {@linkcode QuoteCombineOptions} for more details.
+ *
  * @module quoteCombine
  */
 
@@ -54,14 +58,39 @@ import validateAndCoerceTypes from "../lib/validateAndCoerceTypes.ts";
 import schema from "../modules/quote.schema.json" with { type: "json" };
 const definitions = getTypedDefinitions(schema);
 
-const DEBOUNCE_TIME = 50;
-
 const slugMap = new Map();
 
 /**
- * Debounce multiple calls into a single `quote()` network request.
+ * Pass as `new YahooFinance({ quoteCombine: options })` to override the defaults.
  *
- * @see See the {@link [other/quoteCombine] quoteCombine module} docs for examples and more.
+ * @example
+ * ```ts
+ * const yahooFinance = new YahooFinance({
+ *   quoteCombine: {
+ *     maxSymbolsPerRequest: 50,
+ *     debounceTime: 100,
+ *   },
+ * });
+ * ```
+ */
+export interface QuoteCombineOptions {
+  /** The maximum number of symbols to include in a single request, default: 100 */
+  maxSymbolsPerRequest?: number;
+  /** The amount of time (in milliseconds) to debounce requests, default: 50 */
+  debounceTime?: number;
+}
+
+/** quoteCombine defaults.  Override with `new Yahoo Finance({ quoteCombine: options })`. */
+export const defaultOptions: QuoteCombineOptions = {
+  maxSymbolsPerRequest: 100,
+  debounceTime: 50,
+};
+
+/**
+ * Debounce multiple calls into a single {@linkcode [modules/quote] quote()} network request.
+ *
+ * **See the {@link [other/quoteCombine] quoteCombine module} docs for examples and more.**
+ * @see {@link [other/quoteCombine] quoteCombine module} docs for examples and more.
  */
 export default function quoteCombine(
   this: ModuleThis,
@@ -71,9 +100,10 @@ export default function quoteCombine(
 ): Promise<Quote>;
 
 /**
- * Debounce multiple calls into a single `quote()` network request.
+ * Debounce multiple calls into a single {@linkcode [modules/quote] quote()} network request.
  *
- * @see See the {@link [other/quoteCombine] quoteCombine module} docs for examples and more.
+ * **See the {@link [other/quoteCombine] quoteCombine module} docs for examples and more.**
+ * @see {@link [other/quoteCombine] quoteCombine module} docs for examples and more.
  */
 export default function quoteCombine(
   this: ModuleThis,
@@ -125,9 +155,25 @@ export default function quoteCombine(
   }
 
   // Make sure we only combine requests with same options
-  const slug = JSON.stringify(queryOptionsOverrides);
+  const _slug = JSON.stringify(queryOptionsOverrides);
 
-  let entry = slugMap.get(slug);
+  let entry = slugMap.get(_slug);
+  if (!entry) {
+    entry = {
+      timeout: null,
+      queryOptionsOverrides,
+      symbols: new Map(),
+    };
+    slugMap.set(_slug, entry);
+  }
+
+  let i = 1, slug = _slug;
+  while (
+    entry && entry.symbols.size >= this._opts.quoteCombine!.maxSymbolsPerRequest
+  ) {
+    slug = `${_slug}-${i++}`;
+    entry = slugMap.get(slug);
+  }
   if (!entry) {
     entry = {
       timeout: null,
@@ -185,6 +231,6 @@ export default function quoteCombine(
           for (const promise of symbolPromiseCallbacks) promise.reject(error);
         }
       });
-    }, DEBOUNCE_TIME);
+    }, this._opts.quoteCombine!.debounceTime);
   });
 }

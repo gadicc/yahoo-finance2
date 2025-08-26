@@ -7,6 +7,7 @@
 import type { ValidationOptions } from "./validateAndCoerceTypes.ts";
 import type { QueueOptions } from "./queue.ts";
 import type { NOTICE_IDS } from "./notices.ts";
+import type { QuoteCombineOptions } from "@gadicc/yahoo-finance2/other/quoteCombine";
 
 export interface YahooFinanceOptions {
   YF_QUERY_HOST?: string;
@@ -17,4 +18,5 @@ export interface YahooFinanceOptions {
   // The following are added back in options.ts to avoid json-schema
   // cookieJar?: ExtendedCookieJar;
   // logger?: Logger;
+  quoteCombine?: QuoteCombineOptions;
 }
