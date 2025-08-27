@@ -428,7 +428,7 @@ export default function getCrumb(
   notices: Notices,
   url = "https://finance.yahoo.com/quote/AAPL",
   __getCrumb = _getCrumb,
-) {
+): Promise<string | null> {
   notices.show("yahooSurvey");
 
   if (!promise) {
