@@ -7,7 +7,7 @@
 import type { ValidationOptions } from "./validateAndCoerceTypes.ts";
 import type { QueueOptions } from "./queue.ts";
 import type { NOTICE_IDS } from "./notices.ts";
-import type { QuoteCombineOptions } from "@gadicc/yahoo-finance2/other/quoteCombine";
+import type { QuoteCombineOptions } from "../other/quoteCombine.ts";
 
 export interface YahooFinanceOptions {
   YF_QUERY_HOST?: string;
