@@ -1123,7 +1123,14 @@
       "additionalProperties": false
     },
     "ScreenerResult": {
-      "anyOf": [
+      "type": "object",
+      "discriminator": {
+        "propertyName": "canonicalName"
+      },
+      "required": [
+        "canonicalName"
+      ],
+      "oneOf": [
         {
           "$ref": "#/definitions/ScreenerResultAggressiveSmallCaps"
         },

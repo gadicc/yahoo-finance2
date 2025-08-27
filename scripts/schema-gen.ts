@@ -57,7 +57,7 @@ function createSchema(path: string, force = false, verbose = false) {
     discriminatorType: "open-api",
     // skipTypeCheck: true,
     additionalProperties: false,
-    jsDoc: "none",
+    jsDoc: "basic",
     expose: "export",
     topRef: true,
   } as Config as CompletedConfig;

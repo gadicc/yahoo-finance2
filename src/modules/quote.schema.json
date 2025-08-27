@@ -3955,7 +3955,14 @@
       ]
     },
     "Quote": {
-      "anyOf": [
+      "type": "object",
+      "discriminator": {
+        "propertyName": "quoteType"
+      },
+      "required": [
+        "quoteType"
+      ],
+      "oneOf": [
         {
           "$ref": "#/definitions/QuoteAltSymbol"
         },
