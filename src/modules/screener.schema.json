@@ -495,7 +495,6 @@
         "market",
         "messageBoardId",
         "fullExchangeName",
-        "longName",
         "averageDailyVolume3Month",
         "averageDailyVolume10Day",
         "fiftyTwoWeekLowChange",
@@ -545,7 +544,109 @@
           "const": "AGGRESSIVE_SMALL_CAPS"
         },
         "criteriaMeta": {
-          "$ref": "#/definitions/ScreenerCriteriaMeta"
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "includeFields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "change_in_number_of_institutional_holders",
+                  "trading_central_last_close_price_to_fair_value",
+                  "intradaypricechange",
+                  "estimated_revenue_growth",
+                  "intradaymarketcap",
+                  "morningstar_previous_rating",
+                  "fiftytwowkhigh",
+                  "pctheldinst",
+                  "morningstar_last_close_price_to_fair_value",
+                  "shares_bought_by_funds",
+                  "ror_percent",
+                  "morningstar_rating",
+                  "sector",
+                  "peratio.lasttwelvemonths",
+                  "bullish_proportion",
+                  "percent_change_in_number_of_institutional_holders",
+                  "number_of_institutional_sellers",
+                  "morningstar_stewardship",
+                  "lastclosetevebit.lasttwelvemonths",
+                  "percentchange",
+                  "morningstar_economic_moat",
+                  "percent_of_shares_outstanding_bought_by_institutions",
+                  "day_open_price",
+                  "morningstar_rating_change",
+                  "number_of_institutional_holders",
+                  "percent_in_funds_holding",
+                  "exchange",
+                  "percent_of_shares_outstanding_sold_by_institutions",
+                  "dayvolume",
+                  "bearish_proportion",
+                  "morningstar_fair_value",
+                  "sold_proportion",
+                  "industry",
+                  "morningstar_uncertainty",
+                  "shares_sold_by_funds",
+                  "fair_value",
+                  "bought_proportion",
+                  "percent_in_top_ten_holdings",
+                  "avgdailyvol3m",
+                  "last_close_price_to_nnwc_per_share",
+                  "estimated_earnings_growth",
+                  "ticker",
+                  "longname_us_en-us",
+                  "percent_change_in_shares_held_by_funds",
+                  "number_of_institutional_buyers",
+                  "companyshortname",
+                  "intradayprice",
+                  "change_in_shares_held_by_funds",
+                  "indices",
+                  "neutral_proportion",
+                  "latest_holdings_report_date",
+                  "fiftytwowklow",
+                  "value_description",
+                  "average_analyst_rating",
+                  "region",
+                  "epsgrowth.lasttwelvemonths",
+                  "quarterlyrevenuegrowth.quarterly"
+                ]
+              }
+            },
+            "size": {
+              "type": "number"
+            },
+            "offset": {
+              "type": "number"
+            },
+            "sortField": {
+              "type": "string"
+            },
+            "sortType": {
+              "type": "string"
+            },
+            "quoteType": {
+              "type": "string"
+            },
+            "criteria": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScreenerCriterum"
+              }
+            },
+            "topOperator": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "criteria",
+            "includeFields",
+            "offset",
+            "quoteType",
+            "size",
+            "sortField",
+            "sortType",
+            "topOperator"
+          ]
         },
         "rawCriteria": {
           "type": "string"
@@ -841,7 +942,9 @@
                   "fiftytwowklow",
                   "value_description",
                   "average_analyst_rating",
-                  "region"
+                  "region",
+                  "epsgrowth.lasttwelvemonths",
+                  "quarterlyrevenuegrowth.quarterly"
                 ]
               }
             },
@@ -1021,7 +1124,191 @@
                   "fiftytwowklow",
                   "value_description",
                   "average_analyst_rating",
-                  "region"
+                  "region",
+                  "epsgrowth.lasttwelvemonths",
+                  "quarterlyrevenuegrowth.quarterly"
+                ]
+              }
+            },
+            "size": {
+              "type": "number"
+            },
+            "offset": {
+              "type": "number"
+            },
+            "sortField": {
+              "type": "string"
+            },
+            "sortType": {
+              "type": "string"
+            },
+            "quoteType": {
+              "type": "string"
+            },
+            "criteria": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ScreenerCriterum"
+              }
+            },
+            "topOperator": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "criteria",
+            "includeFields",
+            "offset",
+            "quoteType",
+            "size",
+            "sortField",
+            "sortType",
+            "topOperator"
+          ]
+        },
+        "rawCriteria": {
+          "type": "string"
+        },
+        "start": {
+          "type": "number"
+        },
+        "count": {
+          "type": "number"
+        },
+        "total": {
+          "type": "number"
+        },
+        "quotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScreenerQuote"
+          }
+        },
+        "useRecords": {
+          "type": "boolean"
+        },
+        "predefinedScr": {
+          "type": "boolean"
+        },
+        "versionId": {
+          "type": "number"
+        },
+        "creationDate": {
+          "type": "number"
+        },
+        "lastUpdated": {
+          "type": "number"
+        },
+        "isPremium": {
+          "type": "boolean"
+        },
+        "iconUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonicalName",
+        "count",
+        "creationDate",
+        "criteriaMeta",
+        "description",
+        "iconUrl",
+        "id",
+        "isPremium",
+        "lastUpdated",
+        "predefinedScr",
+        "quotes",
+        "rawCriteria",
+        "start",
+        "title",
+        "total",
+        "useRecords",
+        "versionId"
+      ],
+      "additionalProperties": false
+    },
+    "ScreenerResultGrowthTechnologyStocks": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "canonicalName": {
+          "type": "string",
+          "const": "GROWTH_TECHNOLOGY_STOCKS"
+        },
+        "criteriaMeta": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "includeFields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "change_in_number_of_institutional_holders",
+                  "trading_central_last_close_price_to_fair_value",
+                  "intradaypricechange",
+                  "estimated_revenue_growth",
+                  "intradaymarketcap",
+                  "morningstar_previous_rating",
+                  "fiftytwowkhigh",
+                  "pctheldinst",
+                  "morningstar_last_close_price_to_fair_value",
+                  "shares_bought_by_funds",
+                  "ror_percent",
+                  "morningstar_rating",
+                  "sector",
+                  "peratio.lasttwelvemonths",
+                  "bullish_proportion",
+                  "percent_change_in_number_of_institutional_holders",
+                  "number_of_institutional_sellers",
+                  "morningstar_stewardship",
+                  "lastclosetevebit.lasttwelvemonths",
+                  "percentchange",
+                  "morningstar_economic_moat",
+                  "percent_of_shares_outstanding_bought_by_institutions",
+                  "day_open_price",
+                  "morningstar_rating_change",
+                  "number_of_institutional_holders",
+                  "percent_in_funds_holding",
+                  "exchange",
+                  "percent_of_shares_outstanding_sold_by_institutions",
+                  "dayvolume",
+                  "bearish_proportion",
+                  "morningstar_fair_value",
+                  "sold_proportion",
+                  "industry",
+                  "morningstar_uncertainty",
+                  "shares_sold_by_funds",
+                  "fair_value",
+                  "bought_proportion",
+                  "percent_in_top_ten_holdings",
+                  "avgdailyvol3m",
+                  "last_close_price_to_nnwc_per_share",
+                  "estimated_earnings_growth",
+                  "ticker",
+                  "longname_us_en-us",
+                  "percent_change_in_shares_held_by_funds",
+                  "number_of_institutional_buyers",
+                  "companyshortname",
+                  "intradayprice",
+                  "change_in_shares_held_by_funds",
+                  "indices",
+                  "neutral_proportion",
+                  "latest_holdings_report_date",
+                  "fiftytwowklow",
+                  "value_description",
+                  "average_analyst_rating",
+                  "region",
+                  "epsgrowth.lasttwelvemonths",
+                  "quarterlyrevenuegrowth.quarterly"
                 ]
               }
             },
@@ -1142,6 +1429,9 @@
         },
         {
           "$ref": "#/definitions/ScreenerResultDayLosers"
+        },
+        {
+          "$ref": "#/definitions/ScreenerResultGrowthTechnologyStocks"
         }
       ]
     },

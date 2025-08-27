@@ -19,11 +19,12 @@ describe("screener", () => {
     "conservative_foreign_funds",
     "day_gainers",
     "day_losers",
+    "growth_technology_stocks",
   ])(
     "passes validation for predefined screener '%s'",
     async (predefined_screener, t, onFinish) => {
       await yf.screener(
-        { scrIds: predefined_screener },
+        { scrIds: predefined_screener, count: 20 },
         {
           devel: { id: `screener-${predefined_screener}`, t, onFinish },
         },

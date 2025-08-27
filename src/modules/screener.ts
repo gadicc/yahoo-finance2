@@ -310,6 +310,9 @@ export interface ScreenerResultBase {
 
 export interface ScreenerResultAggressiveSmallCaps extends ScreenerResultBase {
   canonicalName: "AGGRESSIVE_SMALL_CAPS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
 }
 
 export interface ScreenerResultConservativeForeignFunds
@@ -412,7 +415,9 @@ type ScreenerCriteriaFieldDaily =
   | "percentchange"
   | "intradayprice"
   | "region"
-  | "dayvolume";
+  | "dayvolume"
+  | "epsgrowth.lasttwelvemonths"
+  | "quarterlyrevenuegrowth.quarterly";
 
 export interface ScreenerResultDayGainers extends ScreenerResultBase {
   canonicalName: "DAY_GAINERS";
@@ -428,6 +433,14 @@ export interface ScreenerResultDayLosers extends ScreenerResultBase {
   };
 }
 
+export interface ScreenerResultGrowthTechnologyStocks
+  extends ScreenerResultBase {
+  canonicalName: "GROWTH_TECHNOLOGY_STOCKS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
 /**
  * @discriminator canonicalName
  */
@@ -435,7 +448,8 @@ export type ScreenerResult =
   | ScreenerResultAggressiveSmallCaps
   | ScreenerResultConservativeForeignFunds
   | ScreenerResultDayGainers
-  | ScreenerResultDayLosers;
+  | ScreenerResultDayLosers
+  | ScreenerResultGrowthTechnologyStocks;
 
 export interface ScreenerCriteriaMeta {
   size: number;
@@ -488,7 +502,7 @@ export interface ScreenerQuote {
   market: string;
   messageBoardId: string;
   fullExchangeName: string;
-  longName: string;
+  longName?: string;
   financialCurrency?: string;
   regularMarketOpen?: number;
   averageDailyVolume3Month: number;
