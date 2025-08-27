@@ -68,26 +68,31 @@ changes. This only affects `.ts` files that contain a `@yf-schema` keyword.
 
 `deno task test`
 
-NB: HTTP requests are cached to disk. This ensures we can run all tests quickly
-and consistently across repos. Guidance on how to retrieve fresh data will
-follow, in the meantime, just delete the relevant file in `tests/fixtures/http`.
-We use the [fetch-mock-cache](https://www.npmjs.com/package/fetch-mock-cache)
-library for this.
+NB: HTTP requests are cached to disk. This ensures we can re-run all tests
+quickly and consistently across repos (my dev box does 1,252 tests in 793ms). We
+use the [fetch-mock-cache](https://www.npmjs.com/package/fetch-mock-cache)
+library for this. Make sure the test `describe()` block calls `setupCache()`,
+imported from [tests/common.ts](./tests/common.ts), which may also be a useful
+read for those interested.
 
-Set the environment variable `FETCH_DEVEL=nocache` to force run all network
+Set the environment variable `FETCH_DEVEL=nocache` to force-run all network
 tests without the cache. Set `FETCH_DEVEL=recache` to do the same, but also
 rewrite the cache for any failing tests. In both cases, skipped for ids ending
 `.static` or `.fake`, which are fixtures we never want to update because they
-rely on time-sensitive data or made up data, respectively. Most of this code
-lives in [tests/common.ts](./tests/common.ts).
+rely on time-sensitive data or made up data, respectively.
+
+You can also simply delete a test file to force its recreation on the next test
+run, just make sure not to delete `.static.json` or `.fake.json` files, and
+consider if anything actually changed that justifies committing the new file to
+the repo.
 
 <a name="linting"></a>
 
 ### Linting, formatting
 
 Done automatically for you in VSCode with the official Deno extension. If you
-use a different editor, please `deno lint` and `deno fmt` before submitting pull
-requests.
+use a different editor, see if it also has a Deno extension, otherwise, please
+run `deno lint` and `deno fmt` before submitting pull requests.
 
 <a name="docs"></a>
 
@@ -112,8 +117,10 @@ Commit messages should follow the
 [conventionalcommits](https://www.conventionalcommits.org/) standard (basically
 Angular). This is important as we use
 [semantic-release](https://github.com/semantic-release/semantic-release) to
-automate releases and [CHANGELOG](./CHANGELOG.md) entries when we merge back to
-master.
+automate [release](https://github.com/gadicc/yahoo-finance2/releases) (with
+their release notes) when we merge back to release branches like `main`, `2.x`,
+`next`, `next-major`, etc. Tags like `fix`, `feat`, `BREAKING CHANGE` affect the
+resulting semver version and release channel.
 
 <a name="other"></a>
 
@@ -122,7 +129,7 @@ master.
 We're still writing these docs ahead of the official v3 release. Let us know if
 you need help, or if anything could have been explained better.
 
-## Version 2 to update
+# Old Version 2 doc sections still to be updated:
 
 ## Testing
 
@@ -153,12 +160,3 @@ For a model example, see the
 [recommendationsBySymbol PR](https://github.com/gadicc/node-yahoo-finance2/pull/28)
 by [@pudgereyem](https://github.com/pudgereyem). However, always base your work
 on the most current code.
-
-Things to be aware of:
-
-1. Some Yahoo results vary by time, e.g. when particular markets are open,
-   closed, in pre-trading etc. It may help to run your validation tests with
-   `FETCH_DEVEL=nocache` (see [Devel Mode](#devel-mode), above) at different
-   times of the day to make sure you've covered all cases. If you find something
-   that doesn't pass, please add another permanent/cached test for it in the
-   spec file.
