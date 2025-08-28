@@ -1,4 +1,3 @@
-import { set } from "../index.ts";
 import type {
   DataCtx,
   JSONSchema,

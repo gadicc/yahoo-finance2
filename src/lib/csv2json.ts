@@ -12,14 +12,16 @@ function camelize(str: string): string {
     .join("");
 }
 
-function convert(input: any) {
-  if (input.match(/\d{4,4}-\d{2,2}-\d{2,2}/)) return new Date(input);
-  if (input.match(/^[0-9\.]+$/)) return parseFloat(input);
-  if (input === "null") return null;
+function convert(input: unknown) {
+  if (typeof input === "string") {
+    if (input.match(/\d{4,4}-\d{2,2}-\d{2,2}/)) return new Date(input);
+    if (input.match(/^[0-9\.]+$/)) return parseFloat(input);
+    if (input === "null") return null;
+  }
   return input;
 }
 
-export default function csv2json(csv: string): Array<any> {
+export default function csv2json(csv: string): Array<Record<string, unknown>> {
   const lines = csv.split("\n");
 
   // Actually we should handle this case, i.e. headers but no data.
@@ -31,7 +33,7 @@ export default function csv2json(csv: string): Array<any> {
 
   for (let i = 0; i < lines.length; i++) {
     const inRow = lines[i].split(DELIMITER);
-    const outRow: any = (out[i] = {});
+    const outRow: Record<string, unknown> = (out[i] = {});
     for (let j = 0; j < inRow.length; j++) {
       outRow[headers[j]] = convert(inRow[j]);
     }

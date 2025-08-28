@@ -63,7 +63,7 @@ describe("recommendationsBySymbol", () => {
     expect(result.symbol).toBe("AAPL");
   });
 
-  it("throws on weird result", async (t, onFinish) => {
+  it("throws on weird result", (t, onFinish) => {
     const devel = { id: "weirdJsonResult.fake", t, onFinish };
     return expect(
       yf.recommendationsBySymbol("AAPL", {}, { devel }),
