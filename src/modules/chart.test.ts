@@ -4,12 +4,12 @@ import {
   expect,
   it,
   setupCache,
+  spy,
+  spyLogger,
   testSymbols,
 } from "../../tests/common.ts";
-import { spy } from "@std/testing/mock";
 
 import chart from "./chart.ts";
-import { consoleRestore, consoleSilent } from "../../tests/console.js";
 
 const YahooFinance = createTestYahooFinance({ modules: { chart } });
 const yf = new YahooFinance();
@@ -163,15 +163,16 @@ describe("chart", () => {
   });
 
   it("throws on malformed result", (t, onFinish) => {
+    const logger = spyLogger();
+    const yf = new YahooFinance({ logger });
+
     return expect((() => {
-      consoleSilent();
       return yf
         .chart(
           "AAPL",
           { period1: "2020-01-01" },
           { devel: { id: "weirdJsonResult.fake", t, onFinish } },
-        )
-        .finally(consoleRestore);
+        );
     })()).rejects.toMatchObject({ message: /Unexpected/ });
   });
 

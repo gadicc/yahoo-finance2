@@ -4,9 +4,9 @@ import {
   expect,
   it,
   setupCache,
+  spyLogger,
   testSymbols,
 } from "../../tests/common.ts";
-import { consoleRestore, consoleSilent } from "../../tests/console.js";
 
 import fundamentalsTimeSeries from "./fundamentalsTimeSeries.ts";
 
@@ -268,7 +268,9 @@ describe("fundamentalsTimeSeries", () => {
   });
 
   it("throws if module not set", async () => {
-    consoleSilent();
+    const logger = spyLogger();
+    const yf = new YahooFinance({ logger });
+
     await expect(
       // @ts-expect-error: intentional invalid options check
       yf.fundamentalsTimeSeries("TSLA", {
@@ -276,7 +278,6 @@ describe("fundamentalsTimeSeries", () => {
         period2: "2021-01-01",
       }),
     ).rejects.toThrow(/called with invalid options/);
-    consoleRestore();
   });
 
   /*

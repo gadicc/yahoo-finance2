@@ -4,15 +4,17 @@ import {
   expect,
   it,
   setupCache,
+  spyLogger,
   testSymbols,
 } from "../../tests/common.ts";
 
 import historical from "./historical.ts";
 import chart from "./chart.ts";
-import { consoleRestore, consoleSilent } from "../../tests/console.js";
 
 const YahooFinance = createTestYahooFinance({ modules: { historical, chart } });
-const yf = new YahooFinance();
+const yf = new YahooFinance({
+  suppressNotices: ["yahooSurvey", "ripHistorical"],
+});
 
 describe("historical", () => {
   setupCache();
@@ -60,7 +62,9 @@ describe("historical", () => {
   });
 
   it("throws if period{1,2} gets an invalid string for new Date()", async () => {
-    consoleSilent();
+    const logger = spyLogger();
+    const yf = new YahooFinance({ logger });
+
     await expect(yf.historical("TSLA", { period1: "invalid" })).rejects.toThrow(
       // /invalid date provided/,
       /yahooFinance.historical called with invalid options/,
@@ -69,7 +73,6 @@ describe("historical", () => {
     await expect(
       yf.historical("TSLA", { period1: "2022-02-022", period2: "invalid" }),
     ).rejects.toThrow(/invalid date provided/);
-    consoleRestore();
   });
 
   it("dividends pass validation (#557)", async (t, onFinish) => {
@@ -187,7 +190,9 @@ describe("historical", () => {
 
       if (PERFORM_FAKE_TESTS) {
         it("throws on a row with some nulls", () => {
-          consoleSilent();
+          const logger = spyLogger();
+          const yf = new YahooFinance({ logger });
+
           return expect(
             yf
               .historical(
@@ -195,7 +200,6 @@ describe("historical", () => {
                 { period1: 1567728000, period2: 1570665600 },
                 { devel: "historical-EURGBP-nulls.fake.json" },
               )
-              .finally(consoleRestore),
           ).rejects.toThrow("SOME (but not all) null values");
         });
       }
