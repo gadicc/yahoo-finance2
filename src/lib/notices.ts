@@ -8,7 +8,7 @@ type Notice = {
   onceOnly?: boolean;
 };
 
-const notices: Record<string, Notice> = {
+const notices = {
   yahooSurvey: {
     id: "yahooSurvey",
     text:
@@ -27,7 +27,7 @@ const notices: Record<string, Notice> = {
     level: "warn",
     onceOnly: true,
   },
-};
+} satisfies Record<string, Notice>;
 
 export type NOTICE_IDS = keyof typeof notices;
 
