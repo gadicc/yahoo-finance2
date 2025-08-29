@@ -67,6 +67,7 @@ const options: YahooFinanceOptions = {
     },
   },
   quoteCombine: defaultQuoteCombineOptions,
+  versionCheck: true,
 };
 
 export default options;

@@ -375,18 +375,18 @@ export default async function historical(
   moduleOptions?: ModuleOptions,
   // deno-lint-ignore no-explicit-any
 ): Promise<any> {
-  let schemaKey;
+  let _schemaKey;
   this._notices.show("ripHistorical");
 
   if (
     !queryOptionsOverrides.events ||
     queryOptionsOverrides.events === "history"
   ) {
-    schemaKey = "#/definitions/HistoricalHistoryResult";
+    _schemaKey = "#/definitions/HistoricalHistoryResult";
   } else if (queryOptionsOverrides.events === "dividends") {
-    schemaKey = "#/definitions/HistoricalDividendsResult";
+    _schemaKey = "#/definitions/HistoricalDividendsResult";
   } else if (queryOptionsOverrides.events === "split") {
-    schemaKey = "#/definitions/HistoricalStockSplitsResult";
+    _schemaKey = "#/definitions/HistoricalStockSplitsResult";
   } else throw new Error("No such event type:" + queryOptionsOverrides.events);
 
   const queryOpts = { ...queryOptionsDefaults, ...queryOptionsOverrides };
@@ -395,10 +395,11 @@ export default async function historical(
     type: "options",
     object: queryOpts,
     definitions: historicalDefinitions,
-    schemaKey: "#/definitions/HistoricalOptions",
+    schemaOrSchemaKey: "#/definitions/HistoricalOptions",
     options: this._opts.validation,
     logger: this._opts.logger,
     logObj: this._logObj,
+    versionCheck: this._opts.versionCheck,
   });
 
   // Don't forget that queryOpts are already validated and safe-safe.
@@ -414,10 +415,11 @@ export default async function historical(
     type: "options",
     object: chartQueryOpts,
     definitions: chartDefinitions,
-    schemaKey: "#/definitions/ChartOptions",
+    schemaOrSchemaKey: "#/definitions/ChartOptions",
     options: this._opts.validation,
     logger: this._opts.logger,
     logObj: this._logObj,
+    versionCheck: this._opts.versionCheck,
   });
 
   /*
@@ -492,10 +494,11 @@ export default async function historical(
     type: "result",
     object: out,
     definitions: historicalDefinitions,
-    schemaKey,
+    schemaOrSchemaKey: "#/definitions/HistoricalResult",
     options: validationOpts,
     logger: this._opts.logger,
     logObj: this._logObj,
+    versionCheck: this._opts.versionCheck,
   });
 
   return out;

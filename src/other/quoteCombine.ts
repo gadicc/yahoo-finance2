@@ -145,10 +145,11 @@ export default function quoteCombine(
       type: "options",
       object: queryOptionsOverrides,
       definitions,
-      schemaKey: "#/definitions/QuoteOptions",
+      schemaOrSchemaKey: "#/definitions/QuoteOptions",
       options: this._opts.validation,
       logger: this._opts.logger,
       logObj: this._logObj,
+      versionCheck: this._opts.versionCheck,
     });
   } catch (error) {
     if (validateOptions) throw error;

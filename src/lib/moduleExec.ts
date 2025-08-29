@@ -166,10 +166,11 @@ async function moduleExec(
       type: "options",
       object: queryOpts.overrides ?? {},
       definitions: queryOpts.definitions,
-      schemaKey: queryOpts.schemaKey,
+      schemaOrSchemaKey: queryOpts.schemaKey,
       options: this._opts.validation,
       logger: this._opts.logger,
       logObj: this._logObj,
+      versionCheck: this._opts.versionCheck,
     });
   } catch (error) {
     if (validateOptions) throw error;
@@ -240,10 +241,11 @@ async function moduleExec(
       type: "result",
       object: result,
       definitions: resultOpts.definitions,
-      schemaKey: resultOpts.schemaKey,
+      schemaOrSchemaKey: resultOpts.schemaKey,
       options: validationOpts,
       logger: this._opts.logger,
       logObj: this._logObj,
+      versionCheck: this._opts.versionCheck,
     });
   } catch (error) {
     if (validateResult) throw error;

@@ -5,7 +5,7 @@ import validateAndCoerce from "./validate/index.ts";
 import { repository } from "../consts.ts";
 import type { JSONSchema, ValidationError } from "./validate/index.ts";
 import type { Logger } from "./options.ts";
-import { versionCheck } from "./versions.ts";
+import { versionCheck as execVersionCheck } from "./versions.ts";
 
 export function resolvePath(
   obj: Record<string, unknown>,
@@ -30,10 +30,11 @@ export interface ValidateParams {
   type: "options" | "result";
   object: object;
   definitions: JSONSchema["definitions"];
-  schemaKey: string;
+  schemaOrSchemaKey: JSONSchema | string;
   options: ValidationOptions;
   logger: Logger;
   logObj: (obj: unknown, opts?: { depth?: number }) => void;
+  versionCheck: boolean;
 }
 
 const doneAlready = new Map();
@@ -146,15 +147,16 @@ function validate({
   source,
   type,
   object,
-  schemaKey,
+  schemaOrSchemaKey,
   definitions,
   options,
   logger,
   logObj,
+  versionCheck,
 }: ValidateParams): void {
   const _errors = validateAndCoerce(
     object,
-    schemaKey,
+    schemaOrSchemaKey,
     { definitions, logger, logObj },
   );
   // if (_errors === false || !_errors.length) return;
@@ -238,13 +240,16 @@ function validate({
     */
 
     if (options.logErrors === true) {
-      const title = encodeURIComponent("Failed validation: " + schemaKey);
-      logger.info(
-        "The following result did not validate with schema: " + schemaKey,
+      const title = encodeURIComponent(
+        "Failed validation: " + schemaOrSchemaKey,
+      );
+      logger.error(
+        "The following result did not validate with schema: " +
+          schemaOrSchemaKey,
       );
       logObj(errors, { depth: 5 });
       // logObj(object);
-      logger.info(`
+      logger.error(`
 This may happen intermittently and you should catch errors appropriately.  However:  1) if this recently started happening on every request for a symbol that used to work, Yahoo may have changed their API.  2) If this happens on every request for a symbol you've never used before, but not for other symbols, you've found an edge-case (OR, we may just be protecting you from "bad" data sometimes stored for e.g. misspelt symbols on Yahoo's side).
 
 Please see if anyone has reported this previously:
@@ -259,15 +264,17 @@ For information on how to turn off the above logging or skip these errors, see h
 
 At the end of the doc, there's also a section on how to "Help Fix Validation Errors" in case you'd like to contribute to the project.  Most of the time, these fixes are very quick and easy; it's just hard for our small core team to keep up, so help is always appreciated!
 `);
-      versionCheck().then((result) => {
-        if (!result.isLatest) {
-          logger.info(
-            `Additionally, your yahoo-finance2 version out of date: ${result.current} < ${result.latest} (latest)`,
-          );
-        }
-      }).catch((error) => {
-        logger.error(`Failed to check version: ${error.message}`);
-      });
+      if (versionCheck) {
+        execVersionCheck().then((result) => {
+          if (!result.isLatest) {
+            logger.info(
+              `Additionally, your yahoo-finance2 version out of date: ${result.current} < ${result.latest} (latest)`,
+            );
+          }
+        }).catch((error) => {
+          logger.error(`Failed to check version: ${error.message}`);
+        });
+      }
     } /* if (logErrors) */
 
     throw new FailedYahooValidationError("Failed Yahoo Schema validation", {
@@ -277,7 +284,7 @@ At the end of the doc, there's also a section on how to "Help Fix Validation Err
   } /* if (type === 'options') */ else {
     if (options.logOptionsErrors === true) {
       logger.error(
-        `[yahooFinance.${source}] Invalid options ("${schemaKey}")`,
+        `[yahooFinance.${source}] Invalid options ("${schemaOrSchemaKey}")`,
       );
       logObj({ errors, input: object });
     }

@@ -19,4 +19,6 @@ export interface YahooFinanceOptions {
   // cookieJar?: ExtendedCookieJar;
   // logger?: Logger;
   quoteCombine?: QuoteCombineOptions;
+  /** On errors, check if we're using the latest version and notify otherwise (default: true) */
+  versionCheck?: boolean;
 }
