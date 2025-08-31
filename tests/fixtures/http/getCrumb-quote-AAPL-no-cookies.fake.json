@@ -1,0 +1,71 @@
+{
+  "request": {
+    "url": "https://finance.yahoo.com/quote/AAPL",
+    "method": "GET",
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "referrer-policy": [
+        "no-referrer-when-downgrade"
+      ],
+      "strict-transport-security": [
+        "max-age=31536000"
+      ],
+      "x-frame-options": [
+        "SAMEORIGIN"
+      ],
+      "content-security-policy": [
+        "frame-ancestors 'self' https://*.yahoo.com https://*.engadget.com https://*.pnr.ouryahoo.com https://pnr.ouryahoo.com https://*.search.aol.com https://*.onesearch.com https://*.publishing.oath.com https://*.aol.com; sandbox allow-downloads allow-forms allow-modals allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation allow-presentation;"
+      ],
+      "cache-control": [
+        "private, no-store, no-cache, max-age=0"
+      ],
+      "content-type": [
+        "text/html; charset=utf-8"
+      ],
+      "vary": [
+        "Accept-Encoding"
+      ],
+      "content-encoding": [
+        "gzip"
+      ],
+      "date": [
+        "Sun, 07 May 2023 08:13:50 GMT"
+      ],
+      "x-envoy-upstream-service-time": [
+        "583"
+      ],
+      "server": [
+        "ATS"
+      ],
+      "x-envoy-decorator-operation": [
+        "finance-nodejs--mtls-production-ir2.finance-k8s.svc.yahoo.local:4080/*"
+      ],
+      "age": [
+        "0"
+      ],
+      "transfer-encoding": [
+        "chunked"
+      ],
+      "connection": [
+        "close"
+      ],
+      "expect-ct": [
+        "max-age=31536000, report-uri=\"http://csp.yahoo.com/beacon/csp?src=yahoocom-expect-ct-report-only\""
+      ],
+      "x-xss-protection": [
+        "1; mode=block"
+      ],
+      "x-content-type-options": [
+        "nosniff"
+      ]
+    },
+    "bodyText": "blah blah fake"
+  }
+}

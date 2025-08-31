@@ -1,5 +1,6 @@
 import { sprintf } from "@std/fmt/printf";
 import { describe, it as _it } from "@std/testing/bdd";
+export { afterAll, afterEach, beforeAll, beforeEach } from "@std/testing/bdd";
 import { type Async, expect as _expect, type Expected } from "@std/expect";
 import type { Global } from "@jest/types";
 import { getType } from "jest-get-type";
@@ -142,7 +143,7 @@ const setupCache = fetchCacheSetup;
  * us to call `fetchCache._once()` with additional options before
  * the fetch is executed.
  */
-function fetchDevel() {
+export function fetchDevel() {
   function fetchDevel(
     input: Parameters<typeof fetch>[0],
     init?: Parameters<typeof fetch>[1], // & { devel?: boolean | string },

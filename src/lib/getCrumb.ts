@@ -45,13 +45,9 @@ export async function _getCrumb(
   fetchOptionsBase: CrumbOptions,
   logger: Logger,
   url = "https://finance.yahoo.com/quote/AAPL",
-  develOverride = {
+  develOverride: Partial<YahooFinanceFetchModuleOptions["devel"]> = {
     id: "getCrumb-quote-AAPL",
-    // Note, this breaks the existing recache behaviour.  If we ever need that,
-    // we'll need to rewire and bring in the real t,onFinish.  TODO.
-    t: undefined,
-    onFinish: () => {},
-  } as unknown as YahooFinanceFetchModuleOptions["devel"],
+  },
   noCache = false,
 ): Promise<string | null> {
   if (!crumb) {
@@ -94,8 +90,14 @@ export async function _getCrumb(
       // cookie: await cookieJar.getCookieString(url),
     },
     redirect: "manual",
-    devel: fetchOptionsBase.devel && develOverride,
   };
+
+  if (fetchOptionsBase.devel) {
+    fetchOptions.devel = {
+      ...fetchOptionsBase.devel,
+      ...develOverride,
+    };
+  }
 
   const response = await fetch(url, fetchOptions);
   await processSetCookieHeader(response.headers.getSetCookie(), url);
@@ -116,7 +118,7 @@ export async function _getCrumb(
         devel: {
           id: "getCrumb-quote-AAPL-consent.html",
           t: develOverride!.t,
-          onFinish: develOverride!.onFinish,
+          onFinish: develOverride!.onFinish!,
         },
       };
       // Returns 302 to collectConsent?sessionId=XXX
@@ -138,7 +140,7 @@ export async function _getCrumb(
           devel: {
             id: "getCrumb-quote-AAPL-collectConsent.html",
             t: develOverride!.t,
-            onFinish: develOverride!.onFinish,
+            onFinish: develOverride!.onFinish!,
           },
         };
         logger.debug(
@@ -176,7 +178,7 @@ export async function _getCrumb(
           devel: {
             id: "getCrumb-quote-AAPL-collectConsentSubmit",
             t: develOverride!.t,
-            onFinish: develOverride!.onFinish,
+            onFinish: develOverride!.onFinish!,
           },
         };
         logger.debug(
@@ -220,7 +222,7 @@ export async function _getCrumb(
           devel: {
             id: "getCrumb-quote-AAPL-copyConsent",
             t: develOverride!.t,
-            onFinish: develOverride!.onFinish,
+            onFinish: develOverride!.onFinish!,
           },
         };
 
@@ -264,7 +266,7 @@ export async function _getCrumb(
           devel: {
             id: "getCrumb-quote-AAPL-consent-final-redirect.html",
             t: develOverride!.t,
-            onFinish: develOverride!.onFinish,
+            onFinish: develOverride!.onFinish!,
           },
         };
 
@@ -365,7 +367,7 @@ export async function _getCrumb(
     devel: {
       id: "getCrumb-getcrumb",
       t: develOverride!.t,
-      onFinish: develOverride!.onFinish,
+      onFinish: develOverride!.onFinish!,
     },
   };
 
