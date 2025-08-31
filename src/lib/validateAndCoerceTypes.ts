@@ -4,7 +4,7 @@ import { FailedYahooValidationError, InvalidOptionsError } from "./errors.ts";
 import validateAndCoerce from "./validate/index.ts";
 import { repository } from "../consts.ts";
 import type { JSONSchema, ValidationError } from "./validate/index.ts";
-import type { Logger } from "./options.ts";
+import type { Logger } from "./options/logger.ts";
 import { versionCheck as execVersionCheck } from "./versions.ts";
 
 export function resolvePath(

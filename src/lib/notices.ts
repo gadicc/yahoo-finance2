@@ -1,5 +1,5 @@
 import type { YahooFinance } from "../createYahooFinance.ts";
-import type { Logger } from "./options.ts";
+import type { Logger } from "./options/logger.ts";
 
 type Notice = {
   id: string;

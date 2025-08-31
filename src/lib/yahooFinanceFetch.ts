@@ -1,6 +1,6 @@
 import Queue from "./queue.ts";
 
-import type { YahooFinanceOptions } from "./options.ts";
+import type { YahooFinanceOptions } from "./options/options.ts";
 import type { QueueOptions } from "./queue.ts";
 import type Notices from "./notices.ts";
 
@@ -49,6 +49,10 @@ export interface YahooFinanceFetchModuleOptions {
   fetch?: Fetch;
   /** Any options to pass to fetch() just for this request. */
   fetchOptions?: RequestInit; // Parameters<Fetch>[1];
+  /**
+   * Permanently update the instance's queue options.  Affects this and all
+   * future requests.
+   */
   queue?: QueueOptions;
 }
 
@@ -97,8 +101,8 @@ async function yahooFinanceFetch(
   }
 
   // TODO: adds func type to json schema which is not supported
-  //const queue = moduleOpts.queue?._queue || _queue;
-  const queue = _queue;
+  const queue = moduleOpts.queue?._queue || _queue;
+  // const queue = _queue;
   assertQueueOptions(queue, { ...this._opts.queue, ...moduleOpts.queue });
 
   const { fetch: envFetch, fetchDevel } = this._env;

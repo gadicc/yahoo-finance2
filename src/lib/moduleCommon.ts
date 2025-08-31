@@ -1,6 +1,19 @@
 // import type ModuleExec from "./moduleExec.js";
 import type { YahooFinanceFetchModuleOptions } from "./yahooFinanceFetch.ts";
+export type { YahooFinanceFetchModuleOptions };
 
+/**
+ * Common options for all "modules" ({@linkcode [modules/quote] quote()}, etc).
+ * Usually the 3rd parameter in most option calls, i.e.
+ *
+ * @example
+ * ```ts
+ * const moduleOptions = { validateResults: false };
+ * await yf.quote("AAPL", quoteOptions, moduleOptions);
+ * ```
+ *
+ * @see {@linkcode YahooFinanceFetchModuleOptions} for options related to HTTP requests (e.g. custom fetch or fetch options like headers, etc).
+ */
 export interface ModuleOptions extends YahooFinanceFetchModuleOptions {
   /** If false, lib won't validate and will leave that to Yahoo */
   validateOptions?: boolean;

@@ -3,11 +3,44 @@ import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
 import { spy } from "jsr:@std/testing/mock";
 import trendingSymbols from "./modules/trendingSymbols.ts";
+import defaultOptions from "./lib/options/defaults.ts";
 
 describe("createYahooFinance", () => {
   it("inits", () => {
     const YahooFinance = createYahooFinance({ modules: {} });
     new YahooFinance();
+  });
+
+  // See also `lib/options/options.test.ts`.  This tests mostly overrides
+  // from createOpts and instantiation.
+  describe("options", () => {
+    it("uses defaults", () => {
+      const YahooFinance = createYahooFinance({ modules: {} });
+      const yf = new YahooFinance();
+      expect(yf._opts.YF_QUERY_HOST).toBe(defaultOptions.YF_QUERY_HOST);
+    });
+
+    it("can be overriden from createOpts", () => {
+      const YahooFinance = createYahooFinance({
+        modules: {},
+        _opts: { YF_QUERY_HOST: "moo" },
+      });
+      const yf = new YahooFinance();
+      expect(yf._opts.YF_QUERY_HOST).toBe("moo");
+    });
+
+    it("can override on instance", () => {
+      const YahooFinance = createYahooFinance({ modules: {} });
+      const yf = new YahooFinance({ YF_QUERY_HOST: "moo" });
+      expect(yf._opts.YF_QUERY_HOST).toBe("moo");
+    });
+
+    it("can be overridden with _setOpts", () => {
+      const YahooFinance = createYahooFinance({ modules: {} });
+      const yf = new YahooFinance();
+      yf._setOpts({ YF_QUERY_HOST: "moo" });
+      expect(yf._opts.YF_QUERY_HOST).toBe("moo");
+    });
   });
 
   describe("fetch environment", () => {

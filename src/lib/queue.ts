@@ -10,8 +10,9 @@ export interface QueueOptions {
   // TODO: adds func type to json schema which is not supported
   // tmp enabled, might need to remove again.
   _queue?: Queue;
+  /** Max number of simultaneous network requests */
   concurrency?: number;
-  timeout?: number; // TODO
+  // timeout?: number; // TODO
 }
 
 export default class Queue {

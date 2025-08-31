@@ -1,15 +1,12 @@
 /**
  * @module createYahooFinance
  */
-import defaultOptions from "./lib/options.ts";
-import type {
-  YahooFinanceOptions,
-  YahooFinanceOptionsJSON,
-} from "./lib/options.ts";
+import { setOptions, type YahooFinanceOptions } from "./lib/options/options.ts";
 import yahooFinanceFetch from "./lib/yahooFinanceFetch.ts";
 import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
 import { assertSupported } from "./lib/runtime-detect.ts";
+import defaultOptions from "./lib/options/defaults.ts";
 
 const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
   node: "22.0.0",
@@ -49,6 +46,10 @@ export class YahooFinance {
     fetchDevel?: () => typeof fetch;
   };
   _logObj: (obj: unknown, opts?: { depth?: number }) => void;
+
+  _setOpts(options: YahooFinanceOptions) {
+    setOptions.call(this, options);
+  }
 
   constructor(options?: YahooFinanceOptions) {
     this._fetch = yahooFinanceFetch;
@@ -128,8 +129,6 @@ export type YahooFinanceWithModules<T extends CreateYahooFinanceOptions> =
   & {
     [K in keyof T["modules"]]: T["modules"][K];
   };
-
-export type { YahooFinanceOptions, YahooFinanceOptionsJSON };
 
 /**
  * Create a new YahooFinance **class** with the given options (usually a list of modules,

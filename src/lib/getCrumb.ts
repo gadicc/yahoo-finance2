@@ -4,7 +4,7 @@
  */
 import type { ExtendedCookieJar } from "./cookieJar.ts";
 import pkg from "../../deno.json" with { type: "json" };
-import type { Logger } from "./options.ts";
+import type { Logger } from "./options/logger.ts";
 import { Cookie } from "tough-cookie";
 import type Notices from "./notices.ts";
 import type { YahooFinanceFetchModuleOptions } from "./yahooFinanceFetch.ts";
