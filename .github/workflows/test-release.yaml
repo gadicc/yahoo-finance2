@@ -25,6 +25,9 @@ jobs:
 
       - uses: ./.github/actions/setup
 
+      - run: deno fmt --check
+      - run: deno lint
+
       - name: Run tests, produce coverage
         run: deno task test --coverage
 
