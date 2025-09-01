@@ -76,7 +76,10 @@ const { regularMarketPrice as price, currency } = quote;
 
 Available modules:
 [`chart`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/chart),
+[`fundamentalsTimeSeries`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/fundamentalsTimeSeries),
 [`historical`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/historical),
+[`insights`](https://jsr.io/@gadicc/yahoo-finance2/doc/moduless/insights),
+[`options`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/options),
 [`quote`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/quote),
 [`quoteSummary`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/quoteSummary)
 (submodules: assetProfile, balanceSheetHistory, balanceSheetHistoryQuarterly,
@@ -88,11 +91,10 @@ insiderTransactions, institutionOwnership, majorDirectHolders,
 majorHoldersBreakdown, netSharePurchaseActivity, price, quoteType,
 recommendationTrend, secFilings, sectorTrend, summaryDetail, summaryProfile,
 symbol, topHoldings, upgradeDowngradeHistory),
-[`search`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/search),
 [`recommendationsBySymbol`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/recommendationsBySymbol),
-[`trendingSymbols`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/trendingSymbols),
-[`options`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/options),
-[`insights`](https://jsr.io/@gadicc/yahoo-finance2/doc/moduless/insights).
+[`screener`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/screener),
+[`search`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/search),
+[`trendingSymbols`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/trendingSymbols).
 
 Extras:
 [`quoteCombine`](https://jsr.io/@gadicc/yahoo-finance2/doc/other/quoteCombine).
