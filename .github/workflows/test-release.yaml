@@ -33,21 +33,21 @@ jobs:
         with:
           use_oidc: true
 
-#      - name: Prepare packages for next step (remove after non-sha release)
-#        run: cd /home/runner/work/_actions/gaelgirodon/ci-badges-action && npm i -D @actions/core @actions/github @actions/glob
+      #      - name: Prepare packages for next step (remove after non-sha release)
+      #        run: cd /home/runner/work/_actions/gaelgirodon/ci-badges-action && npm i -D @actions/core @actions/github @actions/glob
 
-#      - name: Upload coverage to gist
-#        uses: gaelgirodon/ci-badges-action@4059134f9f9e113d77dd4f05a47db8b62c09848c
-#        with:
-#          gist-id: d3d51b4f829b93d41e5d809dcf2ef03d
-#          token: ${{ secrets.GH_TOKEN_GISTS }}
+      #      - name: Upload coverage to gist
+      #        uses: gaelgirodon/ci-badges-action@4059134f9f9e113d77dd4f05a47db8b62c09848c
+      #        with:
+      #          gist-id: d3d51b4f829b93d41e5d809dcf2ef03d
+      #          token: ${{ secrets.GH_TOKEN_GISTS }}
 
-#      - name: Save runtime tests result to gist
-#        uses: exuanbo/actions-deploy-gist@v1
-#        with:
-#          token: ${{ secrets.GH_TOKEN_GISTS }}
-#          gist_id: 67c118e65298627dc0a3745a06387d88
-#          file_path: ./tests/runtimes/results.yaml
+      #      - name: Save runtime tests result to gist
+      #        uses: exuanbo/actions-deploy-gist@v1
+      #        with:
+      #          token: ${{ secrets.GH_TOKEN_GISTS }}
+      #          gist_id: 67c118e65298627dc0a3745a06387d88
+      #          file_path: ./tests/runtimes/results.yaml
 
       - run: deno task build:npm
 
