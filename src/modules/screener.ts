@@ -315,44 +315,45 @@ export interface ScreenerResultAggressiveSmallCaps extends ScreenerResultBase {
   };
 }
 
+export type ScreenerCriteriaFieldsFund =
+  | "fundnetassets"
+  | "sold_proportion"
+  | "annualreportnetexpenseratio"
+  | "performanceratingoverall"
+  | "intradaypricechange"
+  | "bought_proportion"
+  | "fiftytwowkhigh"
+  | "fiftydaymovingavg"
+  | "ticker"
+  | "longname_us_en-us"
+  | "percentchange"
+  | "companyshortname"
+  | "intradayprice"
+  | "annualreturnnavy5"
+  | "day_open_price"
+  | "annualreturnnavy3"
+  | "annualreturnnavy1"
+  | "annualreportgrossexpenseratio"
+  | "twohundreddaymovingavg"
+  | "pe_ttm"
+  | "yield_ttm"
+  | "exchange"
+  | "fiftytwowklow"
+  | "riskratingoverall"
+  | "trailing_ytd_return"
+  | "trailing_3m_return"
+  | "annualreturnnavy1categoryrank"
+  | "categoryname"
+  | "performanceratingoverall"
+  | "exchange"
+  | "riskratingoverall"
+  | "initialinvestment";
+
 export interface ScreenerResultConservativeForeignFunds
   extends ScreenerResultBase {
   canonicalName: "CONSERVATIVE_FOREIGN_FUNDS";
   criteriaMeta: ScreenerCriteriaMeta & {
-    includeFields: (
-      | "fundnetassets"
-      | "sold_proportion"
-      | "annualreportnetexpenseratio"
-      | "performanceratingoverall"
-      | "intradaypricechange"
-      | "bought_proportion"
-      | "fiftytwowkhigh"
-      | "fiftydaymovingavg"
-      | "ticker"
-      | "longname_us_en-us"
-      | "percentchange"
-      | "companyshortname"
-      | "intradayprice"
-      | "annualreturnnavy5"
-      | "day_open_price"
-      | "annualreturnnavy3"
-      | "annualreturnnavy1"
-      | "annualreportgrossexpenseratio"
-      | "twohundreddaymovingavg"
-      | "pe_ttm"
-      | "yield_ttm"
-      | "exchange"
-      | "fiftytwowklow"
-      | "riskratingoverall"
-      | "trailing_ytd_return"
-      | "trailing_3m_return"
-      | "annualreturnnavy1categoryrank"
-      | "categoryname"
-      | "performanceratingoverall"
-      | "exchange"
-      | "riskratingoverall"
-      | "initialinvestment"
-    )[];
+    includeFields: ScreenerCriteriaFieldsFund[];
   };
 }
 
@@ -417,7 +418,8 @@ type ScreenerCriteriaFieldDaily =
   | "region"
   | "dayvolume"
   | "epsgrowth.lasttwelvemonths"
-  | "quarterlyrevenuegrowth.quarterly";
+  | "quarterlyrevenuegrowth.quarterly"
+  | "pegratio_5y";
 
 export interface ScreenerResultDayGainers extends ScreenerResultBase {
   canonicalName: "DAY_GAINERS";
@@ -441,6 +443,79 @@ export interface ScreenerResultGrowthTechnologyStocks
   };
 }
 
+export interface ScreenerResultMostActives extends ScreenerResultBase {
+  canonicalName: "MOST_ACTIVES";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
+export interface ScreenerResultHighYieldBond extends ScreenerResultBase {
+  canonicalName: "HIGH_YIELD_BOND";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldsFund[];
+  };
+}
+
+export interface ScreenerResultMostShortedStocks extends ScreenerResultBase {
+  canonicalName: "MOST_SHORTED_STOCKS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
+export interface ScreenerResultPortfolioAnchors extends ScreenerResultBase {
+  canonicalName: "PORTFOLIO_ANCHORS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldsFund[];
+  };
+}
+
+export interface ScreenerResultSmallCapGainers extends ScreenerResultBase {
+  canonicalName: "SMALL_CAP_GAINERS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
+export interface ScreenerResultSolidLargeGrowthFunds
+  extends ScreenerResultBase {
+  canonicalName: "SOLID_LARGE_GROWTH_FUNDS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldsFund[];
+  };
+}
+
+export interface ScreenerResultSolidMidcapGrowthFunds
+  extends ScreenerResultBase {
+  canonicalName: "SOLID_MIDCAP_GROWTH_FUNDS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldsFund[];
+  };
+}
+
+export interface ScreenerResultTopMutualFunds extends ScreenerResultBase {
+  canonicalName: "TOP_MUTUAL_FUNDS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldsFund[];
+  };
+}
+
+export interface ScreenerResultUndervaluedGrowthStocks
+  extends ScreenerResultBase {
+  canonicalName: "UNDERVALUED_GROWTH_STOCKS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
+export interface ScreenerResultUndervaluedLargeCaps extends ScreenerResultBase {
+  canonicalName: "UNDERVALUED_LARGE_CAPS";
+  criteriaMeta: ScreenerCriteriaMeta & {
+    includeFields: ScreenerCriteriaFieldDaily[];
+  };
+}
+
 /**
  * @discriminator canonicalName
  */
@@ -449,7 +524,17 @@ export type ScreenerResult =
   | ScreenerResultConservativeForeignFunds
   | ScreenerResultDayGainers
   | ScreenerResultDayLosers
-  | ScreenerResultGrowthTechnologyStocks;
+  | ScreenerResultGrowthTechnologyStocks
+  | ScreenerResultHighYieldBond
+  | ScreenerResultMostActives
+  | ScreenerResultMostShortedStocks
+  | ScreenerResultPortfolioAnchors
+  | ScreenerResultSmallCapGainers
+  | ScreenerResultSolidLargeGrowthFunds
+  | ScreenerResultSolidMidcapGrowthFunds
+  | ScreenerResultTopMutualFunds
+  | ScreenerResultUndervaluedGrowthStocks
+  | ScreenerResultUndervaluedLargeCaps;
 
 export interface ScreenerCriteriaMeta {
   size: number;
@@ -505,10 +590,10 @@ export interface ScreenerQuote {
   longName?: string;
   financialCurrency?: string;
   regularMarketOpen?: number;
-  averageDailyVolume3Month: number;
-  averageDailyVolume10Day: number;
+  averageDailyVolume3Month?: number;
+  averageDailyVolume10Day?: number;
   fiftyTwoWeekLowChange: number;
-  fiftyTwoWeekLowChangePercent: number;
+  fiftyTwoWeekLowChangePercent?: number;
   fiftyTwoWeekRange: string;
   fiftyTwoWeekHighChange: number;
   fiftyTwoWeekHighChangePercent: number;
@@ -674,19 +759,3 @@ export default function screener(
     moduleOptions,
   });
 }
-
-// aggressive_small_caps
-// conservative_foreign_funds
-// day_gainers
-// day_losers
-// growth_technology_stocks
-// high_yield_bond
-// most_actives
-// most_shorted_stocks
-// portfolio_anchors
-// small_cap_gainers
-// solid_large_growth_funds
-// solid_midcap_growth_funds
-// top_mutual_funds
-// undervalued_growth_stocks
-// undervalued_large_caps
