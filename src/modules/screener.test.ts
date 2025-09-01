@@ -34,6 +34,7 @@ describe("screener", () => {
     async (predefined_screener, t, onFinish) => {
       await yf.screener(
         { scrIds: predefined_screener, count: 20 },
+        undefined,
         {
           devel: { id: `screener-${predefined_screener}`, t, onFinish },
         },
@@ -47,6 +48,7 @@ describe("screener", () => {
     async (predefined_screener, t, onFinish) => {
       await yf.screener(
         predefined_screener,
+        undefined,
         {
           devel: { id: `screener-${predefined_screener}`, t, onFinish },
         },
@@ -57,7 +59,7 @@ describe("screener", () => {
   it("throws on weird result", (t, onFinish) => {
     const devel = { id: "weirdJsonResult.fake", t, onFinish };
     return expect(
-      yf.screener({ scrIds: "aggressive_small_caps" }, { devel }),
+      yf.screener({ scrIds: "aggressive_small_caps" }, undefined, { devel }),
     ).rejects.toThrow(/^Unexpected result/);
   });
 });

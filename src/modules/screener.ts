@@ -669,7 +669,8 @@ export interface ScreenerOptions {
  */
 export default function screener(
   this: ModuleThis,
-  queryOptionsOverrides?: PredefinedScreenerModules | ScreenerOptions,
+  scrIdOrOverrides: PredefinedScreenerModules | ScreenerOptions,
+  queryOptionsOverrides?: ScreenerOptions,
   moduleOptions?: ModuleOptionsWithValidateTrue,
 ): Promise<ScreenerResult>;
 
@@ -681,7 +682,8 @@ export default function screener(
  */
 export default function screener(
   this: ModuleThis,
-  queryOptionsOverrides?: PredefinedScreenerModules | ScreenerOptions,
+  scrIdOrOverrides: PredefinedScreenerModules | ScreenerOptions,
+  queryOptionsOverrides?: ScreenerOptions,
   moduleOptions?: ModuleOptionsWithValidateFalse,
 ): Promise<unknown>;
 
@@ -693,12 +695,14 @@ export default function screener(
  */
 export default function screener(
   this: ModuleThis,
-  queryOptionsOverrides?: PredefinedScreenerModules | ScreenerOptions,
+  scrIdOrOverrides: PredefinedScreenerModules | ScreenerOptions,
+  queryOptionsOverrides?: ScreenerOptions,
   moduleOptions?: ModuleOptions,
 ): Promise<unknown> {
-  if (typeof queryOptionsOverrides === "string") {
-    queryOptionsOverrides = { scrIds: queryOptionsOverrides };
-  }
+  // Accept ("scrId"), ("scrId", {opts}) and { scrIds: scrId, ...opts }
+  queryOptionsOverrides = typeof scrIdOrOverrides === "string"
+    ? { scrIds: scrIdOrOverrides, ...queryOptionsOverrides }
+    : scrIdOrOverrides;
 
   return this._moduleExec({
     moduleName: "screener",
