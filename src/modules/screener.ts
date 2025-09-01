@@ -14,7 +14,9 @@
  * import YahooFinance from "yahoo-finance2";
  * const yahooFinance = new YahooFinance();
  *
- * // Get today's biggest gainers
+ * // Get today's biggest gainers (with optional query overrides)
+ * const gainers = await yahooFinance.screener("day_gainers");
+ * const gainers = await yahooFinance.screener("day_gainers", { count: 10 });
  * const gainers = await yahooFinance.screener({
  *   scrIds: "day_gainers",
  *   count: 10
@@ -30,10 +32,7 @@
  * @example Growth Technology Stocks
  * ```typescript
  * // Screen for growth technology stocks
- * const growthTech = await yahooFinance.screener({
- *   scrIds: "growth_technology_stocks",
- *   count: 20
- * });
+ * const growthTech = await yahooFinance.screener("growth_technology_stocks");
  *
  * console.log('Growth Technology Stocks:');
  * growthTech.quotes.forEach(stock => {
@@ -46,10 +45,7 @@
  * @example Most Active Stocks
  * ```typescript
  * // Find the most actively traded stocks
- * const mostActive = await yahooFinance.screener({
- *   scrIds: "most_actives",
- *   count: 15
- * });
+ * const mostActive = await yahooFinance.screener("most_actives");
  *
  * console.log('Most Active Stocks:');
  * mostActive.quotes.forEach(stock => {
@@ -61,10 +57,7 @@
  * @example Undervalued Large Caps
  * ```typescript
  * // Screen for potentially undervalued large-cap stocks
- * const undervalued = await yahooFinance.screener({
- *   scrIds: "undervalued_large_caps",
- *   count: 25
- * });
+ * const undervalued = await yahooFinance.screener("undervalued_large_caps");
  *
  * // Analyze value metrics
  * console.log('Undervalued Large Cap Analysis:');
@@ -83,10 +76,7 @@
  * @example Small Cap Gainers
  * ```typescript
  * // Find small-cap stocks with strong performance
- * const smallCapGainers = await yahooFinance.screener({
- *   scrIds: "small_cap_gainers",
- *   count: 20
- * });
+ * const smallCapGainers = await yahooFinance.screener("small_cap_gainers");
  *
  * // Filter by market cap and volume for liquidity
  * const liquidSmallCaps = smallCapGainers.quotes.filter(stock =>
@@ -105,10 +95,7 @@
  * @example High Yield Bonds Analysis
  * ```typescript
  * // Screen for high-yield bond funds
- * const highYieldBonds = await yahooFinance.screener({
- *   scrIds: "high_yield_bond",
- *   count: 30
- * });
+ * const highYieldBonds = await yahooFinance.screener("high_yield_bond", { count: 10 });
  *
  * console.log('High Yield Bond Analysis:');
  * highYieldBonds.quotes.forEach(fund => {
@@ -146,10 +133,7 @@
  * @example Most Shorted Stocks Analysis
  * ```typescript
  * // Analyze heavily shorted stocks
- * const mostShorted = await yahooFinance.screener({
- *   scrIds: "most_shorted_stocks",
- *   count: 25
- * });
+ * const mostShorted = await yahooFinance.screener("most_shorted_stocks");
  *
  * console.log('Most Shorted Stocks Analysis:');
  * mostShorted.quotes.forEach(stock => {
@@ -166,15 +150,8 @@
  * @example Conservative Investment Screening
  * ```typescript
  * // Screen for conservative investments
- * const conservativeFunds = await yahooFinance.screener({
- *   scrIds: "conservative_foreign_funds",
- *   count: 15
- * });
- *
- * const portfolioAnchors = await yahooFinance.screener({
- *   scrIds: "portfolio_anchors",
- *   count: 15
- * });
+ * const conservativeFunds = await yahooFinance.screener("conservative_foreign_funds");
+ * const portfolioAnchors = await yahooFinance.screener("portfolio_anchors");
  *
  * console.log('Conservative Investment Options:');
  * console.log('\nConservative Foreign Funds:');
@@ -191,20 +168,9 @@
  * @example Mutual Fund Analysis
  * ```typescript
  * // Analyze top-performing mutual funds
- * const topMutualFunds = await yahooFinance.screener({
- *   scrIds: "top_mutual_funds",
- *   count: 20
- * });
- *
- * const solidLargeGrowth = await yahooFinance.screener({
- *   scrIds: "solid_large_growth_funds",
- *   count: 15
- * });
- *
- * const solidMidcap = await yahooFinance.screener({
- *   scrIds: "solid_midcap_growth_funds",
- *   count: 15
- * });
+ * const topMutualFunds = await yahooFinance.screener("top_mutual_funds");
+ * const solidLargeGrowth = await yahooFinance.screener("solid_large_growth_funds");
+ * const solidMidcap = await yahooFinance.screener("solid_midcap_growth_funds");
  *
  * console.log('Mutual Fund Analysis:');
  * [
