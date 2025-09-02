@@ -482,6 +482,16 @@ export interface QuoteEquity extends QuoteBase {
 }
 
 /**
+ * Electronic Communication Network quote, i.e. a a price coming from an
+ * ECN/ATS rather than the primary exchange book.  ECNs are electronic
+ * venues that match orders directly (and are heavily used for pre- and
+ * post-market trading).
+ */
+export interface QuoteECNQuote extends Omit<QuoteEquity, "quoteType"> {
+  quoteType: "ECNQUOTE";
+}
+
+/**
  * Futures contract quote data.
  */
 export interface QuoteFuture extends QuoteBase {
@@ -572,6 +582,7 @@ export interface QuoteAltSymbol extends QuoteBase {
  *
  * The actual interface returned depends on the `quoteType` field:
  * - `"ALTSYMBOL"` → QuoteAltSymbol
+ * - `"ECNQUOTE"` → QuoteECNQuote
  * - `"EQUITY"` → QuoteEquity
  * - `"ETF"` → QuoteEtf
  * - `"CRYPTOCURRENCY"` → QuoteCryptoCurrency
@@ -588,6 +599,7 @@ export type Quote =
   | QuoteAltSymbol
   | QuoteCryptoCurrency
   | QuoteCurrency
+  | QuoteECNQuote
   | QuoteEtf
   | QuoteEquity
   | QuoteFuture

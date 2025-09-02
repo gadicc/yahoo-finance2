@@ -37,6 +37,8 @@ describe("quote", () => {
       "ZGLD.SW", // ETF with no netAssets (#916)
       "B0K25.NYM", // FUTURE with no `headSymbolAsString` (#917)
       "ZNC=F", // ALTSYMBOL (#946)
+      "NZ", // ECNQUOTE (#464)
+      "NIK", // ECNQUOTE (#464)
     ],
   });
 
@@ -115,7 +117,6 @@ describe("quote", () => {
     const devel = { id: "quote-TSLA-fields-companyLogoUrl", t, onFinish };
     const queryOpts = { fields: ["symbol", "companyLogoUrl"] };
     const result = await yf.quote("TSLA", queryOpts, { devel });
-    console.log(result);
     expect(result.symbol).toBe("TSLA");
     expect(result.companyLogoUrl).toBeDefined();
     expect(result.logoUrl).toBeDefined();

@@ -1804,6 +1804,361 @@
         "triggerable"
       ]
     },
+    "QuoteECNQuote": {
+      "type": "object",
+      "properties": {
+        "dividendRate": {
+          "type": "number"
+        },
+        "dividendYield": {
+          "type": "number"
+        },
+        "language": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "typeDisp": {
+          "type": "string"
+        },
+        "quoteSourceName": {
+          "type": "string"
+        },
+        "triggerable": {
+          "type": "boolean"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "customPriceAlertConfidence": {
+          "type": "string"
+        },
+        "marketState": {
+          "type": "string",
+          "enum": [
+            "REGULAR",
+            "CLOSED",
+            "PRE",
+            "PREPRE",
+            "POST",
+            "POSTPOST"
+          ]
+        },
+        "tradeable": {
+          "type": "boolean"
+        },
+        "cryptoTradeable": {
+          "type": "boolean"
+        },
+        "corporateActions": {
+          "type": "array",
+          "items": {}
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "longName": {
+          "type": "string"
+        },
+        "messageBoardId": {
+          "type": "string"
+        },
+        "exchangeTimezoneName": {
+          "type": "string"
+        },
+        "exchangeTimezoneShortName": {
+          "type": "string"
+        },
+        "gmtOffSetMilliseconds": {
+          "type": "number"
+        },
+        "market": {
+          "type": "string"
+        },
+        "esgPopulated": {
+          "type": "boolean"
+        },
+        "fiftyTwoWeekLowChange": {
+          "type": "number"
+        },
+        "fiftyTwoWeekLowChangePercent": {
+          "type": "number"
+        },
+        "fiftyTwoWeekRange": {
+          "$ref": "#/definitions/TwoNumberRange"
+        },
+        "fiftyTwoWeekHighChange": {
+          "type": "number"
+        },
+        "fiftyTwoWeekHighChangePercent": {
+          "type": "number"
+        },
+        "fiftyTwoWeekLow": {
+          "type": "number"
+        },
+        "fiftyTwoWeekHigh": {
+          "type": "number"
+        },
+        "fiftyTwoWeekChangePercent": {
+          "type": "number"
+        },
+        "dividendDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "earningsTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "earningsTimestampStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "earningsTimestampEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "earningsCallTimestampStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "earningsCallTimestampEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isEarningsDateEstimate": {
+          "type": "boolean"
+        },
+        "trailingAnnualDividendRate": {
+          "type": "number"
+        },
+        "trailingPE": {
+          "type": "number"
+        },
+        "trailingAnnualDividendYield": {
+          "type": "number"
+        },
+        "epsTrailingTwelveMonths": {
+          "type": "number"
+        },
+        "epsForward": {
+          "type": "number"
+        },
+        "epsCurrentYear": {
+          "type": "number"
+        },
+        "priceEpsCurrentYear": {
+          "type": "number"
+        },
+        "sharesOutstanding": {
+          "type": "number"
+        },
+        "bookValue": {
+          "type": "number"
+        },
+        "fiftyDayAverage": {
+          "type": "number"
+        },
+        "fiftyDayAverageChange": {
+          "type": "number"
+        },
+        "fiftyDayAverageChangePercent": {
+          "type": "number"
+        },
+        "twoHundredDayAverage": {
+          "type": "number"
+        },
+        "twoHundredDayAverageChange": {
+          "type": "number"
+        },
+        "twoHundredDayAverageChangePercent": {
+          "type": "number"
+        },
+        "marketCap": {
+          "type": "number"
+        },
+        "forwardPE": {
+          "type": "number"
+        },
+        "priceToBook": {
+          "type": "number"
+        },
+        "sourceInterval": {
+          "type": "number"
+        },
+        "exchangeDataDelayedBy": {
+          "type": "number"
+        },
+        "firstTradeDateMilliseconds": {
+          "$ref": "#/definitions/DateInMs"
+        },
+        "priceHint": {
+          "type": "number"
+        },
+        "postMarketChangePercent": {
+          "type": "number"
+        },
+        "postMarketTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "postMarketPrice": {
+          "type": "number"
+        },
+        "postMarketChange": {
+          "type": "number"
+        },
+        "hasPrePostMarketData": {
+          "type": "boolean"
+        },
+        "regularMarketChange": {
+          "type": "number"
+        },
+        "regularMarketChangePercent": {
+          "type": "number"
+        },
+        "regularMarketTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "regularMarketPrice": {
+          "type": "number"
+        },
+        "regularMarketDayHigh": {
+          "type": "number"
+        },
+        "regularMarketDayRange": {
+          "$ref": "#/definitions/TwoNumberRange"
+        },
+        "regularMarketDayLow": {
+          "type": "number"
+        },
+        "regularMarketVolume": {
+          "type": "number"
+        },
+        "regularMarketPreviousClose": {
+          "type": "number"
+        },
+        "preMarketChange": {
+          "type": "number"
+        },
+        "preMarketChangePercent": {
+          "type": "number"
+        },
+        "preMarketTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "preMarketPrice": {
+          "type": "number"
+        },
+        "bid": {
+          "type": "number"
+        },
+        "ask": {
+          "type": "number"
+        },
+        "bidSize": {
+          "type": "number"
+        },
+        "askSize": {
+          "type": "number"
+        },
+        "fullExchangeName": {
+          "type": "string"
+        },
+        "financialCurrency": {
+          "type": "string"
+        },
+        "regularMarketOpen": {
+          "type": "number"
+        },
+        "averageDailyVolume3Month": {
+          "type": "number"
+        },
+        "averageDailyVolume10Day": {
+          "type": "number"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "underlyingSymbol": {
+          "type": "string"
+        },
+        "ytdReturn": {
+          "type": "number"
+        },
+        "trailingThreeMonthReturns": {
+          "type": "number"
+        },
+        "trailingThreeMonthNavReturns": {
+          "type": "number"
+        },
+        "ipoExpectedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "newListingDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "nameChangeDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "prevName": {
+          "type": "string"
+        },
+        "averageAnalystRating": {
+          "type": "string"
+        },
+        "pageViewGrowthWeekly": {
+          "type": "number"
+        },
+        "openInterest": {
+          "type": "number"
+        },
+        "beta": {
+          "type": "number"
+        },
+        "companyLogoUrl": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        },
+        "quoteType": {
+          "type": "string",
+          "const": "ECNQUOTE"
+        }
+      },
+      "required": [
+        "esgPopulated",
+        "exchange",
+        "exchangeDataDelayedBy",
+        "exchangeTimezoneName",
+        "exchangeTimezoneShortName",
+        "fullExchangeName",
+        "gmtOffSetMilliseconds",
+        "language",
+        "market",
+        "marketState",
+        "quoteType",
+        "region",
+        "sourceInterval",
+        "symbol",
+        "tradeable",
+        "triggerable"
+      ],
+      "additionalProperties": false
+    },
     "QuoteFuture": {
       "type": "object",
       "properties": {
@@ -3973,6 +4328,9 @@
           "$ref": "#/definitions/QuoteCurrency"
         },
         {
+          "$ref": "#/definitions/QuoteECNQuote"
+        },
+        {
           "$ref": "#/definitions/QuoteEtf"
         },
         {
@@ -4111,10 +4469,10 @@
         "volumeAllCurrencies",
         "startDate",
         "coinMarketCapLink",
+        "dividendRate",
         "dividendYield",
         "netAssets",
         "netExpenseRatio",
-        "dividendRate",
         "headSymbolAsString",
         "contractSymbol",
         "strike"

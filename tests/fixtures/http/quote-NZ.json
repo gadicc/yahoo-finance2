@@ -1,0 +1,73 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v7/finance/quote?symbols=NZ&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
+      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/yahoo-finance2)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "868",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Tue, 02 Sep 2025 09:44:33 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-quote-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "1qlu1plkbdf41"
+    },
+    "bodyJson": {
+      "quoteResponse": {
+        "result": [
+          {
+            "language": "en-US",
+            "region": "US",
+            "quoteType": "ECNQUOTE",
+            "typeDisp": "ECNQUOTE",
+            "quoteSourceName": "Delayed Quote",
+            "triggerable": true,
+            "customPriceAlertConfidence": "HIGH",
+            "priceHint": 2,
+            "fullExchangeName": "NasdaqGS",
+            "averageDailyVolume3Month": 0,
+            "averageDailyVolume10Day": 0,
+            "fiftyTwoWeekRange": "0.015 - 0.015",
+            "fiftyTwoWeekLow": 0.015,
+            "fiftyTwoWeekHigh": 0.015,
+            "fiftyTwoWeekChangePercent": 0,
+            "fiftyDayAverage": 0.015,
+            "twoHundredDayAverage": 0.015,
+            "sourceInterval": 15,
+            "exchangeDataDelayedBy": 0,
+            "marketState": "PRE",
+            "corporateActions": [],
+            "tradeable": false,
+            "cryptoTradeable": false,
+            "hasPrePostMarketData": false,
+            "firstTradeDateMilliseconds": 1453905000000,
+            "exchange": "NMS",
+            "exchangeTimezoneName": "America/New_York",
+            "exchangeTimezoneShortName": "EDT",
+            "gmtOffSetMilliseconds": -14400000,
+            "market": "us_market",
+            "esgPopulated": false,
+            "symbol": "NZ"
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}
