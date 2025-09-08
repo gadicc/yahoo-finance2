@@ -134,6 +134,10 @@ describe("quoteSummary", () => {
       itValidates("earningsTrend");
     });
 
+    describe("esgScores", () => {
+      itValidates("esgScores");
+    });
+
     describe("financialData", () => {
       itValidates("financialData");
     });

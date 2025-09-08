@@ -35,6 +35,9 @@
         "earningsTrend": {
           "$ref": "#/definitions/EarningsTrend"
         },
+        "esgScores": {
+          "$ref": "#/definitions/ESGScores"
+        },
         "financialData": {
           "$ref": "#/definitions/FinancialData"
         },
@@ -938,6 +941,190 @@
         "yearAgoEps",
         "numberOfAnalysts",
         "growth"
+      ],
+      "additionalProperties": {}
+    },
+    "ESGPeerPerformance": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "avg": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min",
+        "avg",
+        "max"
+      ],
+      "additionalProperties": {}
+    },
+    "ESGScores": {
+      "type": "object",
+      "properties": {
+        "maxAge": {
+          "type": "number"
+        },
+        "totalEsg": {
+          "type": "number"
+        },
+        "environmentScore": {
+          "type": "number"
+        },
+        "socialScore": {
+          "type": "number"
+        },
+        "governanceScore": {
+          "type": "number"
+        },
+        "ratingYear": {
+          "type": "number"
+        },
+        "ratingMonth": {
+          "type": "number"
+        },
+        "highestControversy": {
+          "type": "number"
+        },
+        "peerCount": {
+          "type": "number"
+        },
+        "esgPerformance": {
+          "type": "string"
+        },
+        "peerGroup": {
+          "type": "string"
+        },
+        "relatedControversy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "peerEsgScorePerformance": {
+          "$ref": "#/definitions/ESGPeerPerformance"
+        },
+        "peerGovernancePerformance": {
+          "$ref": "#/definitions/ESGPeerPerformance"
+        },
+        "peerSocialPerformance": {
+          "$ref": "#/definitions/ESGPeerPerformance"
+        },
+        "peerEnvironmentPerformance": {
+          "$ref": "#/definitions/ESGPeerPerformance"
+        },
+        "peerHighestControversyPerformance": {
+          "$ref": "#/definitions/ESGPeerPerformance"
+        },
+        "percentile": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "environmentPercentile": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "socialPercentile": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "governancePercentile": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "adult": {
+          "type": "boolean"
+        },
+        "alcoholic": {
+          "type": "boolean"
+        },
+        "animalTesting": {
+          "type": "boolean"
+        },
+        "catholic": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "controversialWeapons": {
+          "type": "boolean"
+        },
+        "smallArms": {
+          "type": "boolean"
+        },
+        "furLeather": {
+          "type": "boolean"
+        },
+        "gambling": {
+          "type": "boolean"
+        },
+        "gmo": {
+          "type": "boolean"
+        },
+        "militaryContract": {
+          "type": "boolean"
+        },
+        "nuclear": {
+          "type": "boolean"
+        },
+        "pesticides": {
+          "type": "boolean"
+        },
+        "palmOil": {
+          "type": "boolean"
+        },
+        "coal": {
+          "type": "boolean"
+        },
+        "tobacco": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "maxAge",
+        "totalEsg",
+        "environmentScore",
+        "socialScore",
+        "governanceScore",
+        "ratingYear",
+        "ratingMonth",
+        "highestControversy",
+        "peerCount",
+        "esgPerformance",
+        "peerGroup",
+        "peerEsgScorePerformance",
+        "peerGovernancePerformance",
+        "peerSocialPerformance",
+        "peerEnvironmentPerformance",
+        "peerHighestControversyPerformance",
+        "adult",
+        "alcoholic",
+        "animalTesting",
+        "controversialWeapons",
+        "smallArms",
+        "furLeather",
+        "gambling",
+        "gmo",
+        "militaryContract",
+        "nuclear",
+        "pesticides",
+        "palmOil",
+        "coal",
+        "tobacco"
       ],
       "additionalProperties": {}
     },
