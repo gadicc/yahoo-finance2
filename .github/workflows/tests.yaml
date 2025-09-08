@@ -5,19 +5,19 @@
 # TODO (at least)
 # - Need to make sure we cover everything from .circle/ci.config
 # - Any caching we can do.
-name: Test & Release
+name: Tests
 on:
   push:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_call:
+  workflow_dispatch:
 jobs:
-  release:
-    name: Test & Release
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
     permissions:
-      # https://github.com/semantic-release/semantic-release/issues/2469
-      contents: write # create releases
-      issues: write # issue comments and labels
-      pull-requests: write # ditto
-      id-token: write # The OIDC ID token is used for authentication with JSR, codecov, npm with provenance
+      id-token: write # for codecov
 
     steps:
       - name: Checkout
@@ -52,17 +52,3 @@ jobs:
       #          gist_id: 67c118e65298627dc0a3745a06387d88
       #          file_path: ./tests/runtimes/results.yaml
 
-      - run: deno task build:npm
-
-      - run: npm install -D @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
-
-      # We did this already but it seems not everythign was installed for jsr publish?  Let's try.
-      - run: deno install
-      # @sebbo2002/semantic-release-jsr seems to need it
-      - run: echo '{"version":"0.0.1"}' > package.json
-
-      - name: Release if relevant
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
