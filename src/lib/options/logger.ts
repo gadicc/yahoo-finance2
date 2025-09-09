@@ -1,3 +1,21 @@
+/**
+ * Logger options for {@linkcode YahooFinance}.
+ *
+ * By default, we use the built-in `console` for logging, but you can override it
+ * with anything you like. You can use this to control logging output or send
+ * your logs to a logging service.
+ *
+ * @example
+ * ```ts
+ * const yahooFinance = new YahooFinance({
+ *   logger: {
+ *      info: (...args: any[]) => console.log(...args),
+ *      warn: (...args: any[]) => console.error(...args),
+ *     error: (...args: any[]) => console.error(...args),
+ *     debug: (...args: any[]) => console.log(...args),
+ *   },
+ * });
+ */
 export interface Logger {
   // deno-lint-ignore no-explicit-any
   info: (...args: any[]) => void;

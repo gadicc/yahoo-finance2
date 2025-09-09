@@ -13,9 +13,22 @@ import type { QuoteCombineOptions } from "../../other/quoteCombine.ts";
 
 /**
  * Primitive options for {@linkcode YahooFinance} (i.e. strings, numbers, booleans)
+ *
+ * **See {@linkcode YahooFinanceOptions} for additional non-primitive options.**
  */
 export interface YahooFinanceOptions {
-  /** Where to send queries.  Default: `query2.finance.yahoo.com`. */
+  /**
+   * Where to send queries.  Default: `query2.finance.yahoo.com`.
+   *
+   * As per
+   * [this stackoverflow post](https://stackoverflow.com/questions/44030983/yahoo-finance-url-not-working/47505102#47505102):
+   *
+   * - `query1.finance.yahoo.com` serves `HTTP/1.0`
+   * - `query2.finance.yahoo.com` serves `HTTP/1.1`
+   * - [Differences between HTTP/1.0 and HTTP/1.1](https://stackoverflow.com/questions/246859/http-1-0-vs-1-1)
+   *
+   * Note: this does not affect redirects to other hosts used by e.g. Yahoo's cookies and consent.
+   */
   YF_QUERY_HOST?: string;
   /** Override the default queue options, e.g. concurrency and timeout. */
   queue?: QueueOptions;

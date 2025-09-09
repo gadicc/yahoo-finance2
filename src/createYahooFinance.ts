@@ -24,7 +24,7 @@ const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
  *
  * @example
  * ```ts
- * const yahooFinance = new YahooFinance();
+ * const yahooFinance = new YahooFinance(); // or YahooFinance({ ...options });
  * console.log(await yahooFinance.quote("AAPL"));
  * ```
  *
