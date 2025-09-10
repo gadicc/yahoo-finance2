@@ -1,7 +1,7 @@
 import createYahooFinance from "./createYahooFinance.ts";
 import { describe, it } from "@std/testing/bdd";
 import { expect } from "@std/expect";
-import { spy } from "jsr:@std/testing/mock";
+import { spy } from "@std/testing/mock";
 import trendingSymbols from "./modules/trendingSymbols.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 

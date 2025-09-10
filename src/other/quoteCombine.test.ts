@@ -1,5 +1,5 @@
 import { afterAll } from "@std/testing/bdd";
-import { FakeTime } from "jsr:@std/testing/time";
+import { FakeTime } from "@std/testing/time";
 import {
   createTestYahooFinance,
   describe,

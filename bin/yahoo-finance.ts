@@ -1,4 +1,4 @@
-import * as path from "jsr:@std/path";
+import * as path from "@std/path";
 import { FileCookieStore } from "tough-cookie-file-store";
 
 import YahooFinance from "../src/index.ts";
