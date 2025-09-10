@@ -4,7 +4,6 @@
 
 1. [Common Options](#common-options)
 1. [Modules](#modules)
-1. [Other Methods](#other)
 1. [Util Methods](#utils)
 1. [Error Handling](#error-handling)
 1. [Validation](./validation.md)
@@ -33,33 +32,14 @@ const result = await yahooFinance.module(query, queryOpts, moduleOpts);
 
 ## Modules
 
-1. ~~[autoc](./modules/autoc.md)~~ - decomissioned, use
-   [search](./modules/search.md) instead.
-1. [chart](./modules/chart.md) - chart, like historical on steroids.
-1. [historical](./modules/historical.md) - historical market prices.
-1. [quote](./modules/quote.md) - essential symbol info.
-1. [quoteSummary](./modules/quoteSummary.md) - comprehensive symbol info.
-1. [search](./modules/search.md) - symbol lookup, news and articles.
-1. [dailyLosers](./modules/dailyLosers.md) - greatest losses in the trading day.
-1. [dailyGainers](./modules/dailyGainers.md) - greatest gains in the trading
-   day.
-1. [recommendationsBySymbol](./modules/recommendationsBySymbol.md) - similar
-   symbols.
-1. [trendingSymbols](./modules/trendingSymbols.md) - symbols trending in a
-   country.
-1. [options](./modules/options.md) - options trading (call/put).
-1. [insights](./modules/insights.md) - insights and scores.
+See the
+[list of main modules](https://jsr.io/@gadicc/yahoo-finance2/doc/modules) and
+their options in the API docs.
 
-<a name="other"></a>
-
-## Other Methods
-
-1. [quoteCombine](./other/quoteCombine.md) - debounce and combine multiple quote
-   calls.
-
-<a name="utils"></a>
-
-1. [setGlobalConfig](./other/setGlobalConfig.md) - set global config options.
+There is also the
+[list of "other" modules](https://jsr.io/@gadicc/yahoo-finance2/doc/other) which
+are utility modules we provide for convenience but are not a part of the actual
+Yahoo Finance API.
 
 <a name="error-handling"></a>
 
@@ -116,7 +96,8 @@ inspection at runtime. For example:
 Example:
 
 ```js
-import yahooFinance from "yahoo-finance2";
+import YahooFinance from "yahoo-finance2";
+const yahooFinance = new YahooFinance();
 
 let result;
 try {

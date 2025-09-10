@@ -98,15 +98,15 @@ errors. You could decide that some errors are ok to ignore but others not.
 
 **TypeScript note**: By default you get an interface back, but if validation
 fails, obviously we can't guarantee the shape anymore. Consequently, the return
-result will be of type `any` so TypeScript will still ensure that your code is
-safe safe, e.g.
+result will be of type `unknown` so TypeScript will still ensure that your code
+is safe safe, e.g.
 
 ```js
 let result;
 try {
   result = await yahooFinance.search("gold"); // result is a SearchResult
 } catch (error) {
-  result = error.result; // result is an any
+  result = error.result; // result is an unknown
 }
 ```
 
@@ -133,9 +133,23 @@ if (
 
 **TypeScript note**: Following on from the the previous section, with
 `{ validateResult: false }` we can no longer guarantee the shape of the return
-result, so it will be of type `any`:
+result, so it will be of type `unknown`:
 
 ![validation typescript example](./img/validation-typescript.gif)
+
+### You can also turn off validation for OPTIONS
+
+By default, we only allow sending options to Yahoo that we know about and know
+how it will affect the result. However, maybe you discovered something new about
+Yahoo's API that you want to experiment with. In that case, you can turn off
+options validation. We'll send everything you give us directly to Yahoo, and
+Yahoo will perform their own validation on what you sent.
+
+```ts
+const quote = await yahooFinance.quote("AAPL", undefined, {
+  validateOptions: false,
+});
+```
 
 <a name="dont-log-validation-fails"></a>
 
@@ -145,7 +159,8 @@ To turn off the helpful but verbose error logging on validation fails, simply
 set:
 
 ```js
-yahooFinance.setGlobalConfig({ validation: { logErrors: false } });
+import YahooFinance from "yahoo-finance2";
+const yahooFinance = new YahooFinance{ validation: { logErrors: false } });
 ```
 
 <a name="note-additional-props"></a>
@@ -165,11 +180,13 @@ all existing deployments.
 You can revert to the old behaviour with:
 
 ```js
-yahooFinance._disallowAdditionalProps();
+const yahooFinance = new YahooFinance({
+  validation: { allowAdditionalProps: false },
+});
 ```
 
-which is the default when `NODE_ENV==="test"`. This means that during our
-development of the library itself, we make sure that we're testing against all
+which is the default when running tests. This means that during our development
+of the library itself, we make sure that we're testing against all returned
 types.
 
 <a name="help-fix"></a>
@@ -180,12 +197,13 @@ types.
    [CONTRIBUTING](../CONTRIBUTING.md).
 
 1. Add the problematic symbol, depending on whether it affects just one or
-   multiple modules, either do the appropriate `.spec.ts` file for that module,
+   multiple modules, either to the appropriate `.test.ts` file for that module,
    or to
-   [tests/testSymbols.ts](https://github.com/gadicc/node-yahoo-finance2/blob/devel/tests/testSymbols.ts).
+   [tests/testSymbols.ts](https://github.com/gadicc/node-yahoo-finance2/blob/devel/tests/testSymbols.ts)
+   for symbols tested with all modules.
 
-1. Run `yarn test` or `yarn test <moduleName>`, as relevant. The API call will
-   be made and cached locally. The test will fail as expected.
+1. Run `deno task test` or `yarn task test <moduleName>`, as relevant. The API
+   call will be made and cached locally. The test will fail as expected.
 
 1. **Inspect the error and update the typescript interface in the relevant
    module(s).**
@@ -244,16 +262,13 @@ export interface TopHoldings {
 
 Now let's test our fix.
 
-1. Run `yarn schema` to rebuild the schema.
+1. Run `deno task schema` to rebuild the schema (done for you automatically if
+   your'e using vscode)
 
-1. Re-run `yarn test` and make sure the test now passes.
+1. Re-run `deno task test` and make sure the test now passes.
 
 1. (If noticed the issue for multiple symbols, you can test the rest of the
-   symbols via the CLI. `yarn build` and then
-   `yahoo-finance <module> <symbol>`.)
-
-1. (If you previously ran `yarn test <moduleName>`, run `yarn test` to make sure
-   _everything_ is still working).
+   symbols more quickly via the CLI, with `deno task cli <module> <symbol>`.)
 
 1. Commit changes, e.g.
 
