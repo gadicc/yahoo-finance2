@@ -1,11 +1,4 @@
-# Possible future move over to GitHub actions.
-# Taken from another project, not ready for yahoo-finance2 yet.
-# But, both gist_ids below are newly created for yahoo-finance2.
-#
-# TODO (at least)
-# - Need to make sure we cover everything from .circle/ci.config
-# - Any caching we can do.
-name: Tests
+name: Test and Release
 on:
   push:
   pull_request:
@@ -51,3 +44,35 @@ jobs:
       #          token: ${{ secrets.GH_TOKEN_GISTS }}
       #          gist_id: 67c118e65298627dc0a3745a06387d88
       #          file_path: ./tests/runtimes/results.yaml
+  release:
+    name: Release (if relevant)
+    needs: ["tests"]
+    runs-on: ubuntu-latest
+    permissions:
+      # https://github.com/semantic-release/semantic-release/issues/2469
+      contents: write # create releases
+      issues: write # issue comments and labels
+      pull-requests: write # ditto
+      id-token: write # The OIDC ID token is used for authentication with JSR, codecov, npm with provenance
+    steps:
+      - run: echo 'The Tests workflow passed'
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup
+
+      - run: deno task build:npm
+
+      - run: npm install -D @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
+
+      # We did this already but it seems not everythign was installed for jsr publish?  Let's try.
+      - run: deno install
+      # @sebbo2002/semantic-release-jsr seems to need it
+      - run: echo '{"version":"0.0.1"}' > package.json
+
+      - name: Release if relevant
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
