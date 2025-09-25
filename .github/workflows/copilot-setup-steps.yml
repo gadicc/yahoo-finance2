@@ -45,7 +45,7 @@ jobs:
         shell: bash
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           # No 'cache' here, since now project lockfile for npm
