@@ -58,6 +58,25 @@ node examples/fundamental-analysis.ts MSFT
 bun run examples/fundamental-analysis.ts GOOGL
 ```
 
+#### Deploy to Cloudflare Workers (Serverless API)
+
+Deploy as a public API with beautiful HTML reports and JSON endpoints:
+
+```bash
+# Install Wrangler CLI
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Deploy
+wrangler deploy
+```
+
+Your API will be live at: `https://stock-fundamental-analysis.your-subdomain.workers.dev`
+
+See [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md) for detailed deployment instructions.
+
 ### Example Output
 
 ```
@@ -160,6 +179,100 @@ The app is designed to be easily customizable. Key areas for modification:
 ### Disclaimer
 
 This application is provided for informational and educational purposes only. It does not constitute investment advice, financial advice, trading advice, or any other sort of advice. Always conduct your own research and consult with a qualified financial advisor before making any investment decisions.
+
+## Cloudflare Workers API
+
+The fundamental analysis app can be deployed as a serverless API on Cloudflare Workers, providing:
+
+### Features
+- 🌐 **Public API Endpoints**: Access from anywhere via HTTPS
+- 📊 **Beautiful HTML Reports**: Interactive, responsive web interface
+- 🔌 **JSON API**: Structured data for programmatic access
+- ⚡ **Serverless**: No infrastructure to manage
+- 🌍 **Global CDN**: Low latency worldwide (275+ locations)
+- 💰 **Free Tier**: 100,000 requests/day
+- 🔒 **Secure**: HTTPS by default, no API keys needed
+
+### API Endpoints
+
+Once deployed, you'll have these endpoints:
+
+```bash
+# API Documentation
+GET /
+
+# HTML Report (default)
+GET /api/analyze/{SYMBOL}
+
+# JSON Response
+GET /api/analyze/{SYMBOL}?format=json
+```
+
+### Quick Deploy
+
+```bash
+# Install Wrangler
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Deploy from repository root
+wrangler deploy
+```
+
+### Example API Usage
+
+```bash
+# Get analysis for Apple
+curl https://your-worker.workers.dev/api/analyze/AAPL
+
+# Get JSON for Microsoft
+curl https://your-worker.workers.dev/api/analyze/MSFT?format=json
+
+# Multiple stocks
+for stock in AAPL MSFT GOOGL TSLA; do
+  curl -s "https://your-worker.workers.dev/api/analyze/$stock?format=json" | jq
+done
+```
+
+### JavaScript/TypeScript Example
+
+```typescript
+const response = await fetch(
+  'https://your-worker.workers.dev/api/analyze/AAPL?format=json'
+);
+const analysis = await response.json();
+
+console.log(`Score: ${analysis.fundamentalScore}/10`);
+console.log(`Rating: ${analysis.scoreRating}`);
+console.log('Insights:', analysis.analysis);
+```
+
+### What You Get
+
+- **HTML Reports**: Beautiful, responsive web interface with color-coded metrics
+- **JSON API**: Structured data including all metrics, scores, insights, and warnings
+- **Caching**: Built-in caching (5 minutes) for better performance
+- **Global Distribution**: Cloudflare's edge network for low latency
+- **Zero Downtime**: Instant deployments with no service interruption
+
+### Detailed Guide
+
+See [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md) for:
+- Step-by-step deployment instructions
+- Custom domain setup
+- Environment configuration
+- Monitoring and analytics
+- Advanced features (scheduled analysis, rate limiting)
+- Troubleshooting guide
+
+## Files
+
+- `fundamental-analysis.ts` - CLI application for terminal usage
+- `cloudflare-worker.ts` - Serverless API for Cloudflare Workers
+- `CLOUDFLARE_DEPLOYMENT.md` - Comprehensive deployment guide
+- `../wrangler.toml` - Cloudflare Workers configuration
 
 ## Contributing
 
