@@ -331,6 +331,7 @@ type ScreenerCriteriaFieldDaily =
   | "intradaymarketcap"
   | "morningstar_previous_rating"
   | "fiftytwowkhigh"
+  | "fiftytwowkpercentchange"
   | "pctheldinst"
   | "morningstar_last_close_price_to_fair_value"
   | "shares_bought_by_funds"
@@ -515,7 +516,7 @@ export interface ScreenerCriteriaMeta {
 export interface ScreenerCriterum {
   field: string;
   operators: string[];
-  values: number[];
+  values: (string | number)[];
   labelsSelected: number[];
   dependentValues: unknown[];
   subField?: null;
