@@ -127,7 +127,33 @@ export type YahooFinanceWithModules<T extends CreateYahooFinanceOptions> =
       };
   }
   & {
-    [K in keyof T["modules"]]: T["modules"][K];
+    // [K in keyof T["modules"]]: T["modules"][K];
+    /** @deprecated Use `const yf = new YahooFinance(); yf.chart(...)` instead. */
+    chart(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.dailyGainers(...)` instead. */
+    dailyGainers(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.dailyLosers(...)` instead. */
+    dailyLosers(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.fundamentalsTimeSeries(...)` instead. */
+    fundamentalsTimeSeries(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.historical(...)` instead. */
+    historical(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.insights(...)` instead. */
+    insights(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.options(...)` instead. */
+    options(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.quote(...)` instead. */
+    quote(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.quoteSummary(...)` instead. */
+    quoteSummary(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.recommendationsBySymbol(...)` instead. */
+    recommendationsBySymbol(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.screener(...)` instead. */
+    screener(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.search(...)` instead. */
+    search(..._args: unknown[]): never;
+    /** @deprecated Use `const yf = new YahooFinance(); yf.trendingSymbols(...)` instead. */
+    trendingSymbols(..._args: unknown[]): never;
   };
 
 /**
@@ -158,6 +184,17 @@ export default function createYahooFinance<T extends CreateYahooFinanceOptions>(
   const { modules, ...rest } = createOpts;
   Object.assign(YahooFinance.prototype, modules);
   Object.assign(YahooFinance.prototype, { _createOpts: rest });
+  Object.assign(
+    YahooFinance,
+    Object.fromEntries(
+      Object.keys(modules).map((key) => [key, function () {
+        throw new Error(
+          "Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See " +
+            "https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.",
+        );
+      }]),
+    ),
+  );
   return YahooFinance as YahooFinanceWithModules<T> & {
     _createOpts: typeof rest;
   };
