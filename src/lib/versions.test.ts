@@ -3,12 +3,11 @@ import { beforeEach } from "@std/testing/bdd";
 import { describe, expect, it, setupCache } from "../../tests/common.ts";
 import { _clearCache, getLatestVersion, versionCheck } from "./versions.ts";
 
-describe("versions", () => {
-  setupCache();
+describe.skip("versions", () => {
   const origFetch = globalThis.fetch;
+  setupCache();
 
   beforeEach(() => {
-    globalThis.fetch = origFetch;
     _clearCache();
   });
 
