@@ -197,15 +197,36 @@ describe("quoteSummary", () => {
     describe("secFilings", () => {
       itValidates("secFilings");
 
-      it("handles AAPL's secFilings", async (t, onFinish) => {
-        await yf.quoteSummary(
-          "AAPL",
-          {
-            modules: ["secFilings"],
-          },
-          { devel: { id: "quoteSummary-secFilings-AAPL-new", t, onFinish } },
-        );
-      });
+      const secFilingsExtraSymbols = [
+        "AAPL",
+        "MSFT", // #971 S-4
+        "ADBE", // #971 S-4/A, RW
+        "AMD", // #971 S-4MEF
+        "APD", // #971 PRER14A, 8-A12B
+        "ARE", // #971 SC 13D, D
+      ];
+
+      // Use the real logger to help debug issues.
+      const yf = new YahooFinance();
+
+      it.each(secFilingsExtraSymbols)(
+        "handles %s secFilings",
+        async (symbol, t, onFinish) => {
+          await yf.quoteSummary(
+            symbol,
+            {
+              modules: ["secFilings"],
+            },
+            {
+              devel: {
+                id: `quoteSummary-secFilings-${symbol}-extra`,
+                t,
+                onFinish,
+              },
+            },
+          );
+        },
+      );
     });
 
     describe("summaryDetail", () => {

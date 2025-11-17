@@ -807,7 +807,16 @@ type FilingType =
   | "IRANNOTICE"
   | "20-F/A"
   | "11-K"
-  | "DEFR14A";
+  | "DEFR14A"
+  | "S4"
+  | "RW"
+  | "S-4/A"
+  | "S-4"
+  | "S-4MEF"
+  | "PRER14A"
+  | "8-A12B"
+  | "D"
+  | "SC 13D";
 
 export interface SummaryDetail {
   [key: string]: unknown;
