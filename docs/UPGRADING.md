@@ -10,11 +10,11 @@ BREAKING CHANGES and required changes you'll need to make to your code.
 
 ## Upgrading from v2 to v3 (2025)
 
-**v3 is still under active development**, however, it has been published and you
-can install it with the `@next-major` tag from npm, e.g.
-`npm install yahoo-finance2@next-major`, or even `npm install yahoo-finance2@3`.
-Yes, the project is called "yahoo-finance2" and the version is "3". **These docs
-are not yet complete**.
+**v3 is now official and published with the @latest tag**, to upgrade:
+
+```bash
+$ npm install yahoo-finance2@latest
+```
 
 Despite the major version change, and significant changes under-the-hood, most
 of the library retains a familiar API.
@@ -34,6 +34,9 @@ diff:
 + });
 ```
 
+i.e., the default import is now a `YahooFinance` class which needs to be
+instantiated before use with `new YahooFinance()`.
+
 Other notable changes:
 
 - `dailyGainers` and `dailyLosers` were removed. Please use the `screener()` API
@@ -43,7 +46,16 @@ Other notable changes:
 
 - **Running directly in the browser** is no longer supported. You should perform
   the request to Yahoo Finance from a server / serverless / edge environment and
-  send that data on to the client. XXX helper APIs XXX
+  send that data on to the client. Works great with React Server Components,
+  `trpc`, etc. XXX TODO helper APIs XXX
+
+- Not specific to v3, but sometime back, Yahoo moved a lot of financial data
+  from `quoteSummary` to
+  [`fundamentalsTimeSeries`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/fundamentalsTimeSeries).
+  The old quoteSummaryry `balanceSheetHistory`, `cashFlowStatementHistory` and
+  `incomeStatementHistory` return very little data now.
+
+- **If we missed anything out, please let us know!** Just open an issue.
 
 <a name="dev"></a>
 
