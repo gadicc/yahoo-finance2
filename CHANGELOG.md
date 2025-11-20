@@ -1,3 +1,12 @@
+## [2.13.4](https://github.com/gadicc/node-yahoo-finance2/compare/v2.13.3...v2.13.4) (2025-11-20)
+
+
+### Bug Fixes
+
+* **index:** deprecation warning for v2. ([66c54e7](https://github.com/gadicc/node-yahoo-finance2/commit/66c54e7507ac758ff953696dedf9b9425d4c26e2))
+* **release:** explicit 2.x branch, s/master/main/ ([aaa09e3](https://github.com/gadicc/node-yahoo-finance2/commit/aaa09e387726fa0e3b7ff377f1cb8c3e1d4bb747))
+* **release:** fix range ([e0cfbe9](https://github.com/gadicc/node-yahoo-finance2/commit/e0cfbe98f222597899fefedb937483ea5e95bd08))
+
 ## [2.13.3](https://github.com/gadicc/node-yahoo-finance2/compare/v2.13.2...v2.13.3) (2024-12-21)
 
 
