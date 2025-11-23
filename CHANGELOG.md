@@ -1,3 +1,10 @@
+## [2.14.2](https://github.com/gadicc/node-yahoo-finance2/compare/v2.14.1...v2.14.2) (2025-11-23)
+
+
+### Bug Fixes
+
+* **pkg:** hopefully final no-code push to fix semantic-release ([6ebf2ce](https://github.com/gadicc/node-yahoo-finance2/commit/6ebf2ce9b32ec7cc70aa3d09ca91cafd96bfda7b))
+
 # [2.14.0](https://github.com/gadicc/node-yahoo-finance2/compare/v2.13.4...v2.14.0) (2025-11-23)
 
 
