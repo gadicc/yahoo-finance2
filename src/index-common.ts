@@ -24,7 +24,6 @@ import screener from "./modules/screener.js";
 // other
 import quoteCombine from "./other/quoteCombine.js";
 
-//
 console.warn(
   "[yahoo-finance2] v2 is no longer maintained nor supported.  Please migrate to v3. " +
     "See https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md for details.",
