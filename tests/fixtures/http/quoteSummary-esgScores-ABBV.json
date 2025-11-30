@@ -1,0 +1,101 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ABBV?formatted=false&modules=esgScores&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
+      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/yahoo-finance2)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "1117",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Mon, 08 Sep 2025 13:46:39 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "4",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "02ahr59kbtnhv"
+    },
+    "bodyJson": {
+      "quoteSummary": {
+        "result": [
+          {
+            "esgScores": {
+              "maxAge": 86400,
+              "totalEsg": 24.2,
+              "environmentScore": 2.35,
+              "socialScore": 15.03,
+              "governanceScore": 6.82,
+              "ratingYear": 2025,
+              "ratingMonth": 8,
+              "highestControversy": 2,
+              "peerCount": 504,
+              "esgPerformance": "AVG_PERF",
+              "peerGroup": "Pharmaceuticals",
+              "relatedControversy": [
+                "Society & Community Incidents;Customer Incidents"
+              ],
+              "peerEsgScorePerformance": {
+                "min": 8.52,
+                "avg": 29.51563492063495,
+                "max": 43.51
+              },
+              "peerGovernancePerformance": {
+                "min": 1.9,
+                "avg": 6.0218367346938795,
+                "max": 10.47
+              },
+              "peerSocialPerformance": {
+                "min": 3.32,
+                "avg": 13.43047619047619,
+                "max": 27.87
+              },
+              "peerEnvironmentPerformance": {
+                "min": 0.33,
+                "avg": 2.8656462585034013,
+                "max": 7.17
+              },
+              "9eU7SkkFGWvDoqSZLqoFJ9kRqJXDQYcEvSiJXyThCWGV": {
+                "min": 0,
+                "avg": 0.5099206349206349,
+                "max": 5
+              },
+              "percentile": null,
+              "environmentPercentile": null,
+              "socialPercentile": null,
+              "governancePercentile": null,
+              "adult": false,
+              "alcoholic": false,
+              "animalTesting": true,
+              "catholic": null,
+              "controversialWeapons": false,
+              "smallArms": false,
+              "furLeather": false,
+              "gambling": false,
+              "gmo": false,
+              "militaryContract": false,
+              "nuclear": false,
+              "pesticides": false,
+              "palmOil": false,
+              "coal": false,
+              "tobacco": false
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

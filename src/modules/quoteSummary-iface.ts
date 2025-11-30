@@ -24,6 +24,7 @@ export interface QuoteSummaryResult {
   earnings?: QuoteSummaryEarnings;
   earningsHistory?: EarningsHistory;
   earningsTrend?: EarningsTrend;
+  esgScores?: ESGScores;
   financialData?: FinancialData;
   fundOwnership?: Ownership;
   fundPerformance?: FundPerformance;
@@ -311,6 +312,53 @@ export interface EpsTrend {
   "60daysAgo": number | null;
   "90daysAgo": number | null;
   epsTrendCurrency?: string | null;
+}
+
+export interface ESGPeerPerformance {
+  [key: string]: unknown;
+  min: number;
+  avg: number;
+  max: number;
+}
+
+export interface ESGScores {
+  [key: string]: unknown;
+  maxAge: number;
+  totalEsg: number;
+  environmentScore: number;
+  socialScore: number;
+  governanceScore: number;
+  ratingYear: number;
+  ratingMonth: number;
+  highestControversy: number;
+  peerCount: number;
+  esgPerformance: string;
+  peerGroup: string;
+  relatedControversy?: string[];
+  peerEsgScorePerformance: ESGPeerPerformance;
+  peerGovernancePerformance: ESGPeerPerformance;
+  peerSocialPerformance: ESGPeerPerformance;
+  peerEnvironmentPerformance: ESGPeerPerformance;
+  peerHighestControversyPerformance: ESGPeerPerformance;
+  percentile: number | null;
+  environmentPercentile: number | null;
+  socialPercentile: number | null;
+  governancePercentile: number | null;
+  adult: boolean;
+  alcoholic: boolean;
+  animalTesting: boolean;
+  catholic: boolean | null;
+  controversialWeapons: boolean;
+  smallArms: boolean;
+  furLeather: boolean;
+  gambling: boolean;
+  gmo: boolean;
+  militaryContract: boolean;
+  nuclear: boolean;
+  pesticides: boolean;
+  palmOil: boolean;
+  coal: boolean;
+  tobacco: boolean;
 }
 
 export interface RevenueEstimate {

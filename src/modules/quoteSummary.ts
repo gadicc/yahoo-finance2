@@ -96,6 +96,7 @@ export const quoteSummary_modules = [
   "earnings",
   "earningsHistory",
   "earningsTrend",
+  "esgScores",
   "financialData",
   "fundOwnership",
   "fundPerformance",
@@ -136,6 +137,7 @@ export type QuoteSummaryModules =
   | "earnings"
   | "earningsHistory"
   | "earningsTrend"
+  | "esgScores"
   | "financialData"
   | "fundOwnership"
   | "fundPerformance"
