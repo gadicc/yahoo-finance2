@@ -8,7 +8,7 @@ import pkg from "../../../deno.json" with { type: "json" };
 
 // Big thanks to @nocodehummel who figured out a User-Agent that both
 // works but still allows us to identify ourselves honestly.
-const userAgent = `Mozilla/5.0 (compatible; ${pkg.name}/${pkg.version})`;
+const userAgent = `Mozilla/5.0 (compatible; yahoo-finance2/${pkg.version})`;
 // const userAgent = `${pkg.name}/${pkg.version} (+${repository})`;
 
 const options: YahooFinanceOptions = {
