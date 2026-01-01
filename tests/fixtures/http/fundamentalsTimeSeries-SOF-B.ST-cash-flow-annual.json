@@ -1,0 +1,2375 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/SOF-B.ST?period1=1640995200&period2=1735689600&type=annualFreeCashFlow%2CannualForeignSales%2CannualDomesticSales%2CannualAdjustedGeographySegmentData%2CannualRepurchaseOfCapitalStock%2CannualRepaymentOfDebt%2CannualIssuanceOfDebt%2CannualIssuanceOfCapitalStock%2CannualCapitalExpenditure%2CannualInterestPaidSupplementalData%2CannualIncomeTaxPaidSupplementalData%2CannualEndCashPosition%2CannualOtherCashAdjustmentOutsideChangeinCash%2CannualBeginningCashPosition%2CannualEffectOfExchangeRateChanges%2CannualChangesInCash%2CannualOtherCashAdjustmentInsideChangeinCash%2CannualCashFlowFromDiscontinuedOperation%2CannualFinancingCashFlow%2CannualCashFromDiscontinuedFinancingActivities%2CannualCashFlowFromContinuingFinancingActivities%2CannualNetOtherFinancingCharges%2CannualInterestPaidCFF%2CannualProceedsFromStockOptionExercised%2CannualCashDividendsPaid%2CannualPreferredStockDividendPaid%2CannualCommonStockDividendPaid%2CannualNetPreferredStockIssuance%2CannualPreferredStockPayments%2CannualPreferredStockIssuance%2CannualNetCommonStockIssuance%2CannualCommonStockPayments%2CannualCommonStockIssuance%2CannualNetIssuancePaymentsOfDebt%2CannualNetShortTermDebtIssuance%2CannualShortTermDebtPayments%2CannualShortTermDebtIssuance%2CannualNetLongTermDebtIssuance%2CannualLongTermDebtPayments%2CannualLongTermDebtIssuance%2CannualInvestingCashFlow%2CannualCashFromDiscontinuedInvestingActivities%2CannualCashFlowFromContinuingInvestingActivities%2CannualNetOtherInvestingChanges%2CannualInterestReceivedCFI%2CannualDividendsReceivedCFI%2CannualNetInvestmentPurchaseAndSale%2CannualSaleOfInvestment%2CannualPurchaseOfInvestment%2CannualNetInvestmentPropertiesPurchaseAndSale%2CannualSaleOfInvestmentProperties%2CannualPurchaseOfInvestmentProperties%2CannualNetBusinessPurchaseAndSale%2CannualSaleOfBusiness%2CannualPurchaseOfBusiness%2CannualNetIntangiblesPurchaseAndSale%2CannualSaleOfIntangibles%2CannualPurchaseOfIntangibles%2CannualNetPPEPurchaseAndSale%2CannualSaleOfPPE%2CannualPurchaseOfPPE%2CannualCapitalExpenditureReported%2CannualOperatingCashFlow%2CannualCashFromDiscontinuedOperatingActivities%2CannualCashFlowFromContinuingOperatingActivities%2CannualTaxesRefundPaid%2CannualInterestReceivedCFO%2CannualInterestPaidCFO%2CannualDividendReceivedCFO%2CannualDividendPaidCFO%2CannualChangeInWorkingCapital%2CannualChangeInOtherWorkingCapital%2CannualChangeInOtherCurrentLiabilities%2CannualChangeInOtherCurrentAssets%2CannualChangeInPayablesAndAccruedExpense%2CannualChangeInAccruedExpense%2CannualChangeInInterestPayable%2CannualChangeInPayable%2CannualChangeInDividendPayable%2CannualChangeInAccountPayable%2CannualChangeInTaxPayable%2CannualChangeInIncomeTaxPayable%2CannualChangeInPrepaidAssets%2CannualChangeInInventory%2CannualChangeInReceivables%2CannualChangesInAccountReceivables%2CannualOtherNonCashItems%2CannualExcessTaxBenefitFromStockBasedCompensation%2CannualStockBasedCompensation%2CannualUnrealizedGainLossOnInvestmentSecurities%2CannualProvisionandWriteOffofAssets%2CannualAssetImpairmentCharge%2CannualAmortizationOfSecurities%2CannualDeferredTax%2CannualDeferredIncomeTax%2CannualDepletion%2CannualDepreciationAndAmortization%2CannualAmortizationCashFlow%2CannualAmortizationOfIntangibles%2CannualDepreciation%2CannualOperatingGainsLosses%2CannualPensionAndEmployeeBenefitExpense%2CannualEarningsLossesFromEquityInvestments%2CannualGainLossOnInvestmentSecurities%2CannualNetForeignCurrencyExchangeGainLoss%2CannualGainLossOnSaleOfPPE%2CannualGainLossOnSaleOfBusiness%2CannualNetIncomeFromContinuingOperations%2CannualCashFlowsfromusedinOperatingActivitiesDirect%2CannualTaxesRefundPaidDirect%2CannualInterestReceivedDirect%2CannualInterestPaidDirect%2CannualDividendsReceivedDirect%2CannualDividendsPaidDirect%2CannualClassesofCashPayments%2CannualOtherCashPaymentsfromOperatingActivities%2CannualPaymentsonBehalfofEmployees%2CannualPaymentstoSuppliersforGoodsandServices%2CannualClassesofCashReceiptsfromOperatingActivities%2CannualOtherCashReceiptsfromOperatingActivities%2CannualReceiptsfromGovernmentGrants%2CannualReceiptsfromCustomers%2CannualIncreaseDecreaseInDeposit%2CannualChangeInFederalFundsAndSecuritiesSoldForRepurchase%2CannualNetProceedsPaymentForLoan%2CannualPaymentForLoans%2CannualProceedsFromLoans%2CannualProceedsPaymentInInterestBearingDepositsInBank%2CannualIncreaseinInterestBearingDepositsinBank%2CannualDecreaseinInterestBearingDepositsinBank%2CannualProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell%2CannualChangeInLoans%2CannualChangeInDeferredCharges%2CannualProvisionForLoanLeaseAndOtherLosses%2CannualAmortizationOfFinancingCostsAndDiscounts%2CannualDepreciationAmortizationDepletion%2CannualRealizedGainLossOnSaleOfLoansAndLease%2CannualAllTaxesPaid%2CannualInterestandCommissionPaid%2CannualCashPaymentsforLoans%2CannualCashPaymentsforDepositsbyBanksandCustomers%2CannualCashReceiptsfromFeesandCommissions%2CannualCashReceiptsfromSecuritiesRelatedActivities%2CannualCashReceiptsfromLoans%2CannualCashReceiptsfromDepositsbyBanksandCustomers%2CannualCashReceiptsfromTaxRefunds%2CannualAmortizationAmortizationCashFlow",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "2",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Thu, 01 Jan 2026 11:24:11 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "122",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "6p1ii29klcmar"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetIncomeFromContinuingOperations"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualNetIncomeFromContinuingOperations": [
+              {
+                "dataId": 26080,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 87014000,
+                  "fmt": "87.01M"
+                }
+              },
+              {
+                "dataId": 26080,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 106851000,
+                  "fmt": "106.85M"
+                }
+              },
+              {
+                "dataId": 26080,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 102912000,
+                  "fmt": "102.91M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPurchaseOfBusiness"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualPurchaseOfBusiness": [
+              {
+                "dataId": 26115,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -400000,
+                  "fmt": "-400.00k"
+                }
+              },
+              {
+                "dataId": 26115,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 26115,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualBeginningCashPosition"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualBeginningCashPosition": [
+              {
+                "dataId": 26015,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 130611000,
+                  "fmt": "130.61M"
+                }
+              },
+              {
+                "dataId": 26015,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 117002000,
+                  "fmt": "117.00M"
+                }
+              },
+              {
+                "dataId": 26015,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 107898000,
+                  "fmt": "107.90M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDepreciationAndAmortization"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualDepreciationAndAmortization": [
+              {
+                "dataId": 26060,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 17355000,
+                  "fmt": "17.36M"
+                }
+              },
+              {
+                "dataId": 26060,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 14038000,
+                  "fmt": "14.04M"
+                }
+              },
+              {
+                "dataId": 26060,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 14679000,
+                  "fmt": "14.68M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCapitalExpenditure"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualCapitalExpenditure": [
+              {
+                "dataId": 26005,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -7794000,
+                  "fmt": "-7.79M"
+                }
+              },
+              {
+                "dataId": 26005,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -700000,
+                  "fmt": "-700.00k"
+                }
+              },
+              {
+                "dataId": 26005,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -3971000,
+                  "fmt": "-3.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInvestingCashFlow"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualInvestingCashFlow": [
+              {
+                "dataId": 26013,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -8194000,
+                  "fmt": "-8.19M"
+                }
+              },
+              {
+                "dataId": 26013,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -700000,
+                  "fmt": "-700.00k"
+                }
+              },
+              {
+                "dataId": 26013,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -3971000,
+                  "fmt": "-3.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInInventory"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualChangeInInventory": [
+              {
+                "dataId": 26034,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -272000,
+                  "fmt": "-272.00k"
+                }
+              },
+              {
+                "dataId": 26034,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -873000,
+                  "fmt": "-873.00k"
+                }
+              },
+              {
+                "dataId": 26034,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 1495000,
+                  "fmt": "1.50M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDepreciation"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualDepreciation": [
+              {
+                "dataId": 26059,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 17355000,
+                  "fmt": "17.36M"
+                }
+              },
+              {
+                "dataId": 26059,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 14038000,
+                  "fmt": "14.04M"
+                }
+              },
+              {
+                "dataId": 26059,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 14679000,
+                  "fmt": "14.68M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOperatingCashFlow"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualOperatingCashFlow": [
+              {
+                "dataId": 26014,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 80613000,
+                  "fmt": "80.61M"
+                }
+              },
+              {
+                "dataId": 26014,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 56197000,
+                  "fmt": "56.20M"
+                }
+              },
+              {
+                "dataId": 26014,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 114367000,
+                  "fmt": "114.37M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInWorkingCapital"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualChangeInWorkingCapital": [
+              {
+                "dataId": 26053,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 17652000,
+                  "fmt": "17.65M"
+                }
+              },
+              {
+                "dataId": 26053,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -39594000,
+                  "fmt": "-39.59M"
+                }
+              },
+              {
+                "dataId": 26053,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 20881000,
+                  "fmt": "20.88M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInReceivables"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualChangeInReceivables": [
+              {
+                "dataId": 26045,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 36153000,
+                  "fmt": "36.15M"
+                }
+              },
+              {
+                "dataId": 26045,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -43110000,
+                  "fmt": "-43.11M"
+                }
+              },
+              {
+                "dataId": 26045,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 28439000,
+                  "fmt": "28.44M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualFreeCashFlow"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualFreeCashFlow": [
+              {
+                "dataId": 26185,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 72819000,
+                  "fmt": "72.82M"
+                }
+              },
+              {
+                "dataId": 26185,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 55497000,
+                  "fmt": "55.50M"
+                }
+              },
+              {
+                "dataId": 26185,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 110396000,
+                  "fmt": "110.40M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualFinancingCashFlow"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualFinancingCashFlow": [
+              {
+                "dataId": 26012,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -86028000,
+                  "fmt": "-86.03M"
+                }
+              },
+              {
+                "dataId": 26012,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -64601000,
+                  "fmt": "-64.60M"
+                }
+              },
+              {
+                "dataId": 26012,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -82866000,
+                  "fmt": "-82.87M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetBusinessPurchaseAndSale"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualNetBusinessPurchaseAndSale": [
+              {
+                "dataId": 26116,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -400000,
+                  "fmt": "-400.00k"
+                }
+              },
+              {
+                "dataId": 26116,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 26116,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualEffectOfExchangeRateChanges"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualEffectOfExchangeRateChanges": [
+              {
+                "dataId": 26063,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 26063,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 26063,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPurchaseOfPPE"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualPurchaseOfPPE": [
+              {
+                "dataId": 26112,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -7794000,
+                  "fmt": "-7.79M"
+                }
+              },
+              {
+                "dataId": 26112,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -700000,
+                  "fmt": "-700.00k"
+                }
+              },
+              {
+                "dataId": 26112,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -3971000,
+                  "fmt": "-3.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInOtherCurrentLiabilities"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualChangeInOtherCurrentLiabilities": [
+              {
+                "dataId": 26147,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -18229000,
+                  "fmt": "-18.23M"
+                }
+              },
+              {
+                "dataId": 26147,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 4389000,
+                  "fmt": "4.39M"
+                }
+              },
+              {
+                "dataId": 26147,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -9053000,
+                  "fmt": "-9.05M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualEndCashPosition"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualEndCashPosition": [
+              {
+                "dataId": 26016,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 117002000,
+                  "fmt": "117.00M"
+                }
+              },
+              {
+                "dataId": 26016,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 107898000,
+                  "fmt": "107.90M"
+                }
+              },
+              {
+                "dataId": 26016,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 135428000,
+                  "fmt": "135.43M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashDividendsPaid"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualCashDividendsPaid": [
+              {
+                "dataId": 26007,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -71054000,
+                  "fmt": "-71.05M"
+                }
+              },
+              {
+                "dataId": 26007,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -52633000,
+                  "fmt": "-52.63M"
+                }
+              },
+              {
+                "dataId": 26007,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -71054000,
+                  "fmt": "-71.05M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOtherNonCashItems"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualOtherNonCashItems": [
+              {
+                "dataId": 26166,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 217000,
+                  "fmt": "217.00k"
+                }
+              },
+              {
+                "dataId": 26166,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 19000,
+                  "fmt": "19.00k"
+                }
+              },
+              {
+                "dataId": 26166,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -680000,
+                  "fmt": "-680.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualTaxesRefundPaid"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualTaxesRefundPaid": [
+              {
+                "dataId": 26240,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -41625000,
+                  "fmt": "-41.62M"
+                }
+              },
+              {
+                "dataId": 26240,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -25117000,
+                  "fmt": "-25.12M"
+                }
+              },
+              {
+                "dataId": 26240,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -23425000,
+                  "fmt": "-23.43M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangesInCash"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualChangesInCash": [
+              {
+                "dataId": 26027,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -13609000,
+                  "fmt": "-13.61M"
+                }
+              },
+              {
+                "dataId": 26027,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -9104000,
+                  "fmt": "-9.10M"
+                }
+              },
+              {
+                "dataId": 26027,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 27530000,
+                  "fmt": "27.53M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetPPEPurchaseAndSale"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200
+            ],
+            "annualNetPPEPurchaseAndSale": [
+              {
+                "dataId": 26119,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -7794000,
+                  "fmt": "-7.79M"
+                }
+              },
+              {
+                "dataId": 26119,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -700000,
+                  "fmt": "-700.00k"
+                }
+              },
+              {
+                "dataId": 26119,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": -3971000,
+                  "fmt": "-3.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualSaleOfPPE"
+              ]
+            },
+            "timestamp": [
+              1703980800,
+              1735603200
+            ],
+            "annualSaleOfPPE": [
+              {
+                "dataId": 26127,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 26127,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProceedsFromStockOptionExercised"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestandCommissionPaid"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDividendsPaidDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDividendsReceivedDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualEarningsLossesFromEquityInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualReceiptsfromGovernmentGrants"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualShortTermDebtPayments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualGainLossOnInvestmentSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualRepurchaseOfCapitalStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetOtherFinancingCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProceedsFromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFlowFromContinuingOperatingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInDeferredCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPurchaseOfInvestmentProperties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualStockBasedCompensation"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetForeignCurrencyExchangeGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInIncomeTaxPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAdjustedGeographySegmentData"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFromDiscontinuedInvestingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestPaidCFO"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCommonStockPayments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestReceivedCFO"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashPaymentsforDepositsbyBanksandCustomers"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualForeignSales"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualRealizedGainLossOnSaleOfLoansAndLease"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInOtherCurrentAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOtherCashAdjustmentInsideChangeinCash"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashReceiptsfromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualSaleOfInvestment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestPaidCFF"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInTaxPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualLongTermDebtIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualGainLossOnSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPreferredStockDividendPaid"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPreferredStockPayments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDividendPaidCFO"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualTaxesRefundPaidDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPaymentForLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualIncreaseinInterestBearingDepositsinBank"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualIncomeTaxPaidSupplementalData"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDeferredTax"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualRepaymentOfDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAmortizationOfFinancingCostsAndDiscounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPreferredStockIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualSaleOfIntangibles"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCapitalExpenditureReported"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetInvestmentPropertiesPurchaseAndSale"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualLongTermDebtPayments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetIssuancePaymentsOfDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualShortTermDebtIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDecreaseinInterestBearingDepositsinBank"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashReceiptsfromTaxRefunds"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInOtherWorkingCapital"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPaymentsonBehalfofEmployees"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOtherCashReceiptsfromOperatingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFromDiscontinuedFinancingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDividendReceivedCFO"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFromDiscontinuedOperatingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInInterestPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCommonStockIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAmortizationCashFlow"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPaymentstoSuppliersforGoodsandServices"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFlowsfromusedinOperatingActivitiesDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOperatingGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOtherCashPaymentsfromOperatingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDeferredIncomeTax"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProceedsPaymentInInterestBearingDepositsInBank"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAllTaxesPaid"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualIssuanceOfCapitalStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCommonStockDividendPaid"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPurchaseOfIntangibles"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualClassesofCashReceiptsfromOperatingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualGainLossOnSaleOfPPE"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualReceiptsfromCustomers"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetProceedsPaymentForLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProvisionandWriteOffofAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashReceiptsfromDepositsbyBanksandCustomers"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualIssuanceOfDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAmortizationOfSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetPreferredStockIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetLongTermDebtIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestPaidDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDomesticSales"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFlowFromContinuingInvestingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualProvisionForLoanLeaseAndOtherLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualIncreaseDecreaseInDeposit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualSaleOfInvestmentProperties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAssetImpairmentCharge"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDepreciationAmortizationDepletion"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFlowFromDiscontinuedOperation"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualUnrealizedGainLossOnInvestmentSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestPaidSupplementalData"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashReceiptsfromSecuritiesRelatedActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetCommonStockIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInAccountPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualOtherCashAdjustmentOutsideChangeinCash"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetIntangiblesPurchaseAndSale"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDividendsReceivedCFI"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInPayablesAndAccruedExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInFederalFundsAndSecuritiesSoldForRepurchase"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestReceivedDirect"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPurchaseOfInvestment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetOtherInvestingChanges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualPensionAndEmployeeBenefitExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualDepletion"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashReceiptsfromFeesandCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashPaymentsforLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualInterestReceivedCFI"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangesInAccountReceivables"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInAccruedExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualExcessTaxBenefitFromStockBasedCompensation"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetShortTermDebtIssuance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInPrepaidAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualAmortizationOfIntangibles"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualChangeInDividendPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualCashFlowFromContinuingFinancingActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualNetInvestmentPurchaseAndSale"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "SOF-B.ST"
+              ],
+              "type": [
+                "annualClassesofCashPayments"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

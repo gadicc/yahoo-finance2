@@ -978,7 +978,7 @@ const processQuery = function (
 type TYPES = "BALANCE_SHEET" | "CASH_FLOW" | "FINANCIALS" | "ALL" | "UNKNOWN";
 
 const typicalFields: Partial<Record<TYPES, string[]>> = {
-  BALANCE_SHEET: ["netDebt"],
+  BALANCE_SHEET: ["netDebt", "totalDebt", "currentAssets", "accountsPayable"],
   CASH_FLOW: ["operatingCashFlow", "changeInOtherWorkingCapital"],
   FINANCIALS: ["netIncome", "interestExpense"],
 };
@@ -991,6 +991,7 @@ function entryType(entry: Record<string, unknown>): TYPES {
     }
   }
   if (types.length === 0) {
+    console.log("Could not determine entry type:", entry);
     return "UNKNOWN";
   }
   if (types.length === 1) {

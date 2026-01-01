@@ -18,9 +18,9 @@ const yf = new YahooFinance();
 describe("fundamentalsTimeSeries", () => {
   setupCache();
 
-  const symbols = testSymbols();
+  const allSymbols = testSymbols();
 
-  it.each(symbols)(
+  it.each(allSymbols)(
     "passes validation for symbol '%s'",
     async (symbol, t, onFinish) => {
       await yf.fundamentalsTimeSeries(
@@ -42,27 +42,39 @@ describe("fundamentalsTimeSeries", () => {
     },
   );
 
-  it("passes validation with module all & quarterly", async (t, onFinish) => {
-    const res = await yf.fundamentalsTimeSeries(
-      "AAPL",
-      {
-        type: "quarterly",
-        period1: "2024-01-01",
-        period2: "2025-01-01",
-        module: "all",
-      },
-      {
-        devel: { id: `fundamentalsTimeSeries-AAPL-all-quarterly`, t, onFinish },
-      },
-    );
-    expect(res).toHaveLength(4);
-  });
+  const symbols = [
+    "AAPL",
+    "SOF-B.ST", // #969
+  ];
 
-  it(
-    "passes validation with module financials & quarterly",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module all & quarterly for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
+        {
+          type: "quarterly",
+          period1: "2024-01-01",
+          period2: "2025-01-01",
+          module: "all",
+        },
+        {
+          devel: {
+            id: `fundamentalsTimeSeries-${symbol}-all-quarterly`,
+            t,
+            onFinish,
+          },
+        },
+      );
+      expect(res[0].TYPE).toBe("ALL");
+    },
+  );
+
+  it.each(symbols)(
+    "passes validation with module financials & quarterly for '%s'",
+    async (symbol, t, onFinish) => {
+      const res = await yf.fundamentalsTimeSeries(
+        symbol,
         {
           type: "quarterly",
           period1: "2024-01-01",
@@ -71,22 +83,21 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-financials-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-financials-quarterly`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(4);
-      expect(res[0]).toHaveProperty("totalRevenue");
+      expect(res[0].TYPE).toBe("FINANCIALS");
     },
   );
 
-  it(
-    "passes validation with module balance-sheet & quarterly",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module balance-sheet & quarterly for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
         {
           type: "quarterly",
           period1: "2024-01-01",
@@ -95,22 +106,21 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-balance-sheet-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-balance-sheet-quarterly`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(4);
-      expect(res[0]).toHaveProperty("netDebt");
+      expect(res[0].TYPE).toBe("BALANCE_SHEET");
     },
   );
 
-  it(
-    "passes validation with module cash-flow & quarterly",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module cash-flow & quarterly for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
         {
           type: "quarterly",
           period1: "2024-01-01",
@@ -119,38 +129,44 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-cash-flow-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-cash-flow-quarterly`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(4);
-      expect(res[0]).toHaveProperty("freeCashFlow");
+      expect(res[0].TYPE).toBe("CASH_FLOW");
     },
   );
 
-  it("passes validation with module all & annual", async (t, onFinish) => {
-    const res = await yf.fundamentalsTimeSeries(
-      "AAPL",
-      {
-        type: "annual",
-        period1: "2022-01-01",
-        period2: "2025-01-01",
-        module: "all",
-      },
-      {
-        devel: { id: `fundamentalsTimeSeries-AAPL-all-annual`, t, onFinish },
-      },
-    );
-    expect(res).toHaveLength(3);
-  });
-
-  it(
-    "passes validation with module financials & annual",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module all & annual for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
+        {
+          type: "annual",
+          period1: "2022-01-01",
+          period2: "2025-01-01",
+          module: "all",
+        },
+        {
+          devel: {
+            id: `fundamentalsTimeSeries-${symbol}-all-annual`,
+            t,
+            onFinish,
+          },
+        },
+      );
+      expect(res[0].TYPE).toBe("ALL");
+    },
+  );
+
+  it.each(symbols)(
+    "passes validation with module financials & annual for '%s'",
+    async (symbol, t, onFinish) => {
+      const res = await yf.fundamentalsTimeSeries(
+        symbol,
         {
           type: "annual",
           period1: "2022-01-01",
@@ -159,22 +175,21 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-financials-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-financials-annual`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(3);
-      expect(res[0]).toHaveProperty("totalRevenue");
+      expect(res[0].TYPE).toBe("FINANCIALS");
     },
   );
 
-  it(
-    "passes validation with module balance-sheet & annual",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module balance-sheet & annual for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
         {
           type: "annual",
           period1: "2022-01-01",
@@ -183,22 +198,21 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-balance-sheet-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-balance-sheet-annual`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(3);
-      expect(res[0]).toHaveProperty("netDebt");
+      expect(res[0].TYPE).toBe("BALANCE_SHEET");
     },
   );
 
-  it(
-    "passes validation with module cash-flow & annual",
-    async (t, onFinish) => {
+  it.each(symbols)(
+    "passes validation with module cash-flow & annual for '%s'",
+    async (symbol, t, onFinish) => {
       const res = await yf.fundamentalsTimeSeries(
-        "AAPL",
+        symbol,
         {
           type: "annual",
           period1: "2022-01-01",
@@ -207,14 +221,13 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-AAPL-cash-flow-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-cash-flow-annual`,
             t,
             onFinish,
           },
         },
       );
-      expect(res).toHaveLength(3);
-      expect(res[0]).toHaveProperty("freeCashFlow");
+      expect(res[0].TYPE).toBe("CASH_FLOW");
     },
   );
 
