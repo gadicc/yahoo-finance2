@@ -7,7 +7,7 @@ import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
 import { assertSupported } from "./lib/runtime-detect.ts";
 import defaultOptions from "./lib/options/defaults.ts";
-import deepmerge from "deepmerge";
+import { deepMerge } from "./lib/deepmerge.ts";
 
 const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
   node: "22.0.0",
@@ -61,20 +61,12 @@ export class YahooFinance {
     };
 
     if ("_createOpts" in this) {
-      const createOpts = this._createOpts as Record<string, unknown>;
-      /// XXX TODO mergeoptions from setGlobalConfig
-      this._opts = {
-        ...deepmerge.all([
-          defaultOptions,
-          createOpts["_opts"] || {},
-          options || {},
-        ]),
-        // deepmerge tries to merge the class instance props, which doesn't work well here.
-        // maybe longer term TODO, custom merge function, either with or without deepmerge.
-        cookieJar: (options || {}).cookieJar ??
-          (createOpts["_opts"] as YahooFinanceOptions)?.cookieJar ??
-          defaultOptions.cookieJar,
-      };
+      const createOpts = this._createOpts as Partial<CreateYahooFinanceOptions>;
+      this._opts = deepMerge(
+        defaultOptions,
+        createOpts["_opts"] ?? {},
+        options ?? {},
+      );
       if ("_allowAdditionalProps" in createOpts) {
         if (!this._opts.validation) this._opts.validation = {};
         this._opts.validation.allowAdditionalProps = false;
@@ -84,7 +76,7 @@ export class YahooFinance {
         this._env.fetchDevel = createOpts.fetchDevel;
       }
     } else {
-      this._opts = deepmerge(defaultOptions, options || {});
+      this._opts = deepMerge(defaultOptions, options ?? {});
     }
 
     // The following rely on this._opts being set
