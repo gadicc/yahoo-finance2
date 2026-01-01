@@ -353,9 +353,6 @@ export async function _getCrumb(
     ...fetchOptions,
     headers: {
       ...fetchOptions.headers,
-      // Big thanks to @nocodehummel who figured out a User-Agent that both
-      // works but still allows us to identify ourselves honestly.
-      "User-Agent": `Mozilla/5.0 (compatible; ${pkg.name}/${pkg.version})`,
       cookie: await cookieJar.getCookieString(GET_CRUMB_URL),
       origin: "https://finance.yahoo.com",
       referer: url,

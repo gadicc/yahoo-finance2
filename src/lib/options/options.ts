@@ -61,6 +61,11 @@ export interface YahooFinanceOptions extends YahooFinanceOptionsJSON {
    * `fetch` per request with {@linkcode ModuleOptions}.
    */
   fetch?: typeof fetch;
+  /**
+   * Any options to pass to `fetch()` for all requests.  You can also override
+   * `fetchOptions` per request with {@linkcode ModuleOptions}.
+   */
+  fetchOptions?: RequestInit;
 }
 export type { ExtendedCookieJar, Logger, YahooFinanceOptionsJSON };
 

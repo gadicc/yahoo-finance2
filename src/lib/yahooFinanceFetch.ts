@@ -5,11 +5,7 @@ import type { QueueOptions } from "./queue.ts";
 import type Notices from "./notices.ts";
 
 import errors from "./errors.ts";
-import pkg from "../../deno.json" with { type: "json" };
 import getCrumb from "./getCrumb.ts";
-import { repository } from "../consts.ts";
-
-const userAgent = `${pkg.name}/${pkg.version} (+${repository})`;
 type Fetch = typeof fetch;
 
 interface YahooFinanceFetchThisEnv {
@@ -114,10 +110,11 @@ async function yahooFinanceFetch(
     : moduleOpts.fetch || envFetch || this._opts.fetch || globalThis.fetch;
 
   const fetchOptionsBase = {
+    ...this._opts.fetchOptions,
     ...moduleOpts.fetchOptions,
     devel: moduleOpts.devel,
     headers: {
-      "User-Agent": userAgent,
+      ...this._opts.fetchOptions?.headers,
       ...moduleOpts.fetchOptions?.headers,
     },
   };
