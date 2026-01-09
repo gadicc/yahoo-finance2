@@ -1,7 +1,11 @@
 /**
  * @module createYahooFinance
  */
-import { setOptions, type YahooFinanceOptions } from "./lib/options/options.ts";
+import {
+  setOptions,
+  validateOptions,
+  type YahooFinanceOptions,
+} from "./lib/options/options.ts";
 import yahooFinanceFetch from "./lib/yahooFinanceFetch.ts";
 import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
@@ -91,6 +95,9 @@ export class YahooFinance {
       // deno-lint-ignore no-explicit-any
       : (obj: any) => this._opts.logger!.info(JSON.stringify(obj, null, 2));
     // deno-coverage-ignore-stop
+
+    // Validate options after setting up logger, etc.
+    validateOptions.call(this, options ?? {}, "#constructor");
 
     try {
       assertSupported(MIN_SUPPORTED_RUNTIMES);

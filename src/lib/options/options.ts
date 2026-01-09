@@ -98,18 +98,25 @@ export function mergeObjects(original: Obj, objToMerge: Obj) {
 export function validateOptions(
   this: YahooFinance,
   options: YahooFinanceOptions,
+  source = "_setOpts",
 ) {
   // Validation of simple JSON types
   validateAndCoerceTypes({
     object: options,
-    source: "_setOpts",
+    source,
     type: "options",
-    options: this._opts.validation!,
+    // options: this._opts.validation!,
+    options: {
+      logErrors: false,
+      logOptionsErrors: true,
+      allowAdditionalProps: false,
+    },
     schemaOrSchemaKey: "#/definitions/YahooFinanceOptions",
     definitions,
     logger: this._opts.logger!,
     logObj: this._logObj!,
-    versionCheck: this._opts.versionCheck!,
+    // versionCheck: this._opts.versionCheck!,
+    versionCheck: false,
   });
 
   if (options.cookieJar && !(options.cookieJar instanceof ExtendedCookieJar)) {
