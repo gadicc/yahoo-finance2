@@ -27,7 +27,7 @@ function spyLogger(shouldLog = false) {
     dir: spy((...args: any[]) => shouldLog && console.dir(...args)),
     // deno-lint-ignore no-explicit-any
     debug: spy((..._args: any[]) => shouldLog && console.debug(..._args)),
-    _setShouldLog: (value: boolean) => shouldLog = value,
+    // _setShouldLog: (value: boolean) => shouldLog = value,
   };
 }
 
