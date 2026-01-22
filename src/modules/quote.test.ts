@@ -175,4 +175,33 @@ describe("quote", () => {
     expect(result.symbol).toBe("MSFT");
     expect(result.beta).toBeDefined();
   });
+
+  describe("extended market fields", () => {
+    it("passes through extendedMarket fields", async (t, onFinish) => {
+      const devel = { id: "quote-AAPL-fields-extendedMarket", t, onFinish };
+      const queryOpts = {
+        fields: [
+          "symbol",
+          "extendedMarketChange",
+          "extendedMarketChangePercent",
+          "extendedMarketPrice",
+          "extendedMarketTime",
+        ],
+      };
+      const result = await yf.quote("AAPL", queryOpts, { devel });
+      expect(result.symbol).toBe("AAPL");
+      // These fields may not always be present depending on market state
+      // but should pass validation when they are
+    });
+
+    it("passes through day-level fields", async (t, onFinish) => {
+      const devel = { id: "quote-AAPL-fields-dayLevel", t, onFinish };
+      const queryOpts = {
+        fields: ["symbol", "dayHigh", "dayLow", "volume"],
+      };
+      const result = await yf.quote("AAPL", queryOpts, { devel });
+      expect(result.symbol).toBe("AAPL");
+      // These fields may include extended hours data
+    });
+  });
 });
