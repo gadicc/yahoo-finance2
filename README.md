@@ -125,6 +125,16 @@ should execute calls on a server or in a serverless or edge function, and pass
 this data to the browser as required. See the CodeSandbox above for examples.
 Use React Server Components, trpc, or other strategies to maintain types.
 
+## Related Projects
+
+- 📈 [Ghostfolio](https://ghostfol.io/) - mature, open-source Wealth Management
+  & longtime supporter.
+
+- 🛠️ [StockQuotes.MCP](https://github.com/lionelschiepers/StockQuotes.MCP) - AI
+  MCP Server to fetch real time financial data
+
+Want your project listed? Open a PR to add it here.
+
 ## Contributing
 
 Pull Requests welcome! Read [CONTRIBUTING.md](./CONTRIBUTING.md) and join our
