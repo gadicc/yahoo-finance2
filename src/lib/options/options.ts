@@ -100,9 +100,13 @@ export function validateOptions(
   options: YahooFinanceOptions,
   source = "_setOpts",
 ) {
+  // Exclude complex types that won't validate properly with json-schema
+  // and check later.
+  const { cookieJar, logger, fetch, ...simpleOptions } = options;
+
   // Validation of simple JSON types
   validateAndCoerceTypes({
-    object: options,
+    object: simpleOptions,
     source,
     type: "options",
     // options: this._opts.validation!,
@@ -119,11 +123,17 @@ export function validateOptions(
     versionCheck: false,
   });
 
-  if (options.cookieJar && !(options.cookieJar instanceof ExtendedCookieJar)) {
+  // Complex type checks
+
+  if (cookieJar && !(cookieJar instanceof ExtendedCookieJar)) {
     throw new Error("cookieJar must be an instance of ExtendedCookieJar");
   }
 
-  options.logger && validateLogger(options.logger);
+  logger && validateLogger(logger);
+
+  if (fetch && typeof fetch !== "function") {
+    throw new Error("fetch must be a function");
+  }
 }
 
 export function setOptions(this: YahooFinance, options: YahooFinanceOptions) {
