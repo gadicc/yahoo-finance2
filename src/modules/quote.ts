@@ -272,6 +272,30 @@ export interface QuoteBase {
   /** Whether pre/post market data is available */
   hasPrePostMarketData?: boolean; // true,
 
+  /**
+   * Extended hours price change (pre-market or after-hours depending on market state).
+   * This is a unified field that represents the current extended session.
+   */
+  extendedMarketChange?: number;
+
+  /**
+   * Extended hours price change percentage (pre-market or after-hours depending on market state).
+   * This is a unified field that represents the current extended session.
+   */
+  extendedMarketChangePercent?: number;
+
+  /**
+   * Extended hours price (pre-market or after-hours depending on market state).
+   * This is a unified field that represents the current extended session.
+   */
+  extendedMarketPrice?: number;
+
+  /**
+   * Extended hours timestamp (pre-market or after-hours depending on market state).
+   * This is a unified field that represents the current extended session.
+   */
+  extendedMarketTime?: Date;
+
   /** Regular market session price change */
   regularMarketChange?: number; // -2.9299927,
 
@@ -295,6 +319,24 @@ export interface QuoteBase {
 
   /** Regular market session volume */
   regularMarketVolume?: number; // 4228841,
+
+  /**
+   * Day high price, may include extended hours trading.
+   * Separate from regularMarketDayHigh which only covers regular session.
+   */
+  dayHigh?: number;
+
+  /**
+   * Day low price, may include extended hours trading.
+   * Separate from regularMarketDayLow which only covers regular session.
+   */
+  dayLow?: number;
+
+  /**
+   * Trading volume, may include extended hours trading.
+   * Separate from regularMarketVolume which only covers regular session.
+   */
+  volume?: number;
 
   /** Previous day's closing price */
   regularMarketPreviousClose?: number; // 546.57,
@@ -389,20 +431,6 @@ export interface QuoteBase {
    * Identical to `companyLogoUrl`.  Must be explicitly requested in `fields`. */
   logoUrl?: string;
 }
-
-/*
- * [TODO] Fields seen in a query but not in this module yet:
- *
- *   - extendedMarketChange
- *   - extendedMarketChangePercent
- *   - extendedMarketPrice
- *   - extendedMarketTime
- *   - dayHigh (separate to regularMarketDayHigh, etc)
- *   - dayLow (separate to regularMarketDayLow, etc)
- *   - volume (separaet to regularMarketVolume, etc)
- *
- * i.e. on yahoo site, with ?fields=dayHigh,dayLow,etc.
- */
 
 /*
  * Guaranteed fields, even we don't ask for them
