@@ -3,6 +3,8 @@ import { FileCookieStore } from "tough-cookie-file-store";
 
 import YahooFinance from "../src/index.ts";
 import { ExtendedCookieJar } from "../src/lib/cookieJar.ts";
+import pkg from "../deno.json" with { type: "json" };
+import { versionCheck } from "../src/lib/versions.ts";
 
 const cookiePath = path.join(Deno.env.get("HOME")!, ".yf2-cookies.json");
 const cookieJar = new ExtendedCookieJar(new FileCookieStore(cookiePath));
@@ -18,31 +20,6 @@ const moduleNames = Object.getOwnPropertyNames(YahooFinance.prototype)
 
 const [moduleName, ...argsAsStrings] = Deno.args;
 
-if (moduleName === "--help" || moduleName === "-h") {
-  console.log();
-  console.log("Usage: yahoo-finance.js <module> <args>");
-  console.log();
-  console.log("Get a quote for AAPL:");
-  console.log("$ yahoo-finance.js quoteSummary AAPL");
-  console.log();
-  console.log("Run the quoteSummary module with two submodules:");
-  console.log(
-    '$ yahoo-finance.js quoteSummary AAPL \'{"modules":["assetProfile", "secFilings"]}\'',
-  );
-  console.log();
-  console.log("Available modules:");
-  console.log(moduleNames.join(", "));
-  Deno.exit();
-}
-
-if (!moduleNames.includes(moduleName)) {
-  console.log("No such module: " + moduleName);
-  console.log("Available modules: " + moduleNames.join(", "));
-  Deno.exit();
-}
-
-console.log("Storing cookies in " + cookiePath);
-
 function decodeArgs(stringArgs: string[]) {
   return stringArgs.map((arg) => {
     if (arg[0] === "{") return JSON.parse(arg);
@@ -54,6 +31,41 @@ function decodeArgs(stringArgs: string[]) {
 }
 
 (async function () {
+  if (!moduleName || moduleName === "--help" || moduleName === "-h") {
+    console.error("yahoo-finance2 version: " + pkg.version);
+    console.error("Usage: yahoo-finance.js <module> <args>");
+    console.error();
+    console.error("Get a quote for AAPL:");
+    console.error("$ yahoo-finance.js quoteSummary AAPL");
+    console.error();
+    console.error("Run the quoteSummary module with two submodules:");
+    console.error(
+      '$ yahoo-finance.js quoteSummary AAPL \'{"modules":["assetProfile", "secFilings"]}\'',
+    );
+    console.error();
+    console.error("Available modules:");
+    console.error(moduleNames.join(", "));
+    Deno.exit(1);
+  }
+
+  if (moduleName === "--version" || moduleName === "-v") {
+    const versions = await versionCheck();
+    console.error(
+      `yahoo-finance2 version: ${versions.current} (latest` +
+        (versions.isLatest ? "" : `: ${versions.latest}`) + ")",
+    );
+
+    Deno.exit(1);
+  }
+
+  if (!moduleNames.includes(moduleName)) {
+    console.error("No such module: " + moduleName);
+    console.error("Available modules: " + moduleNames.join(", "));
+    Deno.exit(1);
+  }
+
+  console.error("Storing cookies in " + cookiePath);
+
   const args = decodeArgs(argsAsStrings);
 
   let result;
