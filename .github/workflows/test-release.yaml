@@ -65,7 +65,7 @@ jobs:
       # Instead, do this in semantic-release prepare step, so deno.json version is updated before build:npm
       # - run: deno task build:npm
 
-      - run: npm install -D @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
+      - run: npm install -D @semantic-release/exec @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
 
       # We did this already but it seems not everythign was installed for jsr publish?  Let's try.
       - run: deno install
