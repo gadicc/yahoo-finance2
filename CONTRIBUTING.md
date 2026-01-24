@@ -36,8 +36,8 @@ All PRs should be submitted against the `dev` branch (github default).
 ### Required Tools: Deno & editor plugins
 
 We use the [deno](https://deno.com/) runtime for development. It can be
-installed with a single command and replaces node, npm, eslint, prettier, tsc;
-is super fast and relieves us of many pain points. The library is still
+installed with a single command and replaces node, npm, eslint, prettier, tsc,
+jest; is super fast and relieves us of many pain points. The library is still
 published in npm and runs on node and other runtimes.
 
 **vscode:** Make sure you have the official
