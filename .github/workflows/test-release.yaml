@@ -62,8 +62,7 @@ jobs:
 
       - uses: ./.github/actions/setup
 
-      # Instead, do this in semantic-release prepare step, so deno.json version is updated before build:npm
-      # - run: deno task build:npm
+      - run: deno task build:npm
 
       - run: npm install -D @semantic-release/exec @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
 

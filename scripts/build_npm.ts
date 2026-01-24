@@ -1,24 +1,5 @@
 import { build, emptyDir } from "@deno/dnt";
-import { parseArgs } from "@std/cli/parse-args";
 import denoJson from "../deno.json" with { type: "json" };
-
-const args = parseArgs(Deno.args, {
-  string: ["version"],
-});
-
-const version = args.version;
-
-if (!version) {
-  throw new Error("--version is required");
-}
-
-console.log("Building version", version);
-
-function updateFile(filePath: string, updateFn: (text: string) => string) {
-  const text = Deno.readTextFileSync(filePath);
-  const updatedText = updateFn(text);
-  Deno.writeTextFileSync(filePath, updatedText);
-}
 
 await emptyDir("./npm");
 
@@ -45,7 +26,7 @@ await build({
     // package.json properties
     name: "yahoo-finance2",
     // version: Deno.args[0],
-    version,
+    version: "0.0.1", // will be replaced on publish
     description: "JS API for Yahoo Finance",
     author: "Gadi Cohen <dragon@wastelands.net>",
     license: "MIT",
@@ -89,21 +70,5 @@ await build({
     Deno.chmodSync("npm/esm/bin/yahoo-finance.js", 0o755);
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
-    for (
-      const denoJs of [
-        "npm/src/deno.js",
-        "npm/esm/deno.js",
-        "npm/script/deno.js",
-      ]
-    ) {
-      updateFile(denoJs, (text) => {
-        // A little brittle but works for now.
-        // TODO, make sure we're inside an "export default {...}" block.
-        return text.replace(
-          /^(\s+)"version":\s*".*",$/m,
-          `$1"version": "${version}",`,
-        );
-      });
-    }
   },
 });

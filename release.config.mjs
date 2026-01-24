@@ -21,7 +21,8 @@ export default {
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     ["@semantic-release/exec", {
-      "prepareCmd": "deno task build:npm --version ${nextRelease.version}",
+      "prepareCmd":
+        "deno run -A scripts/fix_versions.ts --version ${nextRelease.version}",
     }],
     ["@semantic-release/npm", {
       pkgRoot: "npm",
