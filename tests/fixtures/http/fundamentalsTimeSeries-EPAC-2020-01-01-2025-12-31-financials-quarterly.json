@@ -1,0 +1,4311 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/EPAC?period1=1577836800&period2=1767139200&type=quarterlyTotalRevenue%2CquarterlyOperatingRevenue%2CquarterlyCostOfRevenue%2CquarterlyGrossProfit%2CquarterlySellingGeneralAndAdministration%2CquarterlySellingAndMarketingExpense%2CquarterlyGeneralAndAdministrativeExpense%2CquarterlyOtherGandA%2CquarterlyResearchAndDevelopment%2CquarterlyDepreciationAmortizationDepletionIncomeStatement%2CquarterlyDepletionIncomeStatement%2CquarterlyDepreciationAndAmortizationInIncomeStatement%2CquarterlyAmortization%2CquarterlyAmortizationOfIntangiblesIncomeStatement%2CquarterlyDepreciationIncomeStatement%2CquarterlyOtherOperatingExpenses%2CquarterlyOperatingExpense%2CquarterlyOperatingIncome%2CquarterlyInterestExpenseNonOperating%2CquarterlyInterestIncomeNonOperating%2CquarterlyTotalOtherFinanceCost%2CquarterlyNetNonOperatingInterestIncomeExpense%2CquarterlyWriteOff%2CquarterlySpecialIncomeCharges%2CquarterlyGainOnSaleOfPPE%2CquarterlyGainOnSaleOfBusiness%2CquarterlyGainOnSaleOfSecurity%2CquarterlyOtherSpecialCharges%2CquarterlyOtherIncomeExpense%2CquarterlyOtherNonOperatingIncomeExpenses%2CquarterlyTotalExpenses%2CquarterlyPretaxIncome%2CquarterlyTaxProvision%2CquarterlyNetIncomeContinuousOperations%2CquarterlyNetIncomeIncludingNoncontrollingInterests%2CquarterlyMinorityInterests%2CquarterlyNetIncomeFromTaxLossCarryforward%2CquarterlyNetIncomeExtraordinary%2CquarterlyNetIncomeDiscontinuousOperations%2CquarterlyPreferredStockDividends%2CquarterlyOtherunderPreferredStockDividend%2CquarterlyNetIncomeCommonStockholders%2CquarterlyNetIncome%2CquarterlyBasicAverageShares%2CquarterlyDilutedAverageShares%2CquarterlyDividendPerShare%2CquarterlyReportedNormalizedBasicEPS%2CquarterlyContinuingAndDiscontinuedBasicEPS%2CquarterlyBasicEPSOtherGainsLosses%2CquarterlyTaxLossCarryforwardBasicEPS%2CquarterlyNormalizedBasicEPS%2CquarterlyBasicEPS%2CquarterlyBasicAccountingChange%2CquarterlyBasicExtraordinary%2CquarterlyBasicDiscontinuousOperations%2CquarterlyBasicContinuousOperations%2CquarterlyReportedNormalizedDilutedEPS%2CquarterlyContinuingAndDiscontinuedDilutedEPS%2CquarterlyTaxLossCarryforwardDilutedEPS%2CquarterlyAverageDilutionEarnings%2CquarterlyNormalizedDilutedEPS%2CquarterlyDilutedEPS%2CquarterlyDilutedAccountingChange%2CquarterlyDilutedExtraordinary%2CquarterlyDilutedContinuousOperations%2CquarterlyDilutedDiscontinuousOperations%2CquarterlyDilutedNIAvailtoComStockholders%2CquarterlyDilutedEPSOtherGainsLosses%2CquarterlyTotalOperatingIncomeAsReported%2CquarterlyNetIncomeFromContinuingAndDiscontinuedOperation%2CquarterlyNormalizedIncome%2CquarterlyNetInterestIncome%2CquarterlyEBIT%2CquarterlyEBITDA%2CquarterlyReconciledCostOfRevenue%2CquarterlyReconciledDepreciation%2CquarterlyNetIncomeFromContinuingOperationNetMinorityInterest%2CquarterlyTotalUnusualItemsExcludingGoodwill%2CquarterlyTotalUnusualItems%2CquarterlyNormalizedEBITDA%2CquarterlyTaxRateForCalcs%2CquarterlyTaxEffectOfUnusualItems%2CquarterlyRentExpenseSupplemental%2CquarterlyEarningsFromEquityInterestNetOfTax%2CquarterlyImpairmentOfCapitalAssets%2CquarterlyRestructuringAndMergernAcquisition%2CquarterlySecuritiesAmortization%2CquarterlyEarningsFromEquityInterest%2CquarterlyOtherTaxes%2CquarterlyProvisionForDoubtfulAccounts%2CquarterlyInsuranceAndClaims%2CquarterlyRentAndLandingFees%2CquarterlySalariesAndWages%2CquarterlyExciseTaxes%2CquarterlyInterestExpense%2CquarterlyInterestIncome%2CquarterlyTotalMoneyMarketInvestments%2CquarterlyInterestIncomeAfterProvisionForLoanLoss%2CquarterlyOtherThanPreferredStockDividend%2CquarterlyLossonExtinguishmentofDebt%2CquarterlyIncomefromAssociatesandOtherParticipatingInterests%2CquarterlyNonInterestExpense%2CquarterlyOtherNonInterestExpense%2CquarterlyProfessionalExpenseAndContractServicesExpense%2CquarterlyOccupancyAndEquipment%2CquarterlyEquipment%2CquarterlyNetOccupancyExpense%2CquarterlyCreditLossesProvision%2CquarterlyNonInterestIncome%2CquarterlyOtherNonInterestIncome%2CquarterlyGainLossonSaleofAssets%2CquarterlyGainonSaleofInvestmentProperty%2CquarterlyGainonSaleofLoans%2CquarterlyForeignExchangeTradingGains%2CquarterlyTradingGainLoss%2CquarterlyInvestmentBankingProfit%2CquarterlyDividendIncome%2CquarterlyFeesAndCommissions%2CquarterlyFeesandCommissionExpense%2CquarterlyFeesandCommissionIncome%2CquarterlyOtherCustomerServices%2CquarterlyCreditCard%2CquarterlySecuritiesActivities%2CquarterlyTrustFeesbyCommissions%2CquarterlyServiceChargeOnDepositorAccounts%2CquarterlyTotalPremiumsEarned%2CquarterlyOtherInterestExpense%2CquarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestExpenseForLongTermDebtAndCapitalSecurities%2CquarterlyInterestExpenseForShortTermDebt%2CquarterlyInterestExpenseForDeposit%2CquarterlyOtherInterestIncome%2CquarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestIncomeFromDeposits%2CquarterlyInterestIncomeFromSecurities%2CquarterlyInterestIncomeFromLoansAndLease%2CquarterlyInterestIncomeFromLeases%2CquarterlyInterestIncomeFromLoans%2CquarterlyDepreciationDepreciationIncomeStatement%2CquarterlyOperationAndMaintenance%2CquarterlyOtherCostofRevenue%2CquarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 20 Feb 2026 09:40:34 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "126",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "27ofo7hkpgb0i"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeContinuousOperations"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncomeContinuousOperations": [
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation": [
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncome"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncome": [
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalOtherFinanceCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOperatingRevenue"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyOperatingRevenue": [
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 145196000,
+                  "fmt": "145.20M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 140134000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 5062000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 145528000,
+                  "fmt": "145.53M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 140716000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 4812000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 158661000,
+                  "fmt": "158.66M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 153374000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 5287000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 167514000,
+                  "fmt": "167.51M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 161601000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 5913000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 144208000,
+                  "fmt": "144.21M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 137762000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 6446000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyAmortization"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyAmortization": [
+              {
+                "dataId": 20007,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1202000,
+                  "fmt": "1.20M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1188000,
+                  "fmt": "1.19M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1235000,
+                  "fmt": "1.24M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1951000,
+                  "fmt": "1.95M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1597000,
+                  "fmt": "1.60M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetNonOperatingInterestIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetNonOperatingInterestIncomeExpense": [
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2770000,
+                  "fmt": "-2.77M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2371000,
+                  "fmt": "-2.37M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2395000,
+                  "fmt": "-2.40M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2376000,
+                  "fmt": "-2.38M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2265000,
+                  "fmt": "-2.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest": [
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyReconciledCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyReconciledCostOfRevenue": [
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 68232000,
+                  "fmt": "68.23M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 69814000,
+                  "fmt": "69.81M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 76272000,
+                  "fmt": "76.27M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 80653000,
+                  "fmt": "80.65M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 68175000,
+                  "fmt": "68.17M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItemsExcludingGoodwill"
+              ]
+            },
+            "timestamp": [
+              1725062400,
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400
+            ],
+            "quarterlyTotalUnusualItemsExcludingGoodwill": [
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -3007000,
+                  "fmt": "-3.01M"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -5862000,
+                  "fmt": "-5.86M"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeIncludingNoncontrollingInterests"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncomeIncludingNoncontrollingInterests": [
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNormalizedEBITDA"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNormalizedEBITDA": [
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34159000,
+                  "fmt": "34.16M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 33541000,
+                  "fmt": "33.54M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 40317000,
+                  "fmt": "40.32M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44159000,
+                  "fmt": "44.16M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32270000,
+                  "fmt": "32.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherNonOperatingIncomeExpenses"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyOtherNonOperatingIncomeExpenses": [
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -487000,
+                  "fmt": "-487.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -750000,
+                  "fmt": "-750.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -947000,
+                  "fmt": "-947.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -647000,
+                  "fmt": "-647.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -668000,
+                  "fmt": "-668.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicAverageShares"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyBasicAverageShares": [
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54242000,
+                  "fmt": "54.24M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54397000,
+                  "fmt": "54.40M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54051000,
+                  "fmt": "54.05M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53508000,
+                  "fmt": "53.51M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 52980000,
+                  "fmt": "52.98M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySpecialIncomeCharges"
+              ]
+            },
+            "timestamp": [
+              1725062400,
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400
+            ],
+            "quarterlySpecialIncomeCharges": [
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -3007000,
+                  "fmt": "-3.01M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -5862000,
+                  "fmt": "-5.86M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyEBITDA"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34159000,
+                  "fmt": "34.16M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 33541000,
+                  "fmt": "33.54M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000,
+                  "fmt": "34.45M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44159000,
+                  "fmt": "44.16M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32270000,
+                  "fmt": "32.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTaxRateForCalcs"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTaxRateForCalcs": [
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.221,
+                  "fmt": "0.22"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.245,
+                  "fmt": "0.24"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.222,
+                  "fmt": "0.22"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.23724,
+                  "fmt": "0.24"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.251,
+                  "fmt": "0.25"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyEBIT"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyEBIT": [
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30645000,
+                  "fmt": "30.64M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30070000,
+                  "fmt": "30.07M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30734000,
+                  "fmt": "30.73M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39191000,
+                  "fmt": "39.19M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27822000,
+                  "fmt": "27.82M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDepreciationAndAmortizationInIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyDepreciationAndAmortizationInIncomeStatement": [
+              {
+                "dataId": 20019,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1202000,
+                  "fmt": "1.20M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1188000,
+                  "fmt": "1.19M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1235000,
+                  "fmt": "1.24M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1951000,
+                  "fmt": "1.95M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1597000,
+                  "fmt": "1.60M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyCostOfRevenue": [
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70544000,
+                  "fmt": "70.54M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 72097000,
+                  "fmt": "72.10M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 78758000,
+                  "fmt": "78.76M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 83670000,
+                  "fmt": "83.67M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 71026000,
+                  "fmt": "71.03M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyWriteOff"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedAverageShares"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyDilutedAverageShares": [
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54812000,
+                  "fmt": "54.81M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54808000,
+                  "fmt": "54.81M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54417000,
+                  "fmt": "54.42M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53905000,
+                  "fmt": "53.91M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53348000,
+                  "fmt": "53.35M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGrossProfit"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyGrossProfit": [
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 74652000,
+                  "fmt": "74.65M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73431000,
+                  "fmt": "73.43M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 79903000,
+                  "fmt": "79.90M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 83844000,
+                  "fmt": "83.84M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73182000,
+                  "fmt": "73.18M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyOtherIncomeExpense": [
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -487000,
+                  "fmt": "-487.00k"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -750000,
+                  "fmt": "-750.00k"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6809000,
+                  "fmt": "-6.81M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -647000,
+                  "fmt": "-647.00k"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -668000,
+                  "fmt": "-668.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpenseNonOperating"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyInterestExpenseNonOperating": [
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2770000,
+                  "fmt": "2.77M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2371000,
+                  "fmt": "2.37M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2395000,
+                  "fmt": "2.40M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2376000,
+                  "fmt": "2.38M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2265000,
+                  "fmt": "2.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNormalizedIncome"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNormalizedIncome": [
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26604636,
+                  "fmt": "26.60M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedNIAvailtoComStockholders"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyDilutedNIAvailtoComStockholders": [
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOperatingExpense"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyOperatingExpense": [
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 43520000,
+                  "fmt": "43.52M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 42611000,
+                  "fmt": "42.61M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 42360000,
+                  "fmt": "42.36M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44006000,
+                  "fmt": "44.01M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44692000,
+                  "fmt": "44.69M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyPretaxIncome"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyPretaxIncome": [
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27875000,
+                  "fmt": "27.88M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27699000,
+                  "fmt": "27.70M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28339000,
+                  "fmt": "28.34M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36815000,
+                  "fmt": "36.81M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 25557000,
+                  "fmt": "25.56M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeDiscontinuousOperations"
+              ]
+            },
+            "timestamp": [
+              1725062400,
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400
+            ],
+            "quarterlyNetIncomeDiscontinuousOperations": [
+              {
+                "dataId": 20022,
+                "asOfDate": "2024-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1007000,
+                  "fmt": "1.01M"
+                }
+              },
+              {
+                "dataId": 20022,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20022,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20022,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20022,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySellingGeneralAndAdministration"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlySellingGeneralAndAdministration": [
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 42318000,
+                  "fmt": "42.32M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41423000,
+                  "fmt": "41.42M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41125000,
+                  "fmt": "41.12M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 42055000,
+                  "fmt": "42.05M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 43095000,
+                  "fmt": "43.09M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalOperatingIncomeAsReported"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTotalOperatingIncomeAsReported": [
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31132000,
+                  "fmt": "31.13M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30820000,
+                  "fmt": "30.82M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31681000,
+                  "fmt": "31.68M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39838000,
+                  "fmt": "39.84M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28490000,
+                  "fmt": "28.49M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTaxProvision"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTaxProvision": [
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6152000,
+                  "fmt": "6.15M"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6798000,
+                  "fmt": "6.80M"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6295000,
+                  "fmt": "6.29M"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8734000,
+                  "fmt": "8.73M"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6426000,
+                  "fmt": "6.43M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyAmortizationOfIntangiblesIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyAmortizationOfIntangiblesIncomeStatement": [
+              {
+                "dataId": 20308,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1202000,
+                  "fmt": "1.20M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1188000,
+                  "fmt": "1.19M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1235000,
+                  "fmt": "1.24M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1951000,
+                  "fmt": "1.95M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1597000,
+                  "fmt": "1.60M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicEPS"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyBasicEPS": [
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.4,
+                  "fmt": "0.40"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.38,
+                  "fmt": "0.38"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.41,
+                  "fmt": "0.41"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.52,
+                  "fmt": "0.52"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.36,
+                  "fmt": "0.36"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyImpairmentOfCapitalAssets"
+              ]
+            },
+            "timestamp": [
+              1717113600,
+              1732924800,
+              1740700800,
+              1748649600
+            ],
+            "quarterlyImpairmentOfCapitalAssets": [
+              {
+                "dataId": 20225,
+                "asOfDate": "2024-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetInterestIncome": [
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2770000,
+                  "fmt": "-2.77M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2371000,
+                  "fmt": "-2.37M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2395000,
+                  "fmt": "-2.40M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2376000,
+                  "fmt": "-2.38M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2265000,
+                  "fmt": "-2.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalRevenue"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTotalRevenue": [
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 145196000,
+                  "fmt": "145.20M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 145528000,
+                  "fmt": "145.53M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 158661000,
+                  "fmt": "158.66M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 167514000,
+                  "fmt": "167.51M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 144208000,
+                  "fmt": "144.21M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDepreciationAmortizationDepletionIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyDepreciationAmortizationDepletionIncomeStatement": [
+              {
+                "dataId": 20020,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1202000,
+                  "fmt": "1.20M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1188000,
+                  "fmt": "1.19M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1235000,
+                  "fmt": "1.24M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1951000,
+                  "fmt": "1.95M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1597000,
+                  "fmt": "1.60M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpense"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyInterestExpense": [
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2770000,
+                  "fmt": "2.77M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2371000,
+                  "fmt": "2.37M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2395000,
+                  "fmt": "2.40M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2376000,
+                  "fmt": "2.38M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2265000,
+                  "fmt": "2.27M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.4,
+                  "fmt": "0.40"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.38,
+                  "fmt": "0.38"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.41,
+                  "fmt": "0.41"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.52,
+                  "fmt": "0.52"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.36,
+                  "fmt": "0.36"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOperatingIncome"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyOperatingIncome": [
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31132000,
+                  "fmt": "31.13M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -8179000,
+                    "segmentType": "Business",
+                    "segmentName": "Corporate",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 37992000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 1319000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30820000,
+                  "fmt": "30.82M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -9217000,
+                    "segmentType": "Business",
+                    "segmentName": "Corporate",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 38736000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 1301000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 37543000,
+                  "fmt": "37.54M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -10695000,
+                    "segmentType": "Business",
+                    "segmentName": "Corporate",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 40293000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 2083000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39838000,
+                  "fmt": "39.84M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -8371000,
+                    "segmentType": "Business",
+                    "segmentName": "Corporate",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 46848000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 1361000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28490000,
+                  "fmt": "28.49M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -9464000,
+                    "segmentType": "Business",
+                    "segmentName": "Corporate",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 35740000,
+                    "segmentType": "Business",
+                    "segmentName": "Industrial Tools & Services (IT&S) Segment",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 2214000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Segment",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyRestructuringAndMergernAcquisition"
+              ]
+            },
+            "timestamp": [
+              1725062400,
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400
+            ],
+            "quarterlyRestructuringAndMergernAcquisition": [
+              {
+                "dataId": 20289,
+                "asOfDate": "2024-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3007000,
+                  "fmt": "3.01M"
+                }
+              },
+              {
+                "dataId": 20289,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20289,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20289,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5862000,
+                  "fmt": "5.86M"
+                }
+              },
+              {
+                "dataId": 20289,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTaxEffectOfUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTaxEffectOfUnusualItems": [
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1301364,
+                  "fmt": "-1.30M"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeCommonStockholders"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyNetIncomeCommonStockholders": [
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21723000,
+                  "fmt": "21.72M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20901000,
+                  "fmt": "20.90M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22044000,
+                  "fmt": "22.04M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28081000,
+                  "fmt": "28.08M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19131000,
+                  "fmt": "19.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1725062400,
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400
+            ],
+            "quarterlyTotalUnusualItems": [
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -3007000,
+                  "fmt": "-3.01M"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -5862000,
+                  "fmt": "-5.86M"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalExpenses"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyTotalExpenses": [
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 114064000,
+                  "fmt": "114.06M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 114708000,
+                  "fmt": "114.71M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 121118000,
+                  "fmt": "121.12M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 127676000,
+                  "fmt": "127.68M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 115718000,
+                  "fmt": "115.72M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyReconciledDepreciation"
+              ]
+            },
+            "timestamp": [
+              1732924800,
+              1740700800,
+              1748649600,
+              1756598400,
+              1764460800
+            ],
+            "quarterlyReconciledDepreciation": [
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3514000,
+                  "fmt": "3.51M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-02-28",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3471000,
+                  "fmt": "3.47M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-05-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3721000,
+                  "fmt": "3.72M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-08-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4968000,
+                  "fmt": "4.97M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-11-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4448000,
+                  "fmt": "4.45M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyCreditLossesProvision"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainonSaleofInvestmentProperty"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForDeposit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLeases"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOccupancyAndEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDepreciationIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDividendPerShare"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyProfessionalExpenseAndContractServicesExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyForeignExchangeTradingGains"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyResearchAndDevelopment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyProvisionForDoubtfulAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyExciseTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyLossonExtinguishmentofDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherSpecialCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForShortTermDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfPPE"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDividendIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterestNetOfTax"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyRentExpenseSupplemental"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOperationAndMaintenance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainonSaleofLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInvestmentBankingProfit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherunderPreferredStockDividend"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTradingGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeNonOperating"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyPreferredStockDividends"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherOperatingExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherCustomerServices"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeAfterProvisionForLoanLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoansAndLease"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForLongTermDebtAndCapitalSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalMoneyMarketInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterest"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyMinorityInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfSecurity"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySellingAndMarketingExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySalariesAndWages"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetOccupancyExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromTaxLossCarryforward"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySecuritiesAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyServiceChargeOnDepositorAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyCreditCard"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyFeesAndCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyAverageDilutionEarnings"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGainLossonSaleofAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyIncomefromAssociatesandOtherParticipatingInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyGeneralAndAdministrativeExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDilutedDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTrustFeesbyCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherCostofRevenue"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyTotalPremiumsEarned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlySecuritiesActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyRentAndLandingFees"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyOtherGandA"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyBasicEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyInsuranceAndClaims"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "EPAC"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionIncome"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

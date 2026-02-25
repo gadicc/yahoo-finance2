@@ -1,0 +1,4482 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/GOOG?period1=1577836800&period2=1767139200&type=quarterlyTotalRevenue%2CquarterlyOperatingRevenue%2CquarterlyCostOfRevenue%2CquarterlyGrossProfit%2CquarterlySellingGeneralAndAdministration%2CquarterlySellingAndMarketingExpense%2CquarterlyGeneralAndAdministrativeExpense%2CquarterlyOtherGandA%2CquarterlyResearchAndDevelopment%2CquarterlyDepreciationAmortizationDepletionIncomeStatement%2CquarterlyDepletionIncomeStatement%2CquarterlyDepreciationAndAmortizationInIncomeStatement%2CquarterlyAmortization%2CquarterlyAmortizationOfIntangiblesIncomeStatement%2CquarterlyDepreciationIncomeStatement%2CquarterlyOtherOperatingExpenses%2CquarterlyOperatingExpense%2CquarterlyOperatingIncome%2CquarterlyInterestExpenseNonOperating%2CquarterlyInterestIncomeNonOperating%2CquarterlyTotalOtherFinanceCost%2CquarterlyNetNonOperatingInterestIncomeExpense%2CquarterlyWriteOff%2CquarterlySpecialIncomeCharges%2CquarterlyGainOnSaleOfPPE%2CquarterlyGainOnSaleOfBusiness%2CquarterlyGainOnSaleOfSecurity%2CquarterlyOtherSpecialCharges%2CquarterlyOtherIncomeExpense%2CquarterlyOtherNonOperatingIncomeExpenses%2CquarterlyTotalExpenses%2CquarterlyPretaxIncome%2CquarterlyTaxProvision%2CquarterlyNetIncomeContinuousOperations%2CquarterlyNetIncomeIncludingNoncontrollingInterests%2CquarterlyMinorityInterests%2CquarterlyNetIncomeFromTaxLossCarryforward%2CquarterlyNetIncomeExtraordinary%2CquarterlyNetIncomeDiscontinuousOperations%2CquarterlyPreferredStockDividends%2CquarterlyOtherunderPreferredStockDividend%2CquarterlyNetIncomeCommonStockholders%2CquarterlyNetIncome%2CquarterlyBasicAverageShares%2CquarterlyDilutedAverageShares%2CquarterlyDividendPerShare%2CquarterlyReportedNormalizedBasicEPS%2CquarterlyContinuingAndDiscontinuedBasicEPS%2CquarterlyBasicEPSOtherGainsLosses%2CquarterlyTaxLossCarryforwardBasicEPS%2CquarterlyNormalizedBasicEPS%2CquarterlyBasicEPS%2CquarterlyBasicAccountingChange%2CquarterlyBasicExtraordinary%2CquarterlyBasicDiscontinuousOperations%2CquarterlyBasicContinuousOperations%2CquarterlyReportedNormalizedDilutedEPS%2CquarterlyContinuingAndDiscontinuedDilutedEPS%2CquarterlyTaxLossCarryforwardDilutedEPS%2CquarterlyAverageDilutionEarnings%2CquarterlyNormalizedDilutedEPS%2CquarterlyDilutedEPS%2CquarterlyDilutedAccountingChange%2CquarterlyDilutedExtraordinary%2CquarterlyDilutedContinuousOperations%2CquarterlyDilutedDiscontinuousOperations%2CquarterlyDilutedNIAvailtoComStockholders%2CquarterlyDilutedEPSOtherGainsLosses%2CquarterlyTotalOperatingIncomeAsReported%2CquarterlyNetIncomeFromContinuingAndDiscontinuedOperation%2CquarterlyNormalizedIncome%2CquarterlyNetInterestIncome%2CquarterlyEBIT%2CquarterlyEBITDA%2CquarterlyReconciledCostOfRevenue%2CquarterlyReconciledDepreciation%2CquarterlyNetIncomeFromContinuingOperationNetMinorityInterest%2CquarterlyTotalUnusualItemsExcludingGoodwill%2CquarterlyTotalUnusualItems%2CquarterlyNormalizedEBITDA%2CquarterlyTaxRateForCalcs%2CquarterlyTaxEffectOfUnusualItems%2CquarterlyRentExpenseSupplemental%2CquarterlyEarningsFromEquityInterestNetOfTax%2CquarterlyImpairmentOfCapitalAssets%2CquarterlyRestructuringAndMergernAcquisition%2CquarterlySecuritiesAmortization%2CquarterlyEarningsFromEquityInterest%2CquarterlyOtherTaxes%2CquarterlyProvisionForDoubtfulAccounts%2CquarterlyInsuranceAndClaims%2CquarterlyRentAndLandingFees%2CquarterlySalariesAndWages%2CquarterlyExciseTaxes%2CquarterlyInterestExpense%2CquarterlyInterestIncome%2CquarterlyTotalMoneyMarketInvestments%2CquarterlyInterestIncomeAfterProvisionForLoanLoss%2CquarterlyOtherThanPreferredStockDividend%2CquarterlyLossonExtinguishmentofDebt%2CquarterlyIncomefromAssociatesandOtherParticipatingInterests%2CquarterlyNonInterestExpense%2CquarterlyOtherNonInterestExpense%2CquarterlyProfessionalExpenseAndContractServicesExpense%2CquarterlyOccupancyAndEquipment%2CquarterlyEquipment%2CquarterlyNetOccupancyExpense%2CquarterlyCreditLossesProvision%2CquarterlyNonInterestIncome%2CquarterlyOtherNonInterestIncome%2CquarterlyGainLossonSaleofAssets%2CquarterlyGainonSaleofInvestmentProperty%2CquarterlyGainonSaleofLoans%2CquarterlyForeignExchangeTradingGains%2CquarterlyTradingGainLoss%2CquarterlyInvestmentBankingProfit%2CquarterlyDividendIncome%2CquarterlyFeesAndCommissions%2CquarterlyFeesandCommissionExpense%2CquarterlyFeesandCommissionIncome%2CquarterlyOtherCustomerServices%2CquarterlyCreditCard%2CquarterlySecuritiesActivities%2CquarterlyTrustFeesbyCommissions%2CquarterlyServiceChargeOnDepositorAccounts%2CquarterlyTotalPremiumsEarned%2CquarterlyOtherInterestExpense%2CquarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestExpenseForLongTermDebtAndCapitalSecurities%2CquarterlyInterestExpenseForShortTermDebt%2CquarterlyInterestExpenseForDeposit%2CquarterlyOtherInterestIncome%2CquarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestIncomeFromDeposits%2CquarterlyInterestIncomeFromSecurities%2CquarterlyInterestIncomeFromLoansAndLease%2CquarterlyInterestIncomeFromLeases%2CquarterlyInterestIncomeFromLoans%2CquarterlyDepreciationDepreciationIncomeStatement%2CquarterlyOperationAndMaintenance%2CquarterlyOtherCostofRevenue%2CquarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 20 Feb 2026 09:40:31 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "100",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "5u1f3gdkpgb0f"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOperatingExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOperatingExpense": [
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 24884000000,
+                  "fmt": "24.88B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 23267000000,
+                  "fmt": "23.27B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26118000000,
+                  "fmt": "26.12B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 29749000000,
+                  "fmt": "29.75B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32128000000,
+                  "fmt": "32.13B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedNIAvailtoComStockholders"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyDilutedNIAvailtoComStockholders": [
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyPretaxIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyPretaxIncome": [
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32243000000,
+                  "fmt": "32.24B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41789000000,
+                  "fmt": "41.79B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 33933000000,
+                  "fmt": "33.93B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 43987000000,
+                  "fmt": "43.99B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39117000000,
+                  "fmt": "39.12B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNormalizedIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNormalizedIncome": [
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26680025059.70288,
+                  "fmt": "26.68B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26408936000,
+                  "fmt": "26.41B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26699369000,
+                  "fmt": "26.70B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26486015000,
+                  "fmt": "26.49B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32514555564.077,
+                  "fmt": "32.51B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherunderPreferredStockDividend"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterest"
+              ]
+            },
+            "timestamp": [
+              1719705600,
+              1727654400,
+              1735603200,
+              1743379200
+            ],
+            "quarterlyEarningsFromEquityInterest": [
+              {
+                "dataId": 20208,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32000000,
+                  "fmt": "32.00M"
+                }
+              },
+              {
+                "dataId": 20208,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -107000000,
+                  "fmt": "-107.00M"
+                }
+              },
+              {
+                "dataId": 20208,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -87000000,
+                  "fmt": "-87.00M"
+                }
+              },
+              {
+                "dataId": 20208,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -22000000,
+                  "fmt": "-22.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySellingGeneralAndAdministration"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlySellingGeneralAndAdministration": [
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11768000000,
+                  "fmt": "11.77B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9711000000,
+                  "fmt": "9.71B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12310000000,
+                  "fmt": "12.31B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14598000000,
+                  "fmt": "14.60B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13556000000,
+                  "fmt": "13.56B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetInterestIncome": [
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1035000000,
+                  "fmt": "1.03B"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 967000000,
+                  "fmt": "967.00M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 789000000,
+                  "fmt": "789.00M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 933000000,
+                  "fmt": "933.00M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 911000000,
+                  "fmt": "911.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGeneralAndAdministrativeExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyGeneralAndAdministrativeExpense": [
+              {
+                "dataId": 20045,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4405000000,
+                  "fmt": "4.41B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3539000000,
+                  "fmt": "3.54B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5209000000,
+                  "fmt": "5.21B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7393000000,
+                  "fmt": "7.39B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5341000000,
+                  "fmt": "5.34B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalOperatingIncomeAsReported"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalOperatingIncomeAsReported": [
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30972000000,
+                  "fmt": "30.97B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30606000000,
+                  "fmt": "30.61B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31271000000,
+                  "fmt": "31.27B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31228000000,
+                  "fmt": "31.23B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 35934000000,
+                  "fmt": "35.93B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTaxProvision"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTaxProvision": [
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5707000000,
+                  "fmt": "5.71B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7249000000,
+                  "fmt": "7.25B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5737000000,
+                  "fmt": "5.74B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9008000000,
+                  "fmt": "9.01B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4662000000,
+                  "fmt": "4.66B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfSecurity"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyGainOnSaleOfSecurity": [
+              {
+                "dataId": 20219,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -88000000,
+                  "fmt": "-88.00M"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9854000000,
+                  "fmt": "9.85B"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1382000000,
+                  "fmt": "1.38B"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10713000000,
+                  "fmt": "10.71B"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2289000000,
+                  "fmt": "2.29B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeNonOperating"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInterestIncomeNonOperating": [
+              {
+                "dataId": 20075,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1088000000,
+                  "fmt": "1.09B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1001000000,
+                  "fmt": "1.00B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1050000000,
+                  "fmt": "1.05B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1076000000,
+                  "fmt": "1.08B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1209000000,
+                  "fmt": "1.21B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySellingAndMarketingExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlySellingAndMarketingExpense": [
+              {
+                "dataId": 20158,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7363000000,
+                  "fmt": "7.36B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6172000000,
+                  "fmt": "6.17B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7101000000,
+                  "fmt": "7.10B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7205000000,
+                  "fmt": "7.21B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8215000000,
+                  "fmt": "8.21B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInterestExpense": [
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53000000,
+                  "fmt": "53.00M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34000000,
+                  "fmt": "34.00M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 261000000,
+                  "fmt": "261.00M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 143000000,
+                  "fmt": "143.00M"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 298000000,
+                  "fmt": "298.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalRevenue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalRevenue": [
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 96469000000,
+                  "fmt": "96.47B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 90234000000,
+                  "fmt": "90.23B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 96428000000,
+                  "fmt": "96.43B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 102346000000,
+                  "fmt": "102.35B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 113829000000,
+                  "fmt": "113.83B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOperatingIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOperatingIncome": [
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30972000000,
+                  "fmt": "30.97B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -2783000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alphabet-level activities",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 2093000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 32836000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -1174000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30606000000,
+                  "fmt": "30.61B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -3027000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alphabet-level activities",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 2177000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 32682000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -1226000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31271000000,
+                  "fmt": "31.27B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -3372000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alphabet-level activities",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 2826000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 33063000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -1246000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31228000000,
+                  "fmt": "31.23B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": -4467000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alphabet-level activities",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 3594000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 33527000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -1426000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 35934000000,
+                  "fmt": "35.93B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTaxEffectOfUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTaxEffectOfUnusualItems": [
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -30974940.297119,
+                  "fmt": "-30.97M"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1700936000,
+                  "fmt": "1.70B"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 304369000,
+                  "fmt": "304.37M"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2190015000,
+                  "fmt": "2.19B"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 262555564.077,
+                  "fmt": "262.56M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalUnusualItems": [
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -175000000,
+                  "fmt": "-175.00M"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9832000000,
+                  "fmt": "9.83B"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1801000000,
+                  "fmt": "1.80B"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10683000000,
+                  "fmt": "10.68B"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2203000000,
+                  "fmt": "2.20B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeCommonStockholders"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncomeCommonStockholders": [
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.15,
+                  "fmt": "2.15"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.81,
+                  "fmt": "2.81"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.31,
+                  "fmt": "2.31"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.87,
+                  "fmt": "2.87"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.82,
+                  "fmt": "2.82"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalExpenses"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalExpenses": [
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65497000000,
+                  "fmt": "65.50B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 59628000000,
+                  "fmt": "59.63B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65157000000,
+                  "fmt": "65.16B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 71118000000,
+                  "fmt": "71.12B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77895000000,
+                  "fmt": "77.89B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyReconciledDepreciation"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyReconciledDepreciation": [
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4205000000,
+                  "fmt": "4.21B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4487000000,
+                  "fmt": "4.49B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4998000000,
+                  "fmt": "5.00B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5611000000,
+                  "fmt": "5.61B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6040000000,
+                  "fmt": "6.04B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation": [
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncome": [
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOperatingRevenue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOperatingRevenue": [
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 96469000000,
+                  "fmt": "96.47B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 11955000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 84094000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 20000000,
+                    "segmentType": "Business",
+                    "segmentName": "Hedging gains (losses)",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 400000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 90234000000,
+                  "fmt": "90.23B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 12260000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 77264000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 260000000,
+                    "segmentType": "Business",
+                    "segmentName": "Hedging gains (losses)",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 450000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 96428000000,
+                  "fmt": "96.43B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 13624000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 82543000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -112000000,
+                    "segmentType": "Business",
+                    "segmentName": "Hedging gains (losses)",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 373000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 102346000000,
+                  "fmt": "102.35B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 15157000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Cloud",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 87052000000,
+                    "segmentType": "Business",
+                    "segmentName": "Google Services",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -207000000,
+                    "segmentType": "Business",
+                    "segmentName": "Hedging gains (losses)",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 344000000,
+                    "segmentType": "Business",
+                    "segmentName": "Other Bets",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 113829000000,
+                  "fmt": "113.83B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInterestIncome": [
+              {
+                "dataId": 20177,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1088000000,
+                  "fmt": "1.09B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1001000000,
+                  "fmt": "1.00B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1050000000,
+                  "fmt": "1.05B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1076000000,
+                  "fmt": "1.08B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1209000000,
+                  "fmt": "1.21B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyAverageDilutionEarnings"
+              ]
+            },
+            "timestamp": [
+              1743379200
+            ],
+            "quarterlyAverageDilutionEarnings": [
+              {
+                "dataId": 20385,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2415000000,
+                  "fmt": "2.42B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeContinuousOperations"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncomeContinuousOperations": [
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyResearchAndDevelopment"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyResearchAndDevelopment": [
+              {
+                "dataId": 20151,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13116000000,
+                  "fmt": "13.12B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13556000000,
+                  "fmt": "13.56B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13808000000,
+                  "fmt": "13.81B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 15151000000,
+                  "fmt": "15.15B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 18572000000,
+                  "fmt": "18.57B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNormalizedEBITDA"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNormalizedEBITDA": [
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36676000000,
+                  "fmt": "36.68B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36478000000,
+                  "fmt": "36.48B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 37391000000,
+                  "fmt": "37.39B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39058000000,
+                  "fmt": "39.06B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 43252000000,
+                  "fmt": "43.25B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicEPS"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyBasicEPS": [
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.17,
+                  "fmt": "2.17"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.84,
+                  "fmt": "2.84"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.33,
+                  "fmt": "2.33"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.89,
+                  "fmt": "2.89"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2.85,
+                  "fmt": "2.85"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyReconciledCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyReconciledCostOfRevenue": [
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 40613000000,
+                  "fmt": "40.61B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36361000000,
+                  "fmt": "36.36B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39039000000,
+                  "fmt": "39.04B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41369000000,
+                  "fmt": "41.37B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 45767000000,
+                  "fmt": "45.77B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicAverageShares"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyBasicAverageShares": [
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12228000000,
+                  "fmt": "12.23B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12183000000,
+                  "fmt": "12.18B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12122000000,
+                  "fmt": "12.12B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12086000000,
+                  "fmt": "12.09B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12073000000,
+                  "fmt": "12.07B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetNonOperatingInterestIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetNonOperatingInterestIncomeExpense": [
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1035000000,
+                  "fmt": "1.03B"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 967000000,
+                  "fmt": "967.00M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 789000000,
+                  "fmt": "789.00M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 933000000,
+                  "fmt": "933.00M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 911000000,
+                  "fmt": "911.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest": [
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItemsExcludingGoodwill"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalUnusualItemsExcludingGoodwill": [
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -175000000,
+                  "fmt": "-175.00M"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9832000000,
+                  "fmt": "9.83B"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1801000000,
+                  "fmt": "1.80B"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10683000000,
+                  "fmt": "10.68B"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2203000000,
+                  "fmt": "2.20B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeIncludingNoncontrollingInterests"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetIncomeIncludingNoncontrollingInterests": [
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26536000000,
+                  "fmt": "26.54B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34540000000,
+                  "fmt": "34.54B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28196000000,
+                  "fmt": "28.20B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34979000000,
+                  "fmt": "34.98B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34455000000,
+                  "fmt": "34.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyEBIT"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyEBIT": [
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32296000000,
+                  "fmt": "32.30B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41823000000,
+                  "fmt": "41.82B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34194000000,
+                  "fmt": "34.19B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44130000000,
+                  "fmt": "44.13B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39415000000,
+                  "fmt": "39.41B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyEBITDA"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36501000000,
+                  "fmt": "36.50B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 46310000000,
+                  "fmt": "46.31B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39192000000,
+                  "fmt": "39.19B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 49741000000,
+                  "fmt": "49.74B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 45455000000,
+                  "fmt": "45.45B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherGandA"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherGandA": [
+              {
+                "dataId": 20436,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4405000000,
+                  "fmt": "4.41B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3539000000,
+                  "fmt": "3.54B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5209000000,
+                  "fmt": "5.21B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7393000000,
+                  "fmt": "7.39B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5341000000,
+                  "fmt": "5.34B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCostOfRevenue": [
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 40613000000,
+                  "fmt": "40.61B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36361000000,
+                  "fmt": "36.36B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39039000000,
+                  "fmt": "39.04B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41369000000,
+                  "fmt": "41.37B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 45767000000,
+                  "fmt": "45.77B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherNonOperatingIncomeExpenses"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherNonOperatingIncomeExpenses": [
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 411000000,
+                  "fmt": "411.00M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 384000000,
+                  "fmt": "384.00M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 72000000,
+                  "fmt": "72.00M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1143000000,
+                  "fmt": "1.14B"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 69000000,
+                  "fmt": "69.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyWriteOff"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyWriteOff": [
+              {
+                "dataId": 20304,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 87000000,
+                  "fmt": "87.00M"
+                }
+              },
+              {
+                "dataId": 20304,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22000000,
+                  "fmt": "22.00M"
+                }
+              },
+              {
+                "dataId": 20304,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -419000000,
+                  "fmt": "-419.00M"
+                }
+              },
+              {
+                "dataId": 20304,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30000000,
+                  "fmt": "30.00M"
+                }
+              },
+              {
+                "dataId": 20304,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 86000000,
+                  "fmt": "86.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySpecialIncomeCharges"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlySpecialIncomeCharges": [
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -87000000,
+                  "fmt": "-87.00M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -22000000,
+                  "fmt": "-22.00M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 419000000,
+                  "fmt": "419.00M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -30000000,
+                  "fmt": "-30.00M"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -86000000,
+                  "fmt": "-86.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpenseNonOperating"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInterestExpenseNonOperating": [
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53000000,
+                  "fmt": "53.00M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 34000000,
+                  "fmt": "34.00M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 261000000,
+                  "fmt": "261.00M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 143000000,
+                  "fmt": "143.00M"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 298000000,
+                  "fmt": "298.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedAverageShares"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyDilutedAverageShares": [
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12348000000,
+                  "fmt": "12.35B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12183000000,
+                  "fmt": "12.18B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12198000000,
+                  "fmt": "12.20B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12203000000,
+                  "fmt": "12.20B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12228000000,
+                  "fmt": "12.23B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTaxRateForCalcs"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTaxRateForCalcs": [
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.177,
+                  "fmt": "0.18"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.173,
+                  "fmt": "0.17"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.169,
+                  "fmt": "0.17"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.205,
+                  "fmt": "0.20"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.119181,
+                  "fmt": "0.12"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGrossProfit"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyGrossProfit": [
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 55856000000,
+                  "fmt": "55.86B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53873000000,
+                  "fmt": "53.87B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 57389000000,
+                  "fmt": "57.39B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 60977000000,
+                  "fmt": "60.98B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 68062000000,
+                  "fmt": "68.06B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherIncomeExpense": [
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 236000000,
+                  "fmt": "236.00M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10216000000,
+                  "fmt": "10.22B"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1873000000,
+                  "fmt": "1.87B"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11826000000,
+                  "fmt": "11.83B"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2272000000,
+                  "fmt": "2.27B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherOperatingExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyCreditLossesProvision"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDividendPerShare"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromTaxLossCarryforward"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetOccupancyExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyExciseTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForShortTermDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyProfessionalExpenseAndContractServicesExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherSpecialCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyRentExpenseSupplemental"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTradingGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDividendIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyServiceChargeOnDepositorAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyImpairmentOfCapitalAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInvestmentBankingProfit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainonSaleofLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfPPE"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySalariesAndWages"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLeases"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOperationAndMaintenance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterestNetOfTax"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOccupancyAndEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyMinorityInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalPremiumsEarned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyRestructuringAndMergernAcquisition"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyAmortizationOfIntangiblesIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySecuritiesAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyRentAndLandingFees"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherCustomerServices"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForLongTermDebtAndCapitalSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalMoneyMarketInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDepreciationAmortizationDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyPreferredStockDividends"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTotalOtherFinanceCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyFeesAndCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyBasicContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainLossonSaleofAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlySecuritiesActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDilutedContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyGainonSaleofInvestmentProperty"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyProvisionForDoubtfulAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTrustFeesbyCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInsuranceAndClaims"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyIncomefromAssociatesandOtherParticipatingInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeAfterProvisionForLoanLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoansAndLease"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForDeposit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyCreditCard"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyOtherCostofRevenue"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDepreciationIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyNetIncomeExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyLossonExtinguishmentofDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyForeignExchangeTradingGains"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "GOOG"
+              ],
+              "type": [
+                "quarterlyDepreciationAndAmortizationInIncomeStatement"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

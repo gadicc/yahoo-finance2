@@ -893,7 +893,10 @@ export default function fundamentalsTimeSeries(
           throw new Error(`Unexpected result: ${JSON.stringify(response)}`);
         }
 
-        return processResponse(response);
+        return processResponse(
+          response,
+          queryOptionsOverrides.module ?? queryOptionsOverrides.type,
+        );
       },
     },
 
@@ -977,29 +980,6 @@ const processQuery = function (
 
 type TYPES = "BALANCE_SHEET" | "CASH_FLOW" | "FINANCIALS" | "ALL" | "UNKNOWN";
 
-const typicalFields: Partial<Record<TYPES, string[]>> = {
-  BALANCE_SHEET: ["netDebt", "totalDebt", "currentAssets", "accountsPayable"],
-  CASH_FLOW: ["operatingCashFlow", "changeInOtherWorkingCapital"],
-  FINANCIALS: ["netIncome", "interestExpense"],
-};
-
-function entryType(entry: Record<string, unknown>): TYPES {
-  const types: TYPES[] = [];
-  for (const [type, fields] of Object.entries(typicalFields)) {
-    if (fields.some((field) => entry[field])) {
-      types.push(type as TYPES);
-    }
-  }
-  if (types.length === 0) {
-    console.log("Could not determine entry type:", entry);
-    return "UNKNOWN";
-  }
-  if (types.length === 1) {
-    return types[0];
-  }
-  return "ALL";
-}
-
 /**
  * Transforms the time-series into an array with reported values per period.
  * Each object represents a period and its properties are the data points.
@@ -1010,8 +990,12 @@ function entryType(entry: Record<string, unknown>): TYPES {
  * @param response Query response.
  * @returns Formatted response.
  */
-// deno-lint-ignore no-explicit-any
-const processResponse = function (response: any): any {
+const processResponse = function (
+  // deno-lint-ignore no-explicit-any
+  response: any,
+  requestModule: string,
+  // deno-lint-ignore no-explicit-any
+): any {
   // deno-lint-ignore no-explicit-any
   const keyedByTimestamp: Record<string, any> = {};
   const replace = new RegExp(FundamentalsTimeSeries_Types.join("|"));
@@ -1059,8 +1043,12 @@ const processResponse = function (response: any): any {
     }
   }
 
-  return Object.values(keyedByTimestamp).map((entry) => ({
-    TYPE: entryType(entry),
+  return Object.values(keyedByTimestamp).filter((entry) =>
+    Object.keys(entry).length > 1
+  ).map((entry) => ({
+    TYPE: requestModule === "all"
+      ? "ALL"
+      : requestModule.toUpperCase().replace("-", "_") as TYPES,
     ...entry,
   }));
 };

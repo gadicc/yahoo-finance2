@@ -19,6 +19,8 @@ describe("fundamentalsTimeSeries", () => {
   setupCache();
 
   const allSymbols = testSymbols();
+  const period1 = "2020-01-01";
+  const period2 = "2025-12-31";
 
   it.each(allSymbols)(
     "passes validation for symbol '%s'",
@@ -26,13 +28,14 @@ describe("fundamentalsTimeSeries", () => {
       await yf.fundamentalsTimeSeries(
         symbol,
         {
-          period1: "2024-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "financials",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-financials-quarterly`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
             t,
             onFinish,
           },
@@ -54,13 +57,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "quarterly",
-          period1: "2024-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "all",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-all-quarterly`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-quarterly`,
             t,
             onFinish,
           },
@@ -77,13 +81,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "quarterly",
-          period1: "2024-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "financials",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-financials-quarterly`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
             t,
             onFinish,
           },
@@ -100,13 +105,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "quarterly",
-          period1: "2024-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "balance-sheet",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-balance-sheet-quarterly`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-quarterly`,
             t,
             onFinish,
           },
@@ -123,13 +129,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "quarterly",
-          period1: "2024-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "cash-flow",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-cash-flow-quarterly`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-quarterly`,
             t,
             onFinish,
           },
@@ -146,13 +153,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "annual",
-          period1: "2022-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "all",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-all-annual`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-annual`,
             t,
             onFinish,
           },
@@ -169,13 +177,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "annual",
-          period1: "2022-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "financials",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-financials-annual`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-annual`,
             t,
             onFinish,
           },
@@ -192,13 +201,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "annual",
-          period1: "2022-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "balance-sheet",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-balance-sheet-annual`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-annual`,
             t,
             onFinish,
           },
@@ -215,13 +225,14 @@ describe("fundamentalsTimeSeries", () => {
         symbol,
         {
           type: "annual",
-          period1: "2022-01-01",
-          period2: "2025-01-01",
+          period1,
+          period2,
           module: "cash-flow",
         },
         {
           devel: {
-            id: `fundamentalsTimeSeries-${symbol}-cash-flow-annual`,
+            id:
+              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-annual`,
             t,
             onFinish,
           },

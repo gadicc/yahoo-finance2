@@ -1,0 +1,4804 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/BABA?period1=1577836800&period2=1767139200&type=quarterlyTotalRevenue%2CquarterlyOperatingRevenue%2CquarterlyCostOfRevenue%2CquarterlyGrossProfit%2CquarterlySellingGeneralAndAdministration%2CquarterlySellingAndMarketingExpense%2CquarterlyGeneralAndAdministrativeExpense%2CquarterlyOtherGandA%2CquarterlyResearchAndDevelopment%2CquarterlyDepreciationAmortizationDepletionIncomeStatement%2CquarterlyDepletionIncomeStatement%2CquarterlyDepreciationAndAmortizationInIncomeStatement%2CquarterlyAmortization%2CquarterlyAmortizationOfIntangiblesIncomeStatement%2CquarterlyDepreciationIncomeStatement%2CquarterlyOtherOperatingExpenses%2CquarterlyOperatingExpense%2CquarterlyOperatingIncome%2CquarterlyInterestExpenseNonOperating%2CquarterlyInterestIncomeNonOperating%2CquarterlyTotalOtherFinanceCost%2CquarterlyNetNonOperatingInterestIncomeExpense%2CquarterlyWriteOff%2CquarterlySpecialIncomeCharges%2CquarterlyGainOnSaleOfPPE%2CquarterlyGainOnSaleOfBusiness%2CquarterlyGainOnSaleOfSecurity%2CquarterlyOtherSpecialCharges%2CquarterlyOtherIncomeExpense%2CquarterlyOtherNonOperatingIncomeExpenses%2CquarterlyTotalExpenses%2CquarterlyPretaxIncome%2CquarterlyTaxProvision%2CquarterlyNetIncomeContinuousOperations%2CquarterlyNetIncomeIncludingNoncontrollingInterests%2CquarterlyMinorityInterests%2CquarterlyNetIncomeFromTaxLossCarryforward%2CquarterlyNetIncomeExtraordinary%2CquarterlyNetIncomeDiscontinuousOperations%2CquarterlyPreferredStockDividends%2CquarterlyOtherunderPreferredStockDividend%2CquarterlyNetIncomeCommonStockholders%2CquarterlyNetIncome%2CquarterlyBasicAverageShares%2CquarterlyDilutedAverageShares%2CquarterlyDividendPerShare%2CquarterlyReportedNormalizedBasicEPS%2CquarterlyContinuingAndDiscontinuedBasicEPS%2CquarterlyBasicEPSOtherGainsLosses%2CquarterlyTaxLossCarryforwardBasicEPS%2CquarterlyNormalizedBasicEPS%2CquarterlyBasicEPS%2CquarterlyBasicAccountingChange%2CquarterlyBasicExtraordinary%2CquarterlyBasicDiscontinuousOperations%2CquarterlyBasicContinuousOperations%2CquarterlyReportedNormalizedDilutedEPS%2CquarterlyContinuingAndDiscontinuedDilutedEPS%2CquarterlyTaxLossCarryforwardDilutedEPS%2CquarterlyAverageDilutionEarnings%2CquarterlyNormalizedDilutedEPS%2CquarterlyDilutedEPS%2CquarterlyDilutedAccountingChange%2CquarterlyDilutedExtraordinary%2CquarterlyDilutedContinuousOperations%2CquarterlyDilutedDiscontinuousOperations%2CquarterlyDilutedNIAvailtoComStockholders%2CquarterlyDilutedEPSOtherGainsLosses%2CquarterlyTotalOperatingIncomeAsReported%2CquarterlyNetIncomeFromContinuingAndDiscontinuedOperation%2CquarterlyNormalizedIncome%2CquarterlyNetInterestIncome%2CquarterlyEBIT%2CquarterlyEBITDA%2CquarterlyReconciledCostOfRevenue%2CquarterlyReconciledDepreciation%2CquarterlyNetIncomeFromContinuingOperationNetMinorityInterest%2CquarterlyTotalUnusualItemsExcludingGoodwill%2CquarterlyTotalUnusualItems%2CquarterlyNormalizedEBITDA%2CquarterlyTaxRateForCalcs%2CquarterlyTaxEffectOfUnusualItems%2CquarterlyRentExpenseSupplemental%2CquarterlyEarningsFromEquityInterestNetOfTax%2CquarterlyImpairmentOfCapitalAssets%2CquarterlyRestructuringAndMergernAcquisition%2CquarterlySecuritiesAmortization%2CquarterlyEarningsFromEquityInterest%2CquarterlyOtherTaxes%2CquarterlyProvisionForDoubtfulAccounts%2CquarterlyInsuranceAndClaims%2CquarterlyRentAndLandingFees%2CquarterlySalariesAndWages%2CquarterlyExciseTaxes%2CquarterlyInterestExpense%2CquarterlyInterestIncome%2CquarterlyTotalMoneyMarketInvestments%2CquarterlyInterestIncomeAfterProvisionForLoanLoss%2CquarterlyOtherThanPreferredStockDividend%2CquarterlyLossonExtinguishmentofDebt%2CquarterlyIncomefromAssociatesandOtherParticipatingInterests%2CquarterlyNonInterestExpense%2CquarterlyOtherNonInterestExpense%2CquarterlyProfessionalExpenseAndContractServicesExpense%2CquarterlyOccupancyAndEquipment%2CquarterlyEquipment%2CquarterlyNetOccupancyExpense%2CquarterlyCreditLossesProvision%2CquarterlyNonInterestIncome%2CquarterlyOtherNonInterestIncome%2CquarterlyGainLossonSaleofAssets%2CquarterlyGainonSaleofInvestmentProperty%2CquarterlyGainonSaleofLoans%2CquarterlyForeignExchangeTradingGains%2CquarterlyTradingGainLoss%2CquarterlyInvestmentBankingProfit%2CquarterlyDividendIncome%2CquarterlyFeesAndCommissions%2CquarterlyFeesandCommissionExpense%2CquarterlyFeesandCommissionIncome%2CquarterlyOtherCustomerServices%2CquarterlyCreditCard%2CquarterlySecuritiesActivities%2CquarterlyTrustFeesbyCommissions%2CquarterlyServiceChargeOnDepositorAccounts%2CquarterlyTotalPremiumsEarned%2CquarterlyOtherInterestExpense%2CquarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestExpenseForLongTermDebtAndCapitalSecurities%2CquarterlyInterestExpenseForShortTermDebt%2CquarterlyInterestExpenseForDeposit%2CquarterlyOtherInterestIncome%2CquarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestIncomeFromDeposits%2CquarterlyInterestIncomeFromSecurities%2CquarterlyInterestIncomeFromLoansAndLease%2CquarterlyInterestIncomeFromLeases%2CquarterlyInterestIncomeFromLoans%2CquarterlyDepreciationDepreciationIncomeStatement%2CquarterlyOperationAndMaintenance%2CquarterlyOtherCostofRevenue%2CquarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 20 Feb 2026 09:40:32 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "130",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "6gqq0nlkpgb0g"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyImpairmentOfCapitalAssets"
+              ]
+            },
+            "timestamp": [
+              1719705600,
+              1727654400,
+              1735603200,
+              1743379200
+            ],
+            "quarterlyImpairmentOfCapitalAssets": [
+              {
+                "dataId": 20225,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 6171000000,
+                  "fmt": "6.17B"
+                }
+              },
+              {
+                "dataId": 20225,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTaxEffectOfUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxEffectOfUnusualItems": [
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1263460517.133728,
+                  "fmt": "-1.26B"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTaxProvision"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxProvision": [
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 7379000000,
+                  "fmt": "7.38B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 11149000000,
+                  "fmt": "11.15B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 6854000000,
+                  "fmt": "6.85B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 8865000000,
+                  "fmt": "8.87B"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 5550000000,
+                  "fmt": "5.55B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherIncomeExpense": [
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1478000000,
+                  "fmt": "-1.48B"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1583000000,
+                  "fmt": "-1.58B"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20000000,
+                  "fmt": "20.00M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 348000000,
+                  "fmt": "348.00M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 981000000,
+                  "fmt": "981.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherGandA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherGandA": [
+              {
+                "dataId": 20436,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 9777000000,
+                  "fmt": "9.78B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 10851000000,
+                  "fmt": "10.85B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 10331000000,
+                  "fmt": "10.33B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 7398000000,
+                  "fmt": "7.40B"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 7380000000,
+                  "fmt": "7.38B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeCommonStockholders"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeCommonStockholders": [
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43874000000,
+                  "fmt": "43.87B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 48945000000,
+                  "fmt": "48.95B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12382000000,
+                  "fmt": "12.38B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43116000000,
+                  "fmt": "43.12B"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20990000000,
+                  "fmt": "20.99B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherunderPreferredStockDividend"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherunderPreferredStockDividend": [
+              {
+                "dataId": 20347,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 159000000,
+                  "fmt": "159.00M"
+                }
+              },
+              {
+                "dataId": 20347,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 182000000,
+                  "fmt": "182.00M"
+                }
+              },
+              {
+                "dataId": 20347,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 177000000,
+                  "fmt": "177.00M"
+                }
+              },
+              {
+                "dataId": 20347,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -2467000000,
+                  "fmt": "-2.47B"
+                }
+              },
+              {
+                "dataId": 20347,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 29000000,
+                  "fmt": "29.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicAverageShares"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyBasicAverageShares": [
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2345125000,
+                  "fmt": "2.35B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2323250000,
+                  "fmt": "2.32B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2310875000,
+                  "fmt": "2.31B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2321250000,
+                  "fmt": "2.32B"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2319375000,
+                  "fmt": "2.32B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfSecurity"
+              ]
+            },
+            "timestamp": [
+              1719705600
+            ],
+            "quarterlyGainOnSaleOfSecurity": [
+              {
+                "dataId": 20219,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1478000000,
+                  "fmt": "-1.48B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyEBITDA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 54024000000,
+                  "fmt": "54.02B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 59001000000,
+                  "fmt": "59.00B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21802000000,
+                  "fmt": "21.80B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 53519000000,
+                  "fmt": "53.52B"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 27264000000,
+                  "fmt": "27.26B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyReconciledCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyReconciledCostOfRevenue": [
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 144029000000,
+                  "fmt": "144.03B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 162524000000,
+                  "fmt": "162.52B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 145626000000,
+                  "fmt": "145.63B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 136429000000,
+                  "fmt": "136.43B"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 150781000000,
+                  "fmt": "150.78B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestExpense": [
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2427000000,
+                  "fmt": "2.43B"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2485000000,
+                  "fmt": "2.48B"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2496000000,
+                  "fmt": "2.50B"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2478000000,
+                  "fmt": "2.48B"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2517000000,
+                  "fmt": "2.52B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGeneralAndAdministrativeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyGeneralAndAdministrativeExpense": [
+              {
+                "dataId": 20045,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 9777000000,
+                  "fmt": "9.78B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 10851000000,
+                  "fmt": "10.85B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 10331000000,
+                  "fmt": "10.33B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 7398000000,
+                  "fmt": "7.40B"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 7380000000,
+                  "fmt": "7.38B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyAmortizationOfIntangiblesIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyAmortizationOfIntangiblesIncomeStatement": [
+              {
+                "dataId": 20308,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1649000000,
+                  "fmt": "1.65B"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2062000000,
+                  "fmt": "2.06B"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 833000000,
+                  "fmt": "833.00M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 807000000,
+                  "fmt": "807.00M"
+                }
+              },
+              {
+                "dataId": 20308,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 826000000,
+                  "fmt": "826.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetNonOperatingInterestIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetNonOperatingInterestIncomeExpense": [
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 16180000000,
+                  "fmt": "16.18B"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 8661000000,
+                  "fmt": "8.66B"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -10012000000,
+                  "fmt": "-10.01B"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 14898000000,
+                  "fmt": "14.90B"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 17575000000,
+                  "fmt": "17.57B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyResearchAndDevelopment"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyResearchAndDevelopment": [
+              {
+                "dataId": 20151,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 14182000000,
+                  "fmt": "14.18B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 14662000000,
+                  "fmt": "14.66B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 14934000000,
+                  "fmt": "14.93B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 15001000000,
+                  "fmt": "15.00B"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 17095000000,
+                  "fmt": "17.09B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicEPS"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyBasicEPS": [
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18.72,
+                  "fmt": "18.72"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21.04,
+                  "fmt": "21.04"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 5.36,
+                  "fmt": "5.36"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18.56,
+                  "fmt": "18.56"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 9.04,
+                  "fmt": "9.04"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyMinorityInterests"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyMinorityInterests": [
+              {
+                "dataId": 20087,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 486000000,
+                  "fmt": "486.00M"
+                }
+              },
+              {
+                "dataId": 20087,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2693000000,
+                  "fmt": "2.69B"
+                }
+              },
+              {
+                "dataId": 20087,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 586000000,
+                  "fmt": "586.00M"
+                }
+              },
+              {
+                "dataId": 20087,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1733000000,
+                  "fmt": "-1.73B"
+                }
+              },
+              {
+                "dataId": 20087,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 407000000,
+                  "fmt": "407.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOperatingIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingIncome": [
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 35246000000,
+                  "fmt": "35.25B"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 47376000000,
+                  "fmt": "47.38B"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 28465000000,
+                  "fmt": "28.46B"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 34988000000,
+                  "fmt": "34.99B"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 5365000000,
+                  "fmt": "5.37B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyPretaxIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyPretaxIncome": [
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 49948000000,
+                  "fmt": "49.95B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 54454000000,
+                  "fmt": "54.45B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18473000000,
+                  "fmt": "18.47B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 50234000000,
+                  "fmt": "50.23B"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 23921000000,
+                  "fmt": "23.92B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOperatingRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingRevenue": [
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 236503000000,
+                  "fmt": "236.50B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 114773000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alibaba China E-commerce Group",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 31672000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alibaba International Digital Commerce Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 84483000000,
+                    "segmentType": "Business",
+                    "segmentName": "All others",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 29610000000,
+                    "segmentType": "Business",
+                    "segmentName": "Cloud Intelligence Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": -24504000000,
+                    "segmentType": "Business",
+                    "segmentName": "Inter-segment elimination",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 469000000,
+                    "segmentType": "Business",
+                    "segmentName": "Unallocated",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 280154000000,
+                  "fmt": "280.15B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 37756000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alibaba International Digital Commerce Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 53102000000,
+                    "segmentType": "Business",
+                    "segmentName": "All others",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 28241000000,
+                    "segmentType": "Business",
+                    "segmentName": "Cainiao Smart Logistics Network Limited",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 31742000000,
+                    "segmentType": "Business",
+                    "segmentName": "Cloud Intelligence Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 5438000000,
+                    "segmentType": "Business",
+                    "segmentName": "Digital Media and Entertainment Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": -29794000000,
+                    "segmentType": "Business",
+                    "segmentName": "Inter-segment elimination",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 16988000000,
+                    "segmentType": "Business",
+                    "segmentName": "Local Services Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 136091000000,
+                    "segmentType": "Business",
+                    "segmentName": "Taobao and Tmall Group",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 590000000,
+                    "segmentType": "Business",
+                    "segmentName": "Unallocated",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 193769000000,
+                  "fmt": "193.77B"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 33579000000,
+                    "segmentType": "Business",
+                    "segmentName": "Alibaba International Digital Commerce Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 53988000000,
+                    "segmentType": "Business",
+                    "segmentName": "All others",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 21573000000,
+                    "segmentType": "Business",
+                    "segmentName": "Cainiao Smart Logistics Network Limited",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 30127000000,
+                    "segmentType": "Business",
+                    "segmentName": "Cloud Intelligence Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 5554000000,
+                    "segmentType": "Business",
+                    "segmentName": "Digital Media and Entertainment Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 76300000000,
+                    "segmentType": "Business",
+                    "segmentName": "Inter-segment elimination",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 16134000000,
+                    "segmentType": "Business",
+                    "segmentName": "Local Services Group",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 101369000000,
+                    "segmentType": "Business",
+                    "segmentName": "Taobao and Tmall Group",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": -1478000000,
+                    "segmentType": "Business",
+                    "segmentName": "Unallocated",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 247652000000,
+                  "fmt": "247.65B"
+                }
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 247795000000,
+                  "fmt": "247.79B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalExpenses"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalExpenses": [
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 201257000000,
+                  "fmt": "201.26B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 232778000000,
+                  "fmt": "232.78B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 207989000000,
+                  "fmt": "207.99B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 212664000000,
+                  "fmt": "212.66B"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 242430000000,
+                  "fmt": "242.43B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedAverageShares"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedAverageShares": [
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2415250000,
+                  "fmt": "2.42B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2400000000,
+                  "fmt": "2.40B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2394125000,
+                  "fmt": "2.39B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2392750000,
+                  "fmt": "2.39B"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2396000000,
+                  "fmt": "2.40B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDepreciationAmortizationDepletionIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDepreciationAmortizationDepletionIncomeStatement": [
+              {
+                "dataId": 20020,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1649000000,
+                  "fmt": "1.65B"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2062000000,
+                  "fmt": "2.06B"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 833000000,
+                  "fmt": "833.00M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 807000000,
+                  "fmt": "807.00M"
+                }
+              },
+              {
+                "dataId": 20020,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 826000000,
+                  "fmt": "826.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation": [
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 44033000000,
+                  "fmt": "44.03B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 49127000000,
+                  "fmt": "49.13B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12559000000,
+                  "fmt": "12.56B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 40649000000,
+                  "fmt": "40.65B"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21019000000,
+                  "fmt": "21.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalRevenue": [
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 236503000000,
+                  "fmt": "236.50B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 280154000000,
+                  "fmt": "280.15B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 236454000000,
+                  "fmt": "236.45B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 247652000000,
+                  "fmt": "247.65B"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 247795000000,
+                  "fmt": "247.79B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterestNetOfTax"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyEarningsFromEquityInterestNetOfTax": [
+              {
+                "dataId": 20345,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 978000000,
+                  "fmt": "978.00M"
+                }
+              },
+              {
+                "dataId": 20345,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 3129000000,
+                  "fmt": "3.13B"
+                }
+              },
+              {
+                "dataId": 20345,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 354000000,
+                  "fmt": "354.00M"
+                }
+              },
+              {
+                "dataId": 20345,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1013000000,
+                  "fmt": "1.01B"
+                }
+              },
+              {
+                "dataId": 20345,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2241000000,
+                  "fmt": "2.24B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1719705600,
+              1727654400,
+              1735603200,
+              1743379200
+            ],
+            "quarterlyTotalUnusualItems": [
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1478000000,
+                  "fmt": "-1.48B"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -6171000000,
+                  "fmt": "-6.17B"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNormalizedEBITDA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNormalizedEBITDA": [
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 54024000000,
+                  "fmt": "54.02B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 65172000000,
+                  "fmt": "65.17B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21802000000,
+                  "fmt": "21.80B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 53519000000,
+                  "fmt": "53.52B"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 27264000000,
+                  "fmt": "27.26B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeIncludingNoncontrollingInterests"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeIncludingNoncontrollingInterests": [
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43547000000,
+                  "fmt": "43.55B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 46434000000,
+                  "fmt": "46.43B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 11973000000,
+                  "fmt": "11.97B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 42382000000,
+                  "fmt": "42.38B"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20612000000,
+                  "fmt": "20.61B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyReconciledDepreciation"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyReconciledDepreciation": [
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1649000000,
+                  "fmt": "1.65B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2062000000,
+                  "fmt": "2.06B"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 833000000,
+                  "fmt": "833.00M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 807000000,
+                  "fmt": "807.00M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 826000000,
+                  "fmt": "826.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherOperatingExpenses"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherOperatingExpenses": [
+              {
+                "dataId": 20312,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -851000000,
+                  "fmt": "-851.00M"
+                }
+              },
+              {
+                "dataId": 20312,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 4000000,
+                  "fmt": "4.00M"
+                }
+              },
+              {
+                "dataId": 20312,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 86000000,
+                  "fmt": "86.00M"
+                }
+              },
+              {
+                "dataId": 20312,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -149000000,
+                  "fmt": "-149.00M"
+                }
+              },
+              {
+                "dataId": 20312,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -148000000,
+                  "fmt": "-148.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyCostOfRevenue": [
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 144029000000,
+                  "fmt": "144.03B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 162524000000,
+                  "fmt": "162.52B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 145626000000,
+                  "fmt": "145.63B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 136429000000,
+                  "fmt": "136.43B"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 150781000000,
+                  "fmt": "150.78B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySellingAndMarketingExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlySellingAndMarketingExpense": [
+              {
+                "dataId": 20158,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 32471000000,
+                  "fmt": "32.47B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 42675000000,
+                  "fmt": "42.67B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 36179000000,
+                  "fmt": "36.18B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 53178000000,
+                  "fmt": "53.18B"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 66496000000,
+                  "fmt": "66.50B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyEBIT"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyEBIT": [
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 52375000000,
+                  "fmt": "52.38B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 56939000000,
+                  "fmt": "56.94B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20969000000,
+                  "fmt": "20.97B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 52712000000,
+                  "fmt": "52.71B"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 26438000000,
+                  "fmt": "26.44B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherNonOperatingIncomeExpenses"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherNonOperatingIncomeExpenses": [
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1478000000,
+                  "fmt": "-1.48B"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 4588000000,
+                  "fmt": "4.59B"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20000000,
+                  "fmt": "20.00M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 348000000,
+                  "fmt": "348.00M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 981000000,
+                  "fmt": "981.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDepreciationAndAmortizationInIncomeStatement"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDepreciationAndAmortizationInIncomeStatement": [
+              {
+                "dataId": 20019,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1649000000,
+                  "fmt": "1.65B"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2062000000,
+                  "fmt": "2.06B"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 833000000,
+                  "fmt": "833.00M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 807000000,
+                  "fmt": "807.00M"
+                }
+              },
+              {
+                "dataId": 20019,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 826000000,
+                  "fmt": "826.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyAverageDilutionEarnings"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyAverageDilutionEarnings": [
+              {
+                "dataId": 20385,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 13000000,
+                  "fmt": "13.00M"
+                }
+              },
+              {
+                "dataId": 20385,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -17000000,
+                  "fmt": "-17.00M"
+                }
+              },
+              {
+                "dataId": 20385,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -12000000,
+                  "fmt": "-12.00M"
+                }
+              },
+              {
+                "dataId": 20385,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -91000000,
+                  "fmt": "-91.00M"
+                }
+              },
+              {
+                "dataId": 20385,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -24000000,
+                  "fmt": "-24.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyAmortization"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyAmortization": [
+              {
+                "dataId": 20007,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 1649000000,
+                  "fmt": "1.65B"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2062000000,
+                  "fmt": "2.06B"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 833000000,
+                  "fmt": "833.00M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 807000000,
+                  "fmt": "807.00M"
+                }
+              },
+              {
+                "dataId": 20007,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 826000000,
+                  "fmt": "826.00M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeNonOperating"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestIncomeNonOperating": [
+              {
+                "dataId": 20075,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18607000000,
+                  "fmt": "18.61B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 11146000000,
+                  "fmt": "11.15B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -7516000000,
+                  "fmt": "-7.52B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 17376000000,
+                  "fmt": "17.38B"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20092000000,
+                  "fmt": "20.09B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItemsExcludingGoodwill"
+              ]
+            },
+            "timestamp": [
+              1719705600,
+              1727654400,
+              1735603200,
+              1743379200
+            ],
+            "quarterlyTotalUnusualItemsExcludingGoodwill": [
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -1478000000,
+                  "fmt": "-1.48B"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -6171000000,
+                  "fmt": "-6.17B"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetInterestIncome": [
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 16180000000,
+                  "fmt": "16.18B"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 8661000000,
+                  "fmt": "8.66B"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -10012000000,
+                  "fmt": "-10.01B"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 14898000000,
+                  "fmt": "14.90B"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 17575000000,
+                  "fmt": "17.57B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalOperatingIncomeAsReported"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalOperatingIncomeAsReported": [
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 35246000000,
+                  "fmt": "35.25B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 41205000000,
+                  "fmt": "41.20B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 28465000000,
+                  "fmt": "28.46B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 34988000000,
+                  "fmt": "34.99B"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 5365000000,
+                  "fmt": "5.37B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGrossProfit"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyGrossProfit": [
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 92474000000,
+                  "fmt": "92.47B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 117630000000,
+                  "fmt": "117.63B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 90828000000,
+                  "fmt": "90.83B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 111223000000,
+                  "fmt": "111.22B"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 97014000000,
+                  "fmt": "97.01B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOperatingExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingExpense": [
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 57228000000,
+                  "fmt": "57.23B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 70254000000,
+                  "fmt": "70.25B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 62363000000,
+                  "fmt": "62.36B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 76235000000,
+                  "fmt": "76.23B"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 91649000000,
+                  "fmt": "91.65B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest": [
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 44033000000,
+                  "fmt": "44.03B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 49127000000,
+                  "fmt": "49.13B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12559000000,
+                  "fmt": "12.56B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 40649000000,
+                  "fmt": "40.65B"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21019000000,
+                  "fmt": "21.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedNIAvailtoComStockholders"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedNIAvailtoComStockholders": [
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43887000000,
+                  "fmt": "43.89B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 48928000000,
+                  "fmt": "48.93B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12370000000,
+                  "fmt": "12.37B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43025000000,
+                  "fmt": "43.02B"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20966000000,
+                  "fmt": "20.97B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTaxRateForCalcs"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxRateForCalcs": [
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0.147734,
+                  "fmt": "0.15"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0.204742,
+                  "fmt": "0.20"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0.371028,
+                  "fmt": "0.37"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0.176474,
+                  "fmt": "0.18"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0.232014,
+                  "fmt": "0.23"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNormalizedIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNormalizedIncome": [
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 44033000000,
+                  "fmt": "44.03B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 54034539482.86627,
+                  "fmt": "54.03B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12559000000,
+                  "fmt": "12.56B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 40649000000,
+                  "fmt": "40.65B"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21019000000,
+                  "fmt": "21.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18.16,
+                  "fmt": "18.16"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20.4,
+                  "fmt": "20.40"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 5.2,
+                  "fmt": "5.20"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18,
+                  "fmt": "18.00"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 8.72,
+                  "fmt": "8.72"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeContinuousOperations"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeContinuousOperations": [
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 43547000000,
+                  "fmt": "43.55B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 46434000000,
+                  "fmt": "46.43B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 11973000000,
+                  "fmt": "11.97B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 42382000000,
+                  "fmt": "42.38B"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20612000000,
+                  "fmt": "20.61B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySpecialIncomeCharges"
+              ]
+            },
+            "timestamp": [
+              1719705600,
+              1727654400,
+              1735603200,
+              1743379200
+            ],
+            "quarterlySpecialIncomeCharges": [
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -6171000000,
+                  "fmt": "-6.17B"
+                }
+              },
+              {
+                "dataId": 20162,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestIncome": [
+              {
+                "dataId": 20177,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 18607000000,
+                  "fmt": "18.61B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 11146000000,
+                  "fmt": "11.15B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": -7516000000,
+                  "fmt": "-7.52B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 17376000000,
+                  "fmt": "17.38B"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 20092000000,
+                  "fmt": "20.09B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncome": [
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 44033000000,
+                  "fmt": "44.03B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 49127000000,
+                  "fmt": "49.13B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 12559000000,
+                  "fmt": "12.56B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 40649000000,
+                  "fmt": "40.65B"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 21019000000,
+                  "fmt": "21.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySellingGeneralAndAdministration"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlySellingGeneralAndAdministration": [
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 42248000000,
+                  "fmt": "42.25B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 53526000000,
+                  "fmt": "53.53B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 46510000000,
+                  "fmt": "46.51B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 60576000000,
+                  "fmt": "60.58B"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 73876000000,
+                  "fmt": "73.88B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpenseNonOperating"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestExpenseNonOperating": [
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2427000000,
+                  "fmt": "2.43B"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2485000000,
+                  "fmt": "2.48B"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2496000000,
+                  "fmt": "2.50B"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2478000000,
+                  "fmt": "2.48B"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "CNY",
+                "reportedValue": {
+                  "raw": 2517000000,
+                  "fmt": "2.52B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForLongTermDebtAndCapitalSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDividendIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyRentAndLandingFees"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherCostofRevenue"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyRestructuringAndMergernAcquisition"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyWriteOff"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyFeesAndCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyCreditCard"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInvestmentBankingProfit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyPreferredStockDividends"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySecuritiesActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyLossonExtinguishmentofDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDividendPerShare"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyProfessionalExpenseAndContractServicesExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoansAndLease"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyForeignExchangeTradingGains"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherCustomerServices"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyServiceChargeOnDepositorAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherSpecialCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyExciseTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalOtherFinanceCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterest"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainLossonSaleofAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetOccupancyExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromTaxLossCarryforward"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyBasicDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDepreciationIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfPPE"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalPremiumsEarned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTrustFeesbyCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForDeposit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForShortTermDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainonSaleofLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOperationAndMaintenance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyRentExpenseSupplemental"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySalariesAndWages"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainonSaleofInvestmentProperty"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNetIncomeDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlySecuritiesAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyIncomefromAssociatesandOtherParticipatingInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyCreditLossesProvision"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLeases"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyOccupancyAndEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInsuranceAndClaims"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDilutedExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTotalMoneyMarketInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyProvisionForDoubtfulAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyTradingGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BABA"
+              ],
+              "type": [
+                "quarterlyInterestIncomeAfterProvisionForLoanLoss"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

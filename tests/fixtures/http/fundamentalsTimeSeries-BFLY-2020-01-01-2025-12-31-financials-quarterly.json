@@ -1,0 +1,4222 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/BFLY?period1=1577836800&period2=1767139200&type=quarterlyTotalRevenue%2CquarterlyOperatingRevenue%2CquarterlyCostOfRevenue%2CquarterlyGrossProfit%2CquarterlySellingGeneralAndAdministration%2CquarterlySellingAndMarketingExpense%2CquarterlyGeneralAndAdministrativeExpense%2CquarterlyOtherGandA%2CquarterlyResearchAndDevelopment%2CquarterlyDepreciationAmortizationDepletionIncomeStatement%2CquarterlyDepletionIncomeStatement%2CquarterlyDepreciationAndAmortizationInIncomeStatement%2CquarterlyAmortization%2CquarterlyAmortizationOfIntangiblesIncomeStatement%2CquarterlyDepreciationIncomeStatement%2CquarterlyOtherOperatingExpenses%2CquarterlyOperatingExpense%2CquarterlyOperatingIncome%2CquarterlyInterestExpenseNonOperating%2CquarterlyInterestIncomeNonOperating%2CquarterlyTotalOtherFinanceCost%2CquarterlyNetNonOperatingInterestIncomeExpense%2CquarterlyWriteOff%2CquarterlySpecialIncomeCharges%2CquarterlyGainOnSaleOfPPE%2CquarterlyGainOnSaleOfBusiness%2CquarterlyGainOnSaleOfSecurity%2CquarterlyOtherSpecialCharges%2CquarterlyOtherIncomeExpense%2CquarterlyOtherNonOperatingIncomeExpenses%2CquarterlyTotalExpenses%2CquarterlyPretaxIncome%2CquarterlyTaxProvision%2CquarterlyNetIncomeContinuousOperations%2CquarterlyNetIncomeIncludingNoncontrollingInterests%2CquarterlyMinorityInterests%2CquarterlyNetIncomeFromTaxLossCarryforward%2CquarterlyNetIncomeExtraordinary%2CquarterlyNetIncomeDiscontinuousOperations%2CquarterlyPreferredStockDividends%2CquarterlyOtherunderPreferredStockDividend%2CquarterlyNetIncomeCommonStockholders%2CquarterlyNetIncome%2CquarterlyBasicAverageShares%2CquarterlyDilutedAverageShares%2CquarterlyDividendPerShare%2CquarterlyReportedNormalizedBasicEPS%2CquarterlyContinuingAndDiscontinuedBasicEPS%2CquarterlyBasicEPSOtherGainsLosses%2CquarterlyTaxLossCarryforwardBasicEPS%2CquarterlyNormalizedBasicEPS%2CquarterlyBasicEPS%2CquarterlyBasicAccountingChange%2CquarterlyBasicExtraordinary%2CquarterlyBasicDiscontinuousOperations%2CquarterlyBasicContinuousOperations%2CquarterlyReportedNormalizedDilutedEPS%2CquarterlyContinuingAndDiscontinuedDilutedEPS%2CquarterlyTaxLossCarryforwardDilutedEPS%2CquarterlyAverageDilutionEarnings%2CquarterlyNormalizedDilutedEPS%2CquarterlyDilutedEPS%2CquarterlyDilutedAccountingChange%2CquarterlyDilutedExtraordinary%2CquarterlyDilutedContinuousOperations%2CquarterlyDilutedDiscontinuousOperations%2CquarterlyDilutedNIAvailtoComStockholders%2CquarterlyDilutedEPSOtherGainsLosses%2CquarterlyTotalOperatingIncomeAsReported%2CquarterlyNetIncomeFromContinuingAndDiscontinuedOperation%2CquarterlyNormalizedIncome%2CquarterlyNetInterestIncome%2CquarterlyEBIT%2CquarterlyEBITDA%2CquarterlyReconciledCostOfRevenue%2CquarterlyReconciledDepreciation%2CquarterlyNetIncomeFromContinuingOperationNetMinorityInterest%2CquarterlyTotalUnusualItemsExcludingGoodwill%2CquarterlyTotalUnusualItems%2CquarterlyNormalizedEBITDA%2CquarterlyTaxRateForCalcs%2CquarterlyTaxEffectOfUnusualItems%2CquarterlyRentExpenseSupplemental%2CquarterlyEarningsFromEquityInterestNetOfTax%2CquarterlyImpairmentOfCapitalAssets%2CquarterlyRestructuringAndMergernAcquisition%2CquarterlySecuritiesAmortization%2CquarterlyEarningsFromEquityInterest%2CquarterlyOtherTaxes%2CquarterlyProvisionForDoubtfulAccounts%2CquarterlyInsuranceAndClaims%2CquarterlyRentAndLandingFees%2CquarterlySalariesAndWages%2CquarterlyExciseTaxes%2CquarterlyInterestExpense%2CquarterlyInterestIncome%2CquarterlyTotalMoneyMarketInvestments%2CquarterlyInterestIncomeAfterProvisionForLoanLoss%2CquarterlyOtherThanPreferredStockDividend%2CquarterlyLossonExtinguishmentofDebt%2CquarterlyIncomefromAssociatesandOtherParticipatingInterests%2CquarterlyNonInterestExpense%2CquarterlyOtherNonInterestExpense%2CquarterlyProfessionalExpenseAndContractServicesExpense%2CquarterlyOccupancyAndEquipment%2CquarterlyEquipment%2CquarterlyNetOccupancyExpense%2CquarterlyCreditLossesProvision%2CquarterlyNonInterestIncome%2CquarterlyOtherNonInterestIncome%2CquarterlyGainLossonSaleofAssets%2CquarterlyGainonSaleofInvestmentProperty%2CquarterlyGainonSaleofLoans%2CquarterlyForeignExchangeTradingGains%2CquarterlyTradingGainLoss%2CquarterlyInvestmentBankingProfit%2CquarterlyDividendIncome%2CquarterlyFeesAndCommissions%2CquarterlyFeesandCommissionExpense%2CquarterlyFeesandCommissionIncome%2CquarterlyOtherCustomerServices%2CquarterlyCreditCard%2CquarterlySecuritiesActivities%2CquarterlyTrustFeesbyCommissions%2CquarterlyServiceChargeOnDepositorAccounts%2CquarterlyTotalPremiumsEarned%2CquarterlyOtherInterestExpense%2CquarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestExpenseForLongTermDebtAndCapitalSecurities%2CquarterlyInterestExpenseForShortTermDebt%2CquarterlyInterestExpenseForDeposit%2CquarterlyOtherInterestIncome%2CquarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlyInterestIncomeFromDeposits%2CquarterlyInterestIncomeFromSecurities%2CquarterlyInterestIncomeFromLoansAndLease%2CquarterlyInterestIncomeFromLeases%2CquarterlyInterestIncomeFromLoans%2CquarterlyDepreciationDepreciationIncomeStatement%2CquarterlyOperationAndMaintenance%2CquarterlyOtherCostofRevenue%2CquarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "1",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 20 Feb 2026 09:40:29 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "136",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "5v8n55hkpgb0e"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyEBITDA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13929000,
+                  "fmt": "-13.93M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -15371000,
+                  "fmt": "-15.37M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -11253000,
+                  "fmt": "-11.25M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -11364000,
+                  "fmt": "-11.36M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -31685000,
+                  "fmt": "-31.68M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherIncomeExpense": [
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -522000,
+                  "fmt": "-522.00k"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1563000,
+                  "fmt": "-1.56M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3204000,
+                  "fmt": "3.20M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1151000,
+                  "fmt": "1.15M"
+                }
+              },
+              {
+                "dataId": 20117,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 121000,
+                  "fmt": "121.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherGandA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherGandA": [
+              {
+                "dataId": 20436,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9774000,
+                  "fmt": "9.77M"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10251000,
+                  "fmt": "10.25M"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10272000,
+                  "fmt": "10.27M"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10629000,
+                  "fmt": "10.63M"
+                }
+              },
+              {
+                "dataId": 20436,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11601000,
+                  "fmt": "11.60M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTaxProvision"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxProvision": [
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 58000,
+                  "fmt": "58.00k"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -110000,
+                  "fmt": "-110.00k"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7000,
+                  "fmt": "7.00k"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20000,
+                  "fmt": "20.00k"
+                }
+              },
+              {
+                "dataId": 20145,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 16000,
+                  "fmt": "16.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGeneralAndAdministrativeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyGeneralAndAdministrativeExpense": [
+              {
+                "dataId": 20045,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11028000,
+                  "fmt": "11.03M"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10368000,
+                  "fmt": "10.37M"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10304000,
+                  "fmt": "10.30M"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11117000,
+                  "fmt": "11.12M"
+                }
+              },
+              {
+                "dataId": 20045,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12048000,
+                  "fmt": "12.05M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyReconciledCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyReconciledCostOfRevenue": [
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8328000,
+                  "fmt": "8.33M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8616000,
+                  "fmt": "8.62M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7845000,
+                  "fmt": "7.84M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8492000,
+                  "fmt": "8.49M"
+                }
+              },
+              {
+                "dataId": 20314,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 25246000,
+                  "fmt": "25.25M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestExpense": [
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 319000,
+                  "fmt": "319.00k"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 333000,
+                  "fmt": "333.00k"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 347000,
+                  "fmt": "347.00k"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 368000,
+                  "fmt": "368.00k"
+                }
+              },
+              {
+                "dataId": 20057,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 385000,
+                  "fmt": "385.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeCommonStockholders"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeCommonStockholders": [
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20093,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfSecurity"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyGainOnSaleOfSecurity": [
+              {
+                "dataId": 20219,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1239000,
+                  "fmt": "-1.24M"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1033000,
+                  "fmt": "-1.03M"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 826000,
+                  "fmt": "826.00k"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 620000,
+                  "fmt": "620.00k"
+                }
+              },
+              {
+                "dataId": 20219,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 207000,
+                  "fmt": "207.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.08,
+                  "fmt": "-0.08"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.08,
+                  "fmt": "-0.08"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.06,
+                  "fmt": "-0.06"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.06,
+                  "fmt": "-0.06"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.13,
+                  "fmt": "-0.13"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalExpenses"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalExpenses": [
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 37807000,
+                  "fmt": "37.81M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39663000,
+                  "fmt": "39.66M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39693000,
+                  "fmt": "39.69M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39483000,
+                  "fmt": "39.48M"
+                }
+              },
+              {
+                "dataId": 20164,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 56623000,
+                  "fmt": "56.62M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeFromContinuingAndDiscontinuedOperation": [
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20309,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySalariesAndWages"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlySalariesAndWages": [
+              {
+                "dataId": 20292,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1254000,
+                  "fmt": "1.25M"
+                }
+              },
+              {
+                "dataId": 20292,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 117000,
+                  "fmt": "117.00k"
+                }
+              },
+              {
+                "dataId": 20292,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 32000,
+                  "fmt": "32.00k"
+                }
+              },
+              {
+                "dataId": 20292,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 488000,
+                  "fmt": "488.00k"
+                }
+              },
+              {
+                "dataId": 20292,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 447000,
+                  "fmt": "447.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetNonOperatingInterestIncomeExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetNonOperatingInterestIncomeExpense": [
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 902000,
+                  "fmt": "902.00k"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 664000,
+                  "fmt": "664.00k"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1304000,
+                  "fmt": "1.30M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1135000,
+                  "fmt": "1.14M"
+                }
+              },
+              {
+                "dataId": 20077,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1058000,
+                  "fmt": "1.06M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyPretaxIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyPretaxIncome": [
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16866000,
+                  "fmt": "-16.87M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18211000,
+                  "fmt": "-18.21M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13960000,
+                  "fmt": "-13.96M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13814000,
+                  "fmt": "-13.81M"
+                }
+              },
+              {
+                "dataId": 20136,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33955000,
+                  "fmt": "-33.95M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicAverageShares"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyBasicAverageShares": [
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 212774085,
+                  "fmt": "212.77M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 213389209,
+                  "fmt": "213.39M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 234923536,
+                  "fmt": "234.92M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 248393811,
+                  "fmt": "248.39M"
+                }
+              },
+              {
+                "dataId": 29010,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 252087541,
+                  "fmt": "252.09M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetInterestIncome": [
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 902000,
+                  "fmt": "902.00k"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 664000,
+                  "fmt": "664.00k"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1304000,
+                  "fmt": "1.30M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1135000,
+                  "fmt": "1.14M"
+                }
+              },
+              {
+                "dataId": 20095,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1058000,
+                  "fmt": "1.06M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyResearchAndDevelopment"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyResearchAndDevelopment": [
+              {
+                "dataId": 20151,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8844000,
+                  "fmt": "8.84M"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8825000,
+                  "fmt": "8.82M"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9924000,
+                  "fmt": "9.92M"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8315000,
+                  "fmt": "8.31M"
+                }
+              },
+              {
+                "dataId": 20151,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8703000,
+                  "fmt": "8.70M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalUnusualItems": [
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1239000,
+                  "fmt": "-1.24M"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1033000,
+                  "fmt": "-1.03M"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 826000,
+                  "fmt": "826.00k"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 620000,
+                  "fmt": "620.00k"
+                }
+              },
+              {
+                "dataId": 20416,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 207000,
+                  "fmt": "207.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTaxEffectOfUnusualItems"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxEffectOfUnusualItems": [
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -260190,
+                  "fmt": "-260.19k"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6239.635385,
+                  "fmt": "-6.24k"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 173460,
+                  "fmt": "173.46k"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 130200,
+                  "fmt": "130.20k"
+                }
+              },
+              {
+                "dataId": 20419,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 43470,
+                  "fmt": "43.47k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalRevenue": [
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20561000,
+                  "fmt": "20.56M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22351000,
+                  "fmt": "22.35M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21225000,
+                  "fmt": "21.23M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 23383000,
+                  "fmt": "23.38M"
+                }
+              },
+              {
+                "dataId": 20100,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21489000,
+                  "fmt": "21.49M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOperatingRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingRevenue": [
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20561000,
+                  "fmt": "20.56M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 13538000,
+                    "segmentType": "Business",
+                    "segmentName": "Hardware",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 7023000,
+                    "segmentType": "Business",
+                    "segmentName": "Software and other services",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22351000,
+                  "fmt": "22.35M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 14722000,
+                    "segmentType": "Business",
+                    "segmentName": "Hardware",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 7629000,
+                    "segmentType": "Business",
+                    "segmentName": "Software and other services",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21225000,
+                  "fmt": "21.23M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 14164000,
+                    "segmentType": "Business",
+                    "segmentName": "Hardware",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 7061000,
+                    "segmentType": "Business",
+                    "segmentName": "Software and other services",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 23383000,
+                  "fmt": "23.38M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 16621000,
+                    "segmentType": "Business",
+                    "segmentName": "Hardware",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 6762000,
+                    "segmentType": "Business",
+                    "segmentName": "Software and other services",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 20112,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21489000,
+                  "fmt": "21.49M"
+                },
+                "businessSegmentData": [
+                  {
+                    "dataValue": 14556000,
+                    "segmentType": "Business",
+                    "segmentName": "Hardware",
+                    "isPrimarySegment": 1
+                  },
+                  {
+                    "dataValue": 6933000,
+                    "segmentType": "Business",
+                    "segmentName": "Software and other services",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOperatingIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingIncome": [
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17246000,
+                  "fmt": "-17.25M"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17312000,
+                  "fmt": "-17.31M"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18468000,
+                  "fmt": "-18.47M"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16100000,
+                  "fmt": "-16.10M"
+                }
+              },
+              {
+                "dataId": 20109,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -35134000,
+                  "fmt": "-35.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyReconciledDepreciation"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyReconciledDepreciation": [
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2618000,
+                  "fmt": "2.62M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2507000,
+                  "fmt": "2.51M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2360000,
+                  "fmt": "2.36M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2082000,
+                  "fmt": "2.08M"
+                }
+              },
+              {
+                "dataId": 20315,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1885000,
+                  "fmt": "1.89M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeIncludingNoncontrollingInterests"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeIncludingNoncontrollingInterests": [
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20346,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicEPS"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyBasicEPS": [
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.08,
+                  "fmt": "-0.08"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.08,
+                  "fmt": "-0.08"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.06,
+                  "fmt": "-0.06"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.06,
+                  "fmt": "-0.06"
+                }
+              },
+              {
+                "dataId": 29004,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -0.13,
+                  "fmt": "-0.13"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherOperatingExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNormalizedEBITDA"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNormalizedEBITDA": [
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -12690000,
+                  "fmt": "-12.69M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -14338000,
+                  "fmt": "-14.34M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -12079000,
+                  "fmt": "-12.08M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -11984000,
+                  "fmt": "-11.98M"
+                }
+              },
+              {
+                "dataId": 20420,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -31892000,
+                  "fmt": "-31.89M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyCostOfRevenue"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyCostOfRevenue": [
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8328000,
+                  "fmt": "8.33M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8616000,
+                  "fmt": "8.62M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7845000,
+                  "fmt": "7.84M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8492000,
+                  "fmt": "8.49M"
+                }
+              },
+              {
+                "dataId": 20013,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 25246000,
+                  "fmt": "25.25M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySellingAndMarketingExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlySellingAndMarketingExpense": [
+              {
+                "dataId": 20158,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9607000,
+                  "fmt": "9.61M"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11854000,
+                  "fmt": "11.85M"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11620000,
+                  "fmt": "11.62M"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11559000,
+                  "fmt": "11.56M"
+                }
+              },
+              {
+                "dataId": 20158,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10626000,
+                  "fmt": "10.63M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTaxRateForCalcs"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTaxRateForCalcs": [
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.21,
+                  "fmt": "0.21"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.00604,
+                  "fmt": "0.01"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.21,
+                  "fmt": "0.21"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.21,
+                  "fmt": "0.21"
+                }
+              },
+              {
+                "dataId": 20418,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0.21,
+                  "fmt": "0.21"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeNonOperating"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestIncomeNonOperating": [
+              {
+                "dataId": 20075,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1221000,
+                  "fmt": "1.22M"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 997000,
+                  "fmt": "997.00k"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1651000,
+                  "fmt": "1.65M"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1503000,
+                  "fmt": "1.50M"
+                }
+              },
+              {
+                "dataId": 20075,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1443000,
+                  "fmt": "1.44M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherNonOperatingIncomeExpenses"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOtherNonOperatingIncomeExpenses": [
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 717000,
+                  "fmt": "717.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -530000,
+                  "fmt": "-530.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2378000,
+                  "fmt": "2.38M"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 531000,
+                  "fmt": "531.00k"
+                }
+              },
+              {
+                "dataId": 20412,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -86000,
+                  "fmt": "-86.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalUnusualItemsExcludingGoodwill"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalUnusualItemsExcludingGoodwill": [
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1239000,
+                  "fmt": "-1.24M"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -1033000,
+                  "fmt": "-1.03M"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 826000,
+                  "fmt": "826.00k"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 620000,
+                  "fmt": "620.00k"
+                }
+              },
+              {
+                "dataId": 20417,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 207000,
+                  "fmt": "207.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeFromContinuingOperationNetMinorityInterest": [
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20331,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeContinuousOperations"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncomeContinuousOperations": [
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20094,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedNIAvailtoComStockholders"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedNIAvailtoComStockholders": [
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20424,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGrossProfit"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyGrossProfit": [
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12233000,
+                  "fmt": "12.23M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13735000,
+                  "fmt": "13.73M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13380000,
+                  "fmt": "13.38M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14891000,
+                  "fmt": "14.89M"
+                }
+              },
+              {
+                "dataId": 20046,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -3757000,
+                  "fmt": "-3.76M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOperatingExpense"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyOperatingExpense": [
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 29479000,
+                  "fmt": "29.48M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31047000,
+                  "fmt": "31.05M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31848000,
+                  "fmt": "31.85M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30991000,
+                  "fmt": "30.99M"
+                }
+              },
+              {
+                "dataId": 20108,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 31377000,
+                  "fmt": "31.38M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNetIncome": [
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16924000,
+                  "fmt": "-16.92M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18101000,
+                  "fmt": "-18.10M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13967000,
+                  "fmt": "-13.97M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13834000,
+                  "fmt": "-13.83M"
+                }
+              },
+              {
+                "dataId": 20091,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33971000,
+                  "fmt": "-33.97M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalOperatingIncomeAsReported"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyTotalOperatingIncomeAsReported": [
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17246000,
+                  "fmt": "-17.25M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17312000,
+                  "fmt": "-17.31M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18468000,
+                  "fmt": "-18.47M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16100000,
+                  "fmt": "-16.10M"
+                }
+              },
+              {
+                "dataId": 20435,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -35134000,
+                  "fmt": "-35.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpenseNonOperating"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestExpenseNonOperating": [
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 319000,
+                  "fmt": "319.00k"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 333000,
+                  "fmt": "333.00k"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 347000,
+                  "fmt": "347.00k"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 368000,
+                  "fmt": "368.00k"
+                }
+              },
+              {
+                "dataId": 20064,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 385000,
+                  "fmt": "385.00k"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedAverageShares"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyDilutedAverageShares": [
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 212774085,
+                  "fmt": "212.77M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 213389209,
+                  "fmt": "213.39M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 234923536,
+                  "fmt": "234.92M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 248393811,
+                  "fmt": "248.39M"
+                }
+              },
+              {
+                "dataId": 29011,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 252087541,
+                  "fmt": "252.09M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySellingGeneralAndAdministration"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlySellingGeneralAndAdministration": [
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20635000,
+                  "fmt": "20.64M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22222000,
+                  "fmt": "22.22M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21924000,
+                  "fmt": "21.92M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22676000,
+                  "fmt": "22.68M"
+                }
+              },
+              {
+                "dataId": 20159,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 22674000,
+                  "fmt": "22.67M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNormalizedIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyNormalizedIncome": [
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -15945190,
+                  "fmt": "-15.95M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17074239.635385,
+                  "fmt": "-17.07M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -14619540,
+                  "fmt": "-14.62M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -14323800,
+                  "fmt": "-14.32M"
+                }
+              },
+              {
+                "dataId": 20316,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -34134530,
+                  "fmt": "-34.13M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncome"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyInterestIncome": [
+              {
+                "dataId": 20177,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1221000,
+                  "fmt": "1.22M"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 997000,
+                  "fmt": "997.00k"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1651000,
+                  "fmt": "1.65M"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1503000,
+                  "fmt": "1.50M"
+                }
+              },
+              {
+                "dataId": 20177,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1443000,
+                  "fmt": "1.44M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyEBIT"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400
+            ],
+            "quarterlyEBIT": [
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -16547000,
+                  "fmt": "-16.55M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17878000,
+                  "fmt": "-17.88M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13613000,
+                  "fmt": "-13.61M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -13446000,
+                  "fmt": "-13.45M"
+                }
+              },
+              {
+                "dataId": 20189,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -33570000,
+                  "fmt": "-33.57M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySecuritiesAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyIncomefromAssociatesandOtherParticipatingInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherCustomerServices"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeAfterProvisionForLoanLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyRentExpenseSupplemental"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDepreciationAmortizationDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterest"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyLossonExtinguishmentofDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInvestmentBankingProfit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherunderPreferredStockDividend"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInsuranceAndClaims"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedEPSOtherGainsLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyRestructuringAndMergernAcquisition"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySpecialIncomeCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForLongTermDebtAndCapitalSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyPreferredStockDividends"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyAmortization"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeFromTaxLossCarryforward"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDepreciationAndAmortizationInIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyReportedNormalizedDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedAccountingChange"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetOccupancyExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyEarningsFromEquityInterestNetOfTax"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOperationAndMaintenance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyAverageDilutionEarnings"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyCreditCard"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalOtherFinanceCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyExciseTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyProfessionalExpenseAndContractServicesExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardDilutedEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherCostofRevenue"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyCreditLossesProvision"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyRentAndLandingFees"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDividendIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyMinorityInterests"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForDeposit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfBusiness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyImpairmentOfCapitalAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOccupancyAndEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainLossonSaleofAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainonSaleofInvestmentProperty"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalPremiumsEarned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDividendPerShare"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicDiscontinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherTaxes"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlySecuritiesActivities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyServiceChargeOnDepositorAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDepletionIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyFeesAndCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyWriteOff"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyEquipment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyAmortizationOfIntangiblesIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLoansAndLease"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNetIncomeExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyProvisionForDoubtfulAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTrustFeesbyCommissions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyExplorationDevelopmentAndMineralPropertyLeaseExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDilutedContinuousOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyFeesandCommissionIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherSpecialCharges"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyContinuingAndDiscontinuedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyNormalizedBasicEPS"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyOtherNonInterestExpense"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyBasicExtraordinary"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyDepreciationIncomeStatement"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainOnSaleOfPPE"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestExpenseForShortTermDebt"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyForeignExchangeTradingGains"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromLeases"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyInterestIncomeFromSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTotalMoneyMarketInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTradingGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyGainonSaleofLoans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "BFLY"
+              ],
+              "type": [
+                "quarterlyTaxLossCarryforwardBasicEPS"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

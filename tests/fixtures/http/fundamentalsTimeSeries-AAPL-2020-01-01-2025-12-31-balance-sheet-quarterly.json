@@ -1,0 +1,5459 @@
+{
+  "request": {
+    "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AAPL?period1=1577836800&period2=1767139200&type=quarterlyNetDebt%2CquarterlyTreasurySharesNumber%2CquarterlyPreferredSharesNumber%2CquarterlyOrdinarySharesNumber%2CquarterlyShareIssued%2CquarterlyTotalDebt%2CquarterlyTangibleBookValue%2CquarterlyInvestedCapital%2CquarterlyWorkingCapital%2CquarterlyNetTangibleAssets%2CquarterlyCapitalLeaseObligations%2CquarterlyCommonStockEquity%2CquarterlyPreferredStockEquity%2CquarterlyTotalCapitalization%2CquarterlyTotalEquityGrossMinorityInterest%2CquarterlyMinorityInterest%2CquarterlyStockholdersEquity%2CquarterlyOtherEquityInterest%2CquarterlyGainsLossesNotAffectingRetainedEarnings%2CquarterlyOtherEquityAdjustments%2CquarterlyFixedAssetsRevaluationReserve%2CquarterlyForeignCurrencyTranslationAdjustments%2CquarterlyMinimumPensionLiabilities%2CquarterlyUnrealizedGainLoss%2CquarterlyTreasuryStock%2CquarterlyRetainedEarnings%2CquarterlyAdditionalPaidInCapital%2CquarterlyCapitalStock%2CquarterlyOtherCapitalStock%2CquarterlyCommonStock%2CquarterlyPreferredStock%2CquarterlyTotalPartnershipCapital%2CquarterlyGeneralPartnershipCapital%2CquarterlyLimitedPartnershipCapital%2CquarterlyTotalLiabilitiesNetMinorityInterest%2CquarterlyTotalNonCurrentLiabilitiesNetMinorityInterest%2CquarterlyOtherNonCurrentLiabilities%2CquarterlyLiabilitiesHeldforSaleNonCurrent%2CquarterlyRestrictedCommonStock%2CquarterlyPreferredSecuritiesOutsideStockEquity%2CquarterlyDerivativeProductLiabilities%2CquarterlyEmployeeBenefits%2CquarterlyNonCurrentPensionAndOtherPostretirementBenefitPlans%2CquarterlyNonCurrentAccruedExpenses%2CquarterlyDuetoRelatedPartiesNonCurrent%2CquarterlyTradeandOtherPayablesNonCurrent%2CquarterlyNonCurrentDeferredLiabilities%2CquarterlyNonCurrentDeferredRevenue%2CquarterlyNonCurrentDeferredTaxesLiabilities%2CquarterlyLongTermDebtAndCapitalLeaseObligation%2CquarterlyLongTermCapitalLeaseObligation%2CquarterlyLongTermDebt%2CquarterlyLongTermProvisions%2CquarterlyCurrentLiabilities%2CquarterlyOtherCurrentLiabilities%2CquarterlyCurrentDeferredLiabilities%2CquarterlyCurrentDeferredRevenue%2CquarterlyCurrentDeferredTaxesLiabilities%2CquarterlyCurrentDebtAndCapitalLeaseObligation%2CquarterlyCurrentCapitalLeaseObligation%2CquarterlyCurrentDebt%2CquarterlyOtherCurrentBorrowings%2CquarterlyLineOfCredit%2CquarterlyCommercialPaper%2CquarterlyCurrentNotesPayable%2CquarterlyPensionandOtherPostRetirementBenefitPlansCurrent%2CquarterlyCurrentProvisions%2CquarterlyPayablesAndAccruedExpenses%2CquarterlyCurrentAccruedExpenses%2CquarterlyInterestPayable%2CquarterlyPayables%2CquarterlyOtherPayable%2CquarterlyDuetoRelatedPartiesCurrent%2CquarterlyDividendsPayable%2CquarterlyTotalTaxPayable%2CquarterlyIncomeTaxPayable%2CquarterlyAccountsPayable%2CquarterlyTotalAssets%2CquarterlyTotalNonCurrentAssets%2CquarterlyOtherNonCurrentAssets%2CquarterlyDefinedPensionBenefit%2CquarterlyNonCurrentPrepaidAssets%2CquarterlyNonCurrentDeferredAssets%2CquarterlyNonCurrentDeferredTaxesAssets%2CquarterlyDuefromRelatedPartiesNonCurrent%2CquarterlyNonCurrentNoteReceivables%2CquarterlyNonCurrentAccountsReceivable%2CquarterlyFinancialAssets%2CquarterlyInvestmentsAndAdvances%2CquarterlyOtherInvestments%2CquarterlyInvestmentinFinancialAssets%2CquarterlyHeldToMaturitySecurities%2CquarterlyAvailableForSaleSecurities%2CquarterlyFinancialAssetsDesignatedasFairValueThroughProfitorLossTotal%2CquarterlyTradingSecurities%2CquarterlyLongTermEquityInvestment%2CquarterlyInvestmentsinJointVenturesatCost%2CquarterlyInvestmentsInOtherVenturesUnderEquityMethod%2CquarterlyInvestmentsinAssociatesatCost%2CquarterlyInvestmentsinSubsidiariesatCost%2CquarterlyInvestmentProperties%2CquarterlyGoodwillAndOtherIntangibleAssets%2CquarterlyOtherIntangibleAssets%2CquarterlyGoodwill%2CquarterlyNetPPE%2CquarterlyAccumulatedDepreciation%2CquarterlyGrossPPE%2CquarterlyLeases%2CquarterlyConstructionInProgress%2CquarterlyOtherProperties%2CquarterlyMachineryFurnitureEquipment%2CquarterlyBuildingsAndImprovements%2CquarterlyLandAndImprovements%2CquarterlyProperties%2CquarterlyCurrentAssets%2CquarterlyOtherCurrentAssets%2CquarterlyHedgingAssetsCurrent%2CquarterlyAssetsHeldForSaleCurrent%2CquarterlyCurrentDeferredAssets%2CquarterlyCurrentDeferredTaxesAssets%2CquarterlyRestrictedCash%2CquarterlyPrepaidAssets%2CquarterlyInventory%2CquarterlyInventoriesAdjustmentsAllowances%2CquarterlyOtherInventories%2CquarterlyFinishedGoods%2CquarterlyWorkInProcess%2CquarterlyRawMaterials%2CquarterlyReceivables%2CquarterlyReceivablesAdjustmentsAllowances%2CquarterlyOtherReceivables%2CquarterlyDuefromRelatedPartiesCurrent%2CquarterlyTaxesReceivable%2CquarterlyAccruedInterestReceivable%2CquarterlyNotesReceivable%2CquarterlyLoansReceivable%2CquarterlyAccountsReceivable%2CquarterlyAllowanceForDoubtfulAccountsReceivable%2CquarterlyGrossAccountsReceivable%2CquarterlyCashCashEquivalentsAndShortTermInvestments%2CquarterlyOtherShortTermInvestments%2CquarterlyCashAndCashEquivalents%2CquarterlyCashEquivalents%2CquarterlyCashFinancial%2CquarterlyOtherLiabilities%2CquarterlyLiabilitiesOfDiscontinuedOperations%2CquarterlySubordinatedLiabilities%2CquarterlyAdvanceFromFederalHomeLoanBanks%2CquarterlyTradingLiabilities%2CquarterlyDuetoRelatedParties%2CquarterlySecuritiesLoaned%2CquarterlyFederalFundsPurchasedAndSecuritiesSoldUnderAgreementToRepurchase%2CquarterlyFinancialInstrumentsSoldUnderAgreementsToRepurchase%2CquarterlyFederalFundsPurchased%2CquarterlyTotalDeposits%2CquarterlyNonInterestBearingDeposits%2CquarterlyInterestBearingDepositsLiabilities%2CquarterlyCustomerAccounts%2CquarterlyDepositsbyBank%2CquarterlyOtherAssets%2CquarterlyAssetsHeldForSale%2CquarterlyDeferredAssets%2CquarterlyDeferredTaxAssets%2CquarterlyDueFromRelatedParties%2CquarterlyAllowanceForNotesReceivable%2CquarterlyGrossNotesReceivable%2CquarterlyNetLoan%2CquarterlyUnearnedIncome%2CquarterlyAllowanceForLoansAndLeaseLosses%2CquarterlyGrossLoan%2CquarterlyOtherLoanAssets%2CquarterlyMortgageLoan%2CquarterlyConsumerLoan%2CquarterlyCommercialLoan%2CquarterlyLoansHeldForSale%2CquarterlyDerivativeAssets%2CquarterlySecuritiesAndInvestments%2CquarterlyBankOwnedLifeInsurance%2CquarterlyOtherRealEstateOwned%2CquarterlyForeclosedAssets%2CquarterlyCustomerAcceptances%2CquarterlyFederalHomeLoanBankStock%2CquarterlySecurityBorrowed%2CquarterlyCashCashEquivalentsAndFederalFundsSold%2CquarterlyMoneyMarketInvestments%2CquarterlyFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell%2CquarterlySecurityAgreeToBeResell%2CquarterlyFederalFundsSold%2CquarterlyRestrictedCashAndInvestments%2CquarterlyRestrictedInvestments%2CquarterlyRestrictedCashAndCashEquivalents%2CquarterlyInterestBearingDepositsAssets%2CquarterlyCashAndDueFromBanks%2CquarterlyBankIndebtedness%2CquarterlyMineralProperties",
+    "method": "GET",
+    "headers": {
+      "cookie": "",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, stale-while-revalidate=30",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 20 Feb 2026 09:40:40 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "168",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "36p9fp5kpgb0o"
+    },
+    "bodyJson": {
+      "timeseries": {
+        "result": [
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTradeandOtherPayablesNonCurrent"
+              ]
+            },
+            "timestamp": [
+              1727654400
+            ],
+            "quarterlyTradeandOtherPayablesNonCurrent": [
+              {
+                "dataId": 23472,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9254000000,
+                  "fmt": "9.25B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLeases"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyLeases": [
+              {
+                "dataId": 23313,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14233000000,
+                  "fmt": "14.23B"
+                }
+              },
+              {
+                "dataId": 23313,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 15091000000,
+                  "fmt": "15.09B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMachineryFurnitureEquipment"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyMachineryFurnitureEquipment": [
+              {
+                "dataId": 23319,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 80205000000,
+                  "fmt": "80.20B"
+                }
+              },
+              {
+                "dataId": 23319,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 83420000000,
+                  "fmt": "83.42B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashFinancial"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCashFinancial": [
+              {
+                "dataId": 23028,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27073000000,
+                  "fmt": "27.07B"
+                }
+              },
+              {
+                "dataId": 23028,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 25061000000,
+                  "fmt": "25.06B"
+                }
+              },
+              {
+                "dataId": 23028,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26686000000,
+                  "fmt": "26.69B"
+                }
+              },
+              {
+                "dataId": 23028,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28267000000,
+                  "fmt": "28.27B"
+                }
+              },
+              {
+                "dataId": 23028,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30826000000,
+                  "fmt": "30.83B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentDeferredAssets"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyNonCurrentDeferredAssets": [
+              {
+                "dataId": 23253,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19499000000,
+                  "fmt": "19.50B"
+                }
+              },
+              {
+                "dataId": 23253,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20777000000,
+                  "fmt": "20.78B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalLiabilitiesNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalLiabilitiesNetMinorityInterest": [
+              {
+                "dataId": 23259,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 277327000000,
+                  "fmt": "277.33B"
+                }
+              },
+              {
+                "dataId": 23259,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 264437000000,
+                  "fmt": "264.44B"
+                }
+              },
+              {
+                "dataId": 23259,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 265665000000,
+                  "fmt": "265.67B"
+                }
+              },
+              {
+                "dataId": 23259,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 285508000000,
+                  "fmt": "285.51B"
+                }
+              },
+              {
+                "dataId": 23259,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 291107000000,
+                  "fmt": "291.11B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherCurrentBorrowings"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherCurrentBorrowings": [
+              {
+                "dataId": 23332,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 10848000000,
+                  "fmt": "10.85B"
+                }
+              },
+              {
+                "dataId": 23332,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13638000000,
+                  "fmt": "13.64B"
+                }
+              },
+              {
+                "dataId": 23332,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9345000000,
+                  "fmt": "9.35B"
+                }
+              },
+              {
+                "dataId": 23332,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12350000000,
+                  "fmt": "12.35B"
+                }
+              },
+              {
+                "dataId": 23332,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 11827000000,
+                  "fmt": "11.83B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentAssets": [
+              {
+                "dataId": 23044,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 133240000000,
+                  "fmt": "133.24B"
+                }
+              },
+              {
+                "dataId": 23044,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 118674000000,
+                  "fmt": "118.67B"
+                }
+              },
+              {
+                "dataId": 23044,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 122491000000,
+                  "fmt": "122.49B"
+                }
+              },
+              {
+                "dataId": 23044,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 147957000000,
+                  "fmt": "147.96B"
+                }
+              },
+              {
+                "dataId": 23044,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 158104000000,
+                  "fmt": "158.10B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentLiabilities"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentLiabilities": [
+              {
+                "dataId": 23047,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 144365000000,
+                  "fmt": "144.37B"
+                }
+              },
+              {
+                "dataId": 23047,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 144571000000,
+                  "fmt": "144.57B"
+                }
+              },
+              {
+                "dataId": 23047,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 141120000000,
+                  "fmt": "141.12B"
+                }
+              },
+              {
+                "dataId": 23047,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 165631000000,
+                  "fmt": "165.63B"
+                }
+              },
+              {
+                "dataId": 23047,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 162367000000,
+                  "fmt": "162.37B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherEquityAdjustments"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherEquityAdjustments": [
+              {
+                "dataId": 23335,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6789000000,
+                  "fmt": "-6.79B"
+                }
+              },
+              {
+                "dataId": 23335,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6363000000,
+                  "fmt": "-6.36B"
+                }
+              },
+              {
+                "dataId": 23335,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6369000000,
+                  "fmt": "-6.37B"
+                }
+              },
+              {
+                "dataId": 23335,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -5571000000,
+                  "fmt": "-5.57B"
+                }
+              },
+              {
+                "dataId": 23335,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -4854000000,
+                  "fmt": "-4.85B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyIncomeTaxPayable"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyIncomeTaxPayable": [
+              {
+                "dataId": 23103,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26601000000,
+                  "fmt": "26.60B"
+                }
+              },
+              {
+                "dataId": 23103,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13016000000,
+                  "fmt": "13.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGrossPPE"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyGrossPPE": [
+              {
+                "dataId": 23100,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 120615000000,
+                  "fmt": "120.61B"
+                }
+              },
+              {
+                "dataId": 23100,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 121179000000,
+                  "fmt": "121.18B"
+                }
+              },
+              {
+                "dataId": 23100,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 124311000000,
+                  "fmt": "124.31B"
+                }
+              },
+              {
+                "dataId": 23100,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 125848000000,
+                  "fmt": "125.85B"
+                }
+              },
+              {
+                "dataId": 23100,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 127320000000,
+                  "fmt": "127.32B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRetainedEarnings"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyRetainedEarnings": [
+              {
+                "dataId": 23204,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -11221000000,
+                  "fmt": "-11.22B"
+                }
+              },
+              {
+                "dataId": 23204,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -15552000000,
+                  "fmt": "-15.55B"
+                }
+              },
+              {
+                "dataId": 23204,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17607000000,
+                  "fmt": "-17.61B"
+                }
+              },
+              {
+                "dataId": 23204,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -14264000000,
+                  "fmt": "-14.26B"
+                }
+              },
+              {
+                "dataId": 23204,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -2177000000,
+                  "fmt": "-2.18B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyShareIssued"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyShareIssued": [
+              {
+                "dataId": 23532,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 15037874000,
+                  "fmt": "15.04B"
+                }
+              },
+              {
+                "dataId": 23532,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14939315000,
+                  "fmt": "14.94B"
+                }
+              },
+              {
+                "dataId": 23532,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14856722000,
+                  "fmt": "14.86B"
+                }
+              },
+              {
+                "dataId": 23532,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14773260000,
+                  "fmt": "14.77B"
+                }
+              },
+              {
+                "dataId": 23532,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14697926000,
+                  "fmt": "14.70B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOrdinarySharesNumber"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOrdinarySharesNumber": [
+              {
+                "dataId": 23393,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 15037874000,
+                  "fmt": "15.04B"
+                }
+              },
+              {
+                "dataId": 23393,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14939315000,
+                  "fmt": "14.94B"
+                }
+              },
+              {
+                "dataId": 23393,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14856722000,
+                  "fmt": "14.86B"
+                }
+              },
+              {
+                "dataId": 23393,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14773260000,
+                  "fmt": "14.77B"
+                }
+              },
+              {
+                "dataId": 23393,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14697926000,
+                  "fmt": "14.70B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPayablesAndAccruedExpenses"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyPayablesAndAccruedExpenses": [
+              {
+                "dataId": 23166,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 61910000000,
+                  "fmt": "61.91B"
+                }
+              },
+              {
+                "dataId": 23166,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54126000000,
+                  "fmt": "54.13B"
+                }
+              },
+              {
+                "dataId": 23166,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 50374000000,
+                  "fmt": "50.37B"
+                }
+              },
+              {
+                "dataId": 23166,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 91795000000,
+                  "fmt": "91.80B"
+                }
+              },
+              {
+                "dataId": 23166,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70587000000,
+                  "fmt": "70.59B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyWorkingCapital"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyWorkingCapital": [
+              {
+                "dataId": 23385,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -11125000000,
+                  "fmt": "-11.12B"
+                }
+              },
+              {
+                "dataId": 23385,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -25897000000,
+                  "fmt": "-25.90B"
+                }
+              },
+              {
+                "dataId": 23385,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -18629000000,
+                  "fmt": "-18.63B"
+                }
+              },
+              {
+                "dataId": 23385,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -17674000000,
+                  "fmt": "-17.67B"
+                }
+              },
+              {
+                "dataId": 23385,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -4263000000,
+                  "fmt": "-4.26B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyStockholdersEquity"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyStockholdersEquity": [
+              {
+                "dataId": 23215,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66758000000,
+                  "fmt": "66.76B"
+                }
+              },
+              {
+                "dataId": 23215,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66796000000,
+                  "fmt": "66.80B"
+                }
+              },
+              {
+                "dataId": 23215,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65830000000,
+                  "fmt": "65.83B"
+                }
+              },
+              {
+                "dataId": 23215,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73733000000,
+                  "fmt": "73.73B"
+                }
+              },
+              {
+                "dataId": 23215,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88190000000,
+                  "fmt": "88.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAccountsReceivable"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyAccountsReceivable": [
+              {
+                "dataId": 23001,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 29639000000,
+                  "fmt": "29.64B"
+                }
+              },
+              {
+                "dataId": 23001,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26136000000,
+                  "fmt": "26.14B"
+                }
+              },
+              {
+                "dataId": 23001,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27557000000,
+                  "fmt": "27.56B"
+                }
+              },
+              {
+                "dataId": 23001,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39777000000,
+                  "fmt": "39.78B"
+                }
+              },
+              {
+                "dataId": 23001,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 39921000000,
+                  "fmt": "39.92B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCommonStock"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCommonStock": [
+              {
+                "dataId": 23038,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 84768000000,
+                  "fmt": "84.77B"
+                }
+              },
+              {
+                "dataId": 23038,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88711000000,
+                  "fmt": "88.71B"
+                }
+              },
+              {
+                "dataId": 23038,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 89806000000,
+                  "fmt": "89.81B"
+                }
+              },
+              {
+                "dataId": 23038,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 93568000000,
+                  "fmt": "93.57B"
+                }
+              },
+              {
+                "dataId": 23038,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 95221000000,
+                  "fmt": "95.22B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentAccruedExpenses"
+              ]
+            },
+            "timestamp": [
+              1759190400
+            ],
+            "quarterlyCurrentAccruedExpenses": [
+              {
+                "dataId": 23004,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8919000000,
+                  "fmt": "8.92B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDeferredLiabilities"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentDeferredLiabilities": [
+              {
+                "dataId": 23058,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8461000000,
+                  "fmt": "8.46B"
+                }
+              },
+              {
+                "dataId": 23058,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8976000000,
+                  "fmt": "8.98B"
+                }
+              },
+              {
+                "dataId": 23058,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8979000000,
+                  "fmt": "8.98B"
+                }
+              },
+              {
+                "dataId": 23058,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9055000000,
+                  "fmt": "9.05B"
+                }
+              },
+              {
+                "dataId": 23058,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9413000000,
+                  "fmt": "9.41B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDebtAndCapitalLeaseObligation"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentDebtAndCapitalLeaseObligation": [
+              {
+                "dataId": 23046,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12843000000,
+                  "fmt": "12.84B"
+                }
+              },
+              {
+                "dataId": 23046,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19620000000,
+                  "fmt": "19.62B"
+                }
+              },
+              {
+                "dataId": 23046,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19268000000,
+                  "fmt": "19.27B"
+                }
+              },
+              {
+                "dataId": 23046,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20329000000,
+                  "fmt": "20.33B"
+                }
+              },
+              {
+                "dataId": 23046,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13824000000,
+                  "fmt": "13.82B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDeferredRevenue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentDeferredRevenue": [
+              {
+                "dataId": 23061,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8461000000,
+                  "fmt": "8.46B"
+                }
+              },
+              {
+                "dataId": 23061,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8976000000,
+                  "fmt": "8.98B"
+                }
+              },
+              {
+                "dataId": 23061,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 8979000000,
+                  "fmt": "8.98B"
+                }
+              },
+              {
+                "dataId": 23061,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9055000000,
+                  "fmt": "9.05B"
+                }
+              },
+              {
+                "dataId": 23061,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9413000000,
+                  "fmt": "9.41B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLongTermDebt"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyLongTermDebt": [
+              {
+                "dataId": 23123,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 83956000000,
+                  "fmt": "83.96B"
+                }
+              },
+              {
+                "dataId": 23123,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 78566000000,
+                  "fmt": "78.57B"
+                }
+              },
+              {
+                "dataId": 23123,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 82430000000,
+                  "fmt": "82.43B"
+                }
+              },
+              {
+                "dataId": 23123,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 78328000000,
+                  "fmt": "78.33B"
+                }
+              },
+              {
+                "dataId": 23123,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 76685000000,
+                  "fmt": "76.69B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherNonCurrentLiabilities"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherNonCurrentLiabilities": [
+              {
+                "dataId": 23379,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 49006000000,
+                  "fmt": "49.01B"
+                }
+              },
+              {
+                "dataId": 23379,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41300000000,
+                  "fmt": "41.30B"
+                }
+              },
+              {
+                "dataId": 23379,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 42115000000,
+                  "fmt": "42.12B"
+                }
+              },
+              {
+                "dataId": 23379,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 41549000000,
+                  "fmt": "41.55B"
+                }
+              },
+              {
+                "dataId": 23379,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 52055000000,
+                  "fmt": "52.05B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPayables"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyPayables": [
+              {
+                "dataId": 23165,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 61910000000,
+                  "fmt": "61.91B"
+                }
+              },
+              {
+                "dataId": 23165,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54126000000,
+                  "fmt": "54.13B"
+                }
+              },
+              {
+                "dataId": 23165,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 50374000000,
+                  "fmt": "50.37B"
+                }
+              },
+              {
+                "dataId": 23165,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 82876000000,
+                  "fmt": "82.88B"
+                }
+              },
+              {
+                "dataId": 23165,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70587000000,
+                  "fmt": "70.59B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestedCapital"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInvestedCapital": [
+              {
+                "dataId": 23245,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 163557000000,
+                  "fmt": "163.56B"
+                }
+              },
+              {
+                "dataId": 23245,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 164982000000,
+                  "fmt": "164.98B"
+                }
+              },
+              {
+                "dataId": 23245,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 167528000000,
+                  "fmt": "167.53B"
+                }
+              },
+              {
+                "dataId": 23245,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 172390000000,
+                  "fmt": "172.39B"
+                }
+              },
+              {
+                "dataId": 23245,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 178699000000,
+                  "fmt": "178.70B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyReceivables"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyReceivables": [
+              {
+                "dataId": 23189,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 59306000000,
+                  "fmt": "59.31B"
+                }
+              },
+              {
+                "dataId": 23189,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 49798000000,
+                  "fmt": "49.80B"
+                }
+              },
+              {
+                "dataId": 23189,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 46835000000,
+                  "fmt": "46.84B"
+                }
+              },
+              {
+                "dataId": 23189,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 72957000000,
+                  "fmt": "72.96B"
+                }
+              },
+              {
+                "dataId": 23189,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70320000000,
+                  "fmt": "70.32B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherCurrentAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherCurrentAssets": [
+              {
+                "dataId": 23331,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13248000000,
+                  "fmt": "13.25B"
+                }
+              },
+              {
+                "dataId": 23331,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14109000000,
+                  "fmt": "14.11B"
+                }
+              },
+              {
+                "dataId": 23331,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14359000000,
+                  "fmt": "14.36B"
+                }
+              },
+              {
+                "dataId": 23331,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14585000000,
+                  "fmt": "14.59B"
+                }
+              },
+              {
+                "dataId": 23331,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 15002000000,
+                  "fmt": "15.00B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalNonCurrentLiabilitiesNetMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalNonCurrentLiabilitiesNetMinorityInterest": [
+              {
+                "dataId": 23260,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 132962000000,
+                  "fmt": "132.96B"
+                }
+              },
+              {
+                "dataId": 23260,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 119866000000,
+                  "fmt": "119.87B"
+                }
+              },
+              {
+                "dataId": 23260,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 124545000000,
+                  "fmt": "124.55B"
+                }
+              },
+              {
+                "dataId": 23260,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 119877000000,
+                  "fmt": "119.88B"
+                }
+              },
+              {
+                "dataId": 23260,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 128740000000,
+                  "fmt": "128.74B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRawMaterials"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600
+            ],
+            "quarterlyRawMaterials": [
+              {
+                "dataId": 23355,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2792000000,
+                  "fmt": "2.79B"
+                }
+              },
+              {
+                "dataId": 23355,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2673000000,
+                  "fmt": "2.67B"
+                }
+              },
+              {
+                "dataId": 23355,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 2288000000,
+                  "fmt": "2.29B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherProperties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentinFinancialAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInvestmentinFinancialAssets": [
+              {
+                "dataId": 23414,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 87593000000,
+                  "fmt": "87.59B"
+                }
+              },
+              {
+                "dataId": 23414,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 84424000000,
+                  "fmt": "84.42B"
+                }
+              },
+              {
+                "dataId": 23414,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77614000000,
+                  "fmt": "77.61B"
+                }
+              },
+              {
+                "dataId": 23414,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77723000000,
+                  "fmt": "77.72B"
+                }
+              },
+              {
+                "dataId": 23414,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77888000000,
+                  "fmt": "77.89B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDebt"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCurrentDebt": [
+              {
+                "dataId": 23045,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 12843000000,
+                  "fmt": "12.84B"
+                }
+              },
+              {
+                "dataId": 23045,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19620000000,
+                  "fmt": "19.62B"
+                }
+              },
+              {
+                "dataId": 23045,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19268000000,
+                  "fmt": "19.27B"
+                }
+              },
+              {
+                "dataId": 23045,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20329000000,
+                  "fmt": "20.33B"
+                }
+              },
+              {
+                "dataId": 23045,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13824000000,
+                  "fmt": "13.82B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentCapitalLeaseObligation"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalEquityGrossMinorityInterest"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalEquityGrossMinorityInterest": [
+              {
+                "dataId": 23261,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66758000000,
+                  "fmt": "66.76B"
+                }
+              },
+              {
+                "dataId": 23261,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66796000000,
+                  "fmt": "66.80B"
+                }
+              },
+              {
+                "dataId": 23261,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65830000000,
+                  "fmt": "65.83B"
+                }
+              },
+              {
+                "dataId": 23261,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73733000000,
+                  "fmt": "73.73B"
+                }
+              },
+              {
+                "dataId": 23261,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88190000000,
+                  "fmt": "88.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInventory"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInventory": [
+              {
+                "dataId": 23108,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6911000000,
+                  "fmt": "6.91B"
+                }
+              },
+              {
+                "dataId": 23108,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 6269000000,
+                  "fmt": "6.27B"
+                }
+              },
+              {
+                "dataId": 23108,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5925000000,
+                  "fmt": "5.92B"
+                }
+              },
+              {
+                "dataId": 23108,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5718000000,
+                  "fmt": "5.72B"
+                }
+              },
+              {
+                "dataId": 23108,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5875000000,
+                  "fmt": "5.88B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAccumulatedDepreciation"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyAccumulatedDepreciation": [
+              {
+                "dataId": 23008,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -74546000000,
+                  "fmt": "-74.55B"
+                }
+              },
+              {
+                "dataId": 23008,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -74303000000,
+                  "fmt": "-74.30B"
+                }
+              },
+              {
+                "dataId": 23008,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -75803000000,
+                  "fmt": "-75.80B"
+                }
+              },
+              {
+                "dataId": 23008,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -76014000000,
+                  "fmt": "-76.01B"
+                }
+              },
+              {
+                "dataId": 23008,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -77161000000,
+                  "fmt": "-77.16B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentsAndAdvances"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyInvestmentsAndAdvances": [
+              {
+                "dataId": 23111,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 87593000000,
+                  "fmt": "87.59B"
+                }
+              },
+              {
+                "dataId": 23111,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 84424000000,
+                  "fmt": "84.42B"
+                }
+              },
+              {
+                "dataId": 23111,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77614000000,
+                  "fmt": "77.61B"
+                }
+              },
+              {
+                "dataId": 23111,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77723000000,
+                  "fmt": "77.72B"
+                }
+              },
+              {
+                "dataId": 23111,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77888000000,
+                  "fmt": "77.89B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalDebt"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalDebt": [
+              {
+                "dataId": 23386,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 96799000000,
+                  "fmt": "96.80B"
+                }
+              },
+              {
+                "dataId": 23386,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 98186000000,
+                  "fmt": "98.19B"
+                }
+              },
+              {
+                "dataId": 23386,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 101698000000,
+                  "fmt": "101.70B"
+                }
+              },
+              {
+                "dataId": 23386,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 98657000000,
+                  "fmt": "98.66B"
+                }
+              },
+              {
+                "dataId": 23386,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 90509000000,
+                  "fmt": "90.51B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherNonCurrentAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherNonCurrentAssets": [
+              {
+                "dataId": 23339,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77183000000,
+                  "fmt": "77.18B"
+                }
+              },
+              {
+                "dataId": 23339,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 81259000000,
+                  "fmt": "81.26B"
+                }
+              },
+              {
+                "dataId": 23339,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 82882000000,
+                  "fmt": "82.88B"
+                }
+              },
+              {
+                "dataId": 23339,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 62950000000,
+                  "fmt": "62.95B"
+                }
+              },
+              {
+                "dataId": 23339,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 93146000000,
+                  "fmt": "93.15B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTangibleBookValue"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTangibleBookValue": [
+              {
+                "dataId": 23383,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66758000000,
+                  "fmt": "66.76B"
+                }
+              },
+              {
+                "dataId": 23383,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66796000000,
+                  "fmt": "66.80B"
+                }
+              },
+              {
+                "dataId": 23383,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65830000000,
+                  "fmt": "65.83B"
+                }
+              },
+              {
+                "dataId": 23383,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73733000000,
+                  "fmt": "73.73B"
+                }
+              },
+              {
+                "dataId": 23383,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88190000000,
+                  "fmt": "88.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTreasurySharesNumber"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashEquivalents"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCashEquivalents": [
+              {
+                "dataId": 23029,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3226000000,
+                  "fmt": "3.23B"
+                }
+              },
+              {
+                "dataId": 23029,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3101000000,
+                  "fmt": "3.10B"
+                }
+              },
+              {
+                "dataId": 23029,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9583000000,
+                  "fmt": "9.58B"
+                }
+              },
+              {
+                "dataId": 23029,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7667000000,
+                  "fmt": "7.67B"
+                }
+              },
+              {
+                "dataId": 23029,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 14491000000,
+                  "fmt": "14.49B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCapitalLeaseObligations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherReceivables"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherReceivables": [
+              {
+                "dataId": 23342,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 29667000000,
+                  "fmt": "29.67B"
+                }
+              },
+              {
+                "dataId": 23342,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 23662000000,
+                  "fmt": "23.66B"
+                }
+              },
+              {
+                "dataId": 23342,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19278000000,
+                  "fmt": "19.28B"
+                }
+              },
+              {
+                "dataId": 23342,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 33180000000,
+                  "fmt": "33.18B"
+                }
+              },
+              {
+                "dataId": 23342,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30399000000,
+                  "fmt": "30.40B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCommercialPaper"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCommercialPaper": [
+              {
+                "dataId": 23279,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1995000000,
+                  "fmt": "2.00B"
+                }
+              },
+              {
+                "dataId": 23279,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 5982000000,
+                  "fmt": "5.98B"
+                }
+              },
+              {
+                "dataId": 23279,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 9923000000,
+                  "fmt": "9.92B"
+                }
+              },
+              {
+                "dataId": 23279,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 7979000000,
+                  "fmt": "7.98B"
+                }
+              },
+              {
+                "dataId": 23279,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 1997000000,
+                  "fmt": "2.00B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAvailableForSaleSecurities"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyAvailableForSaleSecurities": [
+              {
+                "dataId": 23020,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 87593000000,
+                  "fmt": "87.59B"
+                }
+              },
+              {
+                "dataId": 23020,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 84424000000,
+                  "fmt": "84.42B"
+                }
+              },
+              {
+                "dataId": 23020,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77614000000,
+                  "fmt": "77.61B"
+                }
+              },
+              {
+                "dataId": 23020,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77723000000,
+                  "fmt": "77.72B"
+                }
+              },
+              {
+                "dataId": 23020,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 77888000000,
+                  "fmt": "77.89B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLongTermDebtAndCapitalLeaseObligation"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyLongTermDebtAndCapitalLeaseObligation": [
+              {
+                "dataId": 23124,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 83956000000,
+                  "fmt": "83.96B"
+                }
+              },
+              {
+                "dataId": 23124,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 78566000000,
+                  "fmt": "78.57B"
+                }
+              },
+              {
+                "dataId": 23124,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 82430000000,
+                  "fmt": "82.43B"
+                }
+              },
+              {
+                "dataId": 23124,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 78328000000,
+                  "fmt": "78.33B"
+                }
+              },
+              {
+                "dataId": 23124,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 76685000000,
+                  "fmt": "76.69B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLongTermCapitalLeaseObligation"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNetPPE"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetPPE": [
+              {
+                "dataId": 23139,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 46069000000,
+                  "fmt": "46.07B"
+                }
+              },
+              {
+                "dataId": 23139,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 46876000000,
+                  "fmt": "46.88B"
+                }
+              },
+              {
+                "dataId": 23139,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 48508000000,
+                  "fmt": "48.51B"
+                }
+              },
+              {
+                "dataId": 23139,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 49834000000,
+                  "fmt": "49.83B"
+                }
+              },
+              {
+                "dataId": 23139,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 50159000000,
+                  "fmt": "50.16B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherCurrentLiabilities"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherCurrentLiabilities": [
+              {
+                "dataId": 23151,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 61151000000,
+                  "fmt": "61.15B"
+                }
+              },
+              {
+                "dataId": 23151,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 61849000000,
+                  "fmt": "61.85B"
+                }
+              },
+              {
+                "dataId": 23151,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 62499000000,
+                  "fmt": "62.50B"
+                }
+              },
+              {
+                "dataId": 23151,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 44452000000,
+                  "fmt": "44.45B"
+                }
+              },
+              {
+                "dataId": 23151,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 68543000000,
+                  "fmt": "68.54B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherShortTermInvestments"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyOtherShortTermInvestments": [
+              {
+                "dataId": 23163,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 23476000000,
+                  "fmt": "23.48B"
+                }
+              },
+              {
+                "dataId": 23163,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20336000000,
+                  "fmt": "20.34B"
+                }
+              },
+              {
+                "dataId": 23163,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19103000000,
+                  "fmt": "19.10B"
+                }
+              },
+              {
+                "dataId": 23163,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 18763000000,
+                  "fmt": "18.76B"
+                }
+              },
+              {
+                "dataId": 23163,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 21590000000,
+                  "fmt": "21.59B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNetDebt"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetDebt": [
+              {
+                "dataId": 23531,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66500000000,
+                  "fmt": "66.50B"
+                }
+              },
+              {
+                "dataId": 23531,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70024000000,
+                  "fmt": "70.02B"
+                }
+              },
+              {
+                "dataId": 23531,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65429000000,
+                  "fmt": "65.43B"
+                }
+              },
+              {
+                "dataId": 23531,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 62723000000,
+                  "fmt": "62.72B"
+                }
+              },
+              {
+                "dataId": 23531,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 45192000000,
+                  "fmt": "45.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentDeferredTaxesAssets"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyNonCurrentDeferredTaxesAssets": [
+              {
+                "dataId": 23066,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 19499000000,
+                  "fmt": "19.50B"
+                }
+              },
+              {
+                "dataId": 23066,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 20777000000,
+                  "fmt": "20.78B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyProperties"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyProperties": [
+              {
+                "dataId": 23351,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              },
+              {
+                "dataId": 23351,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 0,
+                  "fmt": "0.00"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNetTangibleAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyNetTangibleAssets": [
+              {
+                "dataId": 23403,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66758000000,
+                  "fmt": "66.76B"
+                }
+              },
+              {
+                "dataId": 23403,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66796000000,
+                  "fmt": "66.80B"
+                }
+              },
+              {
+                "dataId": 23403,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65830000000,
+                  "fmt": "65.83B"
+                }
+              },
+              {
+                "dataId": 23403,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73733000000,
+                  "fmt": "73.73B"
+                }
+              },
+              {
+                "dataId": 23403,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88190000000,
+                  "fmt": "88.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalAssets": [
+              {
+                "dataId": 23220,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 344085000000,
+                  "fmt": "344.08B"
+                }
+              },
+              {
+                "dataId": 23220,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 331233000000,
+                  "fmt": "331.23B"
+                }
+              },
+              {
+                "dataId": 23220,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 331495000000,
+                  "fmt": "331.50B"
+                }
+              },
+              {
+                "dataId": 23220,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 359241000000,
+                  "fmt": "359.24B"
+                }
+              },
+              {
+                "dataId": 23220,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 379297000000,
+                  "fmt": "379.30B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFinishedGoods"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600
+            ],
+            "quarterlyFinishedGoods": [
+              {
+                "dataId": 23300,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 4119000000,
+                  "fmt": "4.12B"
+                }
+              },
+              {
+                "dataId": 23300,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3596000000,
+                  "fmt": "3.60B"
+                }
+              },
+              {
+                "dataId": 23300,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 3637000000,
+                  "fmt": "3.64B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalNonCurrentAssets"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalNonCurrentAssets": [
+              {
+                "dataId": 23226,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 210845000000,
+                  "fmt": "210.84B"
+                }
+              },
+              {
+                "dataId": 23226,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 212559000000,
+                  "fmt": "212.56B"
+                }
+              },
+              {
+                "dataId": 23226,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 209004000000,
+                  "fmt": "209.00B"
+                }
+              },
+              {
+                "dataId": 23226,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 211284000000,
+                  "fmt": "211.28B"
+                },
+                "geographicSegmentData": [
+                  {
+                    "dataValue": 3617000000,
+                    "segmentType": "Geographic",
+                    "segmentName": "China",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 77723000000,
+                    "segmentType": "Geographic",
+                    "segmentName": "Marketable securities",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 5943000000,
+                    "segmentType": "Geographic",
+                    "segmentName": "Other countries",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 83727000000,
+                    "segmentType": "Geographic",
+                    "segmentName": "Other non-current assets",
+                    "isPrimarySegment": 0
+                  },
+                  {
+                    "dataValue": 40274000000,
+                    "segmentType": "Geographic",
+                    "segmentName": "United States",
+                    "isPrimarySegment": 0
+                  }
+                ]
+              },
+              {
+                "dataId": 23226,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 221193000000,
+                  "fmt": "221.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCommonStockEquity"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCommonStockEquity": [
+              {
+                "dataId": 23280,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66758000000,
+                  "fmt": "66.76B"
+                }
+              },
+              {
+                "dataId": 23280,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66796000000,
+                  "fmt": "66.80B"
+                }
+              },
+              {
+                "dataId": 23280,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 65830000000,
+                  "fmt": "65.83B"
+                }
+              },
+              {
+                "dataId": 23280,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 73733000000,
+                  "fmt": "73.73B"
+                }
+              },
+              {
+                "dataId": 23280,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88190000000,
+                  "fmt": "88.19B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalCapitalization"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyTotalCapitalization": [
+              {
+                "dataId": 23374,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 150714000000,
+                  "fmt": "150.71B"
+                }
+              },
+              {
+                "dataId": 23374,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 145362000000,
+                  "fmt": "145.36B"
+                }
+              },
+              {
+                "dataId": 23374,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 148260000000,
+                  "fmt": "148.26B"
+                }
+              },
+              {
+                "dataId": 23374,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 152061000000,
+                  "fmt": "152.06B"
+                }
+              },
+              {
+                "dataId": 23374,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 164875000000,
+                  "fmt": "164.88B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLandAndImprovements"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyLandAndImprovements": [
+              {
+                "dataId": 23312,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 24690000000,
+                  "fmt": "24.69B"
+                }
+              },
+              {
+                "dataId": 23312,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 27337000000,
+                  "fmt": "27.34B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashAndCashEquivalents"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCashAndCashEquivalents": [
+              {
+                "dataId": 23030,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 30299000000,
+                  "fmt": "30.30B"
+                }
+              },
+              {
+                "dataId": 23030,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 28162000000,
+                  "fmt": "28.16B"
+                }
+              },
+              {
+                "dataId": 23030,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 36269000000,
+                  "fmt": "36.27B"
+                }
+              },
+              {
+                "dataId": 23030,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 35934000000,
+                  "fmt": "35.93B"
+                }
+              },
+              {
+                "dataId": 23030,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 45317000000,
+                  "fmt": "45.32B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashCashEquivalentsAndShortTermInvestments"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCashCashEquivalentsAndShortTermInvestments": [
+              {
+                "dataId": 23033,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 53775000000,
+                  "fmt": "53.77B"
+                }
+              },
+              {
+                "dataId": 23033,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 48498000000,
+                  "fmt": "48.50B"
+                }
+              },
+              {
+                "dataId": 23033,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 55372000000,
+                  "fmt": "55.37B"
+                }
+              },
+              {
+                "dataId": 23033,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54697000000,
+                  "fmt": "54.70B"
+                }
+              },
+              {
+                "dataId": 23033,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 66907000000,
+                  "fmt": "66.91B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalTaxPayable"
+              ]
+            },
+            "timestamp": [
+              1727654400,
+              1759190400
+            ],
+            "quarterlyTotalTaxPayable": [
+              {
+                "dataId": 23217,
+                "asOfDate": "2024-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 26601000000,
+                  "fmt": "26.60B"
+                }
+              },
+              {
+                "dataId": 23217,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 13016000000,
+                  "fmt": "13.02B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAccountsPayable"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyAccountsPayable": [
+              {
+                "dataId": 23000,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 61910000000,
+                  "fmt": "61.91B"
+                }
+              },
+              {
+                "dataId": 23000,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 54126000000,
+                  "fmt": "54.13B"
+                }
+              },
+              {
+                "dataId": 23000,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 50374000000,
+                  "fmt": "50.37B"
+                }
+              },
+              {
+                "dataId": 23000,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 69860000000,
+                  "fmt": "69.86B"
+                }
+              },
+              {
+                "dataId": 23000,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 70587000000,
+                  "fmt": "70.59B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGainsLossesNotAffectingRetainedEarnings"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyGainsLossesNotAffectingRetainedEarnings": [
+              {
+                "dataId": 23009,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6789000000,
+                  "fmt": "-6.79B"
+                }
+              },
+              {
+                "dataId": 23009,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6363000000,
+                  "fmt": "-6.36B"
+                }
+              },
+              {
+                "dataId": 23009,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -6369000000,
+                  "fmt": "-6.37B"
+                }
+              },
+              {
+                "dataId": 23009,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -5571000000,
+                  "fmt": "-5.57B"
+                }
+              },
+              {
+                "dataId": 23009,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": -4854000000,
+                  "fmt": "-4.85B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCapitalStock"
+              ]
+            },
+            "timestamp": [
+              1735603200,
+              1743379200,
+              1751241600,
+              1759190400,
+              1767139200
+            ],
+            "quarterlyCapitalStock": [
+              {
+                "dataId": 23027,
+                "asOfDate": "2024-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 84768000000,
+                  "fmt": "84.77B"
+                }
+              },
+              {
+                "dataId": 23027,
+                "asOfDate": "2025-03-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 88711000000,
+                  "fmt": "88.71B"
+                }
+              },
+              {
+                "dataId": 23027,
+                "asOfDate": "2025-06-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 89806000000,
+                  "fmt": "89.81B"
+                }
+              },
+              {
+                "dataId": 23027,
+                "asOfDate": "2025-09-30",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 93568000000,
+                  "fmt": "93.57B"
+                }
+              },
+              {
+                "dataId": 23027,
+                "asOfDate": "2025-12-31",
+                "periodType": "3M",
+                "currencyCode": "USD",
+                "reportedValue": {
+                  "raw": 95221000000,
+                  "fmt": "95.22B"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNotesReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentsinSubsidiariesatCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentDeferredLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFederalFundsSold"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCustomerAcceptances"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDeferredTaxAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlySecuritiesLoaned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAllowanceForNotesReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherEquityInterest"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyEmployeeBenefits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLoansReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInterestPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherRealEstateOwned"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMoneyMarketInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLongTermProvisions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDuefromRelatedPartiesCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTradingSecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPreferredStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentDeferredTaxesLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAccruedInterestReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherLoanAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTaxesReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDepositsbyBank"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentPrepaidAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyUnearnedIncome"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGrossAccountsReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRestrictedCommonStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentsinJointVenturesatCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentsInOtherVenturesUnderEquityMethod"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAdditionalPaidInCapital"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDerivativeProductLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFederalFundsPurchased"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlySecurityAgreeToBeResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyUnrealizedGainLoss"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTreasuryStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInterestBearingDepositsAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLongTermEquityInvestment"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRestrictedCash"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentProperties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFederalFundsPurchasedAndSecuritiesSoldUnderAgreementToRepurchase"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInvestmentsinAssociatesatCost"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMineralProperties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentNotesPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPreferredSecuritiesOutsideStockEquity"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGrossNotesReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDuefromRelatedPartiesNonCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentPensionAndOtherPostretirementBenefitPlans"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherInventories"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDuetoRelatedParties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlySecurityBorrowed"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFinancialAssetsDesignatedasFairValueThroughProfitorLossTotal"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDuetoRelatedPartiesCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDeferredAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonInterestBearingDeposits"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCommercialLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGrossLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDefinedPensionBenefit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAdvanceFromFederalHomeLoanBanks"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNetLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlySubordinatedLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDeferredTaxesAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPensionandOtherPostRetirementBenefitPlansCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCustomerAccounts"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyWorkInProcess"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLineOfCredit"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGoodwillAndOtherIntangibleAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPreferredSharesNumber"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentDeferredRevenue"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTradingLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRestrictedCashAndInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRestrictedCashAndCashEquivalents"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFixedAssetsRevaluationReserve"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentAccruedExpenses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyBuildingsAndImprovements"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAllowanceForLoansAndLeaseLosses"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDuetoRelatedPartiesNonCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyHedgingAssetsCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInterestBearingDepositsLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLiabilitiesHeldforSaleNonCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentProvisions"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGoodwill"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherIntangibleAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashCashEquivalentsAndFederalFundsSold"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentNoteReceivables"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMortgageLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMinorityInterest"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyHeldToMaturitySecurities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyBankOwnedLifeInsurance"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyForeclosedAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFinancialInstrumentsSoldUnderAgreementsToRepurchase"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDeferredAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyBankIndebtedness"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyRestrictedInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPreferredStockEquity"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAssetsHeldForSale"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDividendsPayable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCurrentDeferredTaxesLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlySecuritiesAndInvestments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAssetsHeldForSaleCurrent"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyTotalPartnershipCapital"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyMinimumPensionLiabilities"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLoansHeldForSale"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyPrepaidAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyConstructionInProgress"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLiabilitiesOfDiscontinuedOperations"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyOtherCapitalStock"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDerivativeAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyGeneralPartnershipCapital"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyCashAndDueFromBanks"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyNonCurrentAccountsReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyConsumerLoan"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFinancialAssets"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyAllowanceForDoubtfulAccountsReceivable"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyReceivablesAdjustmentsAllowances"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyInventoriesAdjustmentsAllowances"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyDueFromRelatedParties"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyForeignCurrencyTranslationAdjustments"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyLimitedPartnershipCapital"
+              ]
+            }
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AAPL"
+              ],
+              "type": [
+                "quarterlyFederalHomeLoanBankStock"
+              ]
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}
