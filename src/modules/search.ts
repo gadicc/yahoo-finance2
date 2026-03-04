@@ -138,38 +138,38 @@ export interface SearchQuoteYahoo {
 }
 export interface SearchQuoteYahooEquity extends SearchQuoteYahoo {
   quoteType: "EQUITY";
-  typeDisp: "Equity";
+  typeDisp: "equity";
   sectorDisp?: string; // "Technology",
   industryDisp?: string; // "Consumer Electronics"
 }
 export interface SearchQuoteYahooOption extends SearchQuoteYahoo {
   quoteType: "OPTION";
-  typeDisp: "Option";
+  typeDisp: "option";
 }
 export interface SearchQuoteYahooETF extends SearchQuoteYahoo {
   quoteType: "ETF";
-  typeDisp: "ETF"; // "Option"
+  typeDisp: "etf"; // "Option"
 }
 export interface SearchQuoteYahooFund extends SearchQuoteYahoo {
   quoteType: "MUTUALFUND";
-  typeDisp: "Fund";
+  typeDisp: "mutualfund";
 }
 export interface SearchQuoteYahooIndex extends SearchQuoteYahoo {
   quoteType: "INDEX";
-  typeDisp: "Index";
+  typeDisp: "index";
 }
 export interface SearchQuoteYahooCurrency extends SearchQuoteYahoo {
   quoteType: "CURRENCY";
-  typeDisp: "Currency";
+  typeDisp: "currency";
 }
 export interface SearchQuoteYahooCryptocurrency extends SearchQuoteYahoo {
   quoteType: "CRYPTOCURRENCY";
-  typeDisp: "Cryptocurrency";
+  typeDisp: "cryptocurrency";
 }
 
 export interface SearchQuoteYahooFuture extends SearchQuoteYahoo {
   quoteType: "FUTURE";
-  typeDisp: "Future" | "Futures";
+  typeDisp: "future" | "futures";
 }
 
 export interface SearchQuoteYahooMoneyMarket extends SearchQuoteYahoo {
