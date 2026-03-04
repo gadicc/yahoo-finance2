@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "100",
+      "x-envoy-upstream-service-time": "99",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "54634hdjrr9d7"
+      "y-rid": "5qm95tpkqfmu6"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "BFLY",
           "index": "quotes",
-          "score": 2004600,
-          "typeDisp": "Equity",
+          "score": 10035500,
+          "typeDisp": "equity",
           "longname": "Butterfly Network, Inc.",
           "exchDisp": "NYSE",
           "sector": "Healthcare",
@@ -55,55 +55,56 @@
           "symbol": "^BFLY",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Index",
+          "typeDisp": "index",
           "longname": "CBOE S&P 500 Iron Butterfly Ind",
           "exchDisp": "Chicago Board Options Exchange",
           "isYahooFinance": true
         },
         {
-          "exchange": "NYQ",
-          "shortname": "Butterfly Network, Inc.",
-          "quoteType": "EQUITY",
-          "symbol": "BFLY-WT",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "Equity",
-          "longname": "Butterfly Network, Inc. WT",
-          "exchDisp": "NYSE",
-          "isYahooFinance": true
-        },
-        {
           "exchange": "OPR",
-          "shortname": "BFLY Feb 2025 3.500 put",
+          "shortname": "BFLY Mar 2026 0.500 call",
           "quoteType": "OPTION",
-          "symbol": "BFLY250221P00003500",
+          "symbol": "BFLY260320C00000500",
           "index": "quotes",
           "score": 20000,
-          "typeDisp": "Option",
-          "longname": "BFLY Feb 2025 3.500 put",
+          "typeDisp": "option",
+          "longname": "BFLY Mar 2026 0.500 call",
           "exchDisp": "OPR",
           "isYahooFinance": true
         },
         {
           "exchange": "OPR",
-          "shortname": "BFLY Feb 2025 5.500 call",
+          "shortname": "BFLY Mar 2026 4.500 call",
           "quoteType": "OPTION",
-          "symbol": "BFLY250221C00005500",
+          "symbol": "BFLY260320C00004500",
           "index": "quotes",
           "score": 20000,
-          "typeDisp": "Option",
-          "longname": "BFLY Feb 2025 5.500 call",
+          "typeDisp": "option",
+          "longname": "BFLY Mar 2026 4.500 call",
           "exchDisp": "OPR",
           "isYahooFinance": true
         },
         {
           "exchange": "OPR",
-          "shortname": "BFLY Feb 2025 2.500 put",
+          "shortname": "BFLY Oct 2026 4.500 put",
           "quoteType": "OPTION",
-          "symbol": "BFLY250221P00002500",
+          "symbol": "BFLY261016P00004500",
           "index": "quotes",
           "score": 20000,
-          "typeDisp": "Option",
+          "typeDisp": "option",
+          "longname": "BFLY Oct 2026 4.500 put",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OPR",
+          "shortname": "BFLY Apr 2026 2.500 put",
+          "quoteType": "OPTION",
+          "symbol": "BFLY260417P00002500",
+          "index": "quotes",
+          "score": 20000,
+          "typeDisp": "option",
+          "longname": "BFLY Apr 2026 2.500 put",
           "exchDisp": "OPR",
           "isYahooFinance": true
         },
@@ -116,22 +117,22 @@
       ],
       "news": [
         {
-          "uuid": "79b04fab-d98c-3d23-bed2-a5a3b4a380d1",
-          "title": "Hims & Hers Health, Inc. (HIMS) Lags Q4 Earnings Estimates",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/hims-hers-health-inc-hims-222004821.html",
-          "providerPublishTime": 1740435604,
+          "uuid": "36c1d6da-eff9-3ef5-8466-05d8b263afe8",
+          "title": "Assessing Butterfly Network (BFLY) Valuation After Volatile Returns And A Key Licensing Agreement",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/assessing-butterfly-network-bfly-valuation-130855685.html",
+          "providerPublishTime": 1772370535,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/UACuRym2G7Sc_7yqOtSLVQ--~B/aD0yMzUxO3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/zacks.com/c65fb4556b91b6c9dc83e4eff25fede0",
-                "width": 3000,
-                "height": 2351,
+                "url": "https://s.yimg.com/uu/api/res/1.2/qrnhoA9Y9l_fYJBd0ck5WA--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/983f2bdfe32b19227b1d118c45bf4f09",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/4xltbIIZEXRptTswpC4cYw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/c65fb4556b91b6c9dc83e4eff25fede0",
+                "url": "https://s.yimg.com/uu/api/res/1.2/6iRuoNg6exhoisM46ySxQQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/983f2bdfe32b19227b1d118c45bf4f09",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -139,26 +140,26 @@
             ]
           },
           "relatedTickers": [
-            "BFLY-WS"
+            "BFLY"
           ]
         },
         {
-          "uuid": "7a575102-35ca-3703-b11a-bf65a74d8a3e",
-          "title": "Butterfly Network, Inc. (BFLY): Among the Hot Penny Stocks to Buy Now",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/butterfly-network-inc-bfly-among-222711413.html",
-          "providerPublishTime": 1740263231,
+          "uuid": "3548aec8-e143-372c-8cc2-2106b2f8bc8d",
+          "title": "Butterfly Network (BFLY) Is Up 27.2% After First Positive Operating Cash Flow And Midjourney Deal - Has The Bull Case Changed?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/butterfly-network-bfly-27-2-210843788.html",
+          "providerPublishTime": 1772312923,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/t2s7pCi6RD4zX8Cee7rOHQ--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/c9e8e6d98e92eedfbb0d9185e8c1707a",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/qrnhoA9Y9l_fYJBd0ck5WA--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/983f2bdfe32b19227b1d118c45bf4f09",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5p2YBtS9A9q1SFgYIj5BSA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/c9e8e6d98e92eedfbb0d9185e8c1707a",
+                "url": "https://s.yimg.com/uu/api/res/1.2/6iRuoNg6exhoisM46ySxQQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/983f2bdfe32b19227b1d118c45bf4f09",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -166,27 +167,26 @@
             ]
           },
           "relatedTickers": [
-            "BFLY-WS",
-            "^RUT"
+            "BFLY"
           ]
         },
         {
-          "uuid": "067d0ff6-fad1-3cd4-a453-344ca546c766",
-          "title": "Butterfly Network, Inc. (BFLY) May Report Negative Earnings: Know the Trend Ahead of Next Week's Release",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/butterfly-network-inc-bfly-may-150008739.html",
-          "providerPublishTime": 1740150008,
+          "uuid": "079a4899-02c6-32d1-b6e1-9f9a2443a5c1",
+          "title": "Butterfly Network price target raised to $6 from $4.50 at TD Cowen",
+          "publisher": "TipRanks",
+          "link": "https://finance.yahoo.com/news/butterfly-network-price-target-raised-135943734.html",
+          "providerPublishTime": 1772287183,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/QOfludHza1dTKV8R6Coeiw--~B/aD02MDE7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/48ad4265c55e3ba7a1fb9148d6e717d9",
-                "width": 900,
-                "height": 601,
+                "url": "https://s.yimg.com/uu/api/res/1.2/lBatGXdmW601L3jZUeEVwQ--~B/aD0xOTI7dz0xOTI7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/tipranks_452/e1839507ce9d5542b9a5313ac8d70b9e",
+                "width": 192,
+                "height": 192,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/syGPuhdcxJrEtuZed80ilQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/48ad4265c55e3ba7a1fb9148d6e717d9",
+                "url": "https://s.yimg.com/uu/api/res/1.2/VWd0LYOFL0kyU.dhEOY9nA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/tipranks_452/e1839507ce9d5542b9a5313ac8d70b9e",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -194,27 +194,26 @@
             ]
           },
           "relatedTickers": [
-            "BFLY-WS",
-            "HCAT"
+            "BFLY"
           ]
         },
         {
-          "uuid": "99c0959b-6e2f-37ad-ac2e-d39b2333827e",
-          "title": "Butterfly Network to Participate at the TD Cowen 45th Annual Health Care Conference on March 3, 2025",
-          "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/butterfly-network-participate-td-cowen-130500425.html",
-          "providerPublishTime": 1740143100,
+          "uuid": "68d912f0-f472-3bf5-be27-47ec9cc6900b",
+          "title": "Butterfly Network Q4 Earnings Call Highlights",
+          "publisher": "MarketBeat",
+          "link": "https://finance.yahoo.com/m/68d912f0-f472-3bf5-be27-47ec9cc6900b/butterfly-network-q4-earnings.html",
+          "providerPublishTime": 1772234240,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/rDE_qmWrqZ6.sAw9Mi1CQw--~B/aD01MTI7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/8a93302177bfcd565ca88af7b8f4fc77",
-                "width": 1024,
-                "height": 512,
+                "url": "https://s.yimg.com/uu/api/res/1.2/l1PRs5PrQQFTv8e74qbEzA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/marketbeat_955/688cb6a49c275efadbf1682f654a13b5",
+                "width": 1200,
+                "height": 675,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/.z7gpYpR0uPT583fgQni6g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/8a93302177bfcd565ca88af7b8f4fc77",
+                "url": "https://s.yimg.com/uu/api/res/1.2/GqxNpF_T293shZhpnz4X8Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/marketbeat_955/688cb6a49c275efadbf1682f654a13b5",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -222,8 +221,7 @@
             ]
           },
           "relatedTickers": [
-            "BFLY",
-            "BFLY-WS"
+            "BFLY"
           ]
         }
       ],
@@ -231,8 +229,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 97,
-      "timeTakenForQuotes": 454,
+      "totalTime": 96,
+      "timeTakenForQuotes": 446,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

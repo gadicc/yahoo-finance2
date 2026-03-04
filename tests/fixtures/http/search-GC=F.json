@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,139 +15,102 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:41 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:18 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "130",
+      "x-envoy-upstream-service-time": "66",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2job8gtjrr9d9"
+      "y-rid": "35ppv8lkqfmua"
     },
     "bodyJson": {
       "explains": [],
-      "count": 14,
+      "count": 13,
       "quotes": [
         {
           "exchange": "CMX",
-          "shortname": "Gold Apr 25",
+          "shortname": "Gold Apr 26",
           "quoteType": "FUTURE",
           "symbol": "GC=F",
           "index": "quotes",
-          "score": 3186200,
-          "typeDisp": "Futures",
+          "score": 16355500,
+          "typeDisp": "future",
           "exchDisp": "New York Commodity Exchange",
           "isYahooFinance": true
         },
         {
+          "exchange": "ASX",
+          "shortname": "GCMCORP FPO [GCM]",
+          "quoteType": "EQUITY",
+          "symbol": "GCM.AX",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "Green Critical Minerals Limited",
+          "exchDisp": "Australian",
+          "sector": "Utilities",
+          "sectorDisp": "Utilities",
+          "industry": "Utilities—Renewable",
+          "industryDisp": "Utilities—Renewable",
+          "isYahooFinance": true,
+          "prevName": "Chase Mining Corporation Limited",
+          "nameChangeDate": "2026-03-03"
+        },
+        {
+          "exchange": "CXA",
+          "shortname": "GCMCORP FPO [GCM]",
+          "quoteType": "EQUITY",
+          "symbol": "GCM.XA",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "Green Critical Minerals Limited",
+          "exchDisp": "CXA",
+          "isYahooFinance": true,
+          "prevName": "Chase Mining Corporation Limited",
+          "nameChangeDate": "2026-03-03"
+        },
+        {
           "exchange": "SAO",
-          "shortname": "BB GC4 FUNDO DE INVESTIMENTO MU",
+          "shortname": "0P00019HF1.SA",
           "quoteType": "MUTUALFUND",
           "symbol": "0P00019HF1.SA",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Fund",
+          "typeDisp": "mutualfund",
           "longname": "BB GC4 FIM C Priv LP",
           "exchDisp": "São Paulo",
           "isYahooFinance": true
         },
         {
-          "exchange": "SAO",
-          "shortname": "BB GCF MULTIMERCADO FUNDO DE IN",
-          "quoteType": "MUTUALFUND",
-          "symbol": "0P0000V2JN.SA",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "Fund",
-          "longname": "BB GCF FIC FIM C Priv",
-          "exchDisp": "São Paulo",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "SAO",
-          "shortname": "GC4 FUNDO DE INVESTIMENTO FINAN",
-          "quoteType": "MUTUALFUND",
-          "symbol": "0P0000V2MI.SA",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "Fund",
-          "longname": "BTG Gc4 Tim FIFM",
-          "exchDisp": "São Paulo",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "GCT Feb 2025 12.500 call",
-          "quoteType": "OPTION",
-          "symbol": "GCT250221C00012500",
-          "index": "quotes",
-          "score": 20000,
-          "typeDisp": "Option",
-          "longname": "GCT Feb 2025 12.500 call",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "GCI Feb 2025 4.000 put",
-          "quoteType": "OPTION",
-          "symbol": "GCI250221P00004000",
-          "index": "quotes",
-          "score": 20000,
-          "typeDisp": "Option",
-          "longname": "GCI Feb 2025 4.000 put",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
+          "index": "9ab062f30ab94443bacdd1bc96c0b3e0",
+          "name": "GCS Fibers",
+          "permalink": "gcs-fibers",
+          "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "739c0f79-17f4-3e04-8262-c38e5ace8a34",
-          "title": "The 'structural shift' pushing gold higher in 2025",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/structural-shift-pushing-gold-higher-220821409.html",
-          "providerPublishTime": 1740175701,
-          "type": "VIDEO",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/z08Vi9FBti6oT7kH7f.jqw--~B/aD0zMzc3O3c9NjAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/e0fd9640-f09a-11ef-9fb7-558bf8232eb3",
-                "width": 6000,
-                "height": 3377,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/lj_0kpRK90qWSpcuoYZgFg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/e0fd9640-f09a-11ef-9fb7-558bf8232eb3",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "GC=F"
-          ]
-        },
-        {
-          "uuid": "cebe0843-5605-4de3-89c6-3dd625af7048",
-          "title": "Gold heads for eighth weekly gain as precious metals shipments to US rise",
-          "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/news/gold-heads-for-eighth-weekly-gain-as-precious-metals-shipments-to-us-rise-195332488.html",
-          "providerPublishTime": 1740167612,
+          "uuid": "debed6e4-cd79-3434-aa4c-3b4f8234fbe3",
+          "title": "Roth Capital Raises its Price Target on Coeur Mining, Inc. (CDE) to $29 and Maintains a Buy Rating",
+          "publisher": "Insider Monkey",
+          "link": "https://finance.yahoo.com/news/roth-capital-raises-price-target-064153550.html",
+          "providerPublishTime": 1772606513,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/e_Vc_TckTZTEVziV4lUMeA--~B/aD00NzAwO3c9NjgwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2024-12/119ecf90-c52f-11ef-adef-990672b5696a",
-                "width": 6800,
-                "height": 4700,
+                "url": "https://s.yimg.com/uu/api/res/1.2/pAJvU.FcAQGB8.y2Y3naUQ--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fcf243aa0d6e3b957c197788b21e89f2",
+                "width": 1456,
+                "height": 816,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/41VdSifkDNU11NRbL4fzQg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2024-12/119ecf90-c52f-11ef-adef-990672b5696a",
+                "url": "https://s.yimg.com/uu/api/res/1.2/0Gb93XegN.2OFYTHopdAkw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fcf243aa0d6e3b957c197788b21e89f2",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -155,53 +118,28 @@
             ]
           },
           "relatedTickers": [
-            "GC=F"
+            "CDE",
+            "GC=F",
+            "SI=F"
           ]
         },
         {
-          "uuid": "afaffa9d-ebd0-3f24-bca1-97dd37967ecc",
-          "title": "Gold on pace to clock in eighth week of gains: What to know",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/gold-pace-clock-eighth-week-143806927.html",
-          "providerPublishTime": 1740148686,
-          "type": "VIDEO",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/Q0WGUWQaffL__z8kNPgTIw--~B/aD0zMzc4O3c9NjAxNjthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/7eb5b920-f060-11ef-aed7-aba80738486d",
-                "width": 6016,
-                "height": 3378,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/PBHrFBLs8aAoGz3K5r0qAQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/7eb5b920-f060-11ef-aed7-aba80738486d",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "GC=F"
-          ]
-        },
-        {
-          "uuid": "3ebf630a-eda1-4876-9aeb-4d011dd698ec",
-          "title": "Gold climbs to new high as buyers hedge against Trump tariff plans",
-          "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/news/gold-climbs-to-new-high-as-buyers-hedge-against-trump-tariff-plans-181323508.html",
-          "providerPublishTime": 1740075203,
+          "uuid": "fafa032e-fa01-3ca2-a40d-af34d5211d02",
+          "title": "Bitcoin Demand Returns As Gold Faces Safe-Haven Test — Why $70,000 Is Critical Now",
+          "publisher": "BeInCrypto",
+          "link": "https://finance.yahoo.com/m/fafa032e-fa01-3ca2-a40d-af34d5211d02/bitcoin-demand-returns-as.html",
+          "providerPublishTime": 1772603734,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/tI3QdhVWD0tCTwOiXmi2Nw--~B/aD0zMjgxO3c9NTY2MjthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/6e07f560-ef67-11ef-bffe-efb4225e0611",
-                "width": 5662,
-                "height": 3281,
+                "url": "https://s.yimg.com/uu/api/res/1.2/.ZfQ0cqzRoy5uJ1le7LZBQ--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/beincrypto_us_662/99c6cb92e4419f02389a54f47d3ef344",
+                "width": 1280,
+                "height": 720,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/kJG8s6Fb1P3NqMKytGOPWw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/6e07f560-ef67-11ef-bffe-efb4225e0611",
+                "url": "https://s.yimg.com/uu/api/res/1.2/5pZTOehkEteMH_ZKteyW4Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/beincrypto_us_662/99c6cb92e4419f02389a54f47d3ef344",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -209,6 +147,65 @@
             ]
           },
           "relatedTickers": [
+            "BTC-USD",
+            "GC=F",
+            "DX-Y.NYB",
+            "CL=F"
+          ]
+        },
+        {
+          "uuid": "da42f188-413b-3843-9f94-9f100bb58110",
+          "title": "Assessing Wheaton Precious Metals (TSX:WPM) Valuation After Strong Multi‑Period Returns And Recent Pullback",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/assessing-wheaton-precious-metals-tsx-043654006.html",
+          "providerPublishTime": 1772599014,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/UrHBsIrR8XWjKtdqSp2vkw--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/b3b5a2748dbe57dca97087f8af8726d5",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/eLEC10sRCrUZih2kIqOxrg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/b3b5a2748dbe57dca97087f8af8726d5",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "WPM",
+            "GC=F"
+          ]
+        },
+        {
+          "uuid": "0a07bb51-d268-367a-86e6-2f83a59cf795",
+          "title": "Is It Too Late To Consider Eldorado Gold (TSX:ELD) After Its 186% One Year Surge?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/too-consider-eldorado-gold-tsx-043614877.html",
+          "providerPublishTime": 1772598974,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/1W2Igu0.nhgjE8NeoLBgXg--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/590bd73c4f469217441156accbe686a8",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/2B1Hbj4nDXLgdWqtISOyxg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/590bd73c4f469217441156accbe686a8",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "EGO",
             "GC=F"
           ]
         }
@@ -219,13 +216,13 @@
           "slug": "most-bought-by-activist-hedge-funds",
           "name": "Most Bought By Activist Hedge Funds",
           "index": "most-bought-by-activist-hedge-funds",
-          "score": 15.406042,
+          "score": 12.567963,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_bought_by_activist_hedge_funds",
-          "symbolCount": 23,
-          "dailyPercentGain": -0.4069127667796874,
-          "followerCount": 61333,
+          "symbolCount": 30,
+          "dailyPercentGain": -1.130042868236609,
+          "followerCount": 60459,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/110f1012357c7b3e87d14912e7023f819b61278e7f0e90a3825821d2ef3c427c/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/most-bought-activist.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -233,13 +230,13 @@
           "slug": "most-bought-by-hedge-funds",
           "name": "Most Bought By Hedge Funds",
           "index": "most-bought-by-hedge-funds",
-          "score": 10.801012,
+          "score": 8.773529,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_bought_by_hedge_funds",
           "symbolCount": 30,
-          "dailyPercentGain": -1.667306505920245,
-          "followerCount": 41843,
+          "dailyPercentGain": -1.1615116530436447,
+          "followerCount": 41074,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/f1b1a50dcfdddcf42a67d2da1bb1c341e6f65992b3d89154b9020ae8a9ffa004/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/mostboughtHedgeFunds.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -247,13 +244,13 @@
           "slug": "most-watched",
           "name": "Most Watched by Yahoo Finance Users",
           "index": "most-watched",
-          "score": 7.4735622,
+          "score": 6.040247,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_watched",
           "symbolCount": 30,
-          "dailyPercentGain": -0.8091754517690652,
-          "followerCount": 29753,
+          "dailyPercentGain": -0.9097241734523545,
+          "followerCount": 29057,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/9f2d41c327a5d20c8062b14f526038441141d5644b2b3a0efee2e12d9be1efe0/finance/resizefill_w96_h96/https://s.yimg.com/uc/finance/social/portfolio/most-watched.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -261,21 +258,21 @@
           "slug": "the-fight-against-covid19",
           "name": "The Fight Against COVID19",
           "index": "the-fight-against-covid19",
-          "score": 6.3283176,
+          "score": 5.041075,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "trea",
           "pfId": "the_fight_against_covid19",
           "symbolCount": 13,
-          "dailyPercentGain": -0.6620032505129281,
-          "followerCount": 23838,
+          "dailyPercentGain": -2.660828542752278,
+          "followerCount": 22950,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/3c7c7b592c7aba2beee72abb1e520b85d6241aee639ea2e8033b96962ad2e126/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/iStock-476433472.png",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         }
       ],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 127,
-      "timeTakenForQuotes": 465,
+      "totalTime": 64,
+      "timeTakenForQuotes": 433,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

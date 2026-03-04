@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:38 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:11 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "86",
+      "x-envoy-upstream-service-time": "58",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "0bdb2tpjrr9d6"
+      "y-rid": "2s6rrilkqfmu4"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "AAPL",
           "index": "quotes",
-          "score": 3804300,
-          "typeDisp": "Equity",
+          "score": 17067000,
+          "typeDisp": "equity",
           "longname": "Apple Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Technology",
@@ -49,63 +49,62 @@
           "isYahooFinance": true
         },
         {
+          "exchange": "GER",
+          "shortname": "Leverage Shares PLC           E",
+          "quoteType": "EQUITY",
+          "symbol": "AAPY.DE",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "equity",
+          "longname": "IncomeShares Apple (AAPL) Options ETP",
+          "exchDisp": "XETRA",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "BTS",
+          "shortname": "Roundhill AAPL WeeklyPay ETF",
+          "quoteType": "ETF",
+          "symbol": "AAPW",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "etf",
+          "exchDisp": "BATS Trading",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OPR",
+          "shortname": "AAPL Feb 2026 270.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AAPL260227C00270000",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "option",
+          "longname": "AAPL Feb 2026 270.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OPR",
+          "shortname": "AAPL Jun 2026 185.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AAPL260618C00185000",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "option",
+          "longname": "AAPL Jun 2026 185.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
           "exchange": "NGM",
           "shortname": "Direxion Daily AAPL Bull 2X Sha",
           "quoteType": "ETF",
           "symbol": "AAPU",
           "index": "quotes",
-          "score": 20015,
-          "typeDisp": "ETF",
+          "score": 20003,
+          "typeDisp": "etf",
           "longname": "Direxion Daily AAPL Bull 2X Shares",
           "exchDisp": "NASDAQ",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Dec 2025 120.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AAPL251219C00120000",
-          "index": "quotes",
-          "score": 20005,
-          "typeDisp": "Option",
-          "longname": "AAPL Dec 2025 120.000 call",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Jun 2025 210.000 put",
-          "quoteType": "OPTION",
-          "symbol": "AAPL250620P00210000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "AAPL Jun 2025 210.000 put",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Jan 2026 170.000 put",
-          "quoteType": "OPTION",
-          "symbol": "AAPL260116P00170000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "AAPL Jan 2026 170.000 put",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Jun 2025 200.000 put",
-          "quoteType": "OPTION",
-          "symbol": "AAPL250620P00200000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "AAPL Jun 2025 200.000 put",
-          "exchDisp": "OPR",
           "isYahooFinance": true
         },
         {
@@ -117,22 +116,22 @@
       ],
       "news": [
         {
-          "uuid": "57ea9c09-0c99-3adf-9062-fecfdbe472cc",
-          "title": "Why Trump could 'move fast' on Apple's $500B US investment plan",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/why-trump-could-move-fast-002000706.html",
-          "providerPublishTime": 1740442800,
-          "type": "VIDEO",
+          "uuid": "1b324182-5181-30d2-b2e3-63709a52567f",
+          "title": "Apple’s Broad Hardware Refresh Puts Ecosystem And Valuation In Focus",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/apple-broad-hardware-refresh-puts-021224368.html",
+          "providerPublishTime": 1772590344,
+          "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/yxtbZ7npnBJnfUiHWfr7KQ--~B/aD0xMjE4O3c9MjE2NzthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/c6ea6a30-f2f7-11ef-aebf-86e657f87666",
-                "width": 2167,
-                "height": 1218,
+                "url": "https://s.yimg.com/uu/api/res/1.2/fBnY8upz5XxbZDDWlufZ9w--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/69084628647944e382f8e555f97913e8",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/AFYL_RXm8_SBBNxe5QBvUw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/c6ea6a30-f2f7-11ef-aebf-86e657f87666",
+                "url": "https://s.yimg.com/uu/api/res/1.2/foN3eFZWC9tLTJfgfqJIuQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/69084628647944e382f8e555f97913e8",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -144,49 +143,33 @@
           ]
         },
         {
-          "uuid": "bfb8b663-081c-3c2b-84e3-df8fff2c37d8",
-          "title": "Indonesia and Apple said to agree on terms to lift iPhone 16 ban",
-          "publisher": "Bloomberg",
-          "link": "https://finance.yahoo.com/news/indonesia-apple-said-agree-terms-055447668.html",
-          "providerPublishTime": 1740462887,
+          "uuid": "1090d70b-f34e-3e68-a27d-7390b4c2db48",
+          "title": "Apple Debuts New Lineup of Products",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/news/apple-debuts-lineup-products-145626403.html",
+          "providerPublishTime": 1772549786,
           "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/pnwIKUddxt5cHCUB10R4Gg--~B/aD0xNTAwO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/bloomberg_technology_68/8b9ec615dbcd76b4e1e72720d89f2d3e",
-                "width": 2000,
-                "height": 1500,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/KReNY2pZZlE5YXukNI.Uzg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_technology_68/8b9ec615dbcd76b4e1e72720d89f2d3e",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
           "relatedTickers": [
             "AAPL"
           ]
         },
         {
-          "uuid": "76679f48-d3d7-340b-b1b4-4a95a714b868",
-          "title": "Apple Inc: An Exploration into Its Intrinsic Value",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/apple-inc-exploration-intrinsic-value-060058478.html",
-          "providerPublishTime": 1740463258,
+          "uuid": "ebd38c60-f203-3f20-bcc6-b09ec3e0de4e",
+          "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-apple-102000302.html",
+          "providerPublishTime": 1772533200,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/IcEDHtzDwTA4hQbvBfYYrg--~B/aD00MDA7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/us.finance.gurufocus/40a12a1b7769c635ead36fab47a12566",
-                "width": 400,
+                "url": "https://s.yimg.com/uu/api/res/1.2/0SNXbTxG2OgdDeKKe4FwJg--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/198e4657665063ae21a99b90e6766582",
+                "width": 635,
                 "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/vEdfVlwAwFQwSkiElMztoQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/40a12a1b7769c635ead36fab47a12566",
+                "url": "https://s.yimg.com/uu/api/res/1.2/JKNCOji4J0pVoJ.ohH5yHQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/198e4657665063ae21a99b90e6766582",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -194,26 +177,29 @@
             ]
           },
           "relatedTickers": [
-            "AAPL"
+            "AAPL",
+            "TTE",
+            "BSX",
+            "GTIM"
           ]
         },
         {
-          "uuid": "3ecdf3fa-bbb7-3368-931d-5e17857d6684",
-          "title": "Warren Buffett Just Gave Investors 3 Big Warnings About the Stock Market",
+          "uuid": "710f0814-be43-37cb-a6b7-1217c411fd83",
+          "title": "Apple's New Product Blitz This Week Enhances the Stock's Bull Case",
           "publisher": "Motley Fool",
-          "link": "https://finance.yahoo.com/m/3ecdf3fa-bbb7-3368-931d-5e17857d6684/warren-buffett-just-gave.html",
-          "providerPublishTime": 1740477120,
+          "link": "https://finance.yahoo.com/m/710f0814-be43-37cb-a6b7-1217c411fd83/apple%27s-new-product-blitz.html",
+          "providerPublishTime": 1772575860,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/f5mQWwz4aajBwCdPDm5.ug--~B/aD0xMzY1O3c9MjA0ODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/motleyfool.com/d23252fc030a795678af7c1c3a7d5fdc",
-                "width": 2048,
-                "height": 1365,
+                "url": "https://s.yimg.com/uu/api/res/1.2/dshH2xjVFj.zV1DMGea9.A--~B/aD03ODc7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/9ab3443ba78dcd274e5247d24e87fb82",
+                "width": 1400,
+                "height": 787,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/wPQDJSoczgX21jgqdGu0RQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/d23252fc030a795678af7c1c3a7d5fdc",
+                "url": "https://s.yimg.com/uu/api/res/1.2/N5aWagc2mEoANG8uJUSE_A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/9ab3443ba78dcd274e5247d24e87fb82",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -221,7 +207,10 @@
             ]
           },
           "relatedTickers": [
-            "BRK-B"
+            "AAPL",
+            "NVDA",
+            "INTC",
+            "^GSPC"
           ]
         }
       ],
@@ -229,8 +218,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 83,
-      "timeTakenForQuotes": 426,
+      "totalTime": 55,
+      "timeTakenForQuotes": 442,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

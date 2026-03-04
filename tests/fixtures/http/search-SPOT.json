@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:14 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "125",
+      "x-envoy-upstream-service-time": "122",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7jk7ip1jrr9d7"
+      "y-rid": "5kktjvtkqfmu6"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "SPOT",
           "index": "quotes",
-          "score": 2029700,
-          "typeDisp": "Equity",
+          "score": 10205500,
+          "typeDisp": "equity",
           "longname": "Spotify Technology S.A.",
           "exchDisp": "NYSE",
           "sector": "Communication Services",
@@ -49,88 +49,120 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "SPOT Mar 2025 450.000 call",
-          "quoteType": "OPTION",
-          "symbol": "SPOT250321C00450000",
+          "exchange": "STO",
+          "shortname": "Spotlight Group AB",
+          "quoteType": "EQUITY",
+          "symbol": "SPGR.ST",
           "index": "quotes",
           "score": 20017,
-          "typeDisp": "Option",
-          "longname": "SPOT Mar 2025 450.000 call",
-          "exchDisp": "OPR",
+          "typeDisp": "equity",
+          "exchDisp": "Stockholm",
+          "sector": "Financial Services",
+          "sectorDisp": "Financial Services",
+          "industry": "Capital Markets",
+          "industryDisp": "Capital Markets",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "SPOT Dec 2025 150.000 call",
-          "quoteType": "OPTION",
-          "symbol": "SPOT251219C00150000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "SPOT Dec 2025 150.000 call",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "VAN",
-          "shortname": "EARTHLABS INC",
+          "exchange": "FRA",
+          "shortname": "Spotr Group AB                N",
           "quoteType": "EQUITY",
-          "symbol": "SPOT.V",
+          "symbol": "6V6.F",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Equity",
-          "longname": "EarthLabs Inc.",
-          "exchDisp": "CDNX",
+          "score": 20005,
+          "typeDisp": "equity",
+          "longname": "Spotr Group AB",
+          "exchDisp": "Frankfurt",
           "sector": "Technology",
           "sectorDisp": "Technology",
-          "industry": "Information Technology Services",
-          "industryDisp": "Information Technology Services",
+          "industry": "Software—Application",
+          "industryDisp": "Software—Application",
+          "isYahooFinance": true,
+          "prevName": "AppSpotr AB (publ)",
+          "nameChangeDate": "2026-03-03"
+        },
+        {
+          "exchange": "FRA",
+          "shortname": "SPOTIFY TECHNOLOGY S.A.       A",
+          "quoteType": "EQUITY",
+          "symbol": "639.F",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "equity",
+          "longname": "Spotify Technology S.A.",
+          "exchDisp": "Frankfurt",
+          "sector": "Communication Services",
+          "sectorDisp": "Communication Services",
+          "industry": "Internet Content & Information",
+          "industryDisp": "Internet Content & Information",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "SPOT Dec 2025 250.000 call",
-          "quoteType": "OPTION",
-          "symbol": "SPOT251219C00250000",
+          "exchange": "STU",
+          "quoteType": "INDEX",
+          "symbol": "DE000SL0FW35.SG",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "Option",
-          "longname": "SPOT Dec 2025 250.000 call",
-          "exchDisp": "OPR",
+          "typeDisp": "index",
+          "longname": "Solactive Gold Spot Index",
+          "exchDisp": "Stuttgart",
           "isYahooFinance": true
         },
         {
-          "index": "389cd010df524d2bb25d2153308916ce",
-          "name": "SpotDraft",
-          "permalink": "spotdraft",
+          "index": "a2603f7d165b4b0ba815c97e48266cf2",
+          "name": "Spotawheel",
+          "permalink": "spotawheel",
           "isYahooFinance": false
         },
         {
-          "index": "7bda2946899449a4b56a60f5a149d1d1",
-          "name": "Spot AI",
-          "permalink": "spot-d1d1",
+          "index": "60594bfb18404ca0aa7c13b6d178d0ea",
+          "name": "Spotnana",
+          "permalink": "spotnana-technology",
           "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "11dfb1da-e6de-3c9a-9506-a88d25846067",
-          "title": "Spotting Winners: FedEx (NYSE:FDX) And Air Freight and Logistics Stocks In Q4",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/spotting-winners-fedex-nyse-fdx-090249182.html",
-          "providerPublishTime": 1740474169,
+          "uuid": "2195f4bc-d954-3c33-89c2-0fef2142cdfa",
+          "title": "Spot & Tango Launches Best-Selling UnKibble in Canada",
+          "publisher": "CNW Group",
+          "link": "https://finance.yahoo.com/news/spot-tango-launches-best-selling-120000075.html",
+          "providerPublishTime": 1772539200,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/Q4KEOZ4lm0Il6GvyRFHEDg--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/5daff3cc7a8ce9123c9d09de7dea7cfd",
+                "url": "https://s.yimg.com/uu/api/res/1.2/f4pcRpTJC1ZJD7KsZ8_PMw--~B/aD04Mjt3PTQwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/cnwgroup.com/cb155b6dc0ef84ebea38a54868a0fcf4",
+                "width": 400,
+                "height": 82,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/bHhw2yO.qVsL9pNHKXEVxw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/cb155b6dc0ef84ebea38a54868a0fcf4",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "8e145dd6-5b3f-3fe9-99a6-241bbea8280e",
+          "title": "Spotting Winners: HNI (NYSE:HNI) And Business Services & Supplies Stocks In Q4",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/news/spotting-winners-hni-nyse-hni-195242599.html",
+          "providerPublishTime": 1772567562,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/LXDRE1h.bpdMGYHwFrnjKQ--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/72a5244fafdb9bc0f8a4553e61d04b5b",
                 "width": 1400,
                 "height": 700,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/HEcjMb8LMuHbyRLsqmepsQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/5daff3cc7a8ce9123c9d09de7dea7cfd",
+                "url": "https://s.yimg.com/uu/api/res/1.2/AZlxLLCaHlntCV280gQzmQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/72a5244fafdb9bc0f8a4553e61d04b5b",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -138,76 +170,26 @@
             ]
           },
           "relatedTickers": [
-            "FDX",
-            "CHRW",
-            "HUBG"
+            "HNI"
           ]
         },
         {
-          "uuid": "9d5d1d5a-88aa-36a4-bbb7-5dd363eddc29",
-          "title": "Rate Insurance forges alliance with Spot Pet Insurance",
-          "publisher": "Life Insurance International",
-          "link": "https://finance.yahoo.com/m/9d5d1d5a-88aa-36a4-bbb7-5dd363eddc29/rate-insurance-forges.html",
-          "providerPublishTime": 1740399774,
+          "uuid": "0c1afc93-4f4a-3022-b33a-86f40d5cc686",
+          "title": "Spotting Winners: Viatris (NASDAQ:VTRS) And Generic Pharmaceuticals Stocks In Q4",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/news/spotting-winners-viatris-nasdaq-vtrs-192242940.html",
+          "providerPublishTime": 1772565762,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/mCqbQLhZNnyrMA_ySckNMw--~B/aD04MTA7dz0xNDQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/life_insurance_international_186/083782d8dc2fab7ae7f460aa372d07da",
-                "width": 1440,
-                "height": 810,
+                "url": "https://s.yimg.com/uu/api/res/1.2/AxSRocmEQT0TC9DBz1arsg--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/ad9a5e2f85d880e3e7b521395022f4d3",
+                "width": 1400,
+                "height": 700,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hUcJDwicHZSK1rj5r.foQg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/life_insurance_international_186/083782d8dc2fab7ae7f460aa372d07da",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "51fa29c9-3213-3037-a0dc-af302f444a9f",
-          "title": "Asia LNG imports drop to 22-month low as Europe demand rises",
-          "publisher": "Offshore Technology",
-          "link": "https://finance.yahoo.com/m/51fa29c9-3213-3037-a0dc-af302f444a9f/asia-lng-imports-drop-to.html",
-          "providerPublishTime": 1740479532,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/SQgJx8bLJPgwOayxjyHw_w--~B/aD04MTA7dz0xNDQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/offshore_technology_431/9e3dcdeb454e8747a95ea36ad9d77904",
-                "width": 1440,
-                "height": 810,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/mtpACrdQH3p2X740R0_rTA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/offshore_technology_431/9e3dcdeb454e8747a95ea36ad9d77904",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "66b7dbac-dded-3ef2-beca-5b2697481607",
-          "title": "Chinese phones dominate Southeast Asia—but it’s ‘now or never’ for these budget brands to go premium",
-          "publisher": "Fortune",
-          "link": "https://finance.yahoo.com/news/chinese-phones-dominate-southeast-asia-062848780.html",
-          "providerPublishTime": 1740464928,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/n53BNLcIlaPTQvvFdwa9Ug--~B/aD0xMjgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/fortune_175/dc013c2150a0ca1001eb91487edfc92b",
-                "width": 1920,
-                "height": 1280,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/TCFAoA.7e8POZw8NEYpRSg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/fortune_175/dc013c2150a0ca1001eb91487edfc92b",
+                "url": "https://s.yimg.com/uu/api/res/1.2/5fBhTvUbBkMJkPX1FxBdQA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/ad9a5e2f85d880e3e7b521395022f4d3",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -215,8 +197,32 @@
             ]
           },
           "relatedTickers": [
-            "AAPL"
+            "VTRS"
           ]
+        },
+        {
+          "uuid": "b0deb641-4ae0-381e-bd72-733b49a8f2d7",
+          "title": "Strasbourg spot on against Reims in French Cup",
+          "publisher": "AFP",
+          "link": "https://finance.yahoo.com/m/b0deb641-4ae0-381e-bd72-733b49a8f2d7/strasbourg-spot-on-against.html",
+          "providerPublishTime": 1772580195,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/N4d6rwyfs7biluMvlcBOAQ--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/d4306601c52d9073214b2032b85da26c",
+                "width": 768,
+                "height": 512,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/hWQKVfxqWTFt_dwvIHOFPg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/d4306601c52d9073214b2032b85da26c",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
         }
       ],
       "nav": [
@@ -228,8 +234,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 123,
-      "timeTakenForQuotes": 435,
+      "totalTime": 119,
+      "timeTakenForQuotes": 454,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

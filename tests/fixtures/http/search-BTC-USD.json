@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:40 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:17 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "73",
+      "x-envoy-upstream-service-time": "89",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "3h7m211jrr9d8"
+      "y-rid": "51ri675kqfmu9"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "CRYPTOCURRENCY",
           "symbol": "BTC-USD",
           "index": "quotes",
-          "score": 2995100,
-          "typeDisp": "Cryptocurrency",
+          "score": 13122500,
+          "typeDisp": "cryptocurrency",
           "longname": "Bitcoin USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
@@ -49,20 +49,21 @@
           "quoteType": "CRYPTOCURRENCY",
           "symbol": "HBTC-USD",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "Cryptocurrency",
+          "score": 20002,
+          "typeDisp": "cryptocurrency",
           "longname": "Huobi BTC USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
           "exchange": "CCC",
-          "shortname": "Coinbase Wrapped BTC USD",
+          "shortname": "pTokens BTC USD",
           "quoteType": "CRYPTOCURRENCY",
-          "symbol": "CBBTC32994-USD",
+          "symbol": "PBTC-USD",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "Cryptocurrency",
+          "score": 20002,
+          "typeDisp": "cryptocurrency",
+          "longname": "pTokens BTC USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
@@ -73,119 +74,119 @@
           "symbol": "LBTC33652-USD",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Cryptocurrency",
+          "typeDisp": "cryptocurrency",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
           "exchange": "CCC",
-          "shortname": "pTokens BTC USD",
+          "shortname": "Coinbase Wrapped BTC USD",
           "quoteType": "CRYPTOCURRENCY",
-          "symbol": "PBTC-USD",
+          "symbol": "CBBTC32994-USD",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Cryptocurrency",
-          "longname": "pTokens BTC USD",
+          "typeDisp": "cryptocurrency",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
-          "exchange": "PNK",
-          "shortname": "Franklin Templeton SinoAm Biote",
-          "quoteType": "MUTUALFUND",
-          "symbol": "0P0001P539",
+          "exchange": "CCC",
+          "shortname": "Universal BTC USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "UNIBTC-USD",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Fund",
-          "longname": "Franklin Templeton SinoAm Btchlg -USD",
-          "exchDisp": "OTC Markets",
+          "typeDisp": "cryptocurrency",
+          "longname": "Universal BTC USD",
+          "exchDisp": "CCC",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "24c50572-4bf1-3d54-80a2-30a893612fa6",
-          "title": "Top Cryptocurrencies Fall; Bitcoin Drops Below $95,000",
+          "uuid": "09e1b00d-70fb-3130-9947-efe749309f3d",
+          "title": "Top Cryptocurrencies Fall; Bitcoin Falls Below $69,000 Level",
           "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/top-cryptocurrencies-fall-bitcoin-drops-205709864.html",
-          "providerPublishTime": 1740430629,
-          "type": "STORY"
-        },
-        {
-          "uuid": "2c6f19b3-5079-395c-b244-d125e5a7dc26",
-          "title": "Berkshire Hathaway, Strategy, Domino's Pizza: Market Minute",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/berkshire-hathaway-strategy-dominos-pizza-181719950.html",
-          "providerPublishTime": 1740421039,
-          "type": "VIDEO",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/wfzsRqKD48r0SThTCiNpcw--~B/aD0yNzYzO3c9NDkwODthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/1f09cbb0-f2db-11ef-a7ff-571cb8581f38",
-                "width": 4908,
-                "height": 2763,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/JoS7ZxiCjz_rn3kWp.DO_w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/1f09cbb0-f2db-11ef-a7ff-571cb8581f38",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
+          "link": "https://finance.yahoo.com/news/top-cryptocurrencies-fall-bitcoin-falls-210239723.html",
+          "providerPublishTime": 1772571759,
+          "type": "STORY",
           "relatedTickers": [
-            "MSTR",
-            "STRK",
-            "DPZ",
             "BTC-USD",
-            "BRK-B"
+            "ADA-USD",
+            "XRP-USD",
+            "BNB-USD",
+            "SOL-USD",
+            "^NDX",
+            "^GSPC",
+            "^DJI",
+            "ETH-USD",
+            "DOGE-USD"
           ]
         },
         {
-          "uuid": "2d977582-b7c8-3890-bf4f-0368f480a2bc",
-          "title": "Strategy buys additional $2 billion worth of bitcoin",
-          "publisher": "Yahoo Finance Video",
-          "link": "https://finance.yahoo.com/video/strategy-buys-additional-2-billion-160602375.html",
-          "providerPublishTime": 1740413162,
-          "type": "VIDEO",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/PU0sFSAZ9R8T2xHDk3CYPg--~B/aD0zMDcyO3c9NTQ1NDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2025-02/2a16dd90-f2c7-11ef-b9bf-c863d3462b91",
-                "width": 5454,
-                "height": 3072,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/aUQX2XXZzJPGowLMI7NVtg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2025-02/2a16dd90-f2c7-11ef-b9bf-c863d3462b91",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "MSTR",
-            "STRK",
-            "BTC-USD"
-          ]
-        },
-        {
-          "uuid": "0b621a60-af31-39c3-9f6c-c45b5e2f2caa",
-          "title": "Sector Update: Financial Stocks Rise Late Afternoon",
+          "uuid": "791e491e-4d55-31c0-b9c8-9da031cf7e3b",
+          "title": "Sector Update: Financial Stocks Retreat Late Afternoon",
           "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/sector-financial-stocks-rise-afternoon-204040981.html",
-          "providerPublishTime": 1740429640,
-          "type": "STORY"
+          "link": "https://finance.yahoo.com/news/sector-financial-stocks-retreat-afternoon-205944599.html",
+          "providerPublishTime": 1772571584,
+          "type": "STORY",
+          "relatedTickers": [
+            "BTC-USD",
+            "JPM",
+            "WFC",
+            "BX",
+            "BLK",
+            "APO",
+            "XLRE",
+            "XLF"
+          ]
+        },
+        {
+          "uuid": "1cee734d-6491-3f1f-acf4-3091a726e277",
+          "title": "Sector Update: Financial",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/news/sector-financial-204209075.html",
+          "providerPublishTime": 1772570529,
+          "type": "STORY",
+          "relatedTickers": [
+            "JPM",
+            "WFC",
+            "BTC-USD",
+            "XLRE",
+            "XLF"
+          ]
+        },
+        {
+          "uuid": "421d44fd-4950-3153-80b6-1f84946c27ae",
+          "title": "BC-Most Active Stocks",
+          "publisher": "Associated Press Finance",
+          "link": "https://finance.yahoo.com/news/bc-most-active-stocks-153020904.html",
+          "providerPublishTime": 1772551820,
+          "type": "STORY",
+          "relatedTickers": [
+            "PLUG",
+            "NVDA",
+            "^IXIC",
+            "SVRN",
+            "ONDS",
+            "AAL",
+            "INTC",
+            "SOFI",
+            "IBIT",
+            "PLTR",
+            "UOKA",
+            "RUBI",
+            "GRAB",
+            "MARA"
+          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 70,
-      "timeTakenForQuotes": 428,
+      "totalTime": 87,
+      "timeTakenForQuotes": 441,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

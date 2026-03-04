@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:40 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:17 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "151",
+      "x-envoy-upstream-service-time": "175",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "12mh8tpjrr9d8"
+      "y-rid": "6bgqk1hkqfmu9"
     },
     "bodyJson": {
       "explains": [],
@@ -37,15 +37,30 @@
           "quoteType": "EQUITY",
           "symbol": "EPAC",
           "index": "quotes",
-          "score": 2003100,
-          "typeDisp": "Equity",
+          "score": 10003000,
+          "typeDisp": "equity",
           "longname": "Enerpac Tool Group Corp.",
           "exchDisp": "NYSE",
           "sector": "Industrials",
           "sectorDisp": "Industrials",
           "industry": "Specialty Industrial Machinery",
           "industryDisp": "Specialty Industrial Machinery",
-          "dispSecIndFlag": true,
+          "dispSecIndFlag": false,
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "BSE",
+          "shortname": "Epack Prefab Technologies Limi",
+          "quoteType": "EQUITY",
+          "symbol": "EPACKPEB.BO",
+          "index": "quotes",
+          "score": 20006,
+          "typeDisp": "equity",
+          "exchDisp": "Bombay",
+          "sector": "Industrials",
+          "sectorDisp": "Industrials",
+          "industry": "Engineering & Construction",
+          "industryDisp": "Engineering & Construction",
           "isYahooFinance": true
         },
         {
@@ -55,21 +70,9 @@
           "symbol": "^SPBEKLUT",
           "index": "quotes",
           "score": 20004,
-          "typeDisp": "Index",
+          "typeDisp": "index",
           "longname": "S&P EPAC Ex-Korea LargeMidCap (",
           "exchDisp": "NYSE",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "SNP",
-          "shortname": "S&P EPAC Ex-Korea LargeMidCap N",
-          "quoteType": "INDEX",
-          "symbol": "^SPKX5UT",
-          "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Index",
-          "longname": "S&P EPAC Ex-Korea LargeMidCap N",
-          "exchDisp": "SNP",
           "isYahooFinance": true
         },
         {
@@ -79,21 +82,21 @@
           "symbol": "^SPBEKLUP",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "Index",
+          "typeDisp": "index",
           "longname": "S&P EPAC Ex-Korea LargeMidCap (",
           "exchDisp": "SNP",
           "isYahooFinance": true
         },
         {
-          "exchange": "ASE",
-          "shortname": "iShares Dow Jones EPAC Select D",
+          "exchange": "SNP",
+          "shortname": "S&P EPAC Ex-Korea LargeMidCap N",
           "quoteType": "INDEX",
-          "symbol": "^IDV-NV",
+          "symbol": "^SPKX5UT",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "Index",
-          "longname": "iShares Dow Jones EPAC Select D",
-          "exchDisp": "NYSE MKT",
+          "typeDisp": "index",
+          "longname": "S&P EPAC Ex-Korea LargeMidCap N",
+          "exchDisp": "SNP",
           "isYahooFinance": true
         },
         {
@@ -103,127 +106,109 @@
           "isYahooFinance": false
         },
         {
-          "index": "5c36bdeccae897ab4d59dd5b250f21ce",
-          "name": "EPACK Prefab",
-          "permalink": "e-pack-polymers-pvt-ltd",
+          "index": "59501f20b17544599f97cc1891089374",
+          "name": "ePack Durables Solutions",
+          "permalink": "epack-durables-solutions",
           "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "28c1ae78-57be-3a83-8d47-fa04a214249a",
-          "title": "Gabelli Funds to Host Pump, Valve & Water Systems Symposium at the Harvard Club, New York City",
+          "uuid": "59da4ad7-7e29-3be6-9023-f1ecaea18ed9",
+          "title": "Is Schwab Fundamental International Equity ETF (FNDF) a Strong ETF Right Now?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/news/schwab-fundamental-international-equity-etf-112002487.html",
+          "providerPublishTime": 1772104802,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/T44Iwg7RbRrkaTIYz_liyQ--~B/aD00Njk7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/737ffb82e07dc8bffb77e72d153c91f2",
+                "width": 900,
+                "height": 469,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/0VAyjhJrJObsyjxSwVSkjQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/737ffb82e07dc8bffb77e72d153c91f2",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "FNDF"
+          ]
+        },
+        {
+          "uuid": "77f0f42f-0380-364b-b102-9f994ff9f57d",
+          "title": "Oakmark Intl Small Cap's Strategic Moves: JDE Peet's NV Exits with -1.83% Impact",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/news/oakmark-intl-small-caps-strategic-230249007.html",
+          "providerPublishTime": 1772060569,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/IXorMRU7TDFkF.O5waTKuw--~B/aD05MDI7dz0xMjQyO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/6f514722f222a0f2995e0720b370c340",
+                "width": 1242,
+                "height": 902,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/87aLvWIENchYgG5WDxryZQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/6f514722f222a0f2995e0720b370c340",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "JDEP.AS",
+            "BAER.SW"
+          ]
+        },
+        {
+          "uuid": "f7e74dba-77c2-3e27-978e-f26e63dee1ad",
+          "title": "Stand-Up Pouch Market Projected Growth from USD 35.64 Billion in 2025 to USD 78.01 Billion by 2035, with a CAGR of 8.15%",
           "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/gabelli-funds-host-pump-valve-130000221.html",
-          "providerPublishTime": 1740402000,
+          "link": "https://finance.yahoo.com/news/stand-pouch-market-projected-growth-150000137.html",
+          "providerPublishTime": 1771513200,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/P_wXTOr67xVRr6C.urRLZg--~B/aD0xMDc7dz00MDE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/5d0b1ba888a042c055f8be5cd20d9910",
-                "width": 401,
-                "height": 107,
+                "url": "https://s.yimg.com/uu/api/res/1.2/hdxZCkfUK4GBULpLUEY2iA--~B/aD0xNjY3O3c9MTY2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
+                "width": 1667,
+                "height": 1667,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/HBvNalCgHnBUgiA1R8BRBw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/5d0b1ba888a042c055f8be5cd20d9910",
+                "url": "https://s.yimg.com/uu/api/res/1.2/6in_GXZ45Nm.zaynM5f2.g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
-          },
-          "relatedTickers": [
-            "LDGYY",
-            "LGYRF",
-            "GHM",
-            "GRC",
-            "FLS",
-            "ITT",
-            "WTS",
-            "AME",
-            "GAMI",
-            "MWA",
-            "BMI",
-            "NPO",
-            "EPAC",
-            "CR",
-            "ROCK",
-            "GGG",
-            "GGZ"
-          ]
+          }
         },
         {
-          "uuid": "c4a51b9e-208c-3a3b-add6-5eed264330a0",
-          "title": "An Intrinsic Calculation For Enerpac Tool Group Corp. (NYSE:EPAC) Suggests It's 25% Undervalued",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/intrinsic-calculation-enerpac-tool-group-114840954.html",
-          "providerPublishTime": 1740052120,
+          "uuid": "1b45b6fa-b081-3e92-866a-25e824a32d51",
+          "title": "High-Barrier Paper Bag Market Trends and Size 2026-35",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/news/high-barrier-paper-bag-market-140000695.html",
+          "providerPublishTime": 1770732000,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/9jcUzKYfUwYqkVFuGwhkDQ--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4020998fe5d069537fb917fd739e4047",
-                "width": 1194,
-                "height": 432,
+                "url": "https://s.yimg.com/uu/api/res/1.2/hdxZCkfUK4GBULpLUEY2iA--~B/aD0xNjY3O3c9MTY2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
+                "width": 1667,
+                "height": 1667,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5ALhYqydvMi0nqSGkAathA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4020998fe5d069537fb917fd739e4047",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "EPAC"
-          ]
-        },
-        {
-          "uuid": "c668a066-9998-36a4-acdf-ac8d4d9fadb2",
-          "title": "Enerpac (EPAC) Q1 Earnings Miss Estimates",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/enerpac-epac-q1-earnings-miss-224502839.html",
-          "providerPublishTime": 1734561902,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/XFzKRSTb2_xUaLSOCP9.Bg--~B/aD02MDI7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/a41b81fe729c761f3f94f42ff348f70c",
-                "width": 900,
-                "height": 602,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/UF5vS9CCA_LIuCo4lg9rzA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/a41b81fe729c761f3f94f42ff348f70c",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "UNF"
-          ]
-        },
-        {
-          "uuid": "8797c4ac-5113-3b13-907f-9f3ac01ca0d3",
-          "title": "Enerpac (EPAC) Earnings Expected to Grow: What to Know Ahead of Next Week's Release",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/enerpac-epac-earnings-expected-grow-150005199.html",
-          "providerPublishTime": 1733929205,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/ZVGBNd2_.kAicju5mLde7g--~B/aD02MDA7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/71afbbc0512eb3c471136d93f39079c9",
-                "width": 900,
-                "height": 600,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/lCdXNO5h4hmjtS7ps0voGA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/71afbbc0512eb3c471136d93f39079c9",
+                "url": "https://s.yimg.com/uu/api/res/1.2/6in_GXZ45Nm.zaynM5f2.g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -236,8 +221,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 148,
-      "timeTakenForQuotes": 453,
+      "totalTime": 166,
+      "timeTakenForQuotes": 437,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

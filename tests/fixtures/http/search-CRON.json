@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "3",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:40 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:16 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "113",
+      "x-envoy-upstream-service-time": "84",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "543oichjrr9d8"
+      "y-rid": "6ea71ihkqfmu8"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "CRON",
           "index": "quotes",
-          "score": 2013600,
-          "typeDisp": "Equity",
+          "score": 10041500,
+          "typeDisp": "equity",
           "longname": "Cronos Group Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Healthcare",
@@ -49,110 +49,92 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "CCC",
-          "shortname": "Cronos USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "CRO-USD",
-          "index": "quotes",
-          "score": 20007,
-          "typeDisp": "Cryptocurrency",
-          "longname": "Cronos USD",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCC",
-          "shortname": "MM Optimizer (Cronos) USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "MMO16797-USD",
-          "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Cryptocurrency",
-          "longname": "MM Optimizer (Cronos) USD",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "EBS",
-          "quoteType": "INDEX",
-          "symbol": "CIF.SW",
-          "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Index",
-          "longname": "Cronos Immo Fund",
-          "exchDisp": "Swiss",
-          "isYahooFinance": true
-        },
-        {
           "exchange": "FRA",
-          "shortname": "Solventis Cronos RF Internacion",
-          "quoteType": "MUTUALFUND",
-          "symbol": "0P0001PDVF.F",
+          "shortname": "Cronos Group Inc.             R",
+          "quoteType": "EQUITY",
+          "symbol": "7CI.F",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Fund",
-          "longname": "Solventis Cronos RF Internacional R FI",
+          "score": 20005,
+          "typeDisp": "equity",
+          "longname": "Cronos Group Inc.",
           "exchDisp": "Frankfurt",
+          "sector": "Healthcare",
+          "sectorDisp": "Healthcare",
+          "industry": "Drug Manufacturers—Specialty & Generic",
+          "industryDisp": "Drug Manufacturers—Specialty & Generic",
           "isYahooFinance": true
         },
         {
-          "index": "e0f60090dac8f34b6fb2ca2bc4ebd63b",
-          "name": "cronometer.com",
-          "permalink": "cronometer-com",
+          "exchange": "TOR",
+          "shortname": "CRONOS GROUP INC",
+          "quoteType": "EQUITY",
+          "symbol": "CRON.TO",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "equity",
+          "longname": "Cronos Group Inc.",
+          "exchDisp": "Toronto",
+          "sector": "Healthcare",
+          "sectorDisp": "Healthcare",
+          "industry": "Drug Manufacturers—Specialty & Generic",
+          "industryDisp": "Drug Manufacturers—Specialty & Generic",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "MM Finance (Cronos) USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "MMF-USD",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "cryptocurrency",
+          "longname": "MM Finance (Cronos) USD",
+          "exchDisp": "CCC",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "Cronos JPY",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "CRO-JPY",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "cryptocurrency",
+          "longname": "Cronos JPY",
+          "exchDisp": "CCC",
+          "isYahooFinance": true
+        },
+        {
+          "index": "60ffb9a438066c7c5b6c40fb55b1617d",
+          "name": "Cronofy",
+          "permalink": "one-diary",
           "isYahooFinance": false
         },
         {
-          "index": "15cf0416c0c16f51fe50bc02e3bfc110",
-          "name": "CRON Systems",
-          "permalink": "cron-systems",
+          "index": "cf982b8ec6094a2eb2c4217e79eb0f75",
+          "name": "Cron AI",
+          "permalink": "cron-ai",
           "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "efece983-4c34-3610-895e-91003ec85739",
-          "title": "Cronos Group Inc. to Hold 2024 Fourth Quarter and Full-Year Earnings Conference Call on February 27, 2025",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/cronos-group-inc-hold-2024-214500522.html",
-          "providerPublishTime": 1740433500,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/yq7PkQCgDIhD6XEqRVESSw--~B/aD02Nzg7dz0yMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/159fc9f0ef2b59932ac7c0f18305c7ca",
-                "width": 2000,
-                "height": 678,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/CI1OIXJS4s4_GWBP3E9klw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/159fc9f0ef2b59932ac7c0f18305c7ca",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "CRON"
-          ]
-        },
-        {
-          "uuid": "bd23bc40-9194-3f77-bacf-c93244767120",
-          "title": "Cronos (CRO): Among the Worst Performing Altcoins in 2025",
+          "uuid": "e5249bf9-ae2b-32da-a04e-2b43acb85674",
+          "title": "Cronos Group Inc. (CRON) Earns Buy Rating and C$4.50 PT on Scalable Model",
           "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/cronos-cro-among-worst-performing-105755900.html",
-          "providerPublishTime": 1740394675,
+          "link": "https://finance.yahoo.com/news/cronos-group-inc-cron-earns-202408875.html",
+          "providerPublishTime": 1772569448,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/0vkM7w_0dwR1ND9UUKUmBg--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/4330baccf0819e574c40defeec2a4831",
+                "url": "https://s.yimg.com/uu/api/res/1.2/HBSCCA..u122PqtmSkX_wg--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dd32d7c484a84475354c680a13740acd",
                 "width": 1456,
                 "height": 816,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hZu.HeHfMu4QvhDq29oPaA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/4330baccf0819e574c40defeec2a4831",
+                "url": "https://s.yimg.com/uu/api/res/1.2/w3ObfAQlxaSZDuBHHWj23g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dd32d7c484a84475354c680a13740acd",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -164,22 +146,22 @@
           ]
         },
         {
-          "uuid": "1f7fc551-2838-3493-9c48-e359fc7078df",
-          "title": "Eni, Total Energies sign deal to bring Cypriot gas to Europe via Egypt",
-          "publisher": "Offshore Technology",
-          "link": "https://finance.yahoo.com/m/1f7fc551-2838-3493-9c48-e359fc7078df/eni%2C-total-energies-sign-deal.html",
-          "providerPublishTime": 1739812421,
+          "uuid": "fbefe61b-936b-3f09-a2f6-5bc06f032fce",
+          "title": "How The Cronos Group (TSX:CRON) Story Is Shifting With New Targets And Execution Risks",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/cronos-group-tsx-cron-story-160823983.html",
+          "providerPublishTime": 1772294903,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/BqgFG2kdSB4u4XnmXlrOLQ--~B/aD04MTA7dz0xNDQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/offshore_technology_431/6f5813bbf7b22e8004eba06fad90bea2",
-                "width": 1440,
-                "height": 810,
+                "url": "https://s.yimg.com/uu/api/res/1.2/TLyt5D16lsSwRjJRVjlUTA--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/fd5474a7eee0c5f442903b68fe63249b",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/_rYoYeMUI568TzK7FELWsg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/offshore_technology_431/6f5813bbf7b22e8004eba06fad90bea2",
+                "url": "https://s.yimg.com/uu/api/res/1.2/z2gq8yB1R5a4THvSEUeVaQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/fd5474a7eee0c5f442903b68fe63249b",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -191,36 +173,36 @@
           ]
         },
         {
-          "uuid": "ef6078d9-0a35-3806-9ad2-d8e2f0b31d05",
-          "title": "After Public-Safety Missteps in Palisades Fire, Residents Want Answers",
-          "publisher": "The Wall Street Journal",
-          "link": "https://finance.yahoo.com/m/ef6078d9-0a35-3806-9ad2-d8e2f0b31d05/after-public-safety-missteps.html",
-          "providerPublishTime": 1739671200,
+          "uuid": "685d2431-18c4-3bb5-b34f-b00f9c43d1cf",
+          "title": "Cronos Group Inc (CRON) Q4 2025 Earnings Call Highlights: Record Revenue Growth and Strategic ...",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/news/cronos-group-inc-cron-q4-210840616.html",
+          "providerPublishTime": 1772140120,
           "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/Fwf5HL4GsEGPbDfR3MJBPg--~B/aD02MzA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
-                "width": 1200,
-                "height": 630,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/zIJaagDuCJitt1Cvcwyc7A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
+          "relatedTickers": [
+            "CRON"
+          ]
+        },
+        {
+          "uuid": "458bc075-e105-3223-a5be-bed6dea01eec",
+          "title": "Cronos Group Swings to Q4 Loss",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/news/cronos-group-swings-q4-loss-130018032.html",
+          "providerPublishTime": 1772110818,
+          "type": "STORY",
+          "relatedTickers": [
+            "CRON",
+            "CRON.TO",
+            "HMMJ.TO"
+          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 111,
-      "timeTakenForQuotes": 429,
+      "totalTime": 81,
+      "timeTakenForQuotes": 440,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

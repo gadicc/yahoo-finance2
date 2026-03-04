@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
-      "content-length": "787",
+      "content-length": "779",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:41 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:20 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "77",
+      "x-envoy-upstream-service-time": "58",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1h28ghtjrr9d9"
+      "y-rid": "5r7pti1kqfmuc"
     },
     "bodyJson": {
       "explains": [],
@@ -39,8 +39,8 @@
           "symbol": "MNTN.L",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "Equity",
-          "longname": "The Schiehallion Fund Limited",
+          "typeDisp": "equity",
+          "longname": "Schiehallion Fund Ord",
           "exchDisp": "London",
           "sector": "Financial Services",
           "sectorDisp": "Financial Services",
@@ -54,8 +54,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 75,
-      "timeTakenForQuotes": 420,
+      "totalTime": 55,
+      "timeTakenForQuotes": 428,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:15 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "89",
+      "x-envoy-upstream-service-time": "92",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2pdf95tjrr9d7"
+      "y-rid": "1cusuodkqfmu7"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "GOOG",
           "index": "quotes",
-          "score": 2291600,
-          "typeDisp": "Equity",
+          "score": 11614000,
+          "typeDisp": "equity",
           "longname": "Alphabet Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Communication Services",
@@ -54,8 +54,8 @@
           "quoteType": "EQUITY",
           "symbol": "GOOGL",
           "index": "quotes",
-          "score": 21528,
-          "typeDisp": "Equity",
+          "score": 21499,
+          "typeDisp": "equity",
           "longname": "Alphabet Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Communication Services",
@@ -70,67 +70,70 @@
           "quoteType": "ETF",
           "symbol": "GGLL",
           "index": "quotes",
-          "score": 20013,
-          "typeDisp": "ETF",
+          "score": 20011,
+          "typeDisp": "etf",
           "longname": "Direxion Daily GOOGL Bull 2X Shares",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
         },
         {
           "exchange": "OPR",
-          "shortname": "GOOGL Mar 2025 200.000 call",
+          "shortname": "GOOGL Dec 2026 135.000 call",
           "quoteType": "OPTION",
-          "symbol": "GOOGL250321C00200000",
+          "symbol": "GOOGL261218C00135000",
           "index": "quotes",
-          "score": 20007,
-          "typeDisp": "Option",
-          "longname": "GOOGL Mar 2025 200.000 call",
+          "score": 20009,
+          "typeDisp": "option",
           "exchDisp": "OPR",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "GOOG Jan 2026 160.000 call",
-          "quoteType": "OPTION",
-          "symbol": "GOOG260116C00160000",
+          "exchange": "SHZ",
+          "shortname": "HUANGSHAN GOOGE",
+          "quoteType": "EQUITY",
+          "symbol": "301581.SZ",
           "index": "quotes",
           "score": 20006,
-          "typeDisp": "Option",
-          "longname": "GOOG Jan 2026 160.000 call",
-          "exchDisp": "OPR",
+          "typeDisp": "equity",
+          "longname": "HuangShan Googe Co.,Ltd.",
+          "exchDisp": "Shenzhen",
+          "sector": "Technology",
+          "sectorDisp": "Technology",
+          "industry": "Semiconductors",
+          "industryDisp": "Semiconductors",
           "isYahooFinance": true
+        },
+        {
+          "index": "557d6676fc1a33f0656b9871f4a66438",
+          "name": "Google DeepMind",
+          "permalink": "deepmind",
+          "isYahooFinance": false
         },
         {
           "index": "292d67c54be02255ededdee2f78d5a58",
           "name": "Google.org",
           "permalink": "google-org",
           "isYahooFinance": false
-        },
-        {
-          "index": "5167b830a941ed08d275f74473d13e91",
-          "name": "Google for Startups",
-          "permalink": "google-for-entrepreneurs",
-          "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "6ab36b5b-5823-36b0-84be-b1105b65406e",
-          "title": "Alphabet Inc. (GOOG) Is a Trending Stock: Facts to Know Before Betting on It",
+          "uuid": "a06b9788-7d03-34b3-93e0-46b379b64e0e",
+          "title": "Alphabet Inc. (GOOG) is Attracting Investor Attention: Here is What You Should Know",
           "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/alphabet-inc-goog-trending-stock-140015342.html",
-          "providerPublishTime": 1740405615,
+          "link": "https://finance.yahoo.com/news/alphabet-inc-goog-attracting-investor-140003723.html",
+          "providerPublishTime": 1772546403,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/64vRzkiY9LXGPrpW4r2GRQ--~B/aD00Njc7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/b95cfdd8768bc3c4620e666dbcb0b248",
+                "url": "https://s.yimg.com/uu/api/res/1.2/UYup8AGIrn99rMsHiTllqA--~B/aD04NzY7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/d0d4ab152198da2f423d92da8a7d22ee",
                 "width": 900,
-                "height": 467,
+                "height": 876,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/K_VbSLl5PAgBcdM4TzmL5A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/b95cfdd8768bc3c4620e666dbcb0b248",
+                "url": "https://s.yimg.com/uu/api/res/1.2/XhCCCM1n.mhdk3ZYrtuYVA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/d0d4ab152198da2f423d92da8a7d22ee",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -138,26 +141,27 @@
             ]
           },
           "relatedTickers": [
-            "GOOG"
+            "GOOG",
+            "^GSPC"
           ]
         },
         {
-          "uuid": "55673502-33e9-3e3c-ae75-8ae8988e60cf",
-          "title": "Light & Wonder (LNW) To Report Earnings: Here Is What To Expect",
+          "uuid": "b39866c7-7170-30f8-8a11-b8d4a6bd8626",
+          "title": "Earnings To Watch: Guidewire Software (GWRE) Reports Q4 Results Tomorrow",
           "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/light-wonder-lnw-report-earnings-092632069.html",
-          "providerPublishTime": 1740475592,
+          "link": "https://finance.yahoo.com/news/earnings-watch-guidewire-software-gwre-040103734.html",
+          "providerPublishTime": 1772596863,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/KJpqfBkhpYVKQigiEL9lGw--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/d94e9112c7dbcd0449676ad2e6132626",
+                "url": "https://s.yimg.com/uu/api/res/1.2/ud6n4zDlPZRQnNMLuBO1Cg--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/a6e762de6dc34cf1828cdeaea57f83d3",
                 "width": 1400,
                 "height": 700,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/gX2pkLgf00gNBGQHHEm0aA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/d94e9112c7dbcd0449676ad2e6132626",
+                "url": "https://s.yimg.com/uu/api/res/1.2/VMe669PNKTb4aLIiKKStyg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/a6e762de6dc34cf1828cdeaea57f83d3",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -165,27 +169,26 @@
             ]
           },
           "relatedTickers": [
-            "LNW",
-            "DKNG"
+            "GWRE"
           ]
         },
         {
-          "uuid": "2d57386b-2f45-3b65-939b-8572e0b2489f",
-          "title": "Where to Invest? 2 AI Stocks to Consider in the Quantum Computing Boom",
-          "publisher": "Motley Fool",
-          "link": "https://finance.yahoo.com/m/2d57386b-2f45-3b65-939b-8572e0b2489f/where-to-invest%3F-2-ai-stocks.html",
-          "providerPublishTime": 1740474900,
+          "uuid": "5c6b7ce3-e852-392b-b9ee-4b3176c667dc",
+          "title": "Kroger (KR) Reports Earnings Tomorrow: What To Expect",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/news/kroger-kr-reports-earnings-tomorrow-035603994.html",
+          "providerPublishTime": 1772596563,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/CXisVX5dT1B2e4yQ9tEKew--~B/aD05NTA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/04f32a5d0adb6104e479a287e2050638",
+                "url": "https://s.yimg.com/uu/api/res/1.2/idjpz7d5OfHZY.8InAY5VQ--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/fd59045e06e914faf23a9a3c80a290aa",
                 "width": 1400,
-                "height": 950,
+                "height": 700,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/C1XdmLMkG4zeCZlvXpl.kw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/04f32a5d0adb6104e479a287e2050638",
+                "url": "https://s.yimg.com/uu/api/res/1.2/dam0ek_VpBRdJ.m7oiHZTg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/fd59045e06e914faf23a9a3c80a290aa",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -193,20 +196,34 @@
             ]
           },
           "relatedTickers": [
-            "MSFT",
-            "GOOG"
+            "KR"
           ]
         },
         {
-          "uuid": "3fa7a460-b8df-32a1-aa8b-8d9feaa06657",
-          "title": "Alphabet's Google, Meta Accused of Anti-Competitive Practices by South Africa's Competition Commission",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/alphabet-apos-google-meta-accused-161106540.html",
-          "providerPublishTime": 1740413466,
+          "uuid": "b2c5f4d5-1f3b-3ef6-930e-ff5cf6af6740",
+          "title": "Gap (GAP) Reports Q4: Everything You Need To Know Ahead Of Earnings",
+          "publisher": "StockStory",
+          "link": "https://finance.yahoo.com/news/gap-gap-reports-q4-everything-032603590.html",
+          "providerPublishTime": 1772594763,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/962QkjywctadZn3deeDrew--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/710556ab36e180db7fe014729e2cae7a",
+                "width": 1400,
+                "height": 700,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/BVEaTFynbBt1KAm4YZhPnw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/710556ab36e180db7fe014729e2cae7a",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "GOOG",
-            "META"
+            "GAP"
           ]
         }
       ],
@@ -214,8 +231,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 85,
-      "timeTakenForQuotes": 435,
+      "totalTime": 88,
+      "timeTakenForQuotes": 446,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

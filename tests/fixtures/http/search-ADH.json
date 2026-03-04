@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,87 +15,82 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:38 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:12 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "103",
+      "x-envoy-upstream-service-time": "119",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "5flphlhjrr9d6"
+      "y-rid": "7tjmjmhkqfmu4"
     },
     "bodyJson": {
       "explains": [],
       "count": 11,
       "quotes": [
         {
-          "exchange": "CXA",
-          "shortname": "ADAIRS FPO [ADH]",
-          "quoteType": "EQUITY",
-          "symbol": "ADH.XA",
-          "index": "quotes",
-          "score": 20007,
-          "typeDisp": "Equity",
-          "longname": "Adairs Limited",
-          "exchDisp": "CXA",
-          "isYahooFinance": true
-        },
-        {
           "exchange": "JKT",
           "shortname": "Adhi Karya (Persero) Tbk",
           "quoteType": "EQUITY",
           "symbol": "ADHI.JK",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "Equity",
+          "score": 20026,
+          "typeDisp": "equity",
           "longname": "PT Adhi Karya (Persero) Tbk",
           "exchDisp": "Jakarta",
           "sector": "Industrials",
           "sectorDisp": "Industrials",
           "industry": "Engineering & Construction",
           "industryDisp": "Engineering & Construction",
+          "dispSecIndFlag": true,
           "isYahooFinance": true
         },
         {
           "exchange": "BSE",
-          "shortname": "SRI ADHIKARI BROTHERS TELEVISI",
+          "shortname": "Adhbhut Infrastructure Ltd.",
           "quoteType": "EQUITY",
-          "symbol": "SABTNL.BO",
+          "symbol": "ADHBHUTIN.BO",
           "index": "quotes",
-          "score": 20005,
-          "typeDisp": "Equity",
+          "score": 20006,
+          "typeDisp": "equity",
+          "longname": "Adhbhut Infrastructure Limited",
           "exchDisp": "Bombay",
-          "sector": "Communication Services",
-          "sectorDisp": "Communication Services",
-          "industry": "Broadcasting",
-          "industryDisp": "Broadcasting",
+          "sector": "Real Estate",
+          "sectorDisp": "Real Estate",
+          "industry": "Real Estate—Development",
+          "industryDisp": "Real Estate—Development",
           "isYahooFinance": true
         },
         {
-          "exchange": "FRA",
-          "shortname": "HSBC Global Investment Funds - ",
-          "quoteType": "MUTUALFUND",
-          "symbol": "0P000124C9.F",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Fund",
-          "longname": "HSBC GIF US Shrt Dur HY Bd ADHEUR",
-          "exchDisp": "Frankfurt",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "NSI",
-          "shortname": "HP ADHESIVES LIMITED",
+          "exchange": "ASX",
+          "shortname": "ADHERIS FPO [AHE]",
           "quoteType": "EQUITY",
-          "symbol": "HPAL.NS",
+          "symbol": "AHE.AX",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Equity",
-          "longname": "HP Adhesives Limited",
-          "exchDisp": "NSE",
+          "score": 20006,
+          "typeDisp": "equity",
+          "exchDisp": "Australian",
+          "sector": "Healthcare",
+          "sectorDisp": "Healthcare",
+          "industry": "Health Information Services",
+          "industryDisp": "Health Information Services",
+          "isYahooFinance": true,
+          "prevName": "MedAdvisor Limited",
+          "nameChangeDate": "2026-03-03"
+        },
+        {
+          "exchange": "BSE",
+          "shortname": "SONAL ADHESIVES LTD.",
+          "quoteType": "EQUITY",
+          "symbol": "SONALAD.BO",
+          "index": "quotes",
+          "score": 20006,
+          "typeDisp": "equity",
+          "longname": "Sonal Adhesives Limited",
+          "exchDisp": "Bombay",
           "sector": "Basic Materials",
           "sectorDisp": "Basic Materials",
           "industry": "Specialty Chemicals",
@@ -103,47 +98,87 @@
           "isYahooFinance": true
         },
         {
-          "index": "1ba398cf94da438fa0ac04f59afd0927",
-          "name": "Meridian Adhesives Group",
-          "permalink": "meridian-adhesives-group",
+          "exchange": "FRA",
+          "shortname": "Air Canada Inc.               R",
+          "quoteType": "EQUITY",
+          "symbol": "ADH2.F",
+          "index": "quotes",
+          "score": 20005,
+          "typeDisp": "equity",
+          "longname": "Air Canada",
+          "exchDisp": "Frankfurt",
+          "sector": "Industrials",
+          "sectorDisp": "Industrials",
+          "industry": "Airlines",
+          "industryDisp": "Airlines",
+          "isYahooFinance": true
+        },
+        {
+          "index": "022f2f88b2c2495da7f02eb4505eccfc",
+          "name": "BioBond Adhesives, Inc.",
+          "permalink": "biobond-adhesives-inc",
           "isYahooFinance": false
         },
         {
-          "index": "fa3d027c00c54a07bce0000898786d3d",
-          "name": "Adhara",
-          "permalink": "adhara",
+          "index": "1ba398cf94da438fa0ac04f59afd0927",
+          "name": "Meridian Adhesives Group",
+          "permalink": "meridian-adhesives-group",
           "isYahooFinance": false
         }
       ],
       "news": [
         {
-          "uuid": "e994563c-6426-33d6-ab70-102731f79556",
-          "title": "Adairs Ltd (ASX:ADH) (Q1 2025) Earnings Call Highlights: Record Sales and Strategic Challenges",
+          "uuid": "1de940e0-b0b6-3947-8e46-549d9445b6d3",
+          "title": "Adhesive Tapes Market to Reach USD 117.96 Billion by 2032, Reveals New Maximize Market Research Analysis",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/news/adhesive-tapes-market-reach-usd-150100557.html",
+          "providerPublishTime": 1772118060,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/FiT2vvDWEqzpsY.KOVWvUQ--~B/aD0zMjI7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/2cf488377417bea4cb265862ada490b7",
+                "width": 400,
+                "height": 322,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/aCLyRb9hbQLeH37KuNxJ4w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/2cf488377417bea4cb265862ada490b7",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "762f63c0-ff40-3817-bbe0-245ee5a54c75",
+          "title": "Adairs Ltd (ASX:ADH) (Q2 2026) Earnings Call Highlights: Record Sales Amidst Margin Challenges",
           "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/adairs-ltd-asx-adh-q1-110039687.html",
-          "providerPublishTime": 1740394839,
+          "link": "https://finance.yahoo.com/news/adairs-ltd-asx-adh-q2-090032026.html",
+          "providerPublishTime": 1771837232,
           "type": "STORY",
           "relatedTickers": [
             "ADH.AX"
           ]
         },
         {
-          "uuid": "e7b1367e-e91c-3ece-b390-fb9a2df3e594",
-          "title": "Street Fighter live-action movie finally has its director",
-          "publisher": "Digital Trends",
-          "link": "https://finance.yahoo.com/m/e7b1367e-e91c-3ece-b390-fb9a2df3e594/street-fighter-live-action.html",
-          "providerPublishTime": 1740006937,
+          "uuid": "7d5bf7e4-3f20-390a-ab54-aa23e24bf20d",
+          "title": "Zefr Earns MRC Accreditation for Viewability Reporting on YouTube",
+          "publisher": "Business Wire",
+          "link": "https://finance.yahoo.com/news/zefr-earns-mrc-accreditation-viewability-141200348.html",
+          "providerPublishTime": 1769609520,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5rgr7vsx5Oo30R529HQOpg--~B/aD0xMDAwO3c9MTUwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/digital_trends_973/fff15b692b86ec01f55bdc120f8be145",
-                "width": 1500,
-                "height": 1000,
+                "url": "https://s.yimg.com/uu/api/res/1.2/abqZqYgqpt1WuVSbTbSbRQ--~B/aD0yNTE7dz00ODA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/business-wire.com/e46e11df6ea8b0f60a7aa379935805ef",
+                "width": 480,
+                "height": 251,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/avmHtSOAJ6iLrAa1STn4VA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/digital_trends_973/fff15b692b86ec01f55bdc120f8be145",
+                "url": "https://s.yimg.com/uu/api/res/1.2/KOe9Fevngou31xd4wq27fQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/e46e11df6ea8b0f60a7aa379935805ef",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -152,35 +187,11 @@
           }
         },
         {
-          "uuid": "bd2d48b4-c971-3801-97ae-a6283fdec700",
-          "title": "3Z Pharmaceuticals Unveils Landmark Study Supporting Calcium Channel Blocker as a Groundbreaking ADHD Therapy",
-          "publisher": "PR Newswire",
-          "link": "https://finance.yahoo.com/news/3z-pharmaceuticals-unveils-landmark-study-112500806.html",
-          "providerPublishTime": 1739791500,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/tPW8JdDRo6XBcdAsze8nmg--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/e3a25dd5025a0abb8b42c165acf55321",
-                "width": 16,
-                "height": 16,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/3qqRe63uKhio.iAkuso9aw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/e3a25dd5025a0abb8b42c165acf55321",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "4b47fa45-196b-3ecb-ac27-9ecbddc3aa8c",
-          "title": "If EPS Growth Is Important To You, ADvTECH (JSE:ADH) Presents An Opportunity",
+          "uuid": "fdf4d5dc-fae5-3c37-bc7d-43127f6bbd7f",
+          "title": "With 59% institutional ownership, ADvTECH Limited (JSE:ADH) is a favorite amongst the big guns",
           "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/eps-growth-important-advtech-jse-071639642.html",
-          "providerPublishTime": 1737443799,
+          "link": "https://finance.yahoo.com/news/59-institutional-ownership-advtech-limited-081745401.html",
+          "providerPublishTime": 1768810665,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
@@ -197,15 +208,18 @@
                 "tag": "140x140"
               }
             ]
-          }
+          },
+          "relatedTickers": [
+            "ADH.JO"
+          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 101,
-      "timeTakenForQuotes": 432,
+      "totalTime": 116,
+      "timeTakenForQuotes": 443,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

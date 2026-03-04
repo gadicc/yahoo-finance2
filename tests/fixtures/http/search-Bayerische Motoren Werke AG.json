@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:41 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:19 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "94",
+      "x-envoy-upstream-service-time": "123",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "34jhtnljrr9d9"
+      "y-rid": "22i5p5lkqfmub"
     },
     "bodyJson": {
       "explains": [],
@@ -37,125 +37,193 @@
           "quoteType": "EQUITY",
           "symbol": "BMW.DE",
           "index": "quotes",
-          "score": 20050,
-          "typeDisp": "Equity",
+          "score": 20067,
+          "typeDisp": "equity",
           "longname": "Bayerische Motoren Werke Aktiengesellschaft",
           "exchDisp": "XETRA",
           "sector": "Consumer Cyclical",
+          "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
+          "industryDisp": "Auto Manufacturers",
           "dispSecIndFlag": true,
           "isYahooFinance": true
         },
         {
-          "exchange": "STU",
+          "exchange": "DXE",
           "shortname": "Bayerische Motoren Werke AG",
           "quoteType": "EQUITY",
-          "symbol": "BMW.SG",
+          "symbol": "BMWD.XD",
           "index": "quotes",
-          "score": 20007,
-          "typeDisp": "Equity",
+          "score": 20001,
+          "typeDisp": "equity",
+          "exchDisp": "DXE",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "MUN",
+          "shortname": "BAYERISCHE MOTOREN WERKE AG   V",
+          "quoteType": "EQUITY",
+          "symbol": "BMW3.MU",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "equity",
           "longname": "Bayerische Motoren Werke AG",
-          "exchDisp": "Stuttgart",
+          "exchDisp": "Munich",
           "sector": "Consumer Cyclical",
+          "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
+          "industryDisp": "Auto Manufacturers",
           "isYahooFinance": true
         },
         {
           "exchange": "PNK",
           "shortname": "Bayerische Motoren Werke AG",
           "quoteType": "EQUITY",
-          "symbol": "BAMXF",
+          "symbol": "BMWKY",
           "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Equity",
-          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
+          "score": 20001,
+          "typeDisp": "equity",
           "exchDisp": "OTC Markets",
           "sector": "Consumer Cyclical",
+          "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
+          "industryDisp": "Auto Manufacturers",
           "isYahooFinance": true
         },
         {
-          "exchange": "MEX",
-          "shortname": "BAYERISCHE MOTOREN WERKE AG",
-          "quoteType": "EQUITY",
-          "symbol": "BMWM5N.MX",
-          "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Equity",
-          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
-          "exchDisp": "Mexico",
-          "sector": "Consumer Cyclical",
-          "industry": "Auto Manufacturers",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CXE",
-          "shortname": "Bayerische Motoren Werke AG",
-          "quoteType": "EQUITY",
-          "symbol": "BMW3D.XC",
-          "index": "quotes",
-          "score": 20002,
-          "typeDisp": "Equity",
-          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
-          "exchDisp": "CXE",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "DUS",
+          "exchange": "FRA",
           "shortname": "BAYERISCHE MOTOREN WERKE AG   S",
           "quoteType": "EQUITY",
-          "symbol": "BMW.DU",
+          "symbol": "BMW.F",
           "index": "quotes",
-          "score": 20002,
-          "typeDisp": "Equity",
-          "longname": "Bayerische Motoren Werke AG",
-          "exchDisp": "Dusseldorf Stock Exchange",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
+          "exchDisp": "Frankfurt",
           "sector": "Consumer Cyclical",
+          "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
+          "industryDisp": "Auto Manufacturers",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "DXE",
+          "shortname": "Bayerische Motoren Werke AG",
+          "quoteType": "EQUITY",
+          "symbol": "BMW3D.XD",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "equity",
+          "exchDisp": "DXE",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "c06d4841-3d35-3a72-8172-bc70c90be46e",
-          "title": "Analyst Report: Bayerische Motoren Werke Aktiengesellschaft",
-          "publisher": "Morningstar Research",
-          "link": "https://finance.yahoo.com/m/c06d4841-3d35-3a72-8172-bc70c90be46e/analyst-report%3A-bayerische.html",
-          "providerPublishTime": 1740404408,
+          "uuid": "04f09240-d586-3757-b7b5-2309a330fd56",
+          "title": "CATL and BMW to deepen cooperation on batteries data",
+          "publisher": "Just Auto",
+          "link": "https://finance.yahoo.com/m/04f09240-d586-3757-b7b5-2309a330fd56/catl-and-bmw-to-deepen.html",
+          "providerPublishTime": 1772545085,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/SVKRhvYIgdoUv2HlogaP.A--~B/aD0wO3c9MDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
-                "width": 0,
-                "height": 0,
+                "url": "https://s.yimg.com/uu/api/res/1.2/oh7ULdDxc0tIvs.TTCeWjQ--~B/aD0zMTU7dz01NzM7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/just_auto_187/87ba7ffcb670eee271bc0968632795fd",
+                "width": 573,
+                "height": 315,
                 "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/6hVnf3_BoxAkWXyTV1pAnQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_auto_187/87ba7ffcb670eee271bc0968632795fd",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
               }
             ]
           },
           "relatedTickers": [
-            "BAMXF",
-            "BMWKY",
-            "BYMOF"
+            "300750.SZ",
+            "BMW.DE"
           ]
         },
         {
-          "uuid": "baf435ee-cb13-3c7b-8b0a-b2b9042017f8",
-          "title": "BMW reportedly pauses £600m upgrade to Oxford Mini plant in UK",
-          "publisher": "Just Auto",
-          "link": "https://finance.yahoo.com/m/baf435ee-cb13-3c7b-8b0a-b2b9042017f8/bmw-reportedly-pauses-%C2%A3600m.html",
-          "providerPublishTime": 1740396343,
+          "uuid": "6a424739-ad23-336e-bfc7-13f59a82f358",
+          "title": "Battery Passport Industry Research 2025-2035: Minespider, AVL, Siemens, Circulor, and Optel Group Market Shares, Growth Strategies, and Service Offerings",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/news/battery-passport-industry-research-2025-091000457.html",
+          "providerPublishTime": 1772529000,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/H66KWDIEyiXtFFOAXgqVAg--~B/aD04MTY7dz0xNDM4O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_auto_187/2791b07b43c8ca93cd8352e76acff683",
-                "width": 1438,
+                "url": "https://s.yimg.com/uu/api/res/1.2/gMfALsckrJe.7yN.FAN2cw--~B/aD00MDA7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/988208b1e5b33ce9a360bc28edfdf186",
+                "width": 600,
+                "height": 400,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/b2_m9tBorlg9IOGcuwESUg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/988208b1e5b33ce9a360bc28edfdf186",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "SIE.DE",
+            "BMW.DE",
+            "MBG.DE"
+          ]
+        },
+        {
+          "uuid": "dff848e6-ca17-30e1-8138-e6a8893be0c8",
+          "title": "AI doubled auto industry cyberattacks: Upstream",
+          "publisher": "Wards Auto",
+          "link": "https://finance.yahoo.com/m/dff848e6-ca17-30e1-8138-e6a8893be0c8/ai-doubled-auto-industry.html",
+          "providerPublishTime": 1772523878,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/.D_3cZLufDP6UBh8xCAWqg--~B/aD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wards_auto_520/0f519629823a18cccba3384c24d9e448",
+                "width": 1600,
+                "height": 900,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/LcMd2pNU8YEpj4hk.2cRWQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wards_auto_520/0f519629823a18cccba3384c24d9e448",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "RNO.PA",
+            "7201.T",
+            "005380.KS",
+            "8058.T",
+            "BMW.DE"
+          ]
+        },
+        {
+          "uuid": "24071b15-e018-32f4-b7cc-d39820dd7255",
+          "title": "Joint Evaluation Agreement With Samsung SDI and BMW Supports Solid Power, Inc. (SLDP) Battery Validation",
+          "publisher": "Insider Monkey",
+          "link": "https://finance.yahoo.com/news/joint-evaluation-agreement-samsung-sdi-174412062.html",
+          "providerPublishTime": 1772473452,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Jytug6DboTIQaoHpVjW.Ag--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/196477c8461c2584c40212fc3ff6b277",
+                "width": 1456,
                 "height": 816,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/TdMqe6J9P9.W_1Epc_79ww--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_auto_187/2791b07b43c8ca93cd8352e76acff683",
+                "url": "https://s.yimg.com/uu/api/res/1.2/Od7Q_yu4G_Pdust3ERzkkA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/196477c8461c2584c40212fc3ff6b277",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -163,61 +231,9 @@
             ]
           },
           "relatedTickers": [
-            "BMWKY"
-          ]
-        },
-        {
-          "uuid": "1fe13d98-d54e-3a0b-a8fa-c413fa694f60",
-          "title": "BMW says it will review timing of electric Mini production in UK",
-          "publisher": "Reuters",
-          "link": "https://finance.yahoo.com/news/bmw-says-review-timing-electric-172331432.html",
-          "providerPublishTime": 1740245011,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/yEhGzXUrkPSq88Jn8Q1X7g--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/7c041fbf8b8245b0a370fa1bf3d393c0",
-                "width": 800,
-                "height": 533,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hsq9NMjytiqqcwoQc8nMhw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters-finance.com/7c041fbf8b8245b0a370fa1bf3d393c0",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "BMWKY"
-          ]
-        },
-        {
-          "uuid": "c6cbe27d-8649-33af-bca7-d53392e6a7af",
-          "title": "Future of Oxford Mini factory in doubt as BMW halts £600m investment",
-          "publisher": "The Telegraph",
-          "link": "https://finance.yahoo.com/m/c6cbe27d-8649-33af-bca7-d53392e6a7af/future-of-oxford-mini-factory.html",
-          "providerPublishTime": 1740204000,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/XSbHTpj52gh9SN0yWLCr.Q--~B/aD0xNTYyO3c9MjUwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/the_telegraph_258/03a5c0ff67e32e027f84937ca0d975d2",
-                "width": 2500,
-                "height": 1562,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/V2ERmwXoDUr1qWh1g6n38w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/the_telegraph_258/03a5c0ff67e32e027f84937ca0d975d2",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "BMWKY"
+            "SLDP",
+            "006400.KS",
+            "BMW.DE"
           ]
         }
       ],
@@ -232,13 +248,13 @@
           "slug": "the-fight-against-covid19",
           "name": "The Fight Against COVID19",
           "index": "the-fight-against-covid19",
-          "score": 12.851595,
+          "score": 11.324283,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "trea",
           "pfId": "the_fight_against_covid19",
           "symbolCount": 13,
-          "dailyPercentGain": -0.6620032505129281,
-          "followerCount": 23838,
+          "dailyPercentGain": -2.660828542752278,
+          "followerCount": 22950,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/3c7c7b592c7aba2beee72abb1e520b85d6241aee639ea2e8033b96962ad2e126/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/iStock-476433472.png",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         },
@@ -246,21 +262,21 @@
           "slug": "aging-baby-boomers",
           "name": "Aging Baby Boomers",
           "index": "aging-baby-boomers",
-          "score": 2.1119525,
+          "score": 1.8895986,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "aging_baby_boomers",
           "symbolCount": 11,
-          "dailyPercentGain": 0.17730890896978094,
-          "followerCount": 3806,
+          "dailyPercentGain": -0.7250754049131356,
+          "followerCount": 3721,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/5012864ca85a18365b8dc6a2de4e4ce17202e825c0df84f19bf009dff0353aff/finance/resizefill_w96_h96/https://s.yimg.com/dh/ap/finance/portfolio/aging-baby-boomers.jpg",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         }
       ],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 91,
-      "timeTakenForQuotes": 433,
+      "totalTime": 121,
+      "timeTakenForQuotes": 445,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

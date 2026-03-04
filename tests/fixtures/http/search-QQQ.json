@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:15 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "81",
+      "x-envoy-upstream-service-time": "110",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7j3jm8ljrr9d8"
+      "y-rid": "2n8qta5kqfmu8"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "ETF",
           "symbol": "QQQ",
           "index": "quotes",
-          "score": 2344900,
-          "typeDisp": "ETF",
+          "score": 12108000,
+          "typeDisp": "etf",
           "longname": "Invesco QQQ Trust",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
@@ -49,8 +49,8 @@
           "quoteType": "ETF",
           "symbol": "TQQQ",
           "index": "quotes",
-          "score": 22184,
-          "typeDisp": "ETF",
+          "score": 21930,
+          "typeDisp": "etf",
           "longname": "ProShares UltraPro QQQ",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
@@ -61,8 +61,8 @@
           "quoteType": "ETF",
           "symbol": "SQQQ",
           "index": "quotes",
-          "score": 20565,
-          "typeDisp": "ETF",
+          "score": 20705,
+          "typeDisp": "etf",
           "longname": "ProShares UltraPro Short QQQ",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
@@ -73,8 +73,8 @@
           "quoteType": "ETF",
           "symbol": "QQQM",
           "index": "quotes",
-          "score": 20093,
-          "typeDisp": "ETF",
+          "score": 20129,
+          "typeDisp": "etf",
           "longname": "Invesco NASDAQ 100 ETF",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
@@ -85,43 +85,42 @@
           "quoteType": "ETF",
           "symbol": "QLD",
           "index": "quotes",
-          "score": 20086,
-          "typeDisp": "ETF",
+          "score": 20089,
+          "typeDisp": "etf",
           "longname": "ProShares Ultra QQQ",
           "exchDisp": "NYSEArca",
           "isYahooFinance": true
         },
         {
-          "exchange": "PCX",
-          "shortname": "ProShares UltraShort QQQ",
+          "exchange": "NGM",
+          "shortname": "NEOS Nasdaq 100 High Income ETF",
           "quoteType": "ETF",
-          "symbol": "QID",
+          "symbol": "QQQI",
           "index": "quotes",
-          "score": 20061,
-          "typeDisp": "ETF",
-          "longname": "ProShares UltraShort QQQ",
-          "exchDisp": "NYSEArca",
+          "score": 20031,
+          "typeDisp": "etf",
+          "exchDisp": "NASDAQ",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "4c882e81-fddf-321a-9477-e896f35473dd",
-          "title": "Analyst who correctly predicted the S&P 500's rally revisits outlook",
-          "publisher": "TheStreet",
-          "link": "https://finance.yahoo.com/m/4c882e81-fddf-321a-9477-e896f35473dd/analyst-who-correctly.html",
-          "providerPublishTime": 1740443580,
-          "type": "STORY",
+          "uuid": "48c2e0b0-84ee-3387-a3f0-6b46ecf73c47",
+          "title": "Invesco QQQ Sponsor Spotlight",
+          "publisher": "Bloomberg",
+          "link": "https://finance.yahoo.com/video/invesco-qqq-sponsor-spotlight-173157753.html",
+          "providerPublishTime": 1772559117,
+          "type": "VIDEO",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/qzFkZBR.wBSb2UX0ccpBwg--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/thestreet_881/1b08e4c8f22f2fa076db9051eb3e7035",
-                "width": 1200,
-                "height": 675,
+                "url": "https://s.yimg.com/uu/api/res/1.2/.pt0oTtsEBhYIfeOV7Vt9g--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_video_2/6640c447d8c970d0deb2e4b1cad0149f",
+                "width": 1280,
+                "height": 720,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/YD2XUM.yRlZAFsPnONShmg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/thestreet_881/1b08e4c8f22f2fa076db9051eb3e7035",
+                "url": "https://s.yimg.com/uu/api/res/1.2/C6hqT28eNDYqcmIoUQ8WkA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_markets_video_2/6640c447d8c970d0deb2e4b1cad0149f",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -129,54 +128,101 @@
             ]
           },
           "relatedTickers": [
-            "^GSPC"
+            "QQQ",
+            "IVZ"
           ]
         },
         {
-          "uuid": "71c1c374-e4a9-3738-bc9b-30fe35b57bda",
-          "title": "GLD Pulls in $1.9B Amid Gold's Record Run",
-          "publisher": "etf.com",
-          "link": "https://finance.yahoo.com/m/71c1c374-e4a9-3738-bc9b-30fe35b57bda/gld-pulls-in-%241.9b-amid.html",
-          "providerPublishTime": 1740440067,
+          "uuid": "46db5f65-c30f-36be-88a7-aa2dffddc607",
+          "title": "Stocks Settle Lower on Iran War Anxiety",
+          "publisher": "Barchart",
+          "link": "https://finance.yahoo.com/m/46db5f65-c30f-36be-88a7-aa2dffddc607/stocks-settle-lower-on-iran.html",
+          "providerPublishTime": 1772573953,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/pSDdfO9IbsjLeOp_lVCCWQ--~B/aD03NTY7dz0xMzg2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/indexuniverse.com/7d6d2d1686380d868c3f93bede4d3c93",
-                "width": 1386,
-                "height": 756,
+                "url": "https://s.yimg.com/uu/api/res/1.2/410iLAU3Bk2D8fbIHHXLyg--~B/aD04NTA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/6eb9139d091a3796831a5c0791dd81ea",
+                "width": 1280,
+                "height": 850,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/7h_wiBcOP368c4e_sMvN_g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/indexuniverse.com/7d6d2d1686380d868c3f93bede4d3c93",
+                "url": "https://s.yimg.com/uu/api/res/1.2/jYEEtlnTB0OMARPubqrajw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/6eb9139d091a3796831a5c0791dd81ea",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
-          }
-        },
-        {
-          "uuid": "ec862861-f2b7-36d2-9afb-1a5fa8850895",
-          "title": "Exchange-Traded Funds Higher, US Equities Mixed After Midday",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/exchange-traded-funds-higher-us-180825229.html",
-          "providerPublishTime": 1740420505,
-          "type": "STORY",
+          },
           "relatedTickers": [
-            "SLV"
+            "^GSPC",
+            "^IXIC",
+            "^DJI",
+            "^NDX",
+            "CL=F"
           ]
         },
         {
-          "uuid": "9e0c8386-8226-35a5-b7cd-323a8c7f97f5",
-          "title": "Exchange-Traded Funds, Equity Futures Higher Pre-Bell Monday as Investors Focus on Inflation Data",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/exchange-traded-funds-equity-futures-131659658.html",
-          "providerPublishTime": 1740403019,
+          "uuid": "f9149695-ccf4-32c6-b400-1674e1edf6f8",
+          "title": "Stocks Sink as Crude Oil Surge Rattles Markets",
+          "publisher": "Barchart",
+          "link": "https://finance.yahoo.com/m/f9149695-ccf4-32c6-b400-1674e1edf6f8/stocks-sink-as-crude-oil.html",
+          "providerPublishTime": 1772554498,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/zqcpDcgEif1RDs5TCxrXuA--~B/aD0xMDY4O3c9MTYwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/barchart_com_477/95c8f720eeae342335cbf6557db2ad5a",
+                "width": 1600,
+                "height": 1068,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/vHtOo7zPhXXft9wJ_KyiKQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/95c8f720eeae342335cbf6557db2ad5a",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "SPY",
-            "SLV"
+            "CL=F",
+            "^GSPC",
+            "^IXIC",
+            "^DJI",
+            "^NDX"
+          ]
+        },
+        {
+          "uuid": "eb04f225-dc06-30e3-abb5-c2854a1a1e33",
+          "title": "Stocks Tumble as Crude Oil Soars and Bond Yields Rise",
+          "publisher": "Barchart",
+          "link": "https://finance.yahoo.com/m/eb04f225-dc06-30e3-abb5-c2854a1a1e33/stocks-tumble-as-crude-oil.html",
+          "providerPublishTime": 1772550533,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Mx4POg8m_CSxghTIAWXCUA--~B/aD0xMDY3O3c9MTYwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/barchart_com_477/d328f7db7fa019e809cef3d7281ab08b",
+                "width": 1600,
+                "height": 1067,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/8GmLfslJhfJJ.3Hs3W67Mg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/d328f7db7fa019e809cef3d7281ab08b",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "CL=F",
+            "^GSPC",
+            "^IXIC",
+            "^DJI",
+            "^NDX"
           ]
         }
       ],
@@ -184,8 +230,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 79,
-      "timeTakenForQuotes": 435,
+      "totalTime": 108,
+      "timeTakenForQuotes": 467,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "117",
+      "x-envoy-upstream-service-time": "103",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "18o99sljrr9d7"
+      "y-rid": "2dfkpupkqfmu5"
     },
     "bodyJson": {
       "explains": [],
@@ -37,30 +37,32 @@
           "quoteType": "EQUITY",
           "symbol": "BEKE",
           "index": "quotes",
-          "score": 2001000,
-          "typeDisp": "Equity",
+          "score": 10002000,
+          "typeDisp": "equity",
           "longname": "KE Holdings Inc.",
           "exchDisp": "NYSE",
           "sector": "Real Estate",
           "sectorDisp": "Real Estate",
           "industry": "Real Estate Services",
           "industryDisp": "Real Estate Services",
-          "dispSecIndFlag": true,
+          "dispSecIndFlag": false,
           "isYahooFinance": true
         },
         {
-          "exchange": "LSE",
-          "shortname": "TER BEKE NV TER BEKE ORD SHS",
+          "exchange": "HKG",
+          "shortname": "BEKE-W",
           "quoteType": "EQUITY",
-          "symbol": "0G8L.L",
+          "symbol": "2423.HK",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "Equity",
-          "longname": "What's Cooking Group NV/SA",
-          "exchDisp": "London",
-          "isYahooFinance": true,
-          "prevName": "Ter Beke NV",
-          "nameChangeDate": "2025-02-24"
+          "typeDisp": "equity",
+          "longname": "KE Holdings Inc.",
+          "exchDisp": "Hong Kong",
+          "sector": "Real Estate",
+          "sectorDisp": "Real Estate",
+          "industry": "Real Estate Services",
+          "industryDisp": "Real Estate Services",
+          "isYahooFinance": true
         },
         {
           "exchange": "STU",
@@ -68,8 +70,8 @@
           "quoteType": "EQUITY",
           "symbol": "BD0.SG",
           "index": "quotes",
-          "score": 20002,
-          "typeDisp": "Equity",
+          "score": 20001,
+          "typeDisp": "equity",
           "longname": "Ter Beke",
           "exchDisp": "Stuttgart",
           "sector": "Consumer Defensive",
@@ -79,35 +81,35 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "OEM",
+          "exchange": "SHH",
+          "shortname": "BEKEN CORPORATION",
+          "quoteType": "EQUITY",
+          "symbol": "603068.SS",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "Beken Corporation",
+          "exchDisp": "Shanghai",
+          "sector": "Technology",
+          "sectorDisp": "Technology",
+          "industry": "Electronic Components",
+          "industryDisp": "Electronic Components",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "PNK",
           "shortname": "BEKEM METALS INC",
           "quoteType": "EQUITY",
           "symbol": "BKMM",
           "index": "quotes",
-          "score": 20002,
-          "typeDisp": "Equity",
+          "score": 20001,
+          "typeDisp": "equity",
           "longname": "Bekem Metals, Inc.",
-          "exchDisp": "OEM",
+          "exchDisp": "OTC Markets",
           "sector": "Basic Materials",
           "sectorDisp": "Basic Materials",
           "industry": "Other Industrial Metals & Mining",
           "industryDisp": "Other Industrial Metals & Mining",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "HKG",
-          "shortname": "BEKE-W",
-          "quoteType": "EQUITY",
-          "symbol": "2423.HK",
-          "index": "quotes",
-          "score": 20002,
-          "typeDisp": "Equity",
-          "longname": "KE Holdings Inc.",
-          "exchDisp": "Hong Kong",
-          "sector": "Real Estate",
-          "sectorDisp": "Real Estate",
-          "industry": "Real Estate Services",
-          "industryDisp": "Real Estate Services",
           "isYahooFinance": true
         },
         {
@@ -125,22 +127,77 @@
       ],
       "news": [
         {
-          "uuid": "92a19afe-3b00-3e6b-81c2-15386a77c24c",
-          "title": "KE Hodlings (BEKE) Moves 5.4% Higher: Will This Strength Last?",
+          "uuid": "af7e8730-ba7c-324e-9b01-e47ed80da618",
+          "title": "Is Cirrus Logic (CRUS) Stock Outpacing Its Computer and Technology Peers This Year?",
           "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/ke-hodlings-beke-moves-5-171300062.html",
-          "providerPublishTime": 1739466780,
+          "link": "https://finance.yahoo.com/news/cirrus-logic-crus-stock-outpacing-144004037.html",
+          "providerPublishTime": 1772462404,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/lVgUYaxgqzcLipnJaRxnBA--~B/aD00MzQ7dz02MjA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/f72f556c506f2d98cc14ea7010dbb78e",
-                "width": 620,
-                "height": 434,
+                "url": "https://s.yimg.com/uu/api/res/1.2/AwCmIhR0z9Bg4cEkwuNQjw--~B/aD02MDE7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/8442d24e11d454aa89061259a9714d43",
+                "width": 900,
+                "height": 601,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/1.YjAu8gfwV88PRQREiywQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/f72f556c506f2d98cc14ea7010dbb78e",
+                "url": "https://s.yimg.com/uu/api/res/1.2/n4.AbgyuCxTPgpWcYEizKw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/8442d24e11d454aa89061259a9714d43",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "CRUS",
+            "BEKE"
+          ]
+        },
+        {
+          "uuid": "f55e57f3-e09f-387d-9339-cded2e7de244",
+          "title": "What’s Cooking? subject of takeover approach from investment firm",
+          "publisher": "Just Food",
+          "link": "https://finance.yahoo.com/m/f55e57f3-e09f-387d-9339-cded2e7de244/what%E2%80%99s-cooking%3F-subject-of.html",
+          "providerPublishTime": 1772198333,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/DXw4S7KbnjjZrEAvGlGX0g--~B/aD02Njc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_food_692/97f3e8d645732ec52abb396df896f3a7",
+                "width": 1000,
+                "height": 667,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/bsPdyjrF_0L88F87Elprjg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_food_692/97f3e8d645732ec52abb396df896f3a7",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "WHATS.BR"
+          ]
+        },
+        {
+          "uuid": "0070c8df-f5d8-3e0c-a959-b8934e182821",
+          "title": "KE Holdings Inc. (NYSE:BEKE) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/ke-holdings-inc-nyse-beke-100621345.html",
+          "providerPublishTime": 1771236381,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/dyle7mHf2v_V1m1LrH4j5A--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/9b27f5216f799d93084482c1da19bddd",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/W7HUjLw4Jp.o4soMUX2xgQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/9b27f5216f799d93084482c1da19bddd",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -152,22 +209,22 @@
           ]
         },
         {
-          "uuid": "4cb86ef9-e4f3-31de-b685-39fb71cbb586",
-          "title": "KE Holdings Inc. (BEKE) Among the Best Residential Real Estate Stocks to Buy According to Analysts",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/ke-holdings-inc-beke-among-201132281.html",
-          "providerPublishTime": 1739045492,
+          "uuid": "1e797017-faec-36c2-a27e-b70971f4a2cc",
+          "title": "Toll Brothers Upgraded, Super Micro Computer Downgraded: Updated Rankings on Top Blue-Chip Stocks",
+          "publisher": "InvestorPlace",
+          "link": "https://finance.yahoo.com/news/toll-brothers-upgraded-super-micro-162542978.html",
+          "providerPublishTime": 1771345542,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/c8XxXFXZYe611JFrtZFjwQ--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/52563327ecf23a32d0127af2ab7209e6",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/EnhpXwFlcu8y0QrDAkqZEg--~B/aD05Njt3PTMwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/investorplace_417/66f66343d794b8595611a273413f326d",
+                "width": 300,
+                "height": 96,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/kwMuPO3WpFuB1t20JKL2UA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/52563327ecf23a32d0127af2ab7209e6",
+                "url": "https://s.yimg.com/uu/api/res/1.2/62fY2Q.fYIMImtA805Zv1Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/investorplace_417/66f66343d794b8595611a273413f326d",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -175,42 +232,15 @@
             ]
           },
           "relatedTickers": [
-            "BEKE"
-          ]
-        },
-        {
-          "uuid": "d9c98750-9587-3df1-aaaf-243381705611",
-          "title": "Matthews Pacific Tiger Fund Reduces Alibaba Group Holding Ltd by 62.53%",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/matthews-pacific-tiger-fund-reduces-235654714.html",
-          "providerPublishTime": 1738972614,
-          "type": "STORY"
-        },
-        {
-          "uuid": "158da0be-145c-3271-8d2e-00b3d5cee514",
-          "title": "Why KE Holdings Inc. (BEKE) Is the Best Asian Stock to Invest in According to Analysts?",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/why-ke-holdings-inc-beke-220737459.html",
-          "providerPublishTime": 1738188457,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/c8XxXFXZYe611JFrtZFjwQ--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/52563327ecf23a32d0127af2ab7209e6",
-                "width": 1456,
-                "height": 816,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/kwMuPO3WpFuB1t20JKL2UA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/52563327ecf23a32d0127af2ab7209e6",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "BEKE"
+            "SMCI",
+            "TOL",
+            "AMAT",
+            "AMKR",
+            "CCJ",
+            "DUK",
+            "EIX",
+            "EME",
+            "ENB"
           ]
         }
       ],
@@ -218,8 +248,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 113,
-      "timeTakenForQuotes": 434,
+      "totalTime": 101,
+      "timeTakenForQuotes": 454,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

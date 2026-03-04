@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,30 +15,41 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:41 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:20 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "113",
+      "x-envoy-upstream-service-time": "103",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7e2lo59jrr9d9"
+      "y-rid": "3168nqhkqfmuc"
     },
     "bodyJson": {
       "explains": [],
       "count": 11,
       "quotes": [
         {
+          "exchange": "NGM",
+          "quoteType": "EQUITY",
+          "symbol": "XDEF",
+          "index": "quotes",
+          "score": 100001,
+          "typeDisp": "equity",
+          "longname": "Xtrackers Europe Defense Technologies ETF",
+          "exchDisp": "NASDAQ",
+          "isYahooFinance": true
+        },
+        {
           "exchange": "CCY",
           "shortname": "EUR/USD",
           "quoteType": "CURRENCY",
           "symbol": "EURUSD=X",
           "index": "quotes",
-          "score": 32217,
-          "typeDisp": "Currency",
+          "score": 32907,
+          "typeDisp": "currency",
           "longname": "EUR/USD",
           "exchDisp": "CCY",
           "isYahooFinance": true
@@ -49,21 +60,9 @@
           "quoteType": "CURRENCY",
           "symbol": "EURHUF=X",
           "index": "quotes",
-          "score": 30198,
-          "typeDisp": "Currency",
+          "score": 30280,
+          "typeDisp": "currency",
           "longname": "EUR/HUF",
-          "exchDisp": "CCY",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCY",
-          "shortname": "EUR/CHF",
-          "quoteType": "CURRENCY",
-          "symbol": "EURCHF=X",
-          "index": "quotes",
-          "score": 30169,
-          "typeDisp": "Currency",
-          "longname": "EUR/CHF",
           "exchDisp": "CCY",
           "isYahooFinance": true
         },
@@ -73,21 +72,21 @@
           "quoteType": "CURRENCY",
           "symbol": "GBPEUR=X",
           "index": "quotes",
-          "score": 30164,
-          "typeDisp": "Currency",
+          "score": 30205,
+          "typeDisp": "currency",
           "longname": "GBP/EUR",
           "exchDisp": "CCY",
           "isYahooFinance": true
         },
         {
           "exchange": "CCY",
-          "shortname": "EUR/RUB",
+          "shortname": "EUR/CHF",
           "quoteType": "CURRENCY",
-          "symbol": "EURRUB=X",
+          "symbol": "EURCHF=X",
           "index": "quotes",
-          "score": 30162,
-          "typeDisp": "Currency",
-          "longname": "EUR/RUB",
+          "score": 30179,
+          "typeDisp": "currency",
+          "longname": "EUR/CHF",
           "exchDisp": "CCY",
           "isYahooFinance": true
         },
@@ -106,79 +105,22 @@
       ],
       "news": [
         {
-          "uuid": "03f5d0ee-75ae-33fc-8d40-07cd0e98183d",
-          "title": "Orion Group Financial Statement Release January–December 2024",
+          "uuid": "923a4a33-fff3-3219-84be-e39487bf97f9",
+          "title": "Fourth quarter 2025 Results - EUR 208 million net income in Q4 2025, contributing to a strong full year net income of EUR 851 million - Proposed regular dividend of EUR 1.9 per share",
           "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/orion-group-financial-statement-release-100000435.html",
-          "providerPublishTime": 1740477600,
+          "link": "https://finance.yahoo.com/news/fourth-quarter-2025-results-eur-060100010.html",
+          "providerPublishTime": 1772604060,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/uM1TKcoTXesjvrzQzld48Q--~B/aD0wO3c9MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/bc0869187e6054f96fdb024ed1394a59",
-                "width": 0,
-                "height": 0,
-                "tag": "original"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "ORINF",
-            "ORINY"
-          ]
-        },
-        {
-          "uuid": "99466f06-3fb0-3d22-ada9-5b93571617e0",
-          "title": "Municipality Finance issues EUR 15 million notes under its MTN programme",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/municipality-finance-issues-eur-15-080000071.html",
-          "providerPublishTime": 1740470400,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/HGebLb8pdtVi_JQbkVgNVg--~B/aD0xNjg7dz03ODE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/8066303f52c0c67dd2dbb7811c614787",
-                "width": 781,
-                "height": 168,
+                "url": "https://s.yimg.com/uu/api/res/1.2/fDo9saRznlLJ6idfF_U3vw--~B/aD03MDt3PTI0ODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/374198528bce8edf7c101fac21f12fd0",
+                "width": 248,
+                "height": 70,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/mFq9hLNFIClOn5wF5zwZ6Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/8066303f52c0c67dd2dbb7811c614787",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "ca0363f3-da28-3316-987c-59e4154f598c",
-          "title": "Net Asset Value(s)",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/net-asset-value-104700831.html",
-          "providerPublishTime": 1740480420,
-          "type": "STORY",
-          "relatedTickers": [
-            "WSDMF"
-          ]
-        },
-        {
-          "uuid": "b498a966-e73e-370a-aabf-dfccbb307ef0",
-          "title": "BUREAU VERITAS - 2024 annual results - Bureau Veritas' LEAP | 28 strategy delivers outstanding results in 2024 ; confident 2025 outlook",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/bureau-veritas-2024-annual-results-063000786.html",
-          "providerPublishTime": 1740465000,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/j7ItUdm9l0aB6Z.cFYbQkQ--~B/aD0xMTY7dz05NDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/dd9f753f66506199aee80996b4d523d3",
-                "width": 94,
-                "height": 116,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/enFkricA73uVThnuue7ptA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/dd9f753f66506199aee80996b4d523d3",
+                "url": "https://s.yimg.com/uu/api/res/1.2/rZ.0MyeTAyZb56GoyIx2qA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/374198528bce8edf7c101fac21f12fd0",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -186,8 +128,67 @@
             ]
           },
           "relatedTickers": [
-            "BVRDF",
-            "BVVBY"
+            "SCR.PA"
+          ]
+        },
+        {
+          "uuid": "d3b9caa9-c394-3506-a436-9f7ce800e955",
+          "title": "ING Comments on Euro, Swiss Franc, Hungary's Forint",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/news/ing-comments-euro-swiss-franc-110536624.html",
+          "providerPublishTime": 1772535936,
+          "type": "STORY",
+          "relatedTickers": [
+            "EUR=X",
+            "EURHUF",
+            "EURUSD",
+            "$CXY",
+            "$EUR",
+            "EURCHF",
+            "CHF=X",
+            "HUF=X",
+            "NG=F",
+            "ING",
+            "DX-Y.NYB"
+          ]
+        },
+        {
+          "uuid": "7a6f6067-a566-3a0b-9606-bb2e3113e704",
+          "title": "FRN Variable Rate Fix",
+          "publisher": "Business Wire",
+          "link": "https://finance.yahoo.com/news/frn-variable-rate-fix-070000230.html",
+          "providerPublishTime": 1772607600,
+          "type": "STORY",
+          "relatedTickers": [
+            "XW00",
+            "DB"
+          ]
+        },
+        {
+          "uuid": "4ec06416-b9c2-3ae9-82da-1a209d913d9a",
+          "title": "IMCD releases 2025 Annual Report",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/news/imcd-releases-2025-annual-report-070000112.html",
+          "providerPublishTime": 1772607600,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/nYlBZNR7h3r8AKYdBINLrg--~B/aD04MTY7dz0yNzM2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/6982284d6864cfc045b9cae514548c0d",
+                "width": 2736,
+                "height": 816,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/EfpRfFJvZIBkZd7FupC3Ig--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/6982284d6864cfc045b9cae514548c0d",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "IMCD.AS"
           ]
         }
       ],
@@ -195,8 +196,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 107,
-      "timeTakenForQuotes": 455,
+      "totalTime": 100,
+      "timeTakenForQuotes": 454,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

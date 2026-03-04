@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "52",
+      "x-envoy-upstream-service-time": "69",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "35mthu9jrr9d7"
+      "y-rid": "4038pu9kqfmu5"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "AZT.OL",
           "index": "quotes",
-          "score": 2001100,
-          "typeDisp": "Equity",
+          "score": 10001500,
+          "typeDisp": "equity",
           "longname": "ArcticZymes Technologies ASA",
           "exchDisp": "Oslo",
           "sector": "Healthcare",
@@ -50,22 +50,22 @@
       ],
       "news": [
         {
-          "uuid": "b99aabd6-39b9-31a4-97a5-ac0de9ba9e1f",
-          "title": "Carter’s, Inc. Reports Fourth Quarter and Fiscal Year 2024 Results",
-          "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/carter-inc-reports-fourth-quarter-110900509.html",
-          "providerPublishTime": 1740481740,
+          "uuid": "1cb9a8ef-a210-3203-945d-4f207585d850",
+          "title": "InterContinental Hotels Group PLC Announces Transaction in Own Shares - March 04",
+          "publisher": "ACCESS Newswire",
+          "link": "https://finance.yahoo.com/news/intercontinental-hotels-group-plc-announces-070300426.html",
+          "providerPublishTime": 1772607780,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/3E99Pp9qeggggXdrLshlDA--~B/aD01MTI7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/9c94b73d20964c188809a8dc1f57e1ea",
-                "width": 1024,
-                "height": 512,
+                "url": "https://s.yimg.com/uu/api/res/1.2/.dUu0F1ql4Mq5poBz6U9ZA--~B/aD00MDA7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/accesswire.ca/19f38b649e0613540cb3d8c62a7b6d1d",
+                "width": 400,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/WnGUIRPOp6vr8np6qpkE3w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/9c94b73d20964c188809a8dc1f57e1ea",
+                "url": "https://s.yimg.com/uu/api/res/1.2/NADaJaK9.UhgHlb0x6reYA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/accesswire.ca/19f38b649e0613540cb3d8c62a7b6d1d",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -73,75 +73,64 @@
             ]
           },
           "relatedTickers": [
-            "CRI"
+            "IHG"
           ]
         },
         {
-          "uuid": "1070cee3-5d58-37ef-83db-87769b20f92e",
-          "title": "DeepSeek rushes to launch new AI model as China goes all in",
-          "publisher": "Reuters",
-          "link": "https://finance.yahoo.com/news/deepseek-rushes-launch-ai-model-110809099.html",
-          "providerPublishTime": 1740481689,
+          "uuid": "6090944f-dc21-3f12-a5bd-47451b54fd0e",
+          "title": "Endeavour Group Ltd (EDVGF) (H1 2026) Earnings Call Highlights: Strategic Growth Amidst Market ...",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/news/endeavour-group-ltd-edvgf-h1-070102562.html",
+          "providerPublishTime": 1772607662,
+          "type": "STORY",
+          "relatedTickers": [
+            "EDVGF",
+            "EDV.AX"
+          ]
+        },
+        {
+          "uuid": "07d5efd4-c548-32aa-94a5-2ea4bfd9bea9",
+          "title": "Transaction in Own Shares",
+          "publisher": "Business Wire",
+          "link": "https://finance.yahoo.com/news/transaction-own-shares-070000819.html",
+          "providerPublishTime": 1772607600,
+          "type": "STORY",
+          "relatedTickers": [
+            "YNGA.L",
+            "YNGN.L"
+          ]
+        },
+        {
+          "uuid": "0bd9c552-2ab5-3ec0-90f2-2672d282a883",
+          "title": "Avanci Launches Wi-Fi Licensing Platform and Inaugural Licensee",
+          "publisher": "Business Wire",
+          "link": "https://finance.yahoo.com/news/avanci-launches-wi-fi-licensing-070000029.html",
+          "providerPublishTime": 1772607600,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/XYY7ObnkWyohMezew2K6_Q--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/fe3ed15850e1ad6959fff5500c3ed42b",
-                "width": 800,
-                "height": 533,
+                "url": "https://s.yimg.com/uu/api/res/1.2/0Hh9lRpE3twS.yYrRlf1dw--~B/aD01MTI7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/a4044be6bf58d33abb782f37a32c01ef",
+                "width": 1024,
+                "height": 512,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/lXjBa8zboMTSpr4kXAFDZw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters-finance.com/fe3ed15850e1ad6959fff5500c3ed42b",
+                "url": "https://s.yimg.com/uu/api/res/1.2/d_c_cluQ4OzK4bRurmCCgA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/a4044be6bf58d33abb782f37a32c01ef",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
           }
-        },
-        {
-          "uuid": "f2f9ad61-e30a-356d-80f2-eb79a39c996e",
-          "title": "Issue of Debt",
-          "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/issue-debt-110800636.html",
-          "providerPublishTime": 1740481680,
-          "type": "STORY"
-        },
-        {
-          "uuid": "073c959d-7595-34af-8217-c0099b1b0dab",
-          "title": "Home Depot forecasts annual same-store sales growth below estimates",
-          "publisher": "Reuters",
-          "link": "https://finance.yahoo.com/news/home-depot-forecasts-annual-same-110623902.html",
-          "providerPublishTime": 1740481583,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/QhLG5v.RlqYnOEswPOvWNg--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/f383ad268d63cdabe209506a77749185",
-                "width": 800,
-                "height": 533,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/CKDmmqMgjfYbONVg4Wpskw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters-finance.com/f383ad268d63cdabe209506a77749185",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "HD"
-          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 50,
-      "timeTakenForQuotes": 442,
+      "totalTime": 67,
+      "timeTakenForQuotes": 432,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

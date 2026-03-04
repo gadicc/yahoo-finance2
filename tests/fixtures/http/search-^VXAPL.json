@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "1",
+      "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-length": "669",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:40 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:18 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "53",
+      "x-envoy-upstream-service-time": "119",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "3ah5ju5jrr9d9"
+      "y-rid": "7mv6111kqfmua"
     },
     "bodyJson": {
       "explains": [],
@@ -38,8 +38,8 @@
           "quoteType": "INDEX",
           "symbol": "^VXAPL",
           "index": "quotes",
-          "score": 2000200,
-          "typeDisp": "Index",
+          "score": 10001000,
+          "typeDisp": "index",
           "longname": "CBOE EQUITY VIXON APPLE",
           "exchDisp": "Chicago Board Options Exchange",
           "isYahooFinance": true
@@ -50,8 +50,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 50,
-      "timeTakenForQuotes": 423,
+      "totalTime": 117,
+      "timeTakenForQuotes": 445,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

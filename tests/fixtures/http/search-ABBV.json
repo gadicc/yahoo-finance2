@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:40 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:16 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "86",
+      "x-envoy-upstream-service-time": "88",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "085ck69jrr9d8"
+      "y-rid": "1mbt5s1kqfmu8"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "ABBV",
           "index": "quotes",
-          "score": 2086100,
-          "typeDisp": "Equity",
+          "score": 10485500,
+          "typeDisp": "equity",
           "longname": "AbbVie Inc.",
           "exchDisp": "NYSE",
           "sector": "Healthcare",
@@ -49,15 +49,27 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "NEO",
-          "shortname": "ABBVIE CDR (CAD HEDGED)",
+          "exchange": "BUE",
+          "shortname": "ABBVIE INC CEDEAR EA 10 REP 1 C",
           "quoteType": "EQUITY",
-          "symbol": "ABBV.NE",
+          "symbol": "ABBVD.BA",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "Equity",
+          "score": 20002,
+          "typeDisp": "equity",
           "longname": "AbbVie Inc.",
-          "exchDisp": "NEO",
+          "exchDisp": "Buenos Aires",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "MIL",
+          "shortname": "ABBVIE",
+          "quoteType": "EQUITY",
+          "symbol": "1ABBV.MI",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "equity",
+          "longname": "AbbVie Inc.",
+          "exchDisp": "Milan",
           "sector": "Healthcare",
           "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
@@ -65,39 +77,31 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "ABBV Dec 2025 130.000 put",
-          "quoteType": "OPTION",
-          "symbol": "ABBV251219P00130000",
+          "exchange": "IOB",
+          "shortname": "ABBVIE INC ABBVIE ORD SHS",
+          "quoteType": "EQUITY",
+          "symbol": "0QCV.IL",
           "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "ABBV Dec 2025 130.000 put",
-          "exchDisp": "OPR",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "AbbVie Inc.",
+          "exchDisp": "International Orderbook - London",
+          "sector": "Healthcare",
+          "sectorDisp": "Healthcare",
+          "industry": "Drug Manufacturers—General",
+          "industryDisp": "Drug Manufacturers—General",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "ABBV Dec 2025 100.000 call",
-          "quoteType": "OPTION",
-          "symbol": "ABBV251219C00100000",
-          "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Option",
-          "longname": "ABBV Dec 2025 100.000 call",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "FRA",
+          "exchange": "DUS",
           "shortname": "AbbVie Inc.                   R",
           "quoteType": "EQUITY",
-          "symbol": "4AB0.F",
+          "symbol": "4AB.DU",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Equity",
-          "longname": "AbbVie Inc.",
-          "exchDisp": "Frankfurt",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "AbbVie Inc",
+          "exchDisp": "Dusseldorf Stock Exchange",
           "sector": "Healthcare",
           "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
@@ -105,36 +109,40 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "ABBV Dec 2025 110.000 put",
-          "quoteType": "OPTION",
-          "symbol": "ABBV251219P00110000",
+          "exchange": "STU",
+          "shortname": "Abbvie Inc.",
+          "quoteType": "EQUITY",
+          "symbol": "4AB.SG",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "Option",
-          "longname": "ABBV Dec 2025 110.000 put",
-          "exchDisp": "OPR",
+          "score": 20001,
+          "typeDisp": "equity",
+          "longname": "AbbVie Inc",
+          "exchDisp": "Stuttgart",
+          "sector": "Healthcare",
+          "sectorDisp": "Healthcare",
+          "industry": "Drug Manufacturers—General",
+          "industryDisp": "Drug Manufacturers—General",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "8ecb211f-7f94-3f1e-937c-4df25d342a1e",
-          "title": "Sionna Therapeutics’ IPO: A strategic shift in the cystic fibrosis market",
-          "publisher": "Pharmaceutical Technology",
-          "link": "https://finance.yahoo.com/m/8ecb211f-7f94-3f1e-937c-4df25d342a1e/sionna-therapeutics%E2%80%99-ipo%3A-a.html",
-          "providerPublishTime": 1740481011,
+          "uuid": "8e2855c3-7a5e-3208-a8ed-220cdd9d49e7",
+          "title": "AbbVie to Present at the Leerink Partners Global Healthcare Conference",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/news/abbvie-present-leerink-partners-global-130000497.html",
+          "providerPublishTime": 1772542800,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/x6gfjRAiHVUSsvAyVxcG5g--~B/aD02Njc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/pharmaceutical_technology_376/8f878ddacb876ee635cba82747b1ef29",
-                "width": 1000,
-                "height": 667,
+                "url": "https://s.yimg.com/uu/api/res/1.2/ry5dCNLyqKbnHwZFz.2EhQ--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/571ec3911eb910d2b157b4e95bb90589",
+                "width": 16,
+                "height": 16,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/LFhIe9ST9fFJW_D60B4C5w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/pharmaceutical_technology_376/8f878ddacb876ee635cba82747b1ef29",
+                "url": "https://s.yimg.com/uu/api/res/1.2/jIgnkd_5PX5AvstNUbeyag--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/571ec3911eb910d2b157b4e95bb90589",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -142,28 +150,54 @@
             ]
           },
           "relatedTickers": [
-            "SION",
-            "VRTX",
+            "ABBV",
+            "META"
+          ]
+        },
+        {
+          "uuid": "7396615b-6c2b-3998-880f-34dfaab9b0af",
+          "title": "AbbVie’s New Data And Approval Test Growth And Valuation Story",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/abbvie-data-approval-test-growth-010640485.html",
+          "providerPublishTime": 1772500000,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/tWVhDwEErhILAVhl9pkulg--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4451284b0632c6e74466a63400764edd",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/NUu66dmVRK6qD4MRaxHiQQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4451284b0632c6e74466a63400764edd",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
             "ABBV"
           ]
         },
         {
-          "uuid": "b3a4d7ce-5b6d-3721-b26b-3e95fadc1004",
-          "title": "AbbVie Inc. (ABBV): Among S&P 500 Dividend Aristocrats List",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/abbvie-inc-abbv-among-p-141458395.html",
-          "providerPublishTime": 1740406498,
+          "uuid": "fc80d287-647b-3c58-9986-4778cd907b49",
+          "title": "Antibody-drug Conjugates (ADCs) in Oncology Market Competitive Landscape Report 2026: Comprehensive Insights About 200+ Companies and 220+ Drugs by Product Type, Stage, and Route of Administration",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/news/antibody-drug-conjugates-adcs-oncology-143400754.html",
+          "providerPublishTime": 1772548440,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/FoNkuu7lf_P.tZZeC8bUnA--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/c554ad8e2af773e2e2a8438bfe2291ee",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/HP.E8HUfnyGeLtMAKwLgAQ--~B/aD01ODt3PTQ4MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/93d5b27580f67db722dd7c112e43e8bc",
+                "width": 480,
+                "height": 58,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/.J2tpXvJL_XbfUWkXjY_OQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/c554ad8e2af773e2e2a8438bfe2291ee",
+                "url": "https://s.yimg.com/uu/api/res/1.2/KPtVInxraKsLNBMRw1U5aw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/93d5b27580f67db722dd7c112e43e8bc",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -171,27 +205,27 @@
             ]
           },
           "relatedTickers": [
-            "ABBV",
-            "^GSPC"
+            "378800.KQ",
+            "170900.KS"
           ]
         },
         {
-          "uuid": "b4c30d7a-ece0-3dec-8433-2eeaa428eab9",
-          "title": "The Zacks Analyst Blog Highlights AbbVie, Amgen, Stryker, Dexcom and Medtronic",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-abbvie-091700389.html",
-          "providerPublishTime": 1740388620,
+          "uuid": "acafe1b8-b12c-3760-af35-c19a356ed65f",
+          "title": "OSE narrows pipeline focus amid Boehringer MASH collaboration retreat",
+          "publisher": "Pharmaceutical Technology",
+          "link": "https://finance.yahoo.com/m/acafe1b8-b12c-3760-af35-c19a356ed65f/ose-narrows-pipeline-focus.html",
+          "providerPublishTime": 1772562427,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/zI61SzJlE3DzdNNCKbWKhw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/b7e497ea000cb0cc6dfcdc3b4048a92c",
-                "width": 635,
-                "height": 400,
+                "url": "https://s.yimg.com/uu/api/res/1.2/2S9c7WztvSRwEoekC52mzQ--~B/aD0xMzQwO3c9MjU2MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/pharmaceutical_technology_376/38cd50fbd0a259ace50b6de2bc159863",
+                "width": 2560,
+                "height": 1340,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/fR3lo3Xw5aV.z3zA8WxDEg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/b7e497ea000cb0cc6dfcdc3b4048a92c",
+                "url": "https://s.yimg.com/uu/api/res/1.2/ZY2KhVgdIrmFAOo4ZgeA4w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/pharmaceutical_technology_376/38cd50fbd0a259ace50b6de2bc159863",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -199,39 +233,7 @@
             ]
           },
           "relatedTickers": [
-            "ABBV",
-            "SYK",
-            "AMGN",
-            "DXCM",
-            "MDT"
-          ]
-        },
-        {
-          "uuid": "b678eca7-e1b7-37a7-9b39-d1f9eaad2198",
-          "title": "The Zacks Analyst Blog Highlights Merck, Sanofi, Regeneron and Ionis",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-merck-094600312.html",
-          "providerPublishTime": 1740390360,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/1YvkxNLsEvDesNn9Nqp_Qw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/df847a6f57145ec8b42be7c65f980057",
-                "width": 635,
-                "height": 400,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/xHdQenrLUaDb1bS06a7i2Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/df847a6f57145ec8b42be7c65f980057",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "SNY",
-            "REGN"
+            "ABBV"
           ]
         }
       ],
@@ -239,8 +241,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 83,
-      "timeTakenForQuotes": 434,
+      "totalTime": 86,
+      "timeTakenForQuotes": 442,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

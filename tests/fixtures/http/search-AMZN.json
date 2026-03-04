@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Tue, 25 Feb 2025 11:12:39 GMT",
+      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "86",
+      "x-envoy-upstream-service-time": "53",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1m65h3hjrr9d7"
+      "y-rid": "7d7pa6pkqfmu5"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "AMZN",
           "index": "quotes",
-          "score": 2748400,
-          "typeDisp": "Equity",
+          "score": 13072000,
+          "typeDisp": "equity",
           "longname": "Amazon.com, Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Consumer Cyclical",
@@ -49,99 +49,111 @@
           "isYahooFinance": true
         },
         {
+          "exchange": "OPR",
+          "shortname": "AMZN Jan 2027 265.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AMZN270115C00265000",
+          "index": "quotes",
+          "score": 20006,
+          "typeDisp": "option",
+          "longname": "AMZN Jan 2027 265.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OPR",
+          "shortname": "AMZN Jan 2027 245.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AMZN270115C00245000",
+          "index": "quotes",
+          "score": 20006,
+          "typeDisp": "option",
+          "longname": "AMZN Jan 2027 245.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
           "exchange": "NGM",
           "shortname": "Direxion Daily AMZN Bull 2X Sha",
           "quoteType": "ETF",
           "symbol": "AMZU",
           "index": "quotes",
-          "score": 20015,
-          "typeDisp": "ETF",
+          "score": 20004,
+          "typeDisp": "etf",
           "longname": "Direxion Daily AMZN Bull 2X Shares",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
         },
         {
+          "exchange": "OPR",
+          "shortname": "AMZN Jun 2026 180.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AMZN260618C00180000",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "option",
+          "longname": "AMZN Jun 2026 180.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
           "exchange": "PCX",
-          "shortname": "Tidal ETF Trust II YieldMax AMZ",
+          "shortname": "YieldMax AMZN Option Income Str",
           "quoteType": "ETF",
           "symbol": "AMZY",
           "index": "quotes",
-          "score": 20014,
-          "typeDisp": "ETF",
+          "score": 20003,
+          "typeDisp": "etf",
           "longname": "YieldMax AMZN Option Income Strategy ETF",
           "exchDisp": "NYSEArca",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "MEX",
-          "shortname": "AMAZON COM INC",
-          "quoteType": "EQUITY",
-          "symbol": "AMZN.MX",
-          "index": "quotes",
-          "score": 20007,
-          "typeDisp": "Equity",
-          "longname": "Amazon.com, Inc.",
-          "exchDisp": "Mexico",
-          "sector": "Consumer Cyclical",
-          "sectorDisp": "Consumer Cyclical",
-          "industry": "Internet Retail",
-          "industryDisp": "Internet Retail",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AMZN Jan 2026 115.000 put",
-          "quoteType": "OPTION",
-          "symbol": "AMZN260116P00115000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "AMZN Jan 2026 115.000 put",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AMZN Jan 2026 220.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AMZN260116C00220000",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "Option",
-          "longname": "AMZN Jan 2026 220.000 call",
-          "exchDisp": "OPR",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "8ebe49b5-d64d-3362-b53c-2e66b6ccfc58",
-          "title": "Wells Fargo Adjusts Price Target on Amazon.com to $203 From $207, Maintains Equalweight Rating",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/wells-fargo-adjusts-price-target-101638177.html",
-          "providerPublishTime": 1740478598,
+          "uuid": "5c943351-b533-3ea7-95b2-f55967cec7df",
+          "title": "Is Amazon.com (AMZN) Still Attractively Priced After Recent 12.8% Pullback?",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/news/amazon-com-amzn-still-attractively-050941840.html",
+          "providerPublishTime": 1772600981,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/hsVjZ4ukG2SIP4a4o0eS8g--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/eb1b720f52f53b83d71833696a788156",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/hGMAgozFAnoH9DTcRSjx0Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/eb1b720f52f53b83d71833696a788156",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
             "AMZN"
           ]
         },
         {
-          "uuid": "c1de8c8c-ac69-337f-910c-4deae0b30d40",
-          "title": "Amazon.com, Inc. (AMZN) Is a Trending Stock: Facts to Know Before Betting on It",
+          "uuid": "af28c7cd-10dc-3323-a6c0-bb25bba1578d",
+          "title": "Amazon Taps OpenAI to Boost AI Footprint: More Upside Ahead?",
           "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/amazon-com-inc-amzn-trending-140017035.html",
-          "providerPublishTime": 1740405617,
+          "link": "https://finance.yahoo.com/news/amazon-taps-openai-boost-ai-131000474.html",
+          "providerPublishTime": 1772543400,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/YliGu3uiWo7T6YkWQuaEpA--~B/aD02MDE7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/62d8c8e05376a18ba1420a1733ffdda4",
-                "width": 900,
-                "height": 601,
+                "url": "https://s.yimg.com/uu/api/res/1.2/niJ60eGZQfojyMkBQiZm1Q--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/ae16b860501e504815b944ed35f1e848",
+                "width": 635,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/7CzRl1qWfIp6OHUqiEloWA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/62d8c8e05376a18ba1420a1733ffdda4",
+                "url": "https://s.yimg.com/uu/api/res/1.2/BeeTYqaO8jDggvDkjBjoXQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/ae16b860501e504815b944ed35f1e848",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -149,55 +161,40 @@
             ]
           },
           "relatedTickers": [
+            "MSFT",
+            "NVDA",
             "AMZN"
           ]
         },
         {
-          "uuid": "f8f29402-b6d8-38c2-8f16-a18bd7f1954c",
-          "title": "3 Growth Stocks Wall Street Might Be Sleeping On, but I'm Not",
-          "publisher": "Motley Fool",
-          "link": "https://finance.yahoo.com/m/f8f29402-b6d8-38c2-8f16-a18bd7f1954c/3-growth-stocks-wall-street.html",
-          "providerPublishTime": 1740473100,
+          "uuid": "661b0e06-82b9-3613-9a70-38b6001a493b",
+          "title": "Market Chatter: Amazon Weighs Helping Other Apps Sell Chatbot Ads",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/news/market-chatter-amazon-weighs-helping-153706054.html",
+          "providerPublishTime": 1772552226,
           "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/gilbWz8XrNJKJGJYA_TMNA--~B/aD05MzM7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/06846edb151359a94feb7693fd247977",
-                "width": 1400,
-                "height": 933,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/wLod0jrJUq3_olhFPoYfVg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/06846edb151359a94feb7693fd247977",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
           "relatedTickers": [
             "AMZN",
-            "ELF",
-            "PM"
+            "PINS"
           ]
         },
         {
-          "uuid": "b2daf203-3047-3745-b516-59dc0dd5abca",
-          "title": "Is Amazon.com, Inc. (AMZN) Among Warren Buffett’s Growth Stock Picks?",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/amazon-com-inc-amzn-among-202209258.html",
-          "providerPublishTime": 1740428529,
+          "uuid": "f10d30b4-54c8-3653-997d-fa74c7093dc9",
+          "title": "Tesla vs. Amazon: Which AI Stock Is the Better Buy Now?",
+          "publisher": "Motley Fool",
+          "link": "https://finance.yahoo.com/m/f10d30b4-54c8-3653-997d-fa74c7093dc9/tesla-vs.-amazon%3A-which-ai.html",
+          "providerPublishTime": 1772592180,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/pPqnw_f5ocAlq67trfHI3Q--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/226ed9ed0936942adb97f3d56073e411",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/r7tvtXJXbHfvc3E81sjM9A--~B/aD04MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7b70bd8ea30ddfbdffd6acc2135f9828",
+                "width": 1200,
+                "height": 800,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/PCHzye.KfUEayfK16aZCyQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/226ed9ed0936942adb97f3d56073e411",
+                "url": "https://s.yimg.com/uu/api/res/1.2/722YoCBaQMuO3bd51Ei5Ig--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7b70bd8ea30ddfbdffd6acc2135f9828",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -205,7 +202,10 @@
             ]
           },
           "relatedTickers": [
-            "AMZN"
+            "TSLA",
+            "AMZN",
+            "NVDA",
+            "INTC"
           ]
         }
       ],
@@ -213,8 +213,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 83,
-      "timeTakenForQuotes": 438,
+      "totalTime": 49,
+      "timeTakenForQuotes": 439,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,
