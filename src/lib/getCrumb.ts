@@ -206,7 +206,7 @@ export async function _getCrumb(
           collectConsentSubmitResponse.headers.get("location");
         if (!collectConsentSubmitResponseLocation) {
           throw new Error(
-            "collectConsentSubmitResponse unexpectedly did not return a Location header, please report.",
+            "collectConsentSubmitResponse(1) unexpectedly did not return a Location header, please report.",
           );
         }
 
@@ -250,7 +250,7 @@ export async function _getCrumb(
         );
         if (!copyConsentResponseLocation) {
           throw new Error(
-            "collectConsentSubmitResponse unexpectedly did not return a Location header, please report.",
+            "collectConsentSubmitResponse(2) unexpectedly did not return a Location header, please report.",
           );
         }
 
