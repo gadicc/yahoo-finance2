@@ -660,6 +660,13 @@ export interface ScreenerOptions {
   region?: string;
   scrIds: PredefinedScreenerModules;
   count?: number;
+  /**
+   * Pagination start index. Matches Yahoo's `start` query param.
+   * Use together with `count` to page through screener results.
+   *
+   * Example: `{ count: 25, start: 25 }` to fetch the second page of 25 results.
+   */
+  start?: number;
 }
 
 /**

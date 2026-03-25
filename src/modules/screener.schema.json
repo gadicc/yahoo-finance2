@@ -3031,27 +3031,30 @@
         "undervalued_large_caps"
       ]
     },
-    "ScreenerOptions": {
-      "type": "object",
-      "properties": {
-        "lang": {
-          "type": "string"
+        "ScreenerOptions": {
+          "type": "object",
+          "properties": {
+            "lang": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "scrIds": {
+              "$ref": "#/definitions/PredefinedScreenerModules"
+            },
+            "count": {
+              "type": "number"
+            },
+            "start": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "scrIds"
+          ],
+          "additionalProperties": false
         },
-        "region": {
-          "type": "string"
-        },
-        "scrIds": {
-          "$ref": "#/definitions/PredefinedScreenerModules"
-        },
-        "count": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "scrIds"
-      ],
-      "additionalProperties": false
-    },
     "screener": {}
   }
 }
