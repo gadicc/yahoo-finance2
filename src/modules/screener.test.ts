@@ -42,6 +42,16 @@ describe("screener", () => {
     },
   );
 
+  it("supports pagination with start option", async (t, onFinish) => {
+    await yf.screener(
+      { scrIds: "most_actives", count: 5, start: 5 },
+      undefined,
+      {
+        devel: { id: "screener-most_actives", t, onFinish },
+      },
+    );
+  });
+
   // Test for using just the screener name as an argument w/o options obj
   it.each(["aggressive_small_caps"])(
     "passes validation for predefined screener '%s'",
