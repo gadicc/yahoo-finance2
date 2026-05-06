@@ -16,8 +16,8 @@ You are reading the latest **Development docs**. For the **v2 docs**, click
 the process of being updated for the upcoming **v3** - for more info see
 [UPGRADING](./docs/UPGRADING.md).
 
-[Live Demo on CodeSandbox](https://codesandbox.io/p/devbox/yahoo-finance2-nextjs-forked-233dsg)
-(Updated 2024-06-17; NextJS with both RSC and Hook-Relay examples)
+[Live Demo on CodeSandbox](https://codesandbox.io/p/devbox/gxvftx) (Updated
+2024-06-17; NextJS with both RSC and Hook-Relay examples)
 
 NB: Recently **the repo was renamed** from `node-yahoo-finance2` to
 `yahoo-finance2`, and the following **branches were named**, `master` to `main`,
