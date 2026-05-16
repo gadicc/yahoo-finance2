@@ -171,11 +171,23 @@ export function fetchDevel() {
         // `onFinish` is provided by `wrappedIt` above.  It allows us to
         // provide a callback for when the test is finished, with the
         // test status (undefined on pass, actual test error on fail),
-        devel.onFinish((error?: unknown) => {
-          // This resolves the `writeCache` promise above.
-          // Pass = don't write the cache, fail = write the cache.
-          resolve(!!error);
-        });
+        if (devel.onFinish) {
+          devel.onFinish((error?: unknown) => {
+            // This resolves the `writeCache` promise above.
+            // Pass = don't write the cache, fail = write the cache.
+            resolve(!!error);
+          });
+        } else if (devel.id.startsWith("getCrumb-")) {
+          // getCrumb specific tests will have onFinish set, but, when calling
+          // getCrumb as part of other tests, we don't want to require
+          // onFinish to be set.
+        } else {
+          console.trace(
+            "FETCH_DEVEL_RECACHE is set but no onFinish callback provided for test:",
+            devel,
+          );
+          setTimeout(() => resolve(true), 0);
+        }
 
         fetchCache._once({ id: devel.id, readCache: false, writeCache });
       } else {

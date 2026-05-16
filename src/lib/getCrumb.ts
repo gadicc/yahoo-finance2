@@ -46,6 +46,10 @@ export async function _getCrumb(
   url = "https://finance.yahoo.com/quote/AAPL",
   develOverride: Partial<YahooFinanceFetchModuleOptions["devel"]> = {
     id: "getCrumb-quote-AAPL",
+    // By default, unset onFinish, so that a failing test calling getCrumb
+    // won't "fail" this call (which isn't actually a test) and, e.g., in
+    // the case of FETCH_DEVEL=recache, won't rewrite the json with this id.
+    onFinish: undefined,
   },
   noCache = false,
 ): Promise<string | null> {
