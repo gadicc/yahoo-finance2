@@ -313,7 +313,8 @@ export type ScreenerCriteriaFieldsFund =
   | "performanceratingoverall"
   | "exchange"
   | "riskratingoverall"
-  | "initialinvestment";
+  | "initialinvestment"
+  | "fiftytwowkpercentchange";
 
 export interface ScreenerResultConservativeForeignFunds
   extends ScreenerResultBase {
@@ -597,7 +598,7 @@ export interface ScreenerQuote {
   exchange: string;
   fiftyTwoWeekLow: number;
   fiftyTwoWeekHigh: number;
-  shortName: string;
+  shortName?: string;
   averageAnalystRating?: string;
   regularMarketChangePercent: number;
   symbol: string;
@@ -626,6 +627,7 @@ export interface ScreenerQuote {
   preMarketChangePercent?: number; // -0.34723017
   preMarketTime?: Date; // 1740480444
   preMarketPrice?: number; // 2.87
+  impliedSharesOutstanding?: number; // 372018894
 }
 
 /**

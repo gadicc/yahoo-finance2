@@ -479,6 +479,9 @@
         },
         "preMarketPrice": {
           "type": "number"
+        },
+        "impliedSharesOutstanding": {
+          "type": "number"
         }
       },
       "required": [
@@ -521,7 +524,6 @@
         "exchange",
         "fiftyTwoWeekLow",
         "fiftyTwoWeekHigh",
-        "shortName",
         "regularMarketChangePercent",
         "symbol"
       ],
@@ -742,7 +744,8 @@
         "trailing_3m_return",
         "annualreturnnavy1categoryrank",
         "categoryname",
-        "initialinvestment"
+        "initialinvestment",
+        "fiftytwowkpercentchange"
       ]
     },
     "ScreenerResultConservativeForeignFunds": {
@@ -3031,30 +3034,30 @@
         "undervalued_large_caps"
       ]
     },
-        "ScreenerOptions": {
-          "type": "object",
-          "properties": {
-            "lang": {
-              "type": "string"
-            },
-            "region": {
-              "type": "string"
-            },
-            "scrIds": {
-              "$ref": "#/definitions/PredefinedScreenerModules"
-            },
-            "count": {
-              "type": "number"
-            },
-            "start": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "scrIds"
-          ],
-          "additionalProperties": false
+    "ScreenerOptions": {
+      "type": "object",
+      "properties": {
+        "lang": {
+          "type": "string"
         },
+        "region": {
+          "type": "string"
+        },
+        "scrIds": {
+          "$ref": "#/definitions/PredefinedScreenerModules"
+        },
+        "count": {
+          "type": "number"
+        },
+        "start": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "scrIds"
+      ],
+      "additionalProperties": false
+    },
     "screener": {}
   }
 }
