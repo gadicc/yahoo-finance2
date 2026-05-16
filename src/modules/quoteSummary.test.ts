@@ -278,7 +278,7 @@ describe("quoteSummary", () => {
     });
   });
 
-  describe.only("time-dependent output", () => {
+  describe("time-dependent output", () => {
     it("handles time-dependent output", async (t, onFinish) => {
       await yf.quoteSummary(
         "AAPL",
