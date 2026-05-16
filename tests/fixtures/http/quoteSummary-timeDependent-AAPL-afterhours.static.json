@@ -1,0 +1,77 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/AAPL?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "GUCS=AV78X-IQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "1",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "962",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Sat, 16 May 2026 08:56:19 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "4tibkq1l0gc9k"
+    },
+    "bodyJson": {
+      "quoteSummary": {
+        "result": [
+          {
+            "price": {
+              "maxAge": 1,
+              "preMarketSource": "FREE_REALTIME",
+              "postMarketChangePercent": -0.0012790284,
+              "postMarketChange": -0.3840027,
+              "postMarketTime": 1778889584,
+              "postMarketPrice": 299.846,
+              "postMarketSource": "FREE_REALTIME",
+              "regularMarketChangePercent": 0.0067737103,
+              "regularMarketChange": 2.01999,
+              "regularMarketTime": 1778875201,
+              "priceHint": 2,
+              "regularMarketPrice": 300.23,
+              "regularMarketDayHigh": 303.2,
+              "regularMarketDayLow": 296.53,
+              "regularMarketVolume": 54675423,
+              "regularMarketPreviousClose": 298.21002,
+              "regularMarketSource": "FREE_REALTIME",
+              "regularMarketOpen": 297.755,
+              "exchange": "NMS",
+              "exchangeName": "NasdaqGS",
+              "exchangeDataDelayedBy": 0,
+              "marketState": "CLOSED",
+              "quoteType": "EQUITY",
+              "symbol": "AAPL",
+              "underlyingSymbol": null,
+              "shortName": "Apple Inc.",
+              "longName": "Apple Inc.",
+              "currency": "USD",
+              "quoteSourceName": "Nasdaq Real Time Price",
+              "currencySymbol": "$",
+              "fromCurrency": null,
+              "toCurrency": null,
+              "lastMarket": null,
+              "marketCap": 4409585041408
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

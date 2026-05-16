@@ -277,4 +277,22 @@ describe("quoteSummary", () => {
       );
     });
   });
+
+  describe.only("time-dependent output", () => {
+    it("handles time-dependent output", async (t, onFinish) => {
+      await yf.quoteSummary(
+        "AAPL",
+        {
+          modules: ["price"],
+        },
+        {
+          devel: {
+            id: "quoteSummary-timeDependent-AAPL-afterhours.static",
+            t,
+            onFinish,
+          },
+        },
+      );
+    });
+  });
 });

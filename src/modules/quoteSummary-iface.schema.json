@@ -2193,21 +2193,8 @@
         "maxAge": {
           "type": "number"
         },
-        "postMarketChangePercent": {
+        "priceHint": {
           "type": "number"
-        },
-        "postMarketChange": {
-          "type": "number"
-        },
-        "postMarketTime": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "postMarketPrice": {
-          "type": "number"
-        },
-        "postMarketSource": {
-          "type": "string"
         },
         "preMarketChangePercent": {
           "type": "number"
@@ -2224,9 +2211,6 @@
         },
         "preMarketSource": {
           "type": "string"
-        },
-        "priceHint": {
-          "type": "number"
         },
         "regularMarketChangePercent": {
           "type": "number"
@@ -2258,6 +2242,38 @@
         },
         "regularMarketOpen": {
           "type": "number"
+        },
+        "postMarketChangePercent": {
+          "type": "number"
+        },
+        "postMarketChange": {
+          "type": "number"
+        },
+        "postMarketTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "postMarketPrice": {
+          "type": "number"
+        },
+        "postMarketSource": {
+          "type": "string"
+        },
+        "overnightMarketChangePercent": {
+          "type": "number"
+        },
+        "overnightMarketChange": {
+          "type": "number"
+        },
+        "overnightMarketTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "overnightMarketPrice": {
+          "type": "number"
+        },
+        "overnightMarketSource": {
+          "type": "string"
         },
         "quoteSourceName": {
           "type": "string"

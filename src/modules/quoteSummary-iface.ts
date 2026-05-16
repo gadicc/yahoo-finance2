@@ -671,17 +671,14 @@ export interface Price {
   exchangeName?: string;
   exchangeDataDelayedBy?: number;
   maxAge: number;
-  postMarketChangePercent?: number;
-  postMarketChange?: number;
-  postMarketTime?: Date;
-  postMarketPrice?: number;
-  postMarketSource?: string;
+  priceHint: number;
+
   preMarketChangePercent?: number;
   preMarketChange?: number;
   preMarketTime?: Date;
   preMarketPrice?: number;
   preMarketSource?: string;
-  priceHint: number;
+
   regularMarketChangePercent?: number;
   regularMarketChange?: number;
   regularMarketTime?: Date;
@@ -692,6 +689,18 @@ export interface Price {
   regularMarketPreviousClose?: number;
   regularMarketSource?: string;
   regularMarketOpen?: number;
+
+  postMarketChangePercent?: number;
+  postMarketChange?: number;
+  postMarketTime?: Date;
+  postMarketPrice?: number;
+  postMarketSource?: string;
+
+  overnightMarketChangePercent?: number;
+  overnightMarketChange?: number;
+  overnightMarketTime?: Date;
+  overnightMarketPrice?: number;
+  overnightMarketSource?: string;
 
   quoteSourceName?: string;
   quoteType: string;
