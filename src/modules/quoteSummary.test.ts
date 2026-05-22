@@ -279,7 +279,7 @@ describe("quoteSummary", () => {
   });
 
   describe("time-dependent output", () => {
-    it("handles time-dependent output", async (t, onFinish) => {
+    it("after hours", async (t, onFinish) => {
       await yf.quoteSummary(
         "AAPL",
         {
@@ -288,6 +288,21 @@ describe("quoteSummary", () => {
         {
           devel: {
             id: "quoteSummary-timeDependent-AAPL-afterhours.static",
+            t,
+            onFinish,
+          },
+        },
+      );
+    });
+    it("overnight", async (t, onFinish) => {
+      await yf.quoteSummary(
+        "AAPL",
+        {
+          modules: ["price"],
+        },
+        {
+          devel: {
+            id: "quoteSummary-timeDependent-AAPL-overnight.static",
             t,
             onFinish,
           },
