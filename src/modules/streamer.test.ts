@@ -1,10 +1,4 @@
-import {
-  createTestYahooFinance,
-  describe,
-  expect,
-  it,
-  setupCache,
-} from "../../tests/common.ts";
+import { describe, expect, it, setupCache } from "../../tests/common.ts";
 
 import { decodeTypedMarketMessage } from "./streamer.ts";
 

@@ -630,7 +630,6 @@ export function parseProtobufFields(bytes: Uint8Array): ParsedProtobufField[] {
           throw new Error("Length-delimited field length was undefined");
         }
 
-        const valueStartOffset = offset;
         ensureAvailable(bytes, offset, length);
 
         const rawValueBytes = bytes.slice(offset, offset + length);
