@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:19 GMT",
+      "date": "Thu, 28 May 2026 08:25:41 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "123",
+      "x-envoy-decorator-operation": "finance-search--mtls-canary-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "80",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "22i5p5lkqfmub"
+      "y-rid": "1ggitg9l1fv05"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "EQUITY",
           "symbol": "BMW.DE",
           "index": "quotes",
-          "score": 20067,
-          "typeDisp": "equity",
+          "score": 20034,
+          "typeDisp": "Equity",
           "longname": "Bayerische Motoren Werke Aktiengesellschaft",
           "exchDisp": "XETRA",
           "sector": "Consumer Cyclical",
@@ -49,26 +49,15 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "DXE",
+          "exchange": "PNK",
           "shortname": "Bayerische Motoren Werke AG",
           "quoteType": "EQUITY",
-          "symbol": "BMWD.XD",
+          "symbol": "BAMXF",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
-          "exchDisp": "DXE",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "MUN",
-          "shortname": "BAYERISCHE MOTOREN WERKE AG   V",
-          "quoteType": "EQUITY",
-          "symbol": "BMW3.MU",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
-          "longname": "Bayerische Motoren Werke AG",
-          "exchDisp": "Munich",
+          "score": 20003,
+          "typeDisp": "Equity",
+          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
+          "exchDisp": "OTC Markets",
           "sector": "Consumer Cyclical",
           "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
@@ -81,8 +70,8 @@
           "quoteType": "EQUITY",
           "symbol": "BMWKY",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
+          "score": 20003,
+          "typeDisp": "Equity",
           "exchDisp": "OTC Markets",
           "sector": "Consumer Cyclical",
           "sectorDisp": "Consumer Cyclical",
@@ -91,15 +80,27 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "FRA",
-          "shortname": "BAYERISCHE MOTOREN WERKE AG   S",
+          "exchange": "CXE",
+          "shortname": "Bayerische Motoren Werke AG",
           "quoteType": "EQUITY",
-          "symbol": "BMW.F",
+          "symbol": "BMW3D.XC",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "Equity",
+          "longname": "Bayerische Motoren Werke Aktiengesellschaft",
+          "exchDisp": "CXE",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CXE",
+          "shortname": "Bayerische Motoren Werke AG",
+          "quoteType": "EQUITY",
+          "symbol": "BMWD.XC",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "Bayerische Motoren Werke Aktiengesellschaft",
-          "exchDisp": "Frankfurt",
+          "exchDisp": "CXE",
           "sector": "Consumer Cyclical",
           "sectorDisp": "Consumer Cyclical",
           "industry": "Auto Manufacturers",
@@ -107,63 +108,53 @@
           "isYahooFinance": true
         },
         {
-          "exchange": "DXE",
-          "shortname": "Bayerische Motoren Werke AG",
+          "exchange": "HAN",
+          "shortname": "BAYERISCHE MOTOREN WERKE AG   S",
           "quoteType": "EQUITY",
-          "symbol": "BMW3D.XD",
+          "symbol": "BMW.HA",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
-          "exchDisp": "DXE",
+          "typeDisp": "Equity",
+          "longname": "Bayerische Motoren Werke AG",
+          "exchDisp": "Hanover",
+          "sector": "Consumer Cyclical",
+          "sectorDisp": "Consumer Cyclical",
+          "industry": "Auto Manufacturers",
+          "industryDisp": "Auto Manufacturers",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "04f09240-d586-3757-b7b5-2309a330fd56",
-          "title": "CATL and BMW to deepen cooperation on batteries data",
-          "publisher": "Just Auto",
-          "link": "https://finance.yahoo.com/m/04f09240-d586-3757-b7b5-2309a330fd56/catl-and-bmw-to-deepen.html",
-          "providerPublishTime": 1772545085,
+          "uuid": "368f642a-2fc9-33a5-af92-c977eb2eddaf",
+          "title": "Huawei-Backed Maextro Delivers 17,000 Luxury EVs As China Targets Rolls-Royce",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/huawei-backed-maextro-delivers-17-164736478.html",
+          "providerPublishTime": 1779814056,
           "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/oh7ULdDxc0tIvs.TTCeWjQ--~B/aD0zMTU7dz01NzM7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/just_auto_187/87ba7ffcb670eee271bc0968632795fd",
-                "width": 573,
-                "height": 315,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/6hVnf3_BoxAkWXyTV1pAnQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_auto_187/87ba7ffcb670eee271bc0968632795fd",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
           "relatedTickers": [
-            "300750.SZ",
+            "RR.L",
+            "MBGAF",
             "BMW.DE"
           ]
         },
         {
-          "uuid": "6a424739-ad23-336e-bfc7-13f59a82f358",
-          "title": "Battery Passport Industry Research 2025-2035: Minespider, AVL, Siemens, Circulor, and Optel Group Market Shares, Growth Strategies, and Service Offerings",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/battery-passport-industry-research-2025-091000457.html",
-          "providerPublishTime": 1772529000,
-          "type": "STORY",
+          "uuid": "a43a37ad-029f-4141-97c0-f6d297d610d4",
+          "title": "'Walmart's a canary in the coal mine' as inflation tests consumers",
+          "publisher": "Yahoo Finance Video",
+          "link": "https://finance.yahoo.com/video/walmarts-a-canary-in-the-coal-mine-as-inflation-tests-consumers-144614775.html",
+          "providerPublishTime": 1779461174,
+          "type": "VIDEO",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/gMfALsckrJe.7yN.FAN2cw--~B/aD00MDA7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/988208b1e5b33ce9a360bc28edfdf186",
-                "width": 600,
-                "height": 400,
+                "url": "https://s.yimg.com/uu/api/res/1.2/xI4MW7PNze885TTf5fNZIw--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://cf-images.us-east-1.prod.boltdns.net/v1/jit/6415665815001/33fac997-7f96-46b0-a354-7bb6b226b37b/main/1280x720/1m49s679ms/match/image.jpg",
+                "width": 1280,
+                "height": 720,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/b2_m9tBorlg9IOGcuwESUg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/988208b1e5b33ce9a360bc28edfdf186",
+                "url": "https://s.yimg.com/uu/api/res/1.2/iTYr57K7Dgxf2uhRhBwR8g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://cf-images.us-east-1.prod.boltdns.net/v1/jit/6415665815001/33fac997-7f96-46b0-a354-7bb6b226b37b/main/1280x720/1m49s679ms/match/image.jpg",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -171,28 +162,29 @@
             ]
           },
           "relatedTickers": [
-            "SIE.DE",
+            "WMT",
+            "CL=F",
             "BMW.DE",
-            "MBG.DE"
+            "TGT"
           ]
         },
         {
-          "uuid": "dff848e6-ca17-30e1-8138-e6a8893be0c8",
-          "title": "AI doubled auto industry cyberattacks: Upstream",
-          "publisher": "Wards Auto",
-          "link": "https://finance.yahoo.com/m/dff848e6-ca17-30e1-8138-e6a8893be0c8/ai-doubled-auto-industry.html",
-          "providerPublishTime": 1772523878,
+          "uuid": "4f17d814-6b71-3d94-bcdc-7af81bb4278d",
+          "title": "BMW Neue Klasse Progress Puts iX3 Demand And Margins In Focus",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/bmw-neue-klasse-progress-puts-051121705.html",
+          "providerPublishTime": 1778821881,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/.D_3cZLufDP6UBh8xCAWqg--~B/aD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wards_auto_520/0f519629823a18cccba3384c24d9e448",
-                "width": 1600,
-                "height": 900,
+                "url": "https://s.yimg.com/uu/api/res/1.2/z46._1NqkzpdDjtd7iVayw--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/30d4f01f102c1007a1955cee0afea4fe",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/LcMd2pNU8YEpj4hk.2cRWQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wards_auto_520/0f519629823a18cccba3384c24d9e448",
+                "url": "https://s.yimg.com/uu/api/res/1.2/Z2c22UJrSSCfciAdEn45iA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/30d4f01f102c1007a1955cee0afea4fe",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -200,30 +192,27 @@
             ]
           },
           "relatedTickers": [
-            "RNO.PA",
-            "7201.T",
-            "005380.KS",
-            "8058.T",
-            "BMW.DE"
+            "BMW.DE",
+            "BMW3.DE"
           ]
         },
         {
-          "uuid": "24071b15-e018-32f4-b7cc-d39820dd7255",
-          "title": "Joint Evaluation Agreement With Samsung SDI and BMW Supports Solid Power, Inc. (SLDP) Battery Validation",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/joint-evaluation-agreement-samsung-sdi-174412062.html",
-          "providerPublishTime": 1772473452,
+          "uuid": "3599f75b-0190-3e25-8e8a-3e85b22e5b80",
+          "title": "NetSol Technologies, Inc. Q3 2026 Earnings Call Summary",
+          "publisher": "Moby",
+          "link": "https://finance.yahoo.com/m/3599f75b-0190-3e25-8e8a-3e85b22e5b80/netsol-technologies%2C-inc.-q3.html",
+          "providerPublishTime": 1778778147,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/Jytug6DboTIQaoHpVjW.Ag--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/196477c8461c2584c40212fc3ff6b277",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/h4n1.IgakJRreid.be0IRA--~B/aD02NzU7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/moby_896/0327de45913872b1afcaafe9c482806f",
+                "width": 1200,
+                "height": 675,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/Od7Q_yu4G_Pdust3ERzkkA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/196477c8461c2584c40212fc3ff6b277",
+                "url": "https://s.yimg.com/uu/api/res/1.2/0psTZy7QVOAnSGXKQmfQoQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/moby_896/0327de45913872b1afcaafe9c482806f",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -231,9 +220,10 @@
             ]
           },
           "relatedTickers": [
-            "SLDP",
-            "006400.KS",
-            "BMW.DE"
+            "NVDA",
+            "NTWK",
+            "BMW.DE",
+            "F"
           ]
         }
       ],
@@ -248,13 +238,13 @@
           "slug": "the-fight-against-covid19",
           "name": "The Fight Against COVID19",
           "index": "the-fight-against-covid19",
-          "score": 11.324283,
+          "score": 12.712935,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "trea",
           "pfId": "the_fight_against_covid19",
           "symbolCount": 13,
-          "dailyPercentGain": -2.660828542752278,
-          "followerCount": 22950,
+          "dailyPercentGain": 0.8600832611314216,
+          "followerCount": 22886,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/3c7c7b592c7aba2beee72abb1e520b85d6241aee639ea2e8033b96962ad2e126/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/iStock-476433472.png",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         },
@@ -262,21 +252,21 @@
           "slug": "aging-baby-boomers",
           "name": "Aging Baby Boomers",
           "index": "aging-baby-boomers",
-          "score": 1.8895986,
+          "score": 2.1251185,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "aging_baby_boomers",
           "symbolCount": 11,
-          "dailyPercentGain": -0.7250754049131356,
-          "followerCount": 3721,
+          "dailyPercentGain": 1.8747637389021141,
+          "followerCount": 3718,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/5012864ca85a18365b8dc6a2de4e4ce17202e825c0df84f19bf009dff0353aff/finance/resizefill_w96_h96/https://s.yimg.com/dh/ap/finance/portfolio/aging-baby-boomers.jpg",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         }
       ],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 121,
-      "timeTakenForQuotes": 445,
+      "totalTime": 78,
+      "timeTakenForQuotes": 427,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

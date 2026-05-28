@@ -15,55 +15,22 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:12 GMT",
+      "date": "Thu, 28 May 2026 08:25:38 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "119",
+      "x-envoy-upstream-service-time": "162",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7tjmjmhkqfmu4"
+      "y-rid": "2if11qhl1fv02"
     },
     "bodyJson": {
       "explains": [],
       "count": 11,
       "quotes": [
-        {
-          "exchange": "JKT",
-          "shortname": "Adhi Karya (Persero) Tbk",
-          "quoteType": "EQUITY",
-          "symbol": "ADHI.JK",
-          "index": "quotes",
-          "score": 20026,
-          "typeDisp": "equity",
-          "longname": "PT Adhi Karya (Persero) Tbk",
-          "exchDisp": "Jakarta",
-          "sector": "Industrials",
-          "sectorDisp": "Industrials",
-          "industry": "Engineering & Construction",
-          "industryDisp": "Engineering & Construction",
-          "dispSecIndFlag": true,
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "BSE",
-          "shortname": "Adhbhut Infrastructure Ltd.",
-          "quoteType": "EQUITY",
-          "symbol": "ADHBHUTIN.BO",
-          "index": "quotes",
-          "score": 20006,
-          "typeDisp": "equity",
-          "longname": "Adhbhut Infrastructure Limited",
-          "exchDisp": "Bombay",
-          "sector": "Real Estate",
-          "sectorDisp": "Real Estate",
-          "industry": "Real Estate—Development",
-          "industryDisp": "Real Estate—Development",
-          "isYahooFinance": true
-        },
         {
           "exchange": "ASX",
           "shortname": "ADHERIS FPO [AHE]",
@@ -71,46 +38,65 @@
           "symbol": "AHE.AX",
           "index": "quotes",
           "score": 20006,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "exchDisp": "Australian",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Health Information Services",
-          "industryDisp": "Health Information Services",
+          "dispSecIndFlag": true,
           "isYahooFinance": true,
           "prevName": "MedAdvisor Limited",
-          "nameChangeDate": "2026-03-03"
+          "nameChangeDate": "2026-05-27"
         },
         {
-          "exchange": "BSE",
-          "shortname": "SONAL ADHESIVES LTD.",
-          "quoteType": "EQUITY",
-          "symbol": "SONALAD.BO",
+          "exchange": "HKG",
+          "shortname": "0P0000UZLC.HK",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0000UZLC.HK",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "equity",
-          "longname": "Sonal Adhesives Limited",
-          "exchDisp": "Bombay",
-          "sector": "Basic Materials",
-          "sectorDisp": "Basic Materials",
-          "industry": "Specialty Chemicals",
-          "industryDisp": "Specialty Chemicals",
+          "score": 20003,
+          "typeDisp": "Fund",
+          "longname": "HSBC GIF Asia ex Jpn Eq Smlr Coms ADHKD",
+          "exchDisp": "Hong Kong",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "JKT",
+          "shortname": "Adhi Karya (Persero) Tbk",
+          "quoteType": "EQUITY",
+          "symbol": "ADHI.JK",
+          "index": "quotes",
+          "score": 20003,
+          "typeDisp": "Equity",
+          "longname": "PT Adhi Karya (Persero) Tbk",
+          "exchDisp": "Jakarta",
+          "sector": "Industrials",
+          "industry": "Engineering & Construction",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OID",
+          "shortname": "American Diversified Holdings C",
+          "quoteType": "EQUITY",
+          "symbol": "ADHC",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "Equity",
+          "longname": "American Diversified Holdings Corporation",
+          "exchDisp": "OID",
+          "sector": "Industrials",
+          "industry": "Consulting Services",
           "isYahooFinance": true
         },
         {
           "exchange": "FRA",
-          "shortname": "Air Canada Inc.               R",
-          "quoteType": "EQUITY",
-          "symbol": "ADH2.F",
+          "shortname": "0P0001CLOM.F",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0001CLOM.F",
           "index": "quotes",
-          "score": 20005,
-          "typeDisp": "equity",
-          "longname": "Air Canada",
+          "score": 20002,
+          "typeDisp": "Fund",
+          "longname": "HSBC GIF Glb Corp Bd Clmt Trnstn ADHEUR",
           "exchDisp": "Frankfurt",
-          "sector": "Industrials",
-          "sectorDisp": "Industrials",
-          "industry": "Airlines",
-          "industryDisp": "Airlines",
           "isYahooFinance": true
         },
         {
@@ -128,57 +114,22 @@
       ],
       "news": [
         {
-          "uuid": "1de940e0-b0b6-3947-8e46-549d9445b6d3",
-          "title": "Adhesive Tapes Market to Reach USD 117.96 Billion by 2032, Reveals New Maximize Market Research Analysis",
-          "publisher": "PR Newswire",
-          "link": "https://finance.yahoo.com/news/adhesive-tapes-market-reach-usd-150100557.html",
-          "providerPublishTime": 1772118060,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/FiT2vvDWEqzpsY.KOVWvUQ--~B/aD0zMjI7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/2cf488377417bea4cb265862ada490b7",
-                "width": 400,
-                "height": 322,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/aCLyRb9hbQLeH37KuNxJ4w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/2cf488377417bea4cb265862ada490b7",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "762f63c0-ff40-3817-bbe0-245ee5a54c75",
-          "title": "Adairs Ltd (ASX:ADH) (Q2 2026) Earnings Call Highlights: Record Sales Amidst Margin Challenges",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/adairs-ltd-asx-adh-q2-090032026.html",
-          "providerPublishTime": 1771837232,
-          "type": "STORY",
-          "relatedTickers": [
-            "ADH.AX"
-          ]
-        },
-        {
-          "uuid": "7d5bf7e4-3f20-390a-ab54-aa23e24bf20d",
-          "title": "Zefr Earns MRC Accreditation for Viewability Reporting on YouTube",
+          "uuid": "fe60a486-2707-35ff-a1b1-ca725046ff42",
+          "title": "Advantage Distribution Holdings Completes Acquisition of cfm Distributors",
           "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/zefr-earns-mrc-accreditation-viewability-141200348.html",
-          "providerPublishTime": 1769609520,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/advantage-distribution-holdings-completes-acquisition-100000152.html",
+          "providerPublishTime": 1779357600,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/abqZqYgqpt1WuVSbTbSbRQ--~B/aD0yNTE7dz00ODA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/business-wire.com/e46e11df6ea8b0f60a7aa379935805ef",
+                "url": "https://s.yimg.com/uu/api/res/1.2/gLcacIeEBQ1uv3XXhncA6Q--~B/aD0yNDY7dz00ODA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/business-wire.com/ce27ce2f0c8f64b8739fe7127c04a445",
                 "width": 480,
-                "height": 251,
+                "height": 246,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/KOe9Fevngou31xd4wq27fQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/e46e11df6ea8b0f60a7aa379935805ef",
+                "url": "https://s.yimg.com/uu/api/res/1.2/kmUsb66Jc7uInd.8_N1eAw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/ce27ce2f0c8f64b8739fe7127c04a445",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -187,22 +138,22 @@
           }
         },
         {
-          "uuid": "fdf4d5dc-fae5-3c37-bc7d-43127f6bbd7f",
-          "title": "With 59% institutional ownership, ADvTECH Limited (JSE:ADH) is a favorite amongst the big guns",
+          "uuid": "b79c8847-779d-3979-8a12-4ee6f29fbce9",
+          "title": "Is It Time To Consider Buying Adairs Limited (ASX:ADH)?",
           "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/59-institutional-ownership-advtech-limited-081745401.html",
-          "providerPublishTime": 1768810665,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/time-consider-buying-adairs-limited-223254170.html",
+          "providerPublishTime": 1779057174,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/lxUIYrtsPsHKjKA_d7Zf0Q--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/3ab151850b8c1f533556b66726f399bc",
+                "url": "https://s.yimg.com/uu/api/res/1.2/9eNbKCIFlzWrSjuqIJiljQ--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/68a62d0478086092f5e53e71573f470a",
                 "width": 1194,
                 "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/7T2Dwm3fkbVUgWZn8.mooA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/3ab151850b8c1f533556b66726f399bc",
+                "url": "https://s.yimg.com/uu/api/res/1.2/37lQnZC6q.IQvrZJ8mvmig--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/68a62d0478086092f5e53e71573f470a",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -210,16 +161,67 @@
             ]
           },
           "relatedTickers": [
-            "ADH.JO"
+            "ADH.AX"
           ]
+        },
+        {
+          "uuid": "5b08c0ed-40cf-3252-a5b3-e9f549acaa9d",
+          "title": "BridgeBio Submits NDA to FDA for Encaleret for Individuals Living with ADH1",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/bridgebio-submits-nda-fda-encaleret-113000875.html",
+          "providerPublishTime": 1778585400,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Jv1.VHSG62toB4XIQx7SSg--~B/aD05MjY7dz01ODU1O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/96771431c21d777fe3a3ab47b0248e2a",
+                "width": 5855,
+                "height": 926,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/6hZmQ6NnTzXjRetgl0kdeQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/96771431c21d777fe3a3ab47b0248e2a",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "BBIO"
+          ]
+        },
+        {
+          "uuid": "70b66745-d1bc-370c-9e5d-c0e07d201a36",
+          "title": "The Atrium at Drum Hill Assisted Living Community Named Among Nation's Best in 2026 U.S. News & World Report Senior Living Ratings",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/atrium-drum-hill-assisted-living-205000121.html",
+          "providerPublishTime": 1777323000,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/sZ6fic90sYcC41kTlSFo7w--~B/aD0yNjc7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/5b1157303ddcb8e7f7daaa78a999d0c8",
+                "width": 400,
+                "height": 267,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/6dXRECNBGslqHCVEQyICkA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/5b1157303ddcb8e7f7daaa78a999d0c8",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 116,
-      "timeTakenForQuotes": 443,
+      "totalTime": 160,
+      "timeTakenForQuotes": 433,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

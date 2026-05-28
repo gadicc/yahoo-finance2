@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:17 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "89",
+      "x-envoy-upstream-service-time": "46",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "51ri675kqfmu9"
+      "y-rid": "2703bp5l1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -37,55 +37,9 @@
           "quoteType": "CRYPTOCURRENCY",
           "symbol": "BTC-USD",
           "index": "quotes",
-          "score": 13122500,
-          "typeDisp": "cryptocurrency",
+          "score": 12100500,
+          "typeDisp": "Cryptocurrency",
           "longname": "Bitcoin USD",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCC",
-          "shortname": "Huobi BTC USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "HBTC-USD",
-          "index": "quotes",
-          "score": 20002,
-          "typeDisp": "cryptocurrency",
-          "longname": "Huobi BTC USD",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCC",
-          "shortname": "pTokens BTC USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "PBTC-USD",
-          "index": "quotes",
-          "score": 20002,
-          "typeDisp": "cryptocurrency",
-          "longname": "pTokens BTC USD",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCC",
-          "shortname": "Lombard Staked BTC USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "LBTC33652-USD",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "cryptocurrency",
-          "exchDisp": "CCC",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "CCC",
-          "shortname": "Coinbase Wrapped BTC USD",
-          "quoteType": "CRYPTOCURRENCY",
-          "symbol": "CBBTC32994-USD",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "cryptocurrency",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
@@ -96,88 +50,164 @@
           "symbol": "UNIBTC-USD",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "cryptocurrency",
+          "typeDisp": "Cryptocurrency",
           "longname": "Universal BTC USD",
+          "exchDisp": "CCC",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "PNK",
+          "shortname": "Franklin Templeton SinoAm Biote",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0001P539",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Fund",
+          "longname": "Franklin Templeton SinoAm Btchlg -USD",
+          "exchDisp": "OTC Markets",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "BounceBit BTC USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "BBTC31369-USD",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Cryptocurrency",
+          "longname": "BounceBit BTC USD",
+          "exchDisp": "CCC",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "pTokens BTC USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "PBTC-USD",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Cryptocurrency",
+          "longname": "pTokens BTC USD",
+          "exchDisp": "CCC",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "OKX Wrapped BTC USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "XBTC39577-USD",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Cryptocurrency",
+          "longname": "OKX Wrapped BTC USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "09e1b00d-70fb-3130-9947-efe749309f3d",
-          "title": "Top Cryptocurrencies Fall; Bitcoin Falls Below $69,000 Level",
+          "uuid": "12701a63-4135-3e59-8e09-090964f1683f",
+          "title": "Dollar climbs to one-week high as Gulf tensions flare",
+          "publisher": "Reuters",
+          "link": "https://finance.yahoo.com/markets/currencies/articles/dollar-near-one-week-high-014352175.html",
+          "providerPublishTime": 1779949593,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/f.6hCUT.UOiFrOuulRZlVQ--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters.com/f4010cae4119101517544659976d7348",
+                "width": 800,
+                "height": 533,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/lhJseif4PZhy9Y_J2Ky1NQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters.com/f4010cae4119101517544659976d7348",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "DX-Y.NYB",
+            "JPY=X",
+            "CL=F"
+          ]
+        },
+        {
+          "uuid": "fe62232f-1ac5-391c-9698-3759ac2dfe50",
+          "title": "Top Cryptocurrencies Mixed; Bitcoin Drops Below $75,000",
           "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/top-cryptocurrencies-fall-bitcoin-falls-210239723.html",
-          "providerPublishTime": 1772571759,
+          "link": "https://finance.yahoo.com/markets/crypto/articles/top-cryptocurrencies-mixed-bitcoin-drops-194138655.html",
+          "providerPublishTime": 1779910898,
           "type": "STORY",
           "relatedTickers": [
             "BTC-USD",
+            "DOGE-USD",
             "ADA-USD",
-            "XRP-USD",
             "BNB-USD",
             "SOL-USD",
+            "ETH-USD",
             "^NDX",
             "^GSPC",
             "^DJI",
-            "ETH-USD",
-            "DOGE-USD"
+            "XRP-USD"
           ]
         },
         {
-          "uuid": "791e491e-4d55-31c0-b9c8-9da031cf7e3b",
-          "title": "Sector Update: Financial Stocks Retreat Late Afternoon",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/sector-financial-stocks-retreat-afternoon-205944599.html",
-          "providerPublishTime": 1772571584,
+          "uuid": "80befadd-3074-305c-ba8b-92d2cda5a61b",
+          "title": "Trump Says He'll 'Never Let Crypto Down,' Promises 'Future Proof' Market Structure: 'New Frontier Of Finance Is Being Built'",
+          "publisher": "Benzinga",
+          "link": "https://finance.yahoo.com/markets/crypto/articles/trump-says-hell-never-let-032249086.html",
+          "providerPublishTime": 1779938569,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/dlkCIx9eydYNwl4uTWiNaw--~B/aD02ODM7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/71f0c476f541ccc5f3d1eded4ef75789",
+                "width": 1024,
+                "height": 683,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/HIoPlO81bORdEAhXz_...Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/71f0c476f541ccc5f3d1eded4ef75789",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "BTC-USD",
-            "JPM",
-            "WFC",
-            "BX",
-            "BLK",
-            "APO",
-            "XLRE",
-            "XLF"
+            "BTC",
+            "BTC-USD"
           ]
         },
         {
-          "uuid": "1cee734d-6491-3f1f-acf4-3091a726e277",
-          "title": "Sector Update: Financial",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/sector-financial-204209075.html",
-          "providerPublishTime": 1772570529,
+          "uuid": "0a624e54-5437-3ad9-861f-8eb90a9f4961",
+          "title": "Mysterious trader dumps $1B from BlackRock ETF",
+          "publisher": "TheStreet",
+          "link": "https://finance.yahoo.com/m/0a624e54-5437-3ad9-861f-8eb90a9f4961/mysterious-trader-dumps-%241b.html",
+          "providerPublishTime": 1779924720,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/DHd_XWX6c9JisFQdswaXMg--~B/aD0xMDI0O3c9MTUzNjthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/thestreet_881/ac3e2d2d4142393ec91e20fcdc2d325e",
+                "width": 1536,
+                "height": 1024,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/hJ7iz49yXl59oTtRag4jMQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/thestreet_881/ac3e2d2d4142393ec91e20fcdc2d325e",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "JPM",
-            "WFC",
-            "BTC-USD",
-            "XLRE",
-            "XLF"
-          ]
-        },
-        {
-          "uuid": "421d44fd-4950-3153-80b6-1f84946c27ae",
-          "title": "BC-Most Active Stocks",
-          "publisher": "Associated Press Finance",
-          "link": "https://finance.yahoo.com/news/bc-most-active-stocks-153020904.html",
-          "providerPublishTime": 1772551820,
-          "type": "STORY",
-          "relatedTickers": [
-            "PLUG",
-            "NVDA",
-            "^IXIC",
-            "SVRN",
-            "ONDS",
-            "AAL",
-            "INTC",
-            "SOFI",
             "IBIT",
-            "PLTR",
-            "UOKA",
-            "RUBI",
-            "GRAB",
-            "MARA"
+            "BTC-USD"
           ]
         }
       ],
@@ -185,8 +215,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 87,
-      "timeTakenForQuotes": 441,
+      "totalTime": 43,
+      "timeTakenForQuotes": 429,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

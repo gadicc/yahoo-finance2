@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:18 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "66",
+      "x-envoy-decorator-operation": "finance-search--mtls-canary-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "27",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "35ppv8lkqfmua"
+      "y-rid": "4sbl4ull1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -33,12 +33,12 @@
       "quotes": [
         {
           "exchange": "CMX",
-          "shortname": "Gold Apr 26",
+          "shortname": "Gold Jun 26",
           "quoteType": "FUTURE",
           "symbol": "GC=F",
           "index": "quotes",
-          "score": 16355500,
-          "typeDisp": "future",
+          "score": 15411500,
+          "typeDisp": "Futures",
           "exchDisp": "New York Commodity Exchange",
           "isYahooFinance": true
         },
@@ -48,8 +48,8 @@
           "quoteType": "EQUITY",
           "symbol": "GCM.AX",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
+          "score": 20004,
+          "typeDisp": "Equity",
           "longname": "Green Critical Minerals Limited",
           "exchDisp": "Australian",
           "sector": "Utilities",
@@ -58,7 +58,7 @@
           "industryDisp": "Utilities—Renewable",
           "isYahooFinance": true,
           "prevName": "Chase Mining Corporation Limited",
-          "nameChangeDate": "2026-03-03"
+          "nameChangeDate": "2026-05-27"
         },
         {
           "exchange": "CXA",
@@ -67,12 +67,12 @@
           "symbol": "GCM.XA",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "Green Critical Minerals Limited",
           "exchDisp": "CXA",
           "isYahooFinance": true,
           "prevName": "Chase Mining Corporation Limited",
-          "nameChangeDate": "2026-03-03"
+          "nameChangeDate": "2026-05-27"
         },
         {
           "exchange": "SAO",
@@ -81,7 +81,7 @@
           "symbol": "0P00019HF1.SA",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "mutualfund",
+          "typeDisp": "Fund",
           "longname": "BB GC4 FIM C Priv LP",
           "exchDisp": "São Paulo",
           "isYahooFinance": true
@@ -95,22 +95,22 @@
       ],
       "news": [
         {
-          "uuid": "debed6e4-cd79-3434-aa4c-3b4f8234fbe3",
-          "title": "Roth Capital Raises its Price Target on Coeur Mining, Inc. (CDE) to $29 and Maintains a Buy Rating",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/roth-capital-raises-price-target-064153550.html",
-          "providerPublishTime": 1772606513,
+          "uuid": "490e9d1b-e629-3d2e-8e7b-063bd2990e94",
+          "title": "Tocvan Intersects Three New Gold-Silver Zones at Gran Pilar Project Exploration Drilling; Provides Pilot Mine Development Update",
+          "publisher": "ACCESS Newswire",
+          "link": "https://finance.yahoo.com/markets/commodities/articles/tocvan-intersects-three-gold-silver-070500194.html",
+          "providerPublishTime": 1779951900,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/pAJvU.FcAQGB8.y2Y3naUQ--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fcf243aa0d6e3b957c197788b21e89f2",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/5KjY2iJ4pW6PY9BejikXRw--~B/aD0zNjk7dz00NzE7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/accesswire.ca/6aea405b8351a17e1f7b6427357e2df5",
+                "width": 471,
+                "height": 369,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/0Gb93XegN.2OFYTHopdAkw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/fcf243aa0d6e3b957c197788b21e89f2",
+                "url": "https://s.yimg.com/uu/api/res/1.2/lZh1xgx_gPvy3qCG1PGuZg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/accesswire.ca/6aea405b8351a17e1f7b6427357e2df5",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -118,28 +118,30 @@
             ]
           },
           "relatedTickers": [
-            "CDE",
+            "TOC.CN",
             "GC=F",
+            "TV3.F",
+            "TCVNF",
             "SI=F"
           ]
         },
         {
-          "uuid": "fafa032e-fa01-3ca2-a40d-af34d5211d02",
-          "title": "Bitcoin Demand Returns As Gold Faces Safe-Haven Test — Why $70,000 Is Critical Now",
-          "publisher": "BeInCrypto",
-          "link": "https://finance.yahoo.com/m/fafa032e-fa01-3ca2-a40d-af34d5211d02/bitcoin-demand-returns-as.html",
-          "providerPublishTime": 1772603734,
+          "uuid": "d3c27caf-5f98-3dad-bced-d6da40c0b5af",
+          "title": "Novo Resources completes second placement tranche as Pilbara drilling accelerates",
+          "publisher": "Proactive",
+          "link": "https://finance.yahoo.com/m/d3c27caf-5f98-3dad-bced-d6da40c0b5af/novo-resources-completes.html",
+          "providerPublishTime": 1779948120,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/.ZfQ0cqzRoy5uJ1le7LZBQ--~B/aD03MjA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/beincrypto_us_662/99c6cb92e4419f02389a54f47d3ef344",
-                "width": 1280,
+                "url": "https://s.yimg.com/uu/api/res/1.2/FkaQVeaYj3BJL4bi3h1uRQ--~B/aD03MjA7dz0xMDc4O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/proactive_us_504/002c9023142b8f7f06e587d9ffa7d32c",
+                "width": 1078,
                 "height": 720,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5pZTOehkEteMH_ZKteyW4Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/beincrypto_us_662/99c6cb92e4419f02389a54f47d3ef344",
+                "url": "https://s.yimg.com/uu/api/res/1.2/z90bGlTv5FEw3KkgVBeCYg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/proactive_us_504/002c9023142b8f7f06e587d9ffa7d32c",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -147,29 +149,32 @@
             ]
           },
           "relatedTickers": [
-            "BTC-USD",
+            "NSRPF",
             "GC=F",
-            "DX-Y.NYB",
-            "CL=F"
+            "NVO.AX",
+            "1NO0.F",
+            "1NOR.F",
+            "NVO.NE",
+            "NVO.TO"
           ]
         },
         {
-          "uuid": "da42f188-413b-3843-9f94-9f100bb58110",
-          "title": "Assessing Wheaton Precious Metals (TSX:WPM) Valuation After Strong Multi‑Period Returns And Recent Pullback",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/assessing-wheaton-precious-metals-tsx-043654006.html",
-          "providerPublishTime": 1772599014,
+          "uuid": "942331b9-b51f-3f57-9ebd-2e28c0fb3b88",
+          "title": "Should You Buy Gold While It's Under $5,000?",
+          "publisher": "Motley Fool",
+          "link": "https://finance.yahoo.com/m/942331b9-b51f-3f57-9ebd-2e28c0fb3b88/should-you-buy-gold-while.html",
+          "providerPublishTime": 1779945600,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/UrHBsIrR8XWjKtdqSp2vkw--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/b3b5a2748dbe57dca97087f8af8726d5",
-                "width": 1194,
-                "height": 432,
+                "url": "https://s.yimg.com/uu/api/res/1.2/1DINRq2sotJcFryCz..LeQ--~B/aD05MzQ7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/d3c43b5476fe8e9c2f83afc0bbcef934",
+                "width": 1400,
+                "height": 934,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/eLEC10sRCrUZih2kIqOxrg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/b3b5a2748dbe57dca97087f8af8726d5",
+                "url": "https://s.yimg.com/uu/api/res/1.2/e7dfaTSscYUunoifk2pLCw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/d3c43b5476fe8e9c2f83afc0bbcef934",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -177,27 +182,29 @@
             ]
           },
           "relatedTickers": [
-            "WPM",
-            "GC=F"
+            "GC=F",
+            "GLD",
+            "NVDA",
+            "INTC"
           ]
         },
         {
-          "uuid": "0a07bb51-d268-367a-86e6-2f83a59cf795",
-          "title": "Is It Too Late To Consider Eldorado Gold (TSX:ELD) After Its 186% One Year Surge?",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/too-consider-eldorado-gold-tsx-043614877.html",
-          "providerPublishTime": 1772598974,
+          "uuid": "c00aed94-c836-3056-bd06-b89e439fc46c",
+          "title": "Austral Gold Announces 2026 Annual General Meeting Results",
+          "publisher": "TMX Newsfile",
+          "link": "https://finance.yahoo.com/markets/commodities/articles/austral-gold-announces-2026-annual-021400886.html",
+          "providerPublishTime": 1779934440,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/1W2Igu0.nhgjE8NeoLBgXg--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/590bd73c4f469217441156accbe686a8",
-                "width": 1194,
-                "height": 432,
+                "url": "https://s.yimg.com/uu/api/res/1.2/m326yldwL3wvVTDyhvE79A--~B/aD00MDA7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/newsfile_64/c1e97a3ed3ef6192393a4b6b96d7621f",
+                "width": 400,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/2B1Hbj4nDXLgdWqtISOyxg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/590bd73c4f469217441156accbe686a8",
+                "url": "https://s.yimg.com/uu/api/res/1.2/Gai0VvZ1Xo2ysR_NaQMh7A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/newsfile_64/c1e97a3ed3ef6192393a4b6b96d7621f",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -205,7 +212,11 @@
             ]
           },
           "relatedTickers": [
-            "EGO",
+            "AGD.AX",
+            "USL.AX",
+            "AGLD.NE",
+            "AGLD.V",
+            "AGLDF",
             "GC=F"
           ]
         }
@@ -216,13 +227,13 @@
           "slug": "most-bought-by-activist-hedge-funds",
           "name": "Most Bought By Activist Hedge Funds",
           "index": "most-bought-by-activist-hedge-funds",
-          "score": 12.567963,
+          "score": 15.54818,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_bought_by_activist_hedge_funds",
-          "symbolCount": 30,
-          "dailyPercentGain": -1.130042868236609,
-          "followerCount": 60459,
+          "symbolCount": 13,
+          "dailyPercentGain": 1.9188944704274693,
+          "followerCount": 60360,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/110f1012357c7b3e87d14912e7023f819b61278e7f0e90a3825821d2ef3c427c/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/most-bought-activist.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -230,13 +241,13 @@
           "slug": "most-bought-by-hedge-funds",
           "name": "Most Bought By Hedge Funds",
           "index": "most-bought-by-hedge-funds",
-          "score": 8.773529,
+          "score": 10.844758,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_bought_by_hedge_funds",
           "symbolCount": 30,
-          "dailyPercentGain": -1.1615116530436447,
-          "followerCount": 41074,
+          "dailyPercentGain": 1.2079673195604912,
+          "followerCount": 40979,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/f1b1a50dcfdddcf42a67d2da1bb1c341e6f65992b3d89154b9020ae8a9ffa004/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/mostboughtHedgeFunds.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -244,13 +255,13 @@
           "slug": "most-watched",
           "name": "Most Watched by Yahoo Finance Users",
           "index": "most-watched",
-          "score": 6.040247,
+          "score": 7.4698753,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "yahoo-finance",
           "pfId": "most_watched",
           "symbolCount": 30,
-          "dailyPercentGain": -0.9097241734523545,
-          "followerCount": 29057,
+          "dailyPercentGain": 0.26627016820971955,
+          "followerCount": 28999,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/9f2d41c327a5d20c8062b14f526038441141d5644b2b3a0efee2e12d9be1efe0/finance/resizefill_w96_h96/https://s.yimg.com/uc/finance/social/portfolio/most-watched.png",
           "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
         },
@@ -258,21 +269,21 @@
           "slug": "the-fight-against-covid19",
           "name": "The Fight Against COVID19",
           "index": "the-fight-against-covid19",
-          "score": 5.041075,
+          "score": 6.2270474,
           "type": "ALGO_WATCHLIST",
           "brandSlug": "trea",
           "pfId": "the_fight_against_covid19",
           "symbolCount": 13,
-          "dailyPercentGain": -2.660828542752278,
-          "followerCount": 22950,
+          "dailyPercentGain": 0.8600832611314216,
+          "followerCount": 22886,
           "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/3c7c7b592c7aba2beee72abb1e520b85d6241aee639ea2e8033b96962ad2e126/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/iStock-476433472.png",
           "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
         }
       ],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 64,
-      "timeTakenForQuotes": 433,
+      "totalTime": 25,
+      "timeTakenForQuotes": 417,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

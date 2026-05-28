@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "1",
+      "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:11 GMT",
+      "date": "Thu, 28 May 2026 08:25:38 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "58",
+      "x-envoy-upstream-service-time": "76",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2s6rrilkqfmu4"
+      "y-rid": "4ecgujpl1fv02"
     },
     "bodyJson": {
       "explains": [],
@@ -37,74 +37,77 @@
           "quoteType": "EQUITY",
           "symbol": "AAPL",
           "index": "quotes",
-          "score": 17067000,
-          "typeDisp": "equity",
+          "score": 17709500,
+          "typeDisp": "Equity",
           "longname": "Apple Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Technology",
-          "sectorDisp": "Technology",
           "industry": "Consumer Electronics",
-          "industryDisp": "Consumer Electronics",
           "dispSecIndFlag": true,
           "isYahooFinance": true
         },
         {
-          "exchange": "GER",
-          "shortname": "Leverage Shares PLC           E",
+          "exchange": "BUE",
+          "shortname": "APPLE INC CEDEAR(REPR 1/20 SHR)",
           "quoteType": "EQUITY",
-          "symbol": "AAPY.DE",
+          "symbol": "AAPL.BA",
           "index": "quotes",
-          "score": 20005,
-          "typeDisp": "equity",
-          "longname": "IncomeShares Apple (AAPL) Options ETP",
-          "exchDisp": "XETRA",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "BTS",
-          "shortname": "Roundhill AAPL WeeklyPay ETF",
-          "quoteType": "ETF",
-          "symbol": "AAPW",
-          "index": "quotes",
-          "score": 20005,
-          "typeDisp": "etf",
-          "exchDisp": "BATS Trading",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Feb 2026 270.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AAPL260227C00270000",
-          "index": "quotes",
-          "score": 20005,
-          "typeDisp": "option",
-          "longname": "AAPL Feb 2026 270.000 call",
-          "exchDisp": "OPR",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "OPR",
-          "shortname": "AAPL Jun 2026 185.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AAPL260618C00185000",
-          "index": "quotes",
-          "score": 20005,
-          "typeDisp": "option",
-          "longname": "AAPL Jun 2026 185.000 call",
-          "exchDisp": "OPR",
+          "score": 20002,
+          "typeDisp": "Equity",
+          "longname": "Apple Inc.",
+          "exchDisp": "Buenos Aires",
+          "sector": "Technology",
+          "industry": "Consumer Electronics",
           "isYahooFinance": true
         },
         {
           "exchange": "NGM",
-          "shortname": "Direxion Daily AAPL Bull 2X Sha",
+          "shortname": "GraniteShares 2x Long AAPL Dail",
+          "quoteType": "ETF",
+          "symbol": "AAPB",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "ETF",
+          "longname": "GraniteShares 2x Long AAPL Daily ETF",
+          "exchDisp": "NASDAQ",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "NGM",
+          "shortname": "Direxion Daily AAPL Bull 2X ETF",
           "quoteType": "ETF",
           "symbol": "AAPU",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "etf",
+          "score": 20002,
+          "typeDisp": "ETF",
           "longname": "Direxion Daily AAPL Bull 2X Shares",
           "exchDisp": "NASDAQ",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "OPR",
+          "shortname": "AAPL Jun 2026 300.000 call",
+          "quoteType": "OPTION",
+          "symbol": "AAPL260618C00300000",
+          "index": "quotes",
+          "score": 20002,
+          "typeDisp": "Option",
+          "longname": "AAPL Jun 2026 300.000 call",
+          "exchDisp": "OPR",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "NEO",
+          "shortname": "APPLE CDR (CAD HEDGED)",
+          "quoteType": "EQUITY",
+          "symbol": "AAPL.NE",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Equity",
+          "longname": "Apple Inc.",
+          "exchDisp": "NEO",
+          "sector": "Technology",
+          "industry": "Consumer Electronics",
           "isYahooFinance": true
         },
         {
@@ -116,60 +119,22 @@
       ],
       "news": [
         {
-          "uuid": "1b324182-5181-30d2-b2e3-63709a52567f",
-          "title": "Apple’s Broad Hardware Refresh Puts Ecosystem And Valuation In Focus",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/apple-broad-hardware-refresh-puts-021224368.html",
-          "providerPublishTime": 1772590344,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/fBnY8upz5XxbZDDWlufZ9w--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/69084628647944e382f8e555f97913e8",
-                "width": 1194,
-                "height": 432,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/foN3eFZWC9tLTJfgfqJIuQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/69084628647944e382f8e555f97913e8",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "AAPL"
-          ]
-        },
-        {
-          "uuid": "1090d70b-f34e-3e68-a27d-7390b4c2db48",
-          "title": "Apple Debuts New Lineup of Products",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/apple-debuts-lineup-products-145626403.html",
-          "providerPublishTime": 1772549786,
-          "type": "STORY",
-          "relatedTickers": [
-            "AAPL"
-          ]
-        },
-        {
-          "uuid": "ebd38c60-f203-3f20-bcc6-b09ec3e0de4e",
-          "title": "The Zacks Analyst Blog Highlights Apple, TotalEnergies, Boston Scientific and Good Times Restaurants",
+          "uuid": "b3f996f0-b0dc-3b21-a638-8e7fc8b09330",
+          "title": "Netflix vs. Apple: Which Streaming Giant Is the Better Buy Right Now?",
           "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/zacks-analyst-blog-highlights-apple-102000302.html",
-          "providerPublishTime": 1772533200,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/netflix-vs-apple-streaming-giant-142300784.html",
+          "providerPublishTime": 1779891780,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/0SNXbTxG2OgdDeKKe4FwJg--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/198e4657665063ae21a99b90e6766582",
+                "url": "https://s.yimg.com/uu/api/res/1.2/Pr4zyCvAuG9NKPbIHI0qXA--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/40014f41c9fe399fc1166da8b9186dd7",
                 "width": 635,
                 "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/JKNCOji4J0pVoJ.ohH5yHQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/198e4657665063ae21a99b90e6766582",
+                "url": "https://s.yimg.com/uu/api/res/1.2/D3Pw2LJvX.sOWYTYGFow6Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/40014f41c9fe399fc1166da8b9186dd7",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -177,29 +142,27 @@
             ]
           },
           "relatedTickers": [
-            "AAPL",
-            "TTE",
-            "BSX",
-            "GTIM"
+            "NFLX",
+            "AAPL"
           ]
         },
         {
-          "uuid": "710f0814-be43-37cb-a6b7-1217c411fd83",
-          "title": "Apple's New Product Blitz This Week Enhances the Stock's Bull Case",
-          "publisher": "Motley Fool",
-          "link": "https://finance.yahoo.com/m/710f0814-be43-37cb-a6b7-1217c411fd83/apple%27s-new-product-blitz.html",
-          "providerPublishTime": 1772575860,
+          "uuid": "93aa85a9-ff09-3932-b082-5130fd09d209",
+          "title": "Jensen Huang Joins Elite Tsinghua University Advisory Board That Includes Tim Cook And Elon Musk: Report",
+          "publisher": "Benzinga",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/jensen-huang-joins-elite-tsinghua-013840598.html",
+          "providerPublishTime": 1779932320,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/dshH2xjVFj.zV1DMGea9.A--~B/aD03ODc7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/9ab3443ba78dcd274e5247d24e87fb82",
-                "width": 1400,
-                "height": 787,
+                "url": "https://s.yimg.com/uu/api/res/1.2/Q3_76eYw0H6t_0kflDheaQ--~B/aD01NzY7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/98b945116a55e29eea131a7d1870a88c",
+                "width": 1024,
+                "height": 576,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/N5aWagc2mEoANG8uJUSE_A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/9ab3443ba78dcd274e5247d24e87fb82",
+                "url": "https://s.yimg.com/uu/api/res/1.2/VvHMRBt9Zl8x4OcdBaz5rg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/98b945116a55e29eea131a7d1870a88c",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -207,10 +170,63 @@
             ]
           },
           "relatedTickers": [
-            "AAPL",
             "NVDA",
-            "INTC",
-            "^GSPC"
+            "AAPL",
+            "TSLA",
+            "DELL",
+            "MSFT",
+            "META"
+          ]
+        },
+        {
+          "uuid": "63d823e8-b906-345d-bcd7-a4ad1edcf978",
+          "title": "Elizabeth Warren Says Trump 'Gutting' Regulator To 'Enrich' Family And Friends: 'Need Crypto Legislation That Stops This Corruption'",
+          "publisher": "Benzinga",
+          "link": "https://finance.yahoo.com/markets/crypto/articles/elizabeth-warren-says-trump-gutting-063533506.html",
+          "providerPublishTime": 1779950133,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/TfbmZlcrlDp3rC2gyYUuMg--~B/aD03MTA7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/4c782d557945ade38d14e1b694fad7db",
+                "width": 1024,
+                "height": 710,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/ZIN_Yfz88g_Chy1jt0ZbhQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Benzinga/4c782d557945ade38d14e1b694fad7db",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "3156bc7c-cb1a-49ad-af12-e93f9aa924ca",
+          "title": "How Apple's AI weakness could become its biggest 'agentic advantage'",
+          "publisher": "Yahoo Finance Video",
+          "link": "https://finance.yahoo.com/video/how-apples-ai-weakness-could-become-its-biggest-agentic-advantage-200853250.html",
+          "providerPublishTime": 1779912533,
+          "type": "VIDEO",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/FRWjMypQjtPCxN89WKj5Rg--~B/aD00MzIwO3c9NzY4MDthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-05/5dbf5097-f8d6-4d67-8090-a19f16fc7698",
+                "width": 7680,
+                "height": 4320,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/aE9tPT8zLylYKW6BHurTTA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-05/5dbf5097-f8d6-4d67-8090-a19f16fc7698",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "AAPL"
           ]
         }
       ],
@@ -218,8 +234,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 55,
-      "timeTakenForQuotes": 442,
+      "totalTime": 73,
+      "timeTakenForQuotes": 443,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

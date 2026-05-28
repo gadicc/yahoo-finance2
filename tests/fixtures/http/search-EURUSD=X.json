@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "3",
+      "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:17 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "58",
+      "x-envoy-upstream-service-time": "50",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "667gm15kqfmu9"
+      "y-rid": "5cbrq7pl1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -37,8 +37,8 @@
           "quoteType": "CURRENCY",
           "symbol": "EURUSD=X",
           "index": "quotes",
-          "score": 16453500,
-          "typeDisp": "currency",
+          "score": 15897000,
+          "typeDisp": "Currency",
           "longname": "EUR/USD",
           "exchDisp": "CCY",
           "isYahooFinance": true
@@ -46,22 +46,22 @@
       ],
       "news": [
         {
-          "uuid": "79f08726-cee5-4dbe-a5ec-70aec00ba96f",
-          "title": "The currency market is pricing in a supply-side inflation shock",
-          "publisher": "Yahoo Finance",
-          "link": "https://finance.yahoo.com/news/the-currency-market-is-pricing-in-a-supply-side-inflation-shock-165406892.html",
-          "providerPublishTime": 1772556846,
+          "uuid": "acfb30a0-9ce8-365a-9f49-da6886bb2112",
+          "title": "Treasury Yields, Dollar Recover as U.S.-Iran Deal Fails to Materialize",
+          "publisher": "The Wall Street Journal",
+          "link": "https://finance.yahoo.com/m/acfb30a0-9ce8-365a-9f49-da6886bb2112/treasury-yields%2C-dollar.html",
+          "providerPublishTime": 1779904560,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/9eh2FYzEqjgo85bv9edgbw--~B/aD0yMDAwO3c9MzAwMDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2026-02/578efe10-171f-11f1-bfff-3afbf098ab61",
-                "width": 3000,
-                "height": 2000,
+                "url": "https://s.yimg.com/uu/api/res/1.2/Fwf5HL4GsEGPbDfR3MJBPg--~B/aD02MzA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+                "width": 1200,
+                "height": 630,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/U1x12VpGC_0x4DWmnMKrtg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2026-02/578efe10-171f-11f1-bfff-3afbf098ab61",
+                "url": "https://s.yimg.com/uu/api/res/1.2/zIJaagDuCJitt1Cvcwyc7A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -69,66 +69,30 @@
             ]
           },
           "relatedTickers": [
-            "DX-Y.NYB",
-            "GC=F",
             "EUR=X",
             "EURUSD=X",
             "USD=X",
-            "CNY=X",
-            "CNYUSD=X",
-            "USD=X"
+            "DX-Y.NYB",
+            "ING"
           ]
         },
         {
-          "uuid": "498d4976-d390-3f92-ae89-d68521f70b6e",
-          "title": "The Dollar Isn’t Done. Why It’s Outshining Rivals Amid Iran Crisis.",
-          "publisher": "Barrons.com",
-          "link": "https://finance.yahoo.com/m/498d4976-d390-3f92-ae89-d68521f70b6e/the-dollar-isn%E2%80%99t-done.-why.html",
-          "providerPublishTime": 1772526780,
+          "uuid": "7ce127e9-8023-342d-b797-eea4bf4c6aa4",
+          "title": "Dollar Falls as Crude Oil Retreats",
+          "publisher": "Barchart",
+          "link": "https://finance.yahoo.com/m/7ce127e9-8023-342d-b797-eea4bf4c6aa4/dollar-falls-as-crude-oil.html",
+          "providerPublishTime": 1779892871,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5SAhVTUHkHd.l_QDfAMyhQ--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Barrons.com/859542cf3534572f4de81372df92b6d1",
+                "url": "https://s.yimg.com/uu/api/res/1.2/DEfZxSo2NFbOIOD0p4Z03A--~B/aD02NDA7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/509023aecba52a4b6f4cb6cc61e4a34e",
                 "width": 1280,
                 "height": 640,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/xkrbwpGuZ.N_EfGj0NXCGg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/Barrons.com/859542cf3534572f4de81372df92b6d1",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "DX-Y.NYB",
-            "DX-Y.NXB",
-            "EUR=X",
-            "USDEUR=X",
-            "JPY=X",
-            "EURUSD=X",
-            "USDJPY=X"
-          ]
-        },
-        {
-          "uuid": "3743f984-3e26-3e50-b2f7-5ca45bcd7ff2",
-          "title": "Dollar Rallies Most Since May as War Spurs a Rush Into Havens",
-          "publisher": "Bloomberg",
-          "link": "https://finance.yahoo.com/news/dollar-rallies-oil-surge-curbs-093155584.html",
-          "providerPublishTime": 1772472782,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/coBxTcUaRPnZq3qI0vNnmw--~B/aD0xMzMzO3c9MjAwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/bloomberg_holding_pen_162/faeaaf10a37d18da33f1948edf0857be",
-                "width": 2000,
-                "height": 1333,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/EfqWHTiKw1bi7LSnor4WrA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/bloomberg_holding_pen_162/faeaaf10a37d18da33f1948edf0857be",
+                "url": "https://s.yimg.com/uu/api/res/1.2/Np3ruGU4CvHSbUKHCjnsjg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/barchart_com_477/509023aecba52a4b6f4cb6cc61e4a34e",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -138,30 +102,73 @@
           "relatedTickers": [
             "DX-Y.NYB",
             "CL=F",
-            "GC=F",
-            "NOK=X",
-            "NOKUSD=X",
-            "USD=X",
             "EUR=X",
             "EURUSD=X",
-            "GBP=X",
-            "GBPUSD=X",
-            "CAD=X",
-            "CADUSD=X"
+            "CNY=X",
+            "CNYUSD=X"
           ]
         },
         {
-          "uuid": "1de4cb56-52e6-3f5e-92e6-0a7b07ded7ee",
-          "title": "BofA sees a number of AI-related risks that could challenge rally in EU stocks",
-          "publisher": "Investing.com",
-          "link": "https://finance.yahoo.com/news/bofa-sees-number-ai-related-005454749.html",
-          "providerPublishTime": 1772326494,
+          "uuid": "9d032d1c-f238-33bb-b9c3-9acca81990c5",
+          "title": "Dollar climbs as US strikes on Iran dent ceasefire optimism",
+          "publisher": "Reuters",
+          "link": "https://finance.yahoo.com/markets/currencies/articles/dollar-wobbles-markets-cling-hopes-011952735.html",
+          "providerPublishTime": 1779825399,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/2SzXEnjp6WmQSgnnnjMGVw--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters.com/51564e4e649e64b22e3ef8864b2aea43",
+                "width": 800,
+                "height": 533,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/oBUmfQ45XBClMDBeuBGqRQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/reuters.com/51564e4e649e64b22e3ef8864b2aea43",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "BAC",
+            "CL=F",
+            "DX-Y.NYB",
             "EUR=X",
             "EURUSD=X",
+            "USD=X",
+            "GBP=X",
+            "GBPUSD=X",
             "USD=X"
+          ]
+        },
+        {
+          "uuid": "d3ea2beb-8da4-36a6-922e-a765c84ddf77",
+          "title": "Yen ‘Grossly Undervalued’ Versus Dollar, Should Strengthen",
+          "publisher": "The Wall Street Journal",
+          "link": "https://finance.yahoo.com/m/d3ea2beb-8da4-36a6-922e-a765c84ddf77/yen-%E2%80%98grossly-undervalued%E2%80%99.html",
+          "providerPublishTime": 1779808440,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Fwf5HL4GsEGPbDfR3MJBPg--~B/aD02MzA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+                "width": 1200,
+                "height": 630,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/zIJaagDuCJitt1Cvcwyc7A--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "EUR=X",
+            "EURUSD=X",
+            "DX-Y.NYB"
           ]
         }
       ],
@@ -169,8 +176,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 56,
-      "timeTakenForQuotes": 425,
+      "totalTime": 47,
+      "timeTakenForQuotes": 413,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

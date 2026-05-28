@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:15 GMT",
+      "date": "Thu, 28 May 2026 08:25:39 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "92",
+      "x-envoy-upstream-service-time": "83",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1cusuodkqfmu7"
+      "y-rid": "5c0gm8pl1fv03"
     },
     "bodyJson": {
       "explains": [],
@@ -37,14 +37,12 @@
           "quoteType": "EQUITY",
           "symbol": "GOOG",
           "index": "quotes",
-          "score": 11614000,
-          "typeDisp": "equity",
+          "score": 11317500,
+          "typeDisp": "Equity",
           "longname": "Alphabet Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Communication Services",
-          "sectorDisp": "Communication Services",
           "industry": "Internet Content & Information",
-          "industryDisp": "Internet Content & Information",
           "dispSecIndFlag": true,
           "isYahooFinance": true
         },
@@ -54,53 +52,50 @@
           "quoteType": "EQUITY",
           "symbol": "GOOGL",
           "index": "quotes",
-          "score": 21499,
-          "typeDisp": "equity",
+          "score": 21555,
+          "typeDisp": "Equity",
           "longname": "Alphabet Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Communication Services",
-          "sectorDisp": "Communication Services",
           "industry": "Internet Content & Information",
-          "industryDisp": "Internet Content & Information",
           "isYahooFinance": true
         },
         {
           "exchange": "NGM",
-          "shortname": "Direxion Daily GOOGL Bull 2X Sh",
+          "shortname": "Direxion Daily GOOGL Bull 2X ET",
           "quoteType": "ETF",
           "symbol": "GGLL",
           "index": "quotes",
-          "score": 20011,
-          "typeDisp": "etf",
+          "score": 20005,
+          "typeDisp": "ETF",
           "longname": "Direxion Daily GOOGL Bull 2X Shares",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "GOOGL Dec 2026 135.000 call",
-          "quoteType": "OPTION",
-          "symbol": "GOOGL261218C00135000",
+          "exchange": "PCX",
+          "shortname": "YieldMax GOOGL Option Income St",
+          "quoteType": "ETF",
+          "symbol": "GOOY",
           "index": "quotes",
-          "score": 20009,
-          "typeDisp": "option",
-          "exchDisp": "OPR",
+          "score": 20003,
+          "typeDisp": "ETF",
+          "longname": "YieldMax GOOGL Option Income Strategy ETF",
+          "exchDisp": "NYSEArca",
           "isYahooFinance": true
         },
         {
           "exchange": "SHZ",
-          "shortname": "HUANGSHAN GOOGE",
+          "shortname": "HUANGSHAN GOOGE CO LTD",
           "quoteType": "EQUITY",
           "symbol": "301581.SZ",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "equity",
+          "score": 20003,
+          "typeDisp": "Equity",
           "longname": "HuangShan Googe Co.,Ltd.",
           "exchDisp": "Shenzhen",
           "sector": "Technology",
-          "sectorDisp": "Technology",
           "industry": "Semiconductors",
-          "industryDisp": "Semiconductors",
           "isYahooFinance": true
         },
         {
@@ -118,22 +113,35 @@
       ],
       "news": [
         {
-          "uuid": "a06b9788-7d03-34b3-93e0-46b379b64e0e",
-          "title": "Alphabet Inc. (GOOG) is Attracting Investor Attention: Here is What You Should Know",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/alphabet-inc-goog-attracting-investor-140003723.html",
-          "providerPublishTime": 1772546403,
+          "uuid": "65bec4f0-15aa-32a8-b8a1-fd21fa2bd489",
+          "title": "Google Employee Charged With $1.2 Million Insider Trading Scheme",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/markets/options/articles/google-employee-charged-1-2-081315921.html",
+          "providerPublishTime": 1779955995,
+          "type": "STORY",
+          "relatedTickers": [
+            "GOOG",
+            "GOOGL",
+            "POLA.PVT"
+          ]
+        },
+        {
+          "uuid": "b3c34654-368a-3b4d-b31f-5bf76e4b9fc5",
+          "title": "3 AI Stocks Worth Holding Until You Retire",
+          "publisher": "Motley Fool",
+          "link": "https://finance.yahoo.com/m/b3c34654-368a-3b4d-b31f-5bf76e4b9fc5/3-ai-stocks-worth-holding.html",
+          "providerPublishTime": 1779953340,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/UYup8AGIrn99rMsHiTllqA--~B/aD04NzY7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/d0d4ab152198da2f423d92da8a7d22ee",
-                "width": 900,
-                "height": 876,
+                "url": "https://s.yimg.com/uu/api/res/1.2/NDBEYEtrYc0y8qBvucpgeg--~B/aD04NzE7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/e3648a9a2479ed362dcc1a7655aa7559",
+                "width": 1400,
+                "height": 871,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/XhCCCM1n.mhdk3ZYrtuYVA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/d0d4ab152198da2f423d92da8a7d22ee",
+                "url": "https://s.yimg.com/uu/api/res/1.2/VS1PvVrsgEHUJBuJxlR3Og--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/e3648a9a2479ed362dcc1a7655aa7559",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -142,26 +150,27 @@
           },
           "relatedTickers": [
             "GOOG",
-            "^GSPC"
+            "PLTR",
+            "CRWD"
           ]
         },
         {
-          "uuid": "b39866c7-7170-30f8-8a11-b8d4a6bd8626",
-          "title": "Earnings To Watch: Guidewire Software (GWRE) Reports Q4 Results Tomorrow",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/earnings-watch-guidewire-software-gwre-040103734.html",
-          "providerPublishTime": 1772596863,
+          "uuid": "0a6ce29c-edca-38c1-a03f-23dcc1a7c448",
+          "title": "The Quiet AI Winner That Doesn't Show Up on Any Hot Stock List",
+          "publisher": "Motley Fool",
+          "link": "https://finance.yahoo.com/m/0a6ce29c-edca-38c1-a03f-23dcc1a7c448/the-quiet-ai-winner-that.html",
+          "providerPublishTime": 1779930060,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/ud6n4zDlPZRQnNMLuBO1Cg--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/a6e762de6dc34cf1828cdeaea57f83d3",
+                "url": "https://s.yimg.com/uu/api/res/1.2/z4rqj3qfScCSTAlEPUbQ2A--~B/aD05NTI7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/61d76bfaf20504b9df1c366e9f03e9c9",
                 "width": 1400,
-                "height": 700,
+                "height": 952,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/VMe669PNKTb4aLIiKKStyg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/a6e762de6dc34cf1828cdeaea57f83d3",
+                "url": "https://s.yimg.com/uu/api/res/1.2/N89AgRG.j8310YezAZFjag--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/61d76bfaf20504b9df1c366e9f03e9c9",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -169,26 +178,32 @@
             ]
           },
           "relatedTickers": [
-            "GWRE"
+            "NVDA",
+            "LUMN",
+            "AMZN",
+            "MSFT",
+            "PLTR",
+            "INTC",
+            "ANTH.PVT"
           ]
         },
         {
-          "uuid": "5c6b7ce3-e852-392b-b9ee-4b3176c667dc",
-          "title": "Kroger (KR) Reports Earnings Tomorrow: What To Expect",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/kroger-kr-reports-earnings-tomorrow-035603994.html",
-          "providerPublishTime": 1772596563,
+          "uuid": "ab83b3c8-9662-3570-9c1c-d1829dee325f",
+          "title": "Microsoft’s Defense Deal And Clean Energy Push Reframe Long-Term Valuation",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/microsoft-defense-deal-clean-energy-031502009.html",
+          "providerPublishTime": 1779938102,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/idjpz7d5OfHZY.8InAY5VQ--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/fd59045e06e914faf23a9a3c80a290aa",
-                "width": 1400,
-                "height": 700,
+                "url": "https://s.yimg.com/uu/api/res/1.2/vI2scrIoG3Y.UMQ70PAfYg--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/df4b73b911e0bdb53cb26c5cad04a925",
+                "width": 1194,
+                "height": 432,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/dam0ek_VpBRdJ.m7oiHZTg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/fd59045e06e914faf23a9a3c80a290aa",
+                "url": "https://s.yimg.com/uu/api/res/1.2/syqUPqoyxu2hygFWFg7Dtg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/df4b73b911e0bdb53cb26c5cad04a925",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -196,34 +211,10 @@
             ]
           },
           "relatedTickers": [
-            "KR"
-          ]
-        },
-        {
-          "uuid": "b2c5f4d5-1f3b-3ef6-930e-ff5cf6af6740",
-          "title": "Gap (GAP) Reports Q4: Everything You Need To Know Ahead Of Earnings",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/gap-gap-reports-q4-everything-032603590.html",
-          "providerPublishTime": 1772594763,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/962QkjywctadZn3deeDrew--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/710556ab36e180db7fe014729e2cae7a",
-                "width": 1400,
-                "height": 700,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/BVEaTFynbBt1KAm4YZhPnw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/710556ab36e180db7fe014729e2cae7a",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "GAP"
+            "MSFT",
+            "AMZN",
+            "GOOG",
+            "META"
           ]
         }
       ],
@@ -231,8 +222,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 88,
-      "timeTakenForQuotes": 446,
+      "totalTime": 81,
+      "timeTakenForQuotes": 427,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

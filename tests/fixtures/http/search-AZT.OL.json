@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
+      "date": "Thu, 28 May 2026 08:25:38 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "69",
+      "x-envoy-upstream-service-time": "22",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4038pu9kqfmu5"
+      "y-rid": "1sm3pchl1fv03"
     },
     "bodyJson": {
       "explains": [],
@@ -38,34 +38,43 @@
           "symbol": "AZT.OL",
           "index": "quotes",
           "score": 10001500,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "ArcticZymes Technologies ASA",
           "exchDisp": "Oslo",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Biotechnology",
-          "industryDisp": "Biotechnology",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "1cb9a8ef-a210-3203-945d-4f207585d850",
-          "title": "InterContinental Hotels Group PLC Announces Transaction in Own Shares - March 04",
-          "publisher": "ACCESS Newswire",
-          "link": "https://finance.yahoo.com/news/intercontinental-hotels-group-plc-announces-070300426.html",
-          "providerPublishTime": 1772607780,
+          "uuid": "406fe0c4-4988-3be9-8b3f-25cf09499fd0",
+          "title": "Sidus Space Prices $100 Million Stock Offering; Shares Down Pre-Bell",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/sidus-space-prices-100-million-081947752.html",
+          "providerPublishTime": 1779956387,
+          "type": "STORY",
+          "relatedTickers": [
+            "SIDU"
+          ]
+        },
+        {
+          "uuid": "39ff48e4-19cb-35e5-9f8e-d6463ab32208",
+          "title": "TE Stock Slips Premarket After Record Monthly Rally: Retail Bulls Back Long-Term ‘Gem’",
+          "publisher": "Stocktwits",
+          "link": "https://finance.yahoo.com/m/39ff48e4-19cb-35e5-9f8e-d6463ab32208/te-stock-slips-premarket.html",
+          "providerPublishTime": 1779956279,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/.dUu0F1ql4Mq5poBz6U9ZA--~B/aD00MDA7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/accesswire.ca/19f38b649e0613540cb3d8c62a7b6d1d",
-                "width": 400,
-                "height": 400,
+                "url": "https://s.yimg.com/uu/api/res/1.2/3qli.1zH02RkQJDPREqLCQ--~B/aD04NTM7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/d0a1a7fca5ab2a1a2325f571fc9c7365",
+                "width": 1280,
+                "height": 853,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/NADaJaK9.UhgHlb0x6reYA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/accesswire.ca/19f38b649e0613540cb3d8c62a7b6d1d",
+                "url": "https://s.yimg.com/uu/api/res/1.2/72TgJEKIinWEhwkVbnu.xA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/d0a1a7fca5ab2a1a2325f571fc9c7365",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -73,64 +82,62 @@
             ]
           },
           "relatedTickers": [
-            "IHG"
+            "NBIS",
+            "BE",
+            "SNDK",
+            "CRWV",
+            "IREN"
           ]
         },
         {
-          "uuid": "6090944f-dc21-3f12-a5bd-47451b54fd0e",
-          "title": "Endeavour Group Ltd (EDVGF) (H1 2026) Earnings Call Highlights: Strategic Growth Amidst Market ...",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/endeavour-group-ltd-edvgf-h1-070102562.html",
-          "providerPublishTime": 1772607662,
-          "type": "STORY",
-          "relatedTickers": [
-            "EDVGF",
-            "EDV.AX"
-          ]
-        },
-        {
-          "uuid": "07d5efd4-c548-32aa-94a5-2ea4bfd9bea9",
-          "title": "Transaction in Own Shares",
-          "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/transaction-own-shares-070000819.html",
-          "providerPublishTime": 1772607600,
-          "type": "STORY",
-          "relatedTickers": [
-            "YNGA.L",
-            "YNGN.L"
-          ]
-        },
-        {
-          "uuid": "0bd9c552-2ab5-3ec0-90f2-2672d282a883",
-          "title": "Avanci Launches Wi-Fi Licensing Platform and Inaugural Licensee",
-          "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/avanci-launches-wi-fi-licensing-070000029.html",
-          "providerPublishTime": 1772607600,
+          "uuid": "7e0c1116-622c-3a9b-9ca5-e7a572a21b32",
+          "title": "MRVL Stock Drops In Premarket Despite Strong Q1 Report, Long-Term Outlook: Retail Turns More Bullish",
+          "publisher": "Stocktwits",
+          "link": "https://finance.yahoo.com/m/7e0c1116-622c-3a9b-9ca5-e7a572a21b32/mrvl-stock-drops-in-premarket.html",
+          "providerPublishTime": 1779956052,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/0Hh9lRpE3twS.yYrRlf1dw--~B/aD01MTI7dz0xMDI0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/a4044be6bf58d33abb782f37a32c01ef",
-                "width": 1024,
-                "height": 512,
+                "url": "https://s.yimg.com/uu/api/res/1.2/4RiuO9wd2APWgtpOj8XXyw--~B/aD04NTM7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/32e527ec8b2810463443a8930413ad2b",
+                "width": 1280,
+                "height": 853,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/d_c_cluQ4OzK4bRurmCCgA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/business-wire.com/a4044be6bf58d33abb782f37a32c01ef",
+                "url": "https://s.yimg.com/uu/api/res/1.2/V9Xp.9tPEuNjIOoc7nj0kQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/32e527ec8b2810463443a8930413ad2b",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
-          }
+          },
+          "relatedTickers": [
+            "MRVL",
+            "NVDA",
+            "MU"
+          ]
+        },
+        {
+          "uuid": "65bec4f0-15aa-32a8-b8a1-fd21fa2bd489",
+          "title": "Google Employee Charged With $1.2 Million Insider Trading Scheme",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/markets/options/articles/google-employee-charged-1-2-081315921.html",
+          "providerPublishTime": 1779955995,
+          "type": "STORY",
+          "relatedTickers": [
+            "GOOG",
+            "GOOGL",
+            "POLA.PVT"
+          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 67,
-      "timeTakenForQuotes": 432,
+      "totalTime": 20,
+      "timeTakenForQuotes": 413,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

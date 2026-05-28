@@ -15,7 +15,7 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:16 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
@@ -25,7 +25,7 @@
       "x-envoy-upstream-service-time": "88",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1mbt5s1kqfmu8"
+      "y-rid": "4mi3359l1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -37,27 +37,13 @@
           "quoteType": "EQUITY",
           "symbol": "ABBV",
           "index": "quotes",
-          "score": 10485500,
-          "typeDisp": "equity",
+          "score": 10362500,
+          "typeDisp": "Equity",
           "longname": "AbbVie Inc.",
           "exchDisp": "NYSE",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
-          "industryDisp": "Drug Manufacturers—General",
           "dispSecIndFlag": true,
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "BUE",
-          "shortname": "ABBVIE INC CEDEAR EA 10 REP 1 C",
-          "quoteType": "EQUITY",
-          "symbol": "ABBVD.BA",
-          "index": "quotes",
-          "score": 20002,
-          "typeDisp": "equity",
-          "longname": "AbbVie Inc.",
-          "exchDisp": "Buenos Aires",
           "isYahooFinance": true
         },
         {
@@ -67,45 +53,39 @@
           "symbol": "1ABBV.MI",
           "index": "quotes",
           "score": 20002,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "AbbVie Inc.",
           "exchDisp": "Milan",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
-          "industryDisp": "Drug Manufacturers—General",
           "isYahooFinance": true
         },
         {
-          "exchange": "IOB",
-          "shortname": "ABBVIE INC ABBVIE ORD SHS",
+          "exchange": "MEX",
+          "shortname": "ABBVIE INC",
           "quoteType": "EQUITY",
-          "symbol": "0QCV.IL",
+          "symbol": "ABBV.MX",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
+          "score": 20002,
+          "typeDisp": "Equity",
           "longname": "AbbVie Inc.",
-          "exchDisp": "International Orderbook - London",
+          "exchDisp": "Mexico",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
-          "industryDisp": "Drug Manufacturers—General",
           "isYahooFinance": true
         },
         {
-          "exchange": "DUS",
+          "exchange": "FRA",
           "shortname": "AbbVie Inc.                   R",
           "quoteType": "EQUITY",
-          "symbol": "4AB.DU",
+          "symbol": "4AB0.F",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
-          "longname": "AbbVie Inc",
-          "exchDisp": "Dusseldorf Stock Exchange",
+          "typeDisp": "Equity",
+          "longname": "AbbVie Inc.",
+          "exchDisp": "Frankfurt",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
-          "industryDisp": "Drug Manufacturers—General",
           "isYahooFinance": true
         },
         {
@@ -115,34 +95,57 @@
           "symbol": "4AB.SG",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "AbbVie Inc",
           "exchDisp": "Stuttgart",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—General",
-          "industryDisp": "Drug Manufacturers—General",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "FRA",
+          "shortname": "AbbVie Inc.                   R",
+          "quoteType": "EQUITY",
+          "symbol": "4AB.F",
+          "index": "quotes",
+          "score": 20001,
+          "typeDisp": "Equity",
+          "longname": "AbbVie Inc.",
+          "exchDisp": "Frankfurt",
+          "sector": "Healthcare",
+          "industry": "Drug Manufacturers—General",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "8e2855c3-7a5e-3208-a8ed-220cdd9d49e7",
-          "title": "AbbVie to Present at the Leerink Partners Global Healthcare Conference",
-          "publisher": "PR Newswire",
-          "link": "https://finance.yahoo.com/news/abbvie-present-leerink-partners-global-130000497.html",
-          "providerPublishTime": 1772542800,
+          "uuid": "78a29948-508f-325d-95e0-314948614f57",
+          "title": "AbbVie Gets FDA Approval for Rare Blood Cancer Treatment",
+          "publisher": "MT Newswires",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/abbvie-gets-fda-approval-rare-075445149.html",
+          "providerPublishTime": 1779954885,
+          "type": "STORY",
+          "relatedTickers": [
+            "ABBV"
+          ]
+        },
+        {
+          "uuid": "ece1bc17-b95b-309f-a1bb-f7dfdd4fe808",
+          "title": "How Did AbbVie's Oncology Portfolio Perform in Q1 Despite Headwinds?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/did-abbvies-oncology-portfolio-perform-162100653.html",
+          "providerPublishTime": 1779898860,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/ry5dCNLyqKbnHwZFz.2EhQ--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/571ec3911eb910d2b157b4e95bb90589",
-                "width": 16,
-                "height": 16,
+                "url": "https://s.yimg.com/uu/api/res/1.2/D3ML88PGy1H5kHT9yl7OAw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/6c915f5bdd1c7ea850acb1ca1c067326",
+                "width": 635,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/jIgnkd_5PX5AvstNUbeyag--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/571ec3911eb910d2b157b4e95bb90589",
+                "url": "https://s.yimg.com/uu/api/res/1.2/_ZlKUbRs3qFyTHs6mB.lqA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/6c915f5bdd1c7ea850acb1ca1c067326",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -151,26 +154,28 @@
           },
           "relatedTickers": [
             "ABBV",
-            "META"
+            "PFE",
+            "AZN",
+            "MRK"
           ]
         },
         {
-          "uuid": "7396615b-6c2b-3998-880f-34dfaab9b0af",
-          "title": "AbbVie’s New Data And Approval Test Growth And Valuation Story",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/abbvie-data-approval-test-growth-010640485.html",
-          "providerPublishTime": 1772500000,
+          "uuid": "ff302669-96a1-3901-b7ec-7fb481fa545d",
+          "title": "U.S. FDA Approves DECNUPAZTM (pivekimab sunirine-pvzy) for Treatment of Adult Patients with Blastic Plasmacytoid Dendritic Cell Neoplasm, an Ultra-Rare and Aggressive Blood Cancer With Limited Treatment Options",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/u-fda-approves-decnupaztm-pivekimab-221700332.html",
+          "providerPublishTime": 1779920220,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/tWVhDwEErhILAVhl9pkulg--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4451284b0632c6e74466a63400764edd",
-                "width": 1194,
-                "height": 432,
+                "url": "https://s.yimg.com/uu/api/res/1.2/Z6D2q0vYgOtpqxucIZLh6w--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/f4419e2aeab6cd089ab9462a99e4e983",
+                "width": 16,
+                "height": 16,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/NUu66dmVRK6qD4MRaxHiQQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4451284b0632c6e74466a63400764edd",
+                "url": "https://s.yimg.com/uu/api/res/1.2/J47kBnTsjJUgickyY08NfA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/f4419e2aeab6cd089ab9462a99e4e983",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -182,50 +187,22 @@
           ]
         },
         {
-          "uuid": "fc80d287-647b-3c58-9986-4778cd907b49",
-          "title": "Antibody-drug Conjugates (ADCs) in Oncology Market Competitive Landscape Report 2026: Comprehensive Insights About 200+ Companies and 220+ Drugs by Product Type, Stage, and Route of Administration",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/antibody-drug-conjugates-adcs-oncology-143400754.html",
-          "providerPublishTime": 1772548440,
+          "uuid": "50c53e3f-7843-384a-993f-0651551d4dfe",
+          "title": "ABBV Stock Gains On Winning FDA Approval For Rare Blood Cancer Drug",
+          "publisher": "Stocktwits",
+          "link": "https://finance.yahoo.com/m/50c53e3f-7843-384a-993f-0651551d4dfe/abbv-stock-gains-on-winning.html",
+          "providerPublishTime": 1779913616,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/HP.E8HUfnyGeLtMAKwLgAQ--~B/aD01ODt3PTQ4MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/93d5b27580f67db722dd7c112e43e8bc",
-                "width": 480,
-                "height": 58,
+                "url": "https://s.yimg.com/uu/api/res/1.2/xf642f.o9IkBwAyS_TIPcw--~B/aD03NTA7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/d664af3d734fbcbb40e527c0d4186295",
+                "width": 1000,
+                "height": 750,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/KPtVInxraKsLNBMRw1U5aw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/93d5b27580f67db722dd7c112e43e8bc",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "378800.KQ",
-            "170900.KS"
-          ]
-        },
-        {
-          "uuid": "acafe1b8-b12c-3760-af35-c19a356ed65f",
-          "title": "OSE narrows pipeline focus amid Boehringer MASH collaboration retreat",
-          "publisher": "Pharmaceutical Technology",
-          "link": "https://finance.yahoo.com/m/acafe1b8-b12c-3760-af35-c19a356ed65f/ose-narrows-pipeline-focus.html",
-          "providerPublishTime": 1772562427,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/2S9c7WztvSRwEoekC52mzQ--~B/aD0xMzQwO3c9MjU2MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/pharmaceutical_technology_376/38cd50fbd0a259ace50b6de2bc159863",
-                "width": 2560,
-                "height": 1340,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/ZY2KhVgdIrmFAOo4ZgeA4w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/pharmaceutical_technology_376/38cd50fbd0a259ace50b6de2bc159863",
+                "url": "https://s.yimg.com/uu/api/res/1.2/mWBgqx4QMLwcq7Sg_l.mdA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/d664af3d734fbcbb40e527c0d4186295",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -241,8 +218,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 86,
-      "timeTakenForQuotes": 442,
+      "totalTime": 85,
+      "timeTakenForQuotes": 435,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

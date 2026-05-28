@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:17 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "175",
+      "x-envoy-upstream-service-time": "82",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "6bgqk1hkqfmu9"
+      "y-rid": "5ip8t55l1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -37,14 +37,12 @@
           "quoteType": "EQUITY",
           "symbol": "EPAC",
           "index": "quotes",
-          "score": 10003000,
-          "typeDisp": "equity",
+          "score": 10003500,
+          "typeDisp": "Equity",
           "longname": "Enerpac Tool Group Corp.",
           "exchDisp": "NYSE",
           "sector": "Industrials",
-          "sectorDisp": "Industrials",
           "industry": "Specialty Industrial Machinery",
-          "industryDisp": "Specialty Industrial Machinery",
           "dispSecIndFlag": false,
           "isYahooFinance": true
         },
@@ -55,34 +53,20 @@
           "symbol": "EPACKPEB.BO",
           "index": "quotes",
           "score": 20006,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "exchDisp": "Bombay",
           "sector": "Industrials",
-          "sectorDisp": "Industrials",
           "industry": "Engineering & Construction",
-          "industryDisp": "Engineering & Construction",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "NYS",
-          "shortname": "S&P EPAC Ex-Korea LargeMidCap (",
-          "quoteType": "INDEX",
-          "symbol": "^SPBEKLUT",
-          "index": "quotes",
-          "score": 20004,
-          "typeDisp": "index",
-          "longname": "S&P EPAC Ex-Korea LargeMidCap (",
-          "exchDisp": "NYSE",
           "isYahooFinance": true
         },
         {
           "exchange": "SNP",
           "shortname": "S&P EPAC Ex-Korea LargeMidCap (",
           "quoteType": "INDEX",
-          "symbol": "^SPBEKLUP",
+          "symbol": "^SPBEKLUT",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "index",
+          "score": 20004,
+          "typeDisp": "Index",
           "longname": "S&P EPAC Ex-Korea LargeMidCap (",
           "exchDisp": "SNP",
           "isYahooFinance": true
@@ -94,8 +78,20 @@
           "symbol": "^SPKX5UT",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "index",
+          "typeDisp": "Index",
           "longname": "S&P EPAC Ex-Korea LargeMidCap N",
+          "exchDisp": "SNP",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "SNP",
+          "shortname": "S&P EPAC Ex-Korea LargeMidCap (",
+          "quoteType": "INDEX",
+          "symbol": "^SPBEKLUP",
+          "index": "quotes",
+          "score": 20003,
+          "typeDisp": "Index",
+          "longname": "S&P EPAC Ex-Korea LargeMidCap (",
           "exchDisp": "SNP",
           "isYahooFinance": true
         },
@@ -114,49 +110,57 @@
       ],
       "news": [
         {
-          "uuid": "59da4ad7-7e29-3be6-9023-f1ecaea18ed9",
-          "title": "Is Schwab Fundamental International Equity ETF (FNDF) a Strong ETF Right Now?",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/schwab-fundamental-international-equity-etf-112002487.html",
-          "providerPublishTime": 1772104802,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/T44Iwg7RbRrkaTIYz_liyQ--~B/aD00Njk7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/737ffb82e07dc8bffb77e72d153c91f2",
-                "width": 900,
-                "height": 469,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/0VAyjhJrJObsyjxSwVSkjQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/737ffb82e07dc8bffb77e72d153c91f2",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "FNDF"
-          ]
-        },
-        {
-          "uuid": "77f0f42f-0380-364b-b102-9f994ff9f57d",
-          "title": "Oakmark Intl Small Cap's Strategic Moves: JDE Peet's NV Exits with -1.83% Impact",
+          "uuid": "4ce07898-3ae6-3d1b-b74c-e2c4a5d03fe2",
+          "title": "Enerpac Tool Group: Doubled EBITDA, Unmoved Multiple",
           "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/oakmark-intl-small-caps-strategic-230249007.html",
-          "providerPublishTime": 1772060569,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/enerpac-tool-group-doubled-ebitda-082356671.html",
+          "providerPublishTime": 1779870236,
+          "type": "STORY",
+          "relatedTickers": [
+            "EPAC"
+          ]
+        },
+        {
+          "uuid": "6d7d393b-d910-3cf4-b777-d9c9a0f93a8d",
+          "title": "Flexible Plastic Packaging Market worth $281.20 billion by 2031 - Exclusive Report by MarketsandMarkets™",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/markets/articles/flexible-plastic-packaging-market-worth-105900720.html",
+          "providerPublishTime": 1779793140,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/IXorMRU7TDFkF.O5waTKuw--~B/aD05MDI7dz0xMjQyO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/6f514722f222a0f2995e0720b370c340",
-                "width": 1242,
-                "height": 902,
+                "url": "https://s.yimg.com/uu/api/res/1.2/0fF.X6hyzVJfIa5ws4RDdg--~B/aD0xMzc7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/d9e0e2836c02c877b85c3d8caa06f4af",
+                "width": 400,
+                "height": 137,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/87aLvWIENchYgG5WDxryZQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/us.finance.gurufocus/6f514722f222a0f2995e0720b370c340",
+                "url": "https://s.yimg.com/uu/api/res/1.2/ZX7zbq5ExM3ceZXOrN9MeQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/d9e0e2836c02c877b85c3d8caa06f4af",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "cee999c1-7c43-3fb0-818b-12ed70ce46a5",
+          "title": "US Undiscovered Gems To Explore In May 2026",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/us-undiscovered-gems-explore-may-173319123.html",
+          "providerPublishTime": 1779730399,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/9jcUzKYfUwYqkVFuGwhkDQ--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4020998fe5d069537fb917fd739e4047",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/5ALhYqydvMi0nqSGkAathA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/4020998fe5d069537fb917fd739e4047",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -164,65 +168,52 @@
             ]
           },
           "relatedTickers": [
-            "JDEP.AS",
-            "BAER.SW"
+            "SFBC",
+            "EPAC",
+            "GIC",
+            "SCSC",
+            "CSHX",
+            "SIF",
+            "URLOF",
+            "HTT",
+            "AFBI",
+            "WSBK"
           ]
         },
         {
-          "uuid": "f7e74dba-77c2-3e27-978e-f26e63dee1ad",
-          "title": "Stand-Up Pouch Market Projected Growth from USD 35.64 Billion in 2025 to USD 78.01 Billion by 2035, with a CAGR of 8.15%",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/stand-pouch-market-projected-growth-150000137.html",
-          "providerPublishTime": 1771513200,
+          "uuid": "95cbca7f-488b-3558-8b10-55ec532db5a5",
+          "title": "Do Options Traders Know Something About Investors in Enerpac Tool Group Stock We Don't?",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/options/articles/options-traders-know-something-investors-123200422.html",
+          "providerPublishTime": 1779453120,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hdxZCkfUK4GBULpLUEY2iA--~B/aD0xNjY3O3c9MTY2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
-                "width": 1667,
-                "height": 1667,
+                "url": "https://s.yimg.com/uu/api/res/1.2/Z2186ts3qOgMcyEa.WQTgw--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/f2a906017e21a0754bed854592195b05",
+                "width": 635,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/6in_GXZ45Nm.zaynM5f2.g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
+                "url": "https://s.yimg.com/uu/api/res/1.2/9RtSY8FqWocfeESMHPIWPA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/f2a906017e21a0754bed854592195b05",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
-          }
-        },
-        {
-          "uuid": "1b45b6fa-b081-3e92-866a-25e824a32d51",
-          "title": "High-Barrier Paper Bag Market Trends and Size 2026-35",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/high-barrier-paper-bag-market-140000695.html",
-          "providerPublishTime": 1770732000,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hdxZCkfUK4GBULpLUEY2iA--~B/aD0xNjY3O3c9MTY2NzthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
-                "width": 1667,
-                "height": 1667,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/6in_GXZ45Nm.zaynM5f2.g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/47160fa420d06f24420d9a27698245a7",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
+          },
+          "relatedTickers": [
+            "EPAC"
+          ]
         }
       ],
       "nav": [],
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 166,
-      "timeTakenForQuotes": 437,
+      "totalTime": 78,
+      "timeTakenForQuotes": 431,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

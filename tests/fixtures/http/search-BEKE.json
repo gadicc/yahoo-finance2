@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
+      "date": "Thu, 28 May 2026 08:25:38 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "103",
+      "x-envoy-upstream-service-time": "125",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2dfkpupkqfmu5"
+      "y-rid": "0o6gddhl1fv03"
     },
     "bodyJson": {
       "explains": [],
@@ -37,15 +37,27 @@
           "quoteType": "EQUITY",
           "symbol": "BEKE",
           "index": "quotes",
-          "score": 10002000,
-          "typeDisp": "equity",
+          "score": 10003000,
+          "typeDisp": "Equity",
           "longname": "KE Holdings Inc.",
           "exchDisp": "NYSE",
           "sector": "Real Estate",
-          "sectorDisp": "Real Estate",
           "industry": "Real Estate Services",
-          "industryDisp": "Real Estate Services",
-          "dispSecIndFlag": false,
+          "dispSecIndFlag": true,
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "SHH",
+          "shortname": "BEKEN CORPORATION",
+          "quoteType": "EQUITY",
+          "symbol": "603068.SS",
+          "index": "quotes",
+          "score": 20003,
+          "typeDisp": "Equity",
+          "longname": "Beken Corporation",
+          "exchDisp": "Shanghai",
+          "sector": "Technology",
+          "industry": "Electronic Components",
           "isYahooFinance": true
         },
         {
@@ -55,13 +67,11 @@
           "symbol": "2423.HK",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "KE Holdings Inc.",
           "exchDisp": "Hong Kong",
           "sector": "Real Estate",
-          "sectorDisp": "Real Estate",
           "industry": "Real Estate Services",
-          "industryDisp": "Real Estate Services",
           "isYahooFinance": true
         },
         {
@@ -71,45 +81,23 @@
           "symbol": "BD0.SG",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "Ter Beke",
           "exchDisp": "Stuttgart",
           "sector": "Consumer Defensive",
-          "sectorDisp": "Consumer Defensive",
           "industry": "Packaged Foods",
-          "industryDisp": "Packaged Foods",
           "isYahooFinance": true
         },
         {
-          "exchange": "SHH",
-          "shortname": "BEKEN CORPORATION",
-          "quoteType": "EQUITY",
-          "symbol": "603068.SS",
+          "exchange": "OPR",
+          "shortname": "BEKE Jan 2027 3.000 call",
+          "quoteType": "OPTION",
+          "symbol": "BEKE270115C00003000",
           "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
-          "longname": "Beken Corporation",
-          "exchDisp": "Shanghai",
-          "sector": "Technology",
-          "sectorDisp": "Technology",
-          "industry": "Electronic Components",
-          "industryDisp": "Electronic Components",
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "PNK",
-          "shortname": "BEKEM METALS INC",
-          "quoteType": "EQUITY",
-          "symbol": "BKMM",
-          "index": "quotes",
-          "score": 20001,
-          "typeDisp": "equity",
-          "longname": "Bekem Metals, Inc.",
-          "exchDisp": "OTC Markets",
-          "sector": "Basic Materials",
-          "sectorDisp": "Basic Materials",
-          "industry": "Other Industrial Metals & Mining",
-          "industryDisp": "Other Industrial Metals & Mining",
+          "score": 20000,
+          "typeDisp": "Option",
+          "longname": "BEKE Jan 2027 3.000 call",
+          "exchDisp": "OPR",
           "isYahooFinance": true
         },
         {
@@ -127,66 +115,11 @@
       ],
       "news": [
         {
-          "uuid": "af7e8730-ba7c-324e-9b01-e47ed80da618",
-          "title": "Is Cirrus Logic (CRUS) Stock Outpacing Its Computer and Technology Peers This Year?",
-          "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/cirrus-logic-crus-stock-outpacing-144004037.html",
-          "providerPublishTime": 1772462404,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/AwCmIhR0z9Bg4cEkwuNQjw--~B/aD02MDE7dz05MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/8442d24e11d454aa89061259a9714d43",
-                "width": 900,
-                "height": 601,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/n4.AbgyuCxTPgpWcYEizKw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/8442d24e11d454aa89061259a9714d43",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "CRUS",
-            "BEKE"
-          ]
-        },
-        {
-          "uuid": "f55e57f3-e09f-387d-9339-cded2e7de244",
-          "title": "What’s Cooking? subject of takeover approach from investment firm",
-          "publisher": "Just Food",
-          "link": "https://finance.yahoo.com/m/f55e57f3-e09f-387d-9339-cded2e7de244/what%E2%80%99s-cooking%3F-subject-of.html",
-          "providerPublishTime": 1772198333,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/DXw4S7KbnjjZrEAvGlGX0g--~B/aD02Njc7dz0xMDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_food_692/97f3e8d645732ec52abb396df896f3a7",
-                "width": 1000,
-                "height": 667,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/bsPdyjrF_0L88F87Elprjg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/just_food_692/97f3e8d645732ec52abb396df896f3a7",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "WHATS.BR"
-          ]
-        },
-        {
-          "uuid": "0070c8df-f5d8-3e0c-a959-b8934e182821",
-          "title": "KE Holdings Inc. (NYSE:BEKE) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?",
+          "uuid": "4271cfb7-ebd1-31ef-9b0e-3578ad3c1cae",
+          "title": "KE Holdings Inc. Just Recorded A 111% EPS Beat: Here's What Analysts Are Forecasting Next",
           "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/ke-holdings-inc-nyse-beke-100621345.html",
-          "providerPublishTime": 1771236381,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ke-holdings-inc-just-recorded-101902561.html",
+          "providerPublishTime": 1779445142,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
@@ -209,22 +142,22 @@
           ]
         },
         {
-          "uuid": "1e797017-faec-36c2-a27e-b70971f4a2cc",
-          "title": "Toll Brothers Upgraded, Super Micro Computer Downgraded: Updated Rankings on Top Blue-Chip Stocks",
-          "publisher": "InvestorPlace",
-          "link": "https://finance.yahoo.com/news/toll-brothers-upgraded-super-micro-162542978.html",
-          "providerPublishTime": 1771345542,
+          "uuid": "754f7d2b-2db2-364c-9e0e-c864ab0475ad",
+          "title": "KE Holdings (BEKE) Profits Soar Double-Digits, Shares Jump 5%",
+          "publisher": "Insider Monkey",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ke-holdings-beke-profits-soar-030209478.html",
+          "providerPublishTime": 1779246129,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/EnhpXwFlcu8y0QrDAkqZEg--~B/aD05Njt3PTMwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/investorplace_417/66f66343d794b8595611a273413f326d",
-                "width": 300,
-                "height": 96,
+                "url": "https://s.yimg.com/uu/api/res/1.2/FeO3KcVHJPeInZYt2KvHIg--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/insidermonkey.com/712946635cbd62f95599afd119177ba7",
+                "width": 768,
+                "height": 512,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/62fY2Q.fYIMImtA805Zv1Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/investorplace_417/66f66343d794b8595611a273413f326d",
+                "url": "https://s.yimg.com/uu/api/res/1.2/o22MAwLl4m.nzdJ5pj6ylQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/712946635cbd62f95599afd119177ba7",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -232,15 +165,45 @@
             ]
           },
           "relatedTickers": [
-            "SMCI",
-            "TOL",
-            "AMAT",
-            "AMKR",
-            "CCJ",
-            "DUK",
-            "EIX",
-            "EME",
-            "ENB"
+            "BEKE"
+          ]
+        },
+        {
+          "uuid": "e27d39c2-e374-311d-a8ea-2cf50af478b0",
+          "title": "Why KE Holdings (BEKE) Is Down 7.8% After Q1 Profit Rose Despite Falling Revenue",
+          "publisher": "Simply Wall St.",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/why-ke-holdings-beke-down-231334531.html",
+          "providerPublishTime": 1779318814,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/dyle7mHf2v_V1m1LrH4j5A--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/9b27f5216f799d93084482c1da19bddd",
+                "width": 1194,
+                "height": 432,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/W7HUjLw4Jp.o4soMUX2xgQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/9b27f5216f799d93084482c1da19bddd",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "BEKE"
+          ]
+        },
+        {
+          "uuid": "9f500186-721f-3985-9bbd-f9ea2152102e",
+          "title": "KE Holdings Inc (BEKE) Q1 2026 Earnings Call Highlights: Navigating Revenue Declines with ...",
+          "publisher": "GuruFocus.com",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/ke-holdings-inc-beke-q1-190050851.html",
+          "providerPublishTime": 1779217250,
+          "type": "STORY",
+          "relatedTickers": [
+            "BEKE"
           ]
         }
       ],
@@ -248,8 +211,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 101,
-      "timeTakenForQuotes": 454,
+      "totalTime": 123,
+      "timeTakenForQuotes": 430,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

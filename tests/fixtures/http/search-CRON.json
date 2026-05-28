@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "3",
+      "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:16 GMT",
+      "date": "Thu, 28 May 2026 08:25:40 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "84",
+      "x-envoy-upstream-service-time": "91",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "6ea71ihkqfmu8"
+      "y-rid": "2ui9m15l1fv04"
     },
     "bodyJson": {
       "explains": [],
@@ -37,31 +37,13 @@
           "quoteType": "EQUITY",
           "symbol": "CRON",
           "index": "quotes",
-          "score": 10041500,
-          "typeDisp": "equity",
+          "score": 10042500,
+          "typeDisp": "Equity",
           "longname": "Cronos Group Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—Specialty & Generic",
-          "industryDisp": "Drug Manufacturers—Specialty & Generic",
           "dispSecIndFlag": true,
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "FRA",
-          "shortname": "Cronos Group Inc.             R",
-          "quoteType": "EQUITY",
-          "symbol": "7CI.F",
-          "index": "quotes",
-          "score": 20005,
-          "typeDisp": "equity",
-          "longname": "Cronos Group Inc.",
-          "exchDisp": "Frankfurt",
-          "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
-          "industry": "Drug Manufacturers—Specialty & Generic",
-          "industryDisp": "Drug Manufacturers—Specialty & Generic",
           "isYahooFinance": true
         },
         {
@@ -70,14 +52,24 @@
           "quoteType": "EQUITY",
           "symbol": "CRON.TO",
           "index": "quotes",
-          "score": 20004,
-          "typeDisp": "equity",
+          "score": 20005,
+          "typeDisp": "Equity",
           "longname": "Cronos Group Inc.",
           "exchDisp": "Toronto",
           "sector": "Healthcare",
-          "sectorDisp": "Healthcare",
           "industry": "Drug Manufacturers—Specialty & Generic",
-          "industryDisp": "Drug Manufacturers—Specialty & Generic",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCC",
+          "shortname": "Cronos USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "CRO-USD",
+          "index": "quotes",
+          "score": 20003,
+          "typeDisp": "Cryptocurrency",
+          "longname": "Cronos USD",
+          "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
@@ -87,20 +79,20 @@
           "symbol": "MMF-USD",
           "index": "quotes",
           "score": 20002,
-          "typeDisp": "cryptocurrency",
+          "typeDisp": "Cryptocurrency",
           "longname": "MM Finance (Cronos) USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
           "exchange": "CCC",
-          "shortname": "Cronos JPY",
+          "shortname": "Cronos ID USD",
           "quoteType": "CRYPTOCURRENCY",
-          "symbol": "CRO-JPY",
+          "symbol": "CROID-USD",
           "index": "quotes",
           "score": 20001,
-          "typeDisp": "cryptocurrency",
-          "longname": "Cronos JPY",
+          "typeDisp": "Cryptocurrency",
+          "longname": "Cronos ID USD",
           "exchDisp": "CCC",
           "isYahooFinance": true
         },
@@ -119,22 +111,46 @@
       ],
       "news": [
         {
-          "uuid": "e5249bf9-ae2b-32da-a04e-2b43acb85674",
-          "title": "Cronos Group Inc. (CRON) Earns Buy Rating and C$4.50 PT on Scalable Model",
-          "publisher": "Insider Monkey",
-          "link": "https://finance.yahoo.com/news/cronos-group-inc-cron-earns-202408875.html",
-          "providerPublishTime": 1772569448,
+          "uuid": "da6962ec-3a7d-38c4-bc29-c53729db78d2",
+          "title": "TrapDoor Malware Used npm, PyPI, and Rust Packages to Steal Crypto Wallets",
+          "publisher": "CCN",
+          "link": "https://finance.yahoo.com/m/da6962ec-3a7d-38c4-bc29-c53729db78d2/trapdoor-malware-used-npm%2C.html",
+          "providerPublishTime": 1779813791,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/HBSCCA..u122PqtmSkX_wg--~B/aD04MTY7dz0xNDU2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dd32d7c484a84475354c680a13740acd",
-                "width": 1456,
-                "height": 816,
+                "url": "https://s.yimg.com/uu/api/res/1.2/z51oMp3ytG2KgzmnSsDNpg--~B/aD0xMDgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/ccn_928/8ea9ff1f8b45f4d2711842da2967d0a6",
+                "width": 1920,
+                "height": 1080,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/w3ObfAQlxaSZDuBHHWj23g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/dd32d7c484a84475354c680a13740acd",
+                "url": "https://s.yimg.com/uu/api/res/1.2/TDeArZavb818QJ4iksc03w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/ccn_928/8ea9ff1f8b45f4d2711842da2967d0a6",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "8f002bca-6c18-3f4b-9227-cf3861a12ecb",
+          "title": "Canopy Growth Is Restating Two Years of Financials Before June 15 Earnings -- Here's What CGC Investors Need to Know Right Now",
+          "publisher": "Motley Fool",
+          "link": "https://finance.yahoo.com/m/8f002bca-6c18-3f4b-9227-cf3861a12ecb/canopy-growth-is-restating.html",
+          "providerPublishTime": 1779507300,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/yzzUT9swwIymM8Go5vl70w--~B/aD05MzQ7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7557ca3851b09a000755977ecf62da21",
+                "width": 1400,
+                "height": 934,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/JYpuYlYYOvOko1wLLCV7Cw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7557ca3851b09a000755977ecf62da21",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -142,15 +158,17 @@
             ]
           },
           "relatedTickers": [
-            "CRON"
+            "CGC",
+            "NVDA",
+            "INTC"
           ]
         },
         {
-          "uuid": "fbefe61b-936b-3f09-a2f6-5bc06f032fce",
-          "title": "How The Cronos Group (TSX:CRON) Story Is Shifting With New Targets And Execution Risks",
+          "uuid": "eab35431-8f1f-3752-afc0-3837e2f768d5",
+          "title": "Cronos Expands Spinach STIX Pre Rolls And Chases Canadian Market Share",
           "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/cronos-group-tsx-cron-story-160823983.html",
-          "providerPublishTime": 1772294903,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/cronos-expands-spinach-stix-pre-050805708.html",
+          "providerPublishTime": 1779080885,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
@@ -173,27 +191,18 @@
           ]
         },
         {
-          "uuid": "685d2431-18c4-3bb5-b34f-b00f9c43d1cf",
-          "title": "Cronos Group Inc (CRON) Q4 2025 Earnings Call Highlights: Record Revenue Growth and Strategic ...",
-          "publisher": "GuruFocus.com",
-          "link": "https://finance.yahoo.com/news/cronos-group-inc-cron-q4-210840616.html",
-          "providerPublishTime": 1772140120,
-          "type": "STORY",
-          "relatedTickers": [
-            "CRON"
-          ]
-        },
-        {
-          "uuid": "458bc075-e105-3223-a5be-bed6dea01eec",
-          "title": "Cronos Group Swings to Q4 Loss",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/cronos-group-swings-q4-loss-130018032.html",
-          "providerPublishTime": 1772110818,
+          "uuid": "f0ee8874-0ef0-3ce4-b550-92735aaae26e",
+          "title": "Weekly Roundup on the Cannabis Sector & Psychedelic Sector",
+          "publisher": "Market Exclusive",
+          "link": "https://finance.yahoo.com/sectors/healthcare/articles/weekly-roundup-cannabis-sector-psychedelic-140351068.html",
+          "providerPublishTime": 1779113031,
           "type": "STORY",
           "relatedTickers": [
             "CRON",
-            "CRON.TO",
-            "HMMJ.TO"
+            "DFTX",
+            "VFF",
+            "GHRS",
+            "OGI"
           ]
         }
       ],
@@ -201,8 +210,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 81,
-      "timeTakenForQuotes": 440,
+      "totalTime": 89,
+      "timeTakenForQuotes": 430,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

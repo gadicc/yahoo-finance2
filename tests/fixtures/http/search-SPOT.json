@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:14 GMT",
+      "date": "Thu, 28 May 2026 08:25:39 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "122",
+      "x-envoy-upstream-service-time": "80",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "5kktjvtkqfmu6"
+      "y-rid": "5b2s88hl1fv03"
     },
     "bodyJson": {
       "explains": [],
@@ -37,30 +37,13 @@
           "quoteType": "EQUITY",
           "symbol": "SPOT",
           "index": "quotes",
-          "score": 10205500,
-          "typeDisp": "equity",
+          "score": 10111000,
+          "typeDisp": "Equity",
           "longname": "Spotify Technology S.A.",
           "exchDisp": "NYSE",
           "sector": "Communication Services",
-          "sectorDisp": "Communication Services",
           "industry": "Internet Content & Information",
-          "industryDisp": "Internet Content & Information",
           "dispSecIndFlag": true,
-          "isYahooFinance": true
-        },
-        {
-          "exchange": "STO",
-          "shortname": "Spotlight Group AB",
-          "quoteType": "EQUITY",
-          "symbol": "SPGR.ST",
-          "index": "quotes",
-          "score": 20017,
-          "typeDisp": "equity",
-          "exchDisp": "Stockholm",
-          "sector": "Financial Services",
-          "sectorDisp": "Financial Services",
-          "industry": "Capital Markets",
-          "industryDisp": "Capital Markets",
           "isYahooFinance": true
         },
         {
@@ -70,31 +53,41 @@
           "symbol": "6V6.F",
           "index": "quotes",
           "score": 20005,
-          "typeDisp": "equity",
+          "typeDisp": "Equity",
           "longname": "Spotr Group AB",
           "exchDisp": "Frankfurt",
           "sector": "Technology",
-          "sectorDisp": "Technology",
           "industry": "Software—Application",
-          "industryDisp": "Software—Application",
           "isYahooFinance": true,
           "prevName": "AppSpotr AB (publ)",
-          "nameChangeDate": "2026-03-03"
+          "nameChangeDate": "2026-05-27"
         },
         {
-          "exchange": "FRA",
-          "shortname": "SPOTIFY TECHNOLOGY S.A.       A",
+          "exchange": "VAN",
+          "shortname": "EARTHLABS INC",
           "quoteType": "EQUITY",
-          "symbol": "639.F",
+          "symbol": "SPOT.V",
           "index": "quotes",
-          "score": 20005,
-          "typeDisp": "equity",
-          "longname": "Spotify Technology S.A.",
-          "exchDisp": "Frankfurt",
-          "sector": "Communication Services",
-          "sectorDisp": "Communication Services",
-          "industry": "Internet Content & Information",
-          "industryDisp": "Internet Content & Information",
+          "score": 20003,
+          "typeDisp": "Equity",
+          "longname": "EarthLabs Inc.",
+          "exchDisp": "CDNX",
+          "sector": "Technology",
+          "industry": "Information Technology Services",
+          "isYahooFinance": true,
+          "prevName": "GoldSpot Discoveries Corp.",
+          "nameChangeDate": "2026-05-27"
+        },
+        {
+          "exchange": "NIM",
+          "shortname": "Gold/Sweden Krona 1630GMT Spot ",
+          "quoteType": "INDEX",
+          "symbol": "^XAUSEK1630GMTSEK",
+          "index": "quotes",
+          "score": 20003,
+          "typeDisp": "Index",
+          "longname": "Gold/Sweden Krona 1630GMT Spot",
+          "exchDisp": "NASDAQ GIDS",
           "isYahooFinance": true
         },
         {
@@ -103,7 +96,7 @@
           "symbol": "DE000SL0FW35.SG",
           "index": "quotes",
           "score": 20003,
-          "typeDisp": "index",
+          "typeDisp": "Index",
           "longname": "Solactive Gold Spot Index",
           "exchDisp": "Stuttgart",
           "isYahooFinance": true
@@ -123,46 +116,22 @@
       ],
       "news": [
         {
-          "uuid": "2195f4bc-d954-3c33-89c2-0fef2142cdfa",
-          "title": "Spot & Tango Launches Best-Selling UnKibble in Canada",
-          "publisher": "CNW Group",
-          "link": "https://finance.yahoo.com/news/spot-tango-launches-best-selling-120000075.html",
-          "providerPublishTime": 1772539200,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/f4pcRpTJC1ZJD7KsZ8_PMw--~B/aD04Mjt3PTQwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/cnwgroup.com/cb155b6dc0ef84ebea38a54868a0fcf4",
-                "width": 400,
-                "height": 82,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/bHhw2yO.qVsL9pNHKXEVxw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/cb155b6dc0ef84ebea38a54868a0fcf4",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          }
-        },
-        {
-          "uuid": "8e145dd6-5b3f-3fe9-99a6-241bbea8280e",
-          "title": "Spotting Winners: HNI (NYSE:HNI) And Business Services & Supplies Stocks In Q4",
+          "uuid": "2b489635-44a5-387d-bc1a-13f5d6544523",
+          "title": "Spotting Winners: Carlisle (NYSE:CSL) And Building Materials Stocks In Q1",
           "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/spotting-winners-hni-nyse-hni-195242599.html",
-          "providerPublishTime": 1772567562,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/spotting-winners-carlisle-nyse-csl-191324582.html",
+          "providerPublishTime": 1779909204,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/LXDRE1h.bpdMGYHwFrnjKQ--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/72a5244fafdb9bc0f8a4553e61d04b5b",
+                "url": "https://s.yimg.com/uu/api/res/1.2/0aLB_uvrGyjvLxP5lkqF7A--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/4c92cb6067270723030b918f32354b48",
                 "width": 1400,
                 "height": 700,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/AZlxLLCaHlntCV280gQzmQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/72a5244fafdb9bc0f8a4553e61d04b5b",
+                "url": "https://s.yimg.com/uu/api/res/1.2/bg4.6yayDriU.NpQRIJ7Wg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/4c92cb6067270723030b918f32354b48",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -170,26 +139,26 @@
             ]
           },
           "relatedTickers": [
-            "HNI"
+            "CSL"
           ]
         },
         {
-          "uuid": "0c1afc93-4f4a-3022-b33a-86f40d5cc686",
-          "title": "Spotting Winners: Viatris (NASDAQ:VTRS) And Generic Pharmaceuticals Stocks In Q4",
-          "publisher": "StockStory",
-          "link": "https://finance.yahoo.com/news/spotting-winners-viatris-nasdaq-vtrs-192242940.html",
-          "providerPublishTime": 1772565762,
+          "uuid": "49ce8ace-6d41-3f8d-b206-d425bc30279f",
+          "title": "Forget London and Paris: The top 10 European cities for rental yields in 2026",
+          "publisher": "Euronews",
+          "link": "https://finance.yahoo.com/m/49ce8ace-6d41-3f8d-b206-d425bc30279f/forget-london-and-paris%3A-the.html",
+          "providerPublishTime": 1779946991,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/AxSRocmEQT0TC9DBz1arsg--~B/aD03MDA7dz0xNDAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/ad9a5e2f85d880e3e7b521395022f4d3",
-                "width": 1400,
-                "height": 700,
+                "url": "https://s.yimg.com/uu/api/res/1.2/o6AvaaGac8HBXK.g3IIQ4A--~B/aD00NTA7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/euronews_us_articles_576/f5d33f3531e1ec5e9c9f4d55fa00efdc",
+                "width": 800,
+                "height": 450,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/5fBhTvUbBkMJkPX1FxBdQA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stockstory_922/ad9a5e2f85d880e3e7b521395022f4d3",
+                "url": "https://s.yimg.com/uu/api/res/1.2/04FIvCjoo397Fvc31HDc2g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/euronews_us_articles_576/f5d33f3531e1ec5e9c9f4d55fa00efdc",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -197,32 +166,71 @@
             ]
           },
           "relatedTickers": [
-            "VTRS"
+            "EUR=X"
           ]
         },
         {
-          "uuid": "b0deb641-4ae0-381e-bd72-733b49a8f2d7",
-          "title": "Strasbourg spot on against Reims in French Cup",
-          "publisher": "AFP",
-          "link": "https://finance.yahoo.com/m/b0deb641-4ae0-381e-bd72-733b49a8f2d7/strasbourg-spot-on-against.html",
-          "providerPublishTime": 1772580195,
+          "uuid": "ef9fac53-45a4-348b-822f-3c13f9d1b76e",
+          "title": "Positive Sentiment in AI and Iran Keeps Pre-Market Buoyant",
+          "publisher": "Zacks",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/positive-sentiment-ai-iran-keeps-142700831.html",
+          "providerPublishTime": 1779892020,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/N4d6rwyfs7biluMvlcBOAQ--~B/aD01MTI7dz03Njg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/afp.com/d4306601c52d9073214b2032b85da26c",
-                "width": 768,
-                "height": 512,
+                "url": "https://s.yimg.com/uu/api/res/1.2/pz.ZdSuSzYYjE0s1YSk7oQ--~B/aD00MDA7dz02MzU7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/zacks.com/56e937cf2298be1d3c7370f5d5407a35",
+                "width": 635,
+                "height": 400,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hWQKVfxqWTFt_dwvIHOFPg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/afp.com/d4306601c52d9073214b2032b85da26c",
+                "url": "https://s.yimg.com/uu/api/res/1.2/wcWE08h7FoFU0OXxTTaRMg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/zacks.com/56e937cf2298be1d3c7370f5d5407a35",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
               }
             ]
-          }
+          },
+          "relatedTickers": [
+            "CL=F",
+            "^DJI",
+            "^GSPC",
+            "ANF",
+            "BBWI",
+            "DKS",
+            "CRM",
+            "^IXIC",
+            "^RUT"
+          ]
+        },
+        {
+          "uuid": "4fe1d51d-282f-3ca1-b31a-2180b309ba5b",
+          "title": "ETHA’s Spot Ethereum Promise Hides a Staking Yield It Cannot Pass Through to Holders",
+          "publisher": "24/7 Wall St.",
+          "link": "https://finance.yahoo.com/m/4fe1d51d-282f-3ca1-b31a-2180b309ba5b/etha%E2%80%99s-spot-ethereum-promise.html",
+          "providerPublishTime": 1779928408,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/6AkDH7xySVBUcX9mGe0_Vg--~B/aD0xMDAwO3c9MTUwMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/24_7_wall_st__718/bec197faaf16a4d65164cabf211f540d",
+                "width": 1500,
+                "height": 1000,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/hJbn7Kl7GmA6tbpFqtN9TA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/24_7_wall_st__718/bec197faaf16a4d65164cabf211f540d",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "ETH-USD",
+            "NVDA"
+          ]
         }
       ],
       "nav": [
@@ -234,8 +242,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 119,
-      "timeTakenForQuotes": 454,
+      "totalTime": 77,
+      "timeTakenForQuotes": 428,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

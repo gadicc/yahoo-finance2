@@ -15,41 +15,30 @@
       "age": "0",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:20 GMT",
+      "date": "Thu, 28 May 2026 08:25:41 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "103",
+      "x-envoy-upstream-service-time": "124",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "3168nqhkqfmuc"
+      "y-rid": "3br9msll1fv05"
     },
     "bodyJson": {
       "explains": [],
       "count": 11,
       "quotes": [
         {
-          "exchange": "NGM",
-          "quoteType": "EQUITY",
-          "symbol": "XDEF",
-          "index": "quotes",
-          "score": 100001,
-          "typeDisp": "equity",
-          "longname": "Xtrackers Europe Defense Technologies ETF",
-          "exchDisp": "NASDAQ",
-          "isYahooFinance": true
-        },
-        {
           "exchange": "CCY",
           "shortname": "EUR/USD",
           "quoteType": "CURRENCY",
           "symbol": "EURUSD=X",
           "index": "quotes",
-          "score": 32907,
-          "typeDisp": "currency",
+          "score": 31794,
+          "typeDisp": "Currency",
           "longname": "EUR/USD",
           "exchDisp": "CCY",
           "isYahooFinance": true
@@ -60,8 +49,8 @@
           "quoteType": "CURRENCY",
           "symbol": "EURHUF=X",
           "index": "quotes",
-          "score": 30280,
-          "typeDisp": "currency",
+          "score": 30178,
+          "typeDisp": "Currency",
           "longname": "EUR/HUF",
           "exchDisp": "CCY",
           "isYahooFinance": true
@@ -72,9 +61,21 @@
           "quoteType": "CURRENCY",
           "symbol": "GBPEUR=X",
           "index": "quotes",
-          "score": 30205,
-          "typeDisp": "currency",
+          "score": 30136,
+          "typeDisp": "Currency",
           "longname": "GBP/EUR",
+          "exchDisp": "CCY",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "CCY",
+          "shortname": "EUR/COP",
+          "quoteType": "CURRENCY",
+          "symbol": "EURCOP=X",
+          "index": "quotes",
+          "score": 30098,
+          "typeDisp": "Currency",
+          "longname": "EUR/COP",
           "exchDisp": "CCY",
           "isYahooFinance": true
         },
@@ -84,8 +85,8 @@
           "quoteType": "CURRENCY",
           "symbol": "EURCHF=X",
           "index": "quotes",
-          "score": 30179,
-          "typeDisp": "currency",
+          "score": 30089,
+          "typeDisp": "Currency",
           "longname": "EUR/CHF",
           "exchDisp": "CCY",
           "isYahooFinance": true
@@ -105,22 +106,22 @@
       ],
       "news": [
         {
-          "uuid": "923a4a33-fff3-3219-84be-e39487bf97f9",
-          "title": "Fourth quarter 2025 Results - EUR 208 million net income in Q4 2025, contributing to a strong full year net income of EUR 851 million - Proposed regular dividend of EUR 1.9 per share",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/fourth-quarter-2025-results-eur-060100010.html",
-          "providerPublishTime": 1772604060,
+          "uuid": "1d631513-2009-30cb-acc6-442d8dbe443c",
+          "title": "ShaMaran Announces Completion of Corporate Continuance to Bermuda and Update on Primary Listing in Oslo with Required Private Placement of up to EUR 1 million",
+          "publisher": "CNW Group",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/shamaran-announces-completion-corporate-continuance-063000707.html",
+          "providerPublishTime": 1779949800,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/fDo9saRznlLJ6idfF_U3vw--~B/aD03MDt3PTI0ODthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/globenewswire.com/374198528bce8edf7c101fac21f12fd0",
-                "width": 248,
-                "height": 70,
+                "url": "https://s.yimg.com/uu/api/res/1.2/.Ju0wF6dQHIU4gL2tOPBwA--~B/aD0xNjt3PTE2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/aaedf77f01d792caddd977afdd0679d8",
+                "width": 16,
+                "height": 16,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/rZ.0MyeTAyZb56GoyIx2qA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/374198528bce8edf7c101fac21f12fd0",
+                "url": "https://s.yimg.com/uu/api/res/1.2/SlOtLKMUvUMQNkslcvLQ6g--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/cnwgroup.com/aaedf77f01d792caddd977afdd0679d8",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -128,67 +129,80 @@
             ]
           },
           "relatedTickers": [
-            "SCR.PA"
+            "SNM.V",
+            "SNM.NE",
+            "SNM.ST"
           ]
         },
         {
-          "uuid": "d3b9caa9-c394-3506-a436-9f7ce800e955",
-          "title": "ING Comments on Euro, Swiss Franc, Hungary's Forint",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/ing-comments-euro-swiss-franc-110536624.html",
-          "providerPublishTime": 1772535936,
+          "uuid": "2c36757c-f383-3572-afb0-718ee0c4a0cc",
+          "title": "Presentation materials for AB Civinity bond issue",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/presentation-materials-ab-civinity-bond-080000486.html",
+          "providerPublishTime": 1779955200,
           "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/mhatBVT8ZhE0SAZz8eq8bQ--~B/aD0yMTg7dz0xMjAzO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/04e06690d887c44c00c538953009569c",
+                "width": 1203,
+                "height": 218,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/D9mSRkudOOPxRno_PH_sRQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/04e06690d887c44c00c538953009569c",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
           "relatedTickers": [
-            "EUR=X",
-            "EURHUF",
-            "EURUSD",
-            "$CXY",
-            "$EUR",
-            "EURCHF",
-            "CHF=X",
-            "HUF=X",
-            "NG=F",
-            "ING",
-            "DX-Y.NYB"
+            "CIVB100029A"
           ]
         },
         {
-          "uuid": "7a6f6067-a566-3a0b-9606-bb2e3113e704",
-          "title": "FRN Variable Rate Fix",
+          "uuid": "fe75ecf1-1ea4-3a95-827b-50303413769e",
+          "title": "Multitude AG to redeem its outstanding up to EUR 50,000,000 subordinated perpetual floating rate callable capital notes with ISIN NO0011037327",
+          "publisher": "GlobeNewswire",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/multitude-ag-redeem-outstanding-eur-153000178.html",
+          "providerPublishTime": 1779895800,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/feAFfvCJ4tkaMB2w3gFkeg--~B/aD0xMjA7dz0xNTA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/globenewswire.com/73d37c55c0714aa1af158dc3ff331f15",
+                "width": 150,
+                "height": 120,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/pVgIGCiJZQ9l3d8p.ULs1w--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/73d37c55c0714aa1af158dc3ff331f15",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "MULT.DE",
+            "MULT.F",
+            "MULT.DU",
+            "MULT.HM",
+            "MULT.MU",
+            "MULT.SG"
+          ]
+        },
+        {
+          "uuid": "abc98d46-f99a-383b-afed-90c80f01f305",
+          "title": "Net Asset Value(s)",
           "publisher": "Business Wire",
-          "link": "https://finance.yahoo.com/news/frn-variable-rate-fix-070000230.html",
-          "providerPublishTime": 1772607600,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/net-asset-value-074300372.html",
+          "providerPublishTime": 1779954180,
           "type": "STORY",
           "relatedTickers": [
-            "XW00",
-            "DB"
-          ]
-        },
-        {
-          "uuid": "4ec06416-b9c2-3ae9-82da-1a209d913d9a",
-          "title": "IMCD releases 2025 Annual Report",
-          "publisher": "GlobeNewswire",
-          "link": "https://finance.yahoo.com/news/imcd-releases-2025-annual-report-070000112.html",
-          "providerPublishTime": 1772607600,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/nYlBZNR7h3r8AKYdBINLrg--~B/aD04MTY7dz0yNzM2O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/6982284d6864cfc045b9cae514548c0d",
-                "width": 2736,
-                "height": 816,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/EfpRfFJvZIBkZd7FupC3Ig--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/globenewswire.com/6982284d6864cfc045b9cae514548c0d",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "IMCD.AS"
+            "EDVU.L",
+            "EDVY.L"
           ]
         }
       ],
@@ -196,8 +210,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 100,
-      "timeTakenForQuotes": 454,
+      "totalTime": 122,
+      "timeTakenForQuotes": 461,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,

@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=600, stale-while-revalidate=180",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 04 Mar 2026 07:14:13 GMT",
+      "date": "Thu, 28 May 2026 08:25:38 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "53",
+      "x-envoy-upstream-service-time": "34",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7d7pa6pkqfmu5"
+      "y-rid": "3j3fqnll1fv03"
     },
     "bodyJson": {
       "explains": [],
@@ -37,96 +37,98 @@
           "quoteType": "EQUITY",
           "symbol": "AMZN",
           "index": "quotes",
-          "score": 13072000,
-          "typeDisp": "equity",
+          "score": 12764000,
+          "typeDisp": "Equity",
           "longname": "Amazon.com, Inc.",
           "exchDisp": "NASDAQ",
           "sector": "Consumer Cyclical",
-          "sectorDisp": "Consumer Cyclical",
           "industry": "Internet Retail",
-          "industryDisp": "Internet Retail",
           "dispSecIndFlag": true,
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "AMZN Jan 2027 265.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AMZN270115C00265000",
+          "exchange": "NEO",
+          "shortname": "AMAZON.COM CDR (CAD HEDGED)",
+          "quoteType": "EQUITY",
+          "symbol": "AMZN.NE",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "option",
-          "longname": "AMZN Jan 2027 265.000 call",
-          "exchDisp": "OPR",
+          "score": 20005,
+          "typeDisp": "Equity",
+          "longname": "Amazon.com, Inc.",
+          "exchDisp": "NEO",
+          "sector": "Consumer Cyclical",
+          "industry": "Internet Retail",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "AMZN Jan 2027 245.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AMZN270115C00245000",
+          "exchange": "BUE",
+          "shortname": "AMAZON COM INC CEDEAR EACH 144 ",
+          "quoteType": "EQUITY",
+          "symbol": "AMZN.BA",
           "index": "quotes",
-          "score": 20006,
-          "typeDisp": "option",
-          "longname": "AMZN Jan 2027 245.000 call",
-          "exchDisp": "OPR",
+          "score": 20003,
+          "typeDisp": "Equity",
+          "longname": "Amazon.com, Inc.",
+          "exchDisp": "Buenos Aires",
+          "sector": "Consumer Cyclical",
+          "industry": "Internet Retail",
           "isYahooFinance": true
         },
         {
           "exchange": "NGM",
-          "shortname": "Direxion Daily AMZN Bull 2X Sha",
+          "shortname": "Direxion Daily AMZN Bear 1X ETF",
           "quoteType": "ETF",
-          "symbol": "AMZU",
+          "symbol": "AMZD",
           "index": "quotes",
-          "score": 20004,
-          "typeDisp": "etf",
-          "longname": "Direxion Daily AMZN Bull 2X Shares",
+          "score": 20003,
+          "typeDisp": "ETF",
+          "longname": "Direxion Daily AMZN Bear 1X Shares",
           "exchDisp": "NASDAQ",
           "isYahooFinance": true
         },
         {
-          "exchange": "OPR",
-          "shortname": "AMZN Jun 2026 180.000 call",
-          "quoteType": "OPTION",
-          "symbol": "AMZN260618C00180000",
+          "exchange": "CCC",
+          "shortname": "Amazon tokenized stock (xStock) USD",
+          "quoteType": "CRYPTOCURRENCY",
+          "symbol": "AMZNX-USD",
           "index": "quotes",
-          "score": 20004,
-          "typeDisp": "option",
-          "longname": "AMZN Jun 2026 180.000 call",
-          "exchDisp": "OPR",
+          "score": 20001,
+          "typeDisp": "Cryptocurrency",
+          "longname": "Amazon tokenized stock (xStock) USD",
+          "exchDisp": "CCC",
           "isYahooFinance": true
         },
         {
-          "exchange": "PCX",
-          "shortname": "YieldMax AMZN Option Income Str",
-          "quoteType": "ETF",
-          "symbol": "AMZY",
+          "exchange": "SGO",
+          "shortname": "AMAZON COM INC",
+          "quoteType": "EQUITY",
+          "symbol": "AMZNCL.SN",
           "index": "quotes",
-          "score": 20003,
-          "typeDisp": "etf",
-          "longname": "YieldMax AMZN Option Income Strategy ETF",
-          "exchDisp": "NYSEArca",
+          "score": 20001,
+          "typeDisp": "Equity",
+          "longname": "Amazon.com, Inc.",
+          "exchDisp": "Santiago Stock Exchange",
           "isYahooFinance": true
         }
       ],
       "news": [
         {
-          "uuid": "5c943351-b533-3ea7-95b2-f55967cec7df",
-          "title": "Is Amazon.com (AMZN) Still Attractively Priced After Recent 12.8% Pullback?",
-          "publisher": "Simply Wall St.",
-          "link": "https://finance.yahoo.com/news/amazon-com-amzn-still-attractively-050941840.html",
-          "providerPublishTime": 1772600981,
+          "uuid": "dd684a43-a780-303b-86cf-3353b89e2a8e",
+          "title": "Digital Identity Co. Modernizes Thailand Immigration Bureau Services with AWS",
+          "publisher": "PR Newswire",
+          "link": "https://finance.yahoo.com/sectors/technology/articles/digital-identity-co-modernizes-thailand-070600668.html",
+          "providerPublishTime": 1779951960,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hsVjZ4ukG2SIP4a4o0eS8g--~B/aD00MzI7dz0xMTk0O2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/eb1b720f52f53b83d71833696a788156",
-                "width": 1194,
-                "height": 432,
+                "url": "https://s.yimg.com/uu/api/res/1.2/RMXVJR9s8ylekDT8TZQKLg--~B/aD0yMzk7dz00MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/prnewswire.com/5f2367cdf24eebc5e58cc0a04aee9ed4",
+                "width": 400,
+                "height": 239,
                 "tag": "original"
               },
               {
-                "url": "https://s.yimg.com/uu/api/res/1.2/hGMAgozFAnoH9DTcRSjx0Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/simply_wall_st__316/eb1b720f52f53b83d71833696a788156",
+                "url": "https://s.yimg.com/uu/api/res/1.2/WczFwjfDMm3UjnDB4KAeMw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/prnewswire.com/5f2367cdf24eebc5e58cc0a04aee9ed4",
                 "width": 140,
                 "height": 140,
                 "tag": "140x140"
@@ -138,11 +140,68 @@
           ]
         },
         {
-          "uuid": "af28c7cd-10dc-3323-a6c0-bb25bba1578d",
-          "title": "Amazon Taps OpenAI to Boost AI Footprint: More Upside Ahead?",
+          "uuid": "4549cba3-141c-301a-8c79-e940173aad6f",
+          "title": "AMZN Stock Is Rising Today — Could Its New AI Shopping Push Be The Reason?",
+          "publisher": "Stocktwits",
+          "link": "https://finance.yahoo.com/m/4549cba3-141c-301a-8c79-e940173aad6f/amzn-stock-is-rising-today-%E2%80%94.html",
+          "providerPublishTime": 1779900303,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/7PQVhxtoP48ZbE7j10cR.A--~B/aD04NTM7dz0xMjgwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/b66ecab2f46f434dbf59e9564020ab3e",
+                "width": 1280,
+                "height": 853,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/GuUtoGgCc9HaCPhrsuXW2Q--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/stocktwits_383/b66ecab2f46f434dbf59e9564020ab3e",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "AMZN",
+            "GOOG",
+            "WMT"
+          ]
+        },
+        {
+          "uuid": "188cac99-9bf0-3fb0-84ba-9c01855ea93e",
+          "title": "Wolfe Names Amazon (AMZN) a Top Internet Sector Pick",
+          "publisher": "Insider Monkey",
+          "link": "https://finance.yahoo.com/markets/stocks/articles/wolfe-names-amazon-amzn-top-102757939.html",
+          "providerPublishTime": 1779877677,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/TcVTRskITPK04KBrHl1fzw--~B/aD0xMjgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/en/insidermonkey.com/90e386a06858d8b4751ec77797010aed",
+                "width": 1920,
+                "height": 1280,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/CTypLI0Uy4flBLv7v3L3xw--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/insidermonkey.com/90e386a06858d8b4751ec77797010aed",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "AMZN",
+            "ANTH.PVT"
+          ]
+        },
+        {
+          "uuid": "67a32bec-5bb2-3226-b962-c2055a909fed",
+          "title": "SHOP vs. AMZN: Which AI-Driven Commerce Stock Has the Better Edge?",
           "publisher": "Zacks",
-          "link": "https://finance.yahoo.com/news/amazon-taps-openai-boost-ai-131000474.html",
-          "providerPublishTime": 1772543400,
+          "link": "https://finance.yahoo.com/markets/stocks/articles/shop-vs-amzn-ai-driven-151000843.html",
+          "providerPublishTime": 1779894600,
           "type": "STORY",
           "thumbnail": {
             "resolutions": [
@@ -161,51 +220,8 @@
             ]
           },
           "relatedTickers": [
-            "MSFT",
-            "NVDA",
-            "AMZN"
-          ]
-        },
-        {
-          "uuid": "661b0e06-82b9-3613-9a70-38b6001a493b",
-          "title": "Market Chatter: Amazon Weighs Helping Other Apps Sell Chatbot Ads",
-          "publisher": "MT Newswires",
-          "link": "https://finance.yahoo.com/news/market-chatter-amazon-weighs-helping-153706054.html",
-          "providerPublishTime": 1772552226,
-          "type": "STORY",
-          "relatedTickers": [
             "AMZN",
-            "PINS"
-          ]
-        },
-        {
-          "uuid": "f10d30b4-54c8-3653-997d-fa74c7093dc9",
-          "title": "Tesla vs. Amazon: Which AI Stock Is the Better Buy Now?",
-          "publisher": "Motley Fool",
-          "link": "https://finance.yahoo.com/m/f10d30b4-54c8-3653-997d-fa74c7093dc9/tesla-vs.-amazon%3A-which-ai.html",
-          "providerPublishTime": 1772592180,
-          "type": "STORY",
-          "thumbnail": {
-            "resolutions": [
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/r7tvtXJXbHfvc3E81sjM9A--~B/aD04MDA7dz0xMjAwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7b70bd8ea30ddfbdffd6acc2135f9828",
-                "width": 1200,
-                "height": 800,
-                "tag": "original"
-              },
-              {
-                "url": "https://s.yimg.com/uu/api/res/1.2/722YoCBaQMuO3bd51Ei5Ig--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/motleyfool.com/7b70bd8ea30ddfbdffd6acc2135f9828",
-                "width": 140,
-                "height": 140,
-                "tag": "140x140"
-              }
-            ]
-          },
-          "relatedTickers": [
-            "TSLA",
-            "AMZN",
-            "NVDA",
-            "INTC"
+            "SHOP"
           ]
         }
       ],
@@ -213,8 +229,8 @@
       "lists": [],
       "researchReports": [],
       "screenerFieldResults": [],
-      "totalTime": 49,
-      "timeTakenForQuotes": 439,
+      "totalTime": 31,
+      "timeTakenForQuotes": 424,
       "timeTakenForNews": 700,
       "timeTakenForAlgowatchlist": 400,
       "timeTakenForPredefinedScreener": 400,
