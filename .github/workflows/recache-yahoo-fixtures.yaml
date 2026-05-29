@@ -108,7 +108,7 @@ jobs:
           # tests/common.ts rewrites only the cache files for tests that fail
           # against fresh Yahoo responses.
           set +e
-          FETCH_DEVEL=recache deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
+          DENO_JOBS=1 FETCH_DEVEL=recache deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
           status=${PIPESTATUS[0]}
           set -e
 
