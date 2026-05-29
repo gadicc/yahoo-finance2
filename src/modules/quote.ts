@@ -430,6 +430,9 @@ export interface QuoteBase {
    * Link to the company logo, hosted on Yahoo's image CDN s.yimg.com.
    * Identical to `companyLogoUrl`.  Must be explicitly requested in `fields`. */
   logoUrl?: string;
+
+  /** Implied number of shares outstanding */
+  impliedSharesOutstanding?: number; // 14687356000
 }
 
 /*
@@ -471,6 +474,9 @@ export interface QuoteCryptoCurrency extends QuoteBase {
 
   /** URL to logo image */
   logoUrl?: string; // "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+
+  maxSupply?: number; // 21000000,
+  totalSupply?: number; // 20036072
 }
 
 /**
