@@ -25,7 +25,7 @@ jobs:
         run: deno task test --coverage
 
       - name: Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           use_oidc: true
 
