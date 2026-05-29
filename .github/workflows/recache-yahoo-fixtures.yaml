@@ -3,8 +3,8 @@ name: Re-cache Yahoo fixtures
 on:
   # Run once a day. GitHub notes that schedules can be delayed or dropped during
   # periods of high load, especially at the start of the hour, so avoid minute 0.
-  schedule:
-    - cron: "37 3 * * *"
+  # schedule:
+  #  - cron: "37 3 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -111,7 +111,7 @@ jobs:
           DENO_JOBS: "1"
           FETCH_DEVEL: recache
           FETCH_DEVEL_RECACHE_CONCURRENCY: "1"
-          FETCH_DEVEL_RECACHE_INTERVAL: "250"
+          FETCH_DEVEL_RECACHE_INTERVAL: "1000"
         run: |
           # In recache mode, failing tests are the signal we are looking for:
           # tests/common.ts rewrites only the cache files for tests that fail
