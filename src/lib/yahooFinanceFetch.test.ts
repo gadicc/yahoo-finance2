@@ -8,6 +8,7 @@ import {
 } from "../../tests/common.ts";
 import { spy } from "@std/testing/mock";
 import { afterEach, beforeEach } from "@std/testing/bdd";
+import { FakeTime } from "@std/testing/time";
 
 import Queue from "./queue.ts";
 import _yahooFinanceFetch, {
@@ -144,6 +145,46 @@ describe("yahooFinanceFetch", () => {
       expect(queue.concurrency).toBe(5);
     });
 
+    it("Queue spaces request starts by interval", async () => {
+      const fakeTime = new FakeTime();
+      try {
+        const queue = new Queue({ concurrency: 2, interval: 100 });
+        const starts: number[] = [];
+        let resolveFirst: (value: unknown) => void;
+
+        const first = queue.add(() => {
+          starts.push(Date.now());
+          return new Promise((resolve) => {
+            resolveFirst = resolve;
+          });
+        });
+        const second = queue.add(() => {
+          starts.push(Date.now());
+          return Promise.resolve("second");
+        });
+
+        await Promise.resolve();
+        expect(starts).toHaveLength(1);
+
+        fakeTime.tick(99);
+        await Promise.resolve();
+        expect(starts).toHaveLength(1);
+
+        fakeTime.tick(1);
+        await Promise.resolve();
+        expect(starts).toHaveLength(2);
+        expect(starts[1] - starts[0]).toBe(100);
+
+        resolveFirst!("first");
+        await expect(Promise.all([first, second])).resolves.toEqual([
+          "first",
+          "second",
+        ]);
+      } finally {
+        fakeTime.restore();
+      }
+    });
+
     it("yahooFinanceFetch branch check for alternate queue", async () => {
       const fetch = makeFetch();
       const yahooFinance = new YahooFinance({
@@ -172,7 +213,7 @@ describe("yahooFinanceFetch", () => {
       });
 
       const url = "http://example.com";
-      const moduleOpts = { queue: { _queue: new Queue() } };
+      const moduleOpts = { queue: { _queue: new Queue(), concurrency: 1 } };
       const yahooFinanceFetch = _yahooFinanceFetch.bind(yahooFinance);
 
       moduleOpts.queue._queue.concurrency = 1;
@@ -189,7 +230,7 @@ describe("yahooFinanceFetch", () => {
       });
 
       const url = "http://example.com";
-      const moduleOpts = { queue: { _queue: new Queue() } };
+      const moduleOpts = { queue: { _queue: new Queue(), concurrency: 1 } };
       moduleOpts.queue._queue.concurrency = 1;
 
       const promise = yahooFinance._fetch(url, {}, moduleOpts);
@@ -206,7 +247,7 @@ describe("yahooFinanceFetch", () => {
       });
 
       const url = "http://example.com";
-      const moduleOpts = { queue: { _queue: new Queue() } };
+      const moduleOpts = { queue: { _queue: new Queue(), concurrency: 1 } };
       moduleOpts.queue._queue.concurrency = 1;
 
       const promises = [

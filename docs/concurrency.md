@@ -21,12 +21,18 @@ default)_. This means, no matter how many times you call `yahooFinance.*`, we'll
 ensure that there are never more than 4 simultaneous requests to Yahoo (when the
 1st requests completes, the 5th request will be made, etc).
 
-The concurrency limit _applies across the entire instance_. If you call
-`yahooFinance.quote()` and `yahooFinance.quoteSummary()` and others, all in
+You can also configure a minimum interval between request starts. This is `0ms`
+by default, so existing apps keep their current behavior unless they opt in.
+
+The concurrency and interval limits _apply across the entire instance_. If you
+call `yahooFinance.quote()` and `yahooFinance.quoteSummary()` and others, all in
 different places, you still don't need to worry about exceeding any resource
 limits. Calls are queued in the order they are called (i.e. the first function
 you call will be the first one to return - assuming all calls were to take the
 same time).
+
+These limits are process-local. If you run multiple Node/Deno processes, worker
+threads, serverless instances, or test workers, each one has its own queue.
 
 <a name="quoteCombine"></a>
 
@@ -87,4 +93,15 @@ You can change it with:
 ```js
 import YahooFinance from "yahoo-finance2";
 const yahooFinance = new YahooFinance({ queue: { concurrency: 1 } }); // or 8, Infinity, etc.
+```
+
+You can also space request starts with `interval`, in milliseconds:
+
+```js
+const yahooFinance = new YahooFinance({
+  queue: {
+    concurrency: 2,
+    interval: 250,
+  },
+});
 ```

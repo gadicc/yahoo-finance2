@@ -21,7 +21,7 @@ const queryOpts = {}; // query options specific to the module
 
 const moduleOpts = {
   devel: boolean | string, // see the main README
-  fetchOptions: {}, // options to pass to fetch
+  fetchOptions: {}, // options to pass to fetch, e.g. { signal }
   validateResult: boolean, // READ SUPER NB VALIDATION DOC BEFORE TURNING THIS OFF
 };
 
@@ -140,6 +140,19 @@ understand the risks.
 ## Concurrency
 
 See [Concurrency Docs](./concurrency.md).
+
+For request timeouts today, pass an `AbortSignal` through `fetchOptions`, either
+on the client or per request:
+
+```js
+const yahooFinance = new YahooFinance({
+  fetchOptions: { signal: AbortSignal.timeout(10_000) },
+});
+
+await yahooFinance.quote("AAPL", {}, {
+  fetchOptions: { signal: AbortSignal.timeout(10_000) },
+});
+```
 
 ## Upgrading from v1
 

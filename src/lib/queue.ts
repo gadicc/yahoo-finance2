@@ -7,22 +7,29 @@ interface Job {
 }
 
 export interface QueueOptions {
-  // TODO: adds func type to json schema which is not supported
-  // tmp enabled, might need to remove again.
-  _queue?: Queue;
   /** Max number of simultaneous network requests */
   concurrency?: number;
-  // timeout?: number; // TODO
+  /** Minimum delay between starting queued requests, in milliseconds */
+  interval?: number;
+  // timeout?: number; // TODO: request timeout, not queue/rate limiting
 }
 
 export default class Queue {
   concurrency = 1;
+  interval = 0;
 
   _running = 0;
   _queue: Array<Job> = [];
+  _lastRun = 0;
+  _timer: ReturnType<typeof setTimeout> | null = null;
 
   constructor(opts: QueueOptions = {}) {
-    if (opts.concurrency) this.concurrency = opts.concurrency;
+    if (typeof opts.concurrency === "number") {
+      this.concurrency = opts.concurrency;
+    }
+    if (typeof opts.interval === "number") {
+      this.interval = opts.interval;
+    }
   }
 
   runNext() {
@@ -30,6 +37,7 @@ export default class Queue {
     if (!job) return;
 
     this._running++;
+    this._lastRun = Date.now();
     job
       .func()
       // deno-lint-ignore no-explicit-any
@@ -43,7 +51,25 @@ export default class Queue {
   }
 
   checkQueue() {
-    if (this._running < this.concurrency) this.runNext();
+    if (this._running >= this.concurrency) return;
+    if (!this._queue.length) return;
+
+    const delay = this.interval > 0 && this._lastRun > 0
+      ? Math.max(0, this._lastRun + this.interval - Date.now())
+      : 0;
+
+    if (delay > 0) {
+      if (!this._timer) {
+        this._timer = setTimeout(() => {
+          this._timer = null;
+          this.checkQueue();
+        }, delay);
+      }
+      return;
+    }
+
+    this.runNext();
+    if (this.interval > 0) this.checkQueue();
   }
 
   add(func: () => Promise<unknown>): Promise<unknown> {

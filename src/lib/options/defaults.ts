@@ -16,6 +16,7 @@ const options: YahooFinanceOptions = {
   cookieJar: new ExtendedCookieJar(),
   queue: {
     concurrency: 4, // Min: 1, Max: Infinity
+    interval: 0,
     // timeout: 60,
   },
   validation: {

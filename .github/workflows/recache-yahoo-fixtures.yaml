@@ -103,12 +103,21 @@ jobs:
         id: recache
         if: steps.baseline.outputs.passed == 'true'
         shell: bash
+        env:
+          # `--parallel` uses DENO_JOBS worker processes, and each process has
+          # its own in-memory queue. Keep the live Yahoo recache pass serial and
+          # add an intra-process interval so this job does not trip Yahoo's rate
+          # limits before it can produce useful fixture diffs.
+          DENO_JOBS: "1"
+          FETCH_DEVEL: recache
+          FETCH_DEVEL_RECACHE_CONCURRENCY: "1"
+          FETCH_DEVEL_RECACHE_INTERVAL: "250"
         run: |
           # In recache mode, failing tests are the signal we are looking for:
           # tests/common.ts rewrites only the cache files for tests that fail
           # against fresh Yahoo responses.
           set +e
-          DENO_JOBS=1 FETCH_DEVEL=recache deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
+          deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
           status=${PIPESTATUS[0]}
           set -e
 

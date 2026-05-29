@@ -268,47 +268,13 @@
     "QueueOptions": {
       "type": "object",
       "properties": {
-        "_queue": {
-          "$ref": "#/definitions/Queue"
-        },
-        "concurrency": {
-          "type": "number"
-        }
-      },
-      "additionalProperties": false
-    },
-    "Queue": {
-      "type": "object",
-      "properties": {
         "concurrency": {
           "type": "number"
         },
-        "_running": {
+        "interval": {
           "type": "number"
-        },
-        "_queue": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "func": {},
-              "resolve": {},
-              "reject": {}
-            },
-            "required": [
-              "func",
-              "resolve",
-              "reject"
-            ],
-            "additionalProperties": false
-          }
         }
       },
-      "required": [
-        "concurrency",
-        "_running",
-        "_queue"
-      ],
       "additionalProperties": false
     },
     "ValidationOptions": {

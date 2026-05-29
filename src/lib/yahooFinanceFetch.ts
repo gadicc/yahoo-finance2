@@ -67,6 +67,13 @@ function assertQueueOptions(queue: any, opts: any) {
   if (typeof opts.timeout === "number" && queue.timeout !== opts.timeout) {
     queue.timeout = opts.timeout;
   }
+
+  if (
+    typeof opts.interval === "number" &&
+    queue.interval !== opts.interval
+  ) {
+    queue.interval = opts.interval;
+  }
 }
 
 function substituteVariables(this: YahooFinanceFetchThis, urlBase: string) {
@@ -97,7 +104,9 @@ async function yahooFinanceFetch(
   }
 
   // TODO: adds func type to json schema which is not supported
-  const queue = moduleOpts.queue?._queue || _queue;
+  const queueOverride = (moduleOpts.queue as { _queue?: unknown } | undefined)
+    ?._queue;
+  const queue = queueOverride instanceof Queue ? queueOverride : _queue;
   // const queue = _queue;
   assertQueueOptions(queue, { ...this._opts.queue, ...moduleOpts.queue });
 
@@ -108,6 +117,8 @@ async function yahooFinanceFetch(
   const fetchFunc = moduleOpts.devel
     ? await fetchDevel!()
     : moduleOpts.fetch || envFetch || this._opts.fetch || globalThis.fetch;
+  const queuedFetch: Fetch = (input, init) =>
+    queue.add(() => fetchFunc(input, init)) as ReturnType<Fetch>;
 
   const fetchOptionsBase = {
     ...this._opts.fetchOptions,
@@ -126,7 +137,7 @@ async function yahooFinanceFetch(
 
     const crumb = await getCrumb(
       this._opts.cookieJar,
-      fetchFunc,
+      queuedFetch,
       fetchOptionsBase,
       this._opts.logger,
       this._notices,
@@ -158,8 +169,7 @@ async function yahooFinanceFetch(
   // used in moduleExec.ts
   if (func === "csv") func = "text";
 
-  const response =
-    (await queue.add(() => fetchFunc(url, fetchOptions))) as Response;
+  const response = await queuedFetch(url, fetchOptions);
 
   const setCookieHeaders = response.headers.getSetCookie();
   if (setCookieHeaders) {
