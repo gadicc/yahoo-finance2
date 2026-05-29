@@ -21,7 +21,7 @@ runs:
         # We'll handle this manually.
 
     # Cache npm's global/content-addressable cache
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: ~/.npm/_cacache
         key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package.json') }}
@@ -29,7 +29,7 @@ runs:
           npm-cache-${{ runner.os }}-
 
     # And for npx
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: ~/.npm/_npx
         key: npx-cache-${{ runner.os }}
