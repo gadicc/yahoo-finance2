@@ -11,7 +11,7 @@ import {
 import quoteSummary, { type QuoteSummaryModules } from "./quoteSummary.ts";
 
 const YahooFinance = createTestYahooFinance({ modules: { quoteSummary } });
-const logger = console; // spyLogger();
+const logger = spyLogger();
 const yf = new YahooFinance({ logger });
 
 interface itValidatesOpts {
