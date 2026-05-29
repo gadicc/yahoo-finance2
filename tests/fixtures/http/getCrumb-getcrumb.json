@@ -7,30 +7,34 @@
       "accept-encoding": "gzip, deflate, br",
       "accept-language": "en-US,en;q=0.9",
       "content-type": "text/plain",
-      "cookie": "A1=d=AQABBOyJGWoCECxbx1Bx1LPvOjxtHMPaVJAFEgEBAQHbGmojatxV0iMA_eMDAA&S=AQAAAv9nNjAbotQqFxFwaRsep-4; A3=d=AQABBOyJGWoCECxbx1Bx1LPvOjxtHMPaVJAFEgEBAQHbGmojatxV0iMA_eMDAA&S=AQAAAv9nNjAbotQqFxFwaRsep-4; A1S=d=AQABBOyJGWoCECxbx1Bx1LPvOjxtHMPaVJAFEgEBAQHbGmojatxV0iMA_eMDAA&S=AQAAAv9nNjAbotQqFxFwaRsep-4",
+      "cookie": "GUCS=ARqDa3q9; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
       "origin": "https://finance.yahoo.com",
-      "referer": "https://finance.yahoo.com/quote/AAPL"
+      "referer": "https://finance.yahoo.com/quote/AAPL?guccounter=1",
+      "user-agent": "Mozilla/5.0 (compatible; @gadicc/yahoo-finance2/0.0.1)"
     }
   },
   "response": {
-    "ok": false,
-    "status": 429,
-    "statusText": "Too Many Requests",
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
     "headers": {
       "access-control-allow-credentials": "true",
       "access-control-allow-origin": "https://finance.yahoo.com",
-      "age": "0",
-      "cache-control": "no-store",
-      "content-language": "en",
-      "content-length": "19",
-      "content-type": "text/html",
-      "date": "Fri, 29 May 2026 12:43:25 GMT",
+      "age": "1",
+      "cache-control": "private, max-age=60, stale-while-revalidate=30",
+      "content-length": "11",
+      "content-type": "text/plain;charset=utf-8",
+      "date": "Sun, 16 Feb 2025 12:40:11 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-xss-protection": "1; mode=block"
+      "x-envoy-decorator-operation": "finance-external-services-api--mtls-canary-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "4pd7dr1jr3n5c"
     },
-    "bodyText": "Too Many Requests\r\n"
+    "bodyText": "haT3oykhHqZ"
   }
 }
