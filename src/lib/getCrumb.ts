@@ -434,7 +434,12 @@ export default function getCrumb(
   notices.show("yahooSurvey");
 
   if (!promise) {
-    promise = __getCrumb(cookieJar, fetch, fetchOptionsBase, logger, url);
+    promise = Promise.resolve(
+      __getCrumb(cookieJar, fetch, fetchOptionsBase, logger, url),
+    ).catch((error) => {
+      promise = null;
+      throw error;
+    });
   }
 
   return promise;
