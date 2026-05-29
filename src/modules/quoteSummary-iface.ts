@@ -85,6 +85,13 @@ export interface AssetProfile {
   twitter?: string; // in e.g. "ADA-USD" (#418)
   irWebsite?: string; // "http://investor.apple.com/"
   executiveTeam?: unknown[];
+
+  // crypto
+  blockNumber?: number; // 771565,
+  blockReward?: number; // 6.25,
+  blockRewardReduction?: string; // "50%",
+  netHashesPerSecond?: number; // "244051282584378770000",
+  whitepaper?: string; // "https://bitcoin.org/bitcoin.pdf"
 }
 
 export interface CompanyOfficer {
@@ -130,6 +137,7 @@ export interface CalendarEventsEarnings {
   revenueAverage?: number;
   revenueLow?: number;
   revenueHigh?: number;
+  defaultMethodology?: "nongaap" | "gaap";
 }
 
 export interface CashflowStatementHistory {
@@ -206,6 +214,7 @@ export interface QuoteSummaryEarnings {
   earningsChart: EarningsChart;
   financialsChart: FinancialsChart;
   financialCurrency?: string;
+  defaultMethodology: "nongaap" | "gaap";
 }
 
 export interface EarningsChart {
@@ -216,6 +225,9 @@ export interface EarningsChart {
   currentQuarterEstimateYear?: number;
   earningsDate: Date[];
   isEarningsDateEstimate?: boolean;
+  currentCalendarQuarter?: string; // "2Q2026",
+  currentFiscalQuarter?: string; // "2Q2026",
+  currentPeriodEndDate?: Date; // 1782777600
 }
 
 export interface EarningsChartQuarterly {
@@ -223,6 +235,12 @@ export interface EarningsChartQuarterly {
   date: string;
   actual?: number;
   estimate: number;
+  fiscalQuarter: string; // "3Q2025",
+  calendarQuarter: string; // "3Q2025",
+  difference: string; // "0.39",
+  surprisePct: string; // "25.2",
+  periodEndDate: Date; // 1759190400,
+  reportedDate: Date; // 1761854460
 }
 
 export interface FinancialsChart {
@@ -236,6 +254,8 @@ export interface FinancialsChartQuarterly {
   date: string;
   revenue: number;
   earnings: number;
+  fiscalQuarter: string; // "2Q2026",
+  profitMargin: number; // 0.042171955
 }
 
 export interface Yearly {
@@ -243,12 +263,14 @@ export interface Yearly {
   date: number;
   revenue: number;
   earnings: number;
+  profitMargin: number; // 0.042171955
 }
 
 export interface EarningsHistory {
   [key: string]: unknown;
   history: EarningsHistoryHistory[];
   maxAge: number;
+  defaultMethodology: "nongaap" | "gaap";
 }
 
 export interface EarningsHistoryHistory {
@@ -267,6 +289,7 @@ export interface EarningsTrend {
   [key: string]: unknown;
   trend: EarningsTrendTrend[];
   maxAge: number;
+  defaultMethodology: "nongaap" | "gaap";
 }
 
 export interface EarningsTrendTrend {
@@ -657,6 +680,8 @@ export interface NetSharePurchaseActivity {
   netInfoShares: number;
   netPercentInsiderShares?: number;
   totalInsiderShares: number;
+  netInstSharesBuying: number; // 699075,
+  netInstBuyingPercent: number; // 0.00051
 }
 
 /*
@@ -843,7 +868,9 @@ type FilingType =
   | "PRER14A"
   | "8-A12B"
   | "D"
-  | "SC 13D";
+  | "SC 13D"
+  | "NT 10-Q/A"
+  | "F-4";
 
 export interface SummaryDetail {
   [key: string]: unknown;
@@ -889,6 +916,8 @@ export interface SummaryDetail {
   totalAssets?: number;
   navPrice?: number;
   ytdReturn?: number;
+  fullyDilutedValue?: number; // 1543300664063,
+  volume24HrMarketCapPercent?: number; // 0.021799117
 
   // crypto only (optional, or null in other types)
   // TODO: how does Price / SummaryDetail compare? common base?
@@ -900,6 +929,8 @@ export interface SummaryDetail {
   circulatingSupply?: number; // 18638932
   startDate?: Date; // new Date(1367107200 * 1000)
   coinMarketCapLink?: string | null; // "https://coinmarketcap.com/currencies/cardano"
+  maxSupply?: number; // 21000000,
+  totalSupply?: number; // 20036072,
 
   // futures
   expireDate?: Date; // 1656374400,
@@ -907,6 +938,10 @@ export interface SummaryDetail {
 
   // Money Markets, e.g. SWVXX (#905)
   averageMaturity?: number;
+
+  nonDilutedMarketCap?: number; // 298395446540,
+  allTimeHigh?: number; // 319.32,
+  allTimeLow?: number; // 57.2
 }
 
 export interface SummaryProfile {
@@ -941,6 +976,11 @@ export interface SummaryProfile {
   name?: string; // 'Bitcoin'
   startDate?: Date; // new Date('2013-04-28')
   description?: string; // 'Bitcoin (BTC) is a cryptocurrency...'
+  whitepaper?: string; // "https://developers.cardano.org/"
+  blockNumber?: number; // 771565,
+  blockReward?: number; // 6.25,
+  blockRewardReduction?: string; // "50%",
+  netHashesPerSecond?: string; // "244051282584378770000"
 }
 
 export interface TopHoldings {
@@ -1023,6 +1063,15 @@ export interface UpgradeDowngradeHistoryHistory {
   toGrade: Grade;
   fromGrade?: Grade;
   action: Action;
+  priceTargetAction:
+    | "Lowers"
+    | "Raises"
+    | "Maintains"
+    | "Announces"
+    | "Adjusts"
+    | "";
+  currentPriceTarget: number; // 210,
+  priorPriceTarget: number; // 230
 }
 
 export enum Action {
