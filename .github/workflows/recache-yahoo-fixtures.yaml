@@ -1,0 +1,363 @@
+name: Re-cache Yahoo fixtures
+
+on:
+  # Run once a day. GitHub notes that schedules can be delayed or dropped during
+  # periods of high load, especially at the start of the hour, so avoid minute 0.
+  schedule:
+    - cron: "37 3 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run without committing, pushing, or opening an issue
+        required: false
+        default: false
+        type: boolean
+      simulate_drift:
+        description: Dry-run testing only; touch one fixture to exercise the change path
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: yahoo-fixtures-recache-dev
+  cancel-in-progress: false
+
+# `contents: write` lets the default GITHUB_TOKEN push fixture drift directly to
+# dev. `issues: write` lets it open the follow-up issue.
+#
+# Pushes made with GITHUB_TOKEN do not trigger ordinary push workflows. If we
+# later want the README test badge to turn red immediately after the bot commit,
+# there are two reasonable paths:
+# - push with a GitHub App token or bot PAT, so the push triggers CI normally;
+# - keep GITHUB_TOKEN, add `actions: write`, and dispatch test-release.yaml on
+#   dev explicitly after pushing.
+#
+# Direct pushes to dev also require branch protection/settings to allow this
+# workflow token to push.
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  recache:
+    name: Re-cache Yahoo fixtures
+    runs-on: ubuntu-latest
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+      SIMULATE_DRIFT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && inputs.simulate_drift }}
+      TARGET_BRANCH: dev
+
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - uses: ./.github/actions/setup
+
+      - name: Confirm setup left the tree clean
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain=v1)" ]]; then
+            {
+              echo "## Yahoo fixture recache aborted"
+              echo
+              echo "Setup changed the working tree before tests ran."
+              echo
+              echo '```text'
+              git status --short
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+      - name: Confirm cached tests already pass
+        id: baseline
+        shell: bash
+        run: |
+          set +e
+          deno task test 2>&1 | tee "$RUNNER_TEMP/baseline-test.log"
+          status=${PIPESTATUS[0]}
+          set -e
+
+          if [[ "$status" -eq 0 ]]; then
+            echo "passed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "passed=false" >> "$GITHUB_OUTPUT"
+          echo "::notice::Aborting, since there are existing failing tests."
+          {
+            echo "## Yahoo fixture recache aborted"
+            echo
+            echo "Aborting, since there are existing failing tests."
+            echo
+            echo "The recache job only runs when the cached suite is already green."
+            echo
+            echo '```text'
+            tail -n 120 "$RUNNER_TEMP/baseline-test.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run tests against fresh Yahoo responses
+        id: recache
+        if: steps.baseline.outputs.passed == 'true'
+        shell: bash
+        run: |
+          # In recache mode, failing tests are the signal we are looking for:
+          # tests/common.ts rewrites only the cache files for tests that fail
+          # against fresh Yahoo responses.
+          set +e
+          FETCH_DEVEL=recache deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
+          status=${PIPESTATUS[0]}
+          set -e
+
+          if [[ "$SIMULATE_DRIFT" == "true" ]]; then
+            fixture=""
+            while IFS= read -r candidate; do
+              if [[ ! "$candidate" =~ \.(static|fake)\.json$ ]]; then
+                fixture="$candidate"
+                break
+              fi
+            done < <(git ls-files 'tests/fixtures/http/*.json')
+
+            if [[ -z "$fixture" ]]; then
+              echo "::error::Could not find a non-static, non-fake fixture for dry-run simulation."
+              exit 1
+            fi
+
+            printf '\n' >> "$fixture"
+            status=1
+            echo "::notice::Simulated fixture drift for dry-run testing with $fixture."
+          fi
+
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Inspect recache results
+        id: changes
+        if: steps.baseline.outputs.passed == 'true'
+        shell: bash
+        run: |
+          recache_status="${{ steps.recache.outputs.status }}"
+          mapfile -t changed_files < <(git status --porcelain=v1 | sed -E 's/^.. //; s/^.* -> //')
+
+          if [[ "${#changed_files[@]}" -eq 0 ]]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+
+            if [[ "$recache_status" -eq 0 ]]; then
+              {
+                echo "## Yahoo fixture recache"
+                echo
+                echo "No Yahoo response drift was detected."
+              } >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+
+            {
+              echo "## Yahoo fixture recache failed"
+              echo
+              echo "The recache test run failed, but it did not produce fixture changes."
+              echo "This usually points to an automation, network, or uncached-test problem rather than Yahoo response drift."
+              echo
+              echo '```text'
+              tail -n 160 "$RUNNER_TEMP/recache-test.log"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          allowed_files=()
+          disallowed_files=()
+          for file in "${changed_files[@]}"; do
+            if [[ "$file" =~ ^tests/fixtures/http/.*\.json$ && ! "$file" =~ \.(static|fake)\.json$ ]]; then
+              allowed_files+=("$file")
+            else
+              disallowed_files+=("$file")
+            fi
+          done
+
+          if [[ "${#disallowed_files[@]}" -gt 0 ]]; then
+            {
+              echo "## Yahoo fixture recache aborted"
+              echo
+              echo "Recache changed files outside the allowed fixture set."
+              echo
+              echo "Allowed files are non-static, non-fake JSON fixtures under \`tests/fixtures/http/\`."
+              echo
+              echo "### Disallowed changes"
+              echo
+              printf -- "- \`%s\`\n" "${disallowed_files[@]}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          if [[ "$recache_status" -eq 0 ]]; then
+            {
+              echo "## Yahoo fixture recache aborted"
+              echo
+              echo "The recache test run passed, but fixture files still changed."
+              echo "Since recache mode should only write cache files for failing tests, this needs manual review."
+              echo
+              printf -- "- \`%s\`\n" "${allowed_files[@]}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          printf '%s\n' "${allowed_files[@]}" > "$RUNNER_TEMP/changed-fixtures.txt"
+
+          mapfile -t modules < <(
+            printf '%s\n' "${allowed_files[@]}" |
+              awk -F/ '{ print $NF }' |
+              sed -E 's/-.*//' |
+              sort -u
+          )
+          module_summary="$(printf '%s\n' "${modules[@]}" | paste -sd, - | sed 's/,/, /g')"
+
+          if [[ "${#modules[@]}" -eq 1 ]]; then
+            commit_subject="test(fixtures): record Yahoo API drift for ${modules[0]}"
+            issue_title="Yahoo API response drift: ${modules[0]}"
+          else
+            commit_subject="test(fixtures): record Yahoo API response drift"
+            issue_title="Yahoo API response drift detected"
+          fi
+
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          echo "changed_count=${#allowed_files[@]}" >> "$GITHUB_OUTPUT"
+          echo "commit_subject=$commit_subject" >> "$GITHUB_OUTPUT"
+          echo "issue_title=$issue_title" >> "$GITHUB_OUTPUT"
+          echo "module_summary=$module_summary" >> "$GITHUB_OUTPUT"
+
+      - name: Stage recached fixtures
+        if: steps.changes.outputs.has_changes == 'true'
+        shell: bash
+        run: |
+          mapfile -t changed_fixtures < "$RUNNER_TEMP/changed-fixtures.txt"
+          git add -- "${changed_fixtures[@]}"
+          git diff --cached --stat > "$RUNNER_TEMP/fixture-diff-stat.txt"
+          git diff --cached --name-only > "$RUNNER_TEMP/staged-fixtures.txt"
+
+          {
+            echo "## Yahoo API response drift detected"
+            echo
+            echo "- Modules: ${{ steps.changes.outputs.module_summary }}"
+            echo "- Changed fixtures: ${{ steps.changes.outputs.changed_count }}"
+            echo "- Dry run: \`$DRY_RUN\`"
+            echo
+            echo "### Diff stat"
+            echo
+            echo '```text'
+            cat "$RUNNER_TEMP/fixture-diff-stat.txt"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Confirm dev did not move during the run
+        if: steps.changes.outputs.has_changes == 'true' && env.DRY_RUN != 'true'
+        shell: bash
+        run: |
+          git fetch origin "$TARGET_BRANCH"
+          local_sha="$(git rev-parse HEAD)"
+          remote_sha="$(git rev-parse "origin/$TARGET_BRANCH")"
+
+          if [[ "$local_sha" != "$remote_sha" ]]; then
+            {
+              echo "## Yahoo fixture recache aborted"
+              echo
+              echo "\`$TARGET_BRANCH\` moved while this workflow was running."
+              echo "Aborting rather than pushing a commit based on a stale baseline test run."
+              echo
+              echo "- Local: \`$local_sha\`"
+              echo "- Remote: \`$remote_sha\`"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+      - name: Commit and push fixture drift
+        id: commit
+        if: steps.changes.outputs.has_changes == 'true' && env.DRY_RUN != 'true'
+        shell: bash
+        env:
+          COMMIT_SUBJECT: ${{ steps.changes.outputs.commit_subject }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          commit_message="$(mktemp)"
+          {
+            echo "$COMMIT_SUBJECT"
+            echo
+            echo "Automated recache run detected Yahoo API response changes that"
+            echo "now fail against the cached test expectations."
+            echo
+            echo "Changed fixtures:"
+            sed 's/^/- /' "$RUNNER_TEMP/staged-fixtures.txt"
+            echo
+            echo "Workflow run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo
+            echo "Co-authored-by: Codex (GPT-5, reasoning: high)"
+          } > "$commit_message"
+
+          git commit -F "$commit_message"
+          commit_sha="$(git rev-parse HEAD)"
+          git push origin "HEAD:$TARGET_BRANCH"
+
+          echo "sha=$commit_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Open tracking issue
+        id: issue
+        if: steps.changes.outputs.has_changes == 'true' && env.DRY_RUN != 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT_SHA: ${{ steps.commit.outputs.sha }}
+          ISSUE_TITLE: ${{ steps.changes.outputs.issue_title }}
+        run: |
+          short_sha="${COMMIT_SHA:0:12}"
+          issue_body="$RUNNER_TEMP/issue-body.md"
+
+          {
+            echo "A scheduled recache run detected Yahoo API response changes that now fail against the cached test expectations."
+            echo
+            echo "- Commit: [\`$short_sha\`](https://github.com/$GITHUB_REPOSITORY/commit/$COMMIT_SHA)"
+            echo "- Workflow run: [$GITHUB_RUN_ID](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+            echo "- Modules: ${{ steps.changes.outputs.module_summary }}"
+            echo "- Changed fixtures: ${{ steps.changes.outputs.changed_count }}"
+            echo
+            echo "## Changed fixtures"
+            echo
+            sed 's/^/- `/' "$RUNNER_TEMP/staged-fixtures.txt" | sed 's/$/`/'
+            echo
+            echo "## Diff stat"
+            echo
+            echo '```text'
+            cat "$RUNNER_TEMP/fixture-diff-stat.txt"
+            echo '```'
+            echo
+            echo "## Failing test output"
+            echo
+            echo '```text'
+            tail -n 220 "$RUNNER_TEMP/recache-test.log"
+            echo '```'
+          } > "$issue_body"
+
+          issue_url="$(gh issue create --title "$ISSUE_TITLE" --body-file "$issue_body")"
+          echo "url=$issue_url" >> "$GITHUB_OUTPUT"
+
+          {
+            echo
+            echo "Tracking issue: $issue_url"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report dry run
+        if: steps.changes.outputs.has_changes == 'true' && env.DRY_RUN == 'true'
+        shell: bash
+        run: |
+          {
+            echo
+            echo "Dry run enabled, so no commit was pushed and no issue was opened."
+            echo
+            echo "Would commit with:"
+            echo
+            echo '```text'
+            echo "${{ steps.changes.outputs.commit_subject }}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
