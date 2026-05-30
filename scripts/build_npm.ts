@@ -16,6 +16,19 @@ function copyDirectorySync(from: string, to: string) {
   }
 }
 
+function addPackageBinAlias(packageJsonPath: string) {
+  const packageJson = JSON.parse(Deno.readTextFileSync(packageJsonPath));
+  packageJson.bin = {
+    // npm exec/npx can infer a package command when a bin matches the package name.
+    "yahoo-finance2": "./esm/bin/yahoo-finance.js",
+    ...packageJson.bin,
+  };
+  Deno.writeTextFileSync(
+    packageJsonPath,
+    `${JSON.stringify(packageJson, null, 2)}\n`,
+  );
+}
+
 await emptyDir("./npm");
 
 await build({
@@ -91,6 +104,7 @@ await build({
 
   postBuild() {
     // steps to run after building and before running the tests
+    addPackageBinAlias("npm/package.json");
     Deno.chmodSync("npm/esm/bin/yahoo-finance.js", 0o755);
     Deno.chmodSync("npm/esm/bin/yahoo-finance-mcp.js", 0o755);
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
