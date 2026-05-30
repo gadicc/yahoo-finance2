@@ -62,6 +62,9 @@ $ yahoo-finance search MSFT '{ "someOption": true }'
 
 See the [CLI docs](./docs/cli.md) for stdout/stderr behavior and exit codes.
 
+See the [MCP docs](./docs/mcp.md) to expose yahoo-finance2 tools to MCP clients
+such as Codex, Claude, Cursor, and VS Code.
+
 **Importing**
 
 ```ts
