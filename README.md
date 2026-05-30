@@ -60,6 +60,8 @@ $ npm install -g yahoo-finance2
 $ yahoo-finance search MSFT '{ "someOption": true }'
 ```
 
+See the [CLI docs](./docs/cli.md) for stdout/stderr behavior and exit codes.
+
 **Importing**
 
 ```ts

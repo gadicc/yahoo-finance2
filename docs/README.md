@@ -3,6 +3,7 @@
 ## Table of Contents
 
 1. [Common Options](#common-options)
+1. [CLI](./cli.md)
 1. [Modules](#modules)
 1. [Util Methods](#utils)
 1. [Error Handling](#error-handling)
