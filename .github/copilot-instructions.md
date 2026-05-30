@@ -178,7 +178,13 @@ functionality:
 
 ## CI/CD Pipeline
 
-### GitHub Actions Workflow (`.github/workflows/test-release.yaml`)
+### GitHub Actions Workflows
+
+- `.github/workflows/test-release.yaml` runs PR, manual, and reusable tests with
+  read-only repository access plus Codecov OIDC.
+- `.github/workflows/release.yaml` runs on push or manual dispatch, calls the
+  test workflow first, then grants release-only write permissions to
+  semantic-release.
 
 1. **Environment Setup** (`.github/actions/setup` composite action):
    - Install Deno v2.x runtime with caching enabled

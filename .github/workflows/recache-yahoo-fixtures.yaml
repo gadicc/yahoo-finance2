@@ -29,8 +29,8 @@ concurrency:
 # later want the README test badge to turn red immediately after the bot commit,
 # there are two reasonable paths:
 # - push with a GitHub App token or bot PAT, so the push triggers CI normally;
-# - keep GITHUB_TOKEN, add `actions: write`, and dispatch test-release.yaml on
-#   dev explicitly after pushing.
+# - keep GITHUB_TOKEN, add `actions: write`, and dispatch release.yaml on dev
+#   explicitly after pushing.
 #
 # Direct pushes to dev also require branch protection/settings to allow this
 # workflow token to push.
