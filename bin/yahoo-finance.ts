@@ -29,7 +29,7 @@ function createClient(logger: CliLogger): CliClient {
   }) as unknown as CliClient;
 }
 
-if (import.meta.main) {
+async function main() {
   const exitCode = await runCli({
     args: Deno.args,
     version: pkg.version,
@@ -39,4 +39,8 @@ if (import.meta.main) {
     stdoutIsTerminal: () => Deno.stdout.isTerminal(),
   });
   Deno.exit(exitCode);
+}
+
+if (import.meta.main) {
+  main();
 }

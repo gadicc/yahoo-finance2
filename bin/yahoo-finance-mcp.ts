@@ -231,7 +231,7 @@ function runHttp(options: McpCliOptions) {
   });
 }
 
-if (import.meta.main) {
+async function main() {
   try {
     const options = parseArgs(Deno.args);
 
@@ -257,4 +257,8 @@ if (import.meta.main) {
     );
     Deno.exit(error instanceof UsageError ? 2 : 1);
   }
+}
+
+if (import.meta.main) {
+  main();
 }
