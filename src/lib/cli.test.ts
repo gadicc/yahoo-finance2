@@ -44,6 +44,7 @@ function createRunOptions(
     quote: () => ({ ok: true }),
     search: () => ({ quotes: [] }),
   }),
+  readStdin?: () => string | Promise<string>,
 ) {
   return {
     args,
@@ -51,6 +52,7 @@ function createRunOptions(
     moduleNames: ["quote", "search"],
     createClient,
     output,
+    readStdin,
     stdoutIsTerminal: () => false,
   };
 }
@@ -115,6 +117,162 @@ Deno.test("runCli handles malformed JSON without a stack trace", async () => {
   assert(!stderr.join("\n").includes("at JSON.parse"));
 });
 
+Deno.test("runCli decodes JSON array positional arguments", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(
+      ["quote", '["AAPL","MSFT"]', '{"return":"object"}'],
+      output,
+      () => ({
+        quote: (...args) => ({ args }),
+      }),
+    ),
+  );
+
+  assertEquals(code, EXIT_OK);
+  assertEquals(
+    stdout.join("\n"),
+    JSON.stringify(
+      { args: [["AAPL", "MSFT"], { return: "object" }] },
+      null,
+      2,
+    ),
+  );
+  assertEquals(stderr.length, 0);
+});
+
+Deno.test("runCli reads stdin args payload with module", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(
+      ["--stdin"],
+      output,
+      () => ({
+        quote: (...args) => ({ args }),
+      }),
+      () =>
+        JSON.stringify({
+          module: "quote",
+          args: [
+            ["AAPL", "MSFT"],
+            { return: "map" },
+            { validateOptions: false },
+          ],
+        }),
+    ),
+  );
+
+  assertEquals(code, EXIT_OK);
+  assertEquals(
+    stdout.join("\n"),
+    JSON.stringify(
+      {
+        args: [
+          ["AAPL", "MSFT"],
+          { return: "map" },
+          { validateOptions: false },
+        ],
+      },
+      null,
+      2,
+    ),
+  );
+  assertEquals(stderr.length, 0);
+});
+
+Deno.test("runCli reads stdin convenience payload with CLI module", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(
+      ["quote", "--stdin"],
+      output,
+      () => ({
+        quote: (...args) => ({ args }),
+      }),
+      () =>
+        JSON.stringify({
+          query: "AAPL",
+          moduleOptions: {
+            validateOptions: false,
+            validateResult: false,
+          },
+        }),
+    ),
+  );
+
+  assertEquals(code, EXIT_OK);
+  assertEquals(
+    stdout.join("\n"),
+    JSON.stringify(
+      {
+        args: [
+          "AAPL",
+          null,
+          { validateOptions: false, validateResult: false },
+        ],
+      },
+      null,
+      2,
+    ),
+  );
+  assertEquals(stderr.length, 0);
+});
+
+Deno.test("runCli rejects stdin mixed with positional module args", async () => {
+  const { output, stdout, stderr } = createOutput();
+  let didReadStdin = false;
+
+  const code = await runCli(
+    createRunOptions(
+      ["quote", "AAPL", "--stdin"],
+      output,
+      undefined,
+      () => {
+        didReadStdin = true;
+        return "{}";
+      },
+    ),
+  );
+
+  assertEquals(code, EXIT_USAGE);
+  assertEquals(stdout.length, 0);
+  assert(!didReadStdin);
+  assert(stderr.join("\n").includes("--stdin cannot be combined"));
+});
+
+Deno.test("runCli rejects conflicting stdin and CLI modules", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(
+      ["quote", "--stdin"],
+      output,
+      undefined,
+      () => JSON.stringify({ module: "search", args: ["AAPL"] }),
+    ),
+  );
+
+  assertEquals(code, EXIT_USAGE);
+  assertEquals(stdout.length, 0);
+  assert(stderr.join("\n").includes('stdin module "search" conflicts'));
+});
+
+Deno.test("runCli handles malformed stdin JSON without a stack trace", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(["quote", "--stdin"], output, undefined, () => "{"),
+  );
+
+  assertEquals(code, EXIT_USAGE);
+  assertEquals(stdout.length, 0);
+  assert(stderr.join("\n").includes("Invalid JSON from stdin"));
+  assert(!stderr.join("\n").includes("at JSON.parse"));
+});
+
 Deno.test("runCli writes successful module results to stdout only", async () => {
   const { output, stdout, stderr } = createOutput();
 
@@ -123,6 +281,50 @@ Deno.test("runCli writes successful module results to stdout only", async () => 
   assertEquals(code, EXIT_OK);
   assertEquals(stdout.join("\n"), JSON.stringify({ ok: true }, null, 2));
   assertEquals(stderr.length, 0);
+});
+
+Deno.test("runCli writes Map results as JSON objects", async () => {
+  const { output, stdout, stderr } = createOutput();
+
+  const code = await runCli(
+    createRunOptions(["quote", "AAPL"], output, () => ({
+      quote: () =>
+        new Map([
+          ["AAPL", { symbol: "AAPL", marketCap: 123n }],
+          ["MSFT", { symbol: "MSFT" }],
+        ]),
+    })),
+  );
+
+  assertEquals(code, EXIT_OK);
+  assertEquals(
+    stdout.join("\n"),
+    JSON.stringify(
+      {
+        AAPL: { symbol: "AAPL", marketCap: "123" },
+        MSFT: { symbol: "MSFT" },
+      },
+      null,
+      2,
+    ),
+  );
+  assertEquals(stderr.length, 0);
+});
+
+Deno.test("runCli treats circular result serialization as runtime error", async () => {
+  const { output, stdout, stderr } = createOutput();
+  const circular: Record<string, unknown> = {};
+  circular.self = circular;
+
+  const code = await runCli(
+    createRunOptions(["quote", "AAPL"], output, () => ({
+      quote: () => circular,
+    })),
+  );
+
+  assertEquals(code, EXIT_RUNTIME_ERROR);
+  assertEquals(stdout.length, 0);
+  assert(stderr.join("\n").includes("Cannot serialize circular result"));
 });
 
 Deno.test("runCli routes library diagnostics to stderr", async () => {

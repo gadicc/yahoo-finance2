@@ -7,6 +7,7 @@ npx yahoo-finance2 --help
 npx yahoo-finance2 search AMZN
 npx yahoo-finance2 quoteSummary GOOGL
 npx yahoo-finance2 quoteSummary NVDA '{"modules":["assetProfile", "secFilings"]}'
+npx yahoo-finance2 quote '["AAPL", "MSFT"]' '{"return":"object"}'
 ```
 
 If installed globally, use the `yahoo-finance` binary:
@@ -16,8 +17,57 @@ npm install -g yahoo-finance2
 yahoo-finance search MSFT
 ```
 
-Arguments that start with `{` are parsed as JSON, so module options can be
-passed directly from the shell.
+Arguments that start with `{` or `[` are parsed as JSON, so module options and
+array arguments can be passed directly from the shell.
+
+## Stdin Input
+
+Use `--stdin` to read a single module call as JSON from stdin. The most general
+form mirrors the JavaScript method call:
+
+```bash
+npx yahoo-finance2 --stdin <<'JSON'
+{
+  "module": "quoteSummary",
+  "args": [
+    "AAPL",
+    { "modules": ["assetProfile", "secFilings"] },
+    { "validateResult": false, "validateOptions": true }
+  ]
+}
+JSON
+```
+
+When the module is supplied on the command line, stdin may use the convenience
+shape:
+
+```bash
+npx yahoo-finance2 quoteSummary --stdin <<'JSON'
+{
+  "query": "AAPL",
+  "queryOptions": {
+    "modules": ["assetProfile", "secFilings"]
+  },
+  "moduleOptions": {
+    "validateResult": false
+  }
+}
+JSON
+```
+
+`--stdin` cannot be combined with positional module arguments. Put the complete
+argument list in the stdin JSON instead:
+
+```bash
+npx yahoo-finance2 quote --stdin <<'JSON'
+{
+  "args": [
+    ["AAPL", "MSFT"],
+    { "return": "map" }
+  ]
+}
+JSON
+```
 
 ## Output Streams
 
@@ -33,6 +83,10 @@ form. When stdout is piped or redirected, successful results are JSON:
 ```bash
 npx yahoo-finance2 quote AAPL | jq '.regularMarketPrice'
 ```
+
+For JSON output, CLI results are normalized to JSON-safe values. For example, a
+`Map` result such as `quote` with `{ "return": "map" }` is written as a plain
+JSON object keyed by symbol.
 
 ## Exit Codes
 

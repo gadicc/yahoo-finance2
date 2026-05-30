@@ -35,6 +35,7 @@ if (import.meta.main) {
     version: pkg.version,
     moduleNames,
     createClient,
+    readStdin: () => new Response(Deno.stdin.readable).text(),
     stdoutIsTerminal: () => Deno.stdout.isTerminal(),
   });
   Deno.exit(exitCode);
