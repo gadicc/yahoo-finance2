@@ -10,11 +10,12 @@ The server supports:
 - Embedded handlers for applications that want to mount MCP into their own
   stack.
 
-The initial MCP surface is a curated set of read-only tools:
+The MCP surface is a curated set of read-only tools:
 
 ```text
-quote, search, quoteSummary, chart, historical, options, trendingSymbols,
-screener, recommendationsBySymbol, insights, fundamentalsTimeSeries
+quote, quoteCombine, search, quoteSummary, chart, historical, options,
+trendingSymbols, screener, recommendationsBySymbol, insights,
+fundamentalsTimeSeries
 ```
 
 Deprecated or decommissioned modules such as `autoc`, `dailyGainers`, and
@@ -230,10 +231,16 @@ Most tools accept this shape:
 ```
 
 Tools that naturally use a different primary input use `query`, `region`, or
-`scrId`. Examples:
+`scrId`. For example, `quote` accepts one symbol or an array:
 
 ```json
 { "query": ["AAPL", "MSFT"], "queryOptions": { "return": "object" } }
+```
+
+`quoteCombine` accepts a single symbol through `query`:
+
+```json
+{ "query": "AAPL", "queryOptions": { "fields": ["regularMarketPrice"] } }
 ```
 
 ```json

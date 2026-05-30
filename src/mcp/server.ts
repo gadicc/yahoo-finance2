@@ -132,6 +132,25 @@ const TOOL_SPECS: ToolSpec[] = [
       ]),
   },
   {
+    name: "quoteCombine",
+    title: "Quote Combine",
+    description:
+      "Get quote data for a single symbol through yahoo-finance2's debounced quote combiner.",
+    inputSchema: {
+      query: z.string().describe('Yahoo Finance symbol, e.g. "AAPL".'),
+      queryOptions: looseObjectSchema.optional().describe(
+        "Optional quote options such as fields. quoteCombine always returns a single quote result.",
+      ),
+      moduleOptions: moduleOptionsSchema.optional(),
+    },
+    call: (client, input) =>
+      callClient(client, "quoteCombine", [
+        input.query,
+        queryOptions(input),
+        moduleOptions(input),
+      ]),
+  },
+  {
     name: "search",
     title: "Search",
     description:
