@@ -1,6 +1,21 @@
 import { build, emptyDir } from "@deno/dnt";
 import denoJson from "../deno.json" with { type: "json" };
 
+function copyDirectorySync(from: string, to: string) {
+  Deno.mkdirSync(to, { recursive: true });
+
+  for (const entry of Deno.readDirSync(from)) {
+    const source = `${from}/${entry.name}`;
+    const target = `${to}/${entry.name}`;
+
+    if (entry.isDirectory) {
+      copyDirectorySync(source, target);
+    } else if (entry.isFile) {
+      Deno.copyFileSync(source, target);
+    }
+  }
+}
+
 await emptyDir("./npm");
 
 await build({
@@ -55,6 +70,7 @@ await build({
       "end-of-day",
       "client",
       "library",
+      "agent-skill",
     ],
     "engines": {
       "node": ">=20.0.0",
@@ -78,5 +94,6 @@ await build({
     Deno.chmodSync("npm/esm/bin/yahoo-finance-mcp.js", 0o755);
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
+    copyDirectorySync("skills", "npm/skills");
   },
 });

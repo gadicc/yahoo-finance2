@@ -110,6 +110,19 @@ delisted, Yahoo removes all related data, including historical (and chart) data
 from periods _before_ the delisting occurred (i.e. queries that worked before
 will start failing, and there is no way to retrieve this data again).
 
+## Agent Skill
+
+This repo ships an Agent Skills-compatible skill at
+[`skills/yahoo-finance2`](./skills/yahoo-finance2/SKILL.md). Install it for
+compatible agents with:
+
+```bash
+npx skills add gadicc/yahoo-finance2
+```
+
+The npm package also includes the skill under `skills/yahoo-finance2` for tools
+that sync skills from installed packages.
+
 ## (Optional) TypeScript Love
 
 Working with `yahoo-finance2` is a joy if you're using TypeScript (but you don't
