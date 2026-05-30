@@ -13,7 +13,7 @@ concurrency:
 jobs:
   tests:
     name: Tests
-    uses: ./.github/workflows/test-release.yaml
+    uses: ./.github/workflows/tests.yaml
     permissions:
       contents: read
       id-token: write # for codecov

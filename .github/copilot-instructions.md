@@ -180,7 +180,7 @@ functionality:
 
 ### GitHub Actions Workflows
 
-- `.github/workflows/test-release.yaml` runs PR, manual, and reusable tests with
+- `.github/workflows/tests.yaml` runs PR, manual, and reusable tests with
   read-only repository access plus Codecov OIDC.
 - `.github/workflows/release.yaml` runs on push or manual dispatch, calls the
   test workflow first, then grants release-only write permissions to
