@@ -15,6 +15,11 @@ await build({
       name: "yahoo-finance",
       path: "./bin/yahoo-finance.ts",
     },
+    {
+      kind: "bin",
+      name: "yahoo-finance-mcp",
+      path: "./bin/yahoo-finance-mcp.ts",
+    },
   ],
   outDir: "./npm",
   test: false,
@@ -58,6 +63,8 @@ await build({
       "tough-cookie": denoJson.imports["tough-cookie"],
       "tough-cookie-file-store": denoJson.imports["tough-cookie-file-store"],
       "fetch-mock-cache": denoJson.imports["fetch-mock-cache"],
+      "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.26.0",
+      "zod": "npm:zod@^3.25.0",
     },
   },
   // importMap: "deno.json",
@@ -68,6 +75,7 @@ await build({
   postBuild() {
     // steps to run after building and before running the tests
     Deno.chmodSync("npm/esm/bin/yahoo-finance.js", 0o755);
+    Deno.chmodSync("npm/esm/bin/yahoo-finance-mcp.js", 0o755);
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
   },

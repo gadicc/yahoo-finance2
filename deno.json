@@ -18,6 +18,9 @@
     "./src/index.ts": "./src/index.ts",
     ".": "./src/index.ts",
     "./createYahooFinance": "./src/createYahooFinance.ts",
+    "./mcp": "./src/mcp/mod.ts",
+    "./mcp/http": "./src/mcp/http.ts",
+    "./mcp/server": "./src/mcp/server.ts",
     "./modules": "./src/modules/index.ts",
     "./modules/autoc": "./src/modules/autoc.ts",
     "./modules/chart": "./src/modules/chart.ts",
@@ -44,6 +47,13 @@
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.42.3",
     "@gadicc/fetch-mock-cache": "jsr:@gadicc/fetch-mock-cache@^2.2.0",
+    "@modelcontextprotocol/sdk/client/index.js": "npm:@modelcontextprotocol/sdk@^1.26.0/client/index.js",
+    "@modelcontextprotocol/sdk/inMemory.js": "npm:@modelcontextprotocol/sdk@^1.26.0/inMemory.js",
+    "@modelcontextprotocol/sdk/server/mcp.js": "npm:@modelcontextprotocol/sdk@^1.26.0/server/mcp.js",
+    "@modelcontextprotocol/sdk/server/stdio.js": "npm:@modelcontextprotocol/sdk@^1.26.0/server/stdio.js",
+    "@modelcontextprotocol/sdk/server/streamableHttp.js": "npm:@modelcontextprotocol/sdk@^1.26.0/server/streamableHttp.js",
+    "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js": "npm:@modelcontextprotocol/sdk@^1.26.0/server/webStandardStreamableHttp.js",
+    "@modelcontextprotocol/sdk/types.js": "npm:@modelcontextprotocol/sdk@^1.26.0/types.js",
     "@jest/types": "npm:@jest/types@^29.6.3",
     "@std/async": "jsr:@std/async@^1.0.11",
     "@std/cli": "jsr:@std/cli@^1.0.14",
@@ -61,7 +71,8 @@
     "semantic-release": "npm:semantic-release@^25.0.2",
     "tough-cookie": "npm:tough-cookie@^5.1.1",
     "tough-cookie-file-store": "npm:tough-cookie-file-store@^2.0.3",
-    "ts-json-schema-generator": "npm:ts-json-schema-generator@^2.4.0"
+    "ts-json-schema-generator": "npm:ts-json-schema-generator@^2.4.0",
+    "zod/v4": "npm:zod@^3.25.0/v4"
   },
   "fmt": {
     "exclude": ["tests/fixtures", "tests/http", "**/*.schema.json"]
