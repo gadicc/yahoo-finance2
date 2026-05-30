@@ -38,7 +38,7 @@
     "npm:oas-schema-walker@^1.1.5": "1.1.5",
     "npm:semantic-release@^25.0.2": "25.0.2_marked@15.0.12",
     "npm:tough-cookie-file-store@^2.0.3": "2.0.3",
-    "npm:tough-cookie@^5.1.1": "5.1.1",
+    "npm:tough-cookie@6": "6.0.1",
     "npm:ts-json-schema-generator@^2.4.0": "2.4.0",
     "npm:zod@^3.25.0": "3.25.76"
   },
@@ -349,20 +349,7 @@
         "import-from-esm",
         "lodash-es",
         "micromatch",
-        "semantic-release@25.0.2_marked@15.0.12"
-      ]
-    },
-    "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12_@octokit+core@7.0.6": {
-      "integrity": "sha512-wdnBPHKkr9HhNhXOhZD5a2LNl91+hs8CC2vsAVYxtZH3y0dV3wKn+uZSN61rdJQZ8EGxzWB3inWocBHV9+u/CQ==",
-      "dependencies": [
-        "conventional-changelog-angular",
-        "conventional-changelog-writer",
-        "conventional-commits-filter",
-        "conventional-commits-parser",
-        "import-from-esm",
-        "lodash-es",
-        "micromatch",
-        "semantic-release@25.0.2_marked@15.0.12"
+        "semantic-release"
       ]
     },
     "@semantic-release/error@4.0.0": {
@@ -385,7 +372,7 @@
         "lodash-es",
         "mime",
         "p-filter",
-        "semantic-release@25.0.2_marked@15.0.12",
+        "semantic-release",
         "tinyglobby",
         "undici@7.19.1",
         "url-join"
@@ -407,7 +394,7 @@
         "rc",
         "read-pkg@10.0.0",
         "registry-auth-token",
-        "semantic-release@25.0.2_marked@15.0.12_@octokit+core@7.0.6",
+        "semantic-release",
         "semver",
         "tempy"
       ]
@@ -425,7 +412,7 @@
         "into-stream",
         "lodash-es",
         "read-package-up@11.0.0",
-        "semantic-release@25.0.2_marked@15.0.12"
+        "semantic-release"
       ]
     },
     "@sinclair/typebox@0.27.8": {
@@ -1888,7 +1875,7 @@
     "semantic-release@25.0.2_marked@15.0.12": {
       "integrity": "sha512-6qGjWccl5yoyugHt3jTgztJ9Y0JVzyH8/Voc/D8PlLat9pwxQYXz7W1Dpnq5h0/G5GCYGUaDSlYcyk3AMh5A6g==",
       "dependencies": [
-        "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12",
+        "@semantic-release/commit-analyzer",
         "@semantic-release/error",
         "@semantic-release/github",
         "@semantic-release/npm",
@@ -1896,40 +1883,6 @@
         "aggregate-error",
         "cosmiconfig",
         "debug",
-        "env-ci",
-        "execa@9.6.1",
-        "figures@6.1.0",
-        "find-versions",
-        "get-stream@6.0.1",
-        "git-log-parser",
-        "hook-std",
-        "hosted-git-info@9.0.2",
-        "import-from-esm",
-        "lodash-es",
-        "marked",
-        "marked-terminal",
-        "micromatch",
-        "p-each-series",
-        "p-reduce",
-        "read-package-up@12.0.0",
-        "resolve-from@5.0.0",
-        "semver",
-        "semver-diff",
-        "signale",
-        "yargs@18.0.0"
-      ],
-      "bin": true
-    },
-    "semantic-release@25.0.2_marked@15.0.12_@octokit+core@7.0.6": {
-      "integrity": "sha512-6qGjWccl5yoyugHt3jTgztJ9Y0JVzyH8/Voc/D8PlLat9pwxQYXz7W1Dpnq5h0/G5GCYGUaDSlYcyk3AMh5A6g==",
-      "dependencies": [
-        "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12_@octokit+core@7.0.6",
-        "@semantic-release/error",
-        "@semantic-release/github",
-        "@semantic-release/npm",
-        "@semantic-release/release-notes-generator",
-        "aggregate-error",
-        "cosmiconfig",
         "env-ci",
         "execa@9.6.1",
         "figures@6.1.0",
@@ -2234,11 +2187,11 @@
         "picomatch@4.0.3"
       ]
     },
-    "tldts-core@6.1.77": {
-      "integrity": "sha512-bCaqm24FPk8OgBkM0u/SrEWJgHnhBWYqeBo6yUmcZJDCHt/IfyWBb+14CXdGi4RInMv4v7eUAin15W0DoA+Ytg=="
+    "tldts-core@7.4.2": {
+      "integrity": "sha512-nwEyF4vl4RSJjwSjBUmOSxc3BFPoIFdlRthJ6e+5v9P3bHNsoD06UjuqMUspqp7vsEZ1beaHi1km+optiE17yA=="
     },
-    "tldts@6.1.77": {
-      "integrity": "sha512-lBpoWgy+kYmuXWQ83+R7LlJCnsd9YW8DGpZSHhrMl4b8Ly/1vzOie3OdtmUJDkKxcgRGOehDu5btKkty+JEe+g==",
+    "tldts@7.4.2": {
+      "integrity": "sha512-kCwffuaH8ntKtygnWe1b4BJKWiCUH30n5KfoTr6IchcXOwR7chAOFJxFrH3vjANafUYrIA4a7SDL+nn7SiR4Sw==",
       "dependencies": [
         "tldts-core"
       ],
@@ -2268,8 +2221,8 @@
         "url-parse"
       ]
     },
-    "tough-cookie@5.1.1": {
-      "integrity": "sha512-Ek7HndSVkp10hmHP9V4qZO1u+pn1RU5sI0Fw+jCU3lyvuMZcgqsNgc6CmJJZyByK4Vm/qotGRJlfgAX8q+4JiA==",
+    "tough-cookie@6.0.1": {
+      "integrity": "sha512-LktZQb3IeoUWB9lqR5EWTHgW/VTITCXg4D21M+lvybRVdylLrRMnqaIONLVb5mav8vM19m44HIcGq4qASeu2Qw==",
       "dependencies": [
         "tldts"
       ]
@@ -2505,7 +2458,7 @@
       "npm:oas-schema-walker@^1.1.5",
       "npm:semantic-release@^25.0.2",
       "npm:tough-cookie-file-store@^2.0.3",
-      "npm:tough-cookie@^5.1.1",
+      "npm:tough-cookie@6",
       "npm:ts-json-schema-generator@^2.4.0",
       "npm:zod@^3.25.0"
     ]
