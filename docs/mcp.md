@@ -20,7 +20,113 @@ screener, recommendationsBySymbol, insights, fundamentalsTimeSeries
 Deprecated or decommissioned modules such as `autoc`, `dailyGainers`, and
 `dailyLosers` are intentionally not exposed.
 
-## Stdio
+Contents:
+
+- [Quick Start](#quick-start)
+- [Transports And Integration Modes](#transports-and-integration-modes)
+- [Tool Inputs](#tool-inputs)
+- [Security And Runtime Notes](#security-and-runtime-notes)
+
+## Quick Start
+
+For local development from this repository, replace the `npx` command in the
+examples below with:
+
+```bash
+deno run -A /path/to/yahoo-finance2/bin/yahoo-finance-mcp.ts
+```
+
+For the published package, use:
+
+```bash
+npx -y -p yahoo-finance2 yahoo-finance-mcp
+```
+
+### Codex CLI
+
+Register the stdio server:
+
+```bash
+codex mcp add yahoo-finance2 -- npx -y -p yahoo-finance2 yahoo-finance-mcp
+```
+
+Smoke test:
+
+```bash
+codex exec "Use the yahoo-finance2 MCP server to search for Apple, then get a quote for AAPL. Return the symbol, short name, currency, market state, and regular market price."
+```
+
+Remove the server when done:
+
+```bash
+codex mcp remove yahoo-finance2
+```
+
+### Claude Code
+
+Register the stdio server:
+
+```bash
+claude mcp add --transport stdio yahoo-finance2 -- npx -y -p yahoo-finance2 yahoo-finance-mcp
+```
+
+Inside Claude Code, use `/mcp` to verify that the server is connected.
+
+### Claude Desktop
+
+Add this to `claude_desktop_config.json` and restart Claude Desktop:
+
+```json
+{
+  "mcpServers": {
+    "yahoo-finance2": {
+      "command": "npx",
+      "args": ["-y", "-p", "yahoo-finance2", "yahoo-finance-mcp"]
+    }
+  }
+}
+```
+
+### Cursor
+
+For project-local configuration, create `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "yahoo-finance2": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "-p", "yahoo-finance2", "yahoo-finance-mcp"]
+    }
+  }
+}
+```
+
+For global configuration, use `~/.cursor/mcp.json` instead.
+
+### VS Code
+
+For workspace configuration, create `.vscode/mcp.json`:
+
+```json
+{
+  "servers": {
+    "yahooFinance2": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "-p", "yahoo-finance2", "yahoo-finance-mcp"]
+    }
+  }
+}
+```
+
+VS Code also supports adding MCP servers through the command palette with
+`MCP: Add Server`.
+
+## Transports And Integration Modes
+
+### Stdio
 
 Use stdio when an MCP client launches the server as a child process:
 
@@ -29,7 +135,7 @@ Use stdio when an MCP client launches the server as a child process:
   "mcpServers": {
     "yahoo-finance2": {
       "command": "npx",
-      "args": ["-p", "yahoo-finance2", "yahoo-finance-mcp"]
+      "args": ["-y", "-p", "yahoo-finance2", "yahoo-finance-mcp"]
     }
   }
 }
@@ -44,7 +150,7 @@ yahoo-finance-mcp
 The stdio server writes diagnostics to stderr so stdout stays reserved for MCP
 protocol messages.
 
-## HTTP
+### HTTP
 
 Start a local Streamable HTTP server:
 
@@ -79,7 +185,7 @@ Authorization: Bearer secret
 The server refuses non-local HTTP binding without a token unless
 `--unsafe-no-token` is explicitly supplied.
 
-## Embedded Handlers
+### Embedded Handlers
 
 For Web Standard runtimes such as Deno, Bun, Hono, or Cloudflare Workers:
 
