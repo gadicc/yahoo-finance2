@@ -27,7 +27,7 @@
     "jsr:@ts-morph/bootstrap@0.27": "0.27.0",
     "jsr:@ts-morph/common@0.27": "0.27.0",
     "npm:@jest/types@^29.6.3": "29.6.3",
-    "npm:@modelcontextprotocol/sdk@^1.26.0": "1.29.0_zod@3.25.76",
+    "npm:@modelcontextprotocol/sdk@^1.26.0": "1.29.0_zod@4.4.3",
     "npm:@types/json-schema@^7.0.15": "7.0.15",
     "npm:conventional-changelog-conventionalcommits@8": "8.0.0",
     "npm:debug@^4.3.4": "4.4.3",
@@ -40,7 +40,7 @@
     "npm:tough-cookie-file-store@^2.0.3": "2.0.3",
     "npm:tough-cookie@^5.1.1": "5.1.1",
     "npm:ts-json-schema-generator@^2.4.0": "2.4.0",
-    "npm:zod@^3.25.0": "3.25.76"
+    "npm:zod@4": "4.4.3"
   },
   "jsr": {
     "@david/code-block-writer@13.0.3": {
@@ -217,7 +217,7 @@
         "chalk@4.1.2"
       ]
     },
-    "@modelcontextprotocol/sdk@1.29.0_zod@3.25.76": {
+    "@modelcontextprotocol/sdk@1.29.0_zod@4.4.3": {
       "integrity": "sha512-zo37mZA9hJWpULgkRpowewez1y6ML5GsXJPY8FI0tBBCd77HEvza4jDqRKOXgHNn867PVGCyTdzqpz0izu5ZjQ==",
       "dependencies": [
         "@hono/node-server",
@@ -349,20 +349,7 @@
         "import-from-esm",
         "lodash-es",
         "micromatch",
-        "semantic-release@25.0.2_marked@15.0.12"
-      ]
-    },
-    "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12_@octokit+core@7.0.6": {
-      "integrity": "sha512-wdnBPHKkr9HhNhXOhZD5a2LNl91+hs8CC2vsAVYxtZH3y0dV3wKn+uZSN61rdJQZ8EGxzWB3inWocBHV9+u/CQ==",
-      "dependencies": [
-        "conventional-changelog-angular",
-        "conventional-changelog-writer",
-        "conventional-commits-filter",
-        "conventional-commits-parser",
-        "import-from-esm",
-        "lodash-es",
-        "micromatch",
-        "semantic-release@25.0.2_marked@15.0.12"
+        "semantic-release"
       ]
     },
     "@semantic-release/error@4.0.0": {
@@ -385,7 +372,7 @@
         "lodash-es",
         "mime",
         "p-filter",
-        "semantic-release@25.0.2_marked@15.0.12",
+        "semantic-release",
         "tinyglobby",
         "undici@7.19.1",
         "url-join"
@@ -407,7 +394,7 @@
         "rc",
         "read-pkg@10.0.0",
         "registry-auth-token",
-        "semantic-release@25.0.2_marked@15.0.12_@octokit+core@7.0.6",
+        "semantic-release",
         "semver",
         "tempy"
       ]
@@ -425,7 +412,7 @@
         "into-stream",
         "lodash-es",
         "read-package-up@11.0.0",
-        "semantic-release@25.0.2_marked@15.0.12"
+        "semantic-release"
       ]
     },
     "@sinclair/typebox@0.27.8": {
@@ -1888,7 +1875,7 @@
     "semantic-release@25.0.2_marked@15.0.12": {
       "integrity": "sha512-6qGjWccl5yoyugHt3jTgztJ9Y0JVzyH8/Voc/D8PlLat9pwxQYXz7W1Dpnq5h0/G5GCYGUaDSlYcyk3AMh5A6g==",
       "dependencies": [
-        "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12",
+        "@semantic-release/commit-analyzer",
         "@semantic-release/error",
         "@semantic-release/github",
         "@semantic-release/npm",
@@ -1896,40 +1883,6 @@
         "aggregate-error",
         "cosmiconfig",
         "debug",
-        "env-ci",
-        "execa@9.6.1",
-        "figures@6.1.0",
-        "find-versions",
-        "get-stream@6.0.1",
-        "git-log-parser",
-        "hook-std",
-        "hosted-git-info@9.0.2",
-        "import-from-esm",
-        "lodash-es",
-        "marked",
-        "marked-terminal",
-        "micromatch",
-        "p-each-series",
-        "p-reduce",
-        "read-package-up@12.0.0",
-        "resolve-from@5.0.0",
-        "semver",
-        "semver-diff",
-        "signale",
-        "yargs@18.0.0"
-      ],
-      "bin": true
-    },
-    "semantic-release@25.0.2_marked@15.0.12_@octokit+core@7.0.6": {
-      "integrity": "sha512-6qGjWccl5yoyugHt3jTgztJ9Y0JVzyH8/Voc/D8PlLat9pwxQYXz7W1Dpnq5h0/G5GCYGUaDSlYcyk3AMh5A6g==",
-      "dependencies": [
-        "@semantic-release/commit-analyzer@13.0.1_semantic-release@25.0.2__marked@15.0.12_marked@15.0.12_@octokit+core@7.0.6",
-        "@semantic-release/error",
-        "@semantic-release/github",
-        "@semantic-release/npm",
-        "@semantic-release/release-notes-generator",
-        "aggregate-error",
-        "cosmiconfig",
         "env-ci",
         "execa@9.6.1",
         "figures@6.1.0",
@@ -2474,14 +2427,14 @@
     "yoctocolors@2.1.2": {
       "integrity": "sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug=="
     },
-    "zod-to-json-schema@3.25.2_zod@3.25.76": {
+    "zod-to-json-schema@3.25.2_zod@4.4.3": {
       "integrity": "sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA==",
       "dependencies": [
         "zod"
       ]
     },
-    "zod@3.25.76": {
-      "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="
+    "zod@4.4.3": {
+      "integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="
     }
   },
   "workspace": {
@@ -2507,7 +2460,7 @@
       "npm:tough-cookie-file-store@^2.0.3",
       "npm:tough-cookie@^5.1.1",
       "npm:ts-json-schema-generator@^2.4.0",
-      "npm:zod@^3.25.0"
+      "npm:zod@4"
     ]
   }
 }
