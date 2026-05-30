@@ -1,6 +1,5 @@
 name: Setup Deno && Node + npm
-description: Reusable setup for CI, CoPilot, etc.
-runs-on: ubuntu-latest
+description: Reusable setup for CI, Copilot, etc.
 runs:
   using: composite
   steps:
@@ -10,26 +9,25 @@ runs:
         cache: true
 
     - name: Install dependencies
-      run: deno install
+      run: deno install --frozen
       shell: bash
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 22
-        # No 'cache' here, since now project lockfile for npm
-        # We'll handle this manually.
+        package-manager-cache: false
+        # No setup-node cache here: this Deno-first repo has no checked-in npm
+        # lockfile, and release-only npm tools are installed manually.
 
-    # Cache npm's global/content-addressable cache
-    - uses: actions/cache@v4
+    # Cache npm's download stores, not node_modules, so installs still resolve
+    # against the current release tooling while avoiding repeated downloads.
+    - uses: actions/cache@v5
       with:
-        path: ~/.npm/_cacache
-        key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+        path: |
+          ~/.npm/_cacache
+          ~/.npm/_npx
+        key: npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-${{ hashFiles('deno.json', 'deno.lock', 'release.config.mjs') }}
         restore-keys: |
-          npm-cache-${{ runner.os }}-
-
-    # And for npx
-    - uses: actions/cache@v4
-      with:
-        path: ~/.npm/_npx
-        key: npx-cache-${{ runner.os }}
+          npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-
+          npm-cache-${{ runner.os }}-${{ runner.arch }}-

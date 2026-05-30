@@ -26,7 +26,7 @@ jobs:
     # If you do not check out your code, Copilot will do this for you.
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Argh, there's a Copilot limitation that doesn't allow for this workflow,
       # without publishing to it's own repo, so, let's not do that.
@@ -41,27 +41,26 @@ jobs:
           cache: true
 
       - name: Install dependencies
-        run: deno install
+        run: deno install --frozen
         shell: bash
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
-          # No 'cache' here, since now project lockfile for npm
-          # We'll handle this manually.
+          package-manager-cache: false
+          # No setup-node cache here: this Deno-first repo has no checked-in npm
+          # lockfile, and release-only npm tools are installed manually.
 
-      # Cache npm's global/content-addressable cache
-      - uses: actions/cache@v4
+      # Cache npm's download stores, not node_modules, so installs still resolve
+      # against the current release tooling while avoiding repeated downloads.
+      - uses: actions/cache@v5
         with:
-          path: ~/.npm/_cacache
-          key: npm-cache-${{ runner.os }}-${{ hashFiles('**/package.json') }}
+          path: |
+            ~/.npm/_cacache
+            ~/.npm/_npx
+          key: npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-${{ hashFiles('deno.json', 'deno.lock', 'release.config.mjs') }}
           restore-keys: |
-            npm-cache-${{ runner.os }}-
-
-      # And for npx
-      - uses: actions/cache@v4
-        with:
-          path: ~/.npm/_npx
-          key: npx-cache-${{ runner.os }}
+            npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-
+            npm-cache-${{ runner.os }}-${{ runner.arch }}-
       # -----------------------------------------------------------------------------

@@ -10,11 +10,12 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       id-token: write # for codecov
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - uses: ./.github/actions/setup
 
@@ -25,7 +26,7 @@ jobs:
         run: deno task test --coverage
 
       - name: Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           use_oidc: true
 
@@ -58,16 +59,23 @@ jobs:
       - run: echo 'The Tests workflow passed'
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/actions/setup
 
       - run: deno task build:npm
 
-      - run: npm install -D @semantic-release/exec @sebbo2002/semantic-release-jsr conventional-changelog-conventionalcommits
+      - name: Install semantic-release plugins
+        run: >
+          npm install --no-save --package-lock=false
+          @semantic-release/exec
+          @sebbo2002/semantic-release-jsr
+          conventional-changelog-conventionalcommits
 
-      # We did this already but it seems not everythign was installed for jsr publish?  Let's try.
-      - run: deno install
+      # We did this already but it seems not everything was installed for jsr publish?  Let's try.
+      - run: deno install --frozen
       # @sebbo2002/semantic-release-jsr seems to need it
       - run: echo '{"version":"0.0.1"}' > package.json
 

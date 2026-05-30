@@ -17,7 +17,7 @@ info here.
   `.github/workflows/copilot-setup-steps.yml`
 - Deno v2.x runtime installed with caching enabled
 - Dependencies pre-installed with optimized caching
-- Node.js v20 with npm/npx caching configured
+- Node.js v22 with npm/npx caching configured
 - No manual TLS CA store configuration needed
 
 ### Optimized Development Process
@@ -182,8 +182,8 @@ functionality:
 
 1. **Environment Setup** (`.github/actions/setup` composite action):
    - Install Deno v2.x runtime with caching enabled
-   - Install dependencies (`deno install`) - takes ~5 minutes
-   - Setup Node.js v20 with npm cache optimization
+   - Install dependencies (`deno install --frozen`) - takes ~5 minutes
+   - Setup Node.js v22 with npm cache optimization
 2. **Testing**: Run tests with coverage (`deno task test --coverage`) - takes ~3
    minutes
 3. **Build**: Build NPM package (`deno task build:npm`) - takes ~2 minutes
