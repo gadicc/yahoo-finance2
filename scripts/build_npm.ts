@@ -71,6 +71,7 @@ await build({
       "client",
       "library",
       "agent-skill",
+      "mcp-server",
     ],
     "engines": {
       "node": ">=20.0.0",
