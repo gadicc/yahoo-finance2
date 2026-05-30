@@ -1,6 +1,6 @@
 # yahoo-finance2
 
-Community API for Yahoo-Finance.
+Unofficial API for Yahoo Finance with CLI, MCP and Agent Skill.
 
 Copyright (c) 2021 by Gadi Cohen and Pilwon Huh. [MIT licensed](./LICENSE).
 
