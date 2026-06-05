@@ -18,7 +18,9 @@ are most likely to need during edits.
 ## Commands
 
 - Run the full test suite with `deno task test`.
-- Run a targeted test with `deno test -A path/to/file.test.ts`.
+- Run a targeted test with `deno task test path/to/file.test.ts`.
+- Run serial tests with `deno task test:serial path/to/file.test.ts` when
+  debugging or limiting live Yahoo request concurrency.
 - Run schema generation with `deno task schema` after changing exported
   interfaces marked with `@yf-schema`.
 - Use `deno fmt` and `deno lint` for formatting and linting.
@@ -59,4 +61,5 @@ are most likely to need during edits.
 - The commit body should include a concise summary of motivation and changes.
 - Always end with: Co-authored-by: <Assistant> (<model>, reasoning: <high>)
   <<email>> `email` part may be ommitted. The rest is best effort, ask the user
-  if not sure.
+  if not sure. For Codex, ~/.codex/config.toml has top level `model` and
+  `model_reasoning_effort`.

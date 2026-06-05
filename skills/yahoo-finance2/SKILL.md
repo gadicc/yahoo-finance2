@@ -151,8 +151,11 @@ deno task test
 Run focused tests with:
 
 ```bash
-deno test -A src/modules/quote.test.ts
+deno task test src/modules/quote.test.ts
 ```
+
+Use `deno task test:serial src/modules/quote.test.ts` when debugging or limiting
+live Yahoo request concurrency.
 
 Tests that touch Yahoo HTTP responses should call `setupCache()` from
 `tests/common.ts`. Prefer the existing pattern:

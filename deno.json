@@ -10,9 +10,34 @@
     "install-cli": "deno install -A --global -n yahoo-finance npm:yahoo-finance/bin/yahoo-finance.ts",
     "schema_": "TODO below... separate watch mode, vscode scripts, mtime check, etc",
     "schema": "deno run -A scripts/schema-gen.ts",
-    "test": "deno test -A --parallel",
+    "test": "deno test --no-prompt -P=test --parallel",
+    "test:serial": "deno test --no-prompt -P=test",
     "build:npm": "deno run -A scripts/build_npm.ts",
     "devTODO": "deno run --watch main.ts"
+  },
+  "permissions": {
+    "test": {
+      "read": ["./tests/fixtures/http", "./tests/http"],
+      "write": ["./tests/fixtures/http"],
+      "env": {
+        "allow": [
+          "FETCH_DEVEL",
+          "FETCH_DEVEL_RECACHE_CONCURRENCY",
+          "FETCH_DEVEL_RECACHE_INTERVAL"
+        ],
+        "ignore": true
+      },
+      "net": [
+        "query1.finance.yahoo.com",
+        "query2.finance.yahoo.com",
+        "finance.yahoo.com",
+        "guce.yahoo.com",
+        "consent.yahoo.com"
+      ]
+    }
+  },
+  "test": {
+    "permissions": "test"
   },
   "exports": {
     "./src/index.ts": "./src/index.ts",

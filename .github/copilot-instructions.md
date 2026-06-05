@@ -29,7 +29,7 @@ info here.
 ### Core Development Commands
 
 - View available tasks: `deno task`
-- Run tests: `deno test -A --no-lock --parallel`
+- Run tests: `deno task test`
 - Build NPM package: `deno task build:npm`
 - Generate schemas: `deno task schema`
 - Run CLI tool: `deno task cli <module> <args>`
@@ -82,13 +82,13 @@ functionality:
 - **Linting**: `deno lint` (expect some existing lint errors - focus on new
   code)
 - **Formatting**: `deno fmt --check` or `deno fmt` to auto-format
-- **Test execution**: `deno test -A --no-lock --parallel`
+- **Test execution**: `deno task test`
 
 #### Development Workflow Testing
 
 1. Make a small TypeScript interface change in a module file
 2. Run schema generation: `deno task schema`
-3. Run tests to verify nothing broke: `deno test -A --no-lock --parallel`
+3. Run tests to verify nothing broke: `deno task test`
 4. Format and lint: `deno fmt && deno lint`
 5. Test CLI functionality with the changed module
 
@@ -118,6 +118,8 @@ functionality:
 - Tests use cached HTTP responses stored in `tests/fixtures/http`
 - To refresh test data, delete relevant fixture files
 - Tests run in parallel by default for faster execution
+- Use `deno task test:serial` when debugging or limiting live Yahoo request
+  concurrency
 - Some tests may require actual Yahoo Finance API access
 
 ## Project Structure
@@ -242,7 +244,7 @@ functionality:
 deno task schema  # Takes ~30 seconds
 
 # 4. Run tests to ensure nothing broke
-deno test -A --no-lock --parallel  # Takes ~1-2 minutes with caching
+deno task test  # Takes ~1-2 minutes with caching
 
 # 5. Test the specific module via CLI
 deno task cli quote AAPL  # Verify real API calls work
@@ -263,7 +265,7 @@ rm tests/fixtures/http/quote-AAPL.json
 rm tests/fixtures/http/quote-TSLA.json
 
 # 2. Run tests - they will fetch fresh data and cache it
-deno test -A --no-lock src/modules/quote.test.ts
+deno task test src/modules/quote.test.ts
 
 # 3. Verify new cached data looks correct
 cat tests/fixtures/http/quote-AAPL.json | head -20
@@ -273,7 +275,7 @@ cat tests/fixtures/http/quote-AAPL.json | head -20
 
 - Environment setup in ~30-60 seconds with comprehensive caching
 - Subsequent runs much faster due to optimized dependency and npm caching
-- Use `--parallel` flag for tests to maximize performance
+- `deno task test` already runs test modules in parallel
 - Build artifacts are generated in `/npm` directory for NPM distribution
 
 ## Key Project Insights

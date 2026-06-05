@@ -22,7 +22,7 @@ export default {
     "@semantic-release/release-notes-generator",
     ["@semantic-release/exec", {
       "prepareCmd":
-        "deno run -A scripts/fix_versions.ts --version ${nextRelease.version}",
+        "deno run --no-prompt --allow-read=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js --allow-write=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js scripts/fix_versions.ts --version ${nextRelease.version}",
     }],
     ["@semantic-release/npm", {
       pkgRoot: "npm",

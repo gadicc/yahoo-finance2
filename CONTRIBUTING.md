@@ -68,6 +68,13 @@ changes. This only affects `.ts` files that contain a `@yf-schema` keyword.
 
 `deno task test`
 
+The test task runs with the `test` Deno permission set from `deno.json`, which
+limits file access to HTTP fixtures, limits environment access to `FETCH_DEVEL*`
+controls, and limits network access to the Yahoo hosts used by the library. Run
+focused tests with `deno task test path/to/file.test.ts`. Use
+`deno task test:serial path/to/file.test.ts` when debugging or limiting live
+Yahoo request concurrency.
+
 NB: HTTP requests are cached to disk. This ensures we can re-run all tests
 quickly and consistently across repos (my dev box does 1,252 tests in 793ms). We
 use the [fetch-mock-cache](https://www.npmjs.com/package/fetch-mock-cache)
