@@ -12,6 +12,7 @@ import Notices from "./lib/notices.ts";
 import { assertSupported } from "./lib/runtime-detect.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 import { deepMerge } from "./lib/deepmerge.ts";
+import { getGlobalValue } from "./lib/runtimeGlobal.ts";
 
 const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
   node: "22.0.0",
@@ -21,6 +22,20 @@ const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
     requireFeatures: [],
   },
 };
+
+function stdoutIsTerminal() {
+  const deno = getGlobalValue("Deno") as
+    | { stdout?: { isTerminal?: () => boolean } }
+    | undefined;
+  if (typeof deno?.stdout?.isTerminal === "function") {
+    return deno.stdout.isTerminal();
+  }
+
+  const process = getGlobalValue("process") as
+    | { stdout?: { isTTY?: boolean } }
+    | undefined;
+  return !!process?.stdout?.isTTY;
+}
 
 /**
  * Instantiate a new YahooFinance client.
@@ -88,7 +103,7 @@ export class YahooFinance {
 
     // deno-coverage-ignore-start
     // @ts-ignore: relevant for ts-json-schema-generator
-    this._logObj = Deno.stdout.isTerminal()
+    this._logObj = stdoutIsTerminal()
       // deno-lint-ignore no-explicit-any
       ? (obj: any, opts?: { depth?: number }) =>
         this._opts.logger!.dir(obj, { depth: opts?.depth ?? 4, colors: true })

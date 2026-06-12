@@ -27,8 +27,8 @@ git commands to update your local installation.
 ## Supported runtimes:
 
 - **Bun**: v1+.
-- **Cloudflare**: Modern releases (we support but don't test for this, please
-  report issues).
+- **Cloudflare**: Modern releases, tested in CI via Workers Vitest under
+  `nodejs_compat`.
 - **Deno**: v2+.
 - **Node**: [Current and Active LTS](https://endoflife.date/nodejs) only; v20
   until 2026-04-30, v22 until 2027-04-30, v24 until 2028-04-30.

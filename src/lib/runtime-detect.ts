@@ -1,5 +1,7 @@
 // deno-coverage-ignore-file
 // deno-lint-ignore-file no-explicit-any
+import { getGlobalValue, getRuntimeGlobal } from "./runtimeGlobal.ts";
+
 type RuntimeName = "node" | "deno" | "bun" | "cloudflare" | "unknown";
 
 export interface RuntimeInfo {
@@ -27,37 +29,39 @@ export interface SupportCheckResult {
 export function detectRuntime(): RuntimeInfo {
   const info: RuntimeInfo = { runtime: "unknown", version: null, details: {} };
 
-  const deno = (globalThis as any).Deno;
-  const proc = (globalThis as any).process;
-  const bun = (globalThis as any).Bun;
+  const deno = getGlobalValue("Deno") as any;
+  const proc = getGlobalValue("process") as any;
+  const bun = getGlobalValue("Bun") as any;
 
   // Heuristic: real Deno exposes build info alongside a deno version.
   const isRealDeno = (d: any): boolean =>
     !!(d && d.version?.deno && d.build?.os && d.build?.arch);
 
   // Cloudflare Workers (workerd)
-  const ua = (typeof globalThis.navigator === "object" &&
-      typeof globalThis.navigator?.userAgent === "string")
-    ? globalThis.navigator.userAgent
-    : "";
+  const navigator = getGlobalValue("navigator") as
+    | { userAgent?: unknown }
+    | undefined;
+  const ua =
+    (typeof navigator === "object" && typeof navigator?.userAgent === "string")
+      ? navigator.userAgent
+      : "";
   if (/Cloudflare-Workers/i.test(ua)) {
     info.runtime = "cloudflare";
     info.version = null;
     info.details = {
       userAgent: ua,
-      miniflare: !!(globalThis as any).MINIFLARE || /Miniflare/i.test(ua),
-      hasWebSocketPair:
-        typeof (globalThis as any).WebSocketPair !== "undefined",
-      hasCaches: typeof (globalThis as any).caches !== "undefined",
+      miniflare: !!getGlobalValue("MINIFLARE") || /Miniflare/i.test(ua),
+      hasWebSocketPair: typeof getGlobalValue("WebSocketPair") !== "undefined",
+      hasCaches: typeof getGlobalValue("caches") !== "undefined",
     };
     return info;
   }
   if (
-    typeof (globalThis as any).process === "undefined" &&
-    typeof (globalThis as any).Deno === "undefined" &&
-    typeof (globalThis as any).Bun === "undefined" &&
-    typeof (globalThis as any).WebSocketPair !== "undefined" &&
-    typeof (globalThis as any).caches !== "undefined"
+    typeof getGlobalValue("process") === "undefined" &&
+    typeof getGlobalValue("Deno") === "undefined" &&
+    typeof getGlobalValue("Bun") === "undefined" &&
+    typeof getGlobalValue("WebSocketPair") !== "undefined" &&
+    typeof getGlobalValue("caches") !== "undefined"
   ) {
     info.runtime = "cloudflare";
     info.version = null;
@@ -183,7 +187,7 @@ export function checkSupport(policy: SupportPolicy = {}): SupportCheckResult {
 
   const hasGlobalPath = (path: string): boolean => {
     const parts = path.split(".");
-    let cur: any = globalThis;
+    let cur: any = getRuntimeGlobal();
     for (const p of parts) {
       if (cur == null || !(p in cur)) return false;
       cur = cur[p];

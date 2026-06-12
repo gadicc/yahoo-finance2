@@ -7,6 +7,7 @@ import type { Logger } from "./options/logger.ts";
 import { Cookie } from "tough-cookie";
 import type Notices from "./notices.ts";
 import type { YahooFinanceFetchModuleOptions } from "./yahooFinanceFetch.ts";
+import { getSetCookieHeaders } from "./headers.ts";
 
 type Fetch = typeof fetch;
 const CONFIG_FAKE_URL = "http://config.yf2/";
@@ -74,7 +75,7 @@ export async function _getCrumb(
     header: string[] | undefined,
     url: string,
   ) {
-    if (header) {
+    if (header && header.length > 0) {
       await cookieJar.setFromSetCookieHeaders(header, url);
       return true;
     }
@@ -103,7 +104,7 @@ export async function _getCrumb(
   }
 
   const response = await fetch(url, fetchOptions);
-  await processSetCookieHeader(response.headers.getSetCookie(), url);
+  await processSetCookieHeader(getSetCookieHeaders(response.headers), url);
 
   // logger.debug(response.headers.raw());
   // logger.debug(cookieJar);
@@ -196,7 +197,7 @@ export async function _getCrumb(
         // Set-Cookie: CFC=AQABCAFkWkdkjEMdLwQ9&s=AQAAAClxdtC-&g=ZFj24w; Expires=Wed, 8 May 2024 01:18:54 GMT; Domain=consent.yahoo.com; Path=/; Secure
         if (
           !(await processSetCookieHeader(
-            collectConsentSubmitResponse.headers.getSetCookie(),
+            getSetCookieHeaders(collectConsentSubmitResponse.headers),
             consentLocation,
           ))
         ) {
@@ -240,7 +241,7 @@ export async function _getCrumb(
 
         if (
           !(await processSetCookieHeader(
-            copyConsentResponse.headers.getSetCookie(),
+            getSetCookieHeaders(copyConsentResponse.headers),
             collectConsentSubmitResponseLocation,
           ))
         ) {

@@ -6,6 +6,7 @@ import type Notices from "./notices.ts";
 
 import errors from "./errors.ts";
 import getCrumb from "./getCrumb.ts";
+import { getSetCookieHeaders } from "./headers.ts";
 type Fetch = typeof fetch;
 
 interface YahooFinanceFetchThisEnv {
@@ -171,7 +172,7 @@ async function yahooFinanceFetch(
 
   const response = await queuedFetch(url, fetchOptions);
 
-  const setCookieHeaders = response.headers.getSetCookie();
+  const setCookieHeaders = getSetCookieHeaders(response.headers);
   if (setCookieHeaders) {
     if (!this._opts.cookieJar) throw new Error("No cookieJar set");
     this._opts.cookieJar.setFromSetCookieHeaders(setCookieHeaders, url);

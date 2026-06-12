@@ -28,3 +28,24 @@ jobs:
         uses: codecov/codecov-action@v6
         with:
           use_oidc: true
+
+  cloudflare-workers:
+    name: Cloudflare Workers
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - uses: ./.github/actions/setup
+
+      - name: Build npm package
+        run: deno task build:npm
+
+      - name: Install Cloudflare test harness dependencies
+        run: npm ci --prefix tests/cloudflare
+
+      - name: Run Cloudflare Workers tests
+        run: npm test --prefix tests/cloudflare

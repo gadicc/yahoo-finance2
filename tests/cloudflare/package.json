@@ -1,0 +1,17 @@
+{
+  "name": "yahoo-finance2-cloudflare-tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "yahoo-finance2": "file:../../npm"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.16.15",
+    "tldts": "^6.1.86",
+    "vitest": "^4.1.0"
+  }
+}
