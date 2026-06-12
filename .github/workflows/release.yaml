@@ -40,19 +40,10 @@ jobs:
 
       - run: deno task build:npm
 
-      - name: Install semantic-release plugins
-        run: >
-          npm install --no-save --package-lock=false
-          @semantic-release/exec
-          @sebbo2002/semantic-release-jsr
-          conventional-changelog-conventionalcommits
-
-      # We did this already but it seems not everything was installed for jsr publish?  Let's try.
-      - run: deno install --frozen
       # @sebbo2002/semantic-release-jsr seems to need it
       - run: echo '{"version":"0.0.1"}' > package.json
 
       - name: Release if relevant
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: ./node_modules/.bin/semantic-release
