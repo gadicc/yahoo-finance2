@@ -13,6 +13,7 @@
     "test": "deno test --no-prompt -P=test --parallel --ignore=tests/cloudflare",
     "test:serial": "deno test --no-prompt -P=test --ignore=tests/cloudflare",
     "test:cloudflare": "deno task build:npm && npm ci --prefix tests/cloudflare && npm test --prefix tests/cloudflare",
+    "lock:cloudflare": "npx -p npm@10.9.4 npm install --prefix tests/cloudflare --package-lock-only",
     "build:npm": "deno run -A scripts/build_npm.ts",
     "devTODO": "deno run --watch main.ts"
   },

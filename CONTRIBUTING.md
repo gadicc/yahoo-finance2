@@ -93,6 +93,13 @@ run, just make sure not to delete `.static.json` or `.fake.json` files, and
 consider if anything actually changed that justifies committing the new file to
 the repo.
 
+Cloudflare Workers coverage lives in `tests/cloudflare` and tests the generated
+npm package inside Workers Vitest. Run `deno task test:cloudflare` after changes
+that affect npm output or runtime detection. If you change the Cloudflare
+harness dependencies or need to regenerate its lockfile, use
+`deno task lock:cloudflare`; it pins lockfile generation to the npm behavior CI
+expects.
+
 <a name="linting"></a>
 
 ### Linting, formatting
