@@ -151,6 +151,9 @@ Use React Server Components, trpc, or other strategies to maintain types.
 - 🛠️ [StockQuotes.MCP](https://github.com/lionelschiepers/StockQuotes.MCP) - AI
   MCP Server to fetch real time financial data
 
+- ⚡ [live-quotes](https://github.com/mnsrulz/live-quotes) - Demo to
+  showcase running yahoo-finance2 in cloudflare workers with live quotes.
+
 Want your project listed? Open a PR to add it here.
 
 ## Contributing
