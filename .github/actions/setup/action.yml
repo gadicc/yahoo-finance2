@@ -15,7 +15,7 @@ runs:
     - name: Setup Node.js
       uses: actions/setup-node@v6
       with:
-        node-version: 22
+        node-version: 24
         package-manager-cache: false
         # No setup-node cache here: this Deno-first repo has no checked-in npm
         # lockfile, and npm installs happen only in scoped workflow steps.
