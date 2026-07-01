@@ -166,7 +166,7 @@ export interface InsightsReport {
   provider: string;
   reportDate: Date;
   reportTitle: string;
-  reportType: string;
+  reportType?: string;
   targetPrice?: number;
   targetPriceStatus?: "Increased" | "Maintained" | "Decreased" | "-";
   investmentRating?: "Bullish" | "Neutral" | "Bearish";
@@ -190,6 +190,7 @@ export interface InsightsSecReport {
   filingDate: DateInMs;
   snapshotUrl: string;
   formType: string;
+  edgarUrl?: string;
 }
 
 export interface InsightsEvent {
