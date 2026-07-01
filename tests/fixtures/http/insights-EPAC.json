@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:07:16 GMT",
+      "date": "Wed, 01 Jul 2026 18:01:05 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "206",
+      "x-envoy-upstream-service-time": "16",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "384tet5jrj8ek"
+      "y-rid": "70604ell4alf2"
     },
     "bodyJson": {
       "finance": {
@@ -36,53 +36,53 @@
               "provider": "Trading Central",
               "sector": "Industrials",
               "shortTermOutlook": {
-                "stateDescription": "Bullish events outweigh bearish events.",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
                 "direction": "Bullish",
                 "score": 1,
                 "scoreDescription": "Weak Bullish Evidence",
+                "sectorDirection": "Bullish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bullish Evidence",
+                "indexDirection": "Bearish",
+                "indexScore": 2,
+                "indexScoreDescription": "Bearish Evidence"
+              },
+              "intermediateTermOutlook": {
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 3,
+                "scoreDescription": "Strong Bullish Evidence",
+                "sectorDirection": "Bullish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bullish Evidence",
+                "indexDirection": "Bullish",
+                "indexScore": 2,
+                "indexScoreDescription": "Bullish Evidence"
+              },
+              "longTermOutlook": {
+                "stateDescription": "Bearish events outweigh bullish events.",
+                "direction": "Bearish",
+                "score": 2,
+                "scoreDescription": "Bearish Evidence",
                 "sectorDirection": "Bullish",
                 "sectorScore": 1,
                 "sectorScoreDescription": "Weak Bullish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
-              },
-              "intermediateTermOutlook": {
-                "stateDescription": "Recent bullish events outweigh bearish events.",
-                "direction": "Bullish",
-                "score": 1,
-                "scoreDescription": "Weak Bullish Evidence",
-                "sectorDirection": "Neutral",
-                "sectorScore": 0,
-                "sectorScoreDescription": "Neutral Evidence",
-                "indexDirection": "Bullish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
-              },
-              "longTermOutlook": {
-                "stateDescription": "There is one bullish event.",
-                "direction": "Bullish",
-                "score": 2,
-                "scoreDescription": "Bullish Evidence",
-                "sectorDirection": "Neutral",
-                "sectorScore": 0,
-                "sectorScoreDescription": "No Evidence",
-                "indexDirection": "Neutral",
-                "indexScore": 0,
-                "indexScoreDescription": "No Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 27.015,
-              "resistance": 48.45,
-              "stopLoss": 43.652596
+              "support": 35.465,
+              "resistance": 40.185,
+              "stopLoss": 33.54158
             },
             "valuation": {
-              "color": 0,
-              "description": "Overvalued",
-              "discount": "-10%",
-              "relativeValue": "Premium",
+              "color": 1,
+              "description": "Undervalued",
+              "discount": "44%",
+              "relativeValue": "Discount",
               "provider": "Trading Central"
             }
           },
@@ -90,10 +90,10 @@
             "sectorInfo": "Industrials",
             "company": {
               "innovativeness": 0.6436,
-              "sustainability": 0.5559000000000001,
-              "insiderSentiments": 0.7221,
-              "earningsReports": 0.8543000000000001,
-              "dividends": 0.0012
+              "sustainability": 0.5223,
+              "insiderSentiments": 0.71,
+              "earningsReports": 0.7614,
+              "dividends": 0.005699999999999999
             },
             "sector": {
               "innovativeness": 0.5,
@@ -109,54 +109,210 @@
           },
           "events": [
             {
-              "eventType": "Commodity Channel Index",
+              "eventType": "Slow Stochastic",
               "pricePeriod": "D",
               "tradingHorizon": "S",
-              "tradeType": "L",
+              "tradeType": "S",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1739543400,
-              "endDate": 1739543400
+              "startDate": 1782739800,
+              "endDate": 1782739800
             }
           ],
           "reports": [
             {
-              "id": "ARGUS_3767_QuantitativeReport_1731456000000",
-              "headHtml": "EPAC: Raising target price to $52.00",
+              "id": "3767_Quantitative Report_1731456000000",
+              "headHtml": "Raising target price to $52.00",
               "provider": "Argus Research",
               "reportDate": "2024-11-13T00:00:00Z",
               "reportTitle": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $52.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
-              "reportType": "Quantitative Report",
               "targetPrice": 52,
-              "targetPriceStatus": "Increased",
               "investmentRating": "Neutral",
               "tickers": [
                 "EPAC"
               ],
-              "title": "Raising target price to $52.00"
+              "title": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $52.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low."
             },
             {
-              "id": "ARGUS_3767_QuantitativeReport_1730851200000",
-              "headHtml": "EPAC: Raising target price to $49.00",
+              "id": "3767_Quantitative Report_1730851200000",
+              "headHtml": "Raising target price to $49.00",
               "provider": "Argus Research",
               "reportDate": "2024-11-06T00:00:00Z",
               "reportTitle": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $49.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
-              "reportType": "Quantitative Report",
               "targetPrice": 49,
-              "targetPriceStatus": "Increased",
               "investmentRating": "Neutral",
               "tickers": [
                 "EPAC"
               ],
-              "title": "Raising target price to $49.00"
+              "title": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $49.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low."
             }
           ],
           "sigDevs": [
             {
-              "headline": "Enerpac Tool Group Reports First Quarter Fiscal 2025 Results",
-              "date": "2024-12-18"
+              "headline": "Enerpac Tool Q2 Adjusted EPS USD 0.39",
+              "date": "2026-03-25"
             }
           ],
           "secReports": [
+            {
+              "id": "0000006955-26-000025_6955",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1774569600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695526000025/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-26-000025_6955",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001171843-26-001915_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1774396800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184326001915/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-26-001915_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-26-000006_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1770249600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695526000006/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-26-000006_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001140361-25-046277_6955",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1766361600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036125046277/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-25-046277_6955",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0001140361-25-046276_6955",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1766361600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036125046276/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-25-046276_6955",
+              "formType": "DEF 14A"
+            },
+            {
+              "id": "0001140361-25-046278_6955",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1766361600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036125046278/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-25-046278_6955",
+              "formType": "ARS"
+            },
+            {
+              "id": "0000006955-25-000081_6955",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1766361600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000081/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000081_6955",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001171843-25-007984_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1765929600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184325007984/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-25-007984_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-25-000079_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1765756800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000079/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000079_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-25-000030_6955",
+              "type": "Periodic Financial Reports",
+              "title": "10-K : Periodic Financial Reports",
+              "description": "Annual report pursuant to Section 13 and 15(d)",
+              "filingDate": 1760659200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000030/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000030_6955",
+              "formType": "10-K"
+            },
+            {
+              "id": "0001171843-25-006456_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1760486400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184325006456/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-25-006456_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-25-000017_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1751846400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000017/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000017_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-25-000014_6955",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1750982400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000014/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000014_6955",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001171843-25-004135_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1750896000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184325004135/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-25-004135_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0000006955-25-000008_6955",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1742947200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000008/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000008_6955",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001171843-25-001661_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1742774400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184325001661/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-25-001661_6955",
+              "formType": "8-K"
+            },
             {
               "id": "0000006955-25-000004_6955",
               "type": "Corporate Changes & Voting Matters",
@@ -164,6 +320,7 @@
               "description": "Current report filing",
               "filingDate": 1738886400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000004/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000004_6955",
               "formType": "8-K"
             },
             {
@@ -173,6 +330,7 @@
               "description": "Current report filing",
               "filingDate": 1737590400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695525000002/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-25-000002_6955",
               "formType": "8-K"
             },
             {
@@ -182,34 +340,8 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1734652800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000054/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000054_6955",
               "formType": "10-Q"
-            },
-            {
-              "id": "0001171843-24-006998_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1734480000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324006998/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-24-000052_6955",
-              "type": "Annual Report to Shareholders",
-              "title": "ARS : Annual Report to Shareholders",
-              "description": "Annual report to security holders",
-              "filingDate": 1734480000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000052/thumbnail.png",
-              "formType": "ARS"
-            },
-            {
-              "id": "0000006955-24-000048_6955",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1734480000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000048/thumbnail.png",
-              "formType": "DEF 14A"
             },
             {
               "id": "0000006955-24-000050_6955",
@@ -218,7 +350,48 @@
               "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
               "filingDate": 1734480000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000050/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000050_6955",
               "formType": "DEFA14A"
+            },
+            {
+              "id": "0000006955-24-000048_6955",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1734480000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000048/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000048_6955",
+              "formType": "DEF 14A"
+            },
+            {
+              "id": "0000006955-24-000052_6955",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1734480000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000052/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000052_6955",
+              "formType": "ARS"
+            },
+            {
+              "id": "0001171843-24-006998_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1734480000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324006998/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-24-006998_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001137774-24-000283_6955",
+              "type": "Tender Offer/Acquisition Reports",
+              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
+              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
+              "filingDate": 1731542400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001137774/000113777424000283/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001137774-24-000283_6955",
+              "formType": "SC 13G/A"
             },
             {
               "id": "0000006955-24-000046_6955",
@@ -227,16 +400,8 @@
               "description": "Annual report pursuant to Section 13 and 15(d)",
               "filingDate": 1729468800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000046/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000046_6955",
               "formType": "10-K"
-            },
-            {
-              "id": "0001171843-24-005633_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1728950400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324005633/thumbnail.png",
-              "formType": "8-K"
             },
             {
               "id": "0001171843-24-005638_6955",
@@ -245,6 +410,17 @@
               "description": "Current report filing",
               "filingDate": 1728950400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324005638/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-24-005638_6955",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001171843-24-005633_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1728950400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324005633/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-24-005633_6955",
               "formType": "8-K"
             },
             {
@@ -254,6 +430,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1719273600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000042/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000042_6955",
               "formType": "10-Q"
             },
             {
@@ -263,6 +440,7 @@
               "description": "Current report filing",
               "filingDate": 1719187200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324003603/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-24-003603_6955",
               "formType": "8-K"
             },
             {
@@ -272,6 +450,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1711065600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000037/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000037_6955",
               "formType": "10-Q"
             },
             {
@@ -281,6 +460,7 @@
               "description": "Current report filing",
               "filingDate": 1710892800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000117184324001499/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001171843-24-001499_6955",
               "formType": "8-K"
             },
             {
@@ -290,6 +470,7 @@
               "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
               "filingDate": 1707782400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001137774/000113777424000030/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001137774-24-000030_6955",
               "formType": "SC 13G"
             },
             {
@@ -299,6 +480,7 @@
               "description": "Current report filing",
               "filingDate": 1707350400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752324000206/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001157523-24-000206_6955",
               "formType": "8-K"
             },
             {
@@ -308,6 +490,7 @@
               "description": "Current report filing",
               "filingDate": 1706572800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000029/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000029_6955",
               "formType": "8-K"
             },
             {
@@ -317,6 +500,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1703203200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000085/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000085_6955",
               "formType": "10-Q"
             },
             {
@@ -326,25 +510,8 @@
               "description": "Current report filing",
               "filingDate": 1702944000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752323001848/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001157523-23-001848_6955",
               "formType": "8-K"
-            },
-            {
-              "id": "0000006955-23-000078_6955",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1702252800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000078/thumbnail.png",
-              "formType": "DEF 14A"
-            },
-            {
-              "id": "0000006955-23-000080_6955",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1702252800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000080/thumbnail.png",
-              "formType": "DEFA14A"
             },
             {
               "id": "0000006955-23-000083_6955",
@@ -353,7 +520,28 @@
               "description": "Annual report to security holders",
               "filingDate": 1702252800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000083/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000083_6955",
               "formType": "ARS"
+            },
+            {
+              "id": "0000006955-23-000080_6955",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1702252800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000080/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000080_6955",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0000006955-23-000078_6955",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1702252800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000078/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000078_6955",
+              "formType": "DEF 14A"
             },
             {
               "id": "0000006955-23-000034_6955",
@@ -362,6 +550,7 @@
               "description": "Annual report pursuant to Section 13 and 15(d)",
               "filingDate": 1697760000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000034/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000034_6955",
               "formType": "10-K"
             },
             {
@@ -371,6 +560,7 @@
               "description": "Current report filing",
               "filingDate": 1697500800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752323001491/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001157523-23-001491_6955",
               "formType": "8-K"
             },
             {
@@ -380,6 +570,7 @@
               "description": "Current report filing",
               "filingDate": 1695945600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000030/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000030_6955",
               "formType": "8-K"
             },
             {
@@ -389,6 +580,7 @@
               "description": "Current report filing",
               "filingDate": 1693526400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000016/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000016_6955",
               "formType": "8-K"
             },
             {
@@ -398,6 +590,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1687478400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000013/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000013_6955",
               "formType": "10-Q"
             },
             {
@@ -407,6 +600,7 @@
               "description": "Current report filing",
               "filingDate": 1687305600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752323001019/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001157523-23-001019_6955",
               "formType": "8-K"
             },
             {
@@ -416,177 +610,7 @@
               "description": "Current report filing",
               "filingDate": 1684108800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752323000848/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001564590-23-005443_6955",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1680652800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001027796/000156459023005443/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0000006955-23-000008_6955",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1679616000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000008/thumbnail.png",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001157523-23-000471_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1679443200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752323000471/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-23-000006_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1678147200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000006/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000905729-23-000054_6955",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1676332800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001562855/000090572923000054/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001104659-23-015868_6955",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675900800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000102909/000110465923015868/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0000006955-23-000004_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1675641600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000004/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000846087-23-000222_6955",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675641600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000902219/000084608723000222/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0000006955-23-000002_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1674777600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000002/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001564590-23-000790_6955",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1674604800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001027796/000156459023000790/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0000006955-22-000040_6955",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1671667200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000040/thumbnail.png",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001157523-22-001775_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1671580800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752322001775/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-22-000035_6955",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1671148800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000035/thumbnail.png",
-              "formType": "DEF 14A"
-            },
-            {
-              "id": "0000006955-22-000037_6955",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1671148800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000037/thumbnail.png",
-              "formType": "DEFA14A"
-            },
-            {
-              "id": "0000006955-22-000033_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1667260800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000033/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-22-000031_6955",
-              "type": "Periodic Financial Reports",
-              "title": "10-K : Periodic Financial Reports",
-              "description": "Annual report pursuant to Section 13 and 15(d)",
-              "filingDate": 1666656000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000031/thumbnail.png",
-              "formType": "10-K"
-            },
-            {
-              "id": "0001157523-22-001272_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1664409600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000115752322001272/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-22-000028_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1663200000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000028/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0000006955-22-000026_6955",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1659312000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695522000026/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001157523-23-000848_6955",
               "formType": "8-K"
             }
           ]

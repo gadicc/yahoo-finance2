@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:07:15 GMT",
+      "date": "Wed, 01 Jul 2026 18:01:03 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "172",
+      "x-envoy-upstream-service-time": "14",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "59plfppjrj8ej"
+      "y-rid": "58ag76ll4alf0"
     },
     "bodyJson": {
       "finance": {
@@ -36,53 +36,52 @@
               "provider": "Trading Central",
               "sector": "Communication Services",
               "shortTermOutlook": {
-                "stateDescription": "Recent bearish events outweigh bullish events.",
-                "direction": "Bearish",
-                "score": 1,
-                "scoreDescription": "Weak Bearish Evidence",
-                "sectorDirection": "Bearish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bearish Evidence",
-                "indexDirection": "Bullish",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 3,
+                "scoreDescription": "Strong Bullish Evidence",
+                "sectorDirection": "Bullish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bullish Evidence",
+                "indexDirection": "Bearish",
                 "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "indexScoreDescription": "Bearish Evidence"
               },
               "intermediateTermOutlook": {
-                "stateDescription": "There is one bearish event.",
+                "stateDescription": "Recent bearish events outweigh bullish events.",
                 "direction": "Bearish",
-                "score": 1,
-                "scoreDescription": "Weak Bearish Evidence",
-                "sectorDirection": "Neutral",
-                "sectorScore": 0,
-                "sectorScoreDescription": "Neutral Evidence",
+                "score": 2,
+                "scoreDescription": "Bearish Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 4,
+                "sectorScoreDescription": "Very Strong Bearish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
               },
               "longTermOutlook": {
-                "stateDescription": "All events are bullish.",
-                "direction": "Bullish",
+                "stateDescription": "There is one bearish event.",
+                "direction": "Bearish",
                 "score": 1,
-                "scoreDescription": "Weak Bullish Evidence",
-                "sectorDirection": "Bullish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bullish Evidence",
-                "indexDirection": "Neutral",
-                "indexScore": 0,
-                "indexScoreDescription": "No Evidence"
+                "scoreDescription": "Weak Bearish Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 3,
+                "sectorScoreDescription": "Strong Bearish Evidence",
+                "indexDirection": "Bullish",
+                "indexScore": 2,
+                "indexScoreDescription": "Bullish Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 159.99,
-              "resistance": 648.2723,
-              "stopLoss": 546.328662
+              "support": 454.36,
+              "resistance": 489.69,
+              "stopLoss": 420.189158
             },
             "valuation": {
-              "color": 0,
-              "description": "Overvalued",
-              "discount": "13%",
-              "relativeValue": "Premium",
+              "color": 0.5,
+              "description": "Near Fair Value",
+              "discount": "14%",
               "provider": "Trading Central"
             }
           },
@@ -90,7 +89,8 @@
             "sectorInfo": "Communication Services",
             "company": {
               "innovativeness": 0.8739,
-              "sustainability": 0.6884
+              "sustainability": 0.5143,
+              "insiderSentiments": 0.1301
             },
             "sector": {
               "innovativeness": 0.5,
@@ -101,81 +101,294 @@
               "dividends": 0.5
             }
           },
+          "recommendation": {
+            "targetPrice": 600,
+            "provider": "Argus Research",
+            "rating": "BUY"
+          },
           "upsell": {
             "msBullishSummary": [
-              "Spotify has significant room to continue raising prices after historically not doing so. The value is higher, and the price is lower for a Spotify subscription than nearly all video streaming services.",
+              "Spotify has significant room to continue raising prices after historically not doing so. The value is higher and the price is lower for a Spotify subscription than nearly all video streaming services.",
               "Music streaming penetration in many countries is quite low, both in absolute terms and relative to uptake for video streaming services. This provides a long runway for further subscriber growth. ",
-              "Advertising revenue growth should pick up as Spotify’s podcasts are now being offered on other platforms, and targeting for ad-supported music customers is improving."
+              "Advertising is a nascent area of growth. Both targeting and inventory should improve, with Spotify now including video podcasts on its own platform and audio podcasts across all platforms."
             ],
             "msBearishSummary": [
-              "Spotify is dependent on record labels, and there’s nothing proprietary about Spotify’s service. Over the long term, record labels could find a way to take a greater share of the industry’s profits.",
-              "With record labels’ power and fixed percentages of revenue going toward music rights, Spotify's ability to expand margins is limited.",
-              "Spotify’s biggest competitors are major technology companies that don’t need to rely on music to be profitable. Integration in their ecosystems and bundles with other services could make their music streaming services more attractive than Spotify."
+              "The rise of AI music creation may democratize access to music and reduce reliance on licensing deals with record labels, allowing native AI platforms to take share from traditional music platforms.",
+              "Spotify relies on record labels and owns little proprietary content. Over the long term, record labels’ power caps profitability and could threaten the ability to expand margins.",
+              "Spotify’s biggest competitors are technology companies that don’t rely on music for profits. Integration in their ecosystems and bundles with other services could make their platforms more attractive than Spotify."
             ],
             "companyName": "Spotify Technology S.A.",
-            "msBullishBearishSummariesPublishDate": 1738699459000,
+            "msBullishBearishSummariesPublishDate": 1781735623000,
             "upsellReportType": "MORNINGSTAR_ANALYST"
           },
           "upsellSearchDD": {
             "researchReports": {
-              "reportId": "MS_0P0001CX12_AnalystReport_1738699459000",
+              "reportId": "MS_0P0001CX12_AnalystReport_1781735623000",
               "provider": "Morningstar",
-              "title": "Spotify Earnings: Amazing Year Concludes With an Exclamation Point; FVE to $450 from $390",
-              "reportDate": "2025-02-04T20:04:19Z",
-              "summary": "Spotify is the leading global music streaming service provider, with nearly 700 million monthly active users and over 250 million paying subscribers, with the latter comprising the firm’s premium segment. Most of the firm’s revenue and nearly all its gross profit come from the subscribers, who pay a monthly fee to access a very comprehensive music library that consists of most of the most popular songs ever recorded, including all from the major record labels. The firm also sells separate audiobook subscriptions and integrates podcasts within its standard music app. Podcast content is not exclusive and is typically free to access on other platforms. Ad-supported users can access a similar music catalog but cannot customize a similar on-demand experience.  ",
-              "investmentRating": "Bearish"
+              "title": "Spotify: Investor Day Highlights Multiple Incremental Sales Opportunities; Growth Story Is Intact",
+              "reportDate": "2026-06-17T22:33:43Z",
+              "summary": "Spotify is the leading global music streaming service, with over 750 million monthly active users and nearly 300 million paying subscribers, with the latter constituting the firm’s premium segment. Most of the firm’s revenue and nearly all its gross profit come from subscribers, who pay a monthly fee to access a music library that includes most of the most popular songs ever recorded, including all from the major record labels. The firm also offers access to audiobooks and integrates podcasts within its standard music app. Podcast content is not exclusive and is typically free to access on other platforms. Ad-supported users can access a similar music catalog, but cannot customize a similar on-demand experience. ",
+              "investmentRating": "Bullish"
             }
           },
           "events": [
             {
-              "eventType": "MACD",
+              "eventType": "Slow Stochastic",
               "pricePeriod": "D",
               "tradingHorizon": "S",
-              "tradeType": "S",
+              "tradeType": "L",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1740061800,
-              "endDate": 1740061800
+              "startDate": 1782826200,
+              "endDate": 1782826200
             }
           ],
           "reports": [
             {
-              "id": "MS_0P0001CX12_AnalystReport_1738699459000",
-              "headHtml": "Analyst Report: Spotify Technology S.A.",
-              "provider": "Morningstar",
-              "reportDate": "2025-02-04T20:04:19Z",
-              "reportTitle": "Spotify is the leading global music streaming service provider, with nearly 700 million monthly active users and over 250 million paying subscribers, with the latter comprising the firm’s premium segment. Most of the firm’s revenue and nearly all its gross profit come from the subscribers, who pay a monthly fee to access a very comprehensive music library that consists of most of the most popular songs ever recorded, including all from the major record labels. The firm also sells separate audiobook subscriptions and integrates podcasts within its standard music app. Podcast content is not exclusive and is typically free to access on other platforms. Ad-supported users can access a similar music catalog but cannot customize a similar on-demand experience.  ",
-              "reportType": "Analyst Report",
-              "targetPrice": 450,
-              "targetPriceStatus": "Increased",
-              "investmentRating": "Bearish",
+              "id": "47127_Stock Picks_1779795007000",
+              "headHtml": "Weekly Stock List",
+              "provider": "Argus Research",
+              "reportDate": "2026-05-26T11:30:07Z",
+              "reportTitle": "Vickers Stock Research, a subsidiary of Argus Research Group, tracks and analyzes insider trading and institutional stock ownership trends. Form 13-Fs, which institutions must file to report their holdings, are due 45 days after the end of calendar quarters, and have now come in from 1Q26. We like to review the 13Fs of major activist investors -- including Carl Icahn, Trian Fund Management, Jana Partners, Starboard Value and ValueAct Holdings, among others -- in order to determine their core holdings and new purchases. Activist investing has evolved in recent years and is now less about generating a short-term return on an underpriced stock and more about achieving long-term returns through an active management/investor partnership. Activists have made progress in the past year, with high-profile investments into blue-chip companies such as Fedex and Union Pacific. Here are some recent new purchases and key holdings of activist investors, as well as other high-profile money managers.",
               "tickers": [
-                "SPOT"
+                "GOOGL",
+                "META",
+                "SPOT",
+                "BSX",
+                "NYT",
+                "DAL",
+                "DIS",
+                "MSFT",
+                "KKR",
+                "INTC",
+                "CVNA",
+                "CNC",
+                "HOOD",
+                "UBER",
+                "AMZN"
               ],
-              "title": "Spotify Earnings: Amazing Year Concludes With an Exclamation Point; FVE to $450 from $390"
+              "title": "Vickers Stock Research, a subsidiary of Argus Research Group, tracks and analyzes insider trading and institutional stock ownership trends. Form 13-Fs, which institutions must file to report their holdings, are due 45 days after the end of calendar quarters, and have now come in from 1Q26. We like to review the 13Fs of major activist investors -- including Carl Icahn, Trian Fund Management, Jana Partners, Starboard Value and ValueAct Holdings, among others -- in order to determine their core holdings and new purchases. Activist investing has evolved in recent years and is now less about generating a short-term return on an underpriced stock and more about achieving long-term returns through an active management/investor partnership. Activists have made progress in the past year, with high-profile investments into blue-chip companies such as Fedex and Union Pacific. Here are some recent new purchases and key holdings of activist investors, as well as other high-profile money managers."
             },
             {
-              "id": "MS_0P0001CX12_AnalystReport_1731541212000",
-              "headHtml": "Analyst Report: Spotify Technology S.A.",
-              "provider": "Morningstar",
-              "reportDate": "2024-11-13T23:40:12Z",
-              "reportTitle": "Spotify is the leading global music streaming service provider, with over 600 million monthly active users and 250 million paying subscribers, with the latter comprising the firm’s premium segment. Most of the firm’s revenue and nearly all its gross profit come from the subscribers, who pay a monthly fee to access a very comprehensive music library that consists of most of the most popular songs ever recorded, including all from the major record labels. The firm also sells separate audiobook subscriptions and integrates podcasts within its standard music app. Podcast content is not exclusive and is typically free to access on other platforms. Ad-supported users can access a similar music catalog but cannot customize a similar on-demand experience.  ",
-              "reportType": "Analyst Report",
-              "targetPrice": 390,
-              "targetPriceStatus": "Increased",
-              "investmentRating": "Bearish",
+              "id": "6746_Analyst Report_1778006282000",
+              "headHtml": "Analyst Report: Spotify Technology SA",
+              "provider": "Argus Research",
+              "reportDate": "2026-05-05T18:38:02Z",
+              "reportTitle": "Spotify is the largest global music streaming subscription service, with content from across music genres, podcasts, and audiobooks, reaching over 180 countries and territories, though it is barred from China. The company went public through a direct listing on April 3, 2018, at $165.90 per share. Spotify has a dual-class share structure, enabling Cofounders Ek and Lorentzon to control Spotify with 71% of the voting power, though their economic interests are only 14% and 10%, respectively. Spotify derives 61% of its revenue outside the U.S. Spotify trades on the NYSE under the ticker SPOT and is a component of the Russell 1000 Index. Though based in Sweden, Spotify is incorporated under the laws of Luxembourg.",
+              "targetPrice": 600,
+              "investmentRating": "Bullish",
               "tickers": [
                 "SPOT"
               ],
-              "title": "Spotify Earnings: Pace of Profitability Ramp Is Astounding as Revenue Growth Stays High"
+              "title": "Spotify is the largest global music streaming subscription service, with content from across music genres, podcasts, and audiobooks, reaching over 180 countries and territories, though it is barred from China. The company went public through a direct listing on April 3, 2018, at $165.90 per share. Spotify has a dual-class share structure, enabling Cofounders Ek and Lorentzon to control Spotify with 71% of the voting power, though their economic interests are only 14% and 10%, respectively. Spotify derives 61% of its revenue outside the U.S. Spotify trades on the NYSE under the ticker SPOT and is a component of the Russell 1000 Index. Though based in Sweden, Spotify is incorporated under the laws of Luxembourg."
             }
           ],
           "sigDevs": [
             {
-              "headline": "Spotify Posts Quarterly Earnings Per Share Of EUR 1.76",
-              "date": "2025-02-04"
+              "headline": "Spotify & Universal Music Group Announce Licensing Agreements For Fan-Made Covers and Remixes",
+              "date": "2026-05-21"
             }
           ],
           "secReports": [
+            {
+              "id": "0001628280-26-027951_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1777334400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000162828026027951/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001628280-26-027951_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-26-017211_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1777334400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126017211/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-017211_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-26-017505_1639920",
+              "type": "Offering Registrations",
+              "title": "S-8 : Offering Registrations",
+              "description": "Initial registration statement for securities to be offered to employees pursuant to employee benefit plans",
+              "filingDate": 1777334400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126017505/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-017505_1639920",
+              "formType": "S-8"
+            },
+            {
+              "id": "0001140361-26-014788_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1776211200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126014788/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-014788_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-26-011100_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1774396800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126011100/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-011100_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-26-008076_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1772668800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126008076/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-008076_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-26-004482_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1770681600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126004482/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-004482_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001628280-26-006874_1639920",
+              "type": "Periodic Financial Reports",
+              "title": "20-F : Periodic Financial Reports",
+              "description": "Annual and transition report of foreign private issuers pursuant to Section 13 or 15(d)",
+              "filingDate": 1770681600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000162828026006874/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001628280-26-006874_1639920",
+              "formType": "20-F"
+            },
+            {
+              "id": "0001140361-26-004626_1639920",
+              "type": "Offering Registrations",
+              "title": "S-8 : Offering Registrations",
+              "description": "Initial registration statement for securities to be offered to employees pursuant to employee benefit plans",
+              "filingDate": 1770681600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036126004626/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-004626_1639920",
+              "formType": "S-8"
+            },
+            {
+              "id": "0001140361-25-045139_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1765324800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125045139/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-045139_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-040543_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1762300800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125040543/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-040543_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001628280-25-048927_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1762214400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000162828025048927/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001628280-25-048927_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-040271_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1762214400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125040271/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-040271_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-036641_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1759190400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125036641/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-036641_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-027654_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1753747200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125027654/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-027654_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001639920-25-000012_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1753747200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992025000012/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-25-000012_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001639920-25-000006_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1745884800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992025000006/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-25-000006_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-016186_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1745884800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125016186/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-016186_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-013055_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1744156800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125013055/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-013055_1639920",
+              "formType": "6-K"
+            },
+            {
+              "id": "0001140361-25-006278_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1740614400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125006278/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-006278_1639920",
+              "formType": "6-K"
+            },
             {
               "id": "0001639920-25-000003_1639920",
               "type": "Periodic Financial Reports",
@@ -183,6 +396,7 @@
               "description": "Annual and transition report of foreign private issuers pursuant to Section 13 or 15(d)",
               "filingDate": 1738713600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992025000003/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-25-000003_1639920",
               "formType": "20-F"
             },
             {
@@ -192,6 +406,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1738627200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036125002936/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-002936_1639920",
               "formType": "6-K"
             },
             {
@@ -201,6 +416,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1731456000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992024000013/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-24-000013_1639920",
               "formType": "6-K"
             },
             {
@@ -210,6 +426,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1731369600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124046169/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-046169_1639920",
               "formType": "6-K"
             },
             {
@@ -219,6 +436,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1721779200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992024000009/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-24-000009_1639920",
               "formType": "6-K"
             },
             {
@@ -228,6 +446,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1721692800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124033792/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-033792_1639920",
               "formType": "6-K"
             },
             {
@@ -237,6 +456,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1713916800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992024000007/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-24-000007_1639920",
               "formType": "6-K"
             },
             {
@@ -246,6 +466,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1713830400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124021146/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-021146_1639920",
               "formType": "6-K"
             },
             {
@@ -255,6 +476,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1713312000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124020315/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-020315_1639920",
               "formType": "6-K"
             },
             {
@@ -264,6 +486,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1712188800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124017809/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-017809_1639920",
               "formType": "6-K"
             },
             {
@@ -273,6 +496,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1709769600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036124011979/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-011979_1639920",
               "formType": "6-K"
             },
             {
@@ -282,6 +506,7 @@
               "description": "Annual and transition report of foreign private issuers pursuant to Section 13 or 15(d)",
               "filingDate": 1707350400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992024000004/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-24-000004_1639920",
               "formType": "20-F"
             },
             {
@@ -291,6 +516,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1701907200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123056664/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-056664_1639920",
               "formType": "6-K"
             },
             {
@@ -300,6 +526,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1701648000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123055913/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-055913_1639920",
               "formType": "6-K"
             },
             {
@@ -309,6 +536,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1698192000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992023000013/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000013_1639920",
               "formType": "6-K"
             },
             {
@@ -318,6 +546,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1698105600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123049225/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-049225_1639920",
               "formType": "6-K"
             },
             {
@@ -327,6 +556,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1690243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992023000010/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000010_1639920",
               "formType": "6-K"
             },
             {
@@ -336,6 +566,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1690243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123035965/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-035965_1639920",
               "formType": "6-K"
             },
             {
@@ -345,6 +576,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1682467200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992023000007/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000007_1639920",
               "formType": "6-K"
             },
             {
@@ -354,6 +586,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1682380800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123020032/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-020032_1639920",
               "formType": "6-K"
             },
             {
@@ -363,25 +596,8 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1676592000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123007632/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-007632_1639920",
               "formType": "6-K"
-            },
-            {
-              "id": "0001140361-23-004168_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1675296000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123004168/thumbnail.png",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001140361-23-004194_1639920",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675296000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001766610/000114036123004194/thumbnail.png",
-              "formType": "SC 13G/A"
             },
             {
               "id": "0001140361-23-004192_1639920",
@@ -390,6 +606,17 @@
               "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
               "filingDate": 1675296000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001767568/000114036123004192/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-004192_1639920",
+              "formType": "SC 13G/A"
+            },
+            {
+              "id": "0001140361-23-004194_1639920",
+              "type": "Tender Offer/Acquisition Reports",
+              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
+              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
+              "filingDate": 1675296000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001766610/000114036123004194/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-004194_1639920",
               "formType": "SC 13G/A"
             },
             {
@@ -399,7 +626,18 @@
               "description": "Annual and transition report of foreign private issuers pursuant to Section 13 or 15(d)",
               "filingDate": 1675296000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992023000004/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000004_1639920",
               "formType": "20-F"
+            },
+            {
+              "id": "0001140361-23-004168_1639920",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1675296000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123004168/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-004168_1639920",
+              "formType": "6-K"
             },
             {
               "id": "0001140361-23-003467_1639920",
@@ -408,6 +646,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1675123200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036123003467/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-003467_1639920",
               "formType": "6-K"
             },
             {
@@ -417,15 +656,7 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1666742400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992022000015/thumbnail.png",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001193125-22-202574_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1658880000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000119312522202574/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-22-000015_1639920",
               "formType": "6-K"
             },
             {
@@ -435,15 +666,17 @@
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
               "filingDate": 1658880000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000163992022000011/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-22-000011_1639920",
               "formType": "6-K"
             },
             {
-              "id": "0001140361-22-016067_1639920",
+              "id": "0001193125-22-202574_1639920",
               "type": "Corporate Changes & Voting Matters",
               "title": "6-K : Corporate Changes & Voting Matters",
               "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1651017600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036122016067/thumbnail.png",
+              "filingDate": 1658880000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000119312522202574/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001193125-22-202574_1639920",
               "formType": "6-K"
             },
             {
@@ -453,70 +686,8 @@
               "description": "Initial registration statement for securities to be offered to employees pursuant to employee benefit plans",
               "filingDate": 1651017600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036122016244/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-22-016244_1639920",
               "formType": "S-8"
-            },
-            {
-              "id": "0001639920-22-000008_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1651017600000,
-              "snapshotUrl": "",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001140361-22-015172_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1650412800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036122015172/thumbnail.png",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001140361-22-009142_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1646956800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036122009142/thumbnail.png",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001140361-22-003781_1639920",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1643846400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001766610/000114036122003781/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001639920-22-000004_1639920",
-              "type": "Periodic Financial Reports",
-              "title": "20-F : Periodic Financial Reports",
-              "description": "Annual and transition report of foreign private issuers pursuant to Section 13 or 15(d)",
-              "filingDate": 1643846400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/1639920/000163992022000004/thumbnail.png",
-              "formType": "20-F"
-            },
-            {
-              "id": "0001140361-22-003783_1639920",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1643846400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001767568/000114036122003783/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001140361-22-003619_1639920",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1643760000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001639920/000114036122003619/thumbnail.png",
-              "formType": "6-K"
             }
           ]
         },

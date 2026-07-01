@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,20 +12,20 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "3",
+      "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:07:16 GMT",
+      "date": "Wed, 01 Jul 2026 18:01:08 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "15",
+      "x-envoy-upstream-service-time": "12",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "599tbmtjrj8ek"
+      "y-rid": "1dci2all4alf4"
     },
     "bodyJson": {
       "finance": {
@@ -38,51 +38,51 @@
               "shortTermOutlook": {
                 "stateDescription": "Recent bearish events outweigh bullish events.",
                 "direction": "Bearish",
-                "score": 3,
-                "scoreDescription": "Strong Bearish Evidence",
+                "score": 1,
+                "scoreDescription": "Weak Bearish Evidence",
                 "sectorDirection": "Bearish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bearish Evidence",
-                "indexDirection": "Bullish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Bearish",
                 "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "indexScoreDescription": "Bearish Evidence"
               },
               "intermediateTermOutlook": {
-                "stateDescription": "Recent bearish events outweigh bullish events.",
-                "direction": "Bearish",
-                "score": 3,
-                "scoreDescription": "Strong Bearish Evidence",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 1,
+                "scoreDescription": "Weak Bullish Evidence",
                 "sectorDirection": "Bearish",
-                "sectorScore": 3,
-                "sectorScoreDescription": "Strong Bearish Evidence",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
               },
               "longTermOutlook": {
-                "stateDescription": "All events are bullish.",
-                "direction": "Bullish",
-                "score": 2,
-                "scoreDescription": "Bullish Evidence",
-                "sectorDirection": "Bullish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bullish Evidence",
-                "indexDirection": "Neutral",
-                "indexScore": 0,
-                "indexScoreDescription": "No Evidence"
+                "stateDescription": "There are no events.",
+                "direction": "Neutral",
+                "score": 0,
+                "scoreDescription": "No Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Bullish",
+                "indexScore": 2,
+                "indexScoreDescription": "Bullish Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 51.74,
-              "resistance": 60.55,
-              "stopLoss": 53.063942
+              "support": 50.65,
+              "resistance": 73.76,
+              "stopLoss": 67.437445
             },
             "valuation": {
-              "color": 1,
-              "description": "Undervalued",
-              "discount": "58%",
-              "relativeValue": "Discount",
+              "color": 0,
+              "description": "Overvalued",
+              "discount": "-21%",
+              "relativeValue": "Premium",
               "provider": "Trading Central"
             }
           },
@@ -91,10 +91,10 @@
             "company": {
               "innovativeness": 0.27699999999999997,
               "hiring": 0.7386,
-              "sustainability": 0.5233,
-              "insiderSentiments": 0.2562,
-              "earningsReports": 0.7434999999999999,
-              "dividends": 0.1261
+              "sustainability": 0.5304,
+              "insiderSentiments": 0.29059999999999997,
+              "earningsReports": 0.8015000000000001,
+              "dividends": 0.1081
             },
             "sector": {
               "innovativeness": 0.5,
@@ -106,7 +106,7 @@
             }
           },
           "recommendation": {
-            "targetPrice": 64,
+            "targetPrice": 73,
             "provider": "Argus Research",
             "rating": "HOLD"
           },
@@ -124,51 +124,47 @@
           },
           "events": [
             {
-              "eventType": "Momentum",
+              "eventType": "Commodity Channel Index",
               "pricePeriod": "D",
               "tradingHorizon": "S",
-              "tradeType": "S",
+              "tradeType": "L",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1740061800,
-              "endDate": 1740061800
+              "startDate": 1782826200,
+              "endDate": 1782826200
             }
           ],
           "reports": [
             {
-              "id": "ARGUS_6185_QuantitativeReport_1739923200000",
-              "headHtml": "RUSHA: Raising target price to $64.00",
+              "id": "6185_Quantitative Report_1782259200000",
+              "headHtml": "Lowering target price to $73.00",
               "provider": "Argus Research",
-              "reportDate": "2025-02-19T00:00:00Z",
-              "reportTitle": "RUSH ENTERPRISES INC-CL A has an Investment Rating of HOLD; a target price of $64.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
-              "reportType": "Quantitative Report",
-              "targetPrice": 64,
-              "targetPriceStatus": "Increased",
+              "reportDate": "2026-06-24T00:00:00Z",
+              "reportTitle": "Rush Enterprises Inc has an Investment Rating of HOLD; a target price of $73.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High.",
+              "targetPrice": 73,
               "investmentRating": "Neutral",
               "tickers": [
                 "RUSHA"
               ],
-              "title": "Raising target price to $64.00"
+              "title": "Rush Enterprises Inc has an Investment Rating of HOLD; a target price of $73.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High."
             },
             {
-              "id": "ARGUS_6185_QuantitativeReport_1739318400000",
-              "headHtml": "RUSHA: What does Argus have to say about RUSHA?",
+              "id": "6185_Quantitative Report_1781654400000",
+              "headHtml": "Raising target price to $74.00",
               "provider": "Argus Research",
-              "reportDate": "2025-02-12T00:00:00Z",
-              "reportTitle": "RUSH ENTERPRISES INC-CL A has an Investment Rating of HOLD; a target price of $63.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
-              "reportType": "Quantitative Report",
-              "targetPrice": 63,
-              "targetPriceStatus": "Maintained",
+              "reportDate": "2026-06-17T00:00:00Z",
+              "reportTitle": "Rush Enterprises Inc has an Investment Rating of HOLD; a target price of $74.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High.",
+              "targetPrice": 74,
               "investmentRating": "Neutral",
               "tickers": [
                 "RUSHA"
               ],
-              "title": "What does Argus have to say about RUSHA?"
+              "title": "Rush Enterprises Inc has an Investment Rating of HOLD; a target price of $74.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High."
             }
           ],
           "sigDevs": [
             {
-              "headline": "Rush Enterprises Currently Monitoring Proposed Tariffs",
-              "date": "2025-02-18"
+              "headline": "Rush Enterprises Q1 EPS USD 0.77",
+              "date": "2026-04-28"
             }
           ]
         },

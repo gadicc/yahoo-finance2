@@ -4,7 +4,7 @@
     "method": "GET",
     "headers": {
       "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:07:14 GMT",
+      "date": "Wed, 01 Jul 2026 18:01:02 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-canary-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "141",
+      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "16",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "29pir8ljrj8ei"
+      "y-rid": "1pfq3bll4aleu"
     },
     "bodyJson": {
       "finance": {
@@ -36,52 +36,52 @@
               "provider": "Trading Central",
               "sector": "Consumer Cyclical",
               "shortTermOutlook": {
-                "stateDescription": "Bearish events outweigh bullish events.",
-                "direction": "Bearish",
-                "score": 3,
-                "scoreDescription": "Strong Bearish Evidence",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 2,
+                "scoreDescription": "Bullish Evidence",
                 "sectorDirection": "Bearish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bearish Evidence",
-                "indexDirection": "Bullish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Bearish",
                 "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "indexScoreDescription": "Bearish Evidence"
               },
               "intermediateTermOutlook": {
                 "stateDescription": "Recent bearish events outweigh bullish events.",
                 "direction": "Bearish",
-                "score": 3,
-                "scoreDescription": "Strong Bearish Evidence",
+                "score": 2,
+                "scoreDescription": "Bearish Evidence",
                 "sectorDirection": "Bearish",
-                "sectorScore": 3,
-                "sectorScoreDescription": "Strong Bearish Evidence",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
               },
               "longTermOutlook": {
-                "stateDescription": "There is one bullish event.",
+                "stateDescription": "All events are bullish.",
                 "direction": "Bullish",
-                "score": 1,
-                "scoreDescription": "Weak Bullish Evidence",
-                "sectorDirection": "Bullish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bullish Evidence",
-                "indexDirection": "Neutral",
-                "indexScore": 0,
-                "indexScoreDescription": "No Evidence"
+                "score": 2,
+                "scoreDescription": "Bullish Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Bullish",
+                "indexScore": 2,
+                "indexScoreDescription": "Bullish Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 185.07,
-              "resistance": 227.03,
-              "stopLoss": 212.033763
+              "support": 228.97,
+              "resistance": 246.16,
+              "stopLoss": 221.815293
             },
             "valuation": {
               "color": 0.5,
               "description": "Near Fair Value",
-              "discount": "10%",
+              "discount": "8%",
               "provider": "Trading Central"
             }
           },
@@ -90,9 +90,9 @@
             "company": {
               "innovativeness": 0.9902,
               "hiring": 0.9773000000000001,
-              "sustainability": 0.7659,
-              "insiderSentiments": 0.0216,
-              "earningsReports": 0.9262
+              "sustainability": 0.40880000000000005,
+              "insiderSentiments": 0.0281,
+              "earningsReports": 0.8693000000000001
             },
             "sector": {
               "innovativeness": 0.5,
@@ -104,7 +104,7 @@
             }
           },
           "recommendation": {
-            "targetPrice": 270,
+            "targetPrice": 325,
             "provider": "Argus Research",
             "rating": "BUY"
           },
@@ -115,80 +115,421 @@
               "Amazon Prime memberships help attract and retain customers who spend more with Amazon; this reinforces a powerful network effect while bringing in recurring and high-margin revenue."
             ],
             "msBearishSummary": [
-              "Regulatory concerns are rising for large technology firms, including Amazon. Further, the firm may face increasing regulatory and compliance issues as it expands internationally.",
-              "New investments, notably in fulfillment, delivery, and AWS, should damp free cash flow growth. Also, Amazon’s penetration into some countries might be harder than in the US due to inferior logistic networks.",
-              "Amazon may not be as successful in penetrating new retail categories, such as luxury goods, due to consumer preferences and an improved e-commerce experience from larger retailers."
+              "Regulatory concerns are rising for large technology firms, including Amazon. The firm may face increasing regulatory and compliance issues as it expands internationally.",
+              "New investments, notably in fulfillment, delivery, and AWS should dampen free cash flow growth. AWS investments for AI have been substantial and are likely to remain elevated for several years.",
+              "Amazon may not be as successful in penetrating new retail categories, such as luxury goods, due to consumer preferences and an improved e-commerce experience from larger retailers. The same applies to international expansion."
             ],
             "companyName": "Amazon.com, Inc.",
-            "msBullishBearishSummariesPublishDate": 1738911218000,
+            "msBullishBearishSummariesPublishDate": 1781131995000,
             "upsellReportType": "MORNINGSTAR_ANALYST"
           },
           "upsellSearchDD": {
             "researchReports": {
-              "reportId": "ARGUS_2710_AnalystReport_1738930203000",
-              "provider": "Argus",
-              "title": "Solid retail performance; raising target to $270",
-              "reportDate": "2025-02-07T12:10:03Z",
-              "summary": "Amazon.com is the leading U.S. e-commerce retailer and among the top e-commerce sites globally. Amazon.com also includes Amazon Web Services (AWS), the global leader in cloud-based Infrastructure-as-a-Service (IaaS) platforms. The company's Prime membership platform is a key online retail differentiator, providing customers with free shipping (after an annual fee) along with exclusive media content (music, video, audible books, etc.). The company's Kindle reader and Alexa-based Echo and Dot digital voice assistants are category leaders.",
+              "reportId": "MS_0P000000B7_AnalystReport_1781131995000",
+              "provider": "Morningstar",
+              "title": "Amazon: Officially Launches Supply Chain Services; Unlikely to Make a Near-Term Impact",
+              "reportDate": "2026-06-10T22:53:15Z",
+              "summary": "Amazon is the leading online retailer and marketplace for third party sellers. Retail related revenue represents approximately 74% of total, followed by Amazon Web Services (17%), and advertising services (9%). International segments constitute 22% of Amazon's total revenue, led by Germany, the United Kingdom, and Japan. ",
               "investmentRating": "Bullish"
             }
           },
           "events": [
             {
-              "eventType": "Price Crosses Moving Average",
+              "eventType": "Slow Stochastic",
               "pricePeriod": "D",
-              "tradingHorizon": "I",
-              "tradeType": "S",
+              "tradingHorizon": "S",
+              "tradeType": "L",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1739889000,
-              "endDate": 1739889000
+              "startDate": 1782826200,
+              "endDate": 1782826200
             }
           ],
           "reports": [
             {
-              "id": "ARGUS_2710_AnalystReport_1738930203000",
-              "headHtml": "Analyst Report: Amazon.com Inc.",
+              "id": "47259_Stock Picks_1780919958000",
+              "headHtml": "Weekly Stock List",
               "provider": "Argus Research",
-              "reportDate": "2025-02-07T12:10:03Z",
-              "reportTitle": "Amazon.com is the leading U.S. e-commerce retailer and among the top e-commerce sites globally. Amazon.com also includes Amazon Web Services (AWS), the global leader in cloud-based Infrastructure-as-a-Service (IaaS) platforms. The company's Prime membership platform is a key online retail differentiator, providing customers with free shipping (after an annual fee) along with exclusive media content (music, video, audible books, etc.). The company's Kindle reader and Alexa-based Echo and Dot digital voice assistants are category leaders.",
-              "reportType": "Analyst Report",
-              "targetPrice": 270,
-              "targetPriceStatus": "Increased",
-              "investmentRating": "Bullish",
+              "reportDate": "2026-06-08T11:59:18Z",
+              "reportTitle": "AI is helping lift profits at consumer companies on multiple levels. It allows companies to better understand their customers, which can improve target marketing and customization. Companies can hone menus, goods, and services to achieve broader appeal and to reach new audiences. Consumer companies are also harnessing AI technology to help with processes, inventory control, and supply-chain management, and in many other ways. By way of examples, restaurants are using smart robots to take orders, and prep and serve food. They also have front and back offices, and AI is helping make both more efficient and cost effective. As well, consumer companies utilize a lot of data, and AI helps elevate the use of that data. We recently concluded our five-part webinar series on AI, looking at how different industries are using AI. Our final event spotlighted consumer companies. For this week's list, we offer details on the BUY-rated stocks we highlighted during the webinar.",
               "tickers": [
-                "AMZN"
+                "TJX",
+                "ULTA",
+                "KO",
+                "F",
+                "CAKE",
+                "EXPE",
+                "BUD",
+                "TOL",
+                "WSM",
+                "COST",
+                "ETSY",
+                "CAVA",
+                "CVNA",
+                "BKNG",
+                "AMZN",
+                "CART",
+                "WMT"
               ],
-              "title": "Solid retail performance; raising target to $270"
+              "title": "AI is helping lift profits at consumer companies on multiple levels. It allows companies to better understand their customers, which can improve target marketing and customization. Companies can hone menus, goods, and services to achieve broader appeal and to reach new audiences. Consumer companies are also harnessing AI technology to help with processes, inventory control, and supply-chain management, and in many other ways. By way of examples, restaurants are using smart robots to take orders, and prep and serve food. They also have front and back offices, and AI is helping make both more efficient and cost effective. As well, consumer companies utilize a lot of data, and AI helps elevate the use of that data. We recently concluded our five-part webinar series on AI, looking at how different industries are using AI. Our final event spotlighted consumer companies. For this week's list, we offer details on the BUY-rated stocks we highlighted during the webinar."
             },
             {
-              "id": "ARGUS_42599_MarketSummary_1738929303000",
-              "headHtml": "Market Digest: CB, AMZN, IEX, JNPR, TROW, VSH, WEC, YUM, HCA, PLTR",
+              "id": "47162_Thematic Portfolio_1779968001000",
+              "headHtml": "The Argus Sustainable Growth Theme Model Portfolio",
               "provider": "Argus Research",
-              "reportDate": "2025-02-07T11:55:03Z",
-              "reportTitle": "U.S. stocks were mixed on Thursday ahead of the January jobs report. Both the S&P 500 and the Nasdaq were higher, while the Dow was down. The S&P 500 gained 0.4% and the Nasdaq was up 0.5%. The Dow fell 0.3%.",
-              "reportType": "Market Summary",
+              "reportDate": "2026-05-28T11:33:21Z",
+              "reportTitle": "Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community. As assets have flowed in over the past 40 years, Sustainable Investing has evolved. The discipline, originally known as Socially Responsible Investing, first focused on excluding companies that conducted business in South Africa, or participated in industries such as tobacco, alcohol, and firearms. In time, the list of industries to avoid increased to include soft drinks, fast food, and oil and gas, among numerous others.  Performance of initial strategies lagged, and the approach has been modified. Now, instead of merely identifying industries to avoid, the discipline promotes \"sustainable\" business practices across all industries that can have an \"impact\" on global issues such as climate, hunger, poverty, disease, shelter, and workers' rights. Given the strategy's focus on leading management practices, we expect the growth curve for Sustainable Investing to again slope upward in the years ahead.",
               "tickers": [
-                "YUM",
-                "TROW",
-                "JNPR",
-                "WEC",
-                "HCA",
-                "VSH",
-                "IEX",
+                "TT",
+                "GOOGL",
+                "DE",
+                "AAPL",
+                "NDAQ",
+                "AVGO",
+                "ADI",
+                "JPM",
+                "JNJ",
+                "MRK",
+                "TXN",
+                "MSFT",
+                "TFC",
+                "GLW",
+                "MA",
+                "LLY",
+                "SPGI",
+                "TRV",
+                "GE",
+                "NVDA",
+                "NOC",
+                "KO",
+                "KMI",
+                "AEP",
+                "GS",
+                "ECL",
+                "TMUS",
+                "ETN",
                 "AMZN",
-                "CB",
-                "PLTR"
+                "WMT"
               ],
-              "title": "U.S. stocks were mixed on Thursday ahead of the January jobs report."
+              "title": "Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community. As assets have flowed in over the past 40 years, Sustainable Investing has evolved. The discipline, originally known as Socially Responsible Investing, first focused on excluding companies that conducted business in South Africa, or participated in industries such as tobacco, alcohol, and firearms. In time, the list of industries to avoid increased to include soft drinks, fast food, and oil and gas, among numerous others.  Performance of initial strategies lagged, and the approach has been modified. Now, instead of merely identifying industries to avoid, the discipline promotes \"sustainable\" business practices across all industries that can have an \"impact\" on global issues such as climate, hunger, poverty, disease, shelter, and workers' rights. Given the strategy's focus on leading management practices, we expect the growth curve for Sustainable Investing to again slope upward in the years ahead."
             }
           ],
           "sigDevs": [
             {
-              "headline": "EDP's Unit Launches 100 MW Solar Park In Mississippi In Collaboration With Amazon",
-              "date": "2025-02-19"
+              "headline": "Amazon Australia Spokesperson Says Co Reviewing Case Filed By Australia's ACCC",
+              "date": "2026-06-30"
             }
           ],
           "secReports": [
+            {
+              "id": "0001104659-26-073562_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1781222400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926073562/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-073562_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-072140_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1781049600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926072140/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-072140_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-065717_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1779408000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926065717/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-065717_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-054974_1018724",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1777852800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926054974/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-054974_1018724",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0001018724-26-000014_1018724",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1777507200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000014/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000014_1018724",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001018724-26-000012_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1777420800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000012/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000012_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-042880_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1776124800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926042880/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-042880_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-041030_1018724",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1775692800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041030/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041030_1018724",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0001104659-26-041026_1018724",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1775692800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041026/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041026_1018724",
+              "formType": "DEF 14A"
+            },
+            {
+              "id": "0001104659-26-041036_1018724",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1775692800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041036/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041036_1018724",
+              "formType": "ARS"
+            },
+            {
+              "id": "0001104659-26-041034_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1775692800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041034/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041034_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-031805_1018724",
+              "type": "Trading Registrations",
+              "title": "8-A12B : Trading Registrations",
+              "description": "Form for the registration / listing of a class of securities on a national securities exchange pursuant to Section 12(b)",
+              "filingDate": 1773878400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926031805/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-031805_1018724",
+              "formType": "8-A12B"
+            },
+            {
+              "id": "0001104659-26-028556_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1773619200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926028556/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-028556_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-027729_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1773360000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926027729/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-027729_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-021050_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1772150400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926021050/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-021050_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-26-011240_1018724",
+              "type": "Offering Registrations",
+              "title": "S-3ASR : Offering Registrations",
+              "description": "Automatic shelf registration statement of securities of well-known seasoned issuers",
+              "filingDate": 1770336000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926011240/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-011240_1018724",
+              "formType": "S-3ASR"
+            },
+            {
+              "id": "0001018724-26-000004_1018724",
+              "type": "Periodic Financial Reports",
+              "title": "10-K : Periodic Financial Reports",
+              "description": "Annual report pursuant to Section 13 and 15(d)",
+              "filingDate": 1770336000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000004/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000004_1018724",
+              "formType": "10-K"
+            },
+            {
+              "id": "0001018724-26-000002_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1770249600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000002/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000002_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-25-114647_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1763596800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925114647/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-114647_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001018724-25-000123_1018724",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1761868800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000123/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000123_1018724",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001018724-25-000121_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1761782400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000121/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000121_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001018724-25-000086_1018724",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1754006400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000086/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000086_1018724",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001018724-25-000084_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1753920000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000084/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000084_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-25-052014_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1747872000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925052014/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-052014_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001018724-25-000036_1018724",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1746144000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000036/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000036_1018724",
+              "formType": "10-Q"
+            },
+            {
+              "id": "0001104659-25-044138_1018724",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1746144000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925044138/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-044138_1018724",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0001018724-25-000034_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1746057600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000034/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000034_1018724",
+              "formType": "8-K"
+            },
+            {
+              "id": "0001104659-25-033453_1018724",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1744243200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033453/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033453_1018724",
+              "formType": "ARS"
+            },
+            {
+              "id": "0001104659-25-033447_1018724",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1744243200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033447/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033447_1018724",
+              "formType": "DEFA14A"
+            },
+            {
+              "id": "0001104659-25-033442_1018724",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1744243200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033442/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033442_1018724",
+              "formType": "DEF 14A"
+            },
+            {
+              "id": "0001104659-25-033450_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1744243200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033450/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033450_1018724",
+              "formType": "8-K"
+            },
             {
               "id": "0001018724-25-000004_1018724",
               "type": "Periodic Financial Reports",
@@ -196,6 +537,7 @@
               "description": "Annual report pursuant to Section 13 and 15(d)",
               "filingDate": 1738886400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000004/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000004_1018724",
               "formType": "10-K"
             },
             {
@@ -205,6 +547,7 @@
               "description": "Current report filing",
               "filingDate": 1738800000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000002/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000002_1018724",
               "formType": "8-K"
             },
             {
@@ -213,7 +556,8 @@
               "title": "SC 13G/A : Tender Offer/Acquisition Reports",
               "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
               "filingDate": 1730937600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000894081/000110465924115387/thumbnail.png",
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924115387/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-115387_1018724",
               "formType": "SC 13G/A"
             },
             {
@@ -223,6 +567,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1730419200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000161/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000161_1018724",
               "formType": "10-Q"
             },
             {
@@ -232,6 +577,7 @@
               "description": "Current report filing",
               "filingDate": 1730332800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000158/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000158_1018724",
               "formType": "8-K"
             },
             {
@@ -241,6 +587,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1722556800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000130/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000130_1018724",
               "formType": "10-Q"
             },
             {
@@ -250,6 +597,7 @@
               "description": "Current report filing",
               "filingDate": 1722470400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000128/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000128_1018724",
               "formType": "8-K"
             },
             {
@@ -259,6 +607,7 @@
               "description": "Current report filing",
               "filingDate": 1716508800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924065117/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-065117_1018724",
               "formType": "8-K"
             },
             {
@@ -268,6 +617,7 @@
               "description": "Current report filing",
               "filingDate": 1715644800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924061143/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-061143_1018724",
               "formType": "8-K"
             },
             {
@@ -277,6 +627,7 @@
               "description": "Current report filing",
               "filingDate": 1714694400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924057026/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-057026_1018724",
               "formType": "8-K"
             },
             {
@@ -286,6 +637,7 @@
               "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
               "filingDate": 1714694400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924057037/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-057037_1018724",
               "formType": "DEFA14A"
             },
             {
@@ -295,6 +647,7 @@
               "description": "Quarterly report pursuant to Section 13 or 15(d)",
               "filingDate": 1714521600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000083/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000083_1018724",
               "formType": "10-Q"
             },
             {
@@ -304,240 +657,7 @@
               "description": "Current report filing",
               "filingDate": 1714435200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000081/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-24-045915_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1712793600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924045915/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-24-045913_1018724",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1712793600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924045913/thumbnail.png",
-              "formType": "DEFA14A"
-            },
-            {
-              "id": "0001104659-24-045917_1018724",
-              "type": "Annual Report to Shareholders",
-              "title": "ARS : Annual Report to Shareholders",
-              "description": "Annual report to security holders",
-              "filingDate": 1712793600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924045917/thumbnail.png",
-              "formType": "ARS"
-            },
-            {
-              "id": "0001104659-24-045910_1018724",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1712793600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924045910/thumbnail.png",
-              "formType": "DEF 14A"
-            },
-            {
-              "id": "0001018724-24-000008_1018724",
-              "type": "Periodic Financial Reports",
-              "title": "10-K : Periodic Financial Reports",
-              "description": "Annual report pursuant to Section 13 and 15(d)",
-              "filingDate": 1706832000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000008/thumbnail.png",
-              "formType": "10-K"
-            },
-            {
-              "id": "0001018724-24-000006_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1706745600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000006/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-24-008253_1018724",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1706572800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924008253/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001104659-23-113444_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1698796800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923113444/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001018724-23-000018_1018724",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1698364800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000018/thumbnail.png",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001018724-23-000016_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1698278400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000016/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001018724-23-000014_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1694563200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000014/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001018724-23-000012_1018724",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1691107200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000012/thumbnail.png",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001018724-23-000010_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1691020800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000010/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-23-065457_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1685059200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923065457/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001018724-23-000008_1018724",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1682640000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000008/thumbnail.png",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001018724-23-000006_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1682553600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000006/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-23-044710_1018724",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1681344000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923044710/thumbnail.png",
-              "formType": "DEFA14A"
-            },
-            {
-              "id": "0001104659-23-044708_1018724",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1681344000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923044708/thumbnail.png",
-              "formType": "DEF 14A"
-            },
-            {
-              "id": "0001104659-23-044716_1018724",
-              "type": "Annual Report to Shareholders",
-              "title": "ARS : Annual Report to Shareholders",
-              "description": "Annual report to security holders",
-              "filingDate": 1681344000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923044716/thumbnail.png",
-              "formType": "ARS"
-            },
-            {
-              "id": "0001104659-23-044715_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1681344000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923044715/thumbnail.png",
-              "formType": "8-K"
-            },
-            {
-              "id": "0001104659-23-018528_1018724",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675987200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001828108/000110465923018528/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001104659-23-018512_1018724",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675987200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923018512/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001104659-23-015050_1018724",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13G/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities by passive investors and certain institutions",
-              "filingDate": 1675900800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465923015050/thumbnail.png",
-              "formType": "SC 13G/A"
-            },
-            {
-              "id": "0001018724-23-000004_1018724",
-              "type": "Periodic Financial Reports",
-              "title": "10-K : Periodic Financial Reports",
-              "description": "Annual report pursuant to Section 13 and 15(d)",
-              "filingDate": 1675382400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000004/thumbnail.png",
-              "formType": "10-K"
-            },
-            {
-              "id": "0001193125-23-023436_1018724",
-              "type": "Offering Registrations",
-              "title": "S-3ASR : Offering Registrations",
-              "description": "Automatic shelf registration statement of securities of well-known seasoned issuers",
-              "filingDate": 1675382400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000119312523023436/thumbnail.png",
-              "formType": "S-3ASR"
-            },
-            {
-              "id": "0001018724-23-000002_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1675296000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872423000002/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000081_1018724",
               "formType": "8-K"
             }
           ]
