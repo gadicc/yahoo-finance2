@@ -123,15 +123,17 @@ export const object: Validator = function object(
       );
     } else {
       if (schema.additionalProperties === false) {
-        errors.push({
-          instancePath,
-          schemaPath: schemaPath + "/additionalProperties",
-          message: "should NOT have additional properties",
-          params: {
-            additionalProperty: key,
-          },
-          data: _input,
-        });
+        if (!ctx.allowAdditionalProps) {
+          errors.push({
+            instancePath,
+            schemaPath: schemaPath + "/additionalProperties",
+            message: "should NOT have additional properties",
+            params: {
+              additionalProperty: key,
+            },
+            data: _input,
+          });
+        }
       } else if (schema.additionalProperties) {
         validateAndCoerce(
           value,

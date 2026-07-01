@@ -23,6 +23,7 @@ export type ValidationError = {
 
 export type ValidationCtx = {
   definitions: JSONSchema["definitions"];
+  allowAdditionalProps?: boolean;
   // Causing issues with ts-json-schema-generator
   // logger: Logger;
   logger: unknown;
@@ -130,10 +131,11 @@ function schemaFromSchemaOrSchemaKey(
   let refs: string[] | undefined;
   while (schema.$ref) {
     if (!refs) refs = [];
-    const ref = schema.$ref.replace("#/definitions/", "");
+    const refPath = schema.$ref;
+    const ref = refPath.replace("#/definitions/", "");
     refs.push(ref);
     schema = definitions[ref] as JSONSchema;
-    path = schema.$ref!;
+    path = refPath;
   }
 
   return [schema as JSONSchema, path, refs];

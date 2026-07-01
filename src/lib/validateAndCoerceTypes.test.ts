@@ -26,6 +26,10 @@ const schema: JSONSchema = {
       additionalProperties: false,
       properties: {},
     },
+    refArray: {
+      type: "array",
+      items: { $ref: "#/definitions/NoAdditional" },
+    },
   },
   type: "object",
 };
@@ -50,6 +54,15 @@ const definitions: Record<string, JSONSchema> = {
   "DateInMs": {
     "type": "string",
     "format": "date-time",
+  },
+  "NoAdditional": {
+    "type": "object",
+    "properties": {
+      "known": {
+        "type": "string",
+      },
+    },
+    "additionalProperties": false,
   },
 };
 
@@ -390,6 +403,61 @@ describe("validateAndCoerceTypes", () => {
         expect(error!.message).toMatch(/Failed Yahoo/);
         expect(error!.result).toBe(object);
         expect(error!.errors).toBeType("array");
+      });
+
+      it("allows additional result properties when configured", () => {
+        const object = {
+          noAdditional: { additional: true },
+          refArray: [{ known: "ok", additional: true }],
+        };
+
+        expect(() =>
+          validateAndCoerceTypes({
+            ...defNoLogParams,
+            object,
+            options: {
+              ...defNoLogParams.options,
+              allowAdditionalProps: true,
+            },
+          })
+        ).not.toThrow();
+      });
+
+      it("keeps options additional properties strict", () => {
+        const object = { noAdditional: { additional: true } };
+
+        expect(() =>
+          validateAndCoerceTypes({
+            ...defNoLogParams,
+            object,
+            type: "options",
+            options: {
+              ...defNoLogParams.options,
+              allowAdditionalProps: true,
+              logOptionsErrors: false,
+            },
+          })
+        ).toThrow(InvalidOptionsError);
+      });
+
+      it("reports schema paths through references", () => {
+        const object = { refArray: [{ known: "ok", additional: true }] };
+
+        let error: FailedYahooValidationError | null = null;
+        try {
+          validateAndCoerceTypes({
+            ...defNoLogParams,
+            object,
+          });
+        } catch (e) {
+          error = e as FailedYahooValidationError;
+        }
+
+        expect(error).toBeDefined();
+        expect(error!.errors![0].schemaPath).toBe(
+          "#/definitions/NoAdditional/additionalProperties",
+        );
+        expect(error!.errors![0].instancePath).toBe("/refArray/0");
       });
 
       it("returns ref to problem data in error object", () => {
