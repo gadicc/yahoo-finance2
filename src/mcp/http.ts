@@ -90,12 +90,29 @@ function validateOrigin(
   return jsonRpcError(403, -32000, `Invalid Origin header: ${origin}`);
 }
 
+function timingSafeStringEqual(a: string, b: string): boolean {
+  const encoder = new TextEncoder();
+  const aBytes = encoder.encode(a);
+  const bBytes = encoder.encode(b);
+  let diff = aBytes.length ^ bBytes.length;
+  const len = Math.max(aBytes.length, bBytes.length);
+  for (let i = 0; i < len; i++) {
+    diff |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+  return diff === 0;
+}
+
 function validateBearerToken(
   authorization: string | null | undefined,
   bearerToken: string | undefined,
 ) {
   if (!bearerToken) return undefined;
-  if (authorization === `Bearer ${bearerToken}`) return undefined;
+  if (
+    typeof authorization === "string" &&
+    timingSafeStringEqual(authorization, `Bearer ${bearerToken}`)
+  ) {
+    return undefined;
+  }
 
   return jsonRpcError(401, -32001, "Missing or invalid bearer token.");
 }
