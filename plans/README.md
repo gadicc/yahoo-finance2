@@ -14,7 +14,7 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 
 | Plan | Title | Priority | Effort | Depends on | Status |
 |------|-------|----------|--------|------------|--------|
-| 001 | Make `deno check` pass and gate CI on it | P1 | S | — | TODO |
+| 001 | Make `deno check` pass and gate CI on it | P1 | S | — | DONE |
 | 002 | Characterization tests for Queue and ExtendedCookieJar | P1 | M | 001 | TODO |
 | 003 | Harden quoteCombine result distribution | P2 | S | 001 | TODO |
 | 004 | Per-instance crumb/queue/debounce state | P1 | M | 001, 002, 003 | TODO |

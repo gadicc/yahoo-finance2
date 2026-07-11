@@ -20,7 +20,7 @@ const parseHtmlEntities = (str: string) =>
     (_, numStr) => String.fromCharCode(parseInt(numStr, 16)),
   );
 
-type CrumbOptions = Parameters<typeof fetch>[1] & {
+type CrumbOptions = RequestInit & {
   devel?: YahooFinanceFetchModuleOptions["devel"];
 };
 

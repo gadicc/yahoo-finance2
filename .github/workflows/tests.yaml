@@ -20,6 +20,7 @@ jobs:
 
       - run: deno fmt --check
       - run: deno lint
+      - run: deno task check
 
       - name: Run tests, produce coverage
         run: deno task test --coverage

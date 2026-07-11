@@ -2,6 +2,7 @@
   "name": "@gadicc/yahoo-finance2",
   "version": "0.0.1",
   "tasks": {
+    "check": "deno check src/index.ts src/mcp/mod.ts bin/yahoo-finance.ts bin/yahoo-finance-mcp.ts",
     "cli": "deno run -A bin/yahoo-finance.ts",
     "docs:gen": "deno doc --output=jsdocs --html $(jq -r '.exports | to_entries[] | .value' deno.json)",
     "docs:lint": "deno doc --output=jsdocs --lint --html $(jq -r '.exports | to_entries[] | .value' deno.json)",
