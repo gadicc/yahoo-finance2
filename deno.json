@@ -11,6 +11,7 @@
     "install-cli": "deno install -A --global -n yahoo-finance npm:yahoo-finance/bin/yahoo-finance.ts",
     "schema_": "TODO below... separate watch mode, vscode scripts, mtime check, etc",
     "schema": "deno run -A scripts/schema-gen.ts",
+    "schema:check": "deno task schema --force && git diff --exit-code -- '*.schema.json'",
     "test": "deno test --no-prompt -P=test --parallel --ignore=tests/cloudflare",
     "test:serial": "deno test --no-prompt -P=test --ignore=tests/cloudflare",
     "test:cloudflare": "deno task build:npm && npm ci --prefix tests/cloudflare && npm test --prefix tests/cloudflare",

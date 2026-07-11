@@ -18,7 +18,7 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 | 002 | Characterization tests for Queue and ExtendedCookieJar | P1 | M | 001 | DONE |
 | 003 | Harden quoteCombine result distribution | P2 | S | 001 | DONE |
 | 004 | Per-instance crumb/queue/debounce state | P1 | M | 001, 002, 003 | DONE |
-| 005 | CI check for stale generated schemas | P2 | S | 001 | TODO |
+| 005 | CI check for stale generated schemas | P2 | S | 001 | DONE |
 | 006 | Remove dead csv2json path and stale scripts | P2 | S | 001 (rebase after 004) | TODO |
 | 007 | Security hardening (cookie perms, redirect depth, token compare) | P2 | S | 001, 004 | TODO |
 | 008 | Docs refresh (stale v3 language, broken links, v2 leftovers) | P3 | S–M | 005 (soft) | TODO |

@@ -60,7 +60,10 @@ then used for runtime validation.
 
 In VSCode, this is done for you automatically. Otherwise, run `deno task schema`
 after changing a file, or `deno task schema --watch` to recompile after file
-changes. This only affects `.ts` files that contain a `@yf-schema` keyword.
+changes. This only affects `.ts` files that contain a `@yf-schema` keyword. CI
+runs `deno task schema:check` and will fail your PR if committed `.schema.json`
+files don't match the interfaces — run `deno task schema` before committing
+interface changes.
 
 <a name="testing"></a>
 
