@@ -176,9 +176,6 @@ async function yahooFinanceFetch(
 
   // console.log("fetch", url, fetchOptions);
 
-  // used in moduleExec.ts
-  if (func === "csv") func = "text";
-
   const response = await queuedFetch(url, fetchOptions);
 
   const setCookieHeaders = getSetCookieHeaders(response.headers);

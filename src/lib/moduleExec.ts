@@ -4,7 +4,6 @@
 import validateAndCoerceTypes, {
   disallowAdditionalProps,
 } from "./validateAndCoerceTypes.ts";
-import csv2json from "./csv2json.ts";
 import type { JSONSchema } from "./validate/index.ts";
 import type { ModuleOptions } from "./moduleCommon.ts";
 
@@ -199,8 +198,6 @@ async function moduleExec(
     queryOpts.fetchType,
     queryOpts.needsCrumb,
   );
-
-  if (queryOpts.fetchType === "csv") result = csv2json(result);
 
   /*
    * Mutate the Yahoo result *before* validating and coercion.  Mostly used
