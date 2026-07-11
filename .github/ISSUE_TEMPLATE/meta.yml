@@ -1,0 +1,34 @@
+name: Project planning
+description: Track cross-cutting maintenance, plans, or roadmap work
+labels: [meta]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State the project outcome and why it matters.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Describe what this issue includes and excludes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: work-items
+    attributes:
+      label: Work items
+      description: List known tasks, dependencies, or decisions.
+      placeholder: |
+        - [ ] First task
+        - [ ] Second task
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Link related issues, pull requests, or plans.

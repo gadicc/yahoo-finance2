@@ -1,0 +1,66 @@
+name: New module request
+description: Propose support for another Yahoo Finance endpoint
+labels: [enhancement, "new module"]
+body:
+  - type: markdown
+    attributes:
+      value: A module request is easiest to evaluate when it includes a Yahoo endpoint, representative query parameters, and expected usage. See [Contributing](https://github.com/gadicc/yahoo-finance2/blob/dev/CONTRIBUTING.md#adding-a-new-module) if you want to implement it.
+
+  - type: input
+    id: module-name
+    attributes:
+      label: Proposed module name
+      placeholder: marketSummary
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What data do you need, and what will it enable?
+    validations:
+      required: true
+
+  - type: input
+    id: endpoint
+    attributes:
+      label: Yahoo endpoint
+      description: Include the endpoint if you have identified it. Remove cookies and authentication parameters.
+      placeholder: https://query1.finance.yahoo.com/v1/finance/example
+
+  - type: textarea
+    id: query-parameters
+    attributes:
+      label: Query parameters
+      description: List known parameters, their types, and whether Yahoo requires them.
+      placeholder: |
+        - `symbol`: string, required
+        - `region`: string, optional
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example API
+      description: Show how callers should use the proposed module.
+      render: typescript
+      placeholder: await yahooFinance.marketSummary("AAPL");
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional endpoint details
+      description: Add a sanitized response shape, related Yahoo page, or prior research.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I checked the documented and exported modules for equivalent functionality.
+          required: true
+        - label: I removed credentials, cookies, crumb values, and other sensitive data.
+          required: true
+        - label: I can help implement or test this module.

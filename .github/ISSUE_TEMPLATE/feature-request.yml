@@ -1,0 +1,68 @@
+name: Feature request
+description: Propose a change that solves a specific contributor or user need
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Describe the problem before the proposed API. Concrete use cases help maintainers evaluate scope and compatibility.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Library API
+        - Command-line interface (CLI)
+        - Model Context Protocol (MCP) server
+        - Agent skill
+        - Documentation
+        - Development tooling
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What can you not do today, and who does this affect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the behavior or interface you would like.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: Use cases
+      description: Give one or more concrete examples that depend on this change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example API
+      description: Show how the feature might be used, if relevant.
+      render: typescript
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe any current workaround or alternative design.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checklist
+      options:
+        - label: I searched open and closed issues for a similar request.
+          required: true
+        - label: I can help implement or test this feature.

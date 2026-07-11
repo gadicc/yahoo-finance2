@@ -248,6 +248,7 @@ function validate({
       const title = encodeURIComponent(
         "Failed validation: " + schemaOrSchemaKey,
       );
+      const version = encodeURIComponent(pkg.version);
       logger.error(
         "The following result did not validate with schema: " +
           schemaOrSchemaKey,
@@ -255,19 +256,19 @@ function validate({
       logObj(errors, { depth: 5 });
       // logObj(object);
       logger.error(`
-This may happen intermittently and you should catch errors appropriately.  However:  1) if this recently started happening on every request for a symbol that used to work, Yahoo may have changed their API.  2) If this happens on every request for a symbol you've never used before, but not for other symbols, you've found an edge-case (OR, we may just be protecting you from "bad" data sometimes stored for e.g. misspelt symbols on Yahoo's side).
+This may happen intermittently, so catch errors appropriately. If it starts happening on every request that previously worked, Yahoo may have changed its API. If it affects one symbol but not others, Yahoo may be returning a symbol-specific response shape.
 
-Please see if anyone has reported this previously:
+Search existing reports:
 
   ${repository}/issues?q=is%3Aissue+${title}
 
-or open a new issue (and mention the symbol):  ${pkg.name} v${pkg.version}
+Open a new issue and include the affected symbol: ${pkg.name} v${pkg.version}
 
-  ${repository}/issues/new?labels=bug%2C+validation&template=validation.md&title=${title}
+  ${repository}/issues/new?template=validation-error.yml&title=${title}&library-version=${version}
 
-For information on how to turn off the above logging or skip these errors, see https://github.com/gadicc/yahoo-finance2/tree/devel/docs/validation.md.
+For information on how to turn off the above logging or skip these errors, see https://github.com/gadicc/yahoo-finance2/blob/dev/docs/validation.md.
 
-At the end of the doc, there's also a section on how to "Help Fix Validation Errors" in case you'd like to contribute to the project.  Most of the time, these fixes are very quick and easy; it's just hard for our small core team to keep up, so help is always appreciated!
+The "Help Fix Validation Errors" section also explains how to contribute a schema fix.
 `);
       if (versionCheck) {
         execVersionCheck().then((result) => {

@@ -1,0 +1,59 @@
+name: Documentation improvement
+description: Report unclear, missing, outdated, or incorrect documentation
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: Small documentation pull requests are welcome. Open an issue when the change needs discussion or you cannot submit a pull request.
+
+  - type: input
+    id: location
+    attributes:
+      label: Documentation location
+      description: Link the page or name the file and section.
+      placeholder: README.md, Supported runtimes
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue type
+      options:
+        - Missing information
+        - Incorrect or outdated information
+        - Unclear explanation
+        - Broken example or link
+        - Typo or formatting
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What needs improvement?
+      description: Explain what is wrong or difficult to understand.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested change
+      description: Describe the content or correction you would like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Include related examples, references, or screenshots.
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I can submit a pull request for this change.
