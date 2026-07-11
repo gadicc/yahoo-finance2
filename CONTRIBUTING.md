@@ -85,6 +85,11 @@ library for this. Make sure the test `describe()` block calls `setupCache()`,
 imported from [tests/common.ts](./tests/common.ts), which may also be a useful
 read for those interested.
 
+Normal test runs use fetch-mock-cache's `auto` mode: existing fixtures are
+replayed, while a cache miss makes a live request and records a new fixture.
+This is what creates a fixture when a test is first added or after its existing
+fixture is deleted.
+
 Set the environment variable `FETCH_DEVEL=nocache` to force-run all network
 tests without the cache. Set `FETCH_DEVEL=recache` to do the same, but also
 rewrite the cache for any failing tests. In both cases, skipped for ids ending

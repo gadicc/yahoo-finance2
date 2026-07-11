@@ -158,11 +158,11 @@ export function fetchDevel() {
     const { devel, ..._init } = init || {};
     // console.log({ devel });
     if (typeof devel === "string") {
-      fetchCache._once({ id: devel.replace(/\.json$/, "") });
+      fetchCache.once({ id: devel.replace(/\.json$/, "") });
     } else if (typeof devel === "object" && "id" in devel) {
       const isStatic = !!devel.id.match(/\.(static|fake)$/);
       if (FETCH_DEVEL_NOCACHE && !isStatic) {
-        fetchCache._once({
+        fetchCache.once({
           id: devel.id,
           readCache: false,
           writeCache: false,
@@ -195,9 +195,9 @@ export function fetchDevel() {
           setTimeout(() => resolve(true), 0);
         }
 
-        fetchCache._once({ id: devel.id, readCache: false, writeCache });
+        fetchCache.once({ id: devel.id, readCache: false, writeCache });
       } else {
-        fetchCache._once({ id: devel.id });
+        fetchCache.once({ id: devel.id });
       }
     } else {
       throw new Error(
