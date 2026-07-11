@@ -47,7 +47,7 @@ Other notable changes:
 - **Running directly in the browser** is no longer supported. You should perform
   the request to Yahoo Finance from a server / serverless / edge environment and
   send that data on to the client. Works great with React Server Components,
-  `trpc`, etc. XXX TODO helper APIs XXX
+  `trpc`, etc.
 
 - Not specific to v3, but sometime back, Yahoo moved a lot of financial data
   from `quoteSummary` to

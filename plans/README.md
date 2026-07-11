@@ -22,7 +22,7 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 | 005  | CI check for stale generated schemas                             | P2       | S      | 001                    | DONE   |
 | 006  | Remove dead csv2json path and stale scripts                      | P2       | S      | 001 (rebase after 004) | DONE   |
 | 007  | Security hardening (cookie perms, redirect depth, token compare) | P2       | S      | 001, 004               | DONE   |
-| 008  | Docs refresh (stale v3 language, broken links, v2 leftovers)     | P3       | S–M    | 005 (soft)             | TODO   |
+| 008  | Docs refresh (stale v3 language, broken links, v2 leftovers)     | P3       | S–M    | 005 (soft)             | DONE   |
 | 009  | zod v3-compat subpath → zod@^4                                   | P3       | S–M    | 001                    | TODO   |
 | 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 

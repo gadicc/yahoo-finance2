@@ -24,8 +24,8 @@ set up with the correct tools and important things to know for the project.
 
 1. Install [git](https://git-scm.com/) if you haven't already.
 1. Change to the directory where you want to keep these files.
-1. `git clone https://github.com/gadicc/node-yahoo-finance2.git`
-1. `cd node-yahoo-finance2`
+1. `git clone https://github.com/gadicc/yahoo-finance2.git`
+1. `cd yahoo-finance2`
 
 **Default branch: dev**
 
@@ -143,37 +143,23 @@ resulting semver version and release channel.
 
 ### Other
 
-We're still writing these docs ahead of the official v3 release. Let us know if
-you need help, or if anything could have been explained better.
-
-# Old Version 2 doc sections still to be updated:
-
-## Testing
-
-## Specific Guidelines
-
-<a name="fix-bug"></a>
-
-### Fixing a bug
-
-It's greatly appreciated when bug fix include a test that fails without your fix
-and passes with it :pray:
-
-TODO
+Let us know if anything here could have been explained better.
 
 ### Adding a new module
 
 Checklist:
 
-1. Create it in `src/modules/myAmazingModule.ts`
-1. Run `yarn generateSchema` (and on any future interface changes)
-1. Test it in `src/modules/myAmazingModule.spec.ts`
-1. Add it to `src/index-common.ts`
-1. Docs in `docs/modules/myAmazingModule.md`
-1. Link these docs in `README.md` and `docs/README.md`.
-1. Commit all the above and any `tests/http/*` created in your tests.
-
-For a model example, see the
-[recommendationsBySymbol PR](https://github.com/gadicc/node-yahoo-finance2/pull/28)
-by [@pudgereyem](https://github.com/pudgereyem). However, always base your work
-on the most current code.
+1. **Create the module file**: Create `src/modules/myModule.ts`. Make sure to
+   mark exported interfaces for schema generation with a `// @yf-schema`
+   comment.
+2. **Generate schemas**: Run `deno task schema` to generate the matching
+   `myModule.schema.json`.
+3. **Write tests**: Test the module under `src/modules/myModule.test.ts`. Use
+   `setupCache()` from `tests/common.ts` if it touches Yahoo HTTP responses. New
+   HTTP cache fixtures will be recorded under `tests/fixtures/http`.
+4. **Wire the exports**:
+   - Export your module in `src/modules/index.ts`.
+   - Add a key/value mapping under `exports` in `deno.json`.
+5. **Document & Link**: Add JSDoc comments to the module exports (which will
+   render on JSR) and add it to the "Available modules" list in the main
+   `README.md`.

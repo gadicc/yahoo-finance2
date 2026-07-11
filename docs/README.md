@@ -16,15 +16,26 @@
 
 ## Common Options
 
-Coming soon. Briefly:
+Each API module accepts an optional third argument `moduleOpts` containing
+common configuration overrides:
+
+- **`devel`**: Test cache/mock control. Can be set to a boolean or a specific
+  string to guide test fixture generation/replay (see the main `README.md`
+  developer guide).
+- **`fetchOptions`**: Custom options passed directly to `fetch()`, e.g., to pass
+  a timeout `AbortSignal` (`{ signal: AbortSignal.timeout(10000) }`).
+- **`validateResult`**: Set to `false` to skip runtime schema validation for
+  this request. Read the [Validation docs](./validation.md) first.
+- **`queue`**: Custom request queue options (concurrency, timeout) for this
+  request. See [Concurrency](./concurrency.md).
 
 ```js
 const queryOpts = {}; // query options specific to the module
 
 const moduleOpts = {
-  devel: boolean | string, // see the main README
-  fetchOptions: {}, // options to pass to fetch, e.g. { signal }
-  validateResult: boolean, // READ SUPER NB VALIDATION DOC BEFORE TURNING THIS OFF
+  devel: boolean | string,
+  fetchOptions: {},
+  validateResult: boolean,
 };
 
 const result = await yahooFinance.module(query, queryOpts, moduleOpts);

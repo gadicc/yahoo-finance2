@@ -11,9 +11,9 @@ Copyright (c) 2021 by Gadi Cohen and Pilwon Huh. [MIT licensed](./LICENSE).
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-You are reading the latest **Development docs**. For the **v2 docs**, click
-[here](https://github.com/gadicc/yahoo-finance2/tree/2.x). The dev docs are in
-the process of being updated for the upcoming **v3** - for more info see
+You are reading the docs for **v3**, the current major version published as
+`yahoo-finance2@latest`. For the older **v2 docs**, click
+[here](https://github.com/gadicc/yahoo-finance2/tree/2.x). Upgrading? See
 [UPGRADING](./docs/UPGRADING.md).
 
 [Live Demo on CodeSandbox](https://codesandbox.io/p/devbox/gxvftx) (Updated
@@ -83,7 +83,7 @@ Available modules:
 [`chart`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/chart),
 [`fundamentalsTimeSeries`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/fundamentalsTimeSeries),
 [`historical`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/historical),
-[`insights`](https://jsr.io/@gadicc/yahoo-finance2/doc/moduless/insights),
+[`insights`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/insights),
 [`options`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/options),
 [`quote`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/quote),
 [`quoteSummary`](https://jsr.io/@gadicc/yahoo-finance2/doc/modules/quoteSummary)
