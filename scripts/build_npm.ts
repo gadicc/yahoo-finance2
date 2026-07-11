@@ -87,7 +87,7 @@ await build({
       "mcp-server",
     ],
     "engines": {
-      "node": ">=20.0.0",
+      "node": ">=22.0.0",
     },
     dependencies: {
       "tough-cookie": denoJson.imports["tough-cookie"],

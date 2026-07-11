@@ -3,8 +3,19 @@
 Please read this guide when upgrading MAJOR VERSIONS of the package, list the
 BREAKING CHANGES and required changes you'll need to make to your code.
 
+- [From v3 to v4](#from-v3-to-v4) (2026)
 - [From v2 to v3](#from-v2-to-v3) (2025)
 - [From v1 to v2](#from-v1-to-v2) (2021)
+
+<a name="from-v3-to-v4"></a>
+
+## Upgrading from v3 to v4 (2026)
+
+Version 4 requires Node.js 22 or newer. Node.js 20 reached end-of-life on
+2026-04-30 and is no longer supported. Upgrade your Node.js runtime before
+installing yahoo-finance2 v4.
+
+There are no other breaking API changes in this release.
 
 <a name="from-v2-to-v3"></a>
 

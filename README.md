@@ -11,9 +11,9 @@ Copyright (c) 2021 by Gadi Cohen and Pilwon Huh. [MIT licensed](./LICENSE).
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
-You are reading the docs for **v3**, the current major version published as
-`yahoo-finance2@latest`. For the older **v2 docs**, click
-[here](https://github.com/gadicc/yahoo-finance2/tree/2.x). Upgrading? See
+You are reading the docs for **v4**, the current major version published as
+`yahoo-finance2@latest`. For the older **v3 docs**, click
+[here](https://github.com/gadicc/yahoo-finance2/tree/3.x). Upgrading? See
 [UPGRADING](./docs/UPGRADING.md).
 
 [Live Demo on CodeSandbox](https://codesandbox.io/p/devbox/gxvftx) (Updated
@@ -30,8 +30,8 @@ git commands to update your local installation.
 - **Cloudflare**: Modern releases, tested in CI via Workers Vitest under
   `nodejs_compat`.
 - **Deno**: v2+.
-- **Node**: [Current and Active LTS](https://endoflife.date/nodejs) only; v20
-  until 2026-04-30, v22 until 2027-04-30, v24 until 2028-04-30.
+- **Node**: v22+; v22 until 2027-04-30, v24 until 2028-04-30. Supported releases
+  follow the [Node.js release schedule](https://endoflife.date/nodejs).
 
 ## Unofficial API
 
