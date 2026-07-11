@@ -3,7 +3,7 @@
     "url": "https://query2.finance.yahoo.com/ws/insights/v2/finance/insights?lang=en-US&region=US&getAllResearchReports=true&reportsCount=2&symbol=AMZN",
     "method": "GET",
     "headers": {
-      "cookie": "",
+      "cookie": "dflow=477",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -15,7 +15,7 @@
       "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 01 Jul 2026 18:01:02 GMT",
+      "date": "Sat, 11 Jul 2026 09:30:49 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
@@ -25,7 +25,7 @@
       "x-envoy-upstream-service-time": "16",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1pfq3bll4aleu"
+      "y-rid": "7bcme3pl543a9"
     },
     "bodyJson": {
       "finance": {
@@ -38,23 +38,23 @@
               "shortTermOutlook": {
                 "stateDescription": "Recent bullish events outweigh bearish events.",
                 "direction": "Bullish",
-                "score": 2,
-                "scoreDescription": "Bullish Evidence",
-                "sectorDirection": "Bearish",
-                "sectorScore": 2,
-                "sectorScoreDescription": "Bearish Evidence",
-                "indexDirection": "Bearish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bearish Evidence"
+                "score": 4,
+                "scoreDescription": "Very Strong Bullish Evidence",
+                "sectorDirection": "Bullish",
+                "sectorScore": 3,
+                "sectorScoreDescription": "Strong Bullish Evidence",
+                "indexDirection": "Bullish",
+                "indexScore": 3,
+                "indexScoreDescription": "Strong Bullish Evidence"
               },
               "intermediateTermOutlook": {
                 "stateDescription": "Recent bearish events outweigh bullish events.",
                 "direction": "Bearish",
                 "score": 2,
                 "scoreDescription": "Bearish Evidence",
-                "sectorDirection": "Bearish",
-                "sectorScore": 2,
-                "sectorScoreDescription": "Bearish Evidence",
+                "sectorDirection": "Bullish",
+                "sectorScore": 1,
+                "sectorScoreDescription": "Weak Bullish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
@@ -64,9 +64,9 @@
                 "direction": "Bullish",
                 "score": 2,
                 "scoreDescription": "Bullish Evidence",
-                "sectorDirection": "Bearish",
-                "sectorScore": 2,
-                "sectorScoreDescription": "Bearish Evidence",
+                "sectorDirection": "Neutral",
+                "sectorScore": 0,
+                "sectorScoreDescription": "Neutral Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
@@ -75,8 +75,8 @@
             "keyTechnicals": {
               "provider": "Trading Central",
               "support": 228.97,
-              "resistance": 246.16,
-              "stopLoss": 221.815293
+              "resistance": 250.5,
+              "stopLoss": 226.987005
             },
             "valuation": {
               "color": 0.5,
@@ -91,8 +91,8 @@
               "innovativeness": 0.9902,
               "hiring": 0.9773000000000001,
               "sustainability": 0.40880000000000005,
-              "insiderSentiments": 0.0281,
-              "earningsReports": 0.8693000000000001
+              "insiderSentiments": 0.024900000000000002,
+              "earningsReports": 0.8752
             },
             "sector": {
               "innovativeness": 0.5,
@@ -135,13 +135,13 @@
           },
           "events": [
             {
-              "eventType": "Slow Stochastic",
-              "pricePeriod": "D",
-              "tradingHorizon": "S",
+              "eventType": "Price Crosses Moving Average",
+              "pricePeriod": "W",
+              "tradingHorizon": "I",
               "tradeType": "L",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1782826200,
-              "endDate": 1782826200
+              "startDate": 1783085400,
+              "endDate": 1783085400
             }
           ],
           "reports": [
@@ -215,11 +215,39 @@
           ],
           "sigDevs": [
             {
-              "headline": "Amazon Australia Spokesperson Says Co Reviewing Case Filed By Australia's ACCC",
-              "date": "2026-06-30"
+              "headline": "Amazon Web Services Partners With Warner Bros. Discovery On Agentic AI Advertising Platform",
+              "date": "2026-07-08"
             }
           ],
           "secReports": [
+            {
+              "id": "0001104659-26-082293_1018724",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1783555200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926082293/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-082293_1018724",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-1.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926082293/tm2619352d4_ex1-1.htm"
+                },
+                {
+                  "type": "EX-4.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926082293/tm2619352d4_ex4-1.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926082293/tm2619352d4_ex5-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926082293/tm2619352d4_8k.htm"
+                }
+              ]
+            },
             {
               "id": "0001104659-26-073562_1018724",
               "type": "Corporate Changes & Voting Matters",
@@ -228,7 +256,25 @@
               "filingDate": 1781222400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926073562/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-073562_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-1.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926073562/tm2613616d5_ex1-1.htm"
+                },
+                {
+                  "type": "EX-4.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926073562/tm2613616d5_ex4-1.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926073562/tm2613616d5_ex5-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926073562/tm2613616d5_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-072140_1018724",
@@ -238,7 +284,17 @@
               "filingDate": 1781049600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926072140/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-072140_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926072140/tm2613616d4_ex10-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926072140/tm2613616d4_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-065717_1018724",
@@ -248,7 +304,13 @@
               "filingDate": 1779408000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926065717/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-065717_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926065717/tm2614288d1_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-054974_1018724",
@@ -258,7 +320,13 @@
               "filingDate": 1777852800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926054974/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-054974_1018724",
-              "formType": "DEFA14A"
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926054974/tm261382d4_defa14a.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-26-000014_1018724",
@@ -268,7 +336,29 @@
               "filingDate": 1777507200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000014/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000014_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000014/amzn-20260331.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000014/amzn-20260331xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000014/amzn-20260331xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000014/amzn-20260331xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000014/amzn-20260331xex322.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-26-000012_1018724",
@@ -278,7 +368,21 @@
               "filingDate": 1777420800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000012/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000012_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000012/amzn-20260331xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000012/amzn-20260331xex992.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000012/amzn-20260429.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-042880_1018724",
@@ -288,7 +392,17 @@
               "filingDate": 1776124800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926042880/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-042880_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926042880/tm2611746d1_ex99-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926042880/tm2611746d1_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-041030_1018724",
@@ -298,7 +412,13 @@
               "filingDate": 1775692800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041030/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041030_1018724",
-              "formType": "DEFA14A"
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041030/tm261382d3_defa14a.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-041026_1018724",
@@ -308,7 +428,13 @@
               "filingDate": 1775692800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041026/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041026_1018724",
-              "formType": "DEF 14A"
+              "formType": "DEF 14A",
+              "exhibits": [
+                {
+                  "type": "DEF 14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041026/tm261382-1_def14a.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-041036_1018724",
@@ -318,7 +444,13 @@
               "filingDate": 1775692800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041036/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041036_1018724",
-              "formType": "ARS"
+              "formType": "ARS",
+              "exhibits": [
+                {
+                  "type": "ARS",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041036/tm263815d4_ars.pdf"
+                }
+              ]
             },
             {
               "id": "0001104659-26-041034_1018724",
@@ -328,7 +460,21 @@
               "filingDate": 1775692800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926041034/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-041034_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041034/tm263815d3_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041034/tm263815d3_ex99-2.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926041034/tm263815d2_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-031805_1018724",
@@ -338,7 +484,13 @@
               "filingDate": 1773878400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926031805/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-031805_1018724",
-              "formType": "8-A12B"
+              "formType": "8-A12B",
+              "exhibits": [
+                {
+                  "type": "8-A12B",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926031805/tm266670d10_8a12b.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-028556_1018724",
@@ -348,7 +500,25 @@
               "filingDate": 1773619200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926028556/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-028556_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-1.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926028556/tm266670d9_ex1-1.htm"
+                },
+                {
+                  "type": "EX-4.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926028556/tm266670d9_ex4-1.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926028556/tm266670d9_ex5-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926028556/tm266670d9_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-027729_1018724",
@@ -358,7 +528,25 @@
               "filingDate": 1773360000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926027729/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-027729_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-1.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926027729/tm266670d8_ex1-1.htm"
+                },
+                {
+                  "type": "EX-4.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926027729/tm266670d8_ex4-1.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926027729/tm266670d8_ex5-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926027729/tm266670d8_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-021050_1018724",
@@ -368,7 +556,21 @@
               "filingDate": 1772150400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926021050/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-021050_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926021050/tm267374d1_8k.htm"
+                },
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926021050/tm267374d1_ex10-1.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926021050/tm267374d1_ex99-1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-011240_1018724",
@@ -378,7 +580,33 @@
               "filingDate": 1770336000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465926011240/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-26-011240_1018724",
-              "formType": "S-3ASR"
+              "formType": "S-3ASR",
+              "exhibits": [
+                {
+                  "type": "EX-FILING FEES",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510d1_ex-filingfees.htm"
+                },
+                {
+                  "type": "EX-23.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510d2_ex23-1.htm"
+                },
+                {
+                  "type": "EX-25.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510d2_ex25-1.htm"
+                },
+                {
+                  "type": "EX-25.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510d2_ex25-2.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510d2_ex5-1.htm"
+                },
+                {
+                  "type": "S-3ASR",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465926011240/tm262510-1_s3asr.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-26-000004_1018724",
@@ -388,7 +616,37 @@
               "filingDate": 1770336000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000004/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000004_1018724",
-              "formType": "10-K"
+              "formType": "10-K",
+              "exhibits": [
+                {
+                  "type": "EX-21.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex211.htm"
+                },
+                {
+                  "type": "EX-23.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex231.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231xex322.htm"
+                },
+                {
+                  "type": "10-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000004/amzn-20251231.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-26-000002_1018724",
@@ -398,7 +656,21 @@
               "filingDate": 1770249600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872426000002/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-26-000002_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000002/amzn-20260205.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000002/amzn-20251231xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872426000002/amzn-20251231xex992.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-114647_1018724",
@@ -408,7 +680,25 @@
               "filingDate": 1763596800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925114647/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-114647_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-1.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925114647/tm2530638d3_ex1-1.htm"
+                },
+                {
+                  "type": "EX-4.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925114647/tm2530638d3_ex4-1.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925114647/tm2530638d3_ex5-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925114647/tm2530638d3_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000123_1018724",
@@ -418,7 +708,33 @@
               "filingDate": 1761868800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000123/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000123_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930.htm"
+                },
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930xex101.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000123/amzn-20250930xex322.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000121_1018724",
@@ -428,7 +744,21 @@
               "filingDate": 1761782400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000121/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000121_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000121/amzn-20250930xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000121/amzn-20250930xex992.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000121/amzn-20251030.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000086_1018724",
@@ -438,7 +768,29 @@
               "filingDate": 1754006400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000086/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000086_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000086/amzn-20250630xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000086/amzn-20250630xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000086/amzn-20250630xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000086/amzn-20250630xex322.htm"
+                },
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000086/amzn-20250630.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000084_1018724",
@@ -448,7 +800,21 @@
               "filingDate": 1753920000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000084/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000084_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000084/amzn-20250731.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000084/amzn-20250630xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000084/amzn-20250630xex992.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-052014_1018724",
@@ -458,7 +824,13 @@
               "filingDate": 1747872000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925052014/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-052014_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925052014/tm2515134d1_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000036_1018724",
@@ -468,7 +840,34 @@
               "filingDate": 1746144000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000036/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000036_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000036/amzn-20250331xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000036/amzn-20250331xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000036/amzn-20250331xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000036/amzn-20250331xex322.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872425000036/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872425000036/Financial_Report.xlsx"
+                },
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000036/amzn-20250331.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-044138_1018724",
@@ -478,7 +877,13 @@
               "filingDate": 1746144000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925044138/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-044138_1018724",
-              "formType": "DEFA14A"
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925044138/tm2513748d1_defa14a.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000034_1018724",
@@ -488,7 +893,26 @@
               "filingDate": 1746057600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000034/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000034_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000034/amzn-20250331xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000034/amzn-20250331xex992.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872425000034/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872425000034/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000034/amzn-20250501.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-033453_1018724",
@@ -498,7 +922,13 @@
               "filingDate": 1744243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033453/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033453_1018724",
-              "formType": "ARS"
+              "formType": "ARS",
+              "exhibits": [
+                {
+                  "type": "ARS",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033453/tm254123d4_ars.pdf"
+                }
+              ]
             },
             {
               "id": "0001104659-25-033447_1018724",
@@ -508,7 +938,13 @@
               "filingDate": 1744243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033447/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033447_1018724",
-              "formType": "DEFA14A"
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033447/tm252295d3_defa14a.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-033442_1018724",
@@ -518,7 +954,13 @@
               "filingDate": 1744243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033442/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033442_1018724",
-              "formType": "DEF 14A"
+              "formType": "DEF 14A",
+              "exhibits": [
+                {
+                  "type": "DEF 14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033442/tm252295-1_def14a.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-033450_1018724",
@@ -528,7 +970,26 @@
               "filingDate": 1744243200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465925033450/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-25-033450_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033450/tm254123d2_8k.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000110465925033450/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000110465925033450/Financial_Report.xlsx"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033450/tm254123d3_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465925033450/tm254123d3_ex99-2.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000004_1018724",
@@ -538,7 +999,46 @@
               "filingDate": 1738886400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000004/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000004_1018724",
-              "formType": "10-K"
+              "formType": "10-K",
+              "exhibits": [
+                {
+                  "type": "10-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231.htm"
+                },
+                {
+                  "type": "EX-19.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex191.htm"
+                },
+                {
+                  "type": "EX-21.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex211.htm"
+                },
+                {
+                  "type": "EX-23.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex231.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000004/amzn-20241231xex322.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872425000004/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872425000004/Financial_Report.xlsx"
+                }
+              ]
             },
             {
               "id": "0001018724-25-000002_1018724",
@@ -548,7 +1048,26 @@
               "filingDate": 1738800000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872425000002/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-25-000002_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000002/amzn-20241231xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000002/amzn-20241231xex992.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872425000002/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872425000002/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872425000002/amzn-20250206.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-24-115387_1018724",
@@ -558,7 +1077,17 @@
               "filingDate": 1730937600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924115387/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-115387_1018724",
-              "formType": "SC 13G/A"
+              "formType": "SC 13G/A",
+              "exhibits": [
+                {
+                  "type": "SC 13G/A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000894081/000110465924115387/tm2426730d1_sc13ga.htm"
+                },
+                {
+                  "type": "SC 13G/A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924115387/tm2426730d1_sc13ga.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-24-000161_1018724",
@@ -568,7 +1097,38 @@
               "filingDate": 1730419200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000161/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000161_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930xex101.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930xex322.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872424000161/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872424000161/Financial_Report.xlsx"
+                },
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000161/amzn-20240930.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-24-000158_1018724",
@@ -578,7 +1138,26 @@
               "filingDate": 1730332800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000158/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000158_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000158/amzn-20241031.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000158/amzn-20240930xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000158/amzn-20240930xex992.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872424000158/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872424000158/Financial_Report.xlsx"
+                }
+              ]
             },
             {
               "id": "0001018724-24-000130_1018724",
@@ -588,7 +1167,34 @@
               "filingDate": 1722556800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000130/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000130_1018724",
-              "formType": "10-Q"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000130/amzn-20240630xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000130/amzn-20240630xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000130/amzn-20240630xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000130/amzn-20240630xex322.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872424000130/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872424000130/Financial_Report.xlsx"
+                },
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000130/amzn-20240630.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-24-000128_1018724",
@@ -598,7 +1204,26 @@
               "filingDate": 1722470400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000128/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000128_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000128/amzn-20240801.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000128/amzn-20240630xex991.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000128/amzn-20240630xex992.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872424000128/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872424000128/Financial_Report.xlsx"
+                }
+              ]
             },
             {
               "id": "0001104659-24-065117_1018724",
@@ -608,7 +1233,18 @@
               "filingDate": 1716508800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924065117/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-065117_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000110465924065117/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000110465924065117/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924065117/tm2414140d1_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-24-061143_1018724",
@@ -618,7 +1254,18 @@
               "filingDate": 1715644800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924061143/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-061143_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000110465924061143/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000110465924061143/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924061143/tm2414460d1_8k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-24-057026_1018724",
@@ -628,7 +1275,22 @@
               "filingDate": 1714694400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924057026/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-057026_1018724",
-              "formType": "8-K"
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924057026/tm2413032d1_8k.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000110465924057026/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000110465924057026/Financial_Report.xlsx"
+                },
+                {
+                  "type": "EX-3.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924057026/tm2413032d1_ex3-2.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-24-057037_1018724",
@@ -638,7 +1300,13 @@
               "filingDate": 1714694400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000110465924057037/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001104659-24-057037_1018724",
-              "formType": "DEFA14A"
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000110465924057037/tm2413031d1_defa14a.htm"
+                }
+              ]
             },
             {
               "id": "0001018724-24-000083_1018724",
@@ -648,17 +1316,34 @@
               "filingDate": 1714521600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000083/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000083_1018724",
-              "formType": "10-Q"
-            },
-            {
-              "id": "0001018724-24-000081_1018724",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1714435200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001018724/000101872424000081/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/AMZN/0001018724-24-000081_1018724",
-              "formType": "8-K"
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000083/amzn-20240331.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000083/amzn-20240331xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000083/amzn-20240331xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000083/amzn-20240331xex321.htm"
+                },
+                {
+                  "type": "EX-32.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001018724/000101872424000083/amzn-20240331xex322.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001018724/000101872424000083/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001018724/000101872424000083/Financial_Report.xlsx"
+                }
+              ]
             }
           ]
         },

@@ -3,7 +3,7 @@
     "url": "https://query2.finance.yahoo.com/ws/insights/v2/finance/insights?lang=en-US&region=US&getAllResearchReports=true&reportsCount=2&symbol=BEKE",
     "method": "GET",
     "headers": {
-      "cookie": "",
+      "cookie": "dflow=477",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -15,17 +15,17 @@
       "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 01 Jul 2026 18:01:03 GMT",
+      "date": "Sat, 11 Jul 2026 09:30:49 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "16",
+      "x-envoy-upstream-service-time": "15",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2ebnigdl4alev"
+      "y-rid": "3qdv8ctl543a9"
     },
     "bodyJson": {
       "finance": {
@@ -36,34 +36,34 @@
               "provider": "Trading Central",
               "sector": "Real Estate",
               "shortTermOutlook": {
-                "stateDescription": "The bullish and bearish events are balanced.",
-                "direction": "Neutral",
-                "score": 0,
-                "scoreDescription": "Neutral Evidence",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 4,
+                "scoreDescription": "Very Strong Bullish Evidence",
                 "sectorDirection": "Bearish",
                 "sectorScore": 3,
                 "sectorScoreDescription": "Strong Bearish Evidence",
-                "indexDirection": "Bearish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bearish Evidence"
+                "indexDirection": "Bullish",
+                "indexScore": 3,
+                "indexScoreDescription": "Strong Bullish Evidence"
               },
               "intermediateTermOutlook": {
                 "stateDescription": "All events are bearish.",
                 "direction": "Bearish",
                 "score": 3,
                 "scoreDescription": "Strong Bearish Evidence",
-                "sectorDirection": "Neutral",
-                "sectorScore": 0,
-                "sectorScoreDescription": "Neutral Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 1,
+                "sectorScoreDescription": "Weak Bearish Evidence",
                 "indexDirection": "Bullish",
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
               },
               "longTermOutlook": {
-                "stateDescription": "Recent bearish events outweigh bullish events.",
+                "stateDescription": "Bearish events outweigh bullish events.",
                 "direction": "Bearish",
-                "score": 3,
-                "scoreDescription": "Strong Bearish Evidence",
+                "score": 2,
+                "scoreDescription": "Bearish Evidence",
                 "sectorDirection": "Bullish",
                 "sectorScore": 2,
                 "sectorScoreDescription": "Bullish Evidence",
@@ -74,14 +74,14 @@
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 14.26,
+              "support": 15.23,
               "resistance": 18.334,
-              "stopLoss": 13.191714
+              "stopLoss": 14.072433
             },
             "valuation": {
               "color": 0.5,
               "description": "Near Fair Value",
-              "discount": "25%",
+              "discount": "23%",
               "provider": "Trading Central"
             }
           },
@@ -89,7 +89,7 @@
             "sectorInfo": "Real Estate",
             "company": {
               "sustainability": 0.3818,
-              "dividends": 0.0613
+              "dividends": 0.057999999999999996
             },
             "sector": {
               "innovativeness": 0.5,
@@ -127,13 +127,13 @@
           },
           "events": [
             {
-              "eventType": "Fast Stochastic",
+              "eventType": "MACD",
               "pricePeriod": "D",
               "tradingHorizon": "S",
               "tradeType": "L",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1782826200,
-              "endDate": 1782826200
+              "startDate": 1782999000,
+              "endDate": 1782999000
             }
           ],
           "sigDevs": [
@@ -144,6 +144,82 @@
           ],
           "secReports": [
             {
+              "id": "0001104659-26-081509_1809587",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1783468800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926081509/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-081509_1809587",
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926081509/tm2619933d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926081509/tm2619933d1_6k.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001104659-26-080538_1809587",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1783296000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926080538/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-080538_1809587",
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080538/tm2619784d1_6k.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001104659-26-080076_1809587",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "6-K : Corporate Changes & Voting Matters",
+              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
+              "filingDate": 1782950400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926080076/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-080076_1809587",
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080076/tm2619511d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926080076/tm2619511d1_ex99-1.htm"
+                }
+              ]
+            },
+            {
               "id": "0001104659-26-078426_1809587",
               "type": "Corporate Changes & Voting Matters",
               "title": "6-K : Corporate Changes & Voting Matters",
@@ -151,7 +227,37 @@
               "filingDate": 1782691200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926078426/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-078426_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-5.htm"
+                },
+                {
+                  "type": "EX-99.6",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926078426/tm2619262d1_ex99-6.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-075957_1809587",
@@ -161,7 +267,21 @@
               "filingDate": 1782086400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926075957/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-075957_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926075957/tm2618430d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926075957/tm2618430d1_ex99-2.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926075957/tm2618430d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-073692_1809587",
@@ -171,7 +291,29 @@
               "filingDate": 1781481600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926073692/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-073692_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073692/tm2617868d2_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073692/tm2617868d2_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073692/tm2617868d2_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073692/tm2617868d2_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073692/tm2617868d2_ex99-4.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-073686_1809587",
@@ -181,7 +323,25 @@
               "filingDate": 1781481600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926073686/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-073686_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-3.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073686/tm2617868d1_ex3-1.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073686/tm2617868d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073686/tm2617868d1_ex99-2.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926073686/tm2617868d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-071125_1809587",
@@ -191,7 +351,37 @@
               "filingDate": 1780876800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926071125/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-071125_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-5.htm"
+                },
+                {
+                  "type": "EX-99.6",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_ex99-6.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926071125/tm2617106d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-070734_1809587",
@@ -201,7 +391,17 @@
               "filingDate": 1780617600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926070734/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-070734_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926070734/tm2616983d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926070734/tm2616983d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-068895_1809587",
@@ -211,7 +411,33 @@
               "filingDate": 1780272000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926068895/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-068895_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926068895/tm2616514d1_ex99-5.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-065934_1809587",
@@ -221,7 +447,17 @@
               "filingDate": 1779753600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926065934/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-065934_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926065934/tm2615569d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926065934/tm2615569d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-064481_1809587",
@@ -231,7 +467,17 @@
               "filingDate": 1779235200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926064481/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-064481_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926064481/tm2615067d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926064481/tm2615067d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-062937_1809587",
@@ -241,7 +487,33 @@
               "filingDate": 1779062400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926062937/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-062937_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926062937/tm2614819d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-058203_1809587",
@@ -251,7 +523,33 @@
               "filingDate": 1778457600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926058203/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-058203_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926058203/tm2614194d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-057479_1809587",
@@ -261,7 +559,21 @@
               "filingDate": 1778198400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926057479/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-057479_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926057479/tm2613921d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926057479/tm2613921d1_ex99-2.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926057479/tm2613921d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-054418_1809587",
@@ -271,7 +583,29 @@
               "filingDate": 1777852800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926054418/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-054418_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926054418/tm2613448d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926054418/tm2613448d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926054418/tm2613448d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926054418/tm2613448d1_ex99-4.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926054418/tm2613448d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-048952_1809587",
@@ -281,7 +615,33 @@
               "filingDate": 1777248000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926048952/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-048952_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048952/tm2612785d1_ex99-5.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-048138_1809587",
@@ -291,7 +651,33 @@
               "filingDate": 1776988800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926048138/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-048138_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048138/tm2612586d3_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-048130_1809587",
@@ -301,7 +687,17 @@
               "filingDate": 1776988800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926048130/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-048130_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048130/tm2612586d2_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048130/tm2612586d2_ex99-1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-048109_1809587",
@@ -311,7 +707,45 @@
               "filingDate": 1776988800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926048109/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-048109_1809587",
-              "formType": "20-F"
+              "formType": "20-F",
+              "exhibits": [
+                {
+                  "type": "20-F",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231x20f.htm"
+                },
+                {
+                  "type": "EX-12.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex12d1.htm"
+                },
+                {
+                  "type": "EX-12.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex12d2.htm"
+                },
+                {
+                  "type": "EX-13.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex13d1.htm"
+                },
+                {
+                  "type": "EX-13.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex13d2.htm"
+                },
+                {
+                  "type": "EX-15.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex15d1.htm"
+                },
+                {
+                  "type": "EX-15.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex15d2.htm"
+                },
+                {
+                  "type": "EX-15.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex15d3.htm"
+                },
+                {
+                  "type": "EX-8.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048109/beke-20251231xex8d1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-048085_1809587",
@@ -321,7 +755,17 @@
               "filingDate": 1776988800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926048085/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-048085_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048085/tm2612586d1_ex99-1.pdf"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926048085/tm2612586d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-045121_1809587",
@@ -331,7 +775,33 @@
               "filingDate": 1776643200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926045121/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-045121_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926045121/tm2612212d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-042194_1809587",
@@ -341,7 +811,29 @@
               "filingDate": 1776038400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926042194/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-042194_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926042194/tm2611626d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926042194/tm2611626d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926042194/tm2611626d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926042194/tm2611626d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926042194/tm2611626d1_ex99-4.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-041691_1809587",
@@ -351,7 +843,17 @@
               "filingDate": 1775779200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926041691/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-041691_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926041691/tm2611486d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926041691/tm2611486d1_ex99-1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-040608_1809587",
@@ -361,7 +863,29 @@
               "filingDate": 1775606400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926040608/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-040608_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926040608/tm2611333d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926040608/tm2611333d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926040608/tm2611333d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926040608/tm2611333d1_ex99-4.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926040608/tm2611333d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-038798_1809587",
@@ -371,7 +895,17 @@
               "filingDate": 1775088000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926038798/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-038798_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926038798/tm2610885d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926038798/tm2610885d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-036373_1809587",
@@ -381,7 +915,33 @@
               "filingDate": 1774828800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926036373/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-036373_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926036373/tm2610141d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-035580_1809587",
@@ -391,7 +951,17 @@
               "filingDate": 1774569600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926035580/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-035580_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926035580/tm2610059d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926035580/tm2610059d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-032904_1809587",
@@ -401,7 +971,33 @@
               "filingDate": 1774224000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926032904/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-032904_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926032904/tm269461d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-029843_1809587",
@@ -411,7 +1007,25 @@
               "filingDate": 1773792000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926029843/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-029843_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926029843/tm268951d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926029843/tm268951d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926029843/tm268951d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926029843/tm268951d1_ex99-3.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-028086_1809587",
@@ -421,7 +1035,33 @@
               "filingDate": 1773619200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926028086/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-028086_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926028086/tm268888d1_ex99-5.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-024960_1809587",
@@ -431,7 +1071,29 @@
               "filingDate": 1773014400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926024960/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-024960_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926024960/tm268323d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926024960/tm268323d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926024960/tm268323d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926024960/tm268323d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926024960/tm268323d1_ex99-4.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-023779_1809587",
@@ -441,7 +1103,17 @@
               "filingDate": 1772668800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926023779/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-023779_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926023779/tm267988d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926023779/tm267988d1_ex99-1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-011167_1809587",
@@ -451,7 +1123,17 @@
               "filingDate": 1770336000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926011167/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-011167_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926011167/tm265387d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926011167/tm265387d1_ex99-1.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-008846_1809587",
@@ -461,7 +1143,21 @@
               "filingDate": 1769990400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926008846/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-008846_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926008846/tm264765d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926008846/tm264765d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926008846/tm264765d1_ex99-2.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-006350_1809587",
@@ -471,7 +1167,29 @@
               "filingDate": 1769385600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926006350/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-006350_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926006350/tm264023d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926006350/tm264023d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926006350/tm264023d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926006350/tm264023d1_ex99-4.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926006350/tm264023d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-004705_1809587",
@@ -481,7 +1199,33 @@
               "filingDate": 1768867200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926004705/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-004705_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926004705/tm263438d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-003033_1809587",
@@ -491,7 +1235,33 @@
               "filingDate": 1768262400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926003033/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-003033_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926003033/tm262788d1_ex99-5.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-001923_1809587",
@@ -501,7 +1271,17 @@
               "filingDate": 1767830400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926001923/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-001923_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926001923/tm262472d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926001923/tm262472d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-000338_1809587",
@@ -511,7 +1291,29 @@
               "filingDate": 1767571200000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926000338/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-000338_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000338/tm261731d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000338/tm261731d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000338/tm261731d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000338/tm261731d1_ex99-4.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000338/tm261731d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-26-000196_1809587",
@@ -521,7 +1323,17 @@
               "filingDate": 1767312000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465926000196/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-26-000196_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000196/tm261634d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465926000196/tm261634d1_ex99-3.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-124831_1809587",
@@ -531,7 +1343,21 @@
               "filingDate": 1766966400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925124831/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-124831_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925124831/tm2534402d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925124831/tm2534402d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925124831/tm2534402d1_ex99-2.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-123707_1809587",
@@ -541,7 +1367,33 @@
               "filingDate": 1766361600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925123707/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-123707_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925123707/tm2534071d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-120787_1809587",
@@ -551,7 +1403,33 @@
               "filingDate": 1765756800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925120787/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-120787_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925120787/tm2533466d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-119009_1809587",
@@ -561,7 +1439,37 @@
               "filingDate": 1765152000000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925119009/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-119009_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-5.htm"
+                },
+                {
+                  "type": "EX-99.6",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_ex99-6.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925119009/tm2532836d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-117454_1809587",
@@ -571,7 +1479,29 @@
               "filingDate": 1764633600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925117454/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-117454_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925117454/tm2532424d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925117454/tm2532424d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925117454/tm2532424d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925117454/tm2532424d1_ex99-4.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925117454/tm2532424d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-115120_1809587",
@@ -581,7 +1511,33 @@
               "filingDate": 1763942400000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925115120/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-115120_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_6k.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925115120/tm2532025d1_ex99-5.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-112900_1809587",
@@ -591,7 +1547,21 @@
               "filingDate": 1763337600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925112900/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-112900_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925112900/tm2531450d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925112900/tm2531450d1_ex99-2.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925112900/tm2531450d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-109534_1809587",
@@ -601,7 +1571,17 @@
               "filingDate": 1762905600000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925109534/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-109534_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925109534/tm2530742d1_ex99-1.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925109534/tm2530742d1_6k.htm"
+                }
+              ]
             },
             {
               "id": "0001104659-25-108706_1809587",
@@ -611,37 +1591,33 @@
               "filingDate": 1762732800000,
               "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925108706/thumbnail.png",
               "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-108706_1809587",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001104659-25-105124_1809587",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1762128000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925105124/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-105124_1809587",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001104659-25-102791_1809587",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1761609600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925102791/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-102791_1809587",
-              "formType": "6-K"
-            },
-            {
-              "id": "0001104659-25-102261_1809587",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "6-K : Corporate Changes & Voting Matters",
-              "description": "Current report of foreign issuer pursuant to Rules 13a-16 and 15d-16 Amendments",
-              "filingDate": 1761523200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001809587/000110465925102261/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BEKE/0001104659-25-102261_1809587",
-              "formType": "6-K"
+              "formType": "6-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_ex99-1.htm"
+                },
+                {
+                  "type": "EX-99.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_ex99-2.htm"
+                },
+                {
+                  "type": "EX-99.3",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_ex99-3.htm"
+                },
+                {
+                  "type": "EX-99.4",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_ex99-4.htm"
+                },
+                {
+                  "type": "EX-99.5",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_ex99-5.htm"
+                },
+                {
+                  "type": "6-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001809587/000110465925108706/tm2530650d1_6k.htm"
+                }
+              ]
             }
           ]
         },
