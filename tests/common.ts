@@ -2,7 +2,6 @@ import { sprintf } from "@std/fmt/printf";
 import { describe, it as _it } from "@std/testing/bdd";
 export { afterAll, afterEach, beforeAll, beforeEach } from "@std/testing/bdd";
 import { type Async, expect as _expect, type Expected } from "@std/expect";
-import type { Global } from "@jest/types";
 import { getType } from "jest-get-type";
 import fetchCache, { fetchCacheSetup } from "./fetchCache.ts";
 import { spy } from "@std/testing/mock";
@@ -37,12 +36,17 @@ function spyLogger(shouldLog = false) {
   };
 }
 
-function each(table: Global.EachTable) {
+type EachTable = ReadonlyArray<unknown | ReadonlyArray<unknown>>;
+// Deliberately permissive: table rows determine the callback arguments at runtime.
+// deno-lint-ignore no-explicit-any
+type EachTestFn = (...args: any[]) => void | Promise<void>;
+
+function each(table: EachTable) {
   const _table = table.map((item) => Array.isArray(item) ? item : [item]);
 
   return function (
     name: string,
-    fn: Global.EachTestFn<Global.BlockFn>,
+    fn: EachTestFn,
     timeout?: number,
   ) {
     if (timeout) throw new Error("timeout not implemented yet");

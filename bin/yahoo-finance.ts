@@ -1,5 +1,5 @@
 import * as path from "@std/path";
-import { FileCookieStore } from "tough-cookie-file-store";
+import FileCookieStore from "tough-cookie-file-store";
 
 import YahooFinance from "../src/index.ts";
 import { ExtendedCookieJar } from "../src/lib/cookieJar.ts";

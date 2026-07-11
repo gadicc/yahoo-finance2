@@ -316,7 +316,16 @@
       "additionalProperties": false,
       "properties": {
         "store": {
-          "$ref": "#/definitions/Store"
+          "type": "object",
+          "properties": {
+            "synchronous": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "synchronous"
+          ],
+          "additionalProperties": false
         },
         "prefixSecurity": {
           "type": "string"
@@ -326,34 +335,6 @@
         "prefixSecurity",
         "store"
       ]
-    },
-    "CookieJar": {
-      "type": "object",
-      "properties": {
-        "store": {
-          "$ref": "#/definitions/Store"
-        },
-        "prefixSecurity": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "store",
-        "prefixSecurity"
-      ],
-      "additionalProperties": false
-    },
-    "Store": {
-      "type": "object",
-      "properties": {
-        "synchronous": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "synchronous"
-      ],
-      "additionalProperties": false
     },
     "Logger": {
       "type": "object",
