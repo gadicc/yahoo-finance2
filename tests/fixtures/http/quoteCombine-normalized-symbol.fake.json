@@ -1,0 +1,54 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v7/finance/quote?symbols=aapl&crumb=haT3oykhHqZ",
+    "method": "GET"
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "content-type": "application/json;charset=utf-8"
+    },
+    "bodyJson": {
+      "quoteResponse": {
+        "result": [
+          {
+            "language": "en-US",
+            "region": "US",
+            "quoteType": "EQUITY",
+            "typeDisp": "Equity",
+            "quoteSourceName": "Nasdaq Real Time Price",
+            "triggerable": true,
+            "customPriceAlertConfidence": "HIGH",
+            "currency": "USD",
+            "shortName": "Apple Inc.",
+            "corporateActions": [],
+            "regularMarketTime": 1755523916,
+            "exchange": "NMS",
+            "messageBoardId": "finmb_24937",
+            "exchangeTimezoneName": "America/New_York",
+            "exchangeTimezoneShortName": "EDT",
+            "market": "us_market",
+            "gmtOffSetMilliseconds": -14400000,
+            "esgPopulated": false,
+            "regularMarketChangePercent": 0.24828228,
+            "regularMarketPrice": 232.165,
+            "longName": "Apple Inc.",
+            "marketState": "REGULAR",
+            "tradeable": false,
+            "cryptoTradeable": false,
+            "displayName": "Apple",
+            "symbol": "AAPL",
+            "sourceInterval": 15,
+            "exchangeDataDelayedBy": 0,
+            "firstTradeDateMilliseconds": 345479400000,
+            "priceHint": 2,
+            "fullExchangeName": "NasdaqGS"
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

@@ -212,7 +212,9 @@ export default function quoteCombine(
         validateResult: true,
       }).then((results) => {
         for (const result of results) {
-          for (const promise of entry.symbols.get(result.symbol)) {
+          const promises = entry.symbols.get(result.symbol);
+          if (!promises) continue; // symbol normalized/renamed by Yahoo; requester resolves undefined below (#150 loop)
+          for (const promise of promises) {
             promise.resolve(result);
             promise.resolved = true;
           }

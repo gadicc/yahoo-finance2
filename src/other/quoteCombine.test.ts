@@ -107,6 +107,22 @@ describe("quoteCombine", () => {
     expect(() => yf.quoteCombine([])).toThrow(/string/);
   });
 
+  it(
+    "handles unmatched/normalized symbol from Yahoo without throwing and resolves undefined",
+    (t, onFinish) => {
+      const opts = {
+        devel: { id: "quoteCombine-normalized-symbol.fake", t, onFinish },
+      };
+      const promise = yf.quoteCombine("aapl", undefined, opts)
+        .then((result) => {
+          expect(result).toBe(undefined);
+        });
+
+      fakeTime.runAll();
+      return promise;
+    },
+  );
+
   it("throws on quote() error", (t, onFinish) => {
     const opts = { devel: { id: "weirdJsonResult.fake", t, onFinish } };
     const promise = yf.quoteCombine("fake", undefined, opts);
