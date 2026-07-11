@@ -45,7 +45,7 @@ function createSchema(path: string, force = false, verbose = false) {
 
   if (!force && outputStat && inputStat.mtime! < outputStat.mtime!) {
     console.log("* " + path + ": skipping unchanged file.");
-    return;
+    return true;
   }
 
   console.log("* " + path + ": creating schema...");
@@ -99,9 +99,7 @@ function createSchema(path: string, force = false, verbose = false) {
     } else {
       console.log(error);
     }
-    // TODO, only log this if in watch mode
-    console.log(`(still watching ${path}...)`);
-    return;
+    return false;
   }
 
   const parser = createParser(program, config);
@@ -127,8 +125,7 @@ function createSchema(path: string, force = false, verbose = false) {
     } else {
       console.log(error);
     }
-    console.log(`(still watching ${path}...)`);
-    return;
+    return false;
   }
 
   const schema = {
@@ -152,6 +149,7 @@ function createSchema(path: string, force = false, verbose = false) {
 
   const encoded = encoder.encode(schemaString);
   Deno.writeFileSync(outputPath, encoded);
+  return true;
 }
 
 const NPM_DEPS = ["tough-cookie"];
@@ -233,11 +231,17 @@ function depsCheck() {
 async function check(path: string, force = false, verbose = false) {
   const file = await Deno.readTextFile(path);
   if (relevant.test(file)) {
-    createSchema(path, force, verbose);
+    return createSchema(path, force, verbose);
   }
+  return true;
 }
 
-const debouncedCheck = debounce(check, 1000);
+const debouncedCheck = debounce(async (path: string) => {
+  const success = await check(path);
+  if (!success) {
+    console.log(`(still watching ${path}...)`);
+  }
+}, 1000);
 
 const flags = parseArgs(Deno.args, {
   boolean: ["watch", "force", "help", "verbose"],
@@ -264,20 +268,32 @@ depsCheck();
 
 const files = flags._;
 if (files.length) {
+  let failed = false;
   for (const file of files) {
     // Always force update for explicitly specified files
-    await check(file as string, true, /* flags.force */ flags.verbose);
+    const success = await check(
+      file as string,
+      true,
+      /* flags.force */ flags.verbose,
+    );
+    failed ||= !success;
   }
-  Deno.exit();
+  Deno.exit(failed ? 1 : 0);
 }
 
 console.log('Scanning project for .ts files containing "@yf-schema"...');
 console.log();
+let failed = false;
 for await (const entry of walk("src", { exts: [".ts"] })) {
-  check(entry.path, flags.force, flags.verbose);
+  const success = await check(entry.path, flags.force, flags.verbose);
+  failed ||= !success;
 }
 console.log();
 console.log("Scan complete.");
+
+if (failed && !flags.watch) {
+  Deno.exit(1);
+}
 
 if (flags.watch) {
   console.log();

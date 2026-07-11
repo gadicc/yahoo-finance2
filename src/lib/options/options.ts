@@ -98,7 +98,7 @@ export function mergeObjects(original: Obj, objToMerge: Obj) {
 export function validateOptions(
   this: YahooFinance,
   options: YahooFinanceOptions,
-  source = "_setOpts",
+  source: string = "_setOpts",
 ) {
   // Exclude complex types that won't validate properly with json-schema
   // and check later.
