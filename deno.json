@@ -107,7 +107,13 @@
   },
   "nodeModulesDir": "auto",
   "fmt": {
-    "exclude": ["tests/fixtures", "tests/http", "**/*.schema.json"]
+    "exclude": [
+      "tests/fixtures",
+      "tests/http",
+      "**/*.schema.json",
+      "plans",
+      ".agents"
+    ]
   },
   "publish": {
     "exclude": [
