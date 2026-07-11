@@ -7,23 +7,24 @@ row when done.
 
 Verification commands for this repo: `deno task test` (full suite,
 fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
-(typecheck — added by plan 001), `deno task schema` (regenerate `*.schema.json`),
-`deno task build:npm` + `deno task test:cloudflare` (npm/Workers smoke test).
+(typecheck — added by plan 001), `deno task schema` (regenerate
+`*.schema.json`), `deno task build:npm` + `deno task test:cloudflare`
+(npm/Workers smoke test).
 
 ## Execution order & status
 
-| Plan | Title | Priority | Effort | Depends on | Status |
-|------|-------|----------|--------|------------|--------|
-| 001 | Make `deno check` pass and gate CI on it | P1 | S | — | DONE |
-| 002 | Characterization tests for Queue and ExtendedCookieJar | P1 | M | 001 | DONE |
-| 003 | Harden quoteCombine result distribution | P2 | S | 001 | DONE |
-| 004 | Per-instance crumb/queue/debounce state | P1 | M | 001, 002, 003 | DONE |
-| 005 | CI check for stale generated schemas | P2 | S | 001 | DONE |
-| 006 | Remove dead csv2json path and stale scripts | P2 | S | 001 (rebase after 004) | TODO |
-| 007 | Security hardening (cookie perms, redirect depth, token compare) | P2 | S | 001, 004 | TODO |
-| 008 | Docs refresh (stale v3 language, broken links, v2 leftovers) | P3 | S–M | 005 (soft) | TODO |
-| 009 | zod v3-compat subpath → zod@^4 | P3 | S–M | 001 | TODO |
-| 010 | Streamer module direction spike (report only) | P3 | M | — | TODO |
+| Plan | Title                                                            | Priority | Effort | Depends on             | Status |
+| ---- | ---------------------------------------------------------------- | -------- | ------ | ---------------------- | ------ |
+| 001  | Make `deno check` pass and gate CI on it                         | P1       | S      | —                      | DONE   |
+| 002  | Characterization tests for Queue and ExtendedCookieJar           | P1       | M      | 001                    | DONE   |
+| 003  | Harden quoteCombine result distribution                          | P2       | S      | 001                    | DONE   |
+| 004  | Per-instance crumb/queue/debounce state                          | P1       | M      | 001, 002, 003          | DONE   |
+| 005  | CI check for stale generated schemas                             | P2       | S      | 001                    | DONE   |
+| 006  | Remove dead csv2json path and stale scripts                      | P2       | S      | 001 (rebase after 004) | DONE   |
+| 007  | Security hardening (cookie perms, redirect depth, token compare) | P2       | S      | 001, 004               | TODO   |
+| 008  | Docs refresh (stale v3 language, broken links, v2 leftovers)     | P3       | S–M    | 005 (soft)             | TODO   |
+| 009  | zod v3-compat subpath → zod@^4                                   | P3       | S–M    | 001                    | TODO   |
+| 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
@@ -50,8 +51,8 @@ REJECTED (with one-line rationale).
   plus a helpful runtime error is coherent, intentional DX.
 - **MCP `allowedHosts: []` disables host checks**: documented opt-out
   (`src/mcp/http.ts:14`), and the CLI refuses non-local binding without
-  `--token` unless `--unsafe-no-token` is passed (`bin/yahoo-finance-mcp.ts:200-209`).
-  By design.
+  `--token` unless `--unsafe-no-token` is passed
+  (`bin/yahoo-finance-mcp.ts:200-209`). By design.
 - **Eager schema JSON imports (~640KB across modules)**: lazy-loading wouldn't
   shrink bundles (static imports either way), JSON parse cost is milliseconds,
   and size-sensitive users already have per-module subpath exports plus
@@ -77,15 +78,16 @@ REJECTED (with one-line rationale).
   real false-positive costs; noted, not planned.
 - **`@jest/types` + `jest-get-type` in a Deno repo**: used only for the
   `toBeType` test helper in `tests/common.ts`; harmless, tiny. Not worth a plan.
-- **Fixture recache cron disabled** (`.github/workflows/recache-yahoo-fixtures.yaml`,
-  commit `c2cc042` "disable cron for now"): known, deliberate maintainer
-  decision awaiting rate-limit tuning. Surfaced as a reminder, not planned.
+- **Fixture recache cron disabled**
+  (`.github/workflows/recache-yahoo-fixtures.yaml`, commit `c2cc042` "disable
+  cron for now"): known, deliberate maintainer decision awaiting rate-limit
+  tuning. Surfaced as a reminder, not planned.
 
 ## Known issues deferred with rationale (candidates for a future run)
 
 - **`createYahooFinance()` mutates the shared `YahooFinance.prototype`**
-  (`src/createYahooFinance.ts:206-207`): two `createYahooFinance()` calls in
-  one process contaminate each other's module sets and overwrite `_createOpts`.
+  (`src/createYahooFinance.ts:206-207`): two `createYahooFinance()` calls in one
+  process contaminate each other's module sets and overwrite `_createOpts`.
   Real, but the fix (per-call subclass) changes public class identity/typing —
   needs a maintainer API decision before planning. Related to plan 004's theme.
 - **Module boilerplate factory** (each `src/modules/*.ts` repeats the same
@@ -94,6 +96,6 @@ REJECTED (with one-line rationale).
 - **`tough-cookie-file-store` maintenance posture** (peer-depends on
   tough-cookie v4 line while the lib uses v5): works today; revisit if
   tough-cookie v6 lands or the store breaks.
-- **Server-integration "helper APIs"** (the promise removed from UPGRADING.md
-  by plan 008): plan 010's report may absorb this if streaming is exposed;
+- **Server-integration "helper APIs"** (the promise removed from UPGRADING.md by
+  plan 008): plan 010's report may absorb this if streaming is exposed;
   otherwise a future direction spike.
