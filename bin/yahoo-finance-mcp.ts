@@ -56,8 +56,23 @@ function createStderrLogger(): Logger {
   };
 }
 
+function ensurePrivateFile(filePath: string) {
+  try {
+    Deno.writeTextFileSync(filePath, "", { createNew: true });
+  } catch (error) {
+    if (!(error instanceof Deno.errors.AlreadyExists)) throw error;
+  }
+  try {
+    Deno.chmodSync(filePath, 0o600);
+  } catch {
+    // chmod is unsupported on Windows; best-effort only.
+  }
+}
+
 function createClient(logger: Logger): YahooFinanceMcpClient {
-  const cookieJar = new ExtendedCookieJar(new FileCookieStore(getCookiePath()));
+  const cookiePath = getCookiePath();
+  ensurePrivateFile(cookiePath);
+  const cookieJar = new ExtendedCookieJar(new FileCookieStore(cookiePath));
   return new YahooFinance({
     cookieJar,
     logger,
