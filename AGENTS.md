@@ -35,6 +35,9 @@ are most likely to need during edits.
 - `FETCH_DEVEL=nocache` forces live network tests without cache.
 - `FETCH_DEVEL=recache` updates cache for failing tests. Be careful with fixture
   churn, and do not recache files ending in `.static.json` or `.fake.json`.
+- Before committing recached fixtures, inspect their HTTP status and payload. Do
+  not commit transient failures such as rate limits, consent interstitials,
+  timeouts, or upstream 5xx responses as replacements for successful fixtures.
 
 ## Schema And Validation
 
@@ -44,6 +47,9 @@ are most likely to need during edits.
   sync with `deno task schema`.
 - Prefer updating typed interfaces and validation schemas together with focused
   tests that cover the Yahoo response shape involved.
+- When Yahoo adds a response field, model it as required first. Make it optional
+  only when other cached valid responses demonstrate that the field is absent,
+  and add descriptive JSDoc for newly exposed fields.
 
 ## Editing Guidelines
 
