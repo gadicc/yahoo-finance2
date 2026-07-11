@@ -58,7 +58,8 @@ import validateAndCoerceTypes from "../lib/validateAndCoerceTypes.ts";
 import schema from "../modules/quote.schema.json" with { type: "json" };
 const definitions = getTypedDefinitions(schema);
 
-const slugMap = new Map();
+// deno-lint-ignore no-explicit-any
+const slugMaps = new WeakMap<object, Map<string, any>>();
 
 /**
  * Pass as `new YahooFinance({ quoteCombine: options })` to override the defaults.
@@ -157,6 +158,12 @@ export default function quoteCombine(
 
   // Make sure we only combine requests with same options
   const _slug = JSON.stringify(queryOptionsOverrides);
+
+  let slugMap = slugMaps.get(this);
+  if (!slugMap) {
+    slugMap = new Map();
+    slugMaps.set(this, slugMap);
+  }
 
   let entry = slugMap.get(_slug);
   if (!entry) {

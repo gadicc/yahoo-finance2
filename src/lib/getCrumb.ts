@@ -12,7 +12,19 @@ import { getSetCookieHeaders } from "./headers.ts";
 type Fetch = typeof fetch;
 const CONFIG_FAKE_URL = "http://config.yf2/";
 
-let crumb: string | null = null;
+interface CrumbState {
+  crumb: string | null;
+  promise: Promise<string | null> | null;
+}
+const crumbStates = new WeakMap<ExtendedCookieJar, CrumbState>();
+function crumbState(cookieJar: ExtendedCookieJar): CrumbState {
+  let state = crumbStates.get(cookieJar);
+  if (!state) {
+    state = { crumb: null, promise: null };
+    crumbStates.set(cookieJar, state);
+  }
+  return state;
+}
 
 const parseHtmlEntities = (str: string) =>
   str.replace(
@@ -54,21 +66,22 @@ export async function _getCrumb(
   },
   noCache = false,
 ): Promise<string | null> {
-  if (!crumb) {
+  const state = crumbState(cookieJar);
+  if (!state.crumb) {
     const cookies = await cookieJar.getCookies(CONFIG_FAKE_URL);
     for (const cookie of cookies) {
       if (cookie.key === "crumb") {
-        crumb = cookie.value;
-        logger.debug("Retrieved crumb from cookie store: " + crumb);
+        state.crumb = cookie.value;
+        logger.debug("Retrieved crumb from cookie store: " + state.crumb);
         break;
       }
     }
   }
 
-  if (crumb && !noCache) {
+  if (state.crumb && !noCache) {
     // If we still have a valid (non-expired) cookie, return the existing crumb.
     const existingCookies = await cookieJar.getCookies(url, { expire: true });
-    if (existingCookies.length) return crumb;
+    if (existingCookies.length) return state.crumb;
   }
 
   async function processSetCookieHeader(
@@ -384,35 +397,32 @@ export async function _getCrumb(
   }
 
   const crumbFromGetCrumb = await getCrumbResponse.text();
-  crumb = crumbFromGetCrumb;
-  if (!crumb) {
+  state.crumb = crumbFromGetCrumb;
+  if (!state.crumb) {
     throw new Error(
       "Could not find crumb.  Yahoo's API may have changed; please report.",
     );
   }
 
-  logger.debug("New crumb: " + crumb);
+  logger.debug("New crumb: " + state.crumb);
   await cookieJar.setCookie(
     new Cookie({
       key: "crumb",
-      value: crumb,
+      value: state.crumb,
     }),
     CONFIG_FAKE_URL,
   );
 
-  promise = null;
-  return crumb;
+  state.promise = null;
+  return state.crumb;
 }
-
-let promise: Promise<string | null> | null = null;
 
 /**
  * Clears the stored crumb and all cookies in the given jar.
  * Doubtful you'll ever use this outside development and testing.
  */
 export async function getCrumbClear(cookieJar: ExtendedCookieJar) {
-  crumb = null;
-  promise = null;
+  crumbStates.delete(cookieJar);
   await cookieJar.removeAllCookies();
 }
 
@@ -434,14 +444,15 @@ export default function getCrumb(
 ): Promise<string | null> {
   notices.show("yahooSurvey");
 
-  if (!promise) {
-    promise = Promise.resolve(
+  const state = crumbState(cookieJar);
+  if (!state.promise) {
+    state.promise = Promise.resolve(
       __getCrumb(cookieJar, fetch, fetchOptionsBase, logger, url),
     ).catch((error) => {
-      promise = null;
+      state.promise = null;
       throw error;
     });
   }
 
-  return promise;
+  return state.promise;
 }

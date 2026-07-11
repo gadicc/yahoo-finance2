@@ -53,7 +53,15 @@ export interface YahooFinanceFetchModuleOptions {
   queue?: QueueOptions;
 }
 
-const _queue = new Queue();
+const queues = new WeakMap<object, Queue>();
+function instanceQueue(instance: object): Queue {
+  let queue = queues.get(instance);
+  if (!queue) {
+    queue = new Queue();
+    queues.set(instance, queue);
+  }
+  return queue;
+}
 
 // deno-lint-ignore no-explicit-any
 function assertQueueOptions(queue: any, opts: any) {
@@ -107,8 +115,9 @@ async function yahooFinanceFetch(
   // TODO: adds func type to json schema which is not supported
   const queueOverride = (moduleOpts.queue as { _queue?: unknown } | undefined)
     ?._queue;
-  const queue = queueOverride instanceof Queue ? queueOverride : _queue;
-  // const queue = _queue;
+  const queue = queueOverride instanceof Queue
+    ? queueOverride
+    : instanceQueue(this);
   assertQueueOptions(queue, { ...this._opts.queue, ...moduleOpts.queue });
 
   const { fetch: envFetch, fetchDevel } = this._env;

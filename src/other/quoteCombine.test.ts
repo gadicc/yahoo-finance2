@@ -123,6 +123,27 @@ describe("quoteCombine", () => {
     },
   );
 
+  it(
+    "scopes quoteCombine debounce map to the instance",
+    async (t, onFinish) => {
+      const yf1 = new YahooFinance();
+      const yf2 = new YahooFinance();
+
+      const opts1 = { devel: { id: "quoteCombine-AAPL", t, onFinish } };
+      const opts2 = { devel: { id: "quoteCombine-TSLA", t, onFinish } };
+
+      const p1 = yf1.quoteCombine("AAPL", undefined, opts1).then((res) => {
+        expect(res.symbol).toBe("AAPL");
+      });
+      const p2 = yf2.quoteCombine("TSLA", undefined, opts2).then((res) => {
+        expect(res.symbol).toBe("TSLA");
+      });
+
+      fakeTime.runAll();
+      await Promise.all([p1, p2]);
+    },
+  );
+
   it("throws on quote() error", (t, onFinish) => {
     const opts = { devel: { id: "weirdJsonResult.fake", t, onFinish } };
     const promise = yf.quoteCombine("fake", undefined, opts);

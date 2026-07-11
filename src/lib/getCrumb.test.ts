@@ -245,5 +245,46 @@ describe("getCrumb", () => {
       expect(crumb).toBe("crumb");
       expect(_getCrumb.calls).toHaveLength(2);
     });
+
+    it("scopes crumb cache to the cookie jar", async (t, onFinish) => {
+      const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
+      const _getCrumb = spy(() => Promise.resolve("crumb"));
+      const jarA = new ExtendedCookieJar();
+      const jarB = new ExtendedCookieJar();
+      await getCrumbClear(jarA);
+      await getCrumbClear(jarB);
+
+      await getCrumb(
+        jarA,
+        fetch,
+        { devel },
+        logger,
+        notices,
+        "https://finance.yahoo.com/quote/TSLA",
+        _getCrumb,
+      );
+
+      await getCrumb(
+        jarB,
+        fetch,
+        { devel },
+        logger,
+        notices,
+        "https://finance.yahoo.com/quote/TSLA",
+        _getCrumb,
+      );
+
+      await getCrumb(
+        jarA,
+        fetch,
+        { devel },
+        logger,
+        notices,
+        "https://finance.yahoo.com/quote/TSLA",
+        _getCrumb,
+      );
+
+      expect(_getCrumb.calls).toHaveLength(2);
+    });
   });
 });
