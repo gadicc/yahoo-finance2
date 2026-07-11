@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import * as z from "zod/v4";
+import * as z from "zod";
 
 import { stringifyJsonSafe, toJsonSafe } from "../lib/jsonSafe.ts";
 

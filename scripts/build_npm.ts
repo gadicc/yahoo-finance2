@@ -94,7 +94,7 @@ await build({
       "tough-cookie-file-store": denoJson.imports["tough-cookie-file-store"],
       "fetch-mock-cache": denoJson.imports["fetch-mock-cache"],
       "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.26.0",
-      "zod": "npm:zod@^3.25.0",
+      "zod": denoJson.imports["zod"],
     },
   },
   // importMap: "deno.json",
