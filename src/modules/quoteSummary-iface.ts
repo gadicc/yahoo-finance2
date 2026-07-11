@@ -870,7 +870,9 @@ type FilingType =
   | "D"
   | "SC 13D"
   | "NT 10-Q/A"
-  | "F-4";
+  | "F-4"
+  | "POS EX"
+  | "PREC14A";
 
 export interface SummaryDetail {
   [key: string]: unknown;
