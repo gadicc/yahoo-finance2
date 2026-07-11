@@ -191,6 +191,15 @@ export interface InsightsSecReport {
   snapshotUrl: string;
   formType: string;
   edgarUrl?: string;
+
+  /** Documents included in the SEC filing, with their form types and URLs. */
+  exhibits: Array<{
+    type: string;
+    url: string;
+
+    /** Download endpoint for exhibits available as a separate file. */
+    downloadUrl?: string;
+  }>;
 }
 
 export interface InsightsEvent {

@@ -497,6 +497,28 @@
         },
         "edgarUrl": {
           "type": "string"
+        },
+        "exhibits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "downloadUrl": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "url"
+            ],
+            "additionalProperties": false
+          }
         }
       },
       "required": [
@@ -506,7 +528,8 @@
         "description",
         "filingDate",
         "snapshotUrl",
-        "formType"
+        "formType",
+        "exhibits"
       ],
       "additionalProperties": false
     },
