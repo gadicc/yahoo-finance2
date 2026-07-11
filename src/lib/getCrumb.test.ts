@@ -286,5 +286,27 @@ describe("getCrumb", () => {
 
       expect(_getCrumb.calls).toHaveLength(2);
     });
+
+    it(
+      "throws if depth exceeds MAX_CONSENT_REDIRECT_DEPTH",
+      async (t, onFinish) => {
+        const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
+        const jar = new ExtendedCookieJar();
+        await getCrumbClear(jar);
+
+        await expect(
+          _getCrumb(
+            jar,
+            fetch,
+            { devel },
+            logger,
+            "https://finance.yahoo.com/quote/TSLA",
+            devel,
+            false,
+            6,
+          ),
+        ).rejects.toThrow(/Too many consent redirects/);
+      },
+    );
   });
 });

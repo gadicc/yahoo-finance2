@@ -65,7 +65,16 @@ export async function _getCrumb(
     onFinish: undefined,
   },
   noCache = false,
+  depth = 0,
 ): Promise<string | null> {
+  const MAX_CONSENT_REDIRECT_DEPTH = 5;
+  if (depth > MAX_CONSENT_REDIRECT_DEPTH) {
+    throw new Error(
+      "Too many consent redirects while fetching Yahoo crumb (max " +
+        MAX_CONSENT_REDIRECT_DEPTH +
+        "). Please report.",
+    );
+  }
   const state = crumbState(cookieJar);
   if (!state.crumb) {
     const cookies = await cookieJar.getCookies(CONFIG_FAKE_URL);
@@ -299,6 +308,7 @@ export async function _getCrumb(
             onFinish: develOverride!.onFinish,
           },
           noCache,
+          depth + 1,
         );
       }
     } else {
