@@ -1,0 +1,52 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BZ=F?formatted=false&modules=quoteType&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "1",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "313",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:47 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "1sac03dl7c5ns"
+    },
+    "bodyJson": {
+      "quoteSummary": {
+        "result": [
+          {
+            "quoteType": {
+              "exchange": "NYM",
+              "quoteType": "FUTURE",
+              "underlyingSymbol": "BZ=F",
+              "firstTradeDateEpochUtc": 1185768000,
+              "timeZoneFullName": "America/New_York",
+              "timeZoneShortName": "EDT",
+              "uuid": "06672b05-645b-3b9d-9410-aed8c09764c9",
+              "gmtOffSetMilliseconds": -14400000,
+              "maxAge": 1
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BZ=F?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "1743",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:48 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "88",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "2qf3h61l7c5ns"
+    },
+    "bodyJson": {
+      "quoteSummary": {
+        "result": [
+          {
+            "summaryDetail": {
+              "maxAge": 1,
+              "priceHint": 2,
+              "previousClose": 82.49,
+              "open": 83.33,
+              "dayLow": 81.5,
+              "dayHigh": 84.39,
+              "regularMarketPreviousClose": 82.49,
+              "regularMarketOpen": 83.33,
+              "regularMarketDayLow": 81.5,
+              "regularMarketDayHigh": 84.39,
+              "volume": 27180,
+              "regularMarketVolume": 27180,
+              "averageVolume": 38346,
+              "averageVolume10days": 37118,
+              "averageDailyVolume10Day": 37118,
+              "bid": 83.36,
+              "ask": 83.39,
+              "openInterest": 30512,
+              "fiftyTwoWeekLow": 58.72,
+              "fiftyTwoWeekHigh": 126.1,
+              "allTimeHigh": 147.43,
+              "allTimeLow": 16,
+              "fiftyDayAverage": 85.0476,
+              "twoHundredDayAverage": 81.13525,
+              "currency": "USD",
+              "fromCurrency": null,
+              "toCurrency": null,
+              "lastMarket": null,
+              "coinMarketCapLink": null,
+              "algorithm": null,
+              "tradeable": false
+            },
+            "quoteType": {
+              "exchange": "NYM",
+              "quoteType": "FUTURE",
+              "underlyingSymbol": "BZ=F",
+              "firstTradeDateEpochUtc": 1185768000,
+              "timeZoneFullName": "America/New_York",
+              "timeZoneShortName": "EDT",
+              "uuid": "06672b05-645b-3b9d-9410-aed8c09764c9",
+              "gmtOffSetMilliseconds": -14400000,
+              "maxAge": 1
+            },
+            "price": {
+              "maxAge": 1,
+              "regularMarketChangePercent": 0.01078918,
+              "regularMarketChange": 0.8899994,
+              "regularMarketTime": 1786123386,
+              "priceHint": 2,
+              "regularMarketPrice": 83.38,
+              "regularMarketDayHigh": 84.39,
+              "regularMarketDayLow": 81.5,
+              "regularMarketVolume": 27180,
+              "averageDailyVolume10Day": 37118,
+              "averageDailyVolume3Month": 38346,
+              "regularMarketPreviousClose": 82.49,
+              "regularMarketSource": "DELAYED",
+              "regularMarketOpen": 83.33,
+              "openInterest": 30512,
+              "exchange": "NYM",
+              "exchangeName": "NY Mercantile",
+              "exchangeDataDelayedBy": 10,
+              "marketState": "REGULAR",
+              "quoteType": "FUTURE",
+              "symbol": "BZ=F",
+              "underlyingSymbol": "BZV26.NYM",
+              "shortName": null,
+              "longName": null,
+              "currency": "USD",
+              "quoteSourceName": "Delayed Quote",
+              "currencySymbol": "$",
+              "fromCurrency": null,
+              "toCurrency": null,
+              "lastMarket": null
+            }
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

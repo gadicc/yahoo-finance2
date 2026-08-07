@@ -1,0 +1,306 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v1/finance/search?lang=en-US&region=US&quotesCount=6&newsCount=4&enableFuzzyQuery=false&quotesQueryId=tss_match_phrase_query&multiQuoteQueryId=multi_quote_single_token_query&newsQueryId=news_cie_vespa&enableCb=true&enableNavLinks=true&enableEnhancedTrivialQuery=true&q=BZ%3DF",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=600, stale-while-revalidate=180",
+      "content-encoding": "gzip",
+      "content-length": "2424",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:46 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "set-cookie": [
+        "dflow=472; Expires=Sat, 7 Aug 2027 23:33:46 GMT; Max-Age=31557600; Domain=.yahoo.com; Path=/; SameSite=Lax; Secure; HttpOnly"
+      ],
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-search--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "108",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "5mpl73ll7c5nq"
+    },
+    "bodyJson": {
+      "explains": [],
+      "count": 15,
+      "quotes": [
+        {
+          "exchange": "NYM",
+          "quoteType": "FUTURE",
+          "symbol": "BZ=F",
+          "index": "quotes",
+          "score": 15109000,
+          "typeDisp": "Futures",
+          "exchDisp": "NY Mercantile",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "EBS",
+          "shortname": "0P0000TDY0.SW",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0000TDY0.SW",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "Fund",
+          "longname": "BZ Fine Funds - BZ Fine Europe",
+          "exchDisp": "Swiss",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "EBS",
+          "shortname": "0P00013NWC.SW",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P00013NWC.SW",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "Fund",
+          "longname": "BZ Fine Funds - BZ Fine Pharma",
+          "exchDisp": "Swiss",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "FRA",
+          "shortname": "0P0000TDXV.F",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0000TDXV.F",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "Fund",
+          "longname": "BZ Fine Funds - BZ Fine Agro",
+          "exchDisp": "Frankfurt",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "EBS",
+          "shortname": "0P0000Y06Z.SW",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0000Y06Z.SW",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "Fund",
+          "longname": "BZ Fine Funds - BZ Fine Pharma A CHF",
+          "exchDisp": "Swiss",
+          "isYahooFinance": true
+        },
+        {
+          "exchange": "EBS",
+          "shortname": "0P0000TDXX.SW",
+          "quoteType": "MUTUALFUND",
+          "symbol": "0P0000TDXX.SW",
+          "index": "quotes",
+          "score": 20004,
+          "typeDisp": "Fund",
+          "longname": "BZ Fine Funds - BZ Fine Digital",
+          "exchDisp": "Swiss",
+          "isYahooFinance": true
+        },
+        {
+          "index": "8bfbe83cf61445d29fb4d4762e1ef427",
+          "name": "BZ Fund",
+          "permalink": "bz-fund",
+          "isYahooFinance": false
+        }
+      ],
+      "news": [
+        {
+          "uuid": "d0159705-4e79-4025-a8f8-1a486e2a9c0d",
+          "title": "Oil prices tick back up as war risk reignites",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/markets/article/oil-prices-tick-back-up-as-war-risk-reignites-174549565.html",
+          "providerPublishTime": 1785347149,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Jb7TOGD1ACerIIZ.Akl9Rg--~B/aD00MDAwO3c9NjAwMDthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-07/a97af1b5-dc3f-497d-952e-48d30971bfd0",
+                "width": 6000,
+                "height": 4000,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/Hg3DRV_AsFf28wgNfvsXAg--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-07/a97af1b5-dc3f-497d-952e-48d30971bfd0",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "BZ=F",
+            "CL=F"
+          ]
+        },
+        {
+          "uuid": "84c84511-5411-4c60-a9cd-ad4d49229b8a",
+          "title": "Oil prices tumble as US and Iran hold off on strikes over weekend",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/markets/article/oil-prices-tumble-as-us-and-iran-hold-off-on-strikes-over-weekend-142524290.html",
+          "providerPublishTime": 1785162324,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/M8TYcIgNncPC6W3DoDI9PA--~B/aD0zMzM1O3c9NTAwMDthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-07/5876b380-9942-4397-8137-04f7bdef23e2",
+                "width": 5000,
+                "height": 3335,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/MAhwJ89p6_CvWhb55J5fHA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-07/5876b380-9942-4397-8137-04f7bdef23e2",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "BZ=F",
+            "CL=F"
+          ]
+        },
+        {
+          "uuid": "997fcc59-1d0a-4cf1-b7f0-ee20214c7ef5",
+          "title": "Diesel hits $5 per gallon as pump prices resume climb",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/markets/article/diesel-hits-5-per-gallon-as-pump-prices-resume-climb-171354477.html",
+          "providerPublishTime": 1784222034,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/oR8a9RhzESiQ9cV1AMqbGA--~B/aD00MDE2O3c9NjAxNjthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-07/88d9e281-2689-4c7c-91a3-c2d5d5172bb3",
+                "width": 6016,
+                "height": 4016,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/IRfhItn3EkgXyr0Y_4kyYQ--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-07/88d9e281-2689-4c7c-91a3-c2d5d5172bb3",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "CL=F",
+            "BZ=F",
+            "RB=F"
+          ]
+        },
+        {
+          "uuid": "aa353f18-cf9a-4e93-bfcd-3469d9216807",
+          "title": "Oil prices hold onto modest gains as Trump announces Gulf investment deals to replace 20% cargo fees",
+          "publisher": "Yahoo Finance",
+          "link": "https://finance.yahoo.com/markets/article/oil-prices-hold-onto-modest-gains-as-trump-announces-gulf-investment-deals-to-replace-20-cargo-fees-122917495.html",
+          "providerPublishTime": 1784032157,
+          "type": "STORY",
+          "thumbnail": {
+            "resolutions": [
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/rr19nbJrcIvRGEsiWk9YtQ--~B/aD0xNjQ1O3c9MjQ2NzthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-07/0e7b2126-ba6f-4e70-8cdf-7d48d323586a",
+                "width": 2467,
+                "height": 1645,
+                "tag": "original"
+              },
+              {
+                "url": "https://s.yimg.com/uu/api/res/1.2/1CDXfCMcSw.t6QUj3hWClA--~B/Zmk9ZmlsbDtoPTE0MDtweW9mZj0wO3c9MTQwO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-07/0e7b2126-ba6f-4e70-8cdf-7d48d323586a",
+                "width": 140,
+                "height": 140,
+                "tag": "140x140"
+              }
+            ]
+          },
+          "relatedTickers": [
+            "BZ=F",
+            "CL=F"
+          ]
+        }
+      ],
+      "nav": [],
+      "lists": [
+        {
+          "slug": "most-bought-by-activist-hedge-funds",
+          "name": "Most Bought By Activist Hedge Funds",
+          "index": "most-bought-by-activist-hedge-funds",
+          "score": 12.766802,
+          "type": "ALGO_WATCHLIST",
+          "brandSlug": "yahoo-finance",
+          "pfId": "most_bought_by_activist_hedge_funds",
+          "symbolCount": 13,
+          "dailyPercentGain": 2.711483995083632,
+          "followerCount": 59676,
+          "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/110f1012357c7b3e87d14912e7023f819b61278e7f0e90a3825821d2ef3c427c/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/most-bought-activist.png",
+          "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
+        },
+        {
+          "slug": "most-bought-by-hedge-funds",
+          "name": "Most Bought By Hedge Funds",
+          "index": "most-bought-by-hedge-funds",
+          "score": 8.912221,
+          "type": "ALGO_WATCHLIST",
+          "brandSlug": "yahoo-finance",
+          "pfId": "most_bought_by_hedge_funds",
+          "symbolCount": 30,
+          "dailyPercentGain": 0.433601915707522,
+          "followerCount": 40507,
+          "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/f1b1a50dcfdddcf42a67d2da1bb1c341e6f65992b3d89154b9020ae8a9ffa004/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/mostboughtHedgeFunds.png",
+          "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
+        },
+        {
+          "slug": "most-watched",
+          "name": "Most Watched by Yahoo Finance Users",
+          "index": "most-watched",
+          "score": 6.1198325,
+          "type": "ALGO_WATCHLIST",
+          "brandSlug": "yahoo-finance",
+          "pfId": "most_watched",
+          "symbolCount": 1,
+          "dailyPercentGain": -6.900217998138001,
+          "followerCount": 28606,
+          "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/9f2d41c327a5d20c8062b14f526038441141d5644b2b3a0efee2e12d9be1efe0/finance/resizefill_w96_h96/https://s.yimg.com/uc/finance/social/portfolio/most-watched.png",
+          "userId": "5SSSFLJVWAMDKUGZM5HLSSBNAY"
+        },
+        {
+          "slug": "the-fight-against-covid19",
+          "name": "The Fight Against COVID19",
+          "index": "the-fight-against-covid19",
+          "score": 5.116734,
+          "type": "ALGO_WATCHLIST",
+          "brandSlug": "trea",
+          "pfId": "the_fight_against_covid19",
+          "symbolCount": 13,
+          "dailyPercentGain": 1.6290180994565473,
+          "followerCount": 22595,
+          "iconUrl": "https://edgecast-img.yahoo.net/mysterio/api/3c7c7b592c7aba2beee72abb1e520b85d6241aee639ea2e8033b96962ad2e126/finance/resizefill_w96_h96/https://s.yimg.com/uc/fin/img/iStock-476433472.png",
+          "userId": "X3NJ2A7VDSABUI4URBWME2PZNM"
+        }
+      ],
+      "researchReports": [],
+      "screenerFieldResults": [],
+      "totalTime": 106,
+      "timeTakenForQuotes": 431,
+      "timeTakenForNews": 700,
+      "timeTakenForAlgowatchlist": 400,
+      "timeTakenForPredefinedScreener": 400,
+      "timeTakenForCrunchbase": 400,
+      "timeTakenForNav": 400,
+      "timeTakenForResearchReports": 0,
+      "timeTakenForQuestions": 0,
+      "timeTakenForScreenerField": 0,
+      "timeTakenForCulturalAssets": 0,
+      "timeTakenForSearchLists": 0
+    }
+  }
+}

@@ -775,9 +775,10 @@ export interface QuoteType {
   [key: string]: unknown;
   exchange: string;
   quoteType: string;
-  symbol: string;
+  /** Optional, whereas `underlyingSymbol` is always present */
+  symbol?: string;
   underlyingSymbol: string;
-  shortName: null | string;
+  shortName?: null | string;
   longName?: null | string;
   firstTradeDateEpochUtc?: null | Date;
   timeZoneFullName: string;

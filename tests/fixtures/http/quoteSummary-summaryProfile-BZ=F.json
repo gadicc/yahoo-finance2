@@ -1,0 +1,42 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BZ=F?formatted=false&modules=summaryProfile&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 404,
+    "statusText": "Not Found",
+    "headers": {
+      "age": "0",
+      "cache-control": "max-age=0, private",
+      "content-length": "121",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:48 GMT",
+      "expires": "-1",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "4oqm08ll7c5ns"
+    },
+    "bodyJson": {
+      "quoteSummary": {
+        "result": null,
+        "error": {
+          "code": "Not Found",
+          "description": "No fundamentals data found for symbol: BZ=F"
+        }
+      }
+    }
+  }
+}

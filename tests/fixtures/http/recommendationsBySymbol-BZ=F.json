@@ -1,0 +1,41 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v6/finance/recommendationsbysymbol/BZ=F?",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=60, stale-while-revalidate=15",
+      "content-length": "38",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:46 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "set-cookie": [
+        "dflow=539; Expires=Sat, 7 Aug 2027 23:33:46 GMT; Max-Age=31557600; Domain=.yahoo.com; Path=/; SameSite=Lax; Secure; HttpOnly"
+      ],
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-user-analytics-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "7u8gv19l7c5nq"
+    },
+    "bodyJson": {
+      "finance": {
+        "result": [],
+        "error": null
+      }
+    }
+  }
+}

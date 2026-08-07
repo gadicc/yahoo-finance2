@@ -538,13 +538,13 @@ export interface QuoteFuture extends QuoteBase {
   contractSymbol: boolean; // false
 
   /** Underlying exchange symbol */
-  underlyingExchangeSymbol: string; // "GCM22.CMX"
+  underlyingExchangeSymbol?: string; // "GCM22.CMX"
 
   /** Contract expiration date */
-  expireDate: Date; // 1656374400
+  expireDate?: Date; // 1656374400
 
   /** ISO formatted expiration date */
-  expireIsoDate: Date; // "2025-04-28T00:00:00Z"
+  expireIsoDate?: Date; // "2025-04-28T00:00:00Z"
 }
 
 /**

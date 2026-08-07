@@ -1,0 +1,105 @@
+{
+  "request": {
+    "url": "https://query2.finance.yahoo.com/v7/finance/options/BZ=F?formatted=false&lang=en-US&region=US&crumb=haT3oykhHqZ",
+    "method": "GET",
+    "headers": {
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": true,
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+      "age": "0",
+      "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-length": "1775",
+      "content-type": "application/json;charset=utf-8",
+      "date": "Fri, 07 Aug 2026 17:33:46 GMT",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "server": "ATS",
+      "strict-transport-security": "max-age=31536000",
+      "vary": "Origin,Accept-Encoding",
+      "x-content-type-options": "nosniff",
+      "x-envoy-decorator-operation": "finance-quote-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
+      "x-frame-options": "SAMEORIGIN",
+      "x-xss-protection": "1; mode=block",
+      "y-rid": "7g2i30ll7c5nq"
+    },
+    "bodyJson": {
+      "optionChain": {
+        "result": [
+          {
+            "underlyingSymbol": "BZ=F",
+            "expirationDates": [],
+            "strikes": [],
+            "hasMiniOptions": false,
+            "quote": {
+              "language": "en-US",
+              "region": "US",
+              "quoteType": "FUTURE",
+              "typeDisp": "Futures",
+              "quoteSourceName": "Delayed Quote",
+              "triggerable": false,
+              "customPriceAlertConfidence": "NONE",
+              "headSymbolAsString": "BZ=F",
+              "contractSymbol": false,
+              "currency": "USD",
+              "fiftyDayAverage": 85.0476,
+              "fiftyDayAverageChange": -1.6676025,
+              "fiftyDayAverageChangePercent": -0.019607874,
+              "twoHundredDayAverage": 81.13525,
+              "twoHundredDayAverageChange": 2.244751,
+              "twoHundredDayAverageChangePercent": 0.02766678,
+              "sourceInterval": 30,
+              "exchangeDataDelayedBy": 10,
+              "tradeable": false,
+              "cryptoTradeable": false,
+              "hasPrePostMarketData": false,
+              "firstTradeDateMilliseconds": 1185768000000,
+              "priceHint": 2,
+              "regularMarketChange": 0.8899994,
+              "regularMarketDayHigh": 84.39,
+              "regularMarketDayRange": "81.5 - 84.39",
+              "regularMarketDayLow": 81.5,
+              "regularMarketVolume": 27180,
+              "regularMarketPreviousClose": 82.49,
+              "bid": 83.36,
+              "ask": 83.39,
+              "fullExchangeName": "NY Mercantile",
+              "regularMarketOpen": 83.33,
+              "averageDailyVolume3Month": 38346,
+              "averageDailyVolume10Day": 37118,
+              "fiftyTwoWeekLowChange": 24.659996,
+              "fiftyTwoWeekLowChangePercent": 0.41995904,
+              "fiftyTwoWeekRange": "58.72 - 126.1",
+              "fiftyTwoWeekHighChange": -42.72,
+              "fiftyTwoWeekHighChangePercent": -0.33877876,
+              "fiftyTwoWeekLow": 58.72,
+              "fiftyTwoWeekHigh": 126.1,
+              "fiftyTwoWeekChangePercent": 25.799667,
+              "openInterest": 30512,
+              "corporateActions": [],
+              "regularMarketTime": 1786123386,
+              "underlyingSymbol": "BZV26.NYM",
+              "exchange": "NYM",
+              "exchangeTimezoneName": "America/New_York",
+              "exchangeTimezoneShortName": "EDT",
+              "gmtOffSetMilliseconds": -14400000,
+              "market": "us24_market",
+              "esgPopulated": false,
+              "marketState": "REGULAR",
+              "regularMarketChangePercent": 1.078918,
+              "regularMarketPrice": 83.38,
+              "symbol": "BZ=F"
+            },
+            "options": []
+          }
+        ],
+        "error": null
+      }
+    }
+  }
+}

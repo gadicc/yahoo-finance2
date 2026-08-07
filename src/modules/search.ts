@@ -286,6 +286,9 @@ export interface SearchResult {
 
   /** Time taken for search lists in milliseconds */
   timeTakenForSearchLists: number; // 0
+
+  /** Time taken for questions search in milliseconds */
+  timeTakenForQuestions?: number; // 0
 }
 
 /**
