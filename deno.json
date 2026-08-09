@@ -14,6 +14,7 @@
     "schema:check": "deno task schema --force && git diff --exit-code -- '*.schema.json'",
     "test": "deno test --no-prompt -P=test --parallel --ignore=tests/cloudflare",
     "test:serial": "deno test --no-prompt -P=test --ignore=tests/cloudflare",
+    "fixtures:capture:getcrumb": "deno run -A scripts/capture-get-crumb-fixtures.ts",
     "test:cloudflare": "deno task build:npm && npm ci --prefix tests/cloudflare && npm test --prefix tests/cloudflare",
     "lock:cloudflare": "npx -p npm@10.9.4 npm install --prefix tests/cloudflare --package-lock-only",
     "build:npm": "deno run -A scripts/build_npm.ts",
@@ -26,6 +27,8 @@
       "env": {
         "allow": [
           "FETCH_DEVEL",
+          "FETCH_DEVEL_GETCRUMB_MODE",
+          "FETCH_DEVEL_GETCRUMB_PROFILE",
           "FETCH_DEVEL_RECACHE_CONCURRENCY",
           "FETCH_DEVEL_RECACHE_INTERVAL"
         ],

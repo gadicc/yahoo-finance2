@@ -101,6 +101,40 @@ run, just make sure not to delete `.static.json` or `.fake.json` files, and
 consider if anything actually changed that justifies committing the new file to
 the repo.
 
+#### Country-specific getCrumb fixtures
+
+Yahoo's cookie, consent, and crumb flow can vary by request geography. We keep
+country-specific captures as dated, append-only fixture profiles so one VPN
+capture never overwrites another flow. The country code records where the
+response was observed; tests assert the captured redirect/request sequence, not
+that Yahoo always serves that sequence to everyone in that country.
+
+Connect a VPN, independently verify its exit country, and then run:
+
+```bash
+deno task fixtures:capture:getcrumb --country GB
+```
+
+The command records a new profile such as `gb-20260808`, compacts response data
+that getCrumb never consumes, and immediately replays the compacted fixtures. It
+refuses to overwrite an existing profile; use `--profile` with a dated suffix
+when two distinct flows are observed on the same day.
+
+Before committing, inspect every generated fixture. Do not keep rate limits,
+timeouts, upstream 5xx responses, unrelated interstitials, redirects outside the
+expected Yahoo hosts, or authenticated/user-specific cookies. Copy the profile
+entry printed by the command into `COMMITTED_PROFILES` in
+`src/lib/getCrumb.geo.test.ts`, then disconnect the VPN and run:
+
+```bash
+deno task test:serial src/lib/getCrumb.geo.test.ts
+```
+
+Committed geographic profiles always replay from cache, even under the generic
+`FETCH_DEVEL=recache` workflow. If a new country's normalized request sequence
+and relevant cookie/header shape are identical to an existing profile, do not
+commit duplicate fixtures solely to add another country label.
+
 Cloudflare Workers coverage lives in `tests/cloudflare` and tests the generated
 npm package inside Workers Vitest. Run `deno task test:cloudflare` after changes
 that affect npm output or runtime detection. If you change the Cloudflare

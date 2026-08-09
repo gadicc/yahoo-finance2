@@ -147,13 +147,18 @@ const expect = _expect<ExtendedExpected>;
 
 const setupCache = fetchCacheSetup;
 
+interface FetchDevelOptions {
+  idTransform?: (id: string) => string;
+  mode?: "record" | "replay";
+}
+
 /**
  * Special wrapper for `fetch()` used for tests.  We already set up
  * `fetch-cache-mock` elsewhere in this file, but this wrapper allows
  * us to call `fetchCache._once()` with additional options before
  * the fetch is executed.
  */
-export function fetchDevel() {
+export function fetchDevel(options: FetchDevelOptions = {}) {
   function fetchDevel(
     input: Parameters<typeof fetch>[0],
     init?: Parameters<typeof fetch>[1], // & { devel?: boolean | string },
@@ -162,12 +167,17 @@ export function fetchDevel() {
     const { devel, ..._init } = init || {};
     // console.log({ devel });
     if (typeof devel === "string") {
-      fetchCache.once({ id: devel.replace(/\.json$/, "") });
+      const id = options.idTransform?.(devel.replace(/\.json$/, "")) ??
+        devel.replace(/\.json$/, "");
+      fetchCache.once({ id, ...(options.mode ? { mode: options.mode } : {}) });
     } else if (typeof devel === "object" && "id" in devel) {
+      const id = options.idTransform?.(devel.id) ?? devel.id;
       const isStatic = !!devel.id.match(/\.(static|fake)$/);
-      if (FETCH_DEVEL_NOCACHE && !isStatic) {
+      if (options.mode) {
+        fetchCache.once({ id, mode: options.mode });
+      } else if (FETCH_DEVEL_NOCACHE && !isStatic) {
         fetchCache.once({
-          id: devel.id,
+          id,
           readCache: false,
           writeCache: false,
         });
@@ -199,9 +209,9 @@ export function fetchDevel() {
           setTimeout(() => resolve(true), 0);
         }
 
-        fetchCache.once({ id: devel.id, readCache: false, writeCache });
+        fetchCache.once({ id, readCache: false, writeCache });
       } else {
-        fetchCache.once({ id: devel.id });
+        fetchCache.once({ id });
       }
     } else {
       throw new Error(
