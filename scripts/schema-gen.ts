@@ -6,10 +6,7 @@ import * as path from "@std/path";
 import {
   type CompletedConfig,
   type Config,
-  createFormatter,
-  createParser,
   createProgram,
-  SchemaGenerator,
 } from "ts-json-schema-generator";
 
 // @ ts-expect-error: no types
@@ -18,7 +15,7 @@ import {
 
 // import yfNumberTypeFormatter from "./schema/TypeFormatter/yfNumberTypeFormatter.ts";
 // import yfReferenceTypeFormatter from "./schema/TypeFormatter/yfReferenceTypeFormatter.ts";
-import yfFunctionIgnorer from "./schema/TypeFormatter/yfFunctionIgnorer.ts";
+import createSchemaGenerator from "./schema/createGenerator.ts";
 
 // TODO, we should also lstat this file and all it's imports!
 
@@ -62,23 +59,6 @@ function createSchema(path: string, force = false, verbose = false) {
     topRef: true,
   } as Config as CompletedConfig;
 
-  const formatter = createFormatter(
-    config,
-    (chainTypeFormatter, _circularReferenceTypeFormatter) => {
-      chainTypeFormatter
-        /*
-        .addTypeFormatter(
-          new yfReferenceTypeFormatter(
-            circularReferenceTypeFormatter,
-            config.encodeRefs ?? true,
-          ),
-        )
-        .addTypeFormatter(new yfNumberTypeFormatter())
-        */
-        .addTypeFormatter(new yfFunctionIgnorer());
-    },
-  );
-
   let program: ReturnType<typeof createProgram>;
   try {
     program = createProgram(config);
@@ -102,8 +82,7 @@ function createSchema(path: string, force = false, verbose = false) {
     return false;
   }
 
-  const parser = createParser(program, config);
-  const generator = new SchemaGenerator(program, parser, formatter, config);
+  const generator = createSchemaGenerator(program, config);
 
   let _schema: ReturnType<typeof generator.createSchema>;
   try {

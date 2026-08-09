@@ -116,6 +116,16 @@ describe("moduleExec", () => {
     });
 
     it(
+      "throws on unexpected input with {validateResult: true}",
+      async (t, onFinish) => {
+        const devel = { id: "search-badResult.fake", t, onFinish };
+        await expect(
+          yf.search("AAPL", {}, { devel, validateResult: true }),
+        ).rejects.toThrow(/Failed Yahoo Schema/);
+      },
+    );
+
+    it(
       "dont throw or log on unexpected input with {validateResult: false}",
       async (t, onFinish) => {
         const logger = createNewLogger();
