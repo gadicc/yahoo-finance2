@@ -29,6 +29,10 @@ function addPackageBinAlias(packageJsonPath: string) {
   );
 }
 
+const mcpSdkSpecifier = denoJson.imports[
+  "@modelcontextprotocol/sdk/client/index.js"
+].replace(/\/client\/index\.js$/, "");
+
 await emptyDir("./npm");
 
 await build({
@@ -93,7 +97,7 @@ await build({
       "tough-cookie": denoJson.imports["tough-cookie"],
       "tough-cookie-file-store": denoJson.imports["tough-cookie-file-store"],
       "fetch-mock-cache": denoJson.imports["fetch-mock-cache"],
-      "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.26.0",
+      "@modelcontextprotocol/sdk": mcpSdkSpecifier,
       "zod": denoJson.imports["zod"],
     },
   },
