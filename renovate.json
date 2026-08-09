@@ -4,5 +4,12 @@
   "ignoreDeps": ["circleci/node", "node"],
   "major": {
     "automerge": false
-  }
+  },
+  "packageRules": [
+    {
+      "description": "Keep the conventional-commits preset below v10 until semantic-release upgrades to conventional-changelog-writer v9; v10 otherwise generates header-only release notes. Track semantic-release/release-notes-generator#992 and #996.",
+      "matchPackageNames": ["conventional-changelog-conventionalcommits"],
+      "allowedVersions": "<10"
+    }
+  ]
 }

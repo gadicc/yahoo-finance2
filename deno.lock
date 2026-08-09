@@ -28,7 +28,7 @@
     "npm:@semantic-release/exec@^7.1.0": "7.1.0_semantic-release@25.0.9",
     "npm:@types/debug@^4.1.13": "4.1.13",
     "npm:@types/json-schema@^7.0.15": "7.0.15",
-    "npm:conventional-changelog-conventionalcommits@^10.2.1": "10.2.1",
+    "npm:conventional-changelog-conventionalcommits@8": "8.0.0",
     "npm:debug@^4.3.4": "4.4.3",
     "npm:fetch-mock-cache@^3.1.0": "3.1.0",
     "npm:filenamify-url@4": "4.0.0",
@@ -187,9 +187,6 @@
     },
     "@colors/colors@1.5.0": {
       "integrity": "sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ=="
-    },
-    "@conventional-changelog/template@1.2.1": {
-      "integrity": "sha512-TzlTVpKPjaqW6qOYjQcYUDuGsLCNsvFHVBXkYGTAnf5V37jCWrE5haKNXzz0WZUtVHjrpV76L1buANjwXMfT8w=="
     },
     "@fastify/busboy@2.1.1": {
       "integrity": "sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA=="
@@ -691,10 +688,10 @@
         "compare-func"
       ]
     },
-    "conventional-changelog-conventionalcommits@10.2.1": {
-      "integrity": "sha512-n4Kr1HFMTf3iMbES0TMxKIcYtUUv4rKqyQQp2JwfOEfFCOfGT3Tq4mCyJ8S9/YPyWhydjfKrrvnyl+gCjA+mJQ==",
+    "conventional-changelog-conventionalcommits@8.0.0": {
+      "integrity": "sha512-eOvlTO6OcySPyyyk8pKz2dP4jjElYunj9hn9/s0OB+gapTO8zwS9UQWrZ1pmF2hFs3vw1xhonOLGcGjy/zgsuA==",
       "dependencies": [
-        "@conventional-changelog/template"
+        "compare-func"
       ]
     },
     "conventional-changelog-writer@8.2.0": {
@@ -2366,7 +2363,7 @@
       "npm:@sebbo2002/semantic-release-jsr@^4.0.2",
       "npm:@semantic-release/exec@^7.1.0",
       "npm:@types/json-schema@^7.0.15",
-      "npm:conventional-changelog-conventionalcommits@^10.2.1",
+      "npm:conventional-changelog-conventionalcommits@8",
       "npm:fetch-mock-cache@^3.1.0",
       "npm:jest-get-type@^29.6.3",
       "npm:json-schema@0.4",

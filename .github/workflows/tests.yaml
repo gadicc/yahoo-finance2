@@ -22,6 +22,7 @@ jobs:
       - run: deno lint
       - run: deno task check
       - run: deno task schema:check
+      - run: deno task release:check-notes
 
       - name: Run tests, produce coverage
         run: deno task test --coverage
