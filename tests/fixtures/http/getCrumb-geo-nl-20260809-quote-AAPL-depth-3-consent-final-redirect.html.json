@@ -1,0 +1,20 @@
+{
+  "request": {
+    "url": "https://finance.yahoo.com/quote/AAPL?_guc_consent_skip=1786264418",
+    "method": "GET",
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 301,
+    "statusText": "Moved Permanently",
+    "headers": {
+      "content-type": "text/html",
+      "location": "https://finance.yahoo.com/quote/AAPL/"
+    },
+    "bodyText": ""
+  }
+}

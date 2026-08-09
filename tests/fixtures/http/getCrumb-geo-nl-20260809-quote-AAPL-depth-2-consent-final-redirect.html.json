@@ -1,0 +1,23 @@
+{
+  "request": {
+    "url": "https://finance.yahoo.com/quote/AAPL?guccounter=2",
+    "method": "GET",
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 307,
+    "statusText": "Temporary Redirect",
+    "headers": {
+      "content-type": "text/html; charset=utf-8",
+      "location": "https://guce.yahoo.com/consent?brandType=nonEu&gcrumb=VipIxNc&done=https%3A%2F%2Ffinance.yahoo.com%2Fquote%2FAAPL%3Fguccounter%3D2",
+      "set-cookie": [
+        "GUCS=AVYqSMTX; Max-Age=1800; Domain=.yahoo.com; Path=/; Secure"
+      ]
+    },
+    "bodyText": ""
+  }
+}

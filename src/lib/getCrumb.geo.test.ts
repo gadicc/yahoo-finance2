@@ -13,6 +13,7 @@ import {
 } from "../../scripts/capture-get-crumb-fixtures.ts";
 import { ExtendedCookieJar } from "./cookieJar.ts";
 import { _getCrumb } from "./getCrumb.ts";
+import defaultOptions from "./options/defaults.ts";
 
 interface TraceEntry {
   method: string;
@@ -29,7 +30,25 @@ interface GeoProfile {
 
 // Country captures are deliberately registered only after record, review,
 // compaction, and replay succeeds. The capture command prints the entry to add.
-const COMMITTED_PROFILES: GeoProfile[] = [];
+const COMMITTED_PROFILES: GeoProfile[] = [{
+  profile: "nl-20260809",
+  countryCode: "NL",
+  capturedAt: "2026-08-09",
+  expectedTrace: [
+    { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+    { method: "GET", host: "guce.yahoo.com", path: "/consent" },
+    { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+    { method: "GET", host: "guce.yahoo.com", path: "/consent" },
+    { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+    { method: "GET", host: "guce.yahoo.com", path: "/consent" },
+    { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+    {
+      method: "GET",
+      host: "query1.finance.yahoo.com",
+      path: "/v1/test/getcrumb",
+    },
+  ],
+}];
 
 const captureProfile = Deno.env.get("FETCH_DEVEL_GETCRUMB_PROFILE");
 const captureMode = Deno.env.get("FETCH_DEVEL_GETCRUMB_MODE");
@@ -94,11 +113,16 @@ describe("getCrumb geographic fixtures", () => {
         }));
         const logger = spyLogger();
         const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
+        const fetchOptions = {
+          ...defaultOptions.fetchOptions,
+          headers: { ...defaultOptions.fetchOptions?.headers },
+          devel,
+        };
 
         const crumb = await _getCrumb(
           cookieJar,
           profiledFetch,
-          { devel },
+          fetchOptions,
           logger,
           "https://finance.yahoo.com/quote/AAPL",
           devel,
@@ -113,6 +137,11 @@ describe("getCrumb geographic fixtures", () => {
           "https://finance.yahoo.com/quote/AAPL",
         );
         expect(yahooCookies.length).toBeGreaterThan(0);
+        expect(
+          new Headers(profiledFetch.calls[0].args[1]?.headers).get(
+            "user-agent",
+          ),
+        ).toMatch(/^Mozilla\/5\.0 \(compatible; yahoo-finance2\//);
 
         const trace = profiledFetch.calls.map((call) =>
           traceEntry(call.args[0], call.args[1])

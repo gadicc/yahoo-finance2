@@ -75,6 +75,12 @@ export async function _getCrumb(
         "). Please report.",
     );
   }
+  const consentFixtureId = (step: string) =>
+    `getCrumb-quote-AAPL-${depth > 0 ? `depth-${depth}-` : ""}${step}`;
+  const finalRedirectDepth = depth + 1;
+  const finalRedirectFixtureId = finalRedirectDepth === 1
+    ? "getCrumb-quote-AAPL-consent-final-redirect.html"
+    : `getCrumb-quote-AAPL-depth-${finalRedirectDepth}-consent-final-redirect.html`;
   const state = crumbState(cookieJar);
   if (!state.crumb) {
     const cookies = await cookieJar.getCookies(CONFIG_FAKE_URL);
@@ -125,6 +131,41 @@ export async function _getCrumb(
     };
   }
 
+  async function followConsentReturn(location: string) {
+    const returnUrl = new URL(location, url);
+    if (returnUrl.origin !== new URL(url).origin) {
+      throw new Error("Unexpected redirect to " + returnUrl.href);
+    }
+
+    const finalResponseFetchOptions: typeof fetchOptions = {
+      ...fetchOptions,
+      headers: {
+        ...fetchOptions.headers,
+        cookie: await cookieJar.getCookieString(returnUrl.href),
+      },
+      devel: {
+        id: finalRedirectFixtureId,
+        t: develOverride!.t,
+        onFinish: develOverride!.onFinish!,
+      },
+    };
+
+    return await _getCrumb(
+      cookieJar,
+      fetch,
+      finalResponseFetchOptions,
+      logger,
+      returnUrl.href,
+      {
+        id: finalRedirectFixtureId,
+        t: develOverride!.t,
+        onFinish: develOverride!.onFinish,
+      },
+      noCache,
+      depth + 1,
+    );
+  }
+
   const response = await fetch(url, fetchOptions);
   await processSetCookieHeader(getSetCookieHeaders(response.headers), url);
 
@@ -142,7 +183,7 @@ export async function _getCrumb(
           cookie: await cookieJar.getCookieString(location),
         },
         devel: {
-          id: "getCrumb-quote-AAPL-consent.html",
+          id: consentFixtureId("consent.html"),
           t: develOverride!.t,
           onFinish: develOverride!.onFinish!,
         },
@@ -150,11 +191,15 @@ export async function _getCrumb(
       // Returns 302 to collectConsent?sessionId=XXX
       logger.debug("fetch", location /*, consentFetchOptions */);
       const consentResponse = await fetch(location, consentFetchOptions);
+      await processSetCookieHeader(
+        getSetCookieHeaders(consentResponse.headers),
+        location,
+      );
       const consentLocation = consentResponse.headers.get("location");
 
       if (consentLocation) {
         if (!consentLocation.match(/collectConsent/)) {
-          throw new Error("Unexpected redirect to " + consentLocation);
+          return await followConsentReturn(consentLocation);
         }
 
         const collectConsentFetchOptions: typeof fetchOptions = {
@@ -164,7 +209,7 @@ export async function _getCrumb(
             cookie: await cookieJar.getCookieString(consentLocation),
           },
           devel: {
-            id: "getCrumb-quote-AAPL-collectConsent.html",
+            id: consentFixtureId("collectConsent.html"),
             t: develOverride!.t,
             onFinish: develOverride!.onFinish!,
           },
@@ -202,7 +247,7 @@ export async function _getCrumb(
           // body: "csrfToken=XjJfOYU&sessionId=3_cc-session_bd9a3b0c-c1b4-4aa8-8c18-7a82ec68a5d5&originalDoneUrl=https%3A%2F%2Ffinance.yahoo.com%2Fquote%2FAAPL%3Fguccounter%3D1&namespace=yahoo&agree=agree&agree=agree",
           body: collectConsentResponseParams,
           devel: {
-            id: "getCrumb-quote-AAPL-collectConsentSubmit",
+            id: consentFixtureId("collectConsentSubmit"),
             t: develOverride!.t,
             onFinish: develOverride!.onFinish!,
           },
@@ -246,7 +291,7 @@ export async function _getCrumb(
             ),
           },
           devel: {
-            id: "getCrumb-quote-AAPL-copyConsent",
+            id: consentFixtureId("copyConsent"),
             t: develOverride!.t,
             onFinish: develOverride!.onFinish!,
           },
@@ -281,35 +326,7 @@ export async function _getCrumb(
           );
         }
 
-        const finalResponseFetchOptions: typeof fetchOptions = {
-          ...fetchOptions,
-          headers: {
-            ...fetchOptions.headers,
-            cookie: await cookieJar.getCookieString(
-              collectConsentSubmitResponseLocation,
-            ),
-          },
-          devel: {
-            id: "getCrumb-quote-AAPL-consent-final-redirect.html",
-            t: develOverride!.t,
-            onFinish: develOverride!.onFinish!,
-          },
-        };
-
-        return await _getCrumb(
-          cookieJar,
-          fetch,
-          finalResponseFetchOptions,
-          logger,
-          copyConsentResponseLocation,
-          {
-            id: "getCrumb-quote-AAPL-consent-final-redirect.html",
-            t: develOverride!.t,
-            onFinish: develOverride!.onFinish,
-          },
-          noCache,
-          depth + 1,
-        );
+        return await followConsentReturn(copyConsentResponseLocation);
       }
     } else {
       // These seems to happen frequently without causing issues.

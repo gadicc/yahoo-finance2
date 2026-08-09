@@ -72,6 +72,7 @@ describe("getCrumb fixture capture helpers", () => {
       "getCrumb-quote-AAPL-collectConsentSubmit",
       "getCrumb-quote-AAPL-copyConsent",
       "getCrumb-quote-AAPL-consent-final-redirect.html",
+      "getCrumb-quote-AAPL-depth-2-consent.html",
       "getCrumb-getcrumb",
     ];
 

@@ -1,0 +1,26 @@
+{
+  "request": {
+    "url": "https://guce.yahoo.com/consent?brandType=nonEu&gcrumb=BQyE-EQ&done=https%3A%2F%2Ffinance.yahoo.com%2Fquote%2FAAPL",
+    "method": "GET",
+    "headers": {
+      "accept": "text/html,application/xhtml+xml,application/xml",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
+    }
+  },
+  "response": {
+    "ok": false,
+    "status": 302,
+    "statusText": "Found",
+    "headers": {
+      "location": "https://finance.yahoo.com/quote/AAPL?guccounter=1",
+      "set-cookie": [
+        "GUC=AQEBCAFqeYlqr0IkgQT_&s=AQAAABGbohTp&g=ang7Tg; Expires=Mon, 9 Aug 2027 20:32:22 GMT; Domain=yahoo.com; Path=/; Secure",
+        "A1=d=AQABBEQ7eGoCEI6OjSOf_g_rq6GFkb-ty9AFEgEBCAGJeWqvah6kxyMA_eMDAAcIRDt4avS-Mfo&S=AQAAAiymIm1k3qj36eNMJNXS6MM; Expires=Mon, 9 Aug 2027 08:33:08 GMT; Max-Age=31536000; Domain=.yahoo.com; Path=/; SameSite=Lax; Secure; HttpOnly",
+        "A3=d=AQABBEQ7eGoCEI6OjSOf_g_rq6GFkb-ty9AFEgEBCAGJeWqvah6kxyMA_eMDAAcIRDt4avS-Mfo&S=AQAAAiymIm1k3qj36eNMJNXS6MM; Expires=Mon, 9 Aug 2027 08:33:08 GMT; Max-Age=31536000; Domain=.yahoo.com; Path=/; SameSite=None; Secure; HttpOnly",
+        "A1S=d=AQABBEQ7eGoCEI6OjSOf_g_rq6GFkb-ty9AFEgEBCAGJeWqvah6kxyMA_eMDAAcIRDt4avS-Mfo&S=AQAAAiymIm1k3qj36eNMJNXS6MM; Domain=.yahoo.com; Path=/; SameSite=Lax; Secure",
+        "OTHD=EMPTY; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Domain=.yahoo.com; Path=; Secure; HttpOnly"
+      ]
+    },
+    "bodyText": ""
+  }
+}

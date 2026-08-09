@@ -68,6 +68,137 @@ describe("getCrumb", () => {
       expect(crumb).toBe("haT3oykhHqZ");
     });
 
+    it("follows a direct consent return to Yahoo Finance", async () => {
+      const calls: Array<{
+        url: string;
+        cookie: string | null;
+        fixtureId?: string;
+      }> = [];
+      const directConsentFetch = (
+        input: Parameters<typeof fetch>[0],
+        init?: Parameters<typeof fetch>[1],
+      ): Promise<Response> => {
+        const url = input instanceof Request ? input.url : String(input);
+        calls.push({
+          url,
+          cookie: new Headers(init?.headers).get("cookie"),
+          fixtureId: (init as RequestInit & {
+            devel?: { id?: string };
+          })?.devel?.id,
+        });
+
+        if (url === "https://finance.yahoo.com/quote/AAPL") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 307,
+              headers: {
+                location: "https://guce.yahoo.com/consent?step=1",
+                "set-cookie":
+                  "GUCS=consent-session; Max-Age=1800; Domain=.yahoo.com; Path=/; Secure",
+              },
+            }),
+          );
+        }
+        if (url === "https://guce.yahoo.com/consent?step=1") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 302,
+              headers: {
+                location: "https://finance.yahoo.com/quote/AAPL?guccounter=1",
+                "set-cookie":
+                  "A1=consented; Max-Age=1800; Domain=.yahoo.com; Path=/; Secure",
+              },
+            }),
+          );
+        }
+        if (url === "https://finance.yahoo.com/quote/AAPL?guccounter=1") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 307,
+              headers: {
+                location: "https://guce.yahoo.com/consent?step=2",
+              },
+            }),
+          );
+        }
+        if (url === "https://guce.yahoo.com/consent?step=2") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 302,
+              headers: {
+                location: "https://finance.yahoo.com/quote/AAPL?guccounter=2",
+              },
+            }),
+          );
+        }
+        if (url === "https://finance.yahoo.com/quote/AAPL?guccounter=2") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 307,
+              headers: {
+                location: "https://guce.yahoo.com/consent?step=3",
+              },
+            }),
+          );
+        }
+        if (url === "https://guce.yahoo.com/consent?step=3") {
+          return Promise.resolve(
+            new Response(null, {
+              status: 302,
+              headers: {
+                location:
+                  "https://finance.yahoo.com/quote/AAPL?_guc_consent_skip=1",
+              },
+            }),
+          );
+        }
+        if (
+          url === "https://finance.yahoo.com/quote/AAPL?_guc_consent_skip=1"
+        ) {
+          return Promise.resolve(new Response("", { status: 200 }));
+        }
+        if (url === "https://query1.finance.yahoo.com/v1/test/getcrumb") {
+          return Promise.resolve(new Response("nl-crumb", { status: 200 }));
+        }
+        throw new Error("Unexpected test request to " + url);
+      };
+
+      const crumb = await _getCrumb(
+        new ExtendedCookieJar(),
+        directConsentFetch,
+        {},
+        logger,
+        "https://finance.yahoo.com/quote/AAPL",
+        {},
+        true,
+      );
+
+      expect(crumb).toBe("nl-crumb");
+      expect(calls.map((call) => call.url)).toEqual([
+        "https://finance.yahoo.com/quote/AAPL",
+        "https://guce.yahoo.com/consent?step=1",
+        "https://finance.yahoo.com/quote/AAPL?guccounter=1",
+        "https://guce.yahoo.com/consent?step=2",
+        "https://finance.yahoo.com/quote/AAPL?guccounter=2",
+        "https://guce.yahoo.com/consent?step=3",
+        "https://finance.yahoo.com/quote/AAPL?_guc_consent_skip=1",
+        "https://query1.finance.yahoo.com/v1/test/getcrumb",
+      ]);
+      expect(calls.map((call) => call.fixtureId)).toEqual([
+        undefined,
+        "getCrumb-quote-AAPL-consent.html",
+        "getCrumb-quote-AAPL-consent-final-redirect.html",
+        "getCrumb-quote-AAPL-depth-1-consent.html",
+        "getCrumb-quote-AAPL-depth-2-consent-final-redirect.html",
+        "getCrumb-quote-AAPL-depth-2-consent.html",
+        "getCrumb-quote-AAPL-depth-3-consent-final-redirect.html",
+        "getCrumb-getcrumb",
+      ]);
+      expect(calls[1].cookie).toContain("GUCS=consent-session");
+      expect(calls[2].cookie).toContain("A1=consented");
+      expect(calls[7].cookie).toContain("A1=consented");
+    });
+
     it("throws on no cookies", async (t, onFinish) => {
       const devel = { id: "getCrumb-quote-AAPL-no-cookies.fake", t, onFinish };
 
