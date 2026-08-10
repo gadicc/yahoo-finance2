@@ -31,7 +31,10 @@
       "type": "object",
       "properties": {
         "currency": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "symbol": {
           "type": "string"
@@ -158,7 +161,6 @@
         }
       },
       "required": [
-        "currency",
         "symbol",
         "exchangeName",
         "instrumentType",

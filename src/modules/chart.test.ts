@@ -91,6 +91,20 @@ describe("chart", () => {
     );
   });
 
+  it("handles null currency field", async () => {
+    await yf.chart(
+      "LUCYW",
+      {
+        period1: "2024-01-01",
+        period2: "2024-01-02",
+        return: "object",
+      },
+      {
+        devel: "chart-LUCYW-null-currency.json",
+      },
+    );
+  });
+
   describe("specific cases", () => {
     it("optional fields, empty arrays", async (t, onFinish) => {
       /*
