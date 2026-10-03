@@ -202,8 +202,9 @@ types.
    [tests/testSymbols.ts](https://github.com/gadicc/node-yahoo-finance2/blob/devel/tests/testSymbols.ts)
    for symbols tested with all modules.
 
-1. Run `deno task test` or `yarn task test <moduleName>`, as relevant. The API
-   call will be made and cached locally. The test will fail as expected.
+1. Run `deno task test` or `deno task test src/modules/<moduleName>.test.ts`, as
+   relevant. The API call will be made and cached locally. The test will fail as
+   expected.
 
 1. **Inspect the error and update the typescript interface in the relevant
    module(s).**
@@ -246,8 +247,10 @@ b) The error occured in `topHoldings`
 c) The issue is that it `"must have required property 'stockPosition'"` but
 didn't (you can see the exact response in `data`)
 
-So, we can fix this by making `stockPosition` optional by adding a `?` to its
-interface entry. Modify `src/modules/quoteSummary-iface.ts`:
+First confirm this is a successful Yahoo response, rather than an HTTP/API error
+or transient failure. If successful fixtures show `stockPosition` present in
+some `topHoldings` responses and absent in others, we can make it optional by
+adding a `?` to its interface entry. Modify `src/modules/quoteSummary-iface.ts`:
 
 ```diff
 export interface TopHoldings {
@@ -262,8 +265,10 @@ export interface TopHoldings {
 
 Now let's test our fix.
 
-1. Run `deno task schema` to rebuild the schema (done for you automatically if
-   your'e using vscode)
+1. Run `deno task schema src/modules/quoteSummary-iface.ts` to rebuild the
+   schema. Explicit filenames force regeneration. Include any files that import
+   changed types, or use `deno task schema --force`: the timestamp check does
+   not track imported type dependencies.
 
 1. Re-run `deno task test` and make sure the test now passes.
 
@@ -277,3 +282,7 @@ Now let's test our fix.
 1. `git push`
 
 1. Go back to GitHub and GitHub will suggest to open a pull request.
+
+See
+[Repairing failures after recaching](../CONTRIBUTING.md#repairing-failures-after-recaching)
+for the full workflow, including the boundary for automated type/schema repairs.

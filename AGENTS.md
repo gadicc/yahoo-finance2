@@ -49,7 +49,33 @@ are most likely to need during edits.
   tests that cover the Yahoo response shape involved.
 - When Yahoo adds a response field, model it as required first. Make it optional
   only when other cached valid responses demonstrate that the field is absent,
-  and add descriptive JSDoc for newly exposed fields.
+  and add descriptive JSDoc when its meaning is clear. Do not guess semantics.
+
+### Repairing failures after recaching
+
+- Inspect failures and fixture HTTP status/payload before editing interfaces.
+  Separate response-shape drift from HTTP/API errors, changed assertions, and
+  runtime behavior issues. Do not loosen types to accommodate an error response.
+- Keep types tight: use concrete types and observed literal unions. Add `?` only
+  with successful fixture evidence of omission in the same response shape;
+  distinguish omission from `null`, empty objects, and empty arrays. Check
+  older, static, and fake fixtures as well as the newly recached fixtures, and
+  record representative filenames in the change description.
+- Edit TypeScript interfaces, then regenerate every affected schema **before**
+  retrying tests. The generator's timestamp check does not track imported type
+  dependencies. Explicit file arguments force regeneration, e.g.
+  `deno task schema src/modules/quote.ts src/modules/options.ts`; alternatively
+  run `deno task schema --force` to regenerate all schemas. Also test consumers
+  of shared schemas, such as historical after chart changes.
+- Automated fixture repair is limited to interfaces and generated schemas. If a
+  failure needs runtime code, test expectations, or fixture changes, stop that
+  particular repair, report the evidence and proposed action to the operator,
+  and await feedback. Continue independent type/schema fixes while waiting and
+  check for feedback before finishing. Do not disable validation or broaden a
+  type simply to make a test pass.
+- Replay focused cached tests first, then the full suite. Inspect generated
+  schema diffs and final Git status; do not recache again as part of
+  verification.
 
 ## Editing Guidelines
 

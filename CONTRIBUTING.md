@@ -65,6 +65,14 @@ runs `deno task schema:check` and will fail your PR if committed `.schema.json`
 files don't match the interfaces — run `deno task schema` before committing
 interface changes.
 
+The timestamp check does not track imported type dependencies. Regenerate all
+affected files before retrying tests: explicit file arguments force
+regeneration, for example
+`deno task schema src/modules/quote.ts src/modules/options.ts` after changing
+shared quote types. Use `deno task schema --force` to regenerate all schemas
+when the dependencies are uncertain. Test consumers of shared schemas too, such
+as historical when chart's schema changes.
+
 <a name="testing"></a>
 
 ### Testing
@@ -96,10 +104,48 @@ rewrite the cache for any failing tests. In both cases, skipped for ids ending
 `.static` or `.fake`, which are fixtures we never want to update because they
 rely on time-sensitive data or made up data, respectively.
 
-You can also simply delete a test file to force its recreation on the next test
-run, just make sure not to delete `.static.json` or `.fake.json` files, and
+You can also simply delete a fixture file to force its recreation on the next
+test run, just make sure not to delete `.static.json` or `.fake.json` files, and
 consider if anything actually changed that justifies committing the new file to
 the repo.
+
+#### Repairing failures after recaching
+
+Inspect the fixture's HTTP status and payload first. Separate valid response
+shape changes from rate limits, consent pages, other HTTP/API errors, changed
+assertions, and runtime behavior issues. A delisted symbol returning 404 needs a
+decision about test coverage; it is not evidence that successful response fields
+are optional.
+
+Use `FETCH_DEVEL=recache deno task test:recache` for live recaching. This runner
+processes test files sequentially. The cache's network fetch wrapper serializes
+requests across library instances within each file, including cookie/crumb
+requests, with at least three seconds between request starts. Set
+`FETCH_DEVEL_RECACHE_INTERVAL` in milliseconds to change the delay. Cached
+responses remain immediate. A live HTTP 429 is rejected before writing a fixture
+and stops the run, even if the current test catches the error. The workflow also
+checks the log and changed/new fixtures before staging, committing, or pushing
+any fixture changes. Other test failures continue to capture response drift.
+
+For valid response changes, edit the TypeScript interfaces and regenerate every
+affected schema before retrying tests. Keep concrete types and observed literal
+unions. Model new fields as required first, and use `?` only when successful
+fixtures for the same response shape demonstrate omission. Check existing,
+static, and fake fixtures too; distinguish omission from `null`, empty objects,
+and empty arrays. Record representative fixture filenames in the change
+description. Add JSDoc for new fields when their meaning is clear, without
+guessing units or semantics.
+
+Agents repairing recached fixtures should automatically change only interfaces
+and generated schemas. If a failure requires runtime code, test expectations, or
+fixture changes, report the evidence and proposed action and await operator
+feedback for that repair. Continue independent type/schema fixes while waiting,
+and check for feedback before finishing. Do not bypass validation to make tests
+pass.
+
+Replay focused cached tests, including affected schema consumers, then run the
+full suite. Inspect schema diffs and final Git status. Do not recache again as
+part of verifying a type/schema fix.
 
 #### Country-specific getCrumb fixtures
 
