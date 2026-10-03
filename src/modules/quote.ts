@@ -308,6 +308,15 @@ export interface QuoteBase {
   /** Regular market session current/last price */
   regularMarketPrice?: number; // 543.64,
 
+  /** Full-day price reported by Yahoo. */
+  fulldayPrice?: number;
+
+  /** Full-day price change reported by Yahoo. */
+  fulldayChange?: number;
+
+  /** Full-day percentage change reported by Yahoo. */
+  fulldayChangePercent?: number;
+
   /** Regular market session day high */
   regularMarketDayHigh?: number; // 549.19,
 

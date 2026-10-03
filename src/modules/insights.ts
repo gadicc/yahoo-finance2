@@ -206,7 +206,8 @@ export interface InsightsEvent {
   [key: string]: unknown;
   eventType: string;
   pricePeriod: string;
-  tradingHorizon: string;
+  /** Trading horizon classification, when supplied for the event. */
+  tradingHorizon?: string;
   tradeType: string;
   imageUrl: string;
   startDate: Date;

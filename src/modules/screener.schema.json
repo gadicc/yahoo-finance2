@@ -221,6 +221,15 @@
         "regularMarketPrice": {
           "type": "number"
         },
+        "fulldayPrice": {
+          "type": "number"
+        },
+        "fulldayChange": {
+          "type": "number"
+        },
+        "fulldayChangePercent": {
+          "type": "number"
+        },
         "regularMarketDayHigh": {
           "type": "number"
         },
@@ -496,6 +505,9 @@
         "regularMarketChange",
         "regularMarketTime",
         "regularMarketPrice",
+        "fulldayPrice",
+        "fulldayChange",
+        "fulldayChangePercent",
         "currency",
         "regularMarketPreviousClose",
         "market",
@@ -554,6 +566,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -896,6 +911,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -1080,6 +1098,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -1264,6 +1285,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -1448,6 +1472,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -1755,6 +1782,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -2062,6 +2092,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -2615,6 +2648,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",
@@ -2799,6 +2835,9 @@
               "items": {
                 "type": "string",
                 "enum": [
+                  "full_day_price",
+                  "full_day_change",
+                  "full_day_change_percent",
                   "change_in_number_of_institutional_holders",
                   "trading_central_last_close_price_to_fair_value",
                   "intradaypricechange",

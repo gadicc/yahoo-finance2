@@ -325,6 +325,12 @@ export interface ScreenerResultConservativeForeignFunds
 }
 
 type ScreenerCriteriaFieldDaily =
+  /** Full-day price criterion reported by Yahoo. */
+  | "full_day_price"
+  /** Full-day price change criterion reported by Yahoo. */
+  | "full_day_change"
+  /** Full-day percentage change criterion reported by Yahoo. */
+  | "full_day_change_percent"
   | "change_in_number_of_institutional_holders"
   | "trading_central_last_close_price_to_fair_value"
   | "intradaypricechange"
@@ -542,6 +548,12 @@ export interface ScreenerQuote {
   regularMarketChange: number;
   regularMarketTime: number;
   regularMarketPrice: number;
+  /** Full-day price reported by Yahoo. */
+  fulldayPrice: number;
+  /** Full-day price change reported by Yahoo. */
+  fulldayChange: number;
+  /** Full-day percentage change reported by Yahoo. */
+  fulldayChangePercent: number;
   regularMarketDayHigh?: number;
   regularMarketDayRange?: string;
   currency: string;

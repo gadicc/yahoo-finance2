@@ -199,6 +199,14 @@ export interface ChartMeta {
   timezone: string; /// "EST",
   exchangeTimezoneName: string; // "America/New_York",
   regularMarketPrice: number; // 160.55,
+  /** Percentage change in the regular market price reported by Yahoo. */
+  regularMarketChangePercent?: number;
+  /** Full-day price reported by Yahoo. */
+  fulldayPrice?: number;
+  /** Full-day price change reported by Yahoo. */
+  fulldayChange?: number;
+  /** Full-day percentage change reported by Yahoo. */
+  fulldayChangePercent?: number;
   chartPreviousClose?: number; // 79.75; missing in e.g. "APS.AX"
   previousClose?: number; // 1137.06
   regularMarketDayHigh?: number; // 226.8

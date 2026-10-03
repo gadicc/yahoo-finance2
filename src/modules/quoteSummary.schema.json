@@ -2070,6 +2070,9 @@
           "type": "string",
           "format": "date-time"
         },
+        "positionSummary": {
+          "type": "number"
+        },
         "positionSummaryDate": {
           "type": "string",
           "format": "date-time"
@@ -2325,6 +2328,15 @@
           "format": "date-time"
         },
         "regularMarketPrice": {
+          "type": "number"
+        },
+        "fulldayPrice": {
+          "type": "number"
+        },
+        "fulldayChange": {
+          "type": "number"
+        },
+        "fulldayChangePercent": {
           "type": "number"
         },
         "regularMarketDayHigh": {
@@ -2708,6 +2720,15 @@
         "priceHint": {
           "type": "number"
         },
+        "fulldayPrice": {
+          "type": "number"
+        },
+        "fulldayChange": {
+          "type": "number"
+        },
+        "fulldayChangePercent": {
+          "type": "number"
+        },
         "previousClose": {
           "type": "number"
         },
@@ -2901,6 +2922,7 @@
       "required": [
         "maxAge",
         "priceHint",
+        "fulldayPrice",
         "currency",
         "algorithm",
         "tradeable",

@@ -615,6 +615,8 @@ export interface Holder {
   positionDirectDate?: Date;
   positionIndirect?: number;
   positionIndirectDate?: Date;
+  /** Summary share position reported for the holder. */
+  positionSummary?: number;
   positionSummaryDate?: Date;
 }
 
@@ -708,6 +710,12 @@ export interface Price {
   regularMarketChange?: number;
   regularMarketTime?: Date;
   regularMarketPrice?: number;
+  /** Full-day price reported by Yahoo. */
+  fulldayPrice?: number;
+  /** Full-day price change reported by Yahoo. */
+  fulldayChange?: number;
+  /** Full-day percentage change reported by Yahoo. */
+  fulldayChangePercent?: number;
   regularMarketDayHigh?: number;
   regularMarketDayLow?: number;
   regularMarketVolume?: number;
@@ -879,6 +887,12 @@ export interface SummaryDetail {
   [key: string]: unknown;
   maxAge: number;
   priceHint: number;
+  /** Full-day price reported by Yahoo. */
+  fulldayPrice: number;
+  /** Full-day price change reported by Yahoo. */
+  fulldayChange?: number;
+  /** Full-day percentage change reported by Yahoo. */
+  fulldayChangePercent?: number;
   previousClose?: number; // missing in e.g. "APS.AX"
   open?: number;
   dayLow?: number;
