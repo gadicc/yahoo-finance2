@@ -22,7 +22,6 @@ describe("recommendationsBySymbol", () => {
     const symbols = testSymbols({
       skip: [
         // 404 Not Found
-        "ADH",
         "BTC-USD",
         "GC=F",
         "APS.AX",

@@ -28,7 +28,6 @@ describe("historical", () => {
       "SIMP",
       "^VXAPL",
       "APS.AX", // Not Found
-      "ADH", // Not found
       "SIX", // Not found
       "SI", // Not found
       "SWVXX", // BadRequestError: Data doesn't exist for startDate = 1577836800, endDate = 1578009600

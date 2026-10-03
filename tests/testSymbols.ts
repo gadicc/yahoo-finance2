@@ -1,12 +1,10 @@
 const commonSymbols = [
   "AAPL", // NMS (Nasdaq)
-  "ADH", // Mutual fund, YHD
   "AFRAF", // PNK
   "AMZN", // NMS (Nasdaq)
   "AZT.OL", // Far less properties than other symbols (#42), OSL
   "BEKE", // NYSE
   "BFLY", // NYSE
-  "WSKT.JK", // JKT
   "SPOT", // NMS (Nasdaq)
   "GOOG", // NMS (Nasdaq)
   // "UNIR.MI", // FTSE MIB // delisted.

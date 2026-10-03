@@ -20,7 +20,6 @@ describe("chart", () => {
 
   const symbols = testSymbols({
     skip: [
-      "ADH", // currency: null; Yahoo-finance does show a chart though, should we allow this?
       "BEKE", // BadRequestError: Data doesn't exist for startDate = 1577836800, endDate = 1578009600
       "BFLY", // BadRequestError: Data doesn't exist for startDate = 1577836800, endDate = 1578009600
       "^VXAPL", // firstTradeDate: null; Yahoo-finance shows an empty chart even though there's some data.
