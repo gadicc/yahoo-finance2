@@ -98,6 +98,12 @@ replayed, while a cache miss makes a live request and records a new fixture.
 This is what creates a fixture when a test is first added or after its existing
 fixture is deleted.
 
+Use `deno task test:replay` to verify a cache-only baseline. It sets
+fetch-mock-cache's native `FMC_CACHE_MODE=replay`, fails on missing fixtures,
+and denies network access and fixture writes. The recache workflow runs this
+baseline before requesting fresh responses. Normal development tests retain
+`auto` mode so new fixtures can still be recorded.
+
 Set the environment variable `FETCH_DEVEL=nocache` to force-run all network
 tests without the cache. Set `FETCH_DEVEL=recache` to do the same, but also
 rewrite the cache for any failing tests. In both cases, skipped for ids ending
@@ -126,6 +132,27 @@ responses remain immediate. A live HTTP 429 is rejected before writing a fixture
 and stops the run, even if the current test catches the error. The workflow also
 checks the log and changed/new fixtures before staging, committing, or pushing
 any fixture changes. Other test failures continue to capture response drift.
+
+Within each test file, identical successful Yahoo data GET requests reuse the
+fresh response in memory. Every test still executes its own assertions and
+fixture-write decision, so a later failure can retain a capture even if an
+earlier test passed. Matching includes query parameters, headers, live cookies
+and crumbs, and fetch options. Cookie/crumb/consent flows, POSTs, HTTP errors,
+and responses setting cookies are never reused. Captures do not cross test-file
+boundaries. Requests that explicitly disable caching or require refresh are also
+fetched separately.
+
+The runner reports network attempts, reused requests, and HTTP/network-error
+outcomes by endpoint family in its log and the GitHub job summary, including
+when a 429 aborts the run. Symbol paths are grouped, and query strings, cookies,
+and payloads are omitted from these counters. Counts are cumulative per file;
+only the final snapshot is added to the aggregate.
+
+To run the offline subprocess checks for replay mode, aggregate counters, and
+rate-limit termination, use
+`deno task test scripts/recache-tests.test.ts --allow-run=deno --allow-write=/tmp`.
+These checks are skipped by the normal permission set; they use temporary test
+files and synthetic responses rather than live Yahoo requests.
 
 For valid response changes, edit the TypeScript interfaces and regenerate every
 affected schema before retrying tests. Keep concrete types and observed literal

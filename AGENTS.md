@@ -18,6 +18,8 @@ are most likely to need during edits.
 ## Commands
 
 - Run the full test suite with `deno task test`.
+- Run `deno task test:replay` for a cache-only baseline that fails on missing
+  fixtures and denies live network requests and fixture writes.
 - Run a targeted test with `deno task test path/to/file.test.ts`.
 - Run serial tests with `deno task test:serial path/to/file.test.ts` when
   debugging or limiting live Yahoo request concurrency.
