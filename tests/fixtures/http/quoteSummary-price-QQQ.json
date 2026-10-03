@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/QQQ?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/QQQ?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "1",
+      "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "1088",
+      "content-length": "1016",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:21 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:23 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "3n7ov9djrofaq"
+      "y-rid": "5jlvhkdlc1far"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,43 +34,41 @@
           {
             "price": {
               "maxAge": 1,
-              "preMarketChangePercent": 0.0055504534,
-              "preMarketChange": 2.919983,
-              "preMarketTime": 1740389693,
-              "preMarketPrice": 529,
               "preMarketSource": "FREE_REALTIME",
-              "postMarketChangePercent": -0.000251761,
-              "postMarketChange": -0.132446,
-              "postMarketTime": 1740185998,
-              "postMarketPrice": 525.948,
-              "postMarketSource": "FREE_REALTIME",
-              "regularMarketChangePercent": -0.02068013,
-              "regularMarketChange": -11.109985,
-              "regularMarketTime": 1740171600,
+              "postMarketChangePercent": -0.000026707663,
+              "postMarketChange": -0.020019531,
+              "postMarketTime": 1790985599,
+              "postMarketPrice": 749.56,
+              "postMarketSource": "DELAYED",
+              "regularMarketChangePercent": 0.0101748,
+              "regularMarketChange": 7.54999,
+              "regularMarketTime": 1790971200,
               "priceHint": 2,
-              "regularMarketPrice": 526.12,
-              "regularMarketDayHigh": 538.4,
-              "regularMarketDayLow": 525.71,
-              "regularMarketVolume": 47093750,
-              "regularMarketPreviousClose": 537.23,
+              "regularMarketPrice": 749.58,
+              "regularMarketDayHigh": 754.53,
+              "regularMarketDayLow": 747.535,
+              "regularMarketVolume": 34175024,
+              "regularMarketPreviousClose": 742.03,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 538.38,
+              "regularMarketOpen": 751.31,
+              "fulldayChangePercent": 0.0101748,
+              "fulldayChange": 7.54999,
+              "fulldayPrice": 749.56,
               "exchange": "NGM",
               "exchangeName": "NasdaqGM",
               "exchangeDataDelayedBy": 0,
-              "marketState": "PRE",
+              "marketState": "CLOSED",
               "quoteType": "ETF",
               "symbol": "QQQ",
               "underlyingSymbol": null,
               "shortName": "Invesco QQQ Trust, Series 1",
               "longName": "Invesco QQQ Trust",
               "currency": "USD",
-              "quoteSourceName": "Nasdaq Real Time Price",
+              "quoteSourceName": "Delayed Quote",
               "currencySymbol": "$",
               "fromCurrency": null,
               "toCurrency": null,
-              "lastMarket": null,
-              "marketCap": 206817771520
+              "lastMarket": null
             }
           }
         ],

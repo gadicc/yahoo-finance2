@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/GC=F?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1123",
+      "content-length": "1233",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:31 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:28 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "2",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4t88b2ljrj83r"
+      "y-rid": "7r5r6i1lc1eik"
     },
     "bodyJson": {
       "chart": {
@@ -39,38 +39,42 @@
               "fullExchangeName": "COMEX",
               "instrumentType": "FUTURE",
               "firstTradeDate": 967608000,
-              "regularMarketTime": 1740172211,
+              "regularMarketTime": 1790974798,
               "hasPrePostMarketData": false,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 2931,
-              "fiftyTwoWeekHigh": 2964.7,
-              "fiftyTwoWeekLow": 2024.8,
-              "regularMarketDayHigh": 2964.7,
-              "regularMarketDayLow": 2930.1,
-              "regularMarketVolume": 155562,
-              "shortName": "Gold Apr 25",
+              "regularMarketPrice": 4162.3,
+              "regularMarketChangePercent": -0.952,
+              "fulldayPrice": 4162.3,
+              "fulldayChange": -40,
+              "fulldayChangePercent": -0.952,
+              "fiftyTwoWeekHigh": 5586.2,
+              "fiftyTwoWeekLow": 3901.3,
+              "regularMarketDayHigh": 4259,
+              "regularMarketDayLow": 4153.8,
+              "regularMarketVolume": 164881,
+              "shortName": "Gold Dec 26",
               "chartPreviousClose": 1519.5,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740114000,
-                  "end": 1740114000,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790913600,
+                  "end": 1790913600,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740114000,
-                  "end": 1740200340,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790913600,
+                  "end": 1790999940,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740200340,
-                  "end": 1740200340,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790999940,
+                  "end": 1790999940,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -95,20 +99,20 @@
             "indicators": {
               "quote": [
                 {
-                  "close": [
-                    1524.5
-                  ],
-                  "low": [
-                    1518
-                  ],
                   "open": [
                     1518.0999755859375
+                  ],
+                  "close": [
+                    1524.5
                   ],
                   "volume": [
                     214
                   ],
                   "high": [
                     1528.699951171875
+                  ],
+                  "low": [
+                    1518
                   ]
                 }
               ],

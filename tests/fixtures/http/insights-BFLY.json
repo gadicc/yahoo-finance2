@@ -3,7 +3,7 @@
     "url": "https://query2.finance.yahoo.com/ws/insights/v2/finance/insights?lang=en-US&region=US&getAllResearchReports=true&reportsCount=2&symbol=BFLY",
     "method": "GET",
     "headers": {
-      "cookie": "dflow=477",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,18 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 11 Jul 2026 09:30:50 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:39 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "15",
+      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "13",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "0ps1qndl543aa"
+      "y-rid": "6r770ktlc1eiv"
     },
     "bodyJson": {
       "finance": {
@@ -36,47 +37,47 @@
               "provider": "Trading Central",
               "sector": "Healthcare",
               "shortTermOutlook": {
-                "stateDescription": "Recent bearish events outweigh bullish events.",
-                "direction": "Bearish",
-                "score": 4,
-                "scoreDescription": "Very Strong Bearish Evidence",
+                "stateDescription": "Recent bullish events outweigh bearish events.",
+                "direction": "Bullish",
+                "score": 1,
+                "scoreDescription": "Weak Bullish Evidence",
                 "sectorDirection": "Bearish",
-                "sectorScore": 2,
-                "sectorScoreDescription": "Bearish Evidence",
+                "sectorScore": 4,
+                "sectorScoreDescription": "Very Strong Bearish Evidence",
                 "indexDirection": "Bullish",
-                "indexScore": 3,
-                "indexScoreDescription": "Strong Bullish Evidence"
+                "indexScore": 2,
+                "indexScoreDescription": "Bullish Evidence"
               },
               "intermediateTermOutlook": {
                 "stateDescription": "Recent bullish events outweigh bearish events.",
                 "direction": "Bullish",
                 "score": 2,
                 "scoreDescription": "Bullish Evidence",
-                "sectorDirection": "Bullish",
-                "sectorScore": 4,
-                "sectorScoreDescription": "Very Strong Bullish Evidence",
-                "indexDirection": "Bullish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "sectorDirection": "Bearish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Bearish",
+                "indexScore": 1,
+                "indexScoreDescription": "Weak Bearish Evidence"
               },
               "longTermOutlook": {
-                "stateDescription": "All events are bullish.",
+                "stateDescription": "There is one bullish event.",
                 "direction": "Bullish",
                 "score": 1,
                 "scoreDescription": "Weak Bullish Evidence",
                 "sectorDirection": "Bullish",
                 "sectorScore": 2,
                 "sectorScoreDescription": "Bullish Evidence",
-                "indexDirection": "Bullish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "indexDirection": "Neutral",
+                "indexScore": 0,
+                "indexScoreDescription": "No Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
               "support": 2.285,
-              "resistance": 8.91,
-              "stopLoss": 5.7293
+              "resistance": 9.1005,
+              "stopLoss": 7.183823
             },
             "valuation": {
               "color": 0,
@@ -89,8 +90,8 @@
             "sectorInfo": "Healthcare",
             "company": {
               "sustainability": 0.6983,
-              "insiderSentiments": 0.11630000000000001,
-              "earningsReports": 0.0709
+              "insiderSentiments": 0.0455,
+              "earningsReports": 0.051699999999999996
             },
             "sector": {
               "innovativeness": 0.5,
@@ -106,62 +107,132 @@
           },
           "events": [
             {
-              "eventType": "Relative Strength Index (RSI)",
-              "pricePeriod": "W",
-              "tradingHorizon": "I",
+              "eventType": "Wave 1",
+              "pricePeriod": "D",
               "tradeType": "S",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1783085400,
-              "endDate": 1783085400
+              "startDate": 1790170200,
+              "endDate": 1790861400
             }
           ],
           "reports": [
             {
-              "id": "47555_Top/Bottom Insider Activity_1783593022000",
+              "id": "ARGUS_47555_TopBottomInsiderActivity_1783593022000",
               "headHtml": "Daily – Vickers Top Buyers & Sellers for 07/09/2026",
               "provider": "Argus Research",
               "reportDate": "2026-07-09T10:30:22Z",
               "reportTitle": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+              "reportType": "Top/Bottom Insider Activity",
               "tickers": [
                 "HTO",
                 "PBF",
-                "PRQR",
                 "RH",
+                "PRQR",
                 "LRMR",
                 "ITUB",
                 "AVO",
                 "MERC",
                 "BFLY"
               ],
-              "title": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions."
+              "title": "Daily – Vickers Top Buyers & Sellers for 07/09/2026"
             },
             {
-              "id": "47543_Top/Bottom Insider Activity_1783508350000",
+              "id": "ARGUS_47543_TopBottomInsiderActivity_1783508350000",
               "headHtml": "Daily – Vickers Top Buyers & Sellers for 07/08/2026",
               "provider": "Argus Research",
               "reportDate": "2026-07-08T10:59:10Z",
               "reportTitle": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+              "reportType": "Top/Bottom Insider Activity",
               "tickers": [
-                "VMAR",
-                "RIG",
                 "SONY",
+                "RIG",
                 "CLBT",
                 "BBSI",
-                "EDBL",
                 "SHPH",
-                "BFLY",
-                "WHLR"
+                "BFLY"
               ],
-              "title": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions."
+              "title": "Daily – Vickers Top Buyers & Sellers for 07/08/2026"
             }
           ],
           "sigDevs": [
             {
-              "headline": "Butterfly Network Appoints Caroll H. Neubauer To Board Of Directors",
-              "date": "2026-05-08"
+              "headline": "Butterfly Network Q2 Revenue USD 32.6 Million Vs. IBES Estimate USD 29.4 Million",
+              "date": "2026-07-30"
             }
           ],
           "secReports": [
+            {
+              "id": "0001804176-26-000030_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1786406400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000030/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000030_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000030/bfly-20260805.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000030/bfly-20260811xexx991.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001804176-26-000027_1804176",
+              "type": "Periodic Financial Reports",
+              "title": "10-Q : Periodic Financial Reports",
+              "description": "Quarterly report pursuant to Section 13 or 15(d)",
+              "filingDate": 1785369600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000027/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000027_1804176",
+              "formType": "10-Q",
+              "exhibits": [
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000027/bfly-20260630.htm"
+                },
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000027/bfly-20260630xex101.htm"
+                },
+                {
+                  "type": "EX-31.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000027/bfly-20260630xex311.htm"
+                },
+                {
+                  "type": "EX-31.2",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000027/bfly-20260630xex312.htm"
+                },
+                {
+                  "type": "EX-32.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000027/bfly-20260630xex321.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001804176-26-000025_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1785369600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000025/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000025_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000025/bfly-20260730.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000025/bfly-20260730xexx991.htm"
+                }
+              ]
+            },
             {
               "id": "0001804176-26-000021_1804176",
               "type": "Corporate Changes & Voting Matters",
@@ -199,26 +270,6 @@
               ]
             },
             {
-              "id": "0001804176-26-000014_1804176",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1777507200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000014/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000014_1804176",
-              "formType": "8-K",
-              "exhibits": [
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000014/bfly-20260430xexx991.htm"
-                },
-                {
-                  "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000014/bfly-20260430.htm"
-                }
-              ]
-            },
-            {
               "id": "0001804176-26-000016_1804176",
               "type": "Periodic Financial Reports",
               "title": "10-Q : Periodic Financial Reports",
@@ -247,6 +298,26 @@
               ]
             },
             {
+              "id": "0001804176-26-000014_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1777507200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000014/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000014_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000014/bfly-20260430xexx991.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000014/bfly-20260430.htm"
+                }
+              ]
+            },
+            {
               "id": "0001140361-26-017120_1804176",
               "type": "Proxy Statements",
               "title": "DEFA14A : Proxy Statements",
@@ -259,22 +330,6 @@
                 {
                   "type": "DEFA14A",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036126017120/ny20068165x2_defa14a.htm"
-                }
-              ]
-            },
-            {
-              "id": "0001140361-26-017121_1804176",
-              "type": "Annual Report to Shareholders",
-              "title": "ARS : Annual Report to Shareholders",
-              "description": "Annual report to security holders",
-              "filingDate": 1777248000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000114036126017121/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001140361-26-017121_1804176",
-              "formType": "ARS",
-              "exhibits": [
-                {
-                  "type": "ARS",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036126017121/ny20068165x3_ars.pdf"
                 }
               ]
             },
@@ -295,34 +350,18 @@
               ]
             },
             {
-              "id": "0001804176-26-000011_1804176",
-              "type": "Offering Registrations",
-              "title": "S-8 : Offering Registrations",
-              "description": "Initial registration statement for securities to be offered to employees pursuant to employee benefit plans",
-              "filingDate": 1772150400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000011/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000011_1804176",
-              "formType": "S-8",
+              "id": "0001140361-26-017121_1804176",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1777248000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000114036126017121/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001140361-26-017121_1804176",
+              "formType": "ARS",
               "exhibits": [
                 {
-                  "type": "EX-23.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xex231.htm"
-                },
-                {
-                  "type": "EX-5.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xex51.htm"
-                },
-                {
-                  "type": "EX-FILING FEES",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/exfilingfees.htm"
-                },
-                {
-                  "type": "EX-FILING FEES",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/exfilingfees.htm"
-                },
-                {
-                  "type": "S-8",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xs8.htm"
+                  "type": "ARS",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036126017121/ny20068165x3_ars.pdf"
                 }
               ]
             },
@@ -363,6 +402,38 @@
                 {
                   "type": "EX-32.1",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000009/bfly-20251231xex321.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001804176-26-000011_1804176",
+              "type": "Offering Registrations",
+              "title": "S-8 : Offering Registrations",
+              "description": "Initial registration statement for securities to be offered to employees pursuant to employee benefit plans",
+              "filingDate": 1772150400000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417626000011/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-26-000011_1804176",
+              "formType": "S-8",
+              "exhibits": [
+                {
+                  "type": "EX-23.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xex231.htm"
+                },
+                {
+                  "type": "EX-5.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xex51.htm"
+                },
+                {
+                  "type": "EX-FILING FEES",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/exfilingfees.htm"
+                },
+                {
+                  "type": "EX-FILING FEES",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/exfilingfees.htm"
+                },
+                {
+                  "type": "S-8",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417626000011/bfly-20260227xs8.htm"
                 }
               ]
             },
@@ -439,6 +510,26 @@
               ]
             },
             {
+              "id": "0001804176-25-000008_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1761868800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417625000008/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-25-000008_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417625000008/bfly-20251031.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417625000008/bfly-20251031xexx991.htm"
+                }
+              ]
+            },
+            {
               "id": "0001804176-25-000011_1804176",
               "type": "Offering Registrations",
               "title": "S-8 : Offering Registrations",
@@ -507,26 +598,6 @@
                 {
                   "type": "10-Q",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417625000009/bfly-20250930.htm"
-                }
-              ]
-            },
-            {
-              "id": "0001804176-25-000008_1804176",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1761868800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000180417625000008/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001804176-25-000008_1804176",
-              "formType": "8-K",
-              "exhibits": [
-                {
-                  "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417625000008/bfly-20251031.htm"
-                },
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000180417625000008/bfly-20251031xexx991.htm"
                 }
               ]
             },
@@ -697,22 +768,6 @@
               ]
             },
             {
-              "id": "0001140361-25-016668_1804176",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1745971200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000114036125016668/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001140361-25-016668_1804176",
-              "formType": "DEFA14A",
-              "exhibits": [
-                {
-                  "type": "DEFA14A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036125016668/ny20046827x2_defa14a.htm"
-                }
-              ]
-            },
-            {
               "id": "0001140361-25-016669_1804176",
               "type": "Annual Report to Shareholders",
               "title": "ARS : Annual Report to Shareholders",
@@ -729,6 +784,22 @@
               ]
             },
             {
+              "id": "0001140361-25-016668_1804176",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1745971200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000114036125016668/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001140361-25-016668_1804176",
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036125016668/ny20046827x2_defa14a.htm"
+                }
+              ]
+            },
+            {
               "id": "0001140361-25-016663_1804176",
               "type": "Proxy Statements",
               "title": "DEF 14A : Proxy Statements",
@@ -741,31 +812,6 @@
                 {
                   "type": "DEF 14A",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000114036125016663/ny20046827x1_def14a.htm"
-                }
-              ]
-            },
-            {
-              "id": "0001628280-25-008868_1804176",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1740700800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000162828025008868/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001628280-25-008868_1804176",
-              "formType": "8-K",
-              "exhibits": [
-                {
-                  "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000162828025008868/bfly-20250228.htm"
-                },
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000162828025008868/bfly-20250228xexx991.htm"
-                },
-                {
-                  "type": "EXCEL",
-                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000162828025008868/Financial_Report.xlsx",
-                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000162828025008868/Financial_Report.xlsx"
                 }
               ]
             },
@@ -811,6 +857,31 @@
                   "type": "EXCEL",
                   "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000162828025009036/Financial_Report.xlsx",
                   "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000162828025009036/Financial_Report.xlsx"
+                }
+              ]
+            },
+            {
+              "id": "0001628280-25-008868_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1740700800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000162828025008868/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001628280-25-008868_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000162828025008868/bfly-20250228.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000162828025008868/bfly-20250228xexx991.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000162828025008868/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000162828025008868/Financial_Report.xlsx"
                 }
               ]
             },
@@ -902,6 +973,31 @@
               ]
             },
             {
+              "id": "0001558370-24-014079_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1730419200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000155837024014079/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001558370-24-014079_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024014079/bfly-20241101xex99d1.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837024014079/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837024014079/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024014079/bfly-20241101x8k.htm"
+                }
+              ]
+            },
+            {
               "id": "0001558370-24-014082_1804176",
               "type": "Periodic Financial Reports",
               "title": "10-Q : Periodic Financial Reports",
@@ -935,31 +1031,6 @@
                 {
                   "type": "10-Q",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024014082/bfly-20240930x10q.htm"
-                }
-              ]
-            },
-            {
-              "id": "0001558370-24-014079_1804176",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1730419200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000155837024014079/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001558370-24-014079_1804176",
-              "formType": "8-K",
-              "exhibits": [
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024014079/bfly-20241101xex99d1.htm"
-                },
-                {
-                  "type": "EXCEL",
-                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837024014079/Financial_Report.xlsx",
-                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837024014079/Financial_Report.xlsx"
-                },
-                {
-                  "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024014079/bfly-20241101x8k.htm"
                 }
               ]
             },
@@ -1087,6 +1158,31 @@
               ]
             },
             {
+              "id": "0001558370-24-006389_1804176",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1714521600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000155837024006389/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001558370-24-006389_1804176",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024006389/bfly-20240426xex99d1.htm"
+                },
+                {
+                  "type": "EXCEL",
+                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837024006389/Financial_Report.xlsx",
+                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837024006389/Financial_Report.xlsx"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024006389/bfly-20240426x8k.htm"
+                }
+              ]
+            },
+            {
               "id": "0001558370-24-006395_1804176",
               "type": "Periodic Financial Reports",
               "title": "10-Q : Periodic Financial Reports",
@@ -1116,31 +1212,6 @@
                   "type": "EXCEL",
                   "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837024006395/Financial_Report.xlsx",
                   "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837024006395/Financial_Report.xlsx"
-                }
-              ]
-            },
-            {
-              "id": "0001558370-24-006389_1804176",
-              "type": "Corporate Changes & Voting Matters",
-              "title": "8-K : Corporate Changes & Voting Matters",
-              "description": "Current report filing",
-              "filingDate": 1714521600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000155837024006389/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001558370-24-006389_1804176",
-              "formType": "8-K",
-              "exhibits": [
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024006389/bfly-20240426xex99d1.htm"
-                },
-                {
-                  "type": "EXCEL",
-                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837024006389/Financial_Report.xlsx",
-                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837024006389/Financial_Report.xlsx"
-                },
-                {
-                  "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837024006389/bfly-20240426x8k.htm"
                 }
               ]
             },
@@ -1350,54 +1421,6 @@
                   "type": "EXCEL",
                   "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001804176/000155837023017431/Financial_Report.xlsx",
                   "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001804176/000155837023017431/Financial_Report.xlsx"
-                }
-              ]
-            },
-            {
-              "id": "0001104659-23-100481_1804176",
-              "type": "Tender Offer/Acquisition Reports",
-              "title": "SC 13D/A : Tender Offer/Acquisition Reports",
-              "description": "Schedule filed to report acquisition of beneficial ownership of 5% or more of a class of equity securities",
-              "filingDate": 1694563200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000110465923100481/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001104659-23-100481_1804176",
-              "formType": "SC 13D/A",
-              "exhibits": [
-                {
-                  "type": "EX-99.4",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001076352/000110465923100481/tm2326042d1_ex4.htm"
-                },
-                {
-                  "type": "EX-99.4",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000110465923100481/tm2326042d1_ex4.htm"
-                },
-                {
-                  "type": "SC 13D/A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001076352/000110465923100481/tm2326042d1_sc13da.htm"
-                },
-                {
-                  "type": "SC 13D/A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000110465923100481/tm2326042d1_sc13da.htm"
-                }
-              ]
-            },
-            {
-              "id": "0001558370-23-015103_1804176",
-              "type": "Offering Registrations",
-              "title": "S-3/A : Offering Registrations",
-              "description": "Registration statement for specified transactions by certain issuers",
-              "filingDate": 1692316800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0001804176/000155837023015103/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/BFLY/0001558370-23-015103_1804176",
-              "formType": "S-3/A",
-              "exhibits": [
-                {
-                  "type": "EX-23.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837023015103/tmb-20230818xex23d1.htm"
-                },
-                {
-                  "type": "S-3/A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001804176/000155837023015103/tmb-20230818xs3a.htm"
                 }
               ]
             }

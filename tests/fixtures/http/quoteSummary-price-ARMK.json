@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ARMK?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ARMK?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "1012",
+      "content-length": "993",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:22 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:41 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "6qjgqeljrofaq"
+      "y-rid": "7tuq1vdlc1fbd"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,43 +34,42 @@
           {
             "price": {
               "maxAge": 1,
-              "preMarketChangePercent": 0.0019482241,
-              "preMarketChange": 0.069999695,
-              "preMarketTime": 1740388179,
-              "preMarketPrice": 36,
               "preMarketSource": "DELAYED",
               "postMarketChangePercent": 0,
               "postMarketChange": 0,
-              "postMarketTime": 1740179035,
-              "postMarketPrice": 35.93,
-              "postMarketSource": "DELAYED",
-              "regularMarketChangePercent": -0.025230601,
-              "regularMarketChange": -0.93,
-              "regularMarketTime": 1740171602,
+              "postMarketTime": 1790978853,
+              "postMarketPrice": 55.55,
+              "postMarketSource": "FREE_REALTIME",
+              "regularMarketChangePercent": 0.0175856,
+              "regularMarketChange": 0.959999,
+              "regularMarketTime": 1790971203,
               "priceHint": 2,
-              "regularMarketPrice": 35.93,
-              "regularMarketDayHigh": 36.96,
-              "regularMarketDayLow": 35.87,
-              "regularMarketVolume": 2755539,
-              "regularMarketPreviousClose": 36.86,
+              "regularMarketPrice": 55.55,
+              "regularMarketDayHigh": 56.01,
+              "regularMarketDayLow": 54.95,
+              "regularMarketVolume": 1885289,
+              "regularMarketPreviousClose": 54.59,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 36.96,
+              "regularMarketOpen": 55.07,
+              "fulldayChangePercent": 0.0175856,
+              "fulldayChange": 0.959999,
+              "fulldayPrice": 55.55,
               "exchange": "NYQ",
               "exchangeName": "NYSE",
               "exchangeDataDelayedBy": 0,
-              "marketState": "PRE",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "ARMK",
               "underlyingSymbol": null,
               "shortName": "Aramark",
               "longName": "Aramark",
               "currency": "USD",
-              "quoteSourceName": "Delayed Quote",
+              "quoteSourceName": "Nasdaq Real Time Price",
               "currencySymbol": "$",
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 9525222400
+              "marketCap": 14644370432
             }
           }
         ],

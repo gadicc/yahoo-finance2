@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/WSU.DE?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1691107200&period2=1691539200",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "1",
+      "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1354",
+      "content-length": "1468",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:41 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:24 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "33",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "32",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "6pigon1jre5iu"
+      "y-rid": "3isnqq9lc1egk"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "XETRA",
               "instrumentType": "EQUITY",
               "firstTradeDate": 910598400,
-              "regularMarketTime": 1740049420,
+              "regularMarketTime": 1790955341,
               "hasPrePostMarketData": false,
-              "gmtoffset": 3600,
-              "timezone": "CET",
+              "gmtoffset": 7200,
+              "timezone": "CEST",
               "exchangeTimezoneName": "Europe/Berlin",
-              "regularMarketPrice": 38.9,
-              "fiftyTwoWeekHigh": 43,
-              "fiftyTwoWeekLow": 33.3,
-              "regularMarketDayHigh": 39.3,
-              "regularMarketDayLow": 38.8,
-              "regularMarketVolume": 45,
+              "regularMarketPrice": 33,
+              "regularMarketChangePercent": -0.901,
+              "fulldayPrice": 33,
+              "fulldayChange": -0.3,
+              "fulldayChangePercent": -0.901,
+              "fiftyTwoWeekHigh": 51.6,
+              "fiftyTwoWeekLow": 33,
+              "regularMarketDayHigh": 33.9,
+              "regularMarketDayLow": 33,
+              "regularMarketVolume": 3803,
               "longName": "WashTec AG",
-              "shortName": "WASHTEC AG                    I",
+              "shortName": "WashTec AG                    I",
               "chartPreviousClose": 34.25,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "CET",
-                  "end": 1740038400,
-                  "start": 1740031200,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "start": 1790917200,
+                  "end": 1790924400,
+                  "gmtoffset": 7200
                 },
                 "regular": {
-                  "timezone": "CET",
-                  "end": 1740069000,
-                  "start": 1740038400,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "start": 1790924400,
+                  "end": 1790955000,
+                  "gmtoffset": 7200
                 },
                 "post": {
-                  "timezone": "CET",
-                  "end": 1740079800,
-                  "start": 1740069000,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "start": 1790955000,
+                  "end": 1790965800,
+                  "gmtoffset": 7200
                 }
               },
               "dataGranularity": "1d",
@@ -103,34 +107,34 @@
                     34,
                     32.900001525878906
                   ],
-                  "high": [
-                    34.54999923706055,
-                    34.79999923706055,
-                    34.20000076293945
-                  ],
                   "close": [
                     34.45000076293945,
                     34,
                     33.20000076293945
                   ],
-                  "open": [
-                    34.25,
+                  "high": [
+                    34.54999923706055,
                     34.79999923706055,
-                    34.04999923706055
+                    34.20000076293945
                   ],
                   "volume": [
                     1251,
                     336,
                     10846
+                  ],
+                  "open": [
+                    34.25,
+                    34.79999923706055,
+                    34.04999923706055
                   ]
                 }
               ],
               "adjclose": [
                 {
                   "adjclose": [
-                    32.63249588012695,
-                    32.206233978271484,
-                    31.448442459106445
+                    28.983633041381836,
+                    28.605037689208984,
+                    27.931976318359375
                   ]
                 }
               ]

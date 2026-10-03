@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ORSTED.CO?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ORSTED.CO?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "766",
+      "content-length": "841",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:22 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:30 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7s4t4upjrofaq"
+      "y-rid": "7mm35s9lc1fb2"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,33 +34,36 @@
           {
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": 0.034196507,
-              "regularMarketChange": 10.299988,
-              "regularMarketTime": 1740389686,
+              "regularMarketChangePercent": 0.03296294,
+              "regularMarketChange": 4.449997,
+              "regularMarketTime": 1790953172,
               "priceHint": 2,
-              "regularMarketPrice": 311.5,
-              "regularMarketDayHigh": 312.2,
-              "regularMarketDayLow": 303.3,
-              "regularMarketVolume": 96597,
-              "regularMarketPreviousClose": 301.2,
+              "regularMarketPrice": 139.45,
+              "regularMarketDayHigh": 139.45,
+              "regularMarketDayLow": 134.4,
+              "regularMarketVolume": 799789,
+              "regularMarketPreviousClose": 135,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 304.7,
+              "regularMarketOpen": 135.5,
+              "fulldayChangePercent": 0.03296294,
+              "fulldayChange": 4.449997,
+              "fulldayPrice": 139.45,
               "exchange": "CPH",
               "exchangeName": "Copenhagen",
               "exchangeDataDelayedBy": 0,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "ORSTED.CO",
               "underlyingSymbol": null,
               "shortName": "ORSTED A/S",
               "longName": "Ørsted A/S",
               "currency": "DKK",
-              "quoteSourceName": "Free Realtime Quote",
+              "quoteSourceName": "Delayed Quote",
               "currencySymbol": "kr.",
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 130903203840
+              "marketCap": 184222089216
             }
           }
         ],

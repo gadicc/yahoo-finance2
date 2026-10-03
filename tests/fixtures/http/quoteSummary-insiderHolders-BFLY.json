@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BFLY?formatted=false&modules=insiderHolders&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BFLY?formatted=false&modules=insiderHolders&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,18 +14,20 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
+      "content-length": "767",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:13 GMT",
+      "date": "Sat, 03 Oct 2026 08:28:17 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-use1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4b477udjrofah"
+      "y-rid": "5ljoobplc1f51"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -35,22 +37,22 @@
               "holders": [
                 {
                   "maxAge": 1,
-                  "name": "CARFORA DAWN",
-                  "relation": "Director",
+                  "name": "CARLSON MEGAN",
+                  "relation": "Officer",
                   "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
+                  "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                    "raw": 1788480000,
+                    "fmt": "2026-09-04"
                   },
                   "positionDirect": {
-                    "raw": 297080,
-                    "fmt": "297.08k",
-                    "longFmt": "297,080"
+                    "raw": 412085,
+                    "fmt": "412.08k",
+                    "longFmt": "412,085"
                   },
                   "positionDirectDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                    "raw": 1788480000,
+                    "fmt": "2026-09-04"
                   }
                 },
                 {
@@ -60,17 +62,17 @@
                   "url": "",
                   "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1734652800,
-                    "fmt": "2024-12-20"
+                    "raw": 1788480000,
+                    "fmt": "2026-09-04"
                   },
                   "positionDirect": {
-                    "raw": 1835920,
-                    "fmt": "1.84M",
-                    "longFmt": "1,835,920"
+                    "raw": 1490300,
+                    "fmt": "1.49M",
+                    "longFmt": "1,490,300"
                   },
                   "positionDirectDate": {
-                    "raw": 1734652800,
-                    "fmt": "2024-12-20"
+                    "raw": 1788480000,
+                    "fmt": "2026-09-04"
                   }
                 },
                 {
@@ -78,39 +80,39 @@
                   "name": "DEVIVO JOSEPH M",
                   "relation": "Chief Executive Officer",
                   "url": "",
-                  "transactionDescription": "Purchase",
+                  "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1722988800,
-                    "fmt": "2024-08-07"
+                    "raw": 1790121600,
+                    "fmt": "2026-09-23"
                   },
                   "positionDirect": {
-                    "raw": 7009220,
-                    "fmt": "7.01M",
-                    "longFmt": "7,009,220"
+                    "raw": 7347720,
+                    "fmt": "7.35M",
+                    "longFmt": "7,347,720"
                   },
                   "positionDirectDate": {
-                    "raw": 1722988800,
-                    "fmt": "2024-08-07"
+                    "raw": 1790121600,
+                    "fmt": "2026-09-23"
                   }
                 },
                 {
                   "maxAge": 1,
-                  "name": "EDELMAN ELAZER R.",
-                  "relation": "Director",
+                  "name": "DOHERTY JOHN N",
+                  "relation": "Chief Financial Officer",
                   "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
+                  "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                    "raw": 1784505600,
+                    "fmt": "2026-07-20"
                   },
                   "positionDirect": {
-                    "raw": 287012,
-                    "fmt": "287.01k",
-                    "longFmt": "287,012"
+                    "raw": 1397280,
+                    "fmt": "1.4M",
+                    "longFmt": "1,397,280"
                   },
                   "positionDirectDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                    "raw": 1784505600,
+                    "fmt": "2026-07-20"
                   }
                 },
                 {
@@ -120,17 +122,37 @@
                   "url": "",
                   "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1734652800,
-                    "fmt": "2024-12-20"
+                    "raw": 1746403200,
+                    "fmt": "2025-05-05"
                   },
                   "positionDirect": {
-                    "raw": 2669330,
-                    "fmt": "2.67M",
-                    "longFmt": "2,669,330"
+                    "raw": 2919270,
+                    "fmt": "2.92M",
+                    "longFmt": "2,919,270"
                   },
                   "positionDirectDate": {
-                    "raw": 1734652800,
-                    "fmt": "2024-12-20"
+                    "raw": 1746403200,
+                    "fmt": "2025-05-05"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "KU VICTOR",
+                  "relation": "Chief Technology Officer",
+                  "url": "",
+                  "transactionDescription": "Sale",
+                  "latestTransDate": {
+                    "raw": 1784505600,
+                    "fmt": "2026-07-20"
+                  },
+                  "positionDirect": {
+                    "raw": 1015100,
+                    "fmt": "1.02M",
+                    "longFmt": "1,015,100"
+                  },
+                  "positionDirectDate": {
+                    "raw": 1784505600,
+                    "fmt": "2026-07-20"
                   }
                 },
                 {
@@ -138,39 +160,39 @@
                   "name": "PHANSTIEL S LOUISE",
                   "relation": "Director",
                   "url": "",
-                  "transactionDescription": "Sale",
+                  "transactionDescription": "Purchase",
                   "latestTransDate": {
-                    "raw": 1726185600,
-                    "fmt": "2024-09-13"
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
                   },
                   "positionIndirect": {
-                    "raw": 285071,
-                    "fmt": "285.07k",
-                    "longFmt": "285,071"
+                    "raw": 691413,
+                    "fmt": "691.41k",
+                    "longFmt": "691,413"
                   },
                   "positionIndirectDate": {
-                    "raw": 1726185600,
-                    "fmt": "2024-09-13"
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
                   }
                 },
                 {
                   "maxAge": 1,
                   "name": "ROBBINS LARRY",
-                  "relation": "Director and Beneficial Owner of more than 10% of a Class of Security",
+                  "relation": "Director",
                   "url": "",
-                  "transactionDescription": "Purchase",
+                  "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1724976000,
-                    "fmt": "2024-08-30"
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
                   },
                   "positionIndirect": {
-                    "raw": 14786900,
-                    "fmt": "14.79M",
-                    "longFmt": "14,786,900"
+                    "raw": 15098700,
+                    "fmt": "15.1M",
+                    "longFmt": "15,098,700"
                   },
                   "positionIndirectDate": {
-                    "raw": 1724976000,
-                    "fmt": "2024-08-30"
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
                   }
                 },
                 {
@@ -178,39 +200,19 @@
                   "name": "ROTHBERG JONATHAN M",
                   "relation": "Director and Beneficial Owner of more than 10% of a Class of Security",
                   "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
+                  "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                    "raw": 1784160000,
+                    "fmt": "2026-07-16"
                   },
-                  "positionDirect": {
-                    "raw": 10681300,
-                    "fmt": "10.68M",
-                    "longFmt": "10,681,300"
+                  "positionSummary": {
+                    "raw": 832577,
+                    "fmt": "832.58k",
+                    "longFmt": "832,577"
                   },
-                  "positionDirectDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "name": "SCHWARTZ ERICA",
-                  "relation": "Director",
-                  "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
-                  "latestTransDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
-                  },
-                  "positionDirect": {
-                    "raw": 295818,
-                    "fmt": "295.82k",
-                    "longFmt": "295,818"
-                  },
-                  "positionDirectDate": {
-                    "raw": 1717977600,
-                    "fmt": "2024-06-10"
+                  "positionSummaryDate": {
+                    "raw": 1784160000,
+                    "fmt": "2026-07-16"
                   }
                 },
                 {
@@ -220,17 +222,17 @@
                   "url": "",
                   "transactionDescription": "Sale",
                   "latestTransDate": {
-                    "raw": 1735603200,
-                    "fmt": "2024-12-31"
+                    "raw": 1743465600,
+                    "fmt": "2025-04-01"
                   },
                   "positionDirect": {
-                    "raw": 1449240,
-                    "fmt": "1.45M",
-                    "longFmt": "1,449,240"
+                    "raw": 1600180,
+                    "fmt": "1.6M",
+                    "longFmt": "1,600,180"
                   },
                   "positionDirectDate": {
-                    "raw": 1735603200,
-                    "fmt": "2024-12-31"
+                    "raw": 1743465600,
+                    "fmt": "2025-04-01"
                   }
                 }
               ],

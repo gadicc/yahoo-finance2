@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/EPAC?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1192",
+      "content-length": "1295",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:41 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:18 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "30",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "25",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "0nqdqp1jre5it"
+      "y-rid": "6hb05g5lc1ege"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "NYSE",
               "instrumentType": "EQUITY",
               "firstTradeDate": 964445400,
-              "regularMarketTime": 1739998802,
+              "regularMarketTime": 1790971203,
               "hasPrePostMarketData": true,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 47.26,
-              "fiftyTwoWeekHigh": 51.91,
-              "fiftyTwoWeekLow": 32.07,
-              "regularMarketDayHigh": 47.27,
-              "regularMarketDayLow": 46.385,
-              "regularMarketVolume": 265955,
+              "regularMarketPrice": 35.64,
+              "regularMarketChangePercent": 1.916,
+              "fulldayPrice": 35.64,
+              "fulldayChange": 0.67,
+              "fulldayChangePercent": 1.916,
+              "fiftyTwoWeekHigh": 45,
+              "fiftyTwoWeekLow": 32.35,
+              "regularMarketDayHigh": 35.925,
+              "regularMarketDayLow": 35.1,
+              "regularMarketVolume": 344385,
               "longName": "Enerpac Tool Group Corp.",
               "shortName": "Enerpac Tool Group Corp.",
               "chartPreviousClose": 26.03,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740042000,
-                  "end": 1740061800,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790947800,
+                  "start": 1790928000,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740061800,
-                  "end": 1740085200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790971200,
+                  "start": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740085200,
-                  "end": 1740099600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790985600,
+                  "start": 1790971200,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -96,27 +100,27 @@
             "indicators": {
               "quote": [
                 {
-                  "low": [
-                    25.75
-                  ],
-                  "close": [
-                    26.15999984741211
-                  ],
                   "volume": [
                     407900
+                  ],
+                  "low": [
+                    25.75
                   ],
                   "open": [
                     26.190000534057617
                   ],
                   "high": [
                     26.34000015258789
+                  ],
+                  "close": [
+                    26.15999984741211
                   ]
                 }
               ],
               "adjclose": [
                 {
                   "adjclose": [
-                    25.943532943725586
+                    25.91794204711914
                   ]
                 }
               ]

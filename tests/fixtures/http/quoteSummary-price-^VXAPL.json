@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/^VXAPL?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/^VXAPL?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "739",
+      "content-length": "827",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:22 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:31 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "3",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "472o42djrofaq"
+      "y-rid": "3q3cafplc1fb3"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,21 +34,24 @@
           {
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": 0.09910294,
-              "regularMarketChange": 2.3199997,
-              "regularMarketTime": 1740171722,
+              "regularMarketChangePercent": -0.02336617,
+              "regularMarketChange": -0.6399994,
+              "regularMarketTime": 1790971322,
               "priceHint": 2,
-              "regularMarketPrice": 25.73,
+              "regularMarketPrice": 26.75,
               "regularMarketDayHigh": 0,
               "regularMarketDayLow": 0,
               "regularMarketVolume": 0,
-              "regularMarketPreviousClose": 23.41,
+              "regularMarketPreviousClose": 27.39,
               "regularMarketSource": "DELAYED",
               "regularMarketOpen": 0,
+              "fulldayChangePercent": -0.02336617,
+              "fulldayChange": -0.6399994,
+              "fulldayPrice": 26.75,
               "exchange": "WCB",
               "exchangeName": "Chicago Options",
               "exchangeDataDelayedBy": 15,
-              "marketState": "PRE",
+              "marketState": "CLOSED",
               "quoteType": "INDEX",
               "symbol": "^VXAPL",
               "underlyingSymbol": null,

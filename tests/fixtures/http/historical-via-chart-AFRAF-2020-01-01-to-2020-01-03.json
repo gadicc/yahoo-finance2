@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/AFRAF?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1192",
+      "content-length": "1298",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:30 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:11 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-canary-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "3",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "4",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4hbkfqpjrj83q"
+      "y-rid": "717mc81lc1ei4"
     },
     "bodyJson": {
       "chart": {
@@ -35,43 +35,47 @@
             "meta": {
               "currency": "USD",
               "symbol": "AFRAF",
-              "exchangeName": "PNK",
-              "fullExchangeName": "OTC Markets OTCPK",
+              "exchangeName": "OID",
+              "fullExchangeName": "OTC Markets OTCID",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1331731800,
-              "regularMarketTime": 1740168000,
+              "regularMarketTime": 1790971200,
               "hasPrePostMarketData": false,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 8.99,
-              "fiftyTwoWeekHigh": 12,
-              "fiftyTwoWeekLow": 7.59,
-              "regularMarketDayHigh": 8.82,
-              "regularMarketDayLow": 8.82,
-              "regularMarketVolume": 250,
+              "regularMarketPrice": 13.38,
+              "regularMarketChangePercent": 0,
+              "fulldayPrice": 13.38,
+              "fulldayChange": 0,
+              "fulldayChangePercent": 0,
+              "fiftyTwoWeekHigh": 15.71,
+              "fiftyTwoWeekLow": 10.58,
+              "regularMarketDayHigh": 13.38,
+              "regularMarketDayLow": 13.38,
+              "regularMarketVolume": 460,
               "longName": "Air France-KLM SA",
               "shortName": "Air France-KLM",
-              "chartPreviousClose": 11.27,
+              "chartPreviousClose": 112.7,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740128400,
-                  "end": 1740148200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790928000,
+                  "end": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740148200,
-                  "end": 1740171600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790947800,
+                  "end": 1790971200,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740171600,
-                  "end": 1740186000,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790971200,
+                  "end": 1790985600,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -96,27 +100,27 @@
             "indicators": {
               "quote": [
                 {
+                  "close": [
+                    112.69999694824219
+                  ],
                   "low": [
-                    11.270000457763672
+                    112.69999694824219
+                  ],
+                  "open": [
+                    112.69999694824219
+                  ],
+                  "high": [
+                    112.69999694824219
                   ],
                   "volume": [
                     0
-                  ],
-                  "close": [
-                    11.270000457763672
-                  ],
-                  "open": [
-                    11.270000457763672
-                  ],
-                  "high": [
-                    11.270000457763672
                   ]
                 }
               ],
               "adjclose": [
                 {
                   "adjclose": [
-                    11.270000457763672
+                    112.69999694824219
                   ]
                 }
               ]

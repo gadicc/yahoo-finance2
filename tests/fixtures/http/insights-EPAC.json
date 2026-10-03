@@ -3,7 +3,7 @@
     "url": "https://query2.finance.yahoo.com/ws/insights/v2/finance/insights?lang=en-US&region=US&getAllResearchReports=true&reportsCount=2&symbol=EPAC",
     "method": "GET",
     "headers": {
-      "cookie": "dflow=477",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,18 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=300, stale-while-revalidate=120",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 11 Jul 2026 09:30:52 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:49 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "15",
+      "x-envoy-decorator-operation": "finance-market-analytics-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "13",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7h0h90pl543ac"
+      "y-rid": "7h630rllc1ej9"
     },
     "bodyJson": {
       "finance": {
@@ -38,18 +39,6 @@
               "shortTermOutlook": {
                 "stateDescription": "Recent bearish events outweigh bullish events.",
                 "direction": "Bearish",
-                "score": 4,
-                "scoreDescription": "Very Strong Bearish Evidence",
-                "sectorDirection": "Bearish",
-                "sectorScore": 2,
-                "sectorScoreDescription": "Bearish Evidence",
-                "indexDirection": "Bullish",
-                "indexScore": 3,
-                "indexScoreDescription": "Strong Bullish Evidence"
-              },
-              "intermediateTermOutlook": {
-                "stateDescription": "Recent bearish events outweigh bullish events.",
-                "direction": "Bearish",
                 "score": 2,
                 "scoreDescription": "Bearish Evidence",
                 "sectorDirection": "Bullish",
@@ -59,24 +48,36 @@
                 "indexScore": 2,
                 "indexScoreDescription": "Bullish Evidence"
               },
-              "longTermOutlook": {
-                "stateDescription": "Bearish events outweigh bullish events.",
+              "intermediateTermOutlook": {
+                "stateDescription": "All events are bearish.",
                 "direction": "Bearish",
-                "score": 1,
-                "scoreDescription": "Weak Bearish Evidence",
-                "sectorDirection": "Bullish",
-                "sectorScore": 1,
-                "sectorScoreDescription": "Weak Bullish Evidence",
-                "indexDirection": "Bullish",
-                "indexScore": 2,
-                "indexScoreDescription": "Bullish Evidence"
+                "score": 2,
+                "scoreDescription": "Bearish Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 3,
+                "sectorScoreDescription": "Strong Bearish Evidence",
+                "indexDirection": "Bearish",
+                "indexScore": 1,
+                "indexScoreDescription": "Weak Bearish Evidence"
+              },
+              "longTermOutlook": {
+                "stateDescription": "All events are bearish.",
+                "direction": "Bearish",
+                "score": 3,
+                "scoreDescription": "Strong Bearish Evidence",
+                "sectorDirection": "Bearish",
+                "sectorScore": 2,
+                "sectorScoreDescription": "Bearish Evidence",
+                "indexDirection": "Neutral",
+                "indexScore": 0,
+                "indexScoreDescription": "No Evidence"
               }
             },
             "keyTechnicals": {
               "provider": "Trading Central",
-              "support": 33.66,
-              "resistance": 40.15,
-              "stopLoss": 30.043333
+              "support": 35.465,
+              "resistance": 36.9804,
+              "stopLoss": 32.83911
             },
             "valuation": {
               "color": 1,
@@ -91,8 +92,8 @@
             "company": {
               "innovativeness": 0.6436,
               "sustainability": 0.5223,
-              "insiderSentiments": 0.71,
-              "earningsReports": 0.7458,
+              "insiderSentiments": 0.6042000000000001,
+              "earningsReports": 0.7541,
               "dividends": 0.0045000000000000005
             },
             "sector": {
@@ -109,41 +110,44 @@
           },
           "events": [
             {
-              "eventType": "Price Crosses Moving Average",
-              "pricePeriod": "W",
-              "tradingHorizon": "I",
+              "eventType": "Wave 3",
+              "pricePeriod": "D",
               "tradeType": "S",
               "imageUrl": "https://s.yimg.com/uc/fin/img/assets/generic.svg",
-              "startDate": 1783085400,
-              "endDate": 1783085400
+              "startDate": 1787751000,
+              "endDate": 1790861400
             }
           ],
           "reports": [
             {
-              "id": "3767_Quantitative Report_1731456000000",
-              "headHtml": "Raising target price to $52.00",
+              "id": "ARGUS_3767_QuantitativeReport_1731456000000",
+              "headHtml": "EPAC: Raising target price to $52.00",
               "provider": "Argus Research",
               "reportDate": "2024-11-13T00:00:00Z",
               "reportTitle": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $52.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
+              "reportType": "Quantitative Report",
               "targetPrice": 52,
+              "targetPriceStatus": "Increased",
               "investmentRating": "Neutral",
               "tickers": [
                 "EPAC"
               ],
-              "title": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $52.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low."
+              "title": "Raising target price to $52.00"
             },
             {
-              "id": "3767_Quantitative Report_1730851200000",
-              "headHtml": "Raising target price to $49.00",
+              "id": "ARGUS_3767_QuantitativeReport_1730851200000",
+              "headHtml": "EPAC: Raising target price to $49.00",
               "provider": "Argus Research",
               "reportDate": "2024-11-06T00:00:00Z",
               "reportTitle": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $49.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low.",
+              "reportType": "Quantitative Report",
               "targetPrice": 49,
+              "targetPriceStatus": "Increased",
               "investmentRating": "Neutral",
               "tickers": [
                 "EPAC"
               ],
-              "title": "ENERPAC TOOL GROUP CORP has an Investment Rating of HOLD; a target price of $49.000000; an Industry Subrating of Low; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Low."
+              "title": "Raising target price to $49.00"
             }
           ],
           "sigDevs": [
@@ -154,30 +158,18 @@
           ],
           "secReports": [
             {
-              "id": "0001140361-26-027991_6955",
+              "id": "0000006955-26-000038_6955",
               "type": "Corporate Changes & Voting Matters",
               "title": "8-K : Corporate Changes & Voting Matters",
               "description": "Current report filing",
-              "filingDate": 1783555200000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036126027991/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-26-027991_6955",
+              "filingDate": 1784764800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695526000038/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-26-000038_6955",
               "formType": "8-K",
               "exhibits": [
                 {
                   "type": "8-K",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_8k.htm"
-                },
-                {
-                  "type": "EX-10.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex10-1.htm"
-                },
-                {
-                  "type": "EX-2.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex2-1.htm"
-                },
-                {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex99-1.htm"
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695526000038/epac-20260723.htm"
                 }
               ]
             },
@@ -191,6 +183,10 @@
               "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-26-000036_6955",
               "formType": "10-Q",
               "exhibits": [
+                {
+                  "type": "10-Q",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695526000036/epac-20260531.htm"
+                },
                 {
                   "type": "EX-10.10",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695526000036/epac10-q05312026ex1010.htm"
@@ -210,10 +206,34 @@
                 {
                   "type": "EX-32.2",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695526000036/epac10-q05312026ex322.htm"
+                }
+              ]
+            },
+            {
+              "id": "0001140361-26-027991_6955",
+              "type": "Corporate Changes & Voting Matters",
+              "title": "8-K : Corporate Changes & Voting Matters",
+              "description": "Current report filing",
+              "filingDate": 1783555200000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036126027991/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-26-027991_6955",
+              "formType": "8-K",
+              "exhibits": [
+                {
+                  "type": "EX-10.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex10-1.htm"
                 },
                 {
-                  "type": "10-Q",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695526000036/epac-20260531.htm"
+                  "type": "EX-2.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex2-1.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_ex99-1.htm"
+                },
+                {
+                  "type": "8-K",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036126027991/ef20077568_8k.htm"
                 }
               ]
             },
@@ -228,12 +248,12 @@
               "formType": "8-K",
               "exhibits": [
                 {
-                  "type": "EX-99.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000117184326004528/exh_991.htm"
-                },
-                {
                   "type": "8-K",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000117184326004528/f8k_070826.htm"
+                },
+                {
+                  "type": "EX-99.1",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000117184326004528/exh_991.htm"
                 }
               ]
             },
@@ -322,22 +342,6 @@
               ]
             },
             {
-              "id": "0001140361-25-046276_6955",
-              "type": "Proxy Statements",
-              "title": "DEF 14A : Proxy Statements",
-              "description": "Definitive proxy statements",
-              "filingDate": 1766361600000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036125046276/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-25-046276_6955",
-              "formType": "DEF 14A",
-              "exhibits": [
-                {
-                  "type": "DEF 14A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036125046276/edge20056245x1_def14a.htm"
-                }
-              ]
-            },
-            {
               "id": "0001140361-25-046278_6955",
               "type": "Annual Report to Shareholders",
               "title": "ARS : Annual Report to Shareholders",
@@ -350,6 +354,22 @@
                 {
                   "type": "ARS",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036125046278/edge20056245x3_ars.pdf"
+                }
+              ]
+            },
+            {
+              "id": "0001140361-25-046276_6955",
+              "type": "Proxy Statements",
+              "title": "DEF 14A : Proxy Statements",
+              "description": "Definitive proxy statements",
+              "filingDate": 1766361600000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000114036125046276/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0001140361-25-046276_6955",
+              "formType": "DEF 14A",
+              "exhibits": [
+                {
+                  "type": "DEF 14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000114036125046276/edge20056245x1_def14a.htm"
                 }
               ]
             },
@@ -711,22 +731,6 @@
               ]
             },
             {
-              "id": "0000006955-24-000050_6955",
-              "type": "Proxy Statements",
-              "title": "DEFA14A : Proxy Statements",
-              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
-              "filingDate": 1734480000000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000050/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000050_6955",
-              "formType": "DEFA14A",
-              "exhibits": [
-                {
-                  "type": "DEFA14A",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695524000050/epacproxyfy2024notice.htm"
-                }
-              ]
-            },
-            {
               "id": "0000006955-24-000048_6955",
               "type": "Proxy Statements",
               "title": "DEF 14A : Proxy Statements",
@@ -739,6 +743,22 @@
                 {
                   "type": "DEF 14A",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695524000048/epac-20241218.htm"
+                }
+              ]
+            },
+            {
+              "id": "0000006955-24-000050_6955",
+              "type": "Proxy Statements",
+              "title": "DEFA14A : Proxy Statements",
+              "description": "Definitive additional proxy soliciting materials including Rule 14(a)(12) material. Note: Submission type DEFA14A can be filed as part of Form 8-K. For filers subject to 8-K filing requirements we recommend the use of the 8-K combined form type as the easiest method for fulfilling your filing requirement for both forms",
+              "filingDate": 1734480000000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695524000050/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-24-000050_6955",
+              "formType": "DEFA14A",
+              "exhibits": [
+                {
+                  "type": "DEFA14A",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695524000050/epacproxyfy2024notice.htm"
                 }
               ]
             },
@@ -1187,22 +1207,6 @@
               ]
             },
             {
-              "id": "0000006955-23-000083_6955",
-              "type": "Annual Report to Shareholders",
-              "title": "ARS : Annual Report to Shareholders",
-              "description": "Annual report to security holders",
-              "filingDate": 1702252800000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000083/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000083_6955",
-              "formType": "ARS",
-              "exhibits": [
-                {
-                  "type": "ARS",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000083/enerpactoolgroup_arx2023xfa.pdf"
-                }
-              ]
-            },
-            {
               "id": "0000006955-23-000080_6955",
               "type": "Proxy Statements",
               "title": "DEFA14A : Proxy Statements",
@@ -1215,6 +1219,22 @@
                 {
                   "type": "DEFA14A",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000080/epacproxyfy2023notice.htm"
+                }
+              ]
+            },
+            {
+              "id": "0000006955-23-000083_6955",
+              "type": "Annual Report to Shareholders",
+              "title": "ARS : Annual Report to Shareholders",
+              "description": "Annual report to security holders",
+              "filingDate": 1702252800000,
+              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000083/thumbnail.png",
+              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000083_6955",
+              "formType": "ARS",
+              "exhibits": [
+                {
+                  "type": "ARS",
+                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000083/enerpactoolgroup_arx2023xfa.pdf"
                 }
               ]
             },
@@ -1355,43 +1375,6 @@
                 {
                   "type": "EX-10.1",
                   "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000016/rsuawardagreement-specia.htm"
-                }
-              ]
-            },
-            {
-              "id": "0000006955-23-000013_6955",
-              "type": "Periodic Financial Reports",
-              "title": "10-Q : Periodic Financial Reports",
-              "description": "Quarterly report pursuant to Section 13 or 15(d)",
-              "filingDate": 1687478400000,
-              "snapshotUrl": "https://cdn.yahoofinance.com/prod/sec-reports-thumbnails/0000006955/000000695523000013/thumbnail.png",
-              "edgarUrl": "https://finance.yahoo.com/sec-filing/EPAC/0000006955-23-000013_6955",
-              "formType": "10-Q",
-              "exhibits": [
-                {
-                  "type": "EX-31.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000013/epac-05312023exhibit311.htm"
-                },
-                {
-                  "type": "EX-31.2",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000013/epac-05312023exhibit312.htm"
-                },
-                {
-                  "type": "EX-32.1",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000013/epac-05312023exhibit321.htm"
-                },
-                {
-                  "type": "EX-32.2",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000013/epac-05312023exhibit322.htm"
-                },
-                {
-                  "type": "EXCEL",
-                  "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0000006955/000000695523000013/Financial_Report.xlsx",
-                  "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0000006955/000000695523000013/Financial_Report.xlsx"
-                },
-                {
-                  "type": "10-Q",
-                  "url": "https://cdn.yahoofinance.com/prod/sec-filings/0000006955/000000695523000013/epac-20230531.htm"
                 }
               ]
             }

@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/ORSTED.CO?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1166",
+      "content-length": "1277",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:42 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:21 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "16",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "17",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "71hpnp9jre5iu"
+      "y-rid": "25jsqudlc1egh"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "Copenhagen",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1465455600,
-              "regularMarketTime": 1740051971,
+              "regularMarketTime": 1790953172,
               "hasPrePostMarketData": false,
-              "gmtoffset": 3600,
-              "timezone": "CET",
+              "gmtoffset": 7200,
+              "timezone": "CEST",
               "exchangeTimezoneName": "Europe/Copenhagen",
-              "regularMarketPrice": 303.3,
-              "fiftyTwoWeekHigh": 458.3,
-              "fiftyTwoWeekLow": 253.2,
-              "regularMarketDayHigh": 305.7,
-              "regularMarketDayLow": 298.7,
-              "regularMarketVolume": 94741,
+              "regularMarketPrice": 139.45,
+              "regularMarketChangePercent": 3.296,
+              "fulldayPrice": 139.45,
+              "fulldayChange": 4.45,
+              "fulldayChangePercent": 3.296,
+              "fiftyTwoWeekHigh": 172.2,
+              "fiftyTwoWeekLow": 111,
+              "regularMarketDayHigh": 139.45,
+              "regularMarketDayLow": 134.4,
+              "regularMarketVolume": 804923,
               "longName": "Ørsted A/S",
               "shortName": "ORSTED A/S",
               "chartPreviousClose": 689,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "CET",
-                  "start": 1740038400,
-                  "end": 1740038400,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790924400,
+                  "start": 1790924400,
+                  "gmtoffset": 7200
                 },
                 "regular": {
-                  "timezone": "CET",
-                  "start": 1740038400,
-                  "end": 1740067200,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790953200,
+                  "start": 1790924400,
+                  "gmtoffset": 7200
                 },
                 "post": {
-                  "timezone": "CET",
-                  "start": 1740067200,
-                  "end": 1740067200,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790953200,
+                  "start": 1790953200,
+                  "gmtoffset": 7200
                 }
               },
               "dataGranularity": "1d",
@@ -96,27 +100,27 @@
             "indicators": {
               "quote": [
                 {
-                  "open": [
-                    685.7999877929688
-                  ],
                   "volume": [
                     340491
-                  ],
-                  "close": [
-                    681
                   ],
                   "low": [
                     677.2000122070312
                   ],
+                  "open": [
+                    685.7999877929688
+                  ],
                   "high": [
                     688.4000244140625
+                  ],
+                  "close": [
+                    681
                   ]
                 }
               ],
               "adjclose": [
                 {
                   "adjclose": [
-                    639.175537109375
+                    657.513671875
                   ]
                 }
               ]

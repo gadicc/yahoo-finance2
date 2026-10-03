@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/SPOT?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/SPOT?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,18 +14,19 @@
     "headers": {
       "age": "1",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:31:01 GMT",
+      "date": "Sat, 03 Oct 2026 08:34:53 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "23",
+      "x-envoy-upstream-service-time": "18",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "21ntj79l1iqn6"
+      "y-rid": "0d84tf9lc1fhe"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -44,7 +45,7 @@
               "sectorKey": "communication-services",
               "sectorDisp": "Communication Services",
               "longBusinessSummary": "Spotify Technology S.A., together with its subsidiaries, provides audio streaming subscription services worldwide. It operates in two segments, Premium and Ad-Supported. The Premium segment offers online and offline streaming access to its catalog of music and podcasts, including video, lossless music, and audiobooks in select markets through subscription offerings primarily sold directly to end users and partners. The Ad-Supported segment provides limited on-demand online access to its catalog of music and online and offline access to its catalog of podcasts on computers, tablets, mobile devices, and other smart devices. The company also offers sales, distribution and marketing, contract research and development, and customer and other support services. Spotify Technology S.A. was incorporated in 2006 and is headquartered in Stockholm, Sweden.",
-              "fullTimeEmployees": 7258,
+              "fullTimeEmployees": 7000,
               "companyOfficers": [
                 {
                   "maxAge": 1,
@@ -181,8 +182,42 @@
                 },
                 {
                   "maxAge": 1,
+                  "name": "Mr. John P. Giraldo",
+                  "age": 57,
+                  "title": "Chief Accounting Officer",
+                  "yearBorn": 1968,
+                  "fiscalYear": 2025,
+                  "exercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "unexercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  }
+                },
+                {
+                  "maxAge": 1,
                   "name": "Mr. Bryan Daniel Goldberg",
                   "title": "Head of Investor Relations",
+                  "fiscalYear": 2025,
+                  "exercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "unexercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "Ms. Aditi  Shorewal",
+                  "title": "Head of PR & Communications",
                   "fiscalYear": 2025,
                   "exercisedValue": {
                     "raw": 0,
@@ -210,46 +245,14 @@
                     "fmt": null,
                     "longFmt": "0"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "name": "Ms. Anna  Lundström",
-                  "title": "Chief Human Resources Officer",
-                  "fiscalYear": 2025,
-                  "exercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "unexercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "name": "Mr. Dinesh Kumar Srinivasan",
-                  "title": "Head of Marketing for MENA, Trkiye, Pakistan & CIS",
-                  "fiscalYear": 2025,
-                  "exercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "unexercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
                 }
               ],
               "auditRisk": 1,
               "boardRisk": 9,
-              "compensationRisk": 6,
-              "shareHolderRightsRisk": 5,
+              "compensationRisk": 5,
+              "shareHolderRightsRisk": 6,
               "overallRisk": 7,
-              "governanceEpochDate": 1777593600,
+              "governanceEpochDate": 1790812800,
               "compensationAsOfEpochDate": 1767139200,
               "executiveTeam": [],
               "maxAge": 86400
@@ -258,7 +261,7 @@
               "trend": [
                 {
                   "period": "0m",
-                  "strongBuy": 10,
+                  "strongBuy": 8,
                   "buy": 24,
                   "hold": 7,
                   "sell": 0,
@@ -266,7 +269,7 @@
                 },
                 {
                   "period": "-1m",
-                  "strongBuy": 10,
+                  "strongBuy": 8,
                   "buy": 24,
                   "hold": 7,
                   "sell": 0,
@@ -274,7 +277,7 @@
                 },
                 {
                   "period": "-2m",
-                  "strongBuy": 10,
+                  "strongBuy": 9,
                   "buy": 25,
                   "hold": 7,
                   "sell": 0,
@@ -283,7 +286,7 @@
                 {
                   "period": "-3m",
                   "strongBuy": 9,
-                  "buy": 25,
+                  "buy": 24,
                   "hold": 7,
                   "sell": 0,
                   "strongSell": 0
@@ -350,19 +353,19 @@
               "estimates": [
                 {
                   "period": "0q",
-                  "growth": 0.2555
+                  "growth": 0.24190001
                 },
                 {
                   "period": "+1q",
-                  "growth": 0.19629999
+                  "growth": 0.2514
                 },
                 {
                   "period": "0y",
-                  "growth": 0.2234
+                  "growth": 0.3192
                 },
                 {
                   "period": "+1y",
-                  "growth": 0.16440001
+                  "growth": 0.1579
                 },
                 {
                   "period": "LTG",
@@ -373,40 +376,39 @@
             "defaultKeyStatistics": {
               "maxAge": 1,
               "priceHint": 2,
-              "enterpriseValue": 100428939264,
-              "forwardPE": 32.52375,
-              "profitMargins": 0.15449001,
-              "floatShares": 156441911,
-              "sharesOutstanding": 205620061,
-              "sharesShort": 6435392,
-              "sharesShortPriorMonth": 6340801,
-              "sharesShortPreviousMonthDate": 1776211200,
-              "dateShortInterest": 1778803200,
-              "sharesPercentSharesOut": 0.0313,
-              "heldPercentInsiders": 0.22985001,
-              "heldPercentInstitutions": 0.67533994,
-              "shortRatio": 2.76,
-              "shortPercentOfFloat": 0.040700004,
-              "beta": 1.554,
-              "impliedSharesOutstanding": 205620061,
+              "enterpriseValue": 90699718656,
+              "forwardPE": 30.694468,
+              "profitMargins": 0.18434,
+              "floatShares": 157084835,
+              "sharesOutstanding": 205584205,
+              "sharesShort": 4522956,
+              "sharesShortPriorMonth": 4928432,
+              "sharesShortPreviousMonthDate": 1786665600,
+              "dateShortInterest": 1789430400,
+              "sharesPercentSharesOut": 0.022,
+              "heldPercentInsiders": 0.23457001,
+              "heldPercentInstitutions": 0.68833,
+              "shortRatio": 2.85,
+              "shortPercentOfFloat": 0.0286,
+              "beta": 1.586,
+              "impliedSharesOutstanding": 205584205,
               "category": null,
-              "bookValue": 47.741013,
-              "priceToBook": 10.82319,
+              "bookValue": 46.455254,
+              "priceToBook": 10.179473,
               "fundFamily": null,
               "legalType": null,
               "lastFiscalYearEnd": 1767139200,
               "nextFiscalYearEnd": 1798675200,
-              "mostRecentQuarter": 1774915200,
-              "earningsQuarterlyGrowth": 2.204,
-              "netIncomeToCommon": 2708000000,
-              "trailingEps": 14.98,
-              "forwardEps": 18.486458,
-              "pegRatio": 1.75,
+              "mostRecentQuarter": 1782777600,
+              "netIncomeToCommon": 3339000064,
+              "trailingEps": 17.36,
+              "forwardEps": 17.328457,
+              "pegRatio": 1.39,
               "lastSplitFactor": null,
-              "enterpriseToRevenue": 5.729,
-              "enterpriseToEbitda": 41.058,
-              "52WeekChange": -0.22315603,
-              "SandP52WeekChange": 0.2794361,
+              "enterpriseToRevenue": 5.007,
+              "enterpriseToEbitda": 33.805,
+              "52WeekChange": -0.2778839,
+              "SandP52WeekChange": 0.1415559,
               "latestShareClass": null,
               "leadInvestor": null
             },
@@ -669,86 +671,138 @@
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1772236800,
-                    "fmt": "2026-02-28"
+                    "raw": 1780185600,
+                    "fmt": "2026-05-31"
                   },
                   "organization": "VANGUARD WORLD FUND-Vanguard International Growth Fund",
                   "pctHeld": {
-                    "raw": 0.0115,
-                    "fmt": "1.15%"
+                    "raw": 0.0116,
+                    "fmt": "1.16%"
                   },
                   "position": {
-                    "raw": 2377533,
-                    "fmt": "2.38M",
-                    "longFmt": "2,377,533"
+                    "raw": 2396719,
+                    "fmt": "2.4M",
+                    "longFmt": "2,396,719"
                   },
                   "value": {
-                    "raw": 1228495128,
-                    "fmt": "1.23B",
-                    "longFmt": "1,228,495,128"
+                    "raw": 1133384483,
+                    "fmt": "1.13B",
+                    "longFmt": "1,133,384,483"
                   },
                   "pctChange": {
-                    "raw": 0.012200001,
-                    "fmt": "1.22%"
+                    "raw": 0.0081,
+                    "fmt": "0.81%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "BARON SELECT FUNDS-Baron Partners Fund",
+                  "pctHeld": {
+                    "raw": 0.0062,
+                    "fmt": "0.62%"
+                  },
+                  "position": {
+                    "raw": 1280900,
+                    "fmt": "1.28M",
+                    "longFmt": "1,280,900"
+                  },
+                  "value": {
+                    "raw": 605724819,
+                    "fmt": "605.72M",
+                    "longFmt": "605,724,819"
+                  },
+                  "pctChange": {
+                    "raw": 1.4445,
+                    "fmt": "144.45%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "INVESTMENT MANAGERS SERIES TRUST-WCM Focused International Growth Fund",
+                  "pctHeld": {
+                    "raw": 0.0053,
+                    "fmt": "0.53%"
+                  },
+                  "position": {
+                    "raw": 1084610,
+                    "fmt": "1.08M",
+                    "longFmt": "1,084,610"
+                  },
+                  "value": {
+                    "raw": 512901238,
+                    "fmt": "512.9M",
+                    "longFmt": "512,901,238"
+                  },
+                  "pctChange": {
+                    "raw": 0.2167,
+                    "fmt": "21.67%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1788134400,
+                    "fmt": "2026-08-31"
                   },
                   "organization": "iShares Trust-iShares Core MSCI EAFE ETF",
                   "pctHeld": {
-                    "raw": 0.0054,
-                    "fmt": "0.54%"
+                    "raw": 0.0053,
+                    "fmt": "0.53%"
                   },
                   "position": {
-                    "raw": 1103675,
+                    "raw": 1099699,
                     "fmt": "1.1M",
-                    "longFmt": "1,103,675"
+                    "longFmt": "1,099,699"
                   },
                   "value": {
-                    "raw": 570279933,
-                    "fmt": "570.28M",
-                    "longFmt": "570,279,933"
+                    "raw": 520036676,
+                    "fmt": "520.04M",
+                    "longFmt": "520,036,676"
                   },
                   "pctChange": {
-                    "raw": 0.012,
-                    "fmt": "1.20%"
+                    "raw": 0.0064999997,
+                    "fmt": "0.65%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1772236800,
-                    "fmt": "2026-02-28"
+                    "raw": 1780185600,
+                    "fmt": "2026-05-31"
                   },
                   "organization": "VANGUARD WORLD FUND-Vanguard U.S. Growth Fund",
                   "pctHeld": {
-                    "raw": 0.005,
-                    "fmt": "0.50%"
+                    "raw": 0.0047999998,
+                    "fmt": "0.48%"
                   },
                   "position": {
-                    "raw": 1035668,
-                    "fmt": "1.04M",
-                    "longFmt": "1,035,668"
+                    "raw": 978008,
+                    "fmt": "978.01k",
+                    "longFmt": "978,008"
                   },
                   "value": {
-                    "raw": 535140035,
-                    "fmt": "535.14M",
-                    "longFmt": "535,140,035"
+                    "raw": 462490217,
+                    "fmt": "462.49M",
+                    "longFmt": "462,490,217"
                   },
                   "pctChange": {
-                    "raw": 0.9032,
-                    "fmt": "90.32%"
+                    "raw": -0.0557,
+                    "fmt": "-5.57%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1772236800,
-                    "fmt": "2026-02-28"
+                    "raw": 1780185600,
+                    "fmt": "2026-05-31"
                   },
                   "organization": "MFS Series Trust II-MFS Growth Fund",
                   "pctHeld": {
@@ -756,174 +810,122 @@
                     "fmt": "0.43%"
                   },
                   "position": {
-                    "raw": 890066,
-                    "fmt": "890.07k",
-                    "longFmt": "890,066"
+                    "raw": 882334,
+                    "fmt": "882.33k",
+                    "longFmt": "882,334"
                   },
                   "value": {
-                    "raw": 459906022,
-                    "fmt": "459.91M",
-                    "longFmt": "459,906,022"
+                    "raw": 417246938,
+                    "fmt": "417.25M",
+                    "longFmt": "417,246,938"
                   },
                   "pctChange": {
-                    "raw": -0.0222,
-                    "fmt": "-2.22%"
+                    "raw": -0.0087,
+                    "fmt": "-0.87%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "INVESTMENT MANAGERS SERIES TRUST-WCM Focused International Growth Fund",
-                  "pctHeld": {
-                    "raw": 0.0043,
-                    "fmt": "0.43%"
-                  },
-                  "position": {
-                    "raw": 891430,
-                    "fmt": "891.43k",
-                    "longFmt": "891,430"
-                  },
-                  "value": {
-                    "raw": 460610814,
-                    "fmt": "460.61M",
-                    "longFmt": "460,610,814"
-                  },
-                  "pctChange": {
-                    "raw": -0.0095999995,
-                    "fmt": "-0.96%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1767139200,
-                    "fmt": "2025-12-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "T. Rowe Price Growth Stock Fund, Inc.",
                   "pctHeld": {
-                    "raw": 0.0034,
-                    "fmt": "0.34%"
+                    "raw": 0.0033000002,
+                    "fmt": "0.33%"
                   },
                   "position": {
-                    "raw": 706524,
-                    "fmt": "706.52k",
-                    "longFmt": "706,524"
+                    "raw": 672918,
+                    "fmt": "672.92k",
+                    "longFmt": "672,918"
                   },
                   "value": {
-                    "raw": 365068031,
-                    "fmt": "365.07M",
-                    "longFmt": "365,068,031"
+                    "raw": 318216202,
+                    "fmt": "318.22M",
+                    "longFmt": "318,216,202"
                   },
                   "pctChange": {
-                    "raw": 0.1769,
-                    "fmt": "17.69%"
+                    "raw": -0.1696,
+                    "fmt": "-16.96%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1767139200,
-                    "fmt": "2025-12-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "T. ROWE PRICE COMMUNICATIONS & TECHNOLOGY Fd., INC.-T. Rowe Price Comm",
                   "pctHeld": {
-                    "raw": 0.0034,
-                    "fmt": "0.34%"
+                    "raw": 0.0032,
+                    "fmt": "0.32%"
                   },
                   "position": {
-                    "raw": 695614,
-                    "fmt": "695.61k",
-                    "longFmt": "695,614"
+                    "raw": 652052,
+                    "fmt": "652.05k",
+                    "longFmt": "652,052"
                   },
                   "value": {
-                    "raw": 359430725,
-                    "fmt": "359.43M",
-                    "longFmt": "359,430,725"
+                    "raw": 308348879,
+                    "fmt": "308.35M",
+                    "longFmt": "308,348,879"
                   },
                   "pctChange": {
-                    "raw": 0.0197,
-                    "fmt": "1.97%"
+                    "raw": -0.105100006,
+                    "fmt": "-10.51%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1767139200,
-                    "fmt": "2025-12-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "-Price (T.Rowe) Growth Stock Trust",
+                  "pctHeld": {
+                    "raw": 0.0032,
+                    "fmt": "0.32%"
+                  },
+                  "position": {
+                    "raw": 660651,
+                    "fmt": "660.65k",
+                    "longFmt": "660,651"
+                  },
+                  "value": {
+                    "raw": 312415261,
+                    "fmt": "312.42M",
+                    "longFmt": "312,415,261"
+                  },
+                  "pctChange": {
+                    "raw": -0.1479,
+                    "fmt": "-14.79%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "EuroPacific Growth Fund-EUPAC Fund",
                   "pctHeld": {
                     "raw": 0.0031,
                     "fmt": "0.31%"
                   },
                   "position": {
-                    "raw": 629836,
-                    "fmt": "629.84k",
-                    "longFmt": "629,836"
+                    "raw": 643571,
+                    "fmt": "643.57k",
+                    "longFmt": "643,571"
                   },
                   "value": {
-                    "raw": 325442573,
-                    "fmt": "325.44M",
-                    "longFmt": "325,442,573"
+                    "raw": 304338299,
+                    "fmt": "304.34M",
+                    "longFmt": "304,338,299"
                   },
                   "pctChange": {
-                    "raw": 0.5991,
-                    "fmt": "59.91%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1777507200,
-                    "fmt": "2026-04-30"
-                  },
-                  "organization": "iShares Trust-iShares Russell 1000 Growth ETF",
-                  "pctHeld": {
-                    "raw": 0.003,
-                    "fmt": "0.30%"
-                  },
-                  "position": {
-                    "raw": 618531,
-                    "fmt": "618.53k",
-                    "longFmt": "618,531"
-                  },
-                  "value": {
-                    "raw": 319601166,
-                    "fmt": "319.6M",
-                    "longFmt": "319,601,166"
-                  },
-                  "pctChange": {
-                    "raw": -0.0028,
-                    "fmt": "-0.28%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Fidelity Concord Street Trust-Fidelity International Index Fund",
-                  "pctHeld": {
-                    "raw": 0.0028,
-                    "fmt": "0.28%"
-                  },
-                  "position": {
-                    "raw": 576111,
-                    "fmt": "576.11k",
-                    "longFmt": "576,111"
-                  },
-                  "value": {
-                    "raw": 297682327,
-                    "fmt": "297.68M",
-                    "longFmt": "297,682,327"
-                  },
-                  "pctChange": {
-                    "raw": 0.0101,
-                    "fmt": "1.01%"
+                    "raw": 0.71019995,
+                    "fmt": "71.02%"
                   }
                 }
               ]
@@ -931,36 +933,39 @@
             "summaryDetail": {
               "maxAge": 1,
               "priceHint": 2,
-              "previousClose": 512.83,
-              "open": 512,
-              "dayLow": 512,
-              "dayHigh": 527.74,
-              "regularMarketPreviousClose": 512.83,
-              "regularMarketOpen": 512,
-              "regularMarketDayLow": 512,
-              "regularMarketDayHigh": 527.74,
+              "previousClose": 491.4,
+              "open": 491.2,
+              "dayLow": 470.51,
+              "dayHigh": 492,
+              "regularMarketPreviousClose": 491.4,
+              "regularMarketOpen": 491.2,
+              "regularMarketDayLow": 470.51,
+              "regularMarketDayHigh": 492,
               "payoutRatio": 0,
-              "beta": 1.554,
-              "trailingPE": 34.49333,
-              "forwardPE": 27.950731,
-              "volume": 1883736,
-              "regularMarketVolume": 1883736,
-              "averageVolume": 2164583,
-              "averageVolume10days": 2772350,
-              "averageDailyVolume10Day": 2772350,
-              "bid": 513,
-              "ask": 516.99,
+              "beta": 1.586,
+              "trailingPE": 27.240208,
+              "forwardPE": 27.289793,
+              "volume": 1891417,
+              "regularMarketVolume": 1891417,
+              "averageVolume": 1677523,
+              "averageVolume10days": 1450980,
+              "averageDailyVolume10Day": 1450980,
+              "bid": 472.37,
+              "ask": 471.05,
               "bidSize": 4000,
-              "askSize": 12000,
-              "marketCap": 106245947392,
-              "nonDilutedMarketCap": 106245941719,
+              "askSize": 4000,
+              "marketCap": 97218715648,
+              "nonDilutedMarketCap": 104930178232,
               "fiftyTwoWeekLow": 405,
-              "fiftyTwoWeekHigh": 785,
+              "fiftyTwoWeekHigh": 708.55,
               "allTimeHigh": 785,
               "allTimeLow": 69.285,
-              "priceToSalesTrailing12Months": 6.061153,
-              "fiftyDayAverage": 477.3894,
-              "twoHundredDayAverage": 571.95465,
+              "fulldayPrice": 472.87,
+              "fulldayChange": -18.51,
+              "fulldayChangePercent": -0.0376678,
+              "priceToSalesTrailing12Months": 5.367345,
+              "fiftyDayAverage": 516.4194,
+              "twoHundredDayAverage": 500.8644,
               "trailingAnnualDividendRate": 0,
               "trailingAnnualDividendYield": 0,
               "currency": "USD",
@@ -978,27 +983,27 @@
                   "name": "JENKINS DUSTEE",
                   "relation": "Officer",
                   "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
                   "latestTransDate": {
-                    "raw": 1777593600,
-                    "fmt": "2026-05-01"
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
                   },
                   "positionDirect": {
-                    "raw": 43200,
-                    "fmt": "43.2k",
-                    "longFmt": "43,200"
+                    "raw": 39828,
+                    "fmt": "39.83k",
+                    "longFmt": "39,828"
                   },
                   "positionDirectDate": {
-                    "raw": 1777593600,
-                    "fmt": "2026-05-01"
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
                   }
                 },
                 {
                   "maxAge": 1,
-                  "name": "LORENTZON MARTIN",
+                  "name": "LORENTZON SVEN HANS MARTIN",
                   "relation": "Director",
                   "url": "",
-                  "transactionDescription": "Sale",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
                   "latestTransDate": {
                     "raw": 1779408000,
                     "fmt": "2026-05-22"
@@ -1011,26 +1016,6 @@
                   "positionDirectDate": {
                     "raw": 1779408000,
                     "fmt": "2026-05-22"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "name": "LUIGA CHRISTIAN",
-                  "relation": "Chief Financial Officer",
-                  "url": "",
-                  "transactionDescription": "Stock Award(Grant)",
-                  "latestTransDate": {
-                    "raw": 1777593600,
-                    "fmt": "2026-05-01"
-                  },
-                  "positionDirect": {
-                    "raw": 9343,
-                    "fmt": "9.34k",
-                    "longFmt": "9,343"
-                  },
-                  "positionDirectDate": {
-                    "raw": 1777593600,
-                    "fmt": "2026-05-01"
                   }
                 },
                 {
@@ -1051,6 +1036,26 @@
                   "positionDirectDate": {
                     "raw": 1777593600,
                     "fmt": "2026-05-01"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "MARSHALL CHRISTOPHER P",
+                  "relation": "Director",
+                  "url": "",
+                  "transactionDescription": "Stock Award(Grant)",
+                  "latestTransDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "positionDirect": {
+                    "raw": 1077370,
+                    "fmt": "1.08M",
+                    "longFmt": "1,077,370"
+                  },
+                  "positionDirectDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
                   }
                 },
                 {
@@ -1078,19 +1083,39 @@
                   "name": "NORSTROM ALEX",
                   "relation": "Chief Executive Officer",
                   "url": "",
-                  "transactionDescription": "Sale",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
                   "latestTransDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
                   },
                   "positionDirect": {
-                    "raw": 69197,
-                    "fmt": "69.2k",
-                    "longFmt": "69,197"
+                    "raw": 66773,
+                    "fmt": "66.77k",
+                    "longFmt": "66,773"
                   },
                   "positionDirectDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "SARANDOS THEODORE ANTHONY JR.",
+                  "relation": "Director",
+                  "url": "",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
+                  "latestTransDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "positionDirect": {
+                    "raw": 19907,
+                    "fmt": "19.91k",
+                    "longFmt": "19,907"
+                  },
+                  "positionDirectDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
                   }
                 },
                 {
@@ -1098,19 +1123,59 @@
                   "name": "SODERSTROM GUSTAV STIG VICTOR",
                   "relation": "Chief Executive Officer",
                   "url": "",
-                  "transactionDescription": "Sale",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
                   "latestTransDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
+                    "raw": 1789344000,
+                    "fmt": "2026-09-14"
                   },
                   "positionDirect": {
-                    "raw": 20492,
-                    "fmt": "20.49k",
-                    "longFmt": "20,492"
+                    "raw": 20025,
+                    "fmt": "20.02k",
+                    "longFmt": "20,025"
                   },
                   "positionDirectDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
+                    "raw": 1789344000,
+                    "fmt": "2026-09-14"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "STAGGS THOMAS O",
+                  "relation": "Director",
+                  "url": "",
+                  "transactionDescription": "Conversion of Exercise of derivative security",
+                  "latestTransDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
+                  },
+                  "positionDirect": {
+                    "raw": 26713,
+                    "fmt": "26.71k",
+                    "longFmt": "26,713"
+                  },
+                  "positionDirectDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "WARRIOR PADMASREE",
+                  "relation": "Director",
+                  "url": "",
+                  "transactionDescription": "Stock Award(Grant)",
+                  "latestTransDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "positionDirect": {
+                    "raw": 11413,
+                    "fmt": "11.41k",
+                    "longFmt": "11,413"
+                  },
+                  "positionDirectDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
                   }
                 }
               ],
@@ -1120,22 +1185,122 @@
               "maxAge": 1,
               "earnings": {
                 "earningsDate": [
-                  1785241800
+                  1792672200
                 ],
                 "earningsCallDate": [
-                  1777377600
+                  1792699200
                 ],
-                "isEarningsDateEstimate": true,
-                "earningsAverage": 2.81346,
-                "earningsLow": 2.35,
-                "earningsHigh": 3.44,
-                "revenueAverage": 4791203820,
-                "revenueLow": 4700000000,
-                "revenueHigh": 4843200000
+                "isEarningsDateEstimate": false,
+                "earningsAverage": 2.85006,
+                "earningsLow": 2.51,
+                "earningsHigh": 3.33,
+                "revenueAverage": 4984878310,
+                "revenueLow": 4946000000,
+                "revenueHigh": 5008000000
               }
             },
             "upgradeDowngradeHistory": {
               "history": [
+                {
+                  "epochGradeDate": 1790856975,
+                  "firm": "Keybanc",
+                  "toGrade": "Overweight",
+                  "fromGrade": "Overweight",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 660,
+                  "priorPriceTarget": 680
+                },
+                {
+                  "epochGradeDate": 1790695186,
+                  "firm": "Evercore ISI Group",
+                  "toGrade": "Outperform",
+                  "fromGrade": "Outperform",
+                  "action": "main",
+                  "priceTargetAction": "Raises",
+                  "currentPriceTarget": 700,
+                  "priorPriceTarget": 650
+                },
+                {
+                  "epochGradeDate": 1786626489,
+                  "firm": "Argus Research",
+                  "toGrade": "Buy",
+                  "fromGrade": "Buy",
+                  "action": "reit",
+                  "priceTargetAction": "Maintains",
+                  "currentPriceTarget": 600,
+                  "priorPriceTarget": 600
+                },
+                {
+                  "epochGradeDate": 1785934058,
+                  "firm": "Cantor Fitzgerald",
+                  "toGrade": "Neutral",
+                  "fromGrade": "Neutral",
+                  "action": "main",
+                  "priceTargetAction": "Raises",
+                  "currentPriceTarget": 530,
+                  "priorPriceTarget": 510
+                },
+                {
+                  "epochGradeDate": 1785932548,
+                  "firm": "Guggenheim",
+                  "toGrade": "Buy",
+                  "fromGrade": "Buy",
+                  "action": "reit",
+                  "priceTargetAction": "Maintains",
+                  "currentPriceTarget": 565,
+                  "priorPriceTarget": 565
+                },
+                {
+                  "epochGradeDate": 1785931031,
+                  "firm": "Rosenblatt",
+                  "toGrade": "Neutral",
+                  "fromGrade": "Neutral",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 527,
+                  "priorPriceTarget": 531
+                },
+                {
+                  "epochGradeDate": 1784740571,
+                  "firm": "Benchmark",
+                  "toGrade": "Buy",
+                  "fromGrade": "Buy",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 650,
+                  "priorPriceTarget": 695
+                },
+                {
+                  "epochGradeDate": 1783704564,
+                  "firm": "UBS",
+                  "toGrade": "Buy",
+                  "fromGrade": "Buy",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 690,
+                  "priorPriceTarget": 735
+                },
+                {
+                  "epochGradeDate": 1783598644,
+                  "firm": "Wells Fargo",
+                  "toGrade": "Overweight",
+                  "fromGrade": "Overweight",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 570,
+                  "priorPriceTarget": 600
+                },
+                {
+                  "epochGradeDate": 1783597691,
+                  "firm": "Rosenblatt",
+                  "toGrade": "Neutral",
+                  "fromGrade": "Neutral",
+                  "action": "main",
+                  "priceTargetAction": "Lowers",
+                  "currentPriceTarget": 531,
+                  "priorPriceTarget": 534
+                },
                 {
                   "epochGradeDate": 1779799305,
                   "firm": "Cantor Fitzgerald",
@@ -5641,41 +5806,44 @@
             },
             "price": {
               "maxAge": 1,
-              "preMarketChangePercent": 0.00056174427,
-              "preMarketChange": 0.28997803,
-              "preMarketTime": 1780049999,
-              "preMarketPrice": 516.5,
               "preMarketSource": "FREE_REALTIME",
-              "postMarketSource": "FREE_REALTIME",
-              "regularMarketChangePercent": 0.0075658704,
-              "regularMarketChange": 3.88,
-              "regularMarketTime": 1779998403,
+              "postMarketChangePercent": -0.000042334435,
+              "postMarketChange": -0.020019531,
+              "postMarketTime": 1790983874,
+              "postMarketPrice": 472.87,
+              "postMarketSource": "DELAYED",
+              "regularMarketChangePercent": -0.0376678,
+              "regularMarketChange": -18.51,
+              "regularMarketTime": 1790971203,
               "priceHint": 2,
-              "regularMarketPrice": 516.71,
-              "regularMarketDayHigh": 527.74,
-              "regularMarketDayLow": 512,
-              "regularMarketVolume": 1883736,
-              "averageDailyVolume10Day": 2772350,
-              "averageDailyVolume3Month": 2164583,
-              "regularMarketPreviousClose": 512.83,
+              "regularMarketPrice": 472.89,
+              "regularMarketDayHigh": 492,
+              "regularMarketDayLow": 470.51,
+              "regularMarketVolume": 1891417,
+              "averageDailyVolume10Day": 1450980,
+              "averageDailyVolume3Month": 1677523,
+              "regularMarketPreviousClose": 491.4,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 512,
+              "regularMarketOpen": 491.2,
+              "fulldayChangePercent": -0.0376678,
+              "fulldayChange": -18.51,
+              "fulldayPrice": 472.87,
               "exchange": "NYQ",
               "exchangeName": "NYSE",
               "exchangeDataDelayedBy": 0,
-              "marketState": "PRE",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "SPOT",
               "underlyingSymbol": null,
               "shortName": "Spotify Technology S.A.",
               "longName": "Spotify Technology S.A.",
               "currency": "USD",
-              "quoteSourceName": "Nasdaq Real Time Price",
+              "quoteSourceName": "Delayed Quote",
               "currencySymbol": "$",
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 106245947392
+              "marketCap": 97218715648
             },
             "balanceSheetHistory": {
               "balanceSheetStatements": [
@@ -5715,139 +5883,23 @@
                 {
                   "maxAge": 1,
                   "period": "0q",
-                  "endDate": "2026-06-30",
-                  "growth": {
-                    "raw": 7.6987,
-                    "fmt": "769.87%"
-                  },
-                  "earningsEstimate": {
-                    "avg": {
-                      "raw": 2.81346,
-                      "fmt": "2.81"
-                    },
-                    "low": {
-                      "raw": 2.35,
-                      "fmt": "2.35"
-                    },
-                    "high": {
-                      "raw": 3.44,
-                      "fmt": "3.44"
-                    },
-                    "yearAgoEps": {
-                      "raw": -0.42,
-                      "fmt": "-0.42"
-                    },
-                    "numberOfAnalysts": {
-                      "raw": 20,
-                      "fmt": "20",
-                      "longFmt": "20"
-                    },
-                    "growth": {
-                      "raw": 7.6987,
-                      "fmt": "769.87%"
-                    },
-                    "earningsCurrency": "EUR"
-                  },
-                  "revenueEstimate": {
-                    "avg": {
-                      "raw": 4791203820,
-                      "fmt": "4.79B",
-                      "longFmt": "4,791,203,820"
-                    },
-                    "low": {
-                      "raw": 4700000000,
-                      "fmt": "4.7B",
-                      "longFmt": "4,700,000,000"
-                    },
-                    "high": {
-                      "raw": 4843200000,
-                      "fmt": "4.84B",
-                      "longFmt": "4,843,200,000"
-                    },
-                    "numberOfAnalysts": {
-                      "raw": 26,
-                      "fmt": "26",
-                      "longFmt": "26"
-                    },
-                    "yearAgoRevenue": {
-                      "raw": 4193000000,
-                      "fmt": "4.19B",
-                      "longFmt": "4,193,000,000"
-                    },
-                    "growth": {
-                      "raw": 0.1427,
-                      "fmt": "14.27%"
-                    },
-                    "revenueCurrency": "EUR"
-                  },
-                  "epsTrend": {
-                    "current": {
-                      "raw": 2.81346,
-                      "fmt": "2.81"
-                    },
-                    "7daysAgo": {
-                      "raw": 2.83462,
-                      "fmt": "2.83"
-                    },
-                    "30daysAgo": {
-                      "raw": 2.88732,
-                      "fmt": "2.89"
-                    },
-                    "60daysAgo": {
-                      "raw": 2.89834,
-                      "fmt": "2.9"
-                    },
-                    "90daysAgo": {
-                      "raw": 2.9025,
-                      "fmt": "2.9"
-                    },
-                    "epsTrendCurrency": "EUR"
-                  },
-                  "epsRevisions": {
-                    "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "upLast30days": {
-                      "raw": 3,
-                      "fmt": "3",
-                      "longFmt": "3"
-                    },
-                    "downLast30days": {
-                      "raw": 8,
-                      "fmt": "8",
-                      "longFmt": "8"
-                    },
-                    "downLast7Days": {
-                      "raw": 0,
-                      "fmt": null,
-                      "longFmt": "0"
-                    },
-                    "downLast90days": {},
-                    "epsRevisionsCurrency": "EUR"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "period": "+1q",
                   "endDate": "2026-09-30",
                   "growth": {
-                    "raw": -0.0871,
-                    "fmt": "-8.71%"
+                    "raw": -0.1311,
+                    "fmt": "-13.11%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 2.99417,
-                      "fmt": "2.99"
+                      "raw": 2.85006,
+                      "fmt": "2.85"
                     },
                     "low": {
-                      "raw": 2.44,
-                      "fmt": "2.44"
+                      "raw": 2.51,
+                      "fmt": "2.51"
                     },
                     "high": {
-                      "raw": 3.67,
-                      "fmt": "3.67"
+                      "raw": 3.33,
+                      "fmt": "3.33"
                     },
                     "yearAgoEps": {
                       "raw": 3.28,
@@ -5859,31 +5911,31 @@
                       "longFmt": "19"
                     },
                     "growth": {
-                      "raw": -0.0871,
-                      "fmt": "-8.71%"
+                      "raw": -0.1311,
+                      "fmt": "-13.11%"
                     },
                     "earningsCurrency": "EUR"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 4927317770,
-                      "fmt": "4.93B",
-                      "longFmt": "4,927,317,770"
+                      "raw": 4984878310,
+                      "fmt": "4.98B",
+                      "longFmt": "4,984,878,310"
                     },
                     "low": {
-                      "raw": 4789000000,
-                      "fmt": "4.79B",
-                      "longFmt": "4,789,000,000"
+                      "raw": 4946000000,
+                      "fmt": "4.95B",
+                      "longFmt": "4,946,000,000"
                     },
                     "high": {
-                      "raw": 5022035270,
-                      "fmt": "5.02B",
-                      "longFmt": "5,022,035,270"
+                      "raw": 5008000000,
+                      "fmt": "5.01B",
+                      "longFmt": "5,008,000,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 25,
-                      "fmt": "25",
-                      "longFmt": "25"
+                      "raw": 26,
+                      "fmt": "26",
+                      "longFmt": "26"
                     },
                     "yearAgoRevenue": {
                       "raw": 4272000000,
@@ -5891,54 +5943,170 @@
                       "longFmt": "4,272,000,000"
                     },
                     "growth": {
-                      "raw": 0.1534,
-                      "fmt": "15.34%"
+                      "raw": 0.16690001,
+                      "fmt": "16.69%"
                     },
                     "revenueCurrency": "EUR"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 2.99417,
-                      "fmt": "2.99"
+                      "raw": 2.85006,
+                      "fmt": "2.85"
                     },
                     "7daysAgo": {
-                      "raw": 3.03077,
-                      "fmt": "3.03"
+                      "raw": 2.85638,
+                      "fmt": "2.86"
                     },
                     "30daysAgo": {
-                      "raw": 3.30527,
-                      "fmt": "3.31"
+                      "raw": 2.86164,
+                      "fmt": "2.86"
                     },
                     "60daysAgo": {
-                      "raw": 3.3128,
-                      "fmt": "3.31"
+                      "raw": 2.94771,
+                      "fmt": "2.95"
                     },
                     "90daysAgo": {
-                      "raw": 3.3178,
-                      "fmt": "3.32"
+                      "raw": 2.95522,
+                      "fmt": "2.96"
                     },
                     "epsTrendCurrency": "EUR"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "downLast30days": {
-                      "raw": 10,
-                      "fmt": "10",
-                      "longFmt": "10"
-                    },
-                    "downLast7Days": {
                       "raw": 0,
                       "fmt": null,
                       "longFmt": "0"
+                    },
+                    "upLast30days": {
+                      "raw": 6,
+                      "fmt": "6",
+                      "longFmt": "6"
+                    },
+                    "downLast30days": {
+                      "raw": 11,
+                      "fmt": "11",
+                      "longFmt": "11"
+                    },
+                    "downLast7Days": {
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
+                    },
+                    "downLast90days": {},
+                    "epsRevisionsCurrency": "EUR"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "period": "+1q",
+                  "endDate": "2026-12-31",
+                  "growth": {
+                    "raw": -0.2373,
+                    "fmt": "-23.73%"
+                  },
+                  "earningsEstimate": {
+                    "avg": {
+                      "raw": 3.37864,
+                      "fmt": "3.38"
+                    },
+                    "low": {
+                      "raw": 3.03,
+                      "fmt": "3.03"
+                    },
+                    "high": {
+                      "raw": 3.66,
+                      "fmt": "3.66"
+                    },
+                    "yearAgoEps": {
+                      "raw": 4.43,
+                      "fmt": "4.43"
+                    },
+                    "numberOfAnalysts": {
+                      "raw": 18,
+                      "fmt": "18",
+                      "longFmt": "18"
+                    },
+                    "growth": {
+                      "raw": -0.2373,
+                      "fmt": "-23.73%"
+                    },
+                    "earningsCurrency": "EUR"
+                  },
+                  "revenueEstimate": {
+                    "avg": {
+                      "raw": 5235153950,
+                      "fmt": "5.24B",
+                      "longFmt": "5,235,153,950"
+                    },
+                    "low": {
+                      "raw": 5143000000,
+                      "fmt": "5.14B",
+                      "longFmt": "5,143,000,000"
+                    },
+                    "high": {
+                      "raw": 5360000000,
+                      "fmt": "5.36B",
+                      "longFmt": "5,360,000,000"
+                    },
+                    "numberOfAnalysts": {
+                      "raw": 26,
+                      "fmt": "26",
+                      "longFmt": "26"
+                    },
+                    "yearAgoRevenue": {
+                      "raw": 4531000000,
+                      "fmt": "4.53B",
+                      "longFmt": "4,531,000,000"
+                    },
+                    "growth": {
+                      "raw": 0.1554,
+                      "fmt": "15.54%"
+                    },
+                    "revenueCurrency": "EUR"
+                  },
+                  "epsTrend": {
+                    "current": {
+                      "raw": 3.37864,
+                      "fmt": "3.38"
+                    },
+                    "7daysAgo": {
+                      "raw": 3.40364,
+                      "fmt": "3.4"
+                    },
+                    "30daysAgo": {
+                      "raw": 3.40641,
+                      "fmt": "3.41"
+                    },
+                    "60daysAgo": {
+                      "raw": 3.54424,
+                      "fmt": "3.54"
+                    },
+                    "90daysAgo": {
+                      "raw": 3.55477,
+                      "fmt": "3.55"
+                    },
+                    "epsTrendCurrency": "EUR"
+                  },
+                  "epsRevisions": {
+                    "upLast7days": {
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
+                    },
+                    "upLast30days": {
+                      "raw": 5,
+                      "fmt": "5",
+                      "longFmt": "5"
+                    },
+                    "downLast30days": {
+                      "raw": 13,
+                      "fmt": "13",
+                      "longFmt": "13"
+                    },
+                    "downLast7Days": {
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "EUR"
@@ -5949,21 +6117,21 @@
                   "period": "0y",
                   "endDate": "2026-12-31",
                   "growth": {
-                    "raw": 0.2241,
-                    "fmt": "22.41%"
+                    "raw": 0.1659,
+                    "fmt": "16.59%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 12.86562,
-                      "fmt": "12.87"
+                      "raw": 12.25366,
+                      "fmt": "12.25"
                     },
                     "low": {
-                      "raw": 11.29516,
-                      "fmt": "11.3"
+                      "raw": 11.43,
+                      "fmt": "11.43"
                     },
                     "high": {
-                      "raw": 14.74,
-                      "fmt": "14.74"
+                      "raw": 13.77,
+                      "fmt": "13.77"
                     },
                     "yearAgoEps": {
                       "raw": 10.51,
@@ -5975,31 +6143,31 @@
                       "longFmt": "27"
                     },
                     "growth": {
-                      "raw": 0.2241,
-                      "fmt": "22.41%"
+                      "raw": 0.1659,
+                      "fmt": "16.59%"
                     },
                     "earningsCurrency": "EUR"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 19481347750,
-                      "fmt": "19.48B",
-                      "longFmt": "19,481,347,750"
+                      "raw": 19531403880,
+                      "fmt": "19.53B",
+                      "longFmt": "19,531,403,880"
                     },
                     "low": {
-                      "raw": 19052000000,
-                      "fmt": "19.05B",
-                      "longFmt": "19,052,000,000"
+                      "raw": 19400000000,
+                      "fmt": "19.4B",
+                      "longFmt": "19,400,000,000"
                     },
                     "high": {
-                      "raw": 19674000000,
-                      "fmt": "19.67B",
-                      "longFmt": "19,674,000,000"
+                      "raw": 19716000000,
+                      "fmt": "19.72B",
+                      "longFmt": "19,716,000,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 34,
-                      "fmt": "34",
-                      "longFmt": "34"
+                      "raw": 35,
+                      "fmt": "35",
+                      "longFmt": "35"
                     },
                     "yearAgoRevenue": {
                       "raw": 17186000000,
@@ -6007,31 +6175,31 @@
                       "longFmt": "17,186,000,000"
                     },
                     "growth": {
-                      "raw": 0.1336,
-                      "fmt": "13.36%"
+                      "raw": 0.1365,
+                      "fmt": "13.65%"
                     },
                     "revenueCurrency": "EUR"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 12.86562,
-                      "fmt": "12.87"
+                      "raw": 12.25366,
+                      "fmt": "12.25"
                     },
                     "7daysAgo": {
-                      "raw": 12.87973,
-                      "fmt": "12.88"
+                      "raw": 12.27885,
+                      "fmt": "12.28"
                     },
                     "30daysAgo": {
-                      "raw": 13.08558,
-                      "fmt": "13.09"
+                      "raw": 12.29607,
+                      "fmt": "12.3"
                     },
                     "60daysAgo": {
-                      "raw": 13.06044,
-                      "fmt": "13.06"
+                      "raw": 12.72831,
+                      "fmt": "12.73"
                     },
                     "90daysAgo": {
-                      "raw": 13.0683,
-                      "fmt": "13.07"
+                      "raw": 12.73286,
+                      "fmt": "12.73"
                     },
                     "epsTrendCurrency": "EUR"
                   },
@@ -6042,19 +6210,19 @@
                       "longFmt": "1"
                     },
                     "upLast30days": {
-                      "raw": 6,
-                      "fmt": "6",
-                      "longFmt": "6"
+                      "raw": 8,
+                      "fmt": "8",
+                      "longFmt": "8"
                     },
                     "downLast30days": {
-                      "raw": 15,
-                      "fmt": "15",
-                      "longFmt": "15"
+                      "raw": 18,
+                      "fmt": "18",
+                      "longFmt": "18"
                     },
                     "downLast7Days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 3,
+                      "fmt": "3",
+                      "longFmt": "3"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "EUR"
@@ -6065,25 +6233,25 @@
                   "period": "+1y",
                   "endDate": "2027-12-31",
                   "growth": {
-                    "raw": 0.2349,
-                    "fmt": "23.49%"
+                    "raw": 0.2573,
+                    "fmt": "25.73%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 15.88716,
-                      "fmt": "15.89"
+                      "raw": 15.40636,
+                      "fmt": "15.41"
                     },
                     "low": {
-                      "raw": 13.75,
-                      "fmt": "13.75"
+                      "raw": 13.81,
+                      "fmt": "13.81"
                     },
                     "high": {
-                      "raw": 19.62,
-                      "fmt": "19.62"
+                      "raw": 17.77,
+                      "fmt": "17.77"
                     },
                     "yearAgoEps": {
-                      "raw": 12.86562,
-                      "fmt": "12.87"
+                      "raw": 12.25366,
+                      "fmt": "12.25"
                     },
                     "numberOfAnalysts": {
                       "raw": 27,
@@ -6091,26 +6259,26 @@
                       "longFmt": "27"
                     },
                     "growth": {
-                      "raw": 0.2349,
-                      "fmt": "23.49%"
+                      "raw": 0.2573,
+                      "fmt": "25.73%"
                     },
                     "earningsCurrency": "EUR"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 22259256910,
-                      "fmt": "22.26B",
-                      "longFmt": "22,259,256,910"
+                      "raw": 22338520370,
+                      "fmt": "22.34B",
+                      "longFmt": "22,338,520,370"
                     },
                     "low": {
-                      "raw": 21492000000,
-                      "fmt": "21.49B",
-                      "longFmt": "21,492,000,000"
+                      "raw": 21725000000,
+                      "fmt": "21.73B",
+                      "longFmt": "21,725,000,000"
                     },
                     "high": {
-                      "raw": 22946351720,
-                      "fmt": "22.95B",
-                      "longFmt": "22,946,351,720"
+                      "raw": 23020000000,
+                      "fmt": "23.02B",
+                      "longFmt": "23,020,000,000"
                     },
                     "numberOfAnalysts": {
                       "raw": 36,
@@ -6118,54 +6286,54 @@
                       "longFmt": "36"
                     },
                     "yearAgoRevenue": {
-                      "raw": 19481347750,
-                      "fmt": "19.48B",
-                      "longFmt": "19,481,347,750"
+                      "raw": 19531403880,
+                      "fmt": "19.53B",
+                      "longFmt": "19,531,403,880"
                     },
                     "growth": {
-                      "raw": 0.1426,
-                      "fmt": "14.26%"
+                      "raw": 0.1437,
+                      "fmt": "14.37%"
                     },
                     "revenueCurrency": "EUR"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 15.88716,
-                      "fmt": "15.89"
+                      "raw": 15.40636,
+                      "fmt": "15.41"
                     },
                     "7daysAgo": {
-                      "raw": 15.84775,
-                      "fmt": "15.85"
+                      "raw": 15.42747,
+                      "fmt": "15.43"
                     },
                     "30daysAgo": {
-                      "raw": 16.43282,
-                      "fmt": "16.43"
+                      "raw": 15.5125,
+                      "fmt": "15.51"
                     },
                     "60daysAgo": {
-                      "raw": 16.26279,
-                      "fmt": "16.26"
+                      "raw": 15.79291,
+                      "fmt": "15.79"
                     },
                     "90daysAgo": {
-                      "raw": 16.29995,
-                      "fmt": "16.3"
+                      "raw": 15.88036,
+                      "fmt": "15.88"
                     },
                     "epsTrendCurrency": "EUR"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 3,
+                      "fmt": "3",
+                      "longFmt": "3"
                     },
                     "upLast30days": {
-                      "raw": 4,
-                      "fmt": "4",
-                      "longFmt": "4"
+                      "raw": 11,
+                      "fmt": "11",
+                      "longFmt": "11"
                     },
                     "downLast30days": {
-                      "raw": 13,
-                      "fmt": "13",
-                      "longFmt": "13"
+                      "raw": 12,
+                      "fmt": "12",
+                      "longFmt": "12"
                     },
                     "downLast7Days": {
                       "raw": 2,
@@ -6182,6 +6350,56 @@
             },
             "secFilings": {
               "filings": [
+                {
+                  "date": "2026-09-03",
+                  "epochDate": 1788393600,
+                  "type": "6-K",
+                  "title": "Corporate Changes & Voting Matters",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-035575_1639920",
+                  "exhibits": [
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126035575/ef20081361_6k.htm"
+                    }
+                  ],
+                  "maxAge": 1
+                },
+                {
+                  "date": "2026-08-20",
+                  "epochDate": 1787184000,
+                  "type": "6-K",
+                  "title": "Corporate Changes & Voting Matters",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-033885_1639920",
+                  "exhibits": [
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126033885/ef20080678_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126033885/ef20080678_ex99-1.htm"
+                    }
+                  ],
+                  "maxAge": 1
+                },
+                {
+                  "date": "2026-08-04",
+                  "epochDate": 1785801600,
+                  "type": "6-K",
+                  "title": "Corporate Changes & Voting Matters",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-031044_1639920",
+                  "exhibits": [
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126031044/ef20078867_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126031044/ef20078867_ex99-1.htm"
+                    }
+                  ],
+                  "maxAge": 1
+                },
                 {
                   "date": "2026-04-28",
                   "epochDate": 1777334400,
@@ -6278,10 +6496,6 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-26-004626_1639920",
                   "exhibits": [
                     {
-                      "type": "S-8",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126004626/ef20063564_s8.htm"
-                    },
-                    {
                       "type": "EX-FILING FEES",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126004626/ef20063564_ex107.htm"
                     },
@@ -6292,6 +6506,10 @@
                     {
                       "type": "EX-5.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126004626/ef20063564_ex5-1.htm"
+                    },
+                    {
+                      "type": "S-8",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036126004626/ef20063564_s8.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6318,10 +6536,6 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-040543_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125040543/ny20056619x1_6k.htm"
-                    },
-                    {
                       "type": "EX-99.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125040543/ny20056619x1_ex99-1.htm"
                     },
@@ -6332,6 +6546,10 @@
                     {
                       "type": "EX-99.3",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125040543/ny20056619x1_ex99-3.htm"
+                    },
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125040543/ny20056619x1_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6376,12 +6594,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-027654_1639920",
                   "exhibits": [
                     {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125027654/ef20052398_ex99-1.htm"
-                    },
-                    {
                       "type": "6-K",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125027654/ef20052398_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125027654/ef20052398_ex99-1.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6391,15 +6609,11 @@
                   "epochDate": 1745884800,
                   "type": "6-K",
                   "title": "Corporate Changes & Voting Matters",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-016186_1639920",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-25-000006_1639920",
                   "exhibits": [
                     {
                       "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125016186/ef20047937_6k.htm"
-                    },
-                    {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125016186/ef20047937_ex99-1.htm"
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992025000006/spot-20250331x6xk.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6426,10 +6640,6 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-006278_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125006278/ny20036396x1_6k.htm"
-                    },
-                    {
                       "type": "EX-99.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125006278/ny20036396x1_ex99-1.htm"
                     },
@@ -6440,6 +6650,10 @@
                     {
                       "type": "EX-99.3",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125006278/ny20036396x1_ex99-3.htm"
+                    },
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125006278/ny20036396x1_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6451,6 +6665,10 @@
                   "title": "Periodic Financial Reports",
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-25-000003_1639920",
                   "exhibits": [
+                    {
+                      "type": "20-F",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992025000003/ck0001639920-20241231.htm"
+                    },
                     {
                       "type": "EXCEL",
                       "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001639920/000163992025000003/Financial_Report.xlsx",
@@ -6495,10 +6713,6 @@
                     {
                       "type": "EX-97.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992025000003/spot-20241231xexx971.htm"
-                    },
-                    {
-                      "type": "20-F",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992025000003/ck0001639920-20241231.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6511,12 +6725,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-25-002936_1639920",
                   "exhibits": [
                     {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125002936/ef20042791_ex99-1.htm"
-                    },
-                    {
                       "type": "6-K",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125002936/ef20042791_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036125002936/ef20042791_ex99-1.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6607,12 +6821,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-021146_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124021146/ef20027394_6k.htm"
-                    },
-                    {
                       "type": "EX-99.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124021146/ef20027394_ex99-1.htm"
+                    },
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124021146/ef20027394_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6639,12 +6853,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-24-017809_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124017809/ef20026034_6k.htm"
-                    },
-                    {
                       "type": "EX-99.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124017809/ef20026034_ex99-1.htm"
+                    },
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036124017809/ef20026034_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6701,6 +6915,10 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-24-000004_1639920",
                   "exhibits": [
                     {
+                      "type": "20-F",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992024000004/ck0001639920-20231231.htm"
+                    },
+                    {
                       "type": "EXCEL",
                       "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001639920/000163992024000004/Financial_Report.xlsx",
                       "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001639920/000163992024000004/Financial_Report.xlsx"
@@ -6736,10 +6954,6 @@
                     {
                       "type": "EX-97.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992024000004/spot-20231231xexx971.htm"
-                    },
-                    {
-                      "type": "20-F",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992024000004/ck0001639920-20231231.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6752,26 +6966,26 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-056664_1639920",
                   "exhibits": [
                     {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123056664/ef20016279_ex99-1.htm"
-                    },
-                    {
                       "type": "6-K",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123056664/ef20016279_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123056664/ef20016279_ex99-1.htm"
                     }
                   ],
                   "maxAge": 1
                 },
                 {
-                  "date": "2023-10-25",
-                  "epochDate": 1698192000,
+                  "date": "2023-12-04",
+                  "epochDate": 1701648000,
                   "type": "6-K",
                   "title": "Corporate Changes & Voting Matters",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000013_1639920",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-055913_1639920",
                   "exhibits": [
                     {
                       "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000013/spot-20230930x6xk.htm"
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123055913/ef20015890_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6784,12 +6998,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-049225_1639920",
                   "exhibits": [
                     {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123049225/ef20012857_ex99-1.htm"
-                    },
-                    {
                       "type": "6-K",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123049225/ef20012857_6k.htm"
+                    },
+                    {
+                      "type": "EX-99.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123049225/ef20012857_ex99-1.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6878,13 +7092,46 @@
                 {
                   "date": "2023-02-02",
                   "epochDate": 1675296000,
-                  "type": "6-K",
-                  "title": "Corporate Changes & Voting Matters",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-23-004168_1639920",
+                  "type": "20-F",
+                  "title": "Periodic Financial Reports",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-23-000004_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036123004168/brhc10047390_6k.htm"
+                      "type": "EXCEL",
+                      "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001639920/000163992023000004/Financial_Report.xlsx",
+                      "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001639920/000163992023000004/Financial_Report.xlsx"
+                    },
+                    {
+                      "type": "EX-1.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx11.htm"
+                    },
+                    {
+                      "type": "EX-12.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx121.htm"
+                    },
+                    {
+                      "type": "EX-12.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx122.htm"
+                    },
+                    {
+                      "type": "EX-13.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx131.htm"
+                    },
+                    {
+                      "type": "EX-13.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx132.htm"
+                    },
+                    {
+                      "type": "EX-15.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx151.htm"
+                    },
+                    {
+                      "type": "EX-8.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/spot-20221231xexx81.htm"
+                    },
+                    {
+                      "type": "20-F",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992023000004/ck0001639920-20221231.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6944,15 +7191,11 @@
                   "epochDate": 1658880000,
                   "type": "6-K",
                   "title": "Corporate Changes & Voting Matters",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001193125-22-202574_1639920",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-22-000011_1639920",
                   "exhibits": [
                     {
                       "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000119312522202574/d387570d6k.htm"
-                    },
-                    {
-                      "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000119312522202574/d387570dex991.htm"
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000011/spot-20220630x6xk.htm"
                     }
                   ],
                   "maxAge": 1
@@ -6960,17 +7203,41 @@
                 {
                   "date": "2022-04-27",
                   "epochDate": 1651017600,
-                  "type": "6-K",
-                  "title": "Corporate Changes & Voting Matters",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-22-016067_1639920",
+                  "type": "S-8",
+                  "title": "Offering Registrations",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-22-016244_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016067/brhc10036701_6k.htm"
+                      "type": "EX-FILING FEES",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex107.htm"
+                    },
+                    {
+                      "type": "EX-23.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex23-2.htm"
+                    },
+                    {
+                      "type": "EX-5.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex5-1.htm"
                     },
                     {
                       "type": "EX-99.1",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016067/brhc10036701_ex99-1.htm"
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex99-1.htm"
+                    },
+                    {
+                      "type": "EX-99.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex99-2.htm"
+                    },
+                    {
+                      "type": "EX-99.3",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex99-3.htm"
+                    },
+                    {
+                      "type": "EX-99.4",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_ex99-4.htm"
+                    },
+                    {
+                      "type": "S-8",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122016244/brhc10036422_s8.htm"
                     }
                   ],
                   "maxAge": 1
@@ -7036,17 +7303,94 @@
                 {
                   "date": "2022-02-03",
                   "epochDate": 1643846400,
-                  "type": "SC 13G/A",
-                  "title": "Tender Offer/Acquisition Reports",
-                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-22-003783_1639920",
+                  "type": "20-F",
+                  "title": "Periodic Financial Reports",
+                  "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001639920-22-000004_1639920",
                   "exhibits": [
                     {
-                      "type": "SC 13G/A",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122003783/brhc10033369_sc13ga.htm"
+                      "type": "20-F",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/ck0001639920-20211231.htm"
                     },
                     {
-                      "type": "SC 13G/A",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001767568/000114036122003783/brhc10033369_sc13ga.htm"
+                      "type": "20-F",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/ck0001639920-20211231.htm"
+                    },
+                    {
+                      "type": "EXCEL",
+                      "url": "https://s3.amazonaws.com/finance-pri-uw2/sec-filings/0001639920/000163992022000004/Financial_Report.xlsx",
+                      "downloadUrl": "https://finance.yahoo.com/_getSECFilingReportUrl?reportUrl=/sec-filings/0001639920/000163992022000004/Financial_Report.xlsx"
+                    },
+                    {
+                      "type": "EX-1.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx11.htm"
+                    },
+                    {
+                      "type": "EX-12.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx121.htm"
+                    },
+                    {
+                      "type": "EX-12.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx122.htm"
+                    },
+                    {
+                      "type": "EX-13.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx131.htm"
+                    },
+                    {
+                      "type": "EX-13.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx132.htm"
+                    },
+                    {
+                      "type": "EX-15.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx151.htm"
+                    },
+                    {
+                      "type": "EX-2.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx21.htm"
+                    },
+                    {
+                      "type": "EX-4.3",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx43.htm"
+                    },
+                    {
+                      "type": "EX-8.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000163992022000004/spot-20211231xexx81.htm"
+                    },
+                    {
+                      "type": "EX-1.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx11.htm"
+                    },
+                    {
+                      "type": "EX-12.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx121.htm"
+                    },
+                    {
+                      "type": "EX-12.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx122.htm"
+                    },
+                    {
+                      "type": "EX-13.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx131.htm"
+                    },
+                    {
+                      "type": "EX-13.2",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx132.htm"
+                    },
+                    {
+                      "type": "EX-15.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx151.htm"
+                    },
+                    {
+                      "type": "EX-2.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx21.htm"
+                    },
+                    {
+                      "type": "EX-4.3",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx43.htm"
+                    },
+                    {
+                      "type": "EX-8.1",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/1639920/000163992022000004/spot-20211231xexx81.htm"
                     }
                   ],
                   "maxAge": 1
@@ -7059,12 +7403,12 @@
                   "edgarUrl": "https://finance.yahoo.com/sec-filing/SPOT/0001140361-22-003619_1639920",
                   "exhibits": [
                     {
-                      "type": "6-K",
-                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122003619/brhc10033384_6k.htm"
-                    },
-                    {
                       "type": "EX-99.1",
                       "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122003619/brhc10033384_ex99-1.htm"
+                    },
+                    {
+                      "type": "6-K",
+                      "url": "https://cdn.yahoofinance.com/prod/sec-filings/0001639920/000114036122003619/brhc10033384_6k.htm"
                     }
                   ],
                   "maxAge": 1
@@ -7087,271 +7431,271 @@
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "Blackrock Inc.",
                   "pctHeld": {
-                    "raw": 0.0553,
-                    "fmt": "5.53%"
+                    "raw": 0.0529,
+                    "fmt": "5.29%"
                   },
                   "position": {
-                    "raw": 11377853,
-                    "fmt": "11.38M",
-                    "longFmt": "11,377,853"
+                    "raw": 10890937,
+                    "fmt": "10.89M",
+                    "longFmt": "10,890,937"
                   },
                   "value": {
-                    "raw": 5879050673,
-                    "fmt": "5.88B",
-                    "longFmt": "5,879,050,673"
+                    "raw": 5150215357,
+                    "fmt": "5.15B",
+                    "longFmt": "5,150,215,357"
                   },
                   "pctChange": {
-                    "raw": -0.019199999,
-                    "fmt": "-1.92%"
+                    "raw": -0.0428,
+                    "fmt": "-4.28%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Morgan Stanley",
-                  "pctHeld": {
-                    "raw": 0.040700004,
-                    "fmt": "4.07%"
-                  },
-                  "position": {
-                    "raw": 8380266,
-                    "fmt": "8.38M",
-                    "longFmt": "8,380,266"
-                  },
-                  "value": {
-                    "raw": 4330167428,
-                    "fmt": "4.33B",
-                    "longFmt": "4,330,167,428"
-                  },
-                  "pctChange": {
-                    "raw": 0.23799999,
-                    "fmt": "23.80%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "BAILLIE GIFFORD & CO",
                   "pctHeld": {
-                    "raw": 0.0399,
-                    "fmt": "3.99%"
+                    "raw": 0.0385,
+                    "fmt": "3.85%"
                   },
                   "position": {
-                    "raw": 8218203,
-                    "fmt": "8.22M",
-                    "longFmt": "8,218,203"
+                    "raw": 7928451,
+                    "fmt": "7.93M",
+                    "longFmt": "7,928,451"
                   },
                   "value": {
-                    "raw": 4246427852,
-                    "fmt": "4.25B",
-                    "longFmt": "4,246,427,852"
+                    "raw": 3749285309,
+                    "fmt": "3.75B",
+                    "longFmt": "3,749,285,309"
                   },
                   "pctChange": {
-                    "raw": -0.0136,
-                    "fmt": "-1.36%"
+                    "raw": -0.0353,
+                    "fmt": "-3.53%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "Morgan Stanley",
+                  "pctHeld": {
+                    "raw": 0.036,
+                    "fmt": "3.60%"
+                  },
+                  "position": {
+                    "raw": 7418358,
+                    "fmt": "7.42M",
+                    "longFmt": "7,418,358"
+                  },
+                  "value": {
+                    "raw": 3508067423,
+                    "fmt": "3.51B",
+                    "longFmt": "3,508,067,423"
+                  },
+                  "pctChange": {
+                    "raw": -0.1148,
+                    "fmt": "-11.48%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "State Street Corporation",
                   "pctHeld": {
-                    "raw": 0.023,
-                    "fmt": "2.30%"
+                    "raw": 0.0225,
+                    "fmt": "2.25%"
                   },
                   "position": {
-                    "raw": 4729053,
-                    "fmt": "4.73M",
-                    "longFmt": "4,729,053"
+                    "raw": 4633537,
+                    "fmt": "4.63M",
+                    "longFmt": "4,633,537"
                   },
                   "value": {
-                    "raw": 2443549079,
-                    "fmt": "2.44B",
-                    "longFmt": "2,443,549,079"
+                    "raw": 2191153379,
+                    "fmt": "2.19B",
+                    "longFmt": "2,191,153,379"
                   },
                   "pctChange": {
-                    "raw": 0.0036000002,
-                    "fmt": "0.36%"
+                    "raw": -0.0202,
+                    "fmt": "-2.02%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "Price (T.Rowe) Associates Inc",
                   "pctHeld": {
-                    "raw": 0.0224,
-                    "fmt": "2.24%"
+                    "raw": 0.0175,
+                    "fmt": "1.75%"
                   },
                   "position": {
-                    "raw": 4603839,
-                    "fmt": "4.6M",
-                    "longFmt": "4,603,839"
+                    "raw": 3596492,
+                    "fmt": "3.6M",
+                    "longFmt": "3,596,492"
                   },
                   "value": {
-                    "raw": 2378849750,
-                    "fmt": "2.38B",
-                    "longFmt": "2,378,849,750"
+                    "raw": 1700745154,
+                    "fmt": "1.7B",
+                    "longFmt": "1,700,745,154"
                   },
                   "pctChange": {
-                    "raw": 0.1898,
-                    "fmt": "18.98%"
+                    "raw": -0.2188,
+                    "fmt": "-21.88%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "Wellington Management Group, LLP",
                   "pctHeld": {
-                    "raw": 0.0161,
-                    "fmt": "1.61%"
+                    "raw": 0.0150999995,
+                    "fmt": "1.51%"
                   },
                   "position": {
-                    "raw": 3319838,
-                    "fmt": "3.32M",
-                    "longFmt": "3,319,838"
+                    "raw": 3111553,
+                    "fmt": "3.11M",
+                    "longFmt": "3,111,553"
                   },
                   "value": {
-                    "raw": 1715393565,
-                    "fmt": "1.72B",
-                    "longFmt": "1,715,393,565"
+                    "raw": 1471422343,
+                    "fmt": "1.47B",
+                    "longFmt": "1,471,422,343"
                   },
                   "pctChange": {
-                    "raw": 2.6929002,
-                    "fmt": "269.29%"
+                    "raw": -0.0627,
+                    "fmt": "-6.27%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Jennison Associates LLC",
-                  "pctHeld": {
-                    "raw": 0.0135,
-                    "fmt": "1.35%"
-                  },
-                  "position": {
-                    "raw": 2778849,
-                    "fmt": "2.78M",
-                    "longFmt": "2,778,849"
-                  },
-                  "value": {
-                    "raw": 1435859127,
-                    "fmt": "1.44B",
-                    "longFmt": "1,435,859,127"
-                  },
-                  "pctChange": {
-                    "raw": -0.0759,
-                    "fmt": "-7.59%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Fisher Asset Management, LLC",
-                  "pctHeld": {
-                    "raw": 0.0126,
-                    "fmt": "1.26%"
-                  },
-                  "position": {
-                    "raw": 2588665,
-                    "fmt": "2.59M",
-                    "longFmt": "2,588,665"
-                  },
-                  "value": {
-                    "raw": 1337589149,
-                    "fmt": "1.34B",
-                    "longFmt": "1,337,589,149"
-                  },
-                  "pctChange": {
-                    "raw": -0.028800001,
-                    "fmt": "-2.88%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "organization": "WCM Investment Management, LLC",
                   "pctHeld": {
-                    "raw": 0.0117,
-                    "fmt": "1.17%"
+                    "raw": 0.0138,
+                    "fmt": "1.38%"
                   },
                   "position": {
-                    "raw": 2415077,
-                    "fmt": "2.42M",
-                    "longFmt": "2,415,077"
+                    "raw": 2840477,
+                    "fmt": "2.84M",
+                    "longFmt": "2,840,477"
                   },
                   "value": {
-                    "raw": 1247894489,
-                    "fmt": "1.25B",
-                    "longFmt": "1,247,894,489"
+                    "raw": 1343233210,
+                    "fmt": "1.34B",
+                    "longFmt": "1,343,233,210"
                   },
                   "pctChange": {
-                    "raw": -0.0166,
-                    "fmt": "-1.66%"
+                    "raw": 0.1761,
+                    "fmt": "17.61%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
-                  "organization": "Massachusetts Financial Services Co.",
+                  "organization": "Jennison Associates LLC",
                   "pctHeld": {
-                    "raw": 0.01,
-                    "fmt": "1.00%"
+                    "raw": 0.0136,
+                    "fmt": "1.36%"
                   },
                   "position": {
-                    "raw": 2059978,
-                    "fmt": "2.06M",
-                    "longFmt": "2,059,978"
+                    "raw": 2809432,
+                    "fmt": "2.81M",
+                    "longFmt": "2,809,432"
                   },
                   "value": {
-                    "raw": 1064411277,
-                    "fmt": "1.06B",
-                    "longFmt": "1,064,411,277"
+                    "raw": 1328552339,
+                    "fmt": "1.33B",
+                    "longFmt": "1,328,552,339"
                   },
                   "pctChange": {
-                    "raw": -0.0427,
-                    "fmt": "-4.27%"
+                    "raw": 0.011,
+                    "fmt": "1.10%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "Fisher Asset Management, LLC",
+                  "pctHeld": {
+                    "raw": 0.012999999,
+                    "fmt": "1.30%"
+                  },
+                  "position": {
+                    "raw": 2674677,
+                    "fmt": "2.67M",
+                    "longFmt": "2,674,677"
+                  },
+                  "value": {
+                    "raw": 1264828045,
+                    "fmt": "1.26B",
+                    "longFmt": "1,264,828,045"
+                  },
+                  "pctChange": {
+                    "raw": 0.0332,
+                    "fmt": "3.32%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "organization": "Dz Bank Ag Deutsche Zentral Genossenschafts Bank, Frankfurt Am Main",
+                  "pctHeld": {
+                    "raw": 0.012,
+                    "fmt": "1.20%"
+                  },
+                  "position": {
+                    "raw": 2463556,
+                    "fmt": "2.46M",
+                    "longFmt": "2,463,556"
+                  },
+                  "value": {
+                    "raw": 1164991032,
+                    "fmt": "1.16B",
+                    "longFmt": "1,164,991,032"
+                  },
+                  "pctChange": {
+                    "raw": 0.5742,
+                    "fmt": "57.42%"
                   }
                 }
               ]
             },
             "majorHoldersBreakdown": {
               "maxAge": 1,
-              "insidersPercentHeld": 0.22985001,
-              "institutionsPercentHeld": 0.67533994,
-              "institutionsFloatPercentHeld": 0.87689,
-              "institutionsCount": 1855
+              "insidersPercentHeld": 0.23457001,
+              "institutionsPercentHeld": 0.68833,
+              "institutionsFloatPercentHeld": 0.89927,
+              "institutionsCount": 1839
             },
             "balanceSheetHistoryQuarterly": {
               "balanceSheetStatements": [
@@ -7391,31 +7735,6 @@
                 {
                   "maxAge": 1,
                   "epsActual": {
-                    "raw": -0.42,
-                    "fmt": "-0.42"
-                  },
-                  "epsEstimate": {
-                    "raw": 2.02071,
-                    "fmt": "2.02"
-                  },
-                  "epsDifference": {
-                    "raw": -2.44,
-                    "fmt": "-2.44"
-                  },
-                  "surprisePercent": {
-                    "raw": -1.2078,
-                    "fmt": "-120.78%"
-                  },
-                  "quarter": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "currency": "EUR",
-                  "period": "-4q"
-                },
-                {
-                  "maxAge": 1,
-                  "epsActual": {
                     "raw": 3.28,
                     "fmt": "3.28"
                   },
@@ -7436,7 +7755,7 @@
                     "fmt": "2025-09-30"
                   },
                   "currency": "EUR",
-                  "period": "-3q"
+                  "period": "-4q"
                 },
                 {
                   "maxAge": 1,
@@ -7461,7 +7780,7 @@
                     "fmt": "2025-12-31"
                   },
                   "currency": "EUR",
-                  "period": "-2q"
+                  "period": "-3q"
                 },
                 {
                   "maxAge": 1,
@@ -7484,6 +7803,31 @@
                   "quarter": {
                     "raw": 1774915200,
                     "fmt": "2026-03-31"
+                  },
+                  "currency": "EUR",
+                  "period": "-2q"
+                },
+                {
+                  "maxAge": 1,
+                  "epsActual": {
+                    "raw": 2.61,
+                    "fmt": "2.61"
+                  },
+                  "epsEstimate": {
+                    "raw": 2.79603,
+                    "fmt": "2.8"
+                  },
+                  "epsDifference": {
+                    "raw": -0.19,
+                    "fmt": "-0.19"
+                  },
+                  "surprisePercent": {
+                    "raw": -0.0665,
+                    "fmt": "-6.65%"
+                  },
+                  "quarter": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "currency": "EUR",
                   "period": "-1q"
@@ -7509,7 +7853,7 @@
               "sectorKey": "communication-services",
               "sectorDisp": "Communication Services",
               "longBusinessSummary": "Spotify Technology S.A., together with its subsidiaries, provides audio streaming subscription services worldwide. It operates in two segments, Premium and Ad-Supported. The Premium segment offers online and offline streaming access to its catalog of music and podcasts, including video, lossless music, and audiobooks in select markets through subscription offerings primarily sold directly to end users and partners. The Ad-Supported segment provides limited on-demand online access to its catalog of music and online and offline access to its catalog of podcasts on computers, tablets, mobile devices, and other smart devices. The company also offers sales, distribution and marketing, contract research and development, and customer and other support services. Spotify Technology S.A. was incorporated in 2006 and is headquartered in Stockholm, Sweden.",
-              "fullTimeEmployees": 7258,
+              "fullTimeEmployees": 7000,
               "companyOfficers": [],
               "executiveTeam": [],
               "maxAge": 86400
@@ -7517,41 +7861,593 @@
             "netSharePurchaseActivity": {
               "maxAge": 1,
               "period": "6m",
-              "buyInfoCount": 9,
-              "buyInfoShares": 117160,
-              "buyPercentInsiderShares": 0.002,
-              "sellInfoCount": 5,
-              "sellInfoShares": 87918,
-              "sellPercentInsiderShares": 0.002,
-              "netInfoCount": 14,
-              "netInfoShares": 29242,
+              "buyInfoCount": 25,
+              "buyInfoShares": 243758,
+              "buyPercentInsiderShares": 0.005,
+              "sellInfoCount": 15,
+              "sellInfoShares": 199575,
+              "sellPercentInsiderShares": 0.004,
+              "netInfoCount": 40,
+              "netInfoShares": 44183,
               "netPercentInsiderShares": 0.001,
-              "netInstSharesBuying": -2830357,
-              "netInstBuyingPercent": -0.01998,
-              "totalInsiderShares": 47261772
+              "netInstSharesBuying": -6273125,
+              "netInstBuyingPercent": -0.04434,
+              "totalInsiderShares": 48223892
             },
             "insiderTransactions": {
               "transactions": [
                 {
                   "maxAge": 1,
                   "shares": {
-                    "raw": 35380,
-                    "fmt": "35.38k",
-                    "longFmt": "35,380"
+                    "raw": 20913,
+                    "fmt": "20.91k",
+                    "longFmt": "20,913"
                   },
                   "value": {
-                    "raw": 18600331,
-                    "fmt": "18.6M",
-                    "longFmt": "18,600,331"
+                    "raw": 3163091,
+                    "fmt": "3.16M",
+                    "longFmt": "3,163,091"
                   },
                   "filerUrl": "",
-                  "transactionText": "Sale at price 525.73 per share.",
-                  "filerName": "LORENTZON MARTIN",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789344000,
+                    "fmt": "2026-09-14"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20913,
+                    "fmt": "20.91k",
+                    "longFmt": "20,913"
+                  },
+                  "value": {
+                    "raw": 11380738,
+                    "fmt": "11.38M",
+                    "longFmt": "11,380,738"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 537.19 - 549.49 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789344000,
+                    "fmt": "2026-09-14"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 1722,
+                    "fmt": "1.72k",
+                    "longFmt": "1,722"
+                  },
+                  "value": {
+                    "raw": 260452,
+                    "fmt": "260.45k",
+                    "longFmt": "260,452"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "JENKINS DUSTEE",
+                  "filerRelation": "Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 3810,
+                    "fmt": "3.81k",
+                    "longFmt": "3,810"
+                  },
+                  "value": {
+                    "raw": 1954343,
+                    "fmt": "1.95M",
+                    "longFmt": "1,954,343"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 512.50 - 513.43 per share.",
+                  "filerName": "JENKINS DUSTEE",
+                  "filerRelation": "Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786665600,
+                    "fmt": "2026-08-14"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 822195,
+                    "fmt": "822.2k",
+                    "longFmt": "822,195"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 3150991,
+                    "fmt": "3.15M",
+                    "longFmt": "3,150,991"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 2729435,
+                    "fmt": "2.73M",
+                    "longFmt": "2,729,435"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 499.96 - 506.04 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 10567336,
+                    "fmt": "10.57M",
+                    "longFmt": "10,567,336"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 500.03 - 511.64 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1785715200,
+                    "fmt": "2026-08-03"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 822195,
+                    "fmt": "822.2k",
+                    "longFmt": "822,195"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1783296000,
+                    "fmt": "2026-07-06"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 3150991,
+                    "fmt": "3.15M",
+                    "longFmt": "3,150,991"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1783296000,
+                    "fmt": "2026-07-06"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 2613965,
+                    "fmt": "2.61M",
+                    "longFmt": "2,613,965"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 476.31 - 486.00 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1783296000,
+                    "fmt": "2026-07-06"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 9967538,
+                    "fmt": "9.97M",
+                    "longFmt": "9,967,538"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 474.96 - 485.82 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1783296000,
+                    "fmt": "2026-07-06"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 822195,
+                    "fmt": "822.2k",
+                    "longFmt": "822,195"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780358400,
+                    "fmt": "2026-06-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 3150991,
+                    "fmt": "3.15M",
+                    "longFmt": "3,150,991"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780358400,
+                    "fmt": "2026-06-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 2708586,
+                    "fmt": "2.71M",
+                    "longFmt": "2,708,586"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 498.27 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780358400,
+                    "fmt": "2026-06-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 10344030,
+                    "fmt": "10.34M",
+                    "longFmt": "10,344,030"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 496.52 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780358400,
+                    "fmt": "2026-06-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5630,
+                    "fmt": "5.63k",
+                    "longFmt": "5,630"
+                  },
+                  "value": {
+                    "raw": 1360039,
+                    "fmt": "1.36M",
+                    "longFmt": "1,360,039"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 241.57 per share.",
+                  "filerName": "SARANDOS THEODORE ANTHONY JR.",
                   "filerRelation": "Director",
                   "moneyText": "",
                   "startDate": {
-                    "raw": 1779408000,
-                    "fmt": "2026-05-22"
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 658,
+                    "fmt": "658",
+                    "longFmt": "658"
+                  },
+                  "value": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+                  "filerName": "O NEILL HEIDI",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 329,
+                    "fmt": "329",
+                    "longFmt": "329"
+                  },
+                  "value": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+                  "filerName": "WARRIOR PADMASREE",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 658,
+                    "fmt": "658",
+                    "longFmt": "658"
+                  },
+                  "value": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+                  "filerName": "MARSHALL CHRISTOPHER P",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 494,
+                    "fmt": "494",
+                    "longFmt": "494"
+                  },
+                  "value": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Stock Award(Grant) at price 0.00 per share.",
+                  "filerName": "SARANDOS THEODORE ANTHONY JR.",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779926400,
+                    "fmt": "2026-05-28"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 8942,
+                    "fmt": "8.94k",
+                    "longFmt": "8,942"
+                  },
+                  "value": {
+                    "raw": 2880148,
+                    "fmt": "2.88M",
+                    "longFmt": "2,880,148"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 241.57 - 362.36 per share.",
+                  "filerName": "STAGGS THOMAS O",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5630,
+                    "fmt": "5.63k",
+                    "longFmt": "5,630"
+                  },
+                  "value": {
+                    "raw": 1360039,
+                    "fmt": "1.36M",
+                    "longFmt": "1,360,039"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 241.57 per share.",
+                  "filerName": "MARSHALL CHRISTOPHER P",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5477,
+                    "fmt": "5.48k",
+                    "longFmt": "5,477"
+                  },
+                  "value": {
+                    "raw": 2880902,
+                    "fmt": "2.88M",
+                    "longFmt": "2,880,902"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 526.00 per share.",
+                  "filerName": "STAGGS THOMAS O",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 2650,
+                    "fmt": "2.65k",
+                    "longFmt": "2,650"
+                  },
+                  "value": {
+                    "raw": 1377629,
+                    "fmt": "1.38M",
+                    "longFmt": "1,377,629"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 519.86 per share.",
+                  "filerName": "MARSHALL CHRISTOPHER P",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779753600,
+                    "fmt": "2026-05-26"
                   },
                   "ownership": "D"
                 },
@@ -7569,12 +8465,104 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Conversion of Exercise of derivative security at price 169.16 - 362.36 per share.",
-                  "filerName": "LORENTZON MARTIN",
+                  "filerName": "LORENTZON SVEN HANS MARTIN",
                   "filerRelation": "Director",
                   "moneyText": "",
                   "startDate": {
                     "raw": 1779408000,
                     "fmt": "2026-05-22"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 2815,
+                    "fmt": "2.81k",
+                    "longFmt": "2,815"
+                  },
+                  "value": {
+                    "raw": 680020,
+                    "fmt": "680.02k",
+                    "longFmt": "680,020"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 241.57 per share.",
+                  "filerName": "WARRIOR PADMASREE",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779408000,
+                    "fmt": "2026-05-22"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 35380,
+                    "fmt": "35.38k",
+                    "longFmt": "35,380"
+                  },
+                  "value": {
+                    "raw": 18600331,
+                    "fmt": "18.6M",
+                    "longFmt": "18,600,331"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 525.73 per share.",
+                  "filerName": "LORENTZON SVEN HANS MARTIN",
+                  "filerRelation": "Director",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1779408000,
+                    "fmt": "2026-05-22"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 3150991,
+                    "fmt": "3.15M",
+                    "longFmt": "3,150,991"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1777939200,
+                    "fmt": "2026-05-05"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 822195,
+                    "fmt": "822.2k",
+                    "longFmt": "822,195"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1777939200,
+                    "fmt": "2026-05-05"
                   },
                   "ownership": "D"
                 },
@@ -7615,52 +8603,6 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Sale at price 430.72 per share.",
-                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
-                  "filerRelation": "Chief Executive Officer",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 5436,
-                    "fmt": "5.44k",
-                    "longFmt": "5,436"
-                  },
-                  "value": {
-                    "raw": 822195,
-                    "fmt": "822.2k",
-                    "longFmt": "822,195"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
-                  "filerName": "NORSTROM ALEX",
-                  "filerRelation": "Chief Executive Officer",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1777939200,
-                    "fmt": "2026-05-05"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 20833,
-                    "fmt": "20.83k",
-                    "longFmt": "20,833"
-                  },
-                  "value": {
-                    "raw": 3150991,
-                    "fmt": "3.15M",
-                    "longFmt": "3,150,991"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
                   "filerName": "SODERSTROM GUSTAV STIG VICTOR",
                   "filerRelation": "Chief Executive Officer",
                   "moneyText": "",
@@ -7770,52 +8712,6 @@
                     "longFmt": "5,436"
                   },
                   "value": {
-                    "raw": 2606629,
-                    "fmt": "2.61M",
-                    "longFmt": "2,606,629"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Sale at price 479.51 per share.",
-                  "filerName": "NORSTROM ALEX",
-                  "filerRelation": "Chief Executive Officer",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1775001600,
-                    "fmt": "2026-04-01"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 20833,
-                    "fmt": "20.83k",
-                    "longFmt": "20,833"
-                  },
-                  "value": {
-                    "raw": 9864807,
-                    "fmt": "9.86M",
-                    "longFmt": "9,864,807"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Sale at price 473.52 per share.",
-                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
-                  "filerRelation": "Chief Executive Officer",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1775001600,
-                    "fmt": "2026-04-01"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 5436,
-                    "fmt": "5.44k",
-                    "longFmt": "5,436"
-                  },
-                  "value": {
                     "raw": 822195,
                     "fmt": "822.2k",
                     "longFmt": "822,195"
@@ -7845,6 +8741,52 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Conversion of Exercise of derivative security at price 151.25 per share.",
+                  "filerName": "SODERSTROM GUSTAV STIG VICTOR",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1775001600,
+                    "fmt": "2026-04-01"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 5436,
+                    "fmt": "5.44k",
+                    "longFmt": "5,436"
+                  },
+                  "value": {
+                    "raw": 2606629,
+                    "fmt": "2.61M",
+                    "longFmt": "2,606,629"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 479.51 per share.",
+                  "filerName": "NORSTROM ALEX",
+                  "filerRelation": "Chief Executive Officer",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1775001600,
+                    "fmt": "2026-04-01"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 20833,
+                    "fmt": "20.83k",
+                    "longFmt": "20,833"
+                  },
+                  "value": {
+                    "raw": 9864807,
+                    "fmt": "9.86M",
+                    "longFmt": "9,864,807"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sale at price 473.52 per share.",
                   "filerName": "SODERSTROM GUSTAV STIG VICTOR",
                   "filerRelation": "Chief Executive Officer",
                   "moneyText": "",
@@ -8153,17 +9095,6 @@
               "earningsChart": {
                 "quarterly": [
                   {
-                    "date": "2Q2025",
-                    "actual": -0.42,
-                    "estimate": 2.02071,
-                    "fiscalQuarter": "2Q2025",
-                    "calendarQuarter": "2Q2025",
-                    "difference": "-2.44",
-                    "surprisePct": "-120.78",
-                    "periodEndDate": 1751241600,
-                    "reportedDate": 1753783868
-                  },
-                  {
                     "date": "3Q2025",
                     "actual": 3.28,
                     "estimate": 2.13499,
@@ -8195,18 +9126,29 @@
                     "surprisePct": "17.99",
                     "periodEndDate": 1774915200,
                     "reportedDate": 1777370870
+                  },
+                  {
+                    "date": "2Q2026",
+                    "actual": 2.61,
+                    "estimate": 2.79603,
+                    "fiscalQuarter": "2Q2026",
+                    "calendarQuarter": "2Q2026",
+                    "difference": "-0.19",
+                    "surprisePct": "-6.65",
+                    "periodEndDate": 1782777600,
+                    "reportedDate": 1785838475
                   }
                 ],
-                "currentQuarterEstimate": 2.81346,
-                "currentQuarterEstimateDate": "2Q",
-                "currentCalendarQuarter": "2Q2026",
+                "currentQuarterEstimate": 2.85006,
+                "currentQuarterEstimateDate": "3Q",
+                "currentCalendarQuarter": "3Q2026",
                 "currentQuarterEstimateYear": 2026,
-                "currentFiscalQuarter": "2Q2026",
-                "currentPeriodEndDate": 1782777600,
+                "currentFiscalQuarter": "3Q2026",
+                "currentPeriodEndDate": 1790726400,
                 "earningsDate": [
-                  1785241800
+                  1792672200
                 ],
-                "isEarningsDateEstimate": true
+                "isEarningsDateEstimate": false
               },
               "financialsChart": {
                 "yearly": [
@@ -8271,34 +9213,33 @@
             },
             "financialData": {
               "maxAge": 86400,
-              "currentPrice": 516.71,
-              "targetHighPrice": 733.0422,
-              "targetLowPrice": 397.85696,
-              "targetMeanPrice": 608.38116,
-              "targetMedianPrice": 612.4866,
-              "recommendationMean": 1.58537,
+              "currentPrice": 472.89,
+              "targetHighPrice": 703.78925,
+              "targetLowPrice": 410.54373,
+              "targetMeanPrice": 594.56854,
+              "targetMedianPrice": 606.0408,
+              "recommendationMean": 1.5641,
               "recommendationKey": "buy",
-              "numberOfAnalystOpinions": 39,
-              "totalCash": 6293000192,
-              "totalCashPerShare": 30.605,
-              "ebitda": 2446000128,
-              "totalDebt": 476000000,
-              "quickRatio": 1.508,
-              "currentRatio": 2.06,
-              "totalRevenue": 17528999936,
-              "debtToEquity": 5.943,
-              "revenuePerShare": 85.206,
-              "returnOnAssets": 0.116409995,
-              "returnOnEquity": 0.37987998,
-              "grossProfits": 5664999936,
-              "freeCashflow": 707750016,
-              "operatingCashflow": 3230000128,
-              "earningsGrowth": 2.224,
-              "revenueGrowth": 0.082,
-              "grossMargins": 0.32318002,
-              "ebitdaMargins": 0.13954,
-              "operatingMargins": 0.15773,
-              "profitMargins": 0.15449001,
+              "numberOfAnalystOpinions": 37,
+              "totalCash": 6984999936,
+              "totalCashPerShare": 33.976,
+              "ebitda": 2683000064,
+              "totalDebt": 466000000,
+              "quickRatio": 1.599,
+              "currentRatio": 2.112,
+              "totalRevenue": 18112999424,
+              "debtToEquity": 5.558,
+              "revenuePerShare": 88.007,
+              "returnOnAssets": 0.12186,
+              "returnOnEquity": 0.44484,
+              "grossProfits": 5935000064,
+              "freeCashflow": 1541374976,
+              "operatingCashflow": 3336999936,
+              "revenueGrowth": 0.139,
+              "grossMargins": 0.32766998,
+              "ebitdaMargins": 0.14813,
+              "operatingMargins": 0.13712,
+              "profitMargins": 0.18434,
               "financialCurrency": "EUR"
             }
           }

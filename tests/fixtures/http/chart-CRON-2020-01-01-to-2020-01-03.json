@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/CRON?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1203",
+      "content-length": "1310",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:41 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:17 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "4",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7v09kthjre5it"
+      "y-rid": "4brbkmllc1egd"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "NasdaqGM",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1519741800,
-              "regularMarketTime": 1739998800,
+              "regularMarketTime": 1790971201,
               "hasPrePostMarketData": true,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 1.96,
-              "fiftyTwoWeekHigh": 3.14,
-              "fiftyTwoWeekLow": 1.83,
-              "regularMarketDayHigh": 1.99,
-              "regularMarketDayLow": 1.941,
-              "regularMarketVolume": 1195707,
+              "regularMarketPrice": 3.225,
+              "regularMarketChangePercent": 0.467,
+              "fulldayPrice": 3.25,
+              "fulldayChange": 0.015,
+              "fulldayChangePercent": 0.467,
+              "fiftyTwoWeekHigh": 3.608,
+              "fiftyTwoWeekLow": 2.28,
+              "regularMarketDayHigh": 3.28,
+              "regularMarketDayLow": 3.19,
+              "regularMarketVolume": 1225843,
               "longName": "Cronos Group Inc.",
               "shortName": "Cronos Group Inc. Common Share",
               "chartPreviousClose": 7.67,
               "priceHint": 4,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740042000,
-                  "end": 1740061800,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790947800,
+                  "start": 1790928000,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740061800,
-                  "end": 1740085200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790971200,
+                  "start": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740085200,
-                  "end": 1740099600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "end": 1790985600,
+                  "start": 1790971200,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -99,9 +103,6 @@
                   "low": [
                     7.230000019073486
                   ],
-                  "close": [
-                    7.360000133514404
-                  ],
                   "volume": [
                     12655000
                   ],
@@ -110,6 +111,9 @@
                   ],
                   "high": [
                     7.960000038146973
+                  ],
+                  "close": [
+                    7.360000133514404
                   ]
                 }
               ],

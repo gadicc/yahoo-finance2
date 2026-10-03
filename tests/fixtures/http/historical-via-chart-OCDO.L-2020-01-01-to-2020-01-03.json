@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/OCDO.L?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1131",
+      "content-length": "1246",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:30 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:17 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "3lk57ntjrj83r"
+      "y-rid": "34at5jllc1eia"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "LSE",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1279695600,
-              "regularMarketTime": 1740159019,
+              "regularMarketTime": 1790955319,
               "hasPrePostMarketData": false,
-              "gmtoffset": 0,
-              "timezone": "GMT",
+              "gmtoffset": 3600,
+              "timezone": "BST",
               "exchangeTimezoneName": "Europe/London",
-              "regularMarketPrice": 309.3,
-              "fiftyTwoWeekHigh": 541.346,
-              "fiftyTwoWeekLow": 270,
-              "regularMarketDayHigh": 314.3,
-              "regularMarketDayLow": 303,
-              "regularMarketVolume": 1463723,
+              "regularMarketPrice": 260.4,
+              "regularMarketChangePercent": 0.774,
+              "fulldayPrice": 260.4,
+              "fulldayChange": 2,
+              "fulldayChangePercent": 0.774,
+              "fiftyTwoWeekHigh": 299.3,
+              "fiftyTwoWeekLow": 140.3,
+              "regularMarketDayHigh": 268.5,
+              "regularMarketDayLow": 259.2,
+              "regularMarketVolume": 3585488,
               "longName": "Ocado Group plc",
               "shortName": "OCADO GROUP PLC ORD 2P",
               "chartPreviousClose": 1279,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "GMT",
-                  "start": 1740122100,
-                  "end": 1740124800,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790924400,
+                  "start": 1790921700,
+                  "gmtoffset": 3600
                 },
                 "regular": {
-                  "timezone": "GMT",
-                  "start": 1740124800,
-                  "end": 1740155400,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790955000,
+                  "start": 1790924400,
+                  "gmtoffset": 3600
                 },
                 "post": {
-                  "timezone": "GMT",
-                  "start": 1740155400,
-                  "end": 1740158100,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790957700,
+                  "start": 1790955000,
+                  "gmtoffset": 3600
                 }
               },
               "dataGranularity": "1d",
@@ -99,17 +103,17 @@
                   "high": [
                     1286.5699462890625
                   ],
+                  "close": [
+                    1259.5
+                  ],
                   "low": [
                     1258
-                  ],
-                  "open": [
-                    1279.5
                   ],
                   "volume": [
                     728520
                   ],
-                  "close": [
-                    1259.5
+                  "open": [
+                    1279.5
                   ]
                 }
               ],

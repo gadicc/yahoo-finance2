@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/SPOT?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1199",
+      "content-length": "1305",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:30 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:15 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2rahkipjrj83q"
+      "y-rid": "2ebie8dlc1ei8"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "NYSE",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1522762200,
-              "regularMarketTime": 1740171602,
+              "regularMarketTime": 1790971203,
               "hasPrePostMarketData": true,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 607.38,
-              "fiftyTwoWeekHigh": 652.628,
-              "fiftyTwoWeekLow": 249.38,
-              "regularMarketDayHigh": 639.012,
-              "regularMarketDayLow": 605.557,
-              "regularMarketVolume": 1984191,
+              "regularMarketPrice": 472.89,
+              "regularMarketChangePercent": -3.767,
+              "fulldayPrice": 472.87,
+              "fulldayChange": -18.51,
+              "fulldayChangePercent": -3.767,
+              "fiftyTwoWeekHigh": 708.55,
+              "fiftyTwoWeekLow": 405,
+              "regularMarketDayHigh": 492,
+              "regularMarketDayLow": 470.51,
+              "regularMarketVolume": 1891417,
               "longName": "Spotify Technology S.A.",
               "shortName": "Spotify Technology S.A.",
               "chartPreviousClose": 149.55,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740128400,
-                  "end": 1740148200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790928000,
+                  "end": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740148200,
-                  "end": 1740171600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790947800,
+                  "end": 1790971200,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740171600,
-                  "end": 1740186000,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790971200,
+                  "end": 1790985600,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -96,20 +100,20 @@
             "indicators": {
               "quote": [
                 {
-                  "high": [
-                    152.8000030517578
-                  ],
                   "low": [
                     149.61000061035156
                   ],
                   "open": [
                     151
                   ],
-                  "volume": [
-                    662600
+                  "high": [
+                    152.8000030517578
                   ],
                   "close": [
                     151.6199951171875
+                  ],
+                  "volume": [
+                    662600
                   ]
                 }
               ],

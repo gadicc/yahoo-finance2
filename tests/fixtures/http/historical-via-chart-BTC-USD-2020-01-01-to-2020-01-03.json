@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/BTC-USD?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1389",
+      "content-length": "1505",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:31 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:25 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2r1ml1pjrj83r"
+      "y-rid": "7m8qqcllc1eih"
     },
     "bodyJson": {
       "chart": {
@@ -39,17 +39,21 @@
               "fullExchangeName": "CCC",
               "instrumentType": "CRYPTOCURRENCY",
               "firstTradeDate": 1410912000,
-              "regularMarketTime": 1740218340,
+              "regularMarketTime": 1791015498,
               "hasPrePostMarketData": false,
               "gmtoffset": 0,
               "timezone": "UTC",
               "exchangeTimezoneName": "UTC",
-              "regularMarketPrice": 96468.94,
-              "fiftyTwoWeekHigh": 109114.88,
-              "fiftyTwoWeekLow": 49121.24,
-              "regularMarketDayHigh": 96538.984,
-              "regularMarketDayLow": 95781.32,
-              "regularMarketVolume": 46830252032,
+              "regularMarketPrice": 84613.76,
+              "regularMarketChangePercent": -1.881,
+              "fulldayPrice": 84613.76,
+              "fulldayChange": -1621.891,
+              "fulldayChangePercent": -1.881,
+              "fiftyTwoWeekHigh": 126198.07,
+              "fiftyTwoWeekLow": 57747.766,
+              "regularMarketDayHigh": 84713.72,
+              "regularMarketDayLow": 84434.45,
+              "regularMarketVolume": 35862188032,
               "longName": "Bitcoin USD",
               "shortName": "Bitcoin USD",
               "chartPreviousClose": 7200.174,
@@ -57,20 +61,20 @@
               "currentTradingPeriod": {
                 "pre": {
                   "timezone": "UTC",
-                  "start": 1740182400,
-                  "end": 1740182400,
+                  "start": 1790985600,
+                  "end": 1790985600,
                   "gmtoffset": 0
                 },
                 "regular": {
                   "timezone": "UTC",
-                  "start": 1740182400,
-                  "end": 1740268740,
+                  "start": 1790985600,
+                  "end": 1791071940,
                   "gmtoffset": 0
                 },
                 "post": {
                   "timezone": "UTC",
-                  "start": 1740268740,
-                  "end": 1740268740,
+                  "start": 1791071940,
+                  "end": 1791071940,
                   "gmtoffset": 0
                 }
               },
@@ -98,30 +102,30 @@
             "indicators": {
               "quote": [
                 {
+                  "volume": [
+                    18565664997,
+                    20802083465,
+                    28111481032
+                  ],
                   "close": [
                     7200.17431640625,
                     6985.47021484375,
                     7344.88427734375
-                  ],
-                  "low": [
-                    7174.9443359375,
-                    6935.27001953125,
-                    6914.99609375
                   ],
                   "open": [
                     7194.89208984375,
                     7202.55126953125,
                     6984.4287109375
                   ],
-                  "volume": [
-                    18565664997,
-                    20802083465,
-                    28111481032
-                  ],
                   "high": [
                     7254.33056640625,
                     7212.1552734375,
                     7413.71533203125
+                  ],
+                  "low": [
+                    7174.9443359375,
+                    6935.27001953125,
+                    6914.99609375
                   ]
                 }
               ],

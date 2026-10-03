@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BTC-USD?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BTC-USD?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "886",
+      "content-length": "969",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:22 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:28 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "6m27ss1jrofaq"
+      "y-rid": "5b1fjbhlc1fb0"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,17 +34,20 @@
           {
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": -0.0030034687,
-              "regularMarketChange": -289.26562,
-              "regularMarketTime": 1740389580,
+              "regularMarketChangePercent": -0.019478785,
+              "regularMarketChange": -1679.7656,
+              "regularMarketTime": 1791016286,
               "priceHint": 2,
-              "regularMarketPrice": 96021.96,
-              "regularMarketDayHigh": 96473.94,
-              "regularMarketDayLow": 95168.77,
-              "regularMarketVolume": 23376617472,
-              "regularMarketPreviousClose": 96267.85,
+              "regularMarketPrice": 84555.88,
+              "regularMarketDayHigh": 84713.72,
+              "regularMarketDayLow": 84434.45,
+              "regularMarketVolume": 35522469888,
+              "regularMarketPreviousClose": 84506.336,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 96267.85,
+              "regularMarketOpen": 84506.336,
+              "fulldayChangePercent": -0.019478785,
+              "fulldayChange": -1679.7656,
+              "fulldayPrice": 84555.88,
               "exchange": "CCC",
               "exchangeName": "CCC",
               "exchangeDataDelayedBy": 0,
@@ -59,11 +62,11 @@
               "currencySymbol": "$",
               "fromCurrency": "BTC",
               "toCurrency": "USD=X",
-              "lastMarket": "CoinMarketCap",
-              "volume24Hr": 23376617472,
-              "volumeAllCurrencies": 23376617472,
-              "circulatingSupply": 19828390,
-              "marketCap": 1903960915968
+              "lastMarket": "Coinbase",
+              "volume24Hr": 35522469888,
+              "volumeAllCurrencies": 35522469888,
+              "circulatingSupply": 20092788,
+              "marketCap": 1699590569984
             }
           }
         ],

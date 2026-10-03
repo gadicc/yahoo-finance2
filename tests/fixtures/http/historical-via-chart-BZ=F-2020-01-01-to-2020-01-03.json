@@ -12,24 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1106",
+      "content-length": "1321",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 07 Aug 2026 17:33:46 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:28 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
-      "set-cookie": [
-        "dflow=890; Expires=Sat, 7 Aug 2027 23:33:46 GMT; Max-Age=31557600; Domain=.yahoo.com; Path=/; SameSite=Lax; Secure; HttpOnly"
-      ],
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "67l1s7dl7c5nq"
+      "y-rid": "3ovghctlc1eil"
     },
     "bodyJson": {
       "chart": {
@@ -42,36 +39,42 @@
               "fullExchangeName": "NY Mercantile",
               "instrumentType": "FUTURE",
               "firstTradeDate": 1185768000,
-              "regularMarketTime": 1786123386,
+              "regularMarketTime": 1790974792,
               "hasPrePostMarketData": false,
               "gmtoffset": -14400,
               "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 83.38,
+              "regularMarketPrice": 102.25,
+              "regularMarketChangePercent": -0.059,
+              "fulldayPrice": 102.25,
+              "fulldayChange": -0.06,
+              "fulldayChangePercent": -0.059,
               "fiftyTwoWeekHigh": 126.1,
               "fiftyTwoWeekLow": 58.72,
-              "regularMarketDayHigh": 84.39,
-              "regularMarketDayLow": 81.5,
-              "regularMarketVolume": 27180,
+              "regularMarketDayHigh": 103.05,
+              "regularMarketDayLow": 98.43,
+              "regularMarketVolume": 52249,
+              "longName": "Brent Crude Oil Last Day Financial Futures",
+              "shortName": "Brent Crude Oil Last Day Financ",
               "chartPreviousClose": 66,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
                   "timezone": "EDT",
-                  "end": 1786075200,
-                  "start": 1786075200,
+                  "start": 1790913600,
+                  "end": 1790913600,
                   "gmtoffset": -14400
                 },
                 "regular": {
                   "timezone": "EDT",
-                  "end": 1786161540,
-                  "start": 1786075200,
+                  "start": 1790913600,
+                  "end": 1790999940,
                   "gmtoffset": -14400
                 },
                 "post": {
                   "timezone": "EDT",
-                  "end": 1786161540,
-                  "start": 1786161540,
+                  "start": 1790999940,
+                  "end": 1790999940,
                   "gmtoffset": -14400
                 }
               },
@@ -97,20 +100,20 @@
             "indicators": {
               "quote": [
                 {
-                  "open": [
-                    66.47000122070312
-                  ],
                   "low": [
                     65.7300033569336
                   ],
                   "close": [
                     66.25
                   ],
+                  "high": [
+                    66.56999969482422
+                  ],
                   "volume": [
                     25810
                   ],
-                  "high": [
-                    66.56999969482422
+                  "open": [
+                    66.47000122070312
                   ]
                 }
               ],

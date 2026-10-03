@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/OCDO.L?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/OCDO.L?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -12,20 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:31:02 GMT",
+      "date": "Sat, 03 Oct 2026 08:34:55 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "21",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-baseline-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "15",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "5sm1s81l1iqn6"
+      "y-rid": "14ufcm1lc1fhg"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -231,8 +232,8 @@
               "boardRisk": 2,
               "compensationRisk": 10,
               "shareHolderRightsRisk": 1,
-              "overallRisk": 6,
-              "governanceEpochDate": 1777593600,
+              "overallRisk": 7,
+              "governanceEpochDate": 1790812800,
               "compensationAsOfEpochDate": 1767139200,
               "executiveTeam": [],
               "maxAge": 86400
@@ -250,7 +251,7 @@
                 {
                   "period": "-1m",
                   "strongBuy": 1,
-                  "buy": 5,
+                  "buy": 4,
                   "hold": 4,
                   "sell": 1,
                   "strongSell": 2
@@ -258,73 +259,16 @@
                 {
                   "period": "-2m",
                   "strongBuy": 1,
-                  "buy": 5,
+                  "buy": 4,
                   "hold": 4,
                   "sell": 1,
-                  "strongSell": 3
-                },
-                {
-                  "period": "-3m",
-                  "strongBuy": 1,
-                  "buy": 5,
-                  "hold": 4,
-                  "sell": 1,
-                  "strongSell": 3
+                  "strongSell": 2
                 }
               ],
               "maxAge": 86400
             },
             "cashflowStatementHistory": {
-              "cashflowStatements": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1764460800,
-                    "fmt": "2025-11-30"
-                  },
-                  "netIncome": {
-                    "raw": 405200000,
-                    "fmt": "405.2M",
-                    "longFmt": "405,200,000"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1732924800,
-                    "fmt": "2024-11-30"
-                  },
-                  "netIncome": {
-                    "raw": -336200000,
-                    "fmt": "-336.2M",
-                    "longFmt": "-336,200,000"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1701302400,
-                    "fmt": "2023-11-30"
-                  },
-                  "netIncome": {
-                    "raw": -314000000,
-                    "fmt": "-314M",
-                    "longFmt": "-314,000,000"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1669766400,
-                    "fmt": "2022-11-30"
-                  },
-                  "netIncome": {
-                    "raw": -455500000,
-                    "fmt": "-455.5M",
-                    "longFmt": "-455,500,000"
-                  }
-                }
-              ],
+              "cashflowStatements": [],
               "maxAge": 86400
             },
             "indexTrend": {
@@ -333,19 +277,19 @@
               "estimates": [
                 {
                   "period": "0q",
-                  "growth": 0.2555
+                  "growth": 0.24190001
                 },
                 {
                   "period": "+1q",
-                  "growth": 0.19629999
+                  "growth": 0.2514
                 },
                 {
                   "period": "0y",
-                  "growth": 0.2234
+                  "growth": 0.3192
                 },
                 {
                   "period": "+1y",
-                  "growth": 0.16440001
+                  "growth": 0.1579
                 },
                 {
                   "period": "LTG",
@@ -356,31 +300,31 @@
             "defaultKeyStatistics": {
               "maxAge": 1,
               "priceHint": 2,
-              "enterpriseValue": 2774489088,
-              "forwardPE": -1061.9547,
-              "profitMargins": 0.29326,
-              "floatShares": 459361886,
-              "sharesOutstanding": 831429339,
-              "heldPercentInsiders": 0.30174,
-              "heldPercentInstitutions": 0.41959,
-              "beta": 2.318,
-              "impliedSharesOutstanding": 831429339,
+              "enterpriseValue": 3131601152,
+              "forwardPE": -864.5992,
+              "profitMargins": -0.14288999,
+              "floatShares": 540616633,
+              "sharesOutstanding": 836575498,
+              "heldPercentInsiders": 0.30025998,
+              "heldPercentInstitutions": 0.45731997,
+              "beta": 2.413,
+              "impliedSharesOutstanding": 836575498,
               "category": null,
-              "bookValue": 1.885,
-              "priceToBook": 125.94164,
+              "bookValue": 1.888,
+              "priceToBook": 137.92372,
               "fundFamily": null,
               "legalType": null,
               "lastFiscalYearEnd": 1764460800,
               "nextFiscalYearEnd": 1795996800,
-              "mostRecentQuarter": 1764460800,
-              "netIncomeToCommon": -382100000,
-              "trailingEps": -0.47,
-              "forwardEps": -0.22355,
+              "mostRecentQuarter": 1780185600,
+              "netIncomeToCommon": -249300000,
+              "trailingEps": -0.3,
+              "forwardEps": -0.30118,
               "lastSplitFactor": null,
-              "enterpriseToRevenue": 2.008,
-              "enterpriseToEbitda": 17.395,
-              "52WeekChange": -0.20516717,
-              "SandP52WeekChange": 0.2794361,
+              "enterpriseToRevenue": 1.795,
+              "enterpriseToEbitda": 6.793,
+              "52WeekChange": 0.11475408,
+              "SandP52WeekChange": 0.1415559,
               "latestShareClass": null,
               "leadInvestor": null
             },
@@ -405,236 +349,7 @@
               "maxAge": 1
             },
             "incomeStatementHistory": {
-              "incomeStatementHistory": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1764460800,
-                    "fmt": "2025-11-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 1381700000,
-                    "fmt": "1.38B",
-                    "longFmt": "1,381,700,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 405200000,
-                    "fmt": "405.2M",
-                    "longFmt": "405,200,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1732924800,
-                    "fmt": "2024-11-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 3155900000,
-                    "fmt": "3.16B",
-                    "longFmt": "3,155,900,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": -336200000,
-                    "fmt": "-336.2M",
-                    "longFmt": "-336,200,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1701302400,
-                    "fmt": "2023-11-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 2825000000,
-                    "fmt": "2.83B",
-                    "longFmt": "2,825,000,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": -314000000,
-                    "fmt": "-314M",
-                    "longFmt": "-314,000,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1669766400,
-                    "fmt": "2022-11-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 2513800000,
-                    "fmt": "2.51B",
-                    "longFmt": "2,513,800,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": -455500000,
-                    "fmt": "-455.5M",
-                    "longFmt": "-455,500,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                }
-              ],
+              "incomeStatementHistory": [],
               "maxAge": 86400
             },
             "fundOwnership": {
@@ -643,13 +358,13 @@
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
-                  "organization": "CAPITAL WORLD GROWTH & INCOME FUND",
+                  "organization": "Capital World Growth & Income Fund",
                   "pctHeld": {
-                    "raw": 0.0637,
-                    "fmt": "6.37%"
+                    "raw": 0.0633,
+                    "fmt": "6.33%"
                   },
                   "position": {
                     "raw": 53616025,
@@ -657,9 +372,9 @@
                     "longFmt": "53,616,025"
                   },
                   "value": {
-                    "raw": 12728444007,
-                    "fmt": "12.73B",
-                    "longFmt": "12,728,444,007"
+                    "raw": 13961612582,
+                    "fmt": "13.96B",
+                    "longFmt": "13,961,612,582"
                   },
                   "pctChange": {
                     "raw": 0,
@@ -669,235 +384,235 @@
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1772236800,
-                    "fmt": "2026-02-28"
-                  },
-                  "organization": "VANGUARD WORLD FUND-Vanguard International Growth Fund",
-                  "pctHeld": {
-                    "raw": 0.0368,
-                    "fmt": "3.68%"
-                  },
-                  "position": {
-                    "raw": 30959031,
-                    "fmt": "30.96M",
-                    "longFmt": "30,959,031"
-                  },
-                  "value": {
-                    "raw": 7349673770,
-                    "fmt": "7.35B",
-                    "longFmt": "7,349,673,770"
-                  },
-                  "pctChange": {
-                    "raw": -0.0883,
-                    "fmt": "-8.83%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1769817600,
-                    "fmt": "2026-01-31"
+                    "raw": 1785456000,
+                    "fmt": "2026-07-31"
                   },
                   "organization": "VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund",
                   "pctHeld": {
-                    "raw": 0.010299999,
-                    "fmt": "1.03%"
+                    "raw": 0.01,
+                    "fmt": "1.00%"
                   },
                   "position": {
-                    "raw": 8669041,
-                    "fmt": "8.67M",
-                    "longFmt": "8,669,041"
+                    "raw": 8495738,
+                    "fmt": "8.5M",
+                    "longFmt": "8,495,738"
                   },
                   "value": {
-                    "raw": 2058030280,
-                    "fmt": "2.06B",
-                    "longFmt": "2,058,030,280"
+                    "raw": 2212290123,
+                    "fmt": "2.21B",
+                    "longFmt": "2,212,290,123"
                   },
                   "pctChange": {
-                    "raw": 0.010199999,
-                    "fmt": "1.02%"
+                    "raw": -0.02,
+                    "fmt": "-2.00%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
-                  "organization": "NEW ECONOMY FUND",
-                  "pctHeld": {
-                    "raw": 0.007900001,
-                    "fmt": "0.79%"
-                  },
-                  "position": {
-                    "raw": 6670548,
-                    "fmt": "6.67M",
-                    "longFmt": "6,670,548"
-                  },
-                  "value": {
-                    "raw": 1583588054,
-                    "fmt": "1.58B",
-                    "longFmt": "1,583,588,054"
-                  },
-                  "pctChange": {
-                    "raw": 0,
-                    "fmt": "0.00%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Intl Growth & Income Fd.-Intl Growth and Income Fd.",
+                  "organization": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund",
                   "pctHeld": {
                     "raw": 0.0067000003,
                     "fmt": "0.67%"
                   },
                   "position": {
-                    "raw": 5665595,
-                    "fmt": "5.67M",
-                    "longFmt": "5,665,595"
+                    "raw": 5703170,
+                    "fmt": "5.7M",
+                    "longFmt": "5,703,170"
                   },
                   "value": {
-                    "raw": 1345012218,
-                    "fmt": "1.35B",
-                    "longFmt": "1,345,012,218"
+                    "raw": 1485105433,
+                    "fmt": "1.49B",
+                    "longFmt": "1,485,105,433"
                   },
                   "pctChange": {
-                    "raw": -0.2571,
-                    "fmt": "-25.71%"
+                    "raw": -0.0015,
+                    "fmt": "-0.15%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1767139200,
-                    "fmt": "2025-12-31"
-                  },
-                  "organization": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund",
-                  "pctHeld": {
-                    "raw": 0.0066000004,
-                    "fmt": "0.66%"
-                  },
-                  "position": {
-                    "raw": 5593673,
-                    "fmt": "5.59M",
-                    "longFmt": "5,593,673"
-                  },
-                  "value": {
-                    "raw": 1327937936,
-                    "fmt": "1.33B",
-                    "longFmt": "1,327,937,936"
-                  },
-                  "pctChange": {
-                    "raw": 0.0275,
-                    "fmt": "2.75%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1769817600,
-                    "fmt": "2026-01-31"
+                    "raw": 1785456000,
+                    "fmt": "2026-07-31"
                   },
                   "organization": "VANGUARD WHITEHALL Fd.S-Vanguard Advice Select Intl Growth Fd.",
                   "pctHeld": {
-                    "raw": 0.0056,
-                    "fmt": "0.56%"
+                    "raw": 0.0058999998,
+                    "fmt": "0.59%"
                   },
                   "position": {
-                    "raw": 4749284,
-                    "fmt": "4.75M",
-                    "longFmt": "4,749,284"
+                    "raw": 4975237,
+                    "fmt": "4.98M",
+                    "longFmt": "4,975,237"
                   },
                   "value": {
-                    "raw": 1127479992,
-                    "fmt": "1.13B",
-                    "longFmt": "1,127,479,992"
+                    "raw": 1295551684,
+                    "fmt": "1.3B",
+                    "longFmt": "1,295,551,684"
                   },
                   "pctChange": {
-                    "raw": 0.0809,
-                    "fmt": "8.09%"
+                    "raw": 0,
+                    "fmt": "0.00%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
-                  },
-                  "organization": "Baillie Gifford Funds-Baillie Gifford International Growth Fund",
-                  "pctHeld": {
-                    "raw": 0.0050999997,
-                    "fmt": "0.51%"
-                  },
-                  "position": {
-                    "raw": 4289903,
-                    "fmt": "4.29M",
-                    "longFmt": "4,289,903"
-                  },
-                  "value": {
-                    "raw": 1018422946,
-                    "fmt": "1.02B",
-                    "longFmt": "1,018,422,946"
-                  },
-                  "pctChange": {
-                    "raw": -0.1357,
-                    "fmt": "-13.57%"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "reportDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1788134400,
+                    "fmt": "2026-08-31"
                   },
                   "organization": "iShares Trust-iShares Core MSCI EAFE ETF",
                   "pctHeld": {
-                    "raw": 0.0047999998,
-                    "fmt": "0.48%"
+                    "raw": 0.0049,
+                    "fmt": "0.49%"
                   },
                   "position": {
-                    "raw": 4065322,
-                    "fmt": "4.07M",
-                    "longFmt": "4,065,322"
+                    "raw": 4145328,
+                    "fmt": "4.15M",
+                    "longFmt": "4,145,328"
                   },
                   "value": {
-                    "raw": 965107417,
-                    "fmt": "965.11M",
-                    "longFmt": "965,107,417"
+                    "raw": 1079443385,
+                    "fmt": "1.08B",
+                    "longFmt": "1,079,443,385"
                   },
                   "pctChange": {
-                    "raw": 0.011,
-                    "fmt": "1.10%"
+                    "raw": 0.0044,
+                    "fmt": "0.44%"
                   }
                 },
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1777507200,
-                    "fmt": "2026-04-30"
+                    "raw": 1788134400,
+                    "fmt": "2026-08-31"
                   },
                   "organization": "First TRT Exch-Trd Fd. VI-First TRT Nasdaq Artificial Intelligence and",
                   "pctHeld": {
-                    "raw": 0.004,
-                    "fmt": "0.40%"
+                    "raw": 0.0043,
+                    "fmt": "0.43%"
                   },
                   "position": {
-                    "raw": 3352761,
-                    "fmt": "3.35M",
-                    "longFmt": "3,352,761"
+                    "raw": 3660121,
+                    "fmt": "3.66M",
+                    "longFmt": "3,660,121"
                   },
                   "value": {
-                    "raw": 795945440,
-                    "fmt": "795.95M",
-                    "longFmt": "795,945,440"
+                    "raw": 953095486,
+                    "fmt": "953.1M",
+                    "longFmt": "953,095,486"
                   },
                   "pctChange": {
-                    "raw": -0.0113,
-                    "fmt": "-1.13%"
+                    "raw": 0,
+                    "fmt": "0.00%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1788134400,
+                    "fmt": "2026-08-31"
+                  },
+                  "organization": "American Century ETF Trust-Avantis International Small Cap Value ETF",
+                  "pctHeld": {
+                    "raw": 0.0034,
+                    "fmt": "0.34%"
+                  },
+                  "position": {
+                    "raw": 2899036,
+                    "fmt": "2.9M",
+                    "longFmt": "2,899,036"
+                  },
+                  "value": {
+                    "raw": 754908956,
+                    "fmt": "754.91M",
+                    "longFmt": "754,908,956"
+                  },
+                  "pctChange": {
+                    "raw": 2.6555,
+                    "fmt": "265.55%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1785456000,
+                    "fmt": "2026-07-31"
+                  },
+                  "organization": "DFA INVESTMENT TRUST CO-The United Kingdom Small Company Series",
+                  "pctHeld": {
+                    "raw": 0.003,
+                    "fmt": "0.30%"
+                  },
+                  "position": {
+                    "raw": 2502759,
+                    "fmt": "2.5M",
+                    "longFmt": "2,502,759"
+                  },
+                  "value": {
+                    "raw": 651718428,
+                    "fmt": "651.72M",
+                    "longFmt": "651,718,428"
+                  },
+                  "pctChange": {
+                    "raw": 0.21540001,
+                    "fmt": "21.54%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1785456000,
+                    "fmt": "2026-07-31"
+                  },
+                  "organization": "VANGUARD Intl Eqy. INDEX Fd.S-Vanguard FTSE All-World ex-US Small-Cap ",
+                  "pctHeld": {
+                    "raw": 0.0026,
+                    "fmt": "0.26%"
+                  },
+                  "position": {
+                    "raw": 2176031,
+                    "fmt": "2.18M",
+                    "longFmt": "2,176,031"
+                  },
+                  "value": {
+                    "raw": 566638459,
+                    "fmt": "566.64M",
+                    "longFmt": "566,638,459"
+                  },
+                  "pctChange": {
+                    "raw": -0.018099999,
+                    "fmt": "-1.81%"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "reportDate": {
+                    "raw": 1788134400,
+                    "fmt": "2026-08-31"
+                  },
+                  "organization": "iShares Trust-iShares MSCI EAFE Small-Cap ETF",
+                  "pctHeld": {
+                    "raw": 0.0023,
+                    "fmt": "0.23%"
+                  },
+                  "position": {
+                    "raw": 1952146,
+                    "fmt": "1.95M",
+                    "longFmt": "1,952,146"
+                  },
+                  "value": {
+                    "raw": 508338806,
+                    "fmt": "508.34M",
+                    "longFmt": "508,338,806"
+                  },
+                  "pctChange": {
+                    "raw": -0.018,
+                    "fmt": "-1.80%"
                   }
                 }
               ]
@@ -905,35 +620,36 @@
             "summaryDetail": {
               "maxAge": 1,
               "priceHint": 2,
-              "previousClose": 208.2,
-              "open": 229,
-              "dayLow": 222.6,
-              "dayHigh": 240,
-              "regularMarketPreviousClose": 208.2,
-              "regularMarketOpen": 229,
-              "regularMarketDayLow": 222.6,
-              "regularMarketDayHigh": 240,
+              "previousClose": 258.4,
+              "open": 260,
+              "dayLow": 259.2,
+              "dayHigh": 268.5,
+              "regularMarketPreviousClose": 258.4,
+              "regularMarketOpen": 260,
+              "regularMarketDayLow": 259.2,
+              "regularMarketDayHigh": 268.5,
               "payoutRatio": 0,
-              "beta": 2.318,
-              "forwardPE": -10.619547,
-              "volume": 5273275,
-              "regularMarketVolume": 5273275,
-              "averageVolume": 3474188,
-              "averageVolume10days": 2086955,
-              "averageDailyVolume10Day": 2086955,
-              "bid": 236.8,
-              "ask": 238,
-              "bidSize": 0,
-              "askSize": 0,
-              "marketCap": 1973813120,
-              "nonDilutedMarketCap": 1731035883,
-              "fiftyTwoWeekLow": 165.85,
-              "fiftyTwoWeekHigh": 397.9,
+              "beta": 2.413,
+              "forwardPE": -8.645992,
+              "volume": 3585488,
+              "regularMarketVolume": 3585488,
+              "averageVolume": 3904585,
+              "averageVolume10days": 2366069,
+              "averageDailyVolume10Day": 2366069,
+              "bid": 259.8,
+              "ask": 261,
+              "marketCap": 2178442496,
+              "nonDilutedMarketCap": 1918601070,
+              "fiftyTwoWeekLow": 140.3,
+              "fiftyTwoWeekHigh": 299.3,
               "allTimeHigh": 2914,
               "allTimeLow": 52.1,
-              "priceToSalesTrailing12Months": 1.4285396,
-              "fiftyDayAverage": 194.882,
-              "twoHundredDayAverage": 226.71976,
+              "fulldayPrice": 260.4,
+              "fulldayChange": 2,
+              "fulldayChangePercent": 0.0077399383,
+              "priceToSalesTrailing12Months": 1.2486057,
+              "fiftyDayAverage": 224.532,
+              "twoHundredDayAverage": 212.08176,
               "trailingAnnualDividendRate": 0,
               "trailingAnnualDividendYield": 0,
               "currency": "GBp",
@@ -971,19 +687,19 @@
                   "name": "EXOR Investments (UK) LLP",
                   "relation": "",
                   "url": "",
-                  "transactionDescription": "Holding",
+                  "transactionDescription": "Increase",
                   "latestTransDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1788220800,
+                    "fmt": "2026-09-01"
                   },
                   "positionDirect": {
-                    "raw": 82095339,
-                    "fmt": "82.1M",
-                    "longFmt": "82,095,339"
+                    "raw": 98392924,
+                    "fmt": "98.39M",
+                    "longFmt": "98,392,924"
                   },
                   "positionDirectDate": {
-                    "raw": 1774915200,
-                    "fmt": "2026-03-31"
+                    "raw": 1788220800,
+                    "fmt": "2026-09-01"
                   }
                 },
                 {
@@ -1113,17 +829,17 @@
                   "url": "",
                   "transactionDescription": "Bought",
                   "latestTransDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
                   },
                   "positionDirect": {
-                    "raw": 19836025,
+                    "raw": 19836366,
                     "fmt": "19.84M",
-                    "longFmt": "19,836,025"
+                    "longFmt": "19,836,366"
                   },
                   "positionDirectDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
                   }
                 },
                 {
@@ -1153,7 +869,9 @@
               "maxAge": 1,
               "earnings": {
                 "earningsDate": [],
-                "earningsCallDate": [],
+                "earningsCallDate": [
+                  1784190600
+                ],
                 "isEarningsDateEstimate": false
               }
             },
@@ -1174,23 +892,26 @@
             },
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": 0.14024974,
-              "regularMarketChange": 29.199997,
-              "regularMarketTime": 1780049705,
+              "regularMarketChangePercent": 0.0077399383,
+              "regularMarketChange": 2,
+              "regularMarketTime": 1790955319,
               "priceHint": 2,
-              "regularMarketPrice": 237.4,
-              "regularMarketDayHigh": 240,
-              "regularMarketDayLow": 222.6,
-              "regularMarketVolume": 5273275,
-              "averageDailyVolume10Day": 2086955,
-              "averageDailyVolume3Month": 3474188,
-              "regularMarketPreviousClose": 208.2,
+              "regularMarketPrice": 260.4,
+              "regularMarketDayHigh": 268.5,
+              "regularMarketDayLow": 259.2,
+              "regularMarketVolume": 3585488,
+              "averageDailyVolume10Day": 2366069,
+              "averageDailyVolume3Month": 3904585,
+              "regularMarketPreviousClose": 258.4,
               "regularMarketSource": "DELAYED",
-              "regularMarketOpen": 229,
+              "regularMarketOpen": 260,
+              "fulldayChangePercent": 0.0077399383,
+              "fulldayChange": 2,
+              "fulldayPrice": 260.4,
               "exchange": "LSE",
               "exchangeName": "LSE",
               "exchangeDataDelayedBy": 15,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "OCDO.L",
               "underlyingSymbol": null,
@@ -1202,39 +923,10 @@
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 1973813120
+              "marketCap": 2178442496
             },
             "balanceSheetHistory": {
-              "balanceSheetStatements": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1764460800,
-                    "fmt": "2025-11-30"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1732924800,
-                    "fmt": "2024-11-30"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1701302400,
-                    "fmt": "2023-11-30"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1669766400,
-                    "fmt": "2022-11-30"
-                  }
-                }
-              ],
+              "balanceSheetStatements": [],
               "maxAge": 86400
             },
             "earningsTrend": {
@@ -1356,57 +1048,57 @@
                   "period": "0y",
                   "endDate": "2026-11-30",
                   "growth": {
-                    "raw": 0.2505,
-                    "fmt": "25.05%"
+                    "raw": 0.2151,
+                    "fmt": "21.51%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": -0.33426,
-                      "fmt": "-0.33"
+                      "raw": -0.35008,
+                      "fmt": "-0.35"
                     },
                     "low": {
-                      "raw": -0.4384,
-                      "fmt": "-0.44"
+                      "raw": -0.46646,
+                      "fmt": "-0.47"
                     },
                     "high": {
-                      "raw": -0.248,
-                      "fmt": "-0.25"
+                      "raw": -0.27037,
+                      "fmt": "-0.27"
                     },
                     "yearAgoEps": {
                       "raw": -0.446,
                       "fmt": "-0.45"
                     },
                     "numberOfAnalysts": {
-                      "raw": 7,
-                      "fmt": "7",
-                      "longFmt": "7"
+                      "raw": 6,
+                      "fmt": "6",
+                      "longFmt": "6"
                     },
                     "growth": {
-                      "raw": 0.2505,
-                      "fmt": "25.05%"
+                      "raw": 0.2151,
+                      "fmt": "21.51%"
                     },
                     "earningsCurrency": "GBP"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 1491274160,
-                      "fmt": "1.49B",
-                      "longFmt": "1,491,274,160"
+                      "raw": 1655306280,
+                      "fmt": "1.66B",
+                      "longFmt": "1,655,306,280"
                     },
                     "low": {
-                      "raw": 1348405000,
+                      "raw": 1352000000,
                       "fmt": "1.35B",
-                      "longFmt": "1,348,405,000"
+                      "longFmt": "1,352,000,000"
                     },
                     "high": {
-                      "raw": 1708827000,
-                      "fmt": "1.71B",
-                      "longFmt": "1,708,827,000"
+                      "raw": 1748400000,
+                      "fmt": "1.75B",
+                      "longFmt": "1,748,400,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 11,
-                      "fmt": "11",
-                      "longFmt": "11"
+                      "raw": 8,
+                      "fmt": "8",
+                      "longFmt": "8"
                     },
                     "yearAgoRevenue": {
                       "raw": 1381700000,
@@ -1414,54 +1106,54 @@
                       "longFmt": "1,381,700,000"
                     },
                     "growth": {
-                      "raw": 0.0793,
-                      "fmt": "7.93%"
+                      "raw": 0.198,
+                      "fmt": "19.80%"
                     },
                     "revenueCurrency": "GBP"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": -0.33426,
-                      "fmt": "-0.33"
+                      "raw": -0.35008,
+                      "fmt": "-0.35"
                     },
                     "7daysAgo": {
-                      "raw": -0.32123,
-                      "fmt": "-0.32"
+                      "raw": -0.36489,
+                      "fmt": "-0.36"
                     },
                     "30daysAgo": {
-                      "raw": -0.32357,
-                      "fmt": "-0.32"
+                      "raw": -0.34509,
+                      "fmt": "-0.35"
                     },
                     "60daysAgo": {
-                      "raw": -0.29962,
-                      "fmt": "-0.3"
+                      "raw": -0.33143,
+                      "fmt": "-0.33"
                     },
                     "90daysAgo": {
-                      "raw": -0.28851,
-                      "fmt": "-0.29"
+                      "raw": -0.33557,
+                      "fmt": "-0.34"
                     },
                     "epsTrendCurrency": "GBP"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "downLast30days": {
-                      "raw": 3,
-                      "fmt": "3",
-                      "longFmt": "3"
-                    },
-                    "downLast7Days": {
                       "raw": 0,
                       "fmt": null,
                       "longFmt": "0"
+                    },
+                    "upLast30days": {
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
+                    },
+                    "downLast30days": {
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
+                    },
+                    "downLast7Days": {
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "GBP"
@@ -1472,25 +1164,25 @@
                   "period": "+1y",
                   "endDate": "2027-11-30",
                   "growth": {
-                    "raw": 0.3312,
-                    "fmt": "33.12%"
+                    "raw": 0.1397,
+                    "fmt": "13.97%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": -0.22355,
-                      "fmt": "-0.22"
-                    },
-                    "low": {
-                      "raw": -0.30253,
+                      "raw": -0.30118,
                       "fmt": "-0.3"
                     },
+                    "low": {
+                      "raw": -0.608,
+                      "fmt": "-0.61"
+                    },
                     "high": {
-                      "raw": -0.17356,
-                      "fmt": "-0.17"
+                      "raw": -0.149,
+                      "fmt": "-0.15"
                     },
                     "yearAgoEps": {
-                      "raw": -0.33426,
-                      "fmt": "-0.33"
+                      "raw": -0.35008,
+                      "fmt": "-0.35"
                     },
                     "numberOfAnalysts": {
                       "raw": 6,
@@ -1498,86 +1190,86 @@
                       "longFmt": "6"
                     },
                     "growth": {
-                      "raw": 0.3312,
-                      "fmt": "33.12%"
+                      "raw": 0.1397,
+                      "fmt": "13.97%"
                     },
                     "earningsCurrency": "GBP"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 1467120680,
-                      "fmt": "1.47B",
-                      "longFmt": "1,467,120,680"
+                      "raw": 1480827120,
+                      "fmt": "1.48B",
+                      "longFmt": "1,480,827,120"
                     },
                     "low": {
-                      "raw": 1428899000,
+                      "raw": 1433000000,
                       "fmt": "1.43B",
-                      "longFmt": "1,428,899,000"
+                      "longFmt": "1,433,000,000"
                     },
                     "high": {
-                      "raw": 1545730000,
-                      "fmt": "1.55B",
-                      "longFmt": "1,545,730,000"
+                      "raw": 1617000000,
+                      "fmt": "1.62B",
+                      "longFmt": "1,617,000,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 11,
-                      "fmt": "11",
-                      "longFmt": "11"
+                      "raw": 10,
+                      "fmt": "10",
+                      "longFmt": "10"
                     },
                     "yearAgoRevenue": {
-                      "raw": 1491274160,
-                      "fmt": "1.49B",
-                      "longFmt": "1,491,274,160"
+                      "raw": 1655306280,
+                      "fmt": "1.66B",
+                      "longFmt": "1,655,306,280"
                     },
                     "growth": {
-                      "raw": -0.0162,
-                      "fmt": "-1.62%"
+                      "raw": -0.105399996,
+                      "fmt": "-10.54%"
                     },
                     "revenueCurrency": "GBP"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": -0.22355,
-                      "fmt": "-0.22"
+                      "raw": -0.30118,
+                      "fmt": "-0.3"
                     },
                     "7daysAgo": {
-                      "raw": -0.1948,
-                      "fmt": "-0.19"
+                      "raw": -0.33162,
+                      "fmt": "-0.33"
                     },
                     "30daysAgo": {
-                      "raw": -0.19901,
-                      "fmt": "-0.2"
+                      "raw": -0.26252,
+                      "fmt": "-0.26"
                     },
                     "60daysAgo": {
-                      "raw": -0.2018,
-                      "fmt": "-0.2"
+                      "raw": -0.23548,
+                      "fmt": "-0.24"
                     },
                     "90daysAgo": {
-                      "raw": -0.18403,
-                      "fmt": "-0.18"
+                      "raw": -0.22762,
+                      "fmt": "-0.23"
                     },
                     "epsTrendCurrency": "GBP"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "downLast30days": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
-                    },
-                    "downLast7Days": {
                       "raw": 0,
                       "fmt": null,
                       "longFmt": "0"
+                    },
+                    "upLast30days": {
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
+                    },
+                    "downLast30days": {
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
+                    },
+                    "downLast7Days": {
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "GBP"
@@ -1593,23 +1285,23 @@
                 {
                   "maxAge": 1,
                   "reportDate": {
-                    "raw": 1727654400,
-                    "fmt": "2024-09-30"
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
-                  "organization": "Gagnon Securities, LLC",
+                  "organization": "Pacer Advisors, Inc.",
                   "pctHeld": {
-                    "raw": 0.0001,
-                    "fmt": "0.01%"
+                    "raw": 0,
+                    "fmt": "0.00%"
                   },
                   "position": {
-                    "raw": 47160,
-                    "fmt": "47.16k",
-                    "longFmt": "47,160"
+                    "raw": 895,
+                    "fmt": "895",
+                    "longFmt": "895"
                   },
                   "value": {
-                    "raw": 11195783,
-                    "fmt": "11.2M",
-                    "longFmt": "11,195,783"
+                    "raw": 233057,
+                    "fmt": "233.06k",
+                    "longFmt": "233,057"
                   },
                   "pctChange": {
                     "raw": 1,
@@ -1620,35 +1312,13 @@
             },
             "majorHoldersBreakdown": {
               "maxAge": 1,
-              "insidersPercentHeld": 0.30174,
-              "institutionsPercentHeld": 0.41959,
-              "institutionsFloatPercentHeld": 0.60091,
-              "institutionsCount": 109
+              "insidersPercentHeld": 0.30025998,
+              "institutionsPercentHeld": 0.45731997,
+              "institutionsFloatPercentHeld": 0.65356004,
+              "institutionsCount": 102
             },
             "balanceSheetHistoryQuarterly": {
-              "balanceSheetStatements": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1661904000,
-                    "fmt": "2022-08-31"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1606694400,
-                    "fmt": "2020-11-30"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1598832000,
-                    "fmt": "2020-08-31"
-                  }
-                }
-              ],
+              "balanceSheetStatements": [],
               "maxAge": 86400
             },
             "earningsHistory": {
@@ -1688,12 +1358,763 @@
               "sellInfoCount": 0,
               "netInfoCount": 0,
               "netInfoShares": 0,
-              "netInstSharesBuying": -64717583,
-              "netInstBuyingPercent": -0.18318,
-              "totalInsiderShares": 250158560
+              "netInstSharesBuying": -6210441,
+              "netInstBuyingPercent": -0.01605,
+              "totalInsiderShares": 249305872
             },
             "insiderTransactions": {
               "transactions": [
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 74,
+                    "fmt": "74",
+                    "longFmt": "74"
+                  },
+                  "value": {
+                    "raw": 203,
+                    "fmt": "203",
+                    "longFmt": "203"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.75 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 10,
+                    "fmt": "10",
+                    "longFmt": "10"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 74,
+                    "fmt": "74",
+                    "longFmt": "74"
+                  },
+                  "value": {
+                    "raw": 203,
+                    "fmt": "203",
+                    "longFmt": "203"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.75 per share.",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 10,
+                    "fmt": "10",
+                    "longFmt": "10"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 74,
+                    "fmt": "74",
+                    "longFmt": "74"
+                  },
+                  "value": {
+                    "raw": 203,
+                    "fmt": "203",
+                    "longFmt": "203"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.75 per share.",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 11,
+                    "fmt": "11",
+                    "longFmt": "11"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1789430400,
+                    "fmt": "2026-09-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 207,
+                    "fmt": "207",
+                    "longFmt": "207"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1788307200,
+                    "fmt": "2026-09-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "value": {
+                    "raw": 576,
+                    "fmt": "576",
+                    "longFmt": "576"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sold at price 2.91 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1788307200,
+                    "fmt": "2026-09-02"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 6434333,
+                    "fmt": "6.43M",
+                    "longFmt": "6,434,333"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1788220800,
+                    "fmt": "2026-09-01"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 983801,
+                    "fmt": "983.8k",
+                    "longFmt": "983,801"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1787702400,
+                    "fmt": "2026-08-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1787270400,
+                    "fmt": "2026-08-21"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 61,
+                    "fmt": "61",
+                    "longFmt": "61"
+                  },
+                  "value": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.25 per share.",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 9,
+                    "fmt": "9",
+                    "longFmt": "9"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 61,
+                    "fmt": "61",
+                    "longFmt": "61"
+                  },
+                  "value": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.25 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 9,
+                    "fmt": "9",
+                    "longFmt": "9"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 61,
+                    "fmt": "61",
+                    "longFmt": "61"
+                  },
+                  "value": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.25 per share.",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 8,
+                    "fmt": "8",
+                    "longFmt": "8"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1786924800,
+                    "fmt": "2026-08-17"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 87,
+                    "fmt": "87",
+                    "longFmt": "87"
+                  },
+                  "value": {
+                    "raw": 202,
+                    "fmt": "202",
+                    "longFmt": "202"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.33 per share.",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 13,
+                    "fmt": "13",
+                    "longFmt": "13"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 87,
+                    "fmt": "87",
+                    "longFmt": "87"
+                  },
+                  "value": {
+                    "raw": 202,
+                    "fmt": "202",
+                    "longFmt": "202"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.33 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 12,
+                    "fmt": "12",
+                    "longFmt": "12"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 87,
+                    "fmt": "87",
+                    "longFmt": "87"
+                  },
+                  "value": {
+                    "raw": 202,
+                    "fmt": "202",
+                    "longFmt": "202"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.33 per share.",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 12,
+                    "fmt": "12",
+                    "longFmt": "12"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1784073600,
+                    "fmt": "2026-07-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 6316576,
+                    "fmt": "6.32M",
+                    "longFmt": "6,316,576"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1783641600,
+                    "fmt": "2026-07-10"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 2562875,
+                    "fmt": "2.56M",
+                    "longFmt": "2,562,875"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781827200,
+                    "fmt": "2026-06-19"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 76,
+                    "fmt": "76",
+                    "longFmt": "76"
+                  },
+                  "value": {
+                    "raw": 201,
+                    "fmt": "201",
+                    "longFmt": "201"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.65 per share.",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 11,
+                    "fmt": "11",
+                    "longFmt": "11"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 76,
+                    "fmt": "76",
+                    "longFmt": "76"
+                  },
+                  "value": {
+                    "raw": 201,
+                    "fmt": "201",
+                    "longFmt": "201"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.65 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 11,
+                    "fmt": "11",
+                    "longFmt": "11"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 76,
+                    "fmt": "76",
+                    "longFmt": "76"
+                  },
+                  "value": {
+                    "raw": 201,
+                    "fmt": "201",
+                    "longFmt": "201"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.65 per share.",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 11,
+                    "fmt": "11",
+                    "longFmt": "11"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Steiner (Timothy Deighton)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1781222400,
+                    "fmt": "2026-06-12"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 207,
+                    "fmt": "207",
+                    "longFmt": "207"
+                  },
+                  "value": {
+                    "raw": 581,
+                    "fmt": "581",
+                    "longFmt": "581"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.81 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780272000,
+                    "fmt": "2026-06-01"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "value": {
+                    "raw": 556,
+                    "fmt": "556",
+                    "longFmt": "556"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Sold at price 2.81 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1780272000,
+                    "fmt": "2026-06-01"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 81,
+                    "fmt": "81",
+                    "longFmt": "81"
+                  },
+                  "value": {
+                    "raw": 199,
+                    "fmt": "199",
+                    "longFmt": "199"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.46 per share.",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1778803200,
+                    "fmt": "2026-05-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 12,
+                    "fmt": "12",
+                    "longFmt": "12"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Matthews (James)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1778803200,
+                    "fmt": "2026-05-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 81,
+                    "fmt": "81",
+                    "longFmt": "81"
+                  },
+                  "value": {
+                    "raw": 199,
+                    "fmt": "199",
+                    "longFmt": "199"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 2.46 per share.",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1778803200,
+                    "fmt": "2026-05-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 12,
+                    "fmt": "12",
+                    "longFmt": "12"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1778803200,
+                    "fmt": "2026-05-15"
+                  },
+                  "ownership": "D"
+                },
                 {
                   "maxAge": 1,
                   "shares": {
@@ -1727,88 +2148,6 @@
                   "filerUrl": "",
                   "transactionText": "",
                   "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 81,
-                    "fmt": "81",
-                    "longFmt": "81"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 2.46 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 12,
-                    "fmt": "12",
-                    "longFmt": "12"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 81,
-                    "fmt": "81",
-                    "longFmt": "81"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 2.46 per share.",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1778803200,
-                    "fmt": "2026-05-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 12,
-                    "fmt": "12",
-                    "longFmt": "12"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -2323,6 +2662,60 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
+                  "filerName": "Rausing (Jorn)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1772064000,
+                    "fmt": "2026-02-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Harrison (Andrew Nigel)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1772064000,
+                    "fmt": "2026-02-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Daintith (Stephen W.)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1772064000,
+                    "fmt": "2026-02-26"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
                   "filerName": "Southern (Julie)",
                   "filerRelation": "",
                   "moneyText": "",
@@ -2359,61 +2752,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Harrison (Andrew Nigel)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1772064000,
-                    "fmt": "2026-02-26"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Rausing (Jorn)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1772064000,
-                    "fmt": "2026-02-26"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1772064000,
-                    "fmt": "2026-02-26"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "EXOR Investments (UK) LLP",
+                  "filerName": "London & Amsterdam Trust Company, Ltd.",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -2431,7 +2770,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "London & Amsterdam Trust Company, Ltd.",
+                  "filerName": "Greenvale Capital LLP",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -2467,7 +2806,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Baillie Gifford & Co",
+                  "filerName": "EXOR Investments (UK) LLP",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -2485,7 +2824,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Greenvale Capital LLP",
+                  "filerName": "Baillie Gifford & Co",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -2839,6 +3178,47 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 3.75 per share.",
+                  "filerName": "Richardson (Mark)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1768435200,
+                    "fmt": "2026-01-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 7,
+                    "fmt": "7",
+                    "longFmt": "7"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Richardson (Mark)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1768435200,
+                    "fmt": "2026-01-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 54,
+                    "fmt": "54",
+                    "longFmt": "54"
+                  },
+                  "value": {
+                    "raw": 202,
+                    "fmt": "202",
+                    "longFmt": "202"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.75 per share.",
                   "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
@@ -2899,47 +3279,6 @@
                   "filerUrl": "",
                   "transactionText": "",
                   "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1768435200,
-                    "fmt": "2026-01-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 54,
-                    "fmt": "54",
-                    "longFmt": "54"
-                  },
-                  "value": {
-                    "raw": 202,
-                    "fmt": "202",
-                    "longFmt": "202"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.75 per share.",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1768435200,
-                    "fmt": "2026-01-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 7,
-                    "fmt": "7",
-                    "longFmt": "7"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Richardson (Mark)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3046,29 +3385,6 @@
                 {
                   "maxAge": 1,
                   "shares": {
-                    "raw": 65,
-                    "fmt": "65",
-                    "longFmt": "65"
-                  },
-                  "value": {
-                    "raw": 198,
-                    "fmt": "198",
-                    "longFmt": "198"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.05 per share.",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1765756800,
-                    "fmt": "2025-12-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
                     "raw": 10,
                     "fmt": "10",
                     "longFmt": "10"
@@ -3117,6 +3433,29 @@
                   "filerUrl": "",
                   "transactionText": "",
                   "filerName": "Richardson (Mark)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1765756800,
+                    "fmt": "2025-12-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 65,
+                    "fmt": "65",
+                    "longFmt": "65"
+                  },
+                  "value": {
+                    "raw": 198,
+                    "fmt": "198",
+                    "longFmt": "198"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.05 per share.",
+                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3234,24 +3573,6 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Harrison (Andrew Nigel)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1764460800,
-                    "fmt": "2025-11-30"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
                   "filerName": "Lloyd (Emma)",
                   "filerRelation": "",
                   "moneyText": "",
@@ -3271,6 +3592,24 @@
                   "filerUrl": "",
                   "transactionText": "",
                   "filerName": "London & Amsterdam Trust Company, Ltd.",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1764460800,
+                    "fmt": "2025-11-30"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Rausing (Jorn)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3324,7 +3663,25 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Rausing (Jorn)",
+                  "filerName": "Harrison (Andrew Nigel)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1764460800,
+                    "fmt": "2025-11-30"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Southern (Julie)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3379,24 +3736,6 @@
                   "filerUrl": "",
                   "transactionText": "",
                   "filerName": "Warby (Adam)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1764460800,
-                    "fmt": "2025-11-30"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Southern (Julie)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3478,7 +3817,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 2.91 per share.",
-                  "filerName": "Daintith (Stephen W.)",
+                  "filerName": "Richardson (Mark)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3496,7 +3835,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
+                  "filerName": "Richardson (Mark)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3519,7 +3858,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 2.91 per share.",
-                  "filerName": "Richardson (Mark)",
+                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3537,7 +3876,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Richardson (Mark)",
+                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3631,47 +3970,6 @@
                 {
                   "maxAge": 1,
                   "shares": {
-                    "raw": 64,
-                    "fmt": "64",
-                    "longFmt": "64"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.12 per share.",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1760486400,
-                    "fmt": "2025-10-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 10,
-                    "fmt": "10",
-                    "longFmt": "10"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1760486400,
-                    "fmt": "2025-10-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
                     "raw": 65,
                     "fmt": "65",
                     "longFmt": "65"
@@ -3724,6 +4022,47 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 3.12 per share.",
+                  "filerName": "Richardson (Mark)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1760486400,
+                    "fmt": "2025-10-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 10,
+                    "fmt": "10",
+                    "longFmt": "10"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "",
+                  "filerName": "Richardson (Mark)",
+                  "filerRelation": "",
+                  "moneyText": "",
+                  "startDate": {
+                    "raw": 1760486400,
+                    "fmt": "2025-10-15"
+                  },
+                  "ownership": "D"
+                },
+                {
+                  "maxAge": 1,
+                  "shares": {
+                    "raw": 64,
+                    "fmt": "64",
+                    "longFmt": "64"
+                  },
+                  "value": {
+                    "raw": 199,
+                    "fmt": "199",
+                    "longFmt": "199"
+                  },
+                  "filerUrl": "",
+                  "transactionText": "Bought at price 3.12 per share.",
                   "filerName": "Matthews (James)",
                   "filerRelation": "",
                   "moneyText": "",
@@ -3806,7 +4145,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 3.30 per share.",
-                  "filerName": "Daintith (Stephen W.)",
+                  "filerName": "Richardson (Mark)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3824,7 +4163,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
+                  "filerName": "Richardson (Mark)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3847,7 +4186,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "Bought at price 3.30 per share.",
-                  "filerName": "Richardson (Mark)",
+                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -3865,7 +4204,7 @@
                   },
                   "filerUrl": "",
                   "transactionText": "",
-                  "filerName": "Richardson (Mark)",
+                  "filerName": "Daintith (Stephen W.)",
                   "filerRelation": "",
                   "moneyText": "",
                   "startDate": {
@@ -4014,680 +4353,6 @@
                     "fmt": "2025-08-15"
                   },
                   "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 40,
-                    "fmt": "40",
-                    "longFmt": "40"
-                  },
-                  "value": {
-                    "raw": 202,
-                    "fmt": "202",
-                    "longFmt": "202"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 5.07 per share.",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 6,
-                    "fmt": "6",
-                    "longFmt": "6"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 40,
-                    "fmt": "40",
-                    "longFmt": "40"
-                  },
-                  "value": {
-                    "raw": 202,
-                    "fmt": "202",
-                    "longFmt": "202"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 5.07 per share.",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 6,
-                    "fmt": "6",
-                    "longFmt": "6"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 40,
-                    "fmt": "40",
-                    "longFmt": "40"
-                  },
-                  "value": {
-                    "raw": 202,
-                    "fmt": "202",
-                    "longFmt": "202"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 5.07 per share.",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 6,
-                    "fmt": "6",
-                    "longFmt": "6"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1755216000,
-                    "fmt": "2025-08-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "EXOR Investments (UK) LLP",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1754611200,
-                    "fmt": "2025-08-08"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "EXOR Investments (UK) LLP",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1754265600,
-                    "fmt": "2025-08-04"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1753315200,
-                    "fmt": "2025-07-24"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 4654611,
-                    "fmt": "4.65M",
-                    "longFmt": "4,654,611"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "London & Amsterdam Trust Company, Ltd.",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1753228800,
-                    "fmt": "2025-07-23"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 1794836,
-                    "fmt": "1.79M",
-                    "longFmt": "1,794,836"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "EXOR Investments (UK) LLP",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1753142400,
-                    "fmt": "2025-07-22"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 1060,
-                    "fmt": "1.06k",
-                    "longFmt": "1,060"
-                  },
-                  "value": {
-                    "raw": 4489,
-                    "fmt": "4.49k",
-                    "longFmt": "4,489"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Sold at price 4.24 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1753056000,
-                    "fmt": "2025-07-21"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 1060,
-                    "fmt": "1.06k",
-                    "longFmt": "1,060"
-                  },
-                  "value": {
-                    "raw": 4503,
-                    "fmt": "4.5k",
-                    "longFmt": "4,503"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 4.25 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1753056000,
-                    "fmt": "2025-07-21"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 19002,
-                    "fmt": "19k",
-                    "longFmt": "19,002"
-                  },
-                  "value": {
-                    "raw": 78440,
-                    "fmt": "78.44k",
-                    "longFmt": "78,440"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Sold at price 4.13 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752796800,
-                    "fmt": "2025-07-18"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 19002,
-                    "fmt": "19k",
-                    "longFmt": "19,002"
-                  },
-                  "value": {
-                    "raw": 78706,
-                    "fmt": "78.71k",
-                    "longFmt": "78,706"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 4.14 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752796800,
-                    "fmt": "2025-07-18"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 64,
-                    "fmt": "64",
-                    "longFmt": "64"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.12 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 9,
-                    "fmt": "9",
-                    "longFmt": "9"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 64,
-                    "fmt": "64",
-                    "longFmt": "64"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.12 per share.",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 9,
-                    "fmt": "9",
-                    "longFmt": "9"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 64,
-                    "fmt": "64",
-                    "longFmt": "64"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.12 per share.",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 9,
-                    "fmt": "9",
-                    "longFmt": "9"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 64,
-                    "fmt": "64",
-                    "longFmt": "64"
-                  },
-                  "value": {
-                    "raw": 199,
-                    "fmt": "199",
-                    "longFmt": "199"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.12 per share.",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 9,
-                    "fmt": "9",
-                    "longFmt": "9"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1752537600,
-                    "fmt": "2025-07-15"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 57,
-                    "fmt": "57",
-                    "longFmt": "57"
-                  },
-                  "value": {
-                    "raw": 204,
-                    "fmt": "204",
-                    "longFmt": "204"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.58 per share.",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 8,
-                    "fmt": "8",
-                    "longFmt": "8"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Richardson (Mark)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 57,
-                    "fmt": "57",
-                    "longFmt": "57"
-                  },
-                  "value": {
-                    "raw": 204,
-                    "fmt": "204",
-                    "longFmt": "204"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.58 per share.",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 8,
-                    "fmt": "8",
-                    "longFmt": "8"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Steiner (Timothy Deighton)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 57,
-                    "fmt": "57",
-                    "longFmt": "57"
-                  },
-                  "value": {
-                    "raw": 204,
-                    "fmt": "204",
-                    "longFmt": "204"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.58 per share.",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 8,
-                    "fmt": "8",
-                    "longFmt": "8"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Daintith (Stephen W.)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 57,
-                    "fmt": "57",
-                    "longFmt": "57"
-                  },
-                  "value": {
-                    "raw": 204,
-                    "fmt": "204",
-                    "longFmt": "204"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Bought at price 3.58 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 8,
-                    "fmt": "8",
-                    "longFmt": "8"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1749772800,
-                    "fmt": "2025-06-13"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 405,
-                    "fmt": "405",
-                    "longFmt": "405"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1748908800,
-                    "fmt": "2025-06-03"
-                  },
-                  "ownership": "D"
-                },
-                {
-                  "maxAge": 1,
-                  "shares": {
-                    "raw": 197,
-                    "fmt": "197",
-                    "longFmt": "197"
-                  },
-                  "value": {
-                    "raw": 652,
-                    "fmt": "652",
-                    "longFmt": "652"
-                  },
-                  "filerUrl": "",
-                  "transactionText": "Sold at price 3.31 per share.",
-                  "filerName": "Matthews (James)",
-                  "filerRelation": "",
-                  "moneyText": "",
-                  "startDate": {
-                    "raw": 1748908800,
-                    "fmt": "2025-06-03"
-                  },
-                  "ownership": "D"
                 }
               ],
               "maxAge": 1
@@ -4698,220 +4363,11 @@
               "estimates": []
             },
             "incomeStatementHistoryQuarterly": {
-              "incomeStatementHistory": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1661904000,
-                    "fmt": "2022-08-31"
-                  },
-                  "totalRevenue": {
-                    "raw": 531500000,
-                    "fmt": "531.5M",
-                    "longFmt": "531,500,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1606694400,
-                    "fmt": "2020-11-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 657700000,
-                    "fmt": "657.7M",
-                    "longFmt": "657,700,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1598832000,
-                    "fmt": "2020-08-31"
-                  },
-                  "totalRevenue": {
-                    "raw": 587300000,
-                    "fmt": "587.3M",
-                    "longFmt": "587,300,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
-                }
-              ],
+              "incomeStatementHistory": [],
               "maxAge": 86400
             },
             "cashflowStatementHistoryQuarterly": {
-              "cashflowStatements": [
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1661904000,
-                    "fmt": "2022-08-31"
-                  },
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1606694400,
-                    "fmt": "2020-11-30"
-                  },
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1598832000,
-                    "fmt": "2020-08-31"
-                  },
-                  "netIncome": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
-                }
-              ],
+              "cashflowStatements": [],
               "maxAge": 86400
             },
             "earnings": {
@@ -4922,88 +4378,40 @@
                 "isEarningsDateEstimate": false
               },
               "financialsChart": {
-                "yearly": [
-                  {
-                    "date": 2022,
-                    "revenue": 2513800000,
-                    "earnings": -452200000,
-                    "profitMargin": -0.17988703
-                  },
-                  {
-                    "date": 2023,
-                    "revenue": 2825000000,
-                    "earnings": -337900000,
-                    "profitMargin": -0.11961062
-                  },
-                  {
-                    "date": 2024,
-                    "revenue": 3155900000,
-                    "earnings": -348900000,
-                    "profitMargin": -0.11055484
-                  },
-                  {
-                    "date": 2025,
-                    "revenue": 1381700000,
-                    "earnings": -368500000,
-                    "profitMargin": -0.26670045
-                  }
-                ],
-                "quarterly": [
-                  {
-                    "date": "3Q2020",
-                    "fiscalQuarter": "3Q2020",
-                    "revenue": 587300000,
-                    "earnings": 0,
-                    "profitMargin": 0
-                  },
-                  {
-                    "date": "4Q2020",
-                    "fiscalQuarter": "4Q2020",
-                    "revenue": 657700000,
-                    "earnings": 0,
-                    "profitMargin": 0
-                  },
-                  {
-                    "date": "3Q2022",
-                    "fiscalQuarter": "3Q2022",
-                    "revenue": 531500000,
-                    "earnings": 0,
-                    "profitMargin": 0
-                  }
-                ]
+                "yearly": [],
+                "quarterly": []
               },
               "financialCurrency": "GBP",
               "defaultMethodology": "nongaap"
             },
             "financialData": {
               "maxAge": 86400,
-              "currentPrice": 237.4,
-              "targetHighPrice": 421,
+              "currentPrice": 260.4,
+              "targetHighPrice": 392,
               "targetLowPrice": 100,
-              "targetMeanPrice": 268.23102,
-              "targetMedianPrice": 259,
-              "recommendationMean": 2.46154,
-              "recommendationKey": "buy",
+              "targetMeanPrice": 245.308,
+              "targetMedianPrice": 230,
+              "recommendationKey": "none",
               "numberOfAnalystOpinions": 13,
-              "totalCash": 740000000,
-              "totalCashPerShare": 0.893,
-              "ebitda": 159500000,
-              "totalDebt": 1788400000,
-              "quickRatio": 1.821,
-              "currentRatio": 1.995,
-              "totalRevenue": 1381699968,
-              "debtToEquity": 114.546,
-              "revenuePerShare": 1.674,
-              "returnOnAssets": -0.02744,
-              "returnOnEquity": -0.28699,
-              "grossProfits": 195200000,
-              "freeCashflow": 45562500,
-              "operatingCashflow": 341700000,
-              "revenueGrowth": 0.143,
-              "grossMargins": 0.14128,
-              "ebitdaMargins": 0.115439996,
-              "operatingMargins": -0.14526,
-              "profitMargins": 0.29326,
+              "totalCash": 764600000,
+              "totalCashPerShare": 0.921,
+              "ebitda": 461000000,
+              "totalDebt": 1734099968,
+              "quickRatio": 1.353,
+              "currentRatio": 1.412,
+              "totalRevenue": 1744700032,
+              "debtToEquity": 110.643,
+              "revenuePerShare": 2.105,
+              "returnOnAssets": 0.00299,
+              "returnOnEquity": -0.1503,
+              "grossProfits": 400900000,
+              "freeCashflow": 161437504,
+              "operatingCashflow": 389700000,
+              "revenueGrowth": 0.539,
+              "grossMargins": 0.22978,
+              "ebitdaMargins": 0.26423,
+              "operatingMargins": 0.1189,
+              "profitMargins": -0.14288999,
               "financialCurrency": "GBP"
             }
           }

@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/0P0000XTS7?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1726099200&period2=1726444800",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1234",
+      "content-length": "1343",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:31 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:32 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
       "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4qd4ca5jrj83r"
+      "y-rid": "0an6afllc1eio"
     },
     "bodyJson": {
       "chart": {
@@ -41,34 +41,38 @@
               "firstTradeDate": 1546353000,
               "regularMarketTime": 1721419200,
               "hasPrePostMarketData": false,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
               "regularMarketPrice": 11796.7,
-              "fiftyTwoWeekHigh": 12133.81,
-              "fiftyTwoWeekLow": 11549.61,
+              "regularMarketChangePercent": 0.043,
+              "fulldayPrice": 11796.7,
+              "fulldayChange": 5.101,
+              "fulldayChangePercent": 0.043,
+              "fiftyTwoWeekHigh": 12932.27,
+              "fiftyTwoWeekLow": 12462.99,
               "longName": "GS USD Liquid Reserve R Acc",
               "shortName": "Goldman Sachs US$ Liquid Reserv",
               "chartPreviousClose": 11885.41,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740128400,
-                  "end": 1740148200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790928000,
+                  "end": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740148200,
-                  "end": 1740171600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790947800,
+                  "end": 1790971200,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740171600,
-                  "end": 1740186000,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790971200,
+                  "end": 1790985600,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -92,15 +96,11 @@
             "indicators": {
               "quote": [
                 {
-                  "close": [
+                  "open": [
                     11887.099609375,
                     11892.1904296875
                   ],
                   "low": [
-                    11887.099609375,
-                    11892.1904296875
-                  ],
-                  "open": [
                     11887.099609375,
                     11892.1904296875
                   ],
@@ -109,6 +109,10 @@
                     0
                   ],
                   "high": [
+                    11887.099609375,
+                    11892.1904296875
+                  ],
+                  "close": [
                     11887.099609375,
                     11892.1904296875
                   ]

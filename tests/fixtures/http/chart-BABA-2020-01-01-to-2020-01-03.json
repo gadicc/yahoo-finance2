@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/BABA?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1223",
+      "content-length": "1333",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:41 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "4",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "7",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "4ls7mp5jre5it"
+      "y-rid": "7oc070llc1eg9"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "NYSE",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1411133400,
-              "regularMarketTime": 1739998802,
+              "regularMarketTime": 1790971336,
               "hasPrePostMarketData": true,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 125.79,
-              "fiftyTwoWeekHigh": 129.02,
-              "fiftyTwoWeekLow": 68.36,
-              "regularMarketDayHigh": 127.7,
-              "regularMarketDayLow": 124.95,
-              "regularMarketVolume": 34859035,
+              "regularMarketPrice": 105.85,
+              "regularMarketChangePercent": -1.489,
+              "fulldayPrice": 105.85,
+              "fulldayChange": -1.6,
+              "fulldayChangePercent": -1.489,
+              "fiftyTwoWeekHigh": 189.61,
+              "fiftyTwoWeekLow": 91.99,
+              "regularMarketDayHigh": 106.965,
+              "regularMarketDayLow": 105.15,
+              "regularMarketVolume": 7768242,
               "longName": "Alibaba Group Holding Limited",
               "shortName": "Alibaba Group Holding Limited",
               "chartPreviousClose": 212.1,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740042000,
-                  "end": 1740061800,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790928000,
+                  "end": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740061800,
-                  "end": 1740085200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790947800,
+                  "end": 1790971200,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740085200,
-                  "end": 1740099600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790971200,
+                  "end": 1790985600,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -96,11 +100,11 @@
             "indicators": {
               "quote": [
                 {
-                  "low": [
-                    216.5399932861328
-                  ],
                   "volume": [
                     15873500
+                  ],
+                  "close": [
+                    219.77000427246094
                   ],
                   "open": [
                     216.60000610351562
@@ -108,15 +112,15 @@
                   "high": [
                     219.97999572753906
                   ],
-                  "close": [
-                    219.77000427246094
+                  "low": [
+                    216.5399932861328
                   ]
                 }
               ],
               "adjclose": [
                 {
                   "adjclose": [
-                    212.24212646484375
+                    206.81509399414062
                   ]
                 }
               ]

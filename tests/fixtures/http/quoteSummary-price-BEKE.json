@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BEKE?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/BEKE?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "1054",
+      "content-length": "1033",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:21 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:16 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "2",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "1",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "7k1didhjrofap"
+      "y-rid": "6avf03tlc1fak"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,31 +34,30 @@
           {
             "price": {
               "maxAge": 1,
-              "preMarketChangePercent": 0.01818187,
-              "preMarketChange": 0.38000107,
-              "preMarketTime": 1740389120,
-              "preMarketPrice": 21.28,
-              "preMarketSource": "FREE_REALTIME",
-              "postMarketChangePercent": -0.00813398,
-              "postMarketChange": -0.17,
-              "postMarketTime": 1740185879,
-              "postMarketPrice": 20.73,
+              "preMarketSource": "DELAYED",
+              "postMarketChangePercent": -0.0012173132,
+              "postMarketChange": -0.020000458,
+              "postMarketTime": 1790983373,
+              "postMarketPrice": 16.41,
               "postMarketSource": "FREE_REALTIME",
-              "regularMarketChangePercent": 0.0336301,
-              "regularMarketChange": 0.68,
-              "regularMarketTime": 1740171602,
+              "regularMarketChangePercent": -0.0126201,
+              "regularMarketChange": -0.209999,
+              "regularMarketTime": 1790971203,
               "priceHint": 2,
-              "regularMarketPrice": 20.9,
-              "regularMarketDayHigh": 21.385,
-              "regularMarketDayLow": 20.65,
-              "regularMarketVolume": 8170011,
-              "regularMarketPreviousClose": 20.22,
+              "regularMarketPrice": 16.43,
+              "regularMarketDayHigh": 16.63,
+              "regularMarketDayLow": 16.37,
+              "regularMarketVolume": 3930153,
+              "regularMarketPreviousClose": 16.64,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 20.8,
+              "regularMarketOpen": 16.57,
+              "fulldayChangePercent": -0.0126201,
+              "fulldayChange": -0.209999,
+              "fulldayPrice": 16.41,
               "exchange": "NYQ",
               "exchangeName": "NYSE",
               "exchangeDataDelayedBy": 0,
-              "marketState": "PRE",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "BEKE",
               "underlyingSymbol": null,
@@ -70,7 +69,7 @@
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 25049903104
+              "marketCap": 18065016832
             }
           }
         ],

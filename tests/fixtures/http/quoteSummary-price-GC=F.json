@@ -1,10 +1,10 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/GC=F?formatted=false&modules=price&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/GC=F?formatted=false&modules=price&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "710",
+      "content-length": "792",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:22 GMT",
+      "date": "Sat, 03 Oct 2026 08:31:32 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "3",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-baseline-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "5lkgl75jrofaq"
+      "y-rid": "5n4o4shlc1fb4"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,25 +34,28 @@
           {
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": 0.0023703102,
-              "regularMarketChange": 7,
-              "regularMarketTime": 1740389116,
+              "regularMarketChangePercent": -0.009518597,
+              "regularMarketChange": -40,
+              "regularMarketTime": 1790974798,
               "priceHint": 2,
-              "regularMarketPrice": 2960.2,
-              "regularMarketDayHigh": 2948,
-              "regularMarketDayLow": 2933.1,
-              "regularMarketVolume": 45000,
-              "regularMarketPreviousClose": 2953.2,
+              "regularMarketPrice": 4162.3,
+              "regularMarketDayHigh": 4259,
+              "regularMarketDayLow": 4154,
+              "regularMarketVolume": 164881,
+              "regularMarketPreviousClose": 4202.3,
               "regularMarketSource": "DELAYED",
-              "regularMarketOpen": 2950.4,
+              "regularMarketOpen": 4204.6,
+              "fulldayChangePercent": -0.009518597,
+              "fulldayChange": -40,
+              "fulldayPrice": 4162.3,
               "exchange": "CMX",
               "exchangeName": "COMEX",
               "exchangeDataDelayedBy": 10,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "FUTURE",
               "symbol": "GC=F",
               "underlyingSymbol": null,
-              "shortName": "Gold Apr 25",
+              "shortName": "Gold Dec 26",
               "longName": null,
               "currency": "USD",
               "quoteSourceName": "Delayed Quote",

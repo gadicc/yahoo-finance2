@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/EREGL.IS?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/EREGL.IS?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -12,20 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:31:05 GMT",
+      "date": "Sat, 03 Oct 2026 08:35:12 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "20",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "15",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "57or35ll1iqn9"
+      "y-rid": "1jn45mhlc1fi1"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -47,7 +48,7 @@
               "sectorKey": "basic-materials",
               "sectorDisp": "Basic Materials",
               "longBusinessSummary": "Eregli Demir ve Çelik Fabrikalari T.A.S., together with its subsidiaries, produces and sells iron and steel rolled products, alloyed and non-alloyed iron, cast and pressed steel, coke, and by-products in Turkey and internationally. The company offers flat steel products, including hot and cold rolled flat steel, plate, tin, chrome, and galvanized coated sheets. It also engages in the production of integrated and electrical steel; renewable energy generation; industrial gas production and sale; pellets; iron and magnesite ores; refractory; trading; recycling; and special purpose business. In addition, the company offers after-sales, laboratory and calibration, steel service center, and port services; and management and consulting services. Further, it exports its products. The company serves the automotive, white goods, tube mills, rolling mills, general manufacturing, electric&electronics, machinery, energy, heating equipment, shipbuilding, defense, packaging, and renewable energy industries. Eregli Demir ve Çelik Fabrikalari T.A.S. was founded in 1960 and is headquartered in Istanbul, Turkey.",
-              "fullTimeEmployees": 12833,
+              "fullTimeEmployees": 12772,
               "companyOfficers": [
                 {
                   "maxAge": 1,
@@ -212,33 +213,25 @@
                 {
                   "period": "0m",
                   "strongBuy": 1,
-                  "buy": 6,
-                  "hold": 4,
+                  "buy": 4,
+                  "hold": 6,
                   "sell": 2,
                   "strongSell": 0
                 },
                 {
                   "period": "-1m",
                   "strongBuy": 1,
-                  "buy": 6,
-                  "hold": 4,
-                  "sell": 3,
+                  "buy": 4,
+                  "hold": 7,
+                  "sell": 2,
                   "strongSell": 0
                 },
                 {
                   "period": "-2m",
                   "strongBuy": 1,
-                  "buy": 4,
-                  "hold": 6,
-                  "sell": 3,
-                  "strongSell": 0
-                },
-                {
-                  "period": "-3m",
-                  "strongBuy": 1,
-                  "buy": 4,
-                  "hold": 6,
-                  "sell": 3,
+                  "buy": 6,
+                  "hold": 5,
+                  "sell": 2,
                   "strongSell": 0
                 }
               ],
@@ -303,19 +296,19 @@
               "estimates": [
                 {
                   "period": "0q",
-                  "growth": 0.2555
+                  "growth": 0.24190001
                 },
                 {
                   "period": "+1q",
-                  "growth": 0.19629999
+                  "growth": 0.2514
                 },
                 {
                   "period": "0y",
-                  "growth": 0.2234
+                  "growth": 0.3192
                 },
                 {
                   "period": "+1y",
-                  "growth": 0.16440001
+                  "growth": 0.1579
                 },
                 {
                   "period": "LTG",
@@ -326,34 +319,34 @@
             "defaultKeyStatistics": {
               "maxAge": 1,
               "priceHint": 2,
-              "enterpriseValue": 304211787776,
-              "forwardPE": 15.219671,
-              "profitMargins": 0.0021799998,
-              "floatShares": 3392050096,
+              "enterpriseValue": 298496851968,
+              "forwardPE": 14.824663,
+              "profitMargins": 0.03233,
+              "floatShares": 3391813104,
               "sharesOutstanding": 6721875999,
-              "heldPercentInsiders": 0.49542,
-              "heldPercentInstitutions": 0.084,
-              "beta": 0.96,
+              "heldPercentInsiders": 0.49699003,
+              "heldPercentInstitutions": 0.088479996,
+              "beta": 1.002,
               "impliedSharesOutstanding": 6721876000,
               "category": null,
-              "bookValue": 43.956,
-              "priceToBook": 0.89134586,
+              "bookValue": 47.403,
+              "priceToBook": 0.78096324,
               "fundFamily": null,
               "legalType": null,
               "lastFiscalYearEnd": 1767139200,
               "nextFiscalYearEnd": 1798675200,
-              "mostRecentQuarter": 1774915200,
-              "earningsQuarterlyGrowth": -0.1,
-              "netIncomeToCommon": 469268000,
-              "trailingEps": 0.07,
+              "mostRecentQuarter": 1782777600,
+              "earningsQuarterlyGrowth": 5.543,
+              "netIncomeToCommon": 7711818752,
+              "trailingEps": 1.15,
               "forwardEps": 6.16,
               "pegRatio": 0.89,
               "lastSplitFactor": "200:100",
               "lastSplitDate": 1732665600,
-              "enterpriseToRevenue": 1.415,
-              "enterpriseToEbitda": 14.428,
-              "52WeekChange": 0.67150176,
-              "SandP52WeekChange": 0.2794361,
+              "enterpriseToRevenue": 1.251,
+              "enterpriseToEbitda": 12.769,
+              "52WeekChange": 0.24812543,
+              "SandP52WeekChange": 0.1415559,
               "lastDividendValue": 0.55,
               "lastDividendDate": 1780444800,
               "latestShareClass": null,
@@ -619,42 +612,45 @@
             "summaryDetail": {
               "maxAge": 1,
               "priceHint": 2,
-              "previousClose": 39.48,
-              "open": 39.74,
-              "dayLow": 39.18,
-              "dayHigh": 39.88,
-              "regularMarketPreviousClose": 39.48,
-              "regularMarketOpen": 39.74,
-              "regularMarketDayLow": 39.18,
-              "regularMarketDayHigh": 39.88,
+              "previousClose": 36.62,
+              "open": 36.56,
+              "dayLow": 36.2,
+              "dayHigh": 37.02,
+              "regularMarketPreviousClose": 36.62,
+              "regularMarketOpen": 36.56,
+              "regularMarketDayLow": 36.2,
+              "regularMarketDayHigh": 37.02,
               "dividendRate": 0.55,
-              "dividendYield": 0.0139999995,
-              "exDividendDate": 1780444800,
-              "payoutRatio": 3.5817,
+              "dividendYield": 0.015,
+              "exDividendDate": 1797292800,
+              "payoutRatio": 0.47939998,
               "fiveYearAvgDividendYield": 9.76,
-              "beta": 0.96,
-              "trailingPE": 559.7143,
-              "forwardPE": 6.3603897,
-              "volume": 41626869,
-              "regularMarketVolume": 41626869,
-              "averageVolume": 163971556,
-              "averageVolume10days": 133877249,
-              "averageDailyVolume10Day": 133877249,
-              "bid": 0,
-              "ask": 0,
+              "beta": 1.002,
+              "trailingPE": 32.191307,
+              "forwardPE": 6.0097404,
+              "volume": 55200351,
+              "regularMarketVolume": 55200351,
+              "averageVolume": 144476785,
+              "averageVolume10days": 95890692,
+              "averageDailyVolume10Day": 95890692,
+              "bid": 36.94,
+              "ask": 37.04,
               "bidSize": 0,
               "askSize": 0,
-              "marketCap": 263363100672,
-              "nonDilutedMarketCap": 263363101679,
-              "fiftyTwoWeekLow": 22.92,
-              "fiftyTwoWeekHigh": 43.72,
-              "allTimeHigh": 43.72,
+              "marketCap": 248843845632,
+              "nonDilutedMarketCap": 259061101039,
+              "fiftyTwoWeekLow": 23.46,
+              "fiftyTwoWeekHigh": 45.1,
+              "allTimeHigh": 45.1,
               "allTimeLow": 0.062727,
-              "priceToSalesTrailing12Months": 1.2246591,
-              "fiftyDayAverage": 33.3892,
-              "twoHundredDayAverage": 28.7364,
+              "fulldayPrice": 37.02,
+              "fulldayChange": 0.40000153,
+              "fulldayChangePercent": 0.010923034,
+              "priceToSalesTrailing12Months": 1.0432842,
+              "fiftyDayAverage": 38.7308,
+              "twoHundredDayAverage": 34.3303,
               "trailingAnnualDividendRate": 0.55,
-              "trailingAnnualDividendYield": 0.013931105,
+              "trailingAnnualDividendYield": 0.015019116,
               "currency": "TRY",
               "fromCurrency": null,
               "toCurrency": null,
@@ -671,38 +667,41 @@
               "maxAge": 1,
               "earnings": {
                 "earningsDate": [
-                  1777474800
+                  1792422000
                 ],
                 "earningsCallDate": [],
                 "isEarningsDateEstimate": true,
-                "earningsAverage": 0.452,
-                "earningsLow": 0.452,
-                "earningsHigh": 0.452,
-                "revenueAverage": 62706221000,
-                "revenueLow": 62706221000,
-                "revenueHigh": 62706221000
+                "earningsAverage": 0.331,
+                "earningsLow": 0.331,
+                "earningsHigh": 0.331,
+                "revenueAverage": 68934192000,
+                "revenueLow": 68934192000,
+                "revenueHigh": 68934192000
               },
-              "exDividendDate": 1780444800
+              "exDividendDate": 1797292800
             },
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": -0.0075987647,
-              "regularMarketChange": -0.29999924,
-              "regularMarketTime": 1779788397,
+              "regularMarketChangePercent": 0.010923034,
+              "regularMarketChange": 0.40000153,
+              "regularMarketTime": 1790953780,
               "priceHint": 2,
-              "regularMarketPrice": 39.18,
-              "regularMarketDayHigh": 39.88,
-              "regularMarketDayLow": 39.18,
-              "regularMarketVolume": 41626869,
-              "averageDailyVolume10Day": 133877249,
-              "averageDailyVolume3Month": 163971556,
-              "regularMarketPreviousClose": 39.48,
+              "regularMarketPrice": 37.02,
+              "regularMarketDayHigh": 37.02,
+              "regularMarketDayLow": 36.2,
+              "regularMarketVolume": 55200351,
+              "averageDailyVolume10Day": 95890692,
+              "averageDailyVolume3Month": 144476785,
+              "regularMarketPreviousClose": 36.62,
               "regularMarketSource": "DELAYED",
-              "regularMarketOpen": 39.74,
+              "regularMarketOpen": 36.56,
+              "fulldayChangePercent": 0.010923034,
+              "fulldayChange": 0.40000153,
+              "fulldayPrice": 37.02,
               "exchange": "IST",
               "exchangeName": "Istanbul",
               "exchangeDataDelayedBy": 15,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "EREGL.IS",
               "underlyingSymbol": null,
@@ -714,7 +713,7 @@
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 263363100672
+              "marketCap": 248843845632
             },
             "balanceSheetHistory": {
               "balanceSheetStatements": [
@@ -754,27 +753,27 @@
                 {
                   "maxAge": 1,
                   "period": "0q",
-                  "endDate": "2026-06-30",
+                  "endDate": "2026-09-30",
                   "growth": {
-                    "raw": 1.421,
-                    "fmt": "142.10%"
+                    "raw": 2.5584,
+                    "fmt": "255.84%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "low": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "high": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "yearAgoEps": {
-                      "raw": 0.1867,
-                      "fmt": "0.19"
+                      "raw": 0.09302,
+                      "fmt": "0.09"
                     },
                     "numberOfAnalysts": {
                       "raw": 1,
@@ -782,26 +781,26 @@
                       "longFmt": "1"
                     },
                     "growth": {
-                      "raw": 1.421,
-                      "fmt": "142.10%"
+                      "raw": 2.5584,
+                      "fmt": "255.84%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 62706221000,
-                      "fmt": "62.71B",
-                      "longFmt": "62,706,221,000"
+                      "raw": 68934192000,
+                      "fmt": "68.93B",
+                      "longFmt": "68,934,192,000"
                     },
                     "low": {
-                      "raw": 62706221000,
-                      "fmt": "62.71B",
-                      "longFmt": "62,706,221,000"
+                      "raw": 68934192000,
+                      "fmt": "68.93B",
+                      "longFmt": "68,934,192,000"
                     },
                     "high": {
-                      "raw": 62706221000,
-                      "fmt": "62.71B",
-                      "longFmt": "62,706,221,000"
+                      "raw": 68934192000,
+                      "fmt": "68.93B",
+                      "longFmt": "68,934,192,000"
                     },
                     "numberOfAnalysts": {
                       "raw": 1,
@@ -809,44 +808,44 @@
                       "longFmt": "1"
                     },
                     "yearAgoRevenue": {
-                      "raw": 41412965000,
-                      "fmt": "41.41B",
-                      "longFmt": "41,412,965,000"
+                      "raw": 52957615000,
+                      "fmt": "52.96B",
+                      "longFmt": "52,957,615,000"
                     },
                     "growth": {
-                      "raw": 0.5142,
-                      "fmt": "51.42%"
+                      "raw": 0.3017,
+                      "fmt": "30.17%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
+                      "raw": 0.331,
+                      "fmt": "0.33"
+                    },
+                    "7daysAgo": {
+                      "raw": 0.3985,
+                      "fmt": "0.4"
+                    },
+                    "30daysAgo": {
+                      "raw": 0.466,
+                      "fmt": "0.47"
+                    },
+                    "60daysAgo": {
                       "raw": 0.452,
                       "fmt": "0.45"
                     },
-                    "7daysAgo": {
-                      "raw": 0.191,
-                      "fmt": "0.19"
-                    },
-                    "30daysAgo": {
-                      "raw": 0.188,
-                      "fmt": "0.19"
-                    },
-                    "60daysAgo": {
-                      "raw": 0.415,
-                      "fmt": "0.41"
-                    },
                     "90daysAgo": {
-                      "raw": 0.415,
-                      "fmt": "0.41"
+                      "raw": 0.452,
+                      "fmt": "0.45"
                     },
                     "epsTrendCurrency": "TRY"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "upLast30days": {
                       "raw": 1,
@@ -870,27 +869,27 @@
                 {
                   "maxAge": 1,
                   "period": "+1q",
-                  "endDate": "2026-09-30",
+                  "endDate": "2026-12-31",
                   "growth": {
-                    "raw": 3.8592002,
-                    "fmt": "385.92%"
+                    "raw": 2.2514,
+                    "fmt": "225.14%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "low": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "high": {
-                      "raw": 0.452,
-                      "fmt": "0.45"
+                      "raw": 0.331,
+                      "fmt": "0.33"
                     },
                     "yearAgoEps": {
-                      "raw": 0.09302,
-                      "fmt": "0.09"
+                      "raw": -0.2645,
+                      "fmt": "-0.26"
                     },
                     "numberOfAnalysts": {
                       "raw": 1,
@@ -898,26 +897,26 @@
                       "longFmt": "1"
                     },
                     "growth": {
-                      "raw": 3.8592002,
-                      "fmt": "385.92%"
+                      "raw": 2.2514,
+                      "fmt": "225.14%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 65366073000,
-                      "fmt": "65.37B",
-                      "longFmt": "65,366,073,000"
+                      "raw": 73714742000,
+                      "fmt": "73.71B",
+                      "longFmt": "73,714,742,000"
                     },
                     "low": {
-                      "raw": 65366073000,
-                      "fmt": "65.37B",
-                      "longFmt": "65,366,073,000"
+                      "raw": 73714742000,
+                      "fmt": "73.71B",
+                      "longFmt": "73,714,742,000"
                     },
                     "high": {
-                      "raw": 65366073000,
-                      "fmt": "65.37B",
-                      "longFmt": "65,366,073,000"
+                      "raw": 73714742000,
+                      "fmt": "73.71B",
+                      "longFmt": "73,714,742,000"
                     },
                     "numberOfAnalysts": {
                       "raw": 1,
@@ -925,44 +924,44 @@
                       "longFmt": "1"
                     },
                     "yearAgoRevenue": {
-                      "raw": 52957615000,
-                      "fmt": "52.96B",
-                      "longFmt": "52,957,615,000"
+                      "raw": 60994697000,
+                      "fmt": "60.99B",
+                      "longFmt": "60,994,697,000"
                     },
                     "growth": {
-                      "raw": 0.2343,
-                      "fmt": "23.43%"
+                      "raw": 0.2085,
+                      "fmt": "20.85%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
+                      "raw": 0.331,
+                      "fmt": "0.33"
+                    },
+                    "7daysAgo": {
+                      "raw": 0.3985,
+                      "fmt": "0.4"
+                    },
+                    "30daysAgo": {
+                      "raw": 0.466,
+                      "fmt": "0.47"
+                    },
+                    "60daysAgo": {
                       "raw": 0.452,
                       "fmt": "0.45"
                     },
-                    "7daysAgo": {
-                      "raw": 0.258,
-                      "fmt": "0.26"
-                    },
-                    "30daysAgo": {
-                      "raw": 0.253,
-                      "fmt": "0.25"
-                    },
-                    "60daysAgo": {
-                      "raw": 0.435,
-                      "fmt": "0.44"
-                    },
                     "90daysAgo": {
-                      "raw": 0.435,
-                      "fmt": "0.44"
+                      "raw": 0.452,
+                      "fmt": "0.45"
                     },
                     "epsTrendCurrency": "TRY"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "upLast30days": {
                       "raw": 1,
@@ -988,57 +987,57 @@
                   "period": "0y",
                   "endDate": "2026-12-31",
                   "growth": {
-                    "raw": 13.7601,
-                    "fmt": "1,376.01%"
+                    "raw": 23.0746,
+                    "fmt": "2,307.46%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 1.12324,
-                      "fmt": "1.12"
+                      "raw": 1.83208,
+                      "fmt": "1.83"
                     },
                     "low": {
-                      "raw": 0.49199,
-                      "fmt": "0.49"
+                      "raw": 1.41325,
+                      "fmt": "1.41"
                     },
                     "high": {
-                      "raw": 2.254,
-                      "fmt": "2.25"
+                      "raw": 2.05206,
+                      "fmt": "2.05"
                     },
                     "yearAgoEps": {
                       "raw": 0.0761,
                       "fmt": "0.08"
                     },
                     "numberOfAnalysts": {
-                      "raw": 7,
-                      "fmt": "7",
-                      "longFmt": "7"
+                      "raw": 4,
+                      "fmt": "4",
+                      "longFmt": "4"
                     },
                     "growth": {
-                      "raw": 13.7601,
-                      "fmt": "1,376.01%"
+                      "raw": 23.0746,
+                      "fmt": "2,307.46%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 269468807410,
-                      "fmt": "269.47B",
-                      "longFmt": "269,468,807,410"
+                      "raw": 279668243760,
+                      "fmt": "279.67B",
+                      "longFmt": "279,668,243,760"
                     },
                     "low": {
-                      "raw": 252765371610,
-                      "fmt": "252.77B",
-                      "longFmt": "252,765,371,610"
+                      "raw": 262732181090,
+                      "fmt": "262.73B",
+                      "longFmt": "262,732,181,090"
                     },
                     "high": {
-                      "raw": 286239985390,
-                      "fmt": "286.24B",
-                      "longFmt": "286,239,985,390"
+                      "raw": 294141159790,
+                      "fmt": "294.14B",
+                      "longFmt": "294,141,159,790"
                     },
                     "numberOfAnalysts": {
-                      "raw": 9,
-                      "fmt": "9",
-                      "longFmt": "9"
+                      "raw": 8,
+                      "fmt": "8",
+                      "longFmt": "8"
                     },
                     "yearAgoRevenue": {
                       "raw": 208909904000,
@@ -1046,31 +1045,31 @@
                       "longFmt": "208,909,904,000"
                     },
                     "growth": {
-                      "raw": 0.2899,
-                      "fmt": "28.99%"
+                      "raw": 0.3387,
+                      "fmt": "33.87%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 1.12324,
-                      "fmt": "1.12"
+                      "raw": 1.83208,
+                      "fmt": "1.83"
                     },
                     "7daysAgo": {
-                      "raw": 1.1382,
-                      "fmt": "1.14"
+                      "raw": 1.70058,
+                      "fmt": "1.7"
                     },
                     "30daysAgo": {
-                      "raw": 1.13589,
-                      "fmt": "1.14"
+                      "raw": 1.70058,
+                      "fmt": "1.7"
                     },
                     "60daysAgo": {
-                      "raw": 1.24603,
-                      "fmt": "1.25"
+                      "raw": 1.23596,
+                      "fmt": "1.24"
                     },
                     "90daysAgo": {
-                      "raw": 1.95698,
-                      "fmt": "1.96"
+                      "raw": 1.07124,
+                      "fmt": "1.07"
                     },
                     "epsTrendCurrency": "TRY"
                   },
@@ -1081,19 +1080,19 @@
                       "longFmt": "1"
                     },
                     "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 4,
+                      "fmt": "4",
+                      "longFmt": "4"
                     },
                     "downLast30days": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast7Days": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "TRY"
@@ -1104,25 +1103,25 @@
                   "period": "+1y",
                   "endDate": "2027-12-31",
                   "growth": {
-                    "raw": 1.2919,
-                    "fmt": "129.19%"
+                    "raw": 0.363,
+                    "fmt": "36.30%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 2.5743,
-                      "fmt": "2.57"
+                      "raw": 2.49719,
+                      "fmt": "2.5"
                     },
                     "low": {
-                      "raw": 1.95,
-                      "fmt": "1.95"
+                      "raw": 1.61789,
+                      "fmt": "1.62"
                     },
                     "high": {
-                      "raw": 4.056,
-                      "fmt": "4.06"
+                      "raw": 4.283,
+                      "fmt": "4.28"
                     },
                     "yearAgoEps": {
-                      "raw": 1.12324,
-                      "fmt": "1.12"
+                      "raw": 1.83208,
+                      "fmt": "1.83"
                     },
                     "numberOfAnalysts": {
                       "raw": 7,
@@ -1130,21 +1129,21 @@
                       "longFmt": "7"
                     },
                     "growth": {
-                      "raw": 1.2919,
-                      "fmt": "129.19%"
+                      "raw": 0.363,
+                      "fmt": "36.30%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 314858759630,
-                      "fmt": "314.86B",
-                      "longFmt": "314,858,759,630"
+                      "raw": 325825612510,
+                      "fmt": "325.83B",
+                      "longFmt": "325,825,612,510"
                     },
                     "low": {
-                      "raw": 258722719460,
-                      "fmt": "258.72B",
-                      "longFmt": "258,722,719,460"
+                      "raw": 278546408730,
+                      "fmt": "278.55B",
+                      "longFmt": "278,546,408,730"
                     },
                     "high": {
                       "raw": 370650000000,
@@ -1157,59 +1156,59 @@
                       "longFmt": "10"
                     },
                     "yearAgoRevenue": {
-                      "raw": 269468807410,
-                      "fmt": "269.47B",
-                      "longFmt": "269,468,807,410"
+                      "raw": 279668243760,
+                      "fmt": "279.67B",
+                      "longFmt": "279,668,243,760"
                     },
                     "growth": {
-                      "raw": 0.1684,
-                      "fmt": "16.84%"
+                      "raw": 0.165,
+                      "fmt": "16.50%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 2.5743,
-                      "fmt": "2.57"
+                      "raw": 2.49719,
+                      "fmt": "2.5"
                     },
                     "7daysAgo": {
-                      "raw": 2.48787,
+                      "raw": 2.49033,
                       "fmt": "2.49"
                     },
                     "30daysAgo": {
-                      "raw": 2.46537,
-                      "fmt": "2.47"
+                      "raw": 2.49033,
+                      "fmt": "2.49"
                     },
                     "60daysAgo": {
-                      "raw": 2.47737,
-                      "fmt": "2.48"
+                      "raw": 2.70275,
+                      "fmt": "2.7"
                     },
                     "90daysAgo": {
-                      "raw": 2.832,
-                      "fmt": "2.83"
+                      "raw": 2.67002,
+                      "fmt": "2.67"
                     },
                     "epsTrendCurrency": "TRY"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 3,
-                      "fmt": "3",
-                      "longFmt": "3"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "upLast30days": {
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
+                    },
+                    "downLast30days": {
+                      "raw": 4,
+                      "fmt": "4",
+                      "longFmt": "4"
+                    },
+                    "downLast7Days": {
                       "raw": 3,
                       "fmt": "3",
                       "longFmt": "3"
-                    },
-                    "downLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
-                    },
-                    "downLast7Days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "TRY"
@@ -1225,13 +1224,20 @@
             },
             "majorHoldersBreakdown": {
               "maxAge": 1,
-              "insidersPercentHeld": 0.49542,
-              "institutionsPercentHeld": 0.084,
-              "institutionsFloatPercentHeld": 0.16648,
-              "institutionsCount": 106
+              "insidersPercentHeld": 0.49699003,
+              "institutionsPercentHeld": 0.088479996,
+              "institutionsFloatPercentHeld": 0.17591,
+              "institutionsCount": 110
             },
             "balanceSheetHistoryQuarterly": {
               "balanceSheetStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1252,44 +1258,12 @@
                     "raw": 1759190400,
                     "fmt": "2025-09-30"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  }
                 }
               ],
               "maxAge": 86400
             },
             "earningsHistory": {
               "history": [
-                {
-                  "maxAge": 1,
-                  "epsActual": {
-                    "raw": 0.1867,
-                    "fmt": "0.19"
-                  },
-                  "epsEstimate": {
-                    "raw": -0.095,
-                    "fmt": "-0.09"
-                  },
-                  "epsDifference": {
-                    "raw": 0.28,
-                    "fmt": "0.28"
-                  },
-                  "surprisePercent": {
-                    "raw": 2.9653,
-                    "fmt": "296.53%"
-                  },
-                  "quarter": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "currency": "TRY",
-                  "period": "-4q"
-                },
                 {
                   "maxAge": 1,
                   "epsActual": {
@@ -1313,7 +1287,7 @@
                     "fmt": "2025-09-30"
                   },
                   "currency": "TRY",
-                  "period": "-3q"
+                  "period": "-4q"
                 },
                 {
                   "maxAge": 1,
@@ -1338,7 +1312,7 @@
                     "fmt": "2025-12-31"
                   },
                   "currency": "TRY",
-                  "period": "-2q"
+                  "period": "-3q"
                 },
                 {
                   "maxAge": 1,
@@ -1361,6 +1335,31 @@
                   "quarter": {
                     "raw": 1774915200,
                     "fmt": "2026-03-31"
+                  },
+                  "currency": "TRY",
+                  "period": "-2q"
+                },
+                {
+                  "maxAge": 1,
+                  "epsActual": {
+                    "raw": 1.2718,
+                    "fmt": "1.27"
+                  },
+                  "epsEstimate": {
+                    "raw": 0.3245,
+                    "fmt": "0.32"
+                  },
+                  "epsDifference": {
+                    "raw": 0.95,
+                    "fmt": "0.95"
+                  },
+                  "surprisePercent": {
+                    "raw": 2.9192998,
+                    "fmt": "291.93%"
+                  },
+                  "quarter": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "currency": "TRY",
                   "period": "-1q"
@@ -1389,7 +1388,7 @@
               "sectorKey": "basic-materials",
               "sectorDisp": "Basic Materials",
               "longBusinessSummary": "Eregli Demir ve Çelik Fabrikalari T.A.S., together with its subsidiaries, produces and sells iron and steel rolled products, alloyed and non-alloyed iron, cast and pressed steel, coke, and by-products in Turkey and internationally. The company offers flat steel products, including hot and cold rolled flat steel, plate, tin, chrome, and galvanized coated sheets. It also engages in the production of integrated and electrical steel; renewable energy generation; industrial gas production and sale; pellets; iron and magnesite ores; refractory; trading; recycling; and special purpose business. In addition, the company offers after-sales, laboratory and calibration, steel service center, and port services; and management and consulting services. Further, it exports its products. The company serves the automotive, white goods, tube mills, rolling mills, general manufacturing, electric&electronics, machinery, energy, heating equipment, shipbuilding, defense, packaging, and renewable energy industries. Eregli Demir ve Çelik Fabrikalari T.A.S. was founded in 1960 and is headquartered in Istanbul, Turkey.",
-              "fullTimeEmployees": 12833,
+              "fullTimeEmployees": 12772,
               "companyOfficers": [],
               "executiveTeam": [],
               "maxAge": 86400
@@ -1402,9 +1401,9 @@
               "sellInfoCount": 0,
               "netInfoCount": 0,
               "netInfoShares": 0,
-              "netInstSharesBuying": 72634078,
-              "netInstBuyingPercent": 0.12353,
-              "totalInsiderShares": 3330471936
+              "netInstSharesBuying": -42970007,
+              "netInstBuyingPercent": -0.06938,
+              "totalInsiderShares": 3340792832
             },
             "sectorTrend": {
               "maxAge": 1,
@@ -1413,6 +1412,63 @@
             },
             "incomeStatementHistoryQuarterly": {
               "incomeStatementHistory": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "totalRevenue": {
+                    "raw": 64882557000,
+                    "fmt": "64.88B",
+                    "longFmt": "64,882,557,000"
+                  },
+                  "costOfRevenue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "grossProfit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "researchDevelopment": {},
+                  "sellingGeneralAdministrative": {},
+                  "nonRecurring": {},
+                  "otherOperatingExpenses": {},
+                  "totalOperatingExpenses": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "operatingIncome": {},
+                  "totalOtherIncomeExpenseNet": {},
+                  "ebit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "interestExpense": {},
+                  "incomeBeforeTax": {},
+                  "incomeTaxExpense": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "minorityInterest": {},
+                  "netIncomeFromContinuingOps": {},
+                  "discontinuedOperations": {},
+                  "extraordinaryItems": {},
+                  "effectOfAccountingCharges": {},
+                  "otherItems": {},
+                  "netIncome": {
+                    "raw": 8549106000,
+                    "fmt": "8.55B",
+                    "longFmt": "8,549,106,000"
+                  },
+                  "netIncomeApplicableToCommonShares": {}
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1583,69 +1639,24 @@
                     "longFmt": "651,157,000"
                   },
                   "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 41412965000,
-                    "fmt": "41.41B",
-                    "longFmt": "41,412,965,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 1306555000,
-                    "fmt": "1.31B",
-                    "longFmt": "1,306,555,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
                 }
               ],
               "maxAge": 86400
             },
             "cashflowStatementHistoryQuarterly": {
               "cashflowStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "netIncome": {
+                    "raw": 8549106000,
+                    "fmt": "8.55B",
+                    "longFmt": "8,549,106,000"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1681,18 +1692,6 @@
                     "fmt": "651.16M",
                     "longFmt": "651,157,000"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "netIncome": {
-                    "raw": 1306555000,
-                    "fmt": "1.31B",
-                    "longFmt": "1,306,555,000"
-                  }
                 }
               ],
               "maxAge": 86400
@@ -1701,17 +1700,6 @@
               "maxAge": 86400,
               "earningsChart": {
                 "quarterly": [
-                  {
-                    "date": "2Q2025",
-                    "actual": 0.1867,
-                    "estimate": -0.095,
-                    "fiscalQuarter": "2Q2025",
-                    "calendarQuarter": "2Q2025",
-                    "difference": "0.28",
-                    "surprisePct": "296.53",
-                    "periodEndDate": 1751241600,
-                    "reportedDate": 1754745276
-                  },
                   {
                     "date": "3Q2025",
                     "actual": 0.09302,
@@ -1744,15 +1732,28 @@
                     "surprisePct": "-52.02",
                     "periodEndDate": 1774915200,
                     "reportedDate": 1777457317
+                  },
+                  {
+                    "date": "2Q2026",
+                    "actual": 1.2718,
+                    "estimate": 0.3245,
+                    "fiscalQuarter": "2Q2026",
+                    "calendarQuarter": "2Q2026",
+                    "difference": "0.95",
+                    "surprisePct": "291.93",
+                    "periodEndDate": 1782777600,
+                    "reportedDate": 1786029383
                   }
                 ],
-                "currentQuarterEstimate": 0.452,
-                "currentQuarterEstimateDate": "2Q",
-                "currentCalendarQuarter": "2Q2026",
+                "currentQuarterEstimate": 0.331,
+                "currentQuarterEstimateDate": "3Q",
+                "currentCalendarQuarter": "3Q2026",
                 "currentQuarterEstimateYear": 2026,
-                "currentFiscalQuarter": "2Q2026",
-                "currentPeriodEndDate": 1782777600,
-                "earningsDate": [],
+                "currentFiscalQuarter": "3Q2026",
+                "currentPeriodEndDate": 1790726400,
+                "earningsDate": [
+                  1792422000
+                ],
                 "isEarningsDateEstimate": true
               },
               "financialsChart": {
@@ -1784,13 +1785,6 @@
                 ],
                 "quarterly": [
                   {
-                    "date": "2Q2025",
-                    "fiscalQuarter": "2Q2025",
-                    "revenue": 41412965000,
-                    "earnings": 1306555000,
-                    "profitMargin": 0.03154942
-                  },
-                  {
                     "date": "3Q2025",
                     "fiscalQuarter": "3Q2025",
                     "revenue": 52957615000,
@@ -1810,6 +1804,13 @@
                     "revenue": 59684847000,
                     "earnings": 383856000,
                     "profitMargin": 0.006431381
+                  },
+                  {
+                    "date": "2Q2026",
+                    "fiscalQuarter": "2Q2026",
+                    "revenue": 64882557000,
+                    "earnings": 8549106000,
+                    "profitMargin": 0.13176279
                   }
                 ]
               },
@@ -1818,34 +1819,34 @@
             },
             "financialData": {
               "maxAge": 86400,
-              "currentPrice": 39.18,
-              "targetHighPrice": 45,
-              "targetLowPrice": 23,
-              "targetMeanPrice": 36.81154,
-              "targetMedianPrice": 40,
-              "recommendationMean": 2.30769,
-              "recommendationKey": "buy",
-              "numberOfAnalystOpinions": 13,
-              "totalCash": 124155781120,
-              "totalCashPerShare": 18.469,
-              "ebitda": 21085386752,
-              "totalDebt": 155627061248,
-              "quickRatio": 1.196,
-              "currentRatio": 2.03,
-              "totalRevenue": 215050125312,
-              "debtToEquity": 51.051,
-              "revenuePerShare": 31.996,
-              "returnOnAssets": 0.010720001,
-              "returnOnEquity": 0.0023100001,
-              "grossProfits": 19569035264,
-              "freeCashflow": 33616904192,
-              "operatingCashflow": 64040026112,
-              "earningsGrowth": -0.099,
-              "revenueGrowth": 0.115,
-              "grossMargins": 0.091000006,
-              "ebitdaMargins": 0.098050006,
-              "operatingMargins": 0.03257,
-              "profitMargins": 0.0021799998,
+              "currentPrice": 37.02,
+              "targetHighPrice": 53,
+              "targetLowPrice": 23.119,
+              "targetMeanPrice": 40.39278,
+              "targetMedianPrice": 41.5,
+              "recommendationMean": 2.61538,
+              "recommendationKey": "hold",
+              "numberOfAnalystOpinions": 12,
+              "totalCash": 121561497600,
+              "totalCashPerShare": 18.084,
+              "ebitda": 23376900096,
+              "totalDebt": 161073823744,
+              "quickRatio": 0.993,
+              "currentRatio": 1.784,
+              "totalRevenue": 238519713792,
+              "debtToEquity": 48.991,
+              "revenuePerShare": 35.484,
+              "returnOnAssets": 0.01138,
+              "returnOnEquity": 0.02681,
+              "grossProfits": 21581355008,
+              "freeCashflow": 12277273600,
+              "operatingCashflow": 52304805888,
+              "earningsGrowth": 5.542,
+              "revenueGrowth": 0.567,
+              "grossMargins": 0.09048,
+              "ebitdaMargins": 0.098009996,
+              "operatingMargins": 0.0374,
+              "profitMargins": 0.03233,
               "financialCurrency": "TRY"
             }
           }

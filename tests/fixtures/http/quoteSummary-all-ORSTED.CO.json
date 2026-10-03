@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ORSTED.CO?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ORSTED.CO?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,18 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:31:04 GMT",
+      "date": "Sat, 03 Oct 2026 08:35:05 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "23",
+      "x-envoy-upstream-service-time": "15",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2pvajkdl1iqn8"
+      "y-rid": "4ckemf1lc1fhp"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -47,7 +48,7 @@
               "sectorKey": "utilities",
               "sectorDisp": "Utilities",
               "longBusinessSummary": "Ørsted A/S, together with its subsidiaries, owns, develops, constructs, and operates offshore and onshore wind farms, solar farms, and energy storage and combined heat and power (CHP) plants. It operates through Offshore, Onshore, and Bioenergy & Other segments. The Offshore segment owns, develops, constructs, and operates offshore wind farms in Europe, the United States, and the Asia-Pacific region. The Onshore segment owns, develops, constructs, and operates onshore wind and solar farms in the United States, including integrated storage. The Bioenergy & Other segment generates heat and power and offers ancillary services from CHP plants in Denmark; and optimizes its gas portfolio, as well as manages its Danish and Swedish B2B business. The company was formerly known as DONG Energy A/S and changed its name to Ørsted A/S in November 2017. Ørsted A/S was incorporated in 1972 and is based in Fredericia, Denmark.",
-              "fullTimeEmployees": 7675,
+              "fullTimeEmployees": 7228,
               "companyOfficers": [
                 {
                   "maxAge": 1,
@@ -97,29 +98,6 @@
                 },
                 {
                   "maxAge": 1,
-                  "name": "Ms. Henriette Fenger Ellekrog",
-                  "age": 59,
-                  "title": "Executive VP, Chief Human Resources Officer & Member of Executive Board",
-                  "yearBorn": 1966,
-                  "fiscalYear": 2025,
-                  "totalPay": {
-                    "raw": 7113000,
-                    "fmt": "7.11M",
-                    "longFmt": "7,113,000"
-                  },
-                  "exercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "unexercisedValue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  }
-                },
-                {
-                  "maxAge": 1,
                   "name": "Mr. Rasmus Keglberg Haervig",
                   "title": "Head of Investor Relations",
                   "fiscalYear": 2025,
@@ -138,6 +116,24 @@
                   "maxAge": 1,
                   "name": "Mr. Anders Zoega Hansen",
                   "title": "Senior VP & Head of Legal",
+                  "fiscalYear": 2025,
+                  "exercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "unexercisedValue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  }
+                },
+                {
+                  "maxAge": 1,
+                  "name": "Mr. Simon  Ashley",
+                  "age": 53,
+                  "title": "Chief Human Resources Officer",
+                  "yearBorn": 1972,
                   "fiscalYear": 2025,
                   "exercisedValue": {
                     "raw": 0,
@@ -241,10 +237,10 @@
               ],
               "auditRisk": 1,
               "boardRisk": 3,
-              "compensationRisk": 4,
+              "compensationRisk": 3,
               "shareHolderRightsRisk": 4,
-              "overallRisk": 2,
-              "governanceEpochDate": 1777593600,
+              "overallRisk": 1,
+              "governanceEpochDate": 1790812800,
               "compensationAsOfEpochDate": 1767139200,
               "irWebsite": "http://www.dongenergy.com/en/investors",
               "executiveTeam": [],
@@ -254,35 +250,27 @@
               "trend": [
                 {
                   "period": "0m",
-                  "strongBuy": 1,
-                  "buy": 10,
-                  "hold": 15,
+                  "strongBuy": 2,
+                  "buy": 12,
+                  "hold": 11,
                   "sell": 0,
                   "strongSell": 0
                 },
                 {
                   "period": "-1m",
-                  "strongBuy": 0,
-                  "buy": 10,
-                  "hold": 16,
+                  "strongBuy": 1,
+                  "buy": 11,
+                  "hold": 13,
                   "sell": 0,
                   "strongSell": 0
                 },
                 {
                   "period": "-2m",
-                  "strongBuy": 0,
-                  "buy": 9,
-                  "hold": 15,
+                  "strongBuy": 1,
+                  "buy": 10,
+                  "hold": 14,
                   "sell": 0,
-                  "strongSell": 1
-                },
-                {
-                  "period": "-3m",
-                  "strongBuy": 0,
-                  "buy": 8,
-                  "hold": 16,
-                  "sell": 0,
-                  "strongSell": 1
+                  "strongSell": 0
                 }
               ],
               "maxAge": 86400
@@ -346,19 +334,19 @@
               "estimates": [
                 {
                   "period": "0q",
-                  "growth": 0.2555
+                  "growth": 0.24190001
                 },
                 {
                   "period": "+1q",
-                  "growth": 0.19629999
+                  "growth": 0.2514
                 },
                 {
                   "period": "0y",
-                  "growth": 0.2234
+                  "growth": 0.3192
                 },
                 {
                   "period": "+1y",
-                  "growth": 0.16440001
+                  "growth": 0.1579
                 },
                 {
                   "period": "LTG",
@@ -369,33 +357,33 @@
             "defaultKeyStatistics": {
               "maxAge": 1,
               "priceHint": 2,
-              "enterpriseValue": 243556270080,
-              "forwardPE": 16.90855,
-              "profitMargins": 0.00211,
-              "floatShares": 460522213,
+              "enterpriseValue": 213345091584,
+              "forwardPE": 14.863441,
+              "profitMargins": -0.028789999,
+              "floatShares": 483323743,
               "sharesOutstanding": 1321062000,
               "heldPercentInsiders": 0.6511,
-              "heldPercentInstitutions": 0.14503,
-              "beta": 0.644,
+              "heldPercentInstitutions": 0.15322,
+              "beta": 0.624,
               "impliedSharesOutstanding": 1321062000,
               "category": null,
-              "bookValue": 91.854,
-              "priceToBook": 1.7750998,
+              "bookValue": 93.084,
+              "priceToBook": 1.4981092,
               "fundFamily": null,
               "legalType": null,
               "lastFiscalYearEnd": 1767139200,
               "nextFiscalYearEnd": 1798675200,
-              "mostRecentQuarter": 1774915200,
-              "earningsQuarterlyGrowth": -0.494,
-              "netIncomeToCommon": -540000000,
-              "trailingEps": -2.4,
-              "forwardEps": 9.64305,
-              "pegRatio": 0.75,
+              "mostRecentQuarter": 1782777600,
+              "earningsQuarterlyGrowth": -0.833,
+              "netIncomeToCommon": -3118000128,
+              "trailingEps": -6.1,
+              "forwardEps": 9.38208,
+              "pegRatio": 0.48,
               "lastSplitFactor": null,
-              "enterpriseToRevenue": 3.038,
-              "enterpriseToEbitda": 10.862,
-              "52WeekChange": -0.39191204,
-              "SandP52WeekChange": 0.2794361,
+              "enterpriseToRevenue": 2.55,
+              "enterpriseToEbitda": 8.795,
+              "52WeekChange": 0.103391886,
+              "SandP52WeekChange": 0.1415559,
               "lastDividendValue": 7.503318,
               "lastDividendDate": 1678233600,
               "latestShareClass": null,
@@ -661,37 +649,40 @@
             "summaryDetail": {
               "maxAge": 1,
               "priceHint": 2,
-              "previousClose": 163.15,
-              "open": 163.15,
-              "dayLow": 161.7,
-              "dayHigh": 163.4,
-              "regularMarketPreviousClose": 163.15,
-              "regularMarketOpen": 163.15,
-              "regularMarketDayLow": 161.7,
-              "regularMarketDayHigh": 163.4,
+              "previousClose": 135,
+              "open": 135.5,
+              "dayLow": 134.4,
+              "dayHigh": 139.45,
+              "regularMarketPreviousClose": 135,
+              "regularMarketOpen": 135.5,
+              "regularMarketDayLow": 134.4,
+              "regularMarketDayHigh": 139.45,
               "exDividendDate": 1678233600,
               "payoutRatio": 0,
               "fiveYearAvgDividendYield": 1.81,
-              "beta": 0.644,
-              "forwardPE": 16.90855,
-              "volume": 89417,
-              "regularMarketVolume": 89417,
-              "averageVolume": 1403859,
-              "averageVolume10days": 1702782,
-              "averageDailyVolume10Day": 1702782,
-              "bid": 163,
-              "ask": 163.1,
+              "beta": 0.624,
+              "forwardPE": 14.863441,
+              "volume": 799789,
+              "regularMarketVolume": 799789,
+              "averageVolume": 1118031,
+              "averageVolume10days": 1215621,
+              "averageDailyVolume10Day": 1215621,
+              "bid": 138.85,
+              "ask": 139.45,
               "bidSize": 0,
               "askSize": 0,
-              "marketCap": 215399170048,
-              "nonDilutedMarketCap": 215531265300,
-              "fiftyTwoWeekLow": 102.82325,
-              "fiftyTwoWeekHigh": 327.5,
+              "marketCap": 184222089216,
+              "nonDilutedMarketCap": 182967087000,
+              "fiftyTwoWeekLow": 111,
+              "fiftyTwoWeekHigh": 172.2,
               "allTimeHigh": 1400.5,
               "allTimeLow": 102.82325,
-              "priceToSalesTrailing12Months": 2.687149,
-              "fiftyDayAverage": 160.143,
-              "twoHundredDayAverage": 142.73125,
+              "fulldayPrice": 139.45,
+              "fulldayChange": 4.449997,
+              "fulldayChangePercent": 0.03296294,
+              "priceToSalesTrailing12Months": 2.2017174,
+              "fiftyDayAverage": 138.634,
+              "twoHundredDayAverage": 147.0975,
               "trailingAnnualDividendRate": 0,
               "trailingAnnualDividendYield": 0,
               "currency": "DKK",
@@ -710,52 +701,55 @@
               "maxAge": 1,
               "earnings": {
                 "earningsDate": [
-                  1778079600
+                  1793890800
                 ],
                 "earningsCallDate": [
-                  1778068800
+                  1786622400
                 ],
                 "isEarningsDateEstimate": false,
-                "earningsAverage": 0.82,
-                "earningsLow": 0.82,
-                "earningsHigh": 0.82,
-                "revenueAverage": 15943000000,
-                "revenueLow": 14611000000,
-                "revenueHigh": 17275000000
+                "earningsAverage": 2.26,
+                "earningsLow": 2.26,
+                "earningsHigh": 2.26,
+                "revenueAverage": 14310500000,
+                "revenueLow": 12579000000,
+                "revenueHigh": 16042000000
               },
               "exDividendDate": 1678233600
             },
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": -0.0006128768,
-              "regularMarketChange": -0.099990845,
-              "regularMarketTime": 1780050631,
+              "regularMarketChangePercent": 0.03296294,
+              "regularMarketChange": 4.449997,
+              "regularMarketTime": 1790953172,
               "priceHint": 2,
-              "regularMarketPrice": 163.05,
-              "regularMarketDayHigh": 163.4,
-              "regularMarketDayLow": 161.7,
-              "regularMarketVolume": 89417,
-              "averageDailyVolume10Day": 1702782,
-              "averageDailyVolume3Month": 1403859,
-              "regularMarketPreviousClose": 163.15,
+              "regularMarketPrice": 139.45,
+              "regularMarketDayHigh": 139.45,
+              "regularMarketDayLow": 134.4,
+              "regularMarketVolume": 799789,
+              "averageDailyVolume10Day": 1215621,
+              "averageDailyVolume3Month": 1118031,
+              "regularMarketPreviousClose": 135,
               "regularMarketSource": "FREE_REALTIME",
-              "regularMarketOpen": 163.15,
+              "regularMarketOpen": 135.5,
+              "fulldayChangePercent": 0.03296294,
+              "fulldayChange": 4.449997,
+              "fulldayPrice": 139.45,
               "exchange": "CPH",
               "exchangeName": "Copenhagen",
               "exchangeDataDelayedBy": 0,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "ORSTED.CO",
               "underlyingSymbol": null,
               "shortName": "ORSTED A/S",
               "longName": "Ørsted A/S",
               "currency": "DKK",
-              "quoteSourceName": "Free Realtime Quote",
+              "quoteSourceName": "Delayed Quote",
               "currencySymbol": "kr.",
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 215399170048
+              "marketCap": 184222089216
             },
             "balanceSheetHistory": {
               "balanceSheetStatements": [
@@ -795,27 +789,27 @@
                 {
                   "maxAge": 1,
                   "period": "0q",
-                  "endDate": "2026-06-30",
+                  "endDate": "2026-09-30",
                   "growth": {
-                    "raw": -0.82269996,
-                    "fmt": "-82.27%"
+                    "raw": 27.739199,
+                    "fmt": "2,773.92%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 0.82,
-                      "fmt": "0.82"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "low": {
-                      "raw": 0.82,
-                      "fmt": "0.82"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "high": {
-                      "raw": 0.82,
-                      "fmt": "0.82"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "yearAgoEps": {
-                      "raw": 4.625,
-                      "fmt": "4.62"
+                      "raw": -0.08452,
+                      "fmt": "-0.08"
                     },
                     "numberOfAnalysts": {
                       "raw": 1,
@@ -823,26 +817,26 @@
                       "longFmt": "1"
                     },
                     "growth": {
-                      "raw": -0.82269996,
-                      "fmt": "-82.27%"
+                      "raw": 27.739199,
+                      "fmt": "2,773.92%"
                     },
                     "earningsCurrency": "DKK"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 15943000000,
-                      "fmt": "15.94B",
-                      "longFmt": "15,943,000,000"
+                      "raw": 14310500000,
+                      "fmt": "14.31B",
+                      "longFmt": "14,310,500,000"
                     },
                     "low": {
-                      "raw": 14611000000,
-                      "fmt": "14.61B",
-                      "longFmt": "14,611,000,000"
+                      "raw": 12579000000,
+                      "fmt": "12.58B",
+                      "longFmt": "12,579,000,000"
                     },
                     "high": {
-                      "raw": 17275000000,
-                      "fmt": "17.27B",
-                      "longFmt": "17,275,000,000"
+                      "raw": 16042000000,
+                      "fmt": "16.04B",
+                      "longFmt": "16,042,000,000"
                     },
                     "numberOfAnalysts": {
                       "raw": 2,
@@ -850,49 +844,49 @@
                       "longFmt": "2"
                     },
                     "yearAgoRevenue": {
-                      "raw": 17135000000,
-                      "fmt": "17.14B",
-                      "longFmt": "17,135,000,000"
+                      "raw": 12270000000,
+                      "fmt": "12.27B",
+                      "longFmt": "12,270,000,000"
                     },
                     "growth": {
-                      "raw": -0.0696,
-                      "fmt": "-6.96%"
+                      "raw": 0.1663,
+                      "fmt": "16.63%"
                     },
                     "revenueCurrency": "DKK"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 0.82,
-                      "fmt": "0.82"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "7daysAgo": {
-                      "raw": 0.76,
-                      "fmt": "0.76"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "30daysAgo": {
-                      "raw": 0.76,
-                      "fmt": "0.76"
+                      "raw": 2.26,
+                      "fmt": "2.26"
                     },
                     "60daysAgo": {
-                      "raw": 0.76,
-                      "fmt": "0.76"
+                      "raw": 2.28,
+                      "fmt": "2.28"
                     },
                     "90daysAgo": {
-                      "raw": 0,
-                      "fmt": "0"
+                      "raw": 2.28,
+                      "fmt": "2.28"
                     },
                     "epsTrendCurrency": "DKK"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast30days": {
                       "raw": 0,
@@ -911,54 +905,45 @@
                 {
                   "maxAge": 1,
                   "period": "+1q",
-                  "endDate": "2026-09-30",
-                  "growth": {
-                    "raw": 27.9759,
-                    "fmt": "2,797.59%"
-                  },
+                  "endDate": "2026-12-31",
+                  "growth": {},
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 2.28,
-                      "fmt": "2.28"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
                     "low": {
-                      "raw": 2.28,
-                      "fmt": "2.28"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
                     "high": {
-                      "raw": 2.28,
-                      "fmt": "2.28"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
-                    "yearAgoEps": {
-                      "raw": -0.08452,
-                      "fmt": "-0.08"
-                    },
+                    "yearAgoEps": {},
                     "numberOfAnalysts": {
                       "raw": 1,
                       "fmt": "1",
                       "longFmt": "1"
                     },
-                    "growth": {
-                      "raw": 27.9759,
-                      "fmt": "2,797.59%"
-                    },
+                    "growth": {},
                     "earningsCurrency": "DKK"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 13923500000,
-                      "fmt": "13.92B",
-                      "longFmt": "13,923,500,000"
+                      "raw": 20556500000,
+                      "fmt": "20.56B",
+                      "longFmt": "20,556,500,000"
                     },
                     "low": {
-                      "raw": 12676000000,
-                      "fmt": "12.68B",
-                      "longFmt": "12,676,000,000"
+                      "raw": 19366000000,
+                      "fmt": "19.37B",
+                      "longFmt": "19,366,000,000"
                     },
                     "high": {
-                      "raw": 15171000000,
-                      "fmt": "15.17B",
-                      "longFmt": "15,171,000,000"
+                      "raw": 21747000000,
+                      "fmt": "21.75B",
+                      "longFmt": "21,747,000,000"
                     },
                     "numberOfAnalysts": {
                       "raw": 2,
@@ -966,49 +951,49 @@
                       "longFmt": "2"
                     },
                     "yearAgoRevenue": {
-                      "raw": 12270000000,
-                      "fmt": "12.27B",
-                      "longFmt": "12,270,000,000"
+                      "raw": 23134000000,
+                      "fmt": "23.13B",
+                      "longFmt": "23,134,000,000"
                     },
                     "growth": {
-                      "raw": 0.1348,
-                      "fmt": "13.48%"
+                      "raw": -0.1114,
+                      "fmt": "-11.14%"
                     },
                     "revenueCurrency": "DKK"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 2.28,
-                      "fmt": "2.28"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
                     "7daysAgo": {
-                      "raw": 2.22,
-                      "fmt": "2.22"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
                     "30daysAgo": {
-                      "raw": 2.25,
-                      "fmt": "2.25"
+                      "raw": 3.59,
+                      "fmt": "3.59"
                     },
                     "60daysAgo": {
-                      "raw": 2.25,
-                      "fmt": "2.25"
+                      "raw": 3.82,
+                      "fmt": "3.82"
                     },
                     "90daysAgo": {
-                      "raw": 0,
-                      "fmt": "0"
+                      "raw": 3.82,
+                      "fmt": "3.82"
                     },
                     "epsTrendCurrency": "DKK"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "upLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast30days": {
                       "raw": 0,
@@ -1029,57 +1014,57 @@
                   "period": "0y",
                   "endDate": "2026-12-31",
                   "growth": {
-                    "raw": 1.8442,
-                    "fmt": "184.42%"
+                    "raw": 1.6839999,
+                    "fmt": "168.40%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 8.86984,
-                      "fmt": "8.87"
+                      "raw": 8.3705,
+                      "fmt": "8.37"
                     },
                     "low": {
-                      "raw": 7.51,
-                      "fmt": "7.51"
+                      "raw": 6.86,
+                      "fmt": "6.86"
                     },
                     "high": {
-                      "raw": 10.9,
-                      "fmt": "10.9"
+                      "raw": 9.11,
+                      "fmt": "9.11"
                     },
                     "yearAgoEps": {
                       "raw": 3.11862,
                       "fmt": "3.12"
                     },
                     "numberOfAnalysts": {
-                      "raw": 12,
-                      "fmt": "12",
-                      "longFmt": "12"
+                      "raw": 10,
+                      "fmt": "10",
+                      "longFmt": "10"
                     },
                     "growth": {
-                      "raw": 1.8442,
-                      "fmt": "184.42%"
+                      "raw": 1.6839999,
+                      "fmt": "168.40%"
                     },
                     "earningsCurrency": "DKK"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 78501106290,
-                      "fmt": "78.5B",
-                      "longFmt": "78,501,106,290"
+                      "raw": 82935124430,
+                      "fmt": "82.94B",
+                      "longFmt": "82,935,124,430"
                     },
                     "low": {
-                      "raw": 53543000000,
-                      "fmt": "53.54B",
-                      "longFmt": "53,543,000,000"
+                      "raw": 63916423000,
+                      "fmt": "63.92B",
+                      "longFmt": "63,916,423,000"
                     },
                     "high": {
-                      "raw": 93398000000,
-                      "fmt": "93.4B",
-                      "longFmt": "93,398,000,000"
+                      "raw": 104488840060,
+                      "fmt": "104.49B",
+                      "longFmt": "104,488,840,060"
                     },
                     "numberOfAnalysts": {
-                      "raw": 16,
-                      "fmt": "16",
-                      "longFmt": "16"
+                      "raw": 17,
+                      "fmt": "17",
+                      "longFmt": "17"
                     },
                     "yearAgoRevenue": {
                       "raw": 73244000000,
@@ -1087,54 +1072,54 @@
                       "longFmt": "73,244,000,000"
                     },
                     "growth": {
-                      "raw": 0.0718,
-                      "fmt": "7.18%"
+                      "raw": 0.13229999,
+                      "fmt": "13.23%"
                     },
                     "revenueCurrency": "DKK"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 8.86984,
-                      "fmt": "8.87"
+                      "raw": 8.3705,
+                      "fmt": "8.37"
                     },
                     "7daysAgo": {
-                      "raw": 8.91481,
-                      "fmt": "8.91"
+                      "raw": 8.3705,
+                      "fmt": "8.37"
                     },
                     "30daysAgo": {
-                      "raw": 8.46224,
-                      "fmt": "8.46"
+                      "raw": 8.31389,
+                      "fmt": "8.31"
                     },
                     "60daysAgo": {
-                      "raw": 8.57243,
-                      "fmt": "8.57"
+                      "raw": 8.98393,
+                      "fmt": "8.98"
                     },
                     "90daysAgo": {
-                      "raw": 8.44278,
-                      "fmt": "8.44"
+                      "raw": 8.86984,
+                      "fmt": "8.87"
                     },
                     "epsTrendCurrency": "DKK"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 4,
-                      "fmt": "4",
-                      "longFmt": "4"
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
                     },
                     "upLast30days": {
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
+                    },
+                    "downLast30days": {
                       "raw": 5,
                       "fmt": "5",
                       "longFmt": "5"
                     },
-                    "downLast30days": {
-                      "raw": 3,
-                      "fmt": "3",
-                      "longFmt": "3"
-                    },
                     "downLast7Days": {
-                      "raw": 3,
-                      "fmt": "3",
-                      "longFmt": "3"
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "DKK"
@@ -1145,47 +1130,47 @@
                   "period": "+1y",
                   "endDate": "2027-12-31",
                   "growth": {
-                    "raw": 0.0872,
-                    "fmt": "8.72%"
+                    "raw": 0.120900005,
+                    "fmt": "12.09%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 9.64305,
-                      "fmt": "9.64"
+                      "raw": 9.38208,
+                      "fmt": "9.38"
                     },
                     "low": {
-                      "raw": 7.84,
-                      "fmt": "7.84"
+                      "raw": 8.28887,
+                      "fmt": "8.29"
                     },
                     "high": {
-                      "raw": 12.1,
-                      "fmt": "12.1"
+                      "raw": 11.2,
+                      "fmt": "11.2"
                     },
                     "yearAgoEps": {
-                      "raw": 8.86984,
-                      "fmt": "8.87"
+                      "raw": 8.3705,
+                      "fmt": "8.37"
                     },
                     "numberOfAnalysts": {
-                      "raw": 12,
-                      "fmt": "12",
-                      "longFmt": "12"
+                      "raw": 11,
+                      "fmt": "11",
+                      "longFmt": "11"
                     },
                     "growth": {
-                      "raw": 0.0872,
-                      "fmt": "8.72%"
+                      "raw": 0.120900005,
+                      "fmt": "12.09%"
                     },
                     "earningsCurrency": "DKK"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 84948938950,
-                      "fmt": "84.95B",
-                      "longFmt": "84,948,938,950"
+                      "raw": 87333013350,
+                      "fmt": "87.33B",
+                      "longFmt": "87,333,013,350"
                     },
                     "low": {
-                      "raw": 51587000000,
-                      "fmt": "51.59B",
-                      "longFmt": "51,587,000,000"
+                      "raw": 56204128680,
+                      "fmt": "56.2B",
+                      "longFmt": "56,204,128,680"
                     },
                     "high": {
                       "raw": 117127802870,
@@ -1198,49 +1183,49 @@
                       "longFmt": "19"
                     },
                     "yearAgoRevenue": {
-                      "raw": 78501106290,
-                      "fmt": "78.5B",
-                      "longFmt": "78,501,106,290"
+                      "raw": 82935124430,
+                      "fmt": "82.94B",
+                      "longFmt": "82,935,124,430"
                     },
                     "growth": {
-                      "raw": 0.082100004,
-                      "fmt": "8.21%"
+                      "raw": 0.053000003,
+                      "fmt": "5.30%"
                     },
                     "revenueCurrency": "DKK"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 9.64305,
-                      "fmt": "9.64"
+                      "raw": 9.38208,
+                      "fmt": "9.38"
                     },
                     "7daysAgo": {
-                      "raw": 9.27987,
-                      "fmt": "9.28"
+                      "raw": 9.25117,
+                      "fmt": "9.25"
                     },
                     "30daysAgo": {
-                      "raw": 8.75882,
-                      "fmt": "8.76"
+                      "raw": 9.32229,
+                      "fmt": "9.32"
                     },
                     "60daysAgo": {
-                      "raw": 8.96099,
-                      "fmt": "8.96"
+                      "raw": 9.80656,
+                      "fmt": "9.81"
                     },
                     "90daysAgo": {
-                      "raw": 8.77886,
-                      "fmt": "8.78"
+                      "raw": 9.64305,
+                      "fmt": "9.64"
                     },
                     "epsTrendCurrency": "DKK"
                   },
                   "epsRevisions": {
                     "upLast7days": {
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
+                    },
+                    "upLast30days": {
                       "raw": 5,
                       "fmt": "5",
                       "longFmt": "5"
-                    },
-                    "upLast30days": {
-                      "raw": 6,
-                      "fmt": "6",
-                      "longFmt": "6"
                     },
                     "downLast30days": {
                       "raw": 2,
@@ -1248,9 +1233,9 @@
                       "longFmt": "2"
                     },
                     "downLast7Days": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
                     },
                     "downLast90days": {},
                     "epsRevisionsCurrency": "DKK"
@@ -1267,12 +1252,19 @@
             "majorHoldersBreakdown": {
               "maxAge": 1,
               "insidersPercentHeld": 0.6511,
-              "institutionsPercentHeld": 0.14503,
-              "institutionsFloatPercentHeld": 0.41568002,
-              "institutionsCount": 372
+              "institutionsPercentHeld": 0.15322,
+              "institutionsFloatPercentHeld": 0.43916,
+              "institutionsCount": 388
             },
             "balanceSheetHistoryQuarterly": {
               "balanceSheetStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1293,44 +1285,12 @@
                     "raw": 1759190400,
                     "fmt": "2025-09-30"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  }
                 }
               ],
               "maxAge": 86400
             },
             "earningsHistory": {
               "history": [
-                {
-                  "maxAge": 1,
-                  "epsActual": {
-                    "raw": 4.625,
-                    "fmt": "4.62"
-                  },
-                  "epsEstimate": {
-                    "raw": -1.865,
-                    "fmt": "-1.87"
-                  },
-                  "epsDifference": {
-                    "raw": 6.49,
-                    "fmt": "6.49"
-                  },
-                  "surprisePercent": {
-                    "raw": 3.4799,
-                    "fmt": "347.99%"
-                  },
-                  "quarter": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "currency": "DKK",
-                  "period": "-4q"
-                },
                 {
                   "maxAge": 1,
                   "epsActual": {
@@ -1354,7 +1314,7 @@
                     "fmt": "2025-09-30"
                   },
                   "currency": "DKK",
-                  "period": "-3q"
+                  "period": "-4q"
                 },
                 {
                   "maxAge": 1,
@@ -1379,7 +1339,7 @@
                     "fmt": "2025-12-31"
                   },
                   "currency": "DKK",
-                  "period": "-2q"
+                  "period": "-3q"
                 },
                 {
                   "maxAge": 1,
@@ -1402,6 +1362,31 @@
                   "quarter": {
                     "raw": 1774915200,
                     "fmt": "2026-03-31"
+                  },
+                  "currency": "DKK",
+                  "period": "-2q"
+                },
+                {
+                  "maxAge": 1,
+                  "epsActual": {
+                    "raw": 1.1488,
+                    "fmt": "1.15"
+                  },
+                  "epsEstimate": {
+                    "raw": 0.82,
+                    "fmt": "0.82"
+                  },
+                  "epsDifference": {
+                    "raw": 0.33,
+                    "fmt": "0.33"
+                  },
+                  "surprisePercent": {
+                    "raw": 0.401,
+                    "fmt": "40.10%"
+                  },
+                  "quarter": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
                   },
                   "currency": "DKK",
                   "period": "-1q"
@@ -1430,7 +1415,7 @@
               "sectorKey": "utilities",
               "sectorDisp": "Utilities",
               "longBusinessSummary": "Ørsted A/S, together with its subsidiaries, owns, develops, constructs, and operates offshore and onshore wind farms, solar farms, and energy storage and combined heat and power (CHP) plants. It operates through Offshore, Onshore, and Bioenergy & Other segments. The Offshore segment owns, develops, constructs, and operates offshore wind farms in Europe, the United States, and the Asia-Pacific region. The Onshore segment owns, develops, constructs, and operates onshore wind and solar farms in the United States, including integrated storage. The Bioenergy & Other segment generates heat and power and offers ancillary services from CHP plants in Denmark; and optimizes its gas portfolio, as well as manages its Danish and Swedish B2B business. The company was formerly known as DONG Energy A/S and changed its name to Ørsted A/S in November 2017. Ørsted A/S was incorporated in 1972 and is based in Fredericia, Denmark.",
-              "fullTimeEmployees": 7675,
+              "fullTimeEmployees": 7228,
               "companyOfficers": [],
               "irWebsite": "http://www.dongenergy.com/en/investors",
               "executiveTeam": [],
@@ -1444,8 +1429,8 @@
               "sellInfoCount": 0,
               "netInfoCount": 0,
               "netInfoShares": 0,
-              "netInstSharesBuying": 9140750,
-              "netInstBuyingPercent": 0.0477,
+              "netInstSharesBuying": -5623358,
+              "netInstBuyingPercent": -0.027780002,
               "totalInsiderShares": 860143424
             },
             "sectorTrend": {
@@ -1455,6 +1440,63 @@
             },
             "incomeStatementHistoryQuarterly": {
               "incomeStatementHistory": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "totalRevenue": {
+                    "raw": 20648000000,
+                    "fmt": "20.65B",
+                    "longFmt": "20,648,000,000"
+                  },
+                  "costOfRevenue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "grossProfit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "researchDevelopment": {},
+                  "sellingGeneralAdministrative": {},
+                  "nonRecurring": {},
+                  "otherOperatingExpenses": {},
+                  "totalOperatingExpenses": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "operatingIncome": {},
+                  "totalOtherIncomeExpenseNet": {},
+                  "ebit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "interestExpense": {},
+                  "incomeBeforeTax": {},
+                  "incomeTaxExpense": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "minorityInterest": {},
+                  "netIncomeFromContinuingOps": {},
+                  "discontinuedOperations": {},
+                  "extraordinaryItems": {},
+                  "effectOfAccountingCharges": {},
+                  "otherItems": {},
+                  "netIncome": {
+                    "raw": 518000000,
+                    "fmt": "518M",
+                    "longFmt": "518,000,000"
+                  },
+                  "netIncomeApplicableToCommonShares": {}
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1625,69 +1667,24 @@
                     "longFmt": "-1,789,000,000"
                   },
                   "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 17135000000,
-                    "fmt": "17.14B",
-                    "longFmt": "17,135,000,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 3096000000,
-                    "fmt": "3.1B",
-                    "longFmt": "3,096,000,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
                 }
               ],
               "maxAge": 86400
             },
             "cashflowStatementHistoryQuarterly": {
               "cashflowStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "netIncome": {
+                    "raw": 518000000,
+                    "fmt": "518M",
+                    "longFmt": "518,000,000"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1723,18 +1720,6 @@
                     "fmt": "-1.79B",
                     "longFmt": "-1,789,000,000"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "netIncome": {
-                    "raw": 3096000000,
-                    "fmt": "3.1B",
-                    "longFmt": "3,096,000,000"
-                  }
                 }
               ],
               "maxAge": 86400
@@ -1743,17 +1728,6 @@
               "maxAge": 86400,
               "earningsChart": {
                 "quarterly": [
-                  {
-                    "date": "2Q2025",
-                    "actual": 4.625,
-                    "estimate": -1.865,
-                    "fiscalQuarter": "2Q2025",
-                    "calendarQuarter": "2Q2025",
-                    "difference": "6.49",
-                    "surprisePct": "347.99",
-                    "periodEndDate": 1751241600,
-                    "reportedDate": 1754890303
-                  },
                   {
                     "date": "3Q2025",
                     "actual": -0.08452,
@@ -1786,15 +1760,28 @@
                     "surprisePct": "-39.89",
                     "periodEndDate": 1774915200,
                     "reportedDate": 1778047200
+                  },
+                  {
+                    "date": "2Q2026",
+                    "actual": 1.1488,
+                    "estimate": 0.82,
+                    "fiscalQuarter": "2Q2026",
+                    "calendarQuarter": "2Q2026",
+                    "difference": "0.33",
+                    "surprisePct": "40.1",
+                    "periodEndDate": 1782777600,
+                    "reportedDate": 1786579200
                   }
                 ],
-                "currentQuarterEstimate": 0.82,
-                "currentQuarterEstimateDate": "2Q",
-                "currentCalendarQuarter": "2Q2026",
+                "currentQuarterEstimate": 2.26,
+                "currentQuarterEstimateDate": "3Q",
+                "currentCalendarQuarter": "3Q2026",
                 "currentQuarterEstimateYear": 2026,
-                "currentFiscalQuarter": "2Q2026",
-                "currentPeriodEndDate": 1782777600,
-                "earningsDate": [],
+                "currentFiscalQuarter": "3Q2026",
+                "currentPeriodEndDate": 1790726400,
+                "earningsDate": [
+                  1793890800
+                ],
                 "isEarningsDateEstimate": false
               },
               "financialsChart": {
@@ -1808,50 +1795,50 @@
                   {
                     "date": 2023,
                     "revenue": 79255000000,
-                    "earnings": 15337000000,
-                    "profitMargin": 0.1935146
+                    "earnings": -21059000000,
+                    "profitMargin": -0.26571193
                   },
                   {
                     "date": 2024,
                     "revenue": 71034000000,
-                    "earnings": 7305000000,
-                    "profitMargin": 0.10283807
+                    "earnings": -923000000,
+                    "profitMargin": -0.012993777
                   },
                   {
                     "date": 2025,
                     "revenue": 73244000000,
-                    "earnings": 4254560120,
-                    "profitMargin": 0.058087487
+                    "earnings": 1727000000,
+                    "profitMargin": 0.023578724
                   }
                 ],
                 "quarterly": [
                   {
-                    "date": "2Q2025",
-                    "fiscalQuarter": "2Q2025",
-                    "revenue": 17135000000,
-                    "earnings": 1961918800,
-                    "profitMargin": 0.11449774
-                  },
-                  {
                     "date": "3Q2025",
                     "fiscalQuarter": "3Q2025",
                     "revenue": 12270000000,
-                    "earnings": -36000000,
-                    "profitMargin": -0.0029339853
+                    "earnings": -1789000000,
+                    "profitMargin": -0.14580277
                   },
                   {
                     "date": "4Q2025",
                     "fiscalQuarter": "4Q2025",
                     "revenue": 23134000000,
-                    "earnings": 0,
-                    "profitMargin": 0
+                    "earnings": -4174000000,
+                    "profitMargin": -0.18042709
                   },
                   {
                     "date": "1Q2026",
                     "fiscalQuarter": "1Q2026",
                     "revenue": 27620000000,
-                    "earnings": 2901966000,
-                    "profitMargin": 0.105067566
+                    "earnings": 2176000000,
+                    "profitMargin": 0.07878349
+                  },
+                  {
+                    "date": "2Q2026",
+                    "fiscalQuarter": "2Q2026",
+                    "revenue": 20648000000,
+                    "earnings": 518000000,
+                    "profitMargin": 0.025087176
                   }
                 ]
               },
@@ -1860,34 +1847,34 @@
             },
             "financialData": {
               "maxAge": 86400,
-              "currentPrice": 163.05,
-              "targetHighPrice": 225,
-              "targetLowPrice": 120,
-              "targetMeanPrice": 168.95833,
-              "targetMedianPrice": 164.5,
-              "recommendationMean": 2.19231,
+              "currentPrice": 139.45,
+              "targetHighPrice": 220,
+              "targetLowPrice": 130,
+              "targetMeanPrice": 172.30435,
+              "targetMedianPrice": 175,
+              "recommendationMean": 1.96,
               "recommendationKey": "buy",
-              "numberOfAnalystOpinions": 24,
-              "totalCash": 78736998400,
-              "totalCashPerShare": 59.601,
-              "ebitda": 22421999616,
-              "totalDebt": 98263998464,
-              "quickRatio": 1.67,
-              "currentRatio": 2.164,
-              "totalRevenue": 80158998528,
-              "debtToEquity": 65.163,
-              "revenuePerShare": 72.218,
-              "returnOnAssets": 0.025899999,
-              "returnOnEquity": 0.00727,
-              "grossProfits": 35325001728,
-              "freeCashflow": -20923750400,
-              "operatingCashflow": 29643999232,
-              "earningsGrowth": -0.849,
-              "revenueGrowth": 0.334,
-              "grossMargins": 0.44069,
-              "ebitdaMargins": 0.27972,
-              "operatingMargins": 0.25311002,
-              "profitMargins": 0.00211,
+              "numberOfAnalystOpinions": 23,
+              "totalCash": 80614998016,
+              "totalCashPerShare": 61.023,
+              "ebitda": 24258000896,
+              "totalDebt": 101405999104,
+              "quickRatio": 1.837,
+              "currentRatio": 2.109,
+              "totalRevenue": 83671998464,
+              "debtToEquity": 66.602,
+              "revenuePerShare": 62.67,
+              "returnOnAssets": 0.02917,
+              "returnOnEquity": -0.014140001,
+              "grossProfits": 37582000128,
+              "freeCashflow": -20696750080,
+              "operatingCashflow": 25045000192,
+              "earningsGrowth": -0.946,
+              "revenueGrowth": 0.205,
+              "grossMargins": 0.44916,
+              "ebitdaMargins": 0.28992,
+              "operatingMargins": 0.13396,
+              "profitMargins": -0.028789999,
               "financialCurrency": "DKK"
             }
           }

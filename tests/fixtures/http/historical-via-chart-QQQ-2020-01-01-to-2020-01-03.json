@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/QQQ?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1210",
+      "content-length": "1319",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:30 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:19 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "27",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-baseline-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "24",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "28jnt8pjrj83r"
+      "y-rid": "04od32tlc1eic"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "NasdaqGM",
               "instrumentType": "ETF",
               "firstTradeDate": 921076200,
-              "regularMarketTime": 1740171600,
+              "regularMarketTime": 1790971200,
               "hasPrePostMarketData": true,
-              "gmtoffset": -18000,
-              "timezone": "EST",
+              "gmtoffset": -14400,
+              "timezone": "EDT",
               "exchangeTimezoneName": "America/New_York",
-              "regularMarketPrice": 526.08,
-              "fiftyTwoWeekHigh": 540.81,
-              "fiftyTwoWeekLow": 413.07,
-              "regularMarketDayHigh": 538.4,
-              "regularMarketDayLow": 525.71,
-              "regularMarketVolume": 47008807,
+              "regularMarketPrice": 749.58,
+              "regularMarketChangePercent": 1.017,
+              "fulldayPrice": 749.56,
+              "fulldayChange": 7.55,
+              "fulldayChangePercent": 1.017,
+              "fiftyTwoWeekHigh": 754.53,
+              "fiftyTwoWeekLow": 555.6,
+              "regularMarketDayHigh": 754.53,
+              "regularMarketDayLow": 747.535,
+              "regularMarketVolume": 34175024,
               "longName": "Invesco QQQ Trust",
               "shortName": "Invesco QQQ Trust, Series 1",
               "chartPreviousClose": 212.61,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "EST",
-                  "start": 1740128400,
-                  "end": 1740148200,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790928000,
+                  "end": 1790947800,
+                  "gmtoffset": -14400
                 },
                 "regular": {
-                  "timezone": "EST",
-                  "start": 1740148200,
-                  "end": 1740171600,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790947800,
+                  "end": 1790971200,
+                  "gmtoffset": -14400
                 },
                 "post": {
-                  "timezone": "EST",
-                  "start": 1740171600,
-                  "end": 1740186000,
-                  "gmtoffset": -18000
+                  "timezone": "EDT",
+                  "start": 1790971200,
+                  "end": 1790985600,
+                  "gmtoffset": -14400
                 }
               },
               "dataGranularity": "1d",
@@ -96,17 +100,17 @@
             "indicators": {
               "quote": [
                 {
-                  "high": [
-                    216.16000366210938
+                  "open": [
+                    214.39999389648438
                   ],
                   "low": [
                     213.97999572753906
                   ],
-                  "open": [
-                    214.39999389648438
-                  ],
                   "volume": [
                     30969400
+                  ],
+                  "high": [
+                    216.16000366210938
                   ],
                   "close": [
                     216.16000366210938
@@ -116,7 +120,7 @@
               "adjclose": [
                 {
                   "adjclose": [
-                    209.6380615234375
+                    207.87228393554688
                   ]
                 }
               ]

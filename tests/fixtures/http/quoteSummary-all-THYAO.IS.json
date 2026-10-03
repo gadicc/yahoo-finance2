@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/THYAO.IS?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/THYAO.IS?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,18 +14,19 @@
     "headers": {
       "age": "1",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
+      "content-encoding": "gzip",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:31:04 GMT",
+      "date": "Sat, 03 Oct 2026 08:35:13 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "20",
+      "x-envoy-upstream-service-time": "18",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1u1djvll1iqn9"
+      "y-rid": "2l1ffqhlc1fi2"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -47,7 +48,7 @@
               "sectorKey": "industrials",
               "sectorDisp": "Industrials",
               "longBusinessSummary": "Türk Hava Yollari Anonim Ortakligi provides air transport and aircraft technical maintenance services in Turkey and internationally. The company offers domestic and international passenger and cargo air transportation services; repair and maintenance; technical and infrastructure support services related to aviation sector; informatics and technology; cargo and courier transportation; support services; security services; payment systems; health services; management of various investment projects; cabin interior production; catering services; aviation ground handling services; aviation fuel services; It is also involved engine maintenance; and reverse thrust and engine nacelle services, as well as sports activities. The company was incorporated in 1933 and is headquartered in Istanbul, Turkey.",
-              "fullTimeEmployees": 66917,
+              "fullTimeEmployees": 66758,
               "companyOfficers": [
                 {
                   "maxAge": 1,
@@ -216,7 +217,7 @@
                 {
                   "period": "0m",
                   "strongBuy": 3,
-                  "buy": 6,
+                  "buy": 8,
                   "hold": 2,
                   "sell": 0,
                   "strongSell": 0
@@ -224,24 +225,16 @@
                 {
                   "period": "-1m",
                   "strongBuy": 3,
-                  "buy": 9,
-                  "hold": 1,
+                  "buy": 8,
+                  "hold": 2,
                   "sell": 0,
                   "strongSell": 0
                 },
                 {
                   "period": "-2m",
                   "strongBuy": 3,
-                  "buy": 9,
-                  "hold": 1,
-                  "sell": 0,
-                  "strongSell": 0
-                },
-                {
-                  "period": "-3m",
-                  "strongBuy": 3,
-                  "buy": 9,
-                  "hold": 1,
+                  "buy": 7,
+                  "hold": 2,
                   "sell": 0,
                   "strongSell": 0
                 }
@@ -307,19 +300,19 @@
               "estimates": [
                 {
                   "period": "0q",
-                  "growth": 0.2555
+                  "growth": 0.24190001
                 },
                 {
                   "period": "+1q",
-                  "growth": 0.19629999
+                  "growth": 0.2514
                 },
                 {
                   "period": "0y",
-                  "growth": 0.2234
+                  "growth": 0.3192
                 },
                 {
                   "period": "+1y",
-                  "growth": 0.16440001
+                  "growth": 0.1579
                 },
                 {
                   "period": "LTG",
@@ -330,33 +323,34 @@
             "defaultKeyStatistics": {
               "maxAge": 1,
               "priceHint": 2,
-              "enterpriseValue": 421405327360,
-              "forwardPE": 4.4556255,
-              "profitMargins": 0.1266,
+              "enterpriseValue": 416222674944,
+              "forwardPE": 3.3557892,
+              "profitMargins": 0.10189,
               "floatShares": 702036130,
               "sharesOutstanding": 1372283353,
               "heldPercentInsiders": 0.49122003,
-              "heldPercentInstitutions": 0.085360005,
-              "beta": 0.055,
+              "heldPercentInstitutions": 0.082550004,
+              "beta": -0.046,
               "impliedSharesOutstanding": 1372283353,
               "category": null,
-              "bookValue": 15.808,
-              "priceToBook": 18.77214,
+              "bookValue": 15.884,
+              "priceToBook": 18.38328,
               "fundFamily": null,
               "legalType": null,
               "lastFiscalYearEnd": 1767139200,
               "nextFiscalYearEnd": 1798675200,
-              "mostRecentQuarter": 1774915200,
-              "netIncomeToCommon": 3180999936,
-              "trailingEps": 9.7,
+              "mostRecentQuarter": 1782777600,
+              "earningsQuarterlyGrowth": -0.715,
+              "netIncomeToCommon": 2684999936,
+              "trailingEps": -6.82,
               "forwardEps": 72.02,
               "pegRatio": 1.31,
               "lastSplitFactor": "115:100",
               "lastSplitDate": 1372204800,
-              "enterpriseToRevenue": 16.772,
-              "enterpriseToEbitda": 143.384,
-              "52WeekChange": 0.08600187,
-              "SandP52WeekChange": 0.2794361,
+              "enterpriseToRevenue": 15.795,
+              "enterpriseToEbitda": 190.404,
+              "52WeekChange": -0.062193155,
+              "SandP52WeekChange": 0.1415559,
               "lastDividendValue": 3.442029,
               "lastDividendDate": 1756771200,
               "latestShareClass": null,
@@ -622,39 +616,41 @@
             "summaryDetail": {
               "maxAge": 1,
               "priceHint": 2,
-              "previousClose": 297.5,
-              "open": 297.5,
-              "dayLow": 295.25,
-              "dayHigh": 298,
-              "regularMarketPreviousClose": 297.5,
-              "regularMarketOpen": 297.5,
-              "regularMarketDayLow": 295.25,
-              "regularMarketDayHigh": 298,
+              "previousClose": 286.5,
+              "open": 286.5,
+              "dayLow": 285,
+              "dayHigh": 294,
+              "regularMarketPreviousClose": 286.5,
+              "regularMarketOpen": 286.5,
+              "regularMarketDayLow": 285,
+              "regularMarketDayHigh": 294,
               "dividendRate": 6.88,
-              "dividendYield": 0.0232,
+              "dividendYield": 0.0228,
               "exDividendDate": 1756771200,
               "payoutRatio": 0.8053,
-              "beta": 0.055,
-              "trailingPE": 30.592785,
-              "forwardPE": 4.1203833,
-              "volume": 11744557,
-              "regularMarketVolume": 11744557,
-              "averageVolume": 45252723,
-              "averageVolume10days": 38846691,
-              "averageDailyVolume10Day": 38846691,
-              "bid": 0,
-              "ask": 0,
+              "beta": -0.046,
+              "forwardPE": 4.0544295,
+              "volume": 30845024,
+              "regularMarketVolume": 30845024,
+              "averageVolume": 47721766,
+              "averageVolume10days": 34795990,
+              "averageDailyVolume10Day": 34795990,
+              "bid": 291.75,
+              "ask": 292.25,
               "bidSize": 0,
               "askSize": 0,
-              "marketCap": 407225106432,
-              "nonDilutedMarketCap": 407225085002,
-              "fiftyTwoWeekLow": 249.2,
-              "fiftyTwoWeekHigh": 352.5,
-              "allTimeHigh": 352.5,
+              "marketCap": 400706764800,
+              "nonDilutedMarketCap": 408940439194,
+              "fiftyTwoWeekLow": 258.25,
+              "fiftyTwoWeekHigh": 355.5,
+              "allTimeHigh": 355.5,
               "allTimeLow": 0.000507,
-              "priceToSalesTrailing12Months": 16.20732,
-              "fiftyDayAverage": 304.53,
-              "twoHundredDayAverage": 301.15125,
+              "fulldayPrice": 292,
+              "fulldayChange": 5.5,
+              "fulldayChangePercent": 0.019197207,
+              "priceToSalesTrailing12Months": 15.206511,
+              "fiftyDayAverage": 300.9,
+              "twoHundredDayAverage": 304.80124,
               "trailingAnnualDividendRate": 0,
               "trailingAnnualDividendYield": 0,
               "currency": "TRY",
@@ -673,10 +669,10 @@
               "maxAge": 1,
               "earnings": {
                 "earningsDate": [
-                  1777474800
+                  1793804400
                 ],
                 "earningsCallDate": [
-                  1777557600
+                  1793804400
                 ],
                 "isEarningsDateEstimate": false
               },
@@ -684,23 +680,26 @@
             },
             "price": {
               "maxAge": 1,
-              "regularMarketChangePercent": -0.0025210085,
-              "regularMarketChange": -0.75,
-              "regularMarketTime": 1779788395,
+              "regularMarketChangePercent": 0.019197207,
+              "regularMarketChange": 5.5,
+              "regularMarketTime": 1790953796,
               "priceHint": 2,
-              "regularMarketPrice": 296.75,
-              "regularMarketDayHigh": 298,
-              "regularMarketDayLow": 295.25,
-              "regularMarketVolume": 11744557,
-              "averageDailyVolume10Day": 38846691,
-              "averageDailyVolume3Month": 45252723,
-              "regularMarketPreviousClose": 297.5,
+              "regularMarketPrice": 292,
+              "regularMarketDayHigh": 294,
+              "regularMarketDayLow": 285,
+              "regularMarketVolume": 30845024,
+              "averageDailyVolume10Day": 34795990,
+              "averageDailyVolume3Month": 47721766,
+              "regularMarketPreviousClose": 286.5,
               "regularMarketSource": "DELAYED",
-              "regularMarketOpen": 297.5,
+              "regularMarketOpen": 286.5,
+              "fulldayChangePercent": 0.019197207,
+              "fulldayChange": 5.5,
+              "fulldayPrice": 292,
               "exchange": "IST",
               "exchangeName": "Istanbul",
               "exchangeDataDelayedBy": 15,
-              "marketState": "REGULAR",
+              "marketState": "CLOSED",
               "quoteType": "EQUITY",
               "symbol": "THYAO.IS",
               "underlyingSymbol": null,
@@ -712,7 +711,7 @@
               "fromCurrency": null,
               "toCurrency": null,
               "lastMarket": null,
-              "marketCap": 407225106432
+              "marketCap": 400706764800
             },
             "balanceSheetHistory": {
               "balanceSheetStatements": [
@@ -866,57 +865,57 @@
                   "period": "0y",
                   "endDate": "2026-12-31",
                   "growth": {
-                    "raw": -0.45029998,
-                    "fmt": "-45.03%"
+                    "raw": -0.1666,
+                    "fmt": "-16.66%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 50.9945,
-                      "fmt": "50.99"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "low": {
-                      "raw": 20.291,
-                      "fmt": "20.29"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "high": {
-                      "raw": 81.698,
-                      "fmt": "81.7"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "yearAgoEps": {
                       "raw": 92.76235,
                       "fmt": "92.76"
                     },
                     "numberOfAnalysts": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
                     },
                     "growth": {
-                      "raw": -0.45029998,
-                      "fmt": "-45.03%"
+                      "raw": -0.1666,
+                      "fmt": "-16.66%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 1187594206000,
-                      "fmt": "1.19T",
-                      "longFmt": "1,187,594,206,000"
+                      "raw": 1292082552120,
+                      "fmt": "1.29T",
+                      "longFmt": "1,292,082,552,120"
                     },
                     "low": {
-                      "raw": 1167282779000,
-                      "fmt": "1.17T",
-                      "longFmt": "1,167,282,779,000"
+                      "raw": 1211563046000,
+                      "fmt": "1.21T",
+                      "longFmt": "1,211,563,046,000"
                     },
                     "high": {
-                      "raw": 1207905633000,
-                      "fmt": "1.21T",
-                      "longFmt": "1,207,905,633,000"
+                      "raw": 1344116096000,
+                      "fmt": "1.34T",
+                      "longFmt": "1,344,116,096,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 2,
-                      "fmt": "2",
-                      "longFmt": "2"
+                      "raw": 10,
+                      "fmt": "10",
+                      "longFmt": "10"
                     },
                     "yearAgoRevenue": {
                       "raw": 1059337267199,
@@ -924,49 +923,49 @@
                       "longFmt": "1,059,337,267,199"
                     },
                     "growth": {
-                      "raw": 0.12109999,
-                      "fmt": "12.11%"
+                      "raw": 0.2197,
+                      "fmt": "21.97%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 50.9945,
-                      "fmt": "50.99"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "7daysAgo": {
-                      "raw": 20.291,
-                      "fmt": "20.29"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "30daysAgo": {
-                      "raw": 58.76433,
-                      "fmt": "58.76"
+                      "raw": 75.647,
+                      "fmt": "75.65"
                     },
                     "60daysAgo": {
-                      "raw": 56.887,
-                      "fmt": "56.89"
+                      "raw": 64.40605,
+                      "fmt": "64.41"
                     },
                     "90daysAgo": {
-                      "raw": 65.0635,
-                      "fmt": "65.06"
+                      "raw": 60.523,
+                      "fmt": "60.52"
                     },
                     "epsTrendCurrency": "TRY"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 0,
-                      "fmt": null,
-                      "longFmt": "0"
-                    },
-                    "upLast30days": {
-                      "raw": 0,
-                      "fmt": null,
-                      "longFmt": "0"
-                    },
-                    "downLast30days": {
                       "raw": 1,
                       "fmt": "1",
                       "longFmt": "1"
+                    },
+                    "upLast30days": {
+                      "raw": 1,
+                      "fmt": "1",
+                      "longFmt": "1"
+                    },
+                    "downLast30days": {
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast7Days": {
                       "raw": 0,
@@ -982,47 +981,47 @@
                   "period": "+1y",
                   "endDate": "2027-12-31",
                   "growth": {
-                    "raw": 0.306,
-                    "fmt": "30.60%"
+                    "raw": 0.12550001,
+                    "fmt": "12.55%"
                   },
                   "earningsEstimate": {
                     "avg": {
-                      "raw": 66.6012,
-                      "fmt": "66.6"
+                      "raw": 87.01381,
+                      "fmt": "87.01"
                     },
                     "low": {
-                      "raw": 36,
-                      "fmt": "36"
+                      "raw": 56.152,
+                      "fmt": "56.15"
                     },
                     "high": {
-                      "raw": 83.682,
-                      "fmt": "83.68"
+                      "raw": 142.55186,
+                      "fmt": "142.55"
                     },
                     "yearAgoEps": {
-                      "raw": 50.9945,
-                      "fmt": "50.99"
+                      "raw": 77.31,
+                      "fmt": "77.31"
                     },
                     "numberOfAnalysts": {
-                      "raw": 5,
-                      "fmt": "5",
-                      "longFmt": "5"
+                      "raw": 6,
+                      "fmt": "6",
+                      "longFmt": "6"
                     },
                     "growth": {
-                      "raw": 0.306,
-                      "fmt": "30.60%"
+                      "raw": 0.12550001,
+                      "fmt": "12.55%"
                     },
                     "earningsCurrency": "TRY"
                   },
                   "revenueEstimate": {
                     "avg": {
-                      "raw": 1366545777290,
-                      "fmt": "1.37T",
-                      "longFmt": "1,366,545,777,290"
+                      "raw": 1446468867020,
+                      "fmt": "1.45T",
+                      "longFmt": "1,446,468,867,020"
                     },
                     "low": {
-                      "raw": 1174770550000,
-                      "fmt": "1.17T",
-                      "longFmt": "1,174,770,550,000"
+                      "raw": 1329692347000,
+                      "fmt": "1.33T",
+                      "longFmt": "1,329,692,347,000"
                     },
                     "high": {
                       "raw": 1666384000000,
@@ -1030,49 +1029,49 @@
                       "longFmt": "1,666,384,000,000"
                     },
                     "numberOfAnalysts": {
-                      "raw": 7,
-                      "fmt": "7",
-                      "longFmt": "7"
+                      "raw": 9,
+                      "fmt": "9",
+                      "longFmt": "9"
                     },
                     "yearAgoRevenue": {
-                      "raw": 1187594206000,
-                      "fmt": "1.19T",
-                      "longFmt": "1,187,594,206,000"
+                      "raw": 1292082552120,
+                      "fmt": "1.29T",
+                      "longFmt": "1,292,082,552,120"
                     },
                     "growth": {
-                      "raw": 0.1507,
-                      "fmt": "15.07%"
+                      "raw": 0.1195,
+                      "fmt": "11.95%"
                     },
                     "revenueCurrency": "TRY"
                   },
                   "epsTrend": {
                     "current": {
-                      "raw": 66.6012,
-                      "fmt": "66.6"
+                      "raw": 87.01381,
+                      "fmt": "87.01"
                     },
                     "7daysAgo": {
-                      "raw": 65.7686,
-                      "fmt": "65.77"
+                      "raw": 86.42181,
+                      "fmt": "86.42"
                     },
                     "30daysAgo": {
-                      "raw": 67.0958,
-                      "fmt": "67.1"
+                      "raw": 86.07481,
+                      "fmt": "86.07"
                     },
                     "60daysAgo": {
-                      "raw": 66.4292,
-                      "fmt": "66.43"
+                      "raw": 84.54231,
+                      "fmt": "84.54"
                     },
                     "90daysAgo": {
-                      "raw": 65.9784,
-                      "fmt": "65.98"
+                      "raw": 71.0502,
+                      "fmt": "71.05"
                     },
                     "epsTrendCurrency": "TRY"
                   },
                   "epsRevisions": {
                     "upLast7days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 2,
+                      "fmt": "2",
+                      "longFmt": "2"
                     },
                     "upLast30days": {
                       "raw": 2,
@@ -1080,9 +1079,9 @@
                       "longFmt": "2"
                     },
                     "downLast30days": {
-                      "raw": 1,
-                      "fmt": "1",
-                      "longFmt": "1"
+                      "raw": 0,
+                      "fmt": null,
+                      "longFmt": "0"
                     },
                     "downLast7Days": {
                       "raw": 0,
@@ -1104,12 +1103,19 @@
             "majorHoldersBreakdown": {
               "maxAge": 1,
               "insidersPercentHeld": 0.49122003,
-              "institutionsPercentHeld": 0.085360005,
-              "institutionsFloatPercentHeld": 0.16777,
-              "institutionsCount": 158
+              "institutionsPercentHeld": 0.082550004,
+              "institutionsFloatPercentHeld": 0.16224001,
+              "institutionsCount": 136
             },
             "balanceSheetHistoryQuarterly": {
               "balanceSheetStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1129,13 +1135,6 @@
                   "endDate": {
                     "raw": 1759190400,
                     "fmt": "2025-09-30"
-                  }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
                   }
                 }
               ],
@@ -1166,7 +1165,7 @@
               "sectorKey": "industrials",
               "sectorDisp": "Industrials",
               "longBusinessSummary": "Türk Hava Yollari Anonim Ortakligi provides air transport and aircraft technical maintenance services in Turkey and internationally. The company offers domestic and international passenger and cargo air transportation services; repair and maintenance; technical and infrastructure support services related to aviation sector; informatics and technology; cargo and courier transportation; support services; security services; payment systems; health services; management of various investment projects; cabin interior production; catering services; aviation ground handling services; aviation fuel services; It is also involved engine maintenance; and reverse thrust and engine nacelle services, as well as sports activities. The company was incorporated in 1933 and is headquartered in Istanbul, Turkey.",
-              "fullTimeEmployees": 66917,
+              "fullTimeEmployees": 66758,
               "companyOfficers": [],
               "executiveTeam": [],
               "maxAge": 86400
@@ -1179,8 +1178,8 @@
               "sellInfoCount": 0,
               "netInfoCount": 0,
               "netInfoShares": 0,
-              "netInstSharesBuying": 3965071,
-              "netInstBuyingPercent": 0.03366,
+              "netInstSharesBuying": -22038816,
+              "netInstBuyingPercent": -0.19347,
               "totalInsiderShares": 677846080
             },
             "sectorTrend": {
@@ -1190,6 +1189,63 @@
             },
             "incomeStatementHistoryQuarterly": {
               "incomeStatementHistory": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "totalRevenue": {
+                    "raw": 327108000000,
+                    "fmt": "327.11B",
+                    "longFmt": "327,108,000,000"
+                  },
+                  "costOfRevenue": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "grossProfit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "researchDevelopment": {},
+                  "sellingGeneralAdministrative": {},
+                  "nonRecurring": {},
+                  "otherOperatingExpenses": {},
+                  "totalOperatingExpenses": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "operatingIncome": {},
+                  "totalOtherIncomeExpenseNet": {},
+                  "ebit": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "interestExpense": {},
+                  "incomeBeforeTax": {},
+                  "incomeTaxExpense": {
+                    "raw": 0,
+                    "fmt": null,
+                    "longFmt": "0"
+                  },
+                  "minorityInterest": {},
+                  "netIncomeFromContinuingOps": {},
+                  "discontinuedOperations": {},
+                  "extraordinaryItems": {},
+                  "effectOfAccountingCharges": {},
+                  "otherItems": {},
+                  "netIncome": {
+                    "raw": 8949000000,
+                    "fmt": "8.95B",
+                    "longFmt": "8,949,000,000"
+                  },
+                  "netIncomeApplicableToCommonShares": {}
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1360,69 +1416,24 @@
                     "longFmt": "58,172,132,200"
                   },
                   "netIncomeApplicableToCommonShares": {}
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "totalRevenue": {
-                    "raw": 231324000000,
-                    "fmt": "231.32B",
-                    "longFmt": "231,324,000,000"
-                  },
-                  "costOfRevenue": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "grossProfit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "researchDevelopment": {},
-                  "sellingGeneralAdministrative": {},
-                  "nonRecurring": {},
-                  "otherOperatingExpenses": {},
-                  "totalOperatingExpenses": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "operatingIncome": {},
-                  "totalOtherIncomeExpenseNet": {},
-                  "ebit": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "interestExpense": {},
-                  "incomeBeforeTax": {},
-                  "incomeTaxExpense": {
-                    "raw": 0,
-                    "fmt": null,
-                    "longFmt": "0"
-                  },
-                  "minorityInterest": {},
-                  "netIncomeFromContinuingOps": {},
-                  "discontinuedOperations": {},
-                  "extraordinaryItems": {},
-                  "effectOfAccountingCharges": {},
-                  "otherItems": {},
-                  "netIncome": {
-                    "raw": 26831000000,
-                    "fmt": "26.83B",
-                    "longFmt": "26,831,000,000"
-                  },
-                  "netIncomeApplicableToCommonShares": {}
                 }
               ],
               "maxAge": 86400
             },
             "cashflowStatementHistoryQuarterly": {
               "cashflowStatements": [
+                {
+                  "maxAge": 1,
+                  "endDate": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "netIncome": {
+                    "raw": 8949000000,
+                    "fmt": "8.95B",
+                    "longFmt": "8,949,000,000"
+                  }
+                },
                 {
                   "maxAge": 1,
                   "endDate": {
@@ -1458,18 +1469,6 @@
                     "fmt": "58.17B",
                     "longFmt": "58,172,132,200"
                   }
-                },
-                {
-                  "maxAge": 1,
-                  "endDate": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "netIncome": {
-                    "raw": 26831000000,
-                    "fmt": "26.83B",
-                    "longFmt": "26,831,000,000"
-                  }
                 }
               ],
               "maxAge": 86400
@@ -1478,7 +1477,9 @@
               "maxAge": 86400,
               "earningsChart": {
                 "quarterly": [],
-                "earningsDate": [],
+                "earningsDate": [
+                  1793804400
+                ],
                 "isEarningsDateEstimate": false
               },
               "financialsChart": {
@@ -1510,13 +1511,6 @@
                 ],
                 "quarterly": [
                   {
-                    "date": "2Q2025",
-                    "fiscalQuarter": "2Q2025",
-                    "revenue": 231324000000,
-                    "earnings": 26831000000,
-                    "profitMargin": 0.11598883
-                  },
-                  {
                     "date": "3Q2025",
                     "fiscalQuarter": "3Q2025",
                     "revenue": 293520199700,
@@ -1536,6 +1530,13 @@
                     "revenue": 267357869900,
                     "earnings": 10256926900,
                     "profitMargin": 0.038364038
+                  },
+                  {
+                    "date": "2Q2026",
+                    "fiscalQuarter": "2Q2026",
+                    "revenue": 327108000000,
+                    "earnings": 8949000000,
+                    "profitMargin": 0.027357938
                   }
                 ]
               },
@@ -1544,33 +1545,34 @@
             },
             "financialData": {
               "maxAge": 86400,
-              "currentPrice": 296.75,
-              "targetHighPrice": 650,
-              "targetLowPrice": 320,
-              "targetMeanPrice": 446.11667,
-              "targetMedianPrice": 435,
-              "recommendationMean": 1.63636,
+              "currentPrice": 292,
+              "targetHighPrice": 580,
+              "targetLowPrice": 330,
+              "targetMeanPrice": 463.54025,
+              "targetMedianPrice": 460,
+              "recommendationMean": 1.53846,
               "recommendationKey": "buy",
-              "numberOfAnalystOpinions": 12,
-              "totalCash": 6387999744,
-              "totalCashPerShare": 4.629,
-              "ebitda": 2939000064,
-              "totalDebt": 18300999680,
-              "quickRatio": 0.731,
-              "currentRatio": 0.976,
-              "totalRevenue": 25126000640,
-              "debtToEquity": 83.896,
-              "revenuePerShare": 18.208,
-              "returnOnAssets": 0.026919998,
-              "returnOnEquity": 0.15560001,
-              "grossProfits": 4075000064,
-              "freeCashflow": 1209500032,
-              "operatingCashflow": 4284000000,
-              "revenueGrowth": 0.211,
-              "grossMargins": 0.16218,
-              "ebitdaMargins": 0.116969995,
-              "operatingMargins": -0.02062,
-              "profitMargins": 0.1266,
+              "numberOfAnalystOpinions": 13,
+              "totalCash": 6309000192,
+              "totalCashPerShare": 4.572,
+              "ebitda": 2185999872,
+              "totalDebt": 19594000384,
+              "quickRatio": 0.677,
+              "currentRatio": 0.905,
+              "totalRevenue": 26350999552,
+              "debtToEquity": 89.393,
+              "revenuePerShare": 19.096,
+              "returnOnAssets": 0.01534,
+              "returnOnEquity": 0.13129,
+              "grossProfits": 3390000128,
+              "freeCashflow": 594875008,
+              "operatingCashflow": 3377999872,
+              "earningsGrowth": -0.72,
+              "revenueGrowth": 0.205,
+              "grossMargins": 0.12865,
+              "ebitdaMargins": 0.082959995,
+              "operatingMargins": -0.02595,
+              "profitMargins": 0.10189,
               "financialCurrency": "USD"
             }
           }

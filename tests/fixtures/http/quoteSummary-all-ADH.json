@@ -1,92 +1,41 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ADH?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=haT3oykhHqZ",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/ADH?formatted=false&modules=assetProfile%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcalendarEvents%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2Cearnings%2CearningsHistory%2CearningsTrend%2CfinancialData%2CfundOwnership%2CfundPerformance%2CfundProfile%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CindexTrend%2CindustryTrend%2CinsiderHolders%2CinsiderTransactions%2CinstitutionOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CnetSharePurchaseActivity%2Cprice%2CquoteType%2CrecommendationTrend%2CsecFilings%2CsectorTrend%2CsummaryDetail%2CsummaryProfile%2CtopHoldings%2CupgradeDowngradeHistory&crumb=HF5hn7U5r8H",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AV78X-IQ; GUC=AQABCAFnsytn2UIgTASn&s=AQAAAEKG89vA&g=Z7HctQ; A3=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; A1S=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4; EuConsent=CQM66kAQM66kAAOACBENBcFoAP_gAEPgACiQKptB9G7WTXFneXp2YPskOYUX0VBJ4MAwBgCBAcABzBIUIBwGVmAzJEyIICACGAIAIGBBIABtGAhAQEAAYIAFAABIAEgAIBAAIGAAACAAAABACAAAAAAAAAAQgEAXMBQgmAYEBFoIQUhAggAgAQAAAAAEAIgBCgQAEAAAQAAICAAIACgAAgAAAAAAAAAEAFAIEQAAIAECAotkdQAAAAAAAAAAAAQACAABAAAAAIKpgAkGpUQBFgSEhAIGEECAEQUBABQIAgAACBAAAATBAUIAwAVGAiAEAIAAAAAAAAACABAAABAAhAAEAAQIAAAAAIAAgAIBAAACAAAAAAAAAAAAAAAAAAAAAAAAAGIBAggAAABBAAQUAAAAAgAAAAAAAAAIgACAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAIAAAAIAAAAgBEFgAAAAAAAAAAAAAACAABAAAAAIAAA; A1=d=AQABBKvcsWcCEIGLkyl67hr2YX7XekV46j4FEgABCAErs2fZZ_bPb2UB9qMAAAcIq9yxZ63aZoI&S=AQAAAtFJa---IoVh8DRgGhGzVr4",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
-    "ok": true,
-    "status": 200,
-    "statusText": "OK",
+    "ok": false,
+    "status": 404,
+    "statusText": "Not Found",
     "headers": {
       "age": "0",
-      "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "1062",
+      "cache-control": "max-age=0, private",
+      "content-length": "109",
       "content-type": "application/json;charset=utf-8",
-      "date": "Mon, 24 Feb 2025 09:35:31 GMT",
+      "date": "Sat, 03 Oct 2026 08:34:48 GMT",
+      "expires": "-1",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
-      "vary": "Origin,Accept-Encoding",
+      "vary": "Origin",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "84",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "0ckp8idjrofb3"
+      "y-rid": "1pa235llc1fh8"
     },
     "bodyJson": {
       "quoteSummary": {
-        "result": [
-          {
-            "fundProfile": {
-              "maxAge": 1,
-              "styleBoxUrl": null,
-              "family": null,
-              "categoryName": null,
-              "legalType": null,
-              "managementInfo": {
-                "managerName": null,
-                "managerBio": null
-              },
-              "feesExpensesInvestment": {
-                "projectionValues": {}
-              },
-              "feesExpensesInvestmentCat": {
-                "projectionValuesCat": {}
-              },
-              "brokerages": []
-            },
-            "quoteType": {
-              "exchange": "YHD",
-              "quoteType": "MUTUALFUND",
-              "symbol": "ADH",
-              "underlyingSymbol": "ADH",
-              "shortName": "54688",
-              "firstTradeDateEpochUtc": 1152538200,
-              "timeZoneFullName": "America/New_York",
-              "timeZoneShortName": "EST",
-              "uuid": "b5097600-41ff-3349-b2d2-500df46ffd88",
-              "gmtOffSetMilliseconds": -18000000,
-              "maxAge": 1
-            },
-            "price": {
-              "maxAge": 1,
-              "regularMarketTime": 1561759658,
-              "priceHint": 2,
-              "averageDailyVolume10Day": 66219,
-              "averageDailyVolume3Month": 212316,
-              "regularMarketSource": "DELAYED",
-              "exchange": "YHD",
-              "exchangeName": "YHD",
-              "exchangeDataDelayedBy": 0,
-              "marketState": "PRE",
-              "quoteType": "MUTUALFUND",
-              "symbol": "ADH",
-              "underlyingSymbol": null,
-              "shortName": "54688",
-              "longName": null,
-              "quoteSourceName": "Delayed Quote",
-              "fromCurrency": null,
-              "toCurrency": null,
-              "lastMarket": null
-            }
-          }
-        ],
-        "error": null
+        "result": null,
+        "error": {
+          "code": "Not Found",
+          "description": "Quote not found for symbol: ADH"
+        }
       }
     }
   }

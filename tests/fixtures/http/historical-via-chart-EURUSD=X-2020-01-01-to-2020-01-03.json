@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/EURUSD=X?useYfid=true&interval=1d&includePrePost=true&events=&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "1",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1363",
+      "content-length": "1486",
       "content-type": "application/json;charset=utf-8",
-      "date": "Sat, 22 Feb 2025 10:01:30 GMT",
+      "date": "Sat, 03 Oct 2026 08:18:25 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "5",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1gbjs1djrj83r"
+      "y-rid": "1arpi5llc1eii"
     },
     "bodyJson": {
       "chart": {
@@ -39,16 +39,20 @@
               "fullExchangeName": "CCY",
               "instrumentType": "CURRENCY",
               "firstTradeDate": 1070236800,
-              "regularMarketTime": 1740176979,
+              "regularMarketTime": 1790976545,
               "hasPrePostMarketData": false,
-              "gmtoffset": 0,
-              "timezone": "GMT",
+              "gmtoffset": 3600,
+              "timezone": "BST",
               "exchangeTimezoneName": "Europe/London",
-              "regularMarketPrice": 1.0462,
-              "fiftyTwoWeekHigh": 1.1212,
-              "fiftyTwoWeekLow": 1.0184,
-              "regularMarketDayHigh": 1.0508,
-              "regularMarketDayLow": 1.0453,
+              "regularMarketPrice": 1.1257,
+              "regularMarketChangePercent": 0.1126,
+              "fulldayPrice": 1.1257,
+              "fulldayChange": 0.0013,
+              "fulldayChangePercent": 0.1126,
+              "fiftyTwoWeekHigh": 1.2024,
+              "fiftyTwoWeekLow": 1.1219,
+              "regularMarketDayHigh": 1.1288,
+              "regularMarketDayLow": 1.1225,
               "regularMarketVolume": 0,
               "longName": "EUR/USD",
               "shortName": "EUR/USD",
@@ -56,22 +60,22 @@
               "priceHint": 4,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "GMT",
-                  "start": 1740096000,
-                  "end": 1740096000,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790895600,
+                  "start": 1790895600,
+                  "gmtoffset": 3600
                 },
                 "regular": {
-                  "timezone": "GMT",
-                  "start": 1740096000,
-                  "end": 1740182340,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790981940,
+                  "start": 1790895600,
+                  "gmtoffset": 3600
                 },
                 "post": {
-                  "timezone": "GMT",
-                  "start": 1740182340,
-                  "end": 1740182340,
-                  "gmtoffset": 0
+                  "timezone": "BST",
+                  "end": 1790981940,
+                  "start": 1790981940,
+                  "gmtoffset": 3600
                 }
               },
               "dataGranularity": "1d",
@@ -98,30 +102,30 @@
             "indicators": {
               "quote": [
                 {
-                  "volume": [
-                    0,
-                    0,
-                    0
-                  ],
                   "close": [
                     1.1220825910568237,
                     1.1220825910568237,
                     1.1171437501907349
                   ],
-                  "open": [
-                    1.1220825910568237,
-                    1.1218937635421753,
-                    1.1170812845230103
+                  "low": [
+                    1.115946888923645,
+                    1.1166820526123047,
+                    1.112569808959961
                   ],
                   "high": [
                     1.1228384971618652,
                     1.12271249294281,
                     1.118067979812622
                   ],
-                  "low": [
-                    1.115946888923645,
-                    1.1166820526123047,
-                    1.112569808959961
+                  "open": [
+                    1.1220825910568237,
+                    1.1218937635421753,
+                    1.1170812845230103
+                  ],
+                  "volume": [
+                    0,
+                    0,
+                    0
                   ]
                 }
               ],

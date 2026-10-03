@@ -3,8 +3,8 @@
     "url": "https://query2.finance.yahoo.com/v8/finance/chart/AZT.OL?useYfid=true&interval=1d&includePrePost=true&events=div%7Csplit%7Cearn&lang=en-US&period1=1577836800&period2=1578009600",
     "method": "GET",
     "headers": {
-      "cookie": "",
-      "user-agent": "@gadicc/yahoo-finance2/0.0.1 (+https://github.com/gadicc/node-yahoo-finance2)"
+      "cookie": "[REDACTED]",
+      "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
   "response": {
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=10, stale-while-revalidate=20",
-      "content-length": "1192",
+      "content-length": "1300",
       "content-type": "application/json;charset=utf-8",
-      "date": "Thu, 20 Feb 2025 11:47:41 GMT",
+      "date": "Sat, 03 Oct 2026 08:17:08 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-ir2.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "4",
+      "x-envoy-decorator-operation": "finance-chart-api--mtls-production-bf1.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "3",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "1vatf8hjre5it"
+      "y-rid": "4kksue1lc1eg4"
     },
     "bodyJson": {
       "chart": {
@@ -39,39 +39,43 @@
               "fullExchangeName": "Oslo",
               "instrumentType": "EQUITY",
               "firstTradeDate": 1131091200,
-              "regularMarketTime": 1740051119,
+              "regularMarketTime": 1790951125,
               "hasPrePostMarketData": false,
-              "gmtoffset": 3600,
-              "timezone": "CET",
+              "gmtoffset": 7200,
+              "timezone": "CEST",
               "exchangeTimezoneName": "Europe/Oslo",
-              "regularMarketPrice": 19.1,
-              "fiftyTwoWeekHigh": 31.75,
-              "fiftyTwoWeekLow": 12.34,
-              "regularMarketDayHigh": 19.8,
-              "regularMarketDayLow": 18.64,
-              "regularMarketVolume": 24201,
+              "regularMarketPrice": 19.9,
+              "regularMarketChangePercent": -1.485,
+              "fulldayPrice": 19.9,
+              "fulldayChange": -0.3,
+              "fulldayChangePercent": -1.485,
+              "fiftyTwoWeekHigh": 31.4,
+              "fiftyTwoWeekLow": 18.3,
+              "regularMarketDayHigh": 20.7,
+              "regularMarketDayLow": 20,
+              "regularMarketVolume": 19349,
               "longName": "ArcticZymes Technologies ASA",
               "shortName": "ARCTICZYMES TECHNOLOGIES",
               "chartPreviousClose": 4.75,
               "priceHint": 2,
               "currentTradingPeriod": {
                 "pre": {
-                  "timezone": "CET",
-                  "start": 1740038400,
-                  "end": 1740038400,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790924400,
+                  "start": 1790924400,
+                  "gmtoffset": 7200
                 },
                 "regular": {
-                  "timezone": "CET",
-                  "start": 1740038400,
-                  "end": 1740064800,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790950800,
+                  "start": 1790924400,
+                  "gmtoffset": 7200
                 },
                 "post": {
-                  "timezone": "CET",
-                  "start": 1740064800,
-                  "end": 1740064800,
-                  "gmtoffset": 3600
+                  "timezone": "CEST",
+                  "end": 1790950800,
+                  "start": 1790950800,
+                  "gmtoffset": 7200
                 }
               },
               "dataGranularity": "1d",
@@ -96,20 +100,20 @@
             "indicators": {
               "quote": [
                 {
-                  "low": [
-                    4.880000114440918
-                  ],
                   "open": [
                     4.940000057220459
                   ],
-                  "close": [
-                    4.989999771118164
+                  "low": [
+                    4.880000114440918
+                  ],
+                  "volume": [
+                    151382
                   ],
                   "high": [
                     5.360000133514404
                   ],
-                  "volume": [
-                    151382
+                  "close": [
+                    4.989999771118164
                   ]
                 }
               ],
