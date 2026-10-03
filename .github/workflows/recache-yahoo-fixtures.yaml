@@ -119,6 +119,10 @@ jobs:
           status=${PIPESTATUS[0]}
           set -e
 
+          # The runner prints a final aggregate even when a 429 aborts a file.
+          sed -n '/^### Yahoo recache request counts$/,$p' "$RUNNER_TEMP/recache-test.log" \
+            >> "$GITHUB_STEP_SUMMARY"
+
           if [[ "$SIMULATE_DRIFT" == "true" ]]; then
             fixture=""
             while IFS= read -r candidate; do
