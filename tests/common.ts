@@ -14,9 +14,6 @@ const FETCH_DEVEL_RECACHE = Deno.env.get("FETCH_DEVEL") === "recache";
 const FETCH_DEVEL_RECACHE_CONCURRENCY = Number(
   Deno.env.get("FETCH_DEVEL_RECACHE_CONCURRENCY") ?? 1,
 );
-const FETCH_DEVEL_RECACHE_INTERVAL = Number(
-  Deno.env.get("FETCH_DEVEL_RECACHE_INTERVAL") ?? 250,
-);
 
 function spyLogger(shouldLog = false) {
   return {
@@ -239,7 +236,8 @@ export function createTestYahooFinance<
     ? {
       queue: {
         concurrency: FETCH_DEVEL_RECACHE_CONCURRENCY,
-        interval: FETCH_DEVEL_RECACHE_INTERVAL,
+        // Pace actual network fetches in fetchCache, so replay remains fast.
+        interval: 0,
       },
     }
     : {};

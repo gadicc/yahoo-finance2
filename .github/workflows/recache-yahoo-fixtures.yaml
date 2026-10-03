@@ -104,20 +104,18 @@ jobs:
         if: steps.baseline.outputs.passed == 'true'
         shell: bash
         env:
-          # `--parallel` uses DENO_JOBS worker processes, and each process has
-          # its own in-memory queue. Keep the live Yahoo recache pass serial and
-          # add an intra-process interval so this job does not trip Yahoo's rate
-          # limits before it can produce useful fixture diffs.
-          DENO_JOBS: "1"
+          # The runner processes files sequentially and stops on the first 429.
+          # The cache's network fetch wrapper serializes all live requests
+          # within a file, including requests from separate library instances.
           FETCH_DEVEL: recache
           FETCH_DEVEL_RECACHE_CONCURRENCY: "1"
-          FETCH_DEVEL_RECACHE_INTERVAL: "1000"
+          FETCH_DEVEL_RECACHE_INTERVAL: "3000"
         run: |
           # In recache mode, failing tests are the signal we are looking for:
           # tests/common.ts rewrites only the cache files for tests that fail
           # against fresh Yahoo responses.
           set +e
-          deno task test 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
+          deno task test:recache 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
           status=${PIPESTATUS[0]}
           set -e
 
@@ -141,6 +139,27 @@ jobs:
           fi
 
           echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Reject rate-limited recache results
+        if: steps.baseline.outputs.passed == 'true'
+        shell: bash
+        run: |
+          # Check both logs and changed/new fixtures: a failed request may not
+          # have been written to cache, or its status may be absent from logs.
+          mapfile -d '' -t fixtures < <(
+            git ls-files -z --modified --others --exclude-standard -- 'tests/fixtures/http/*.json'
+          )
+          if ! deno run --allow-read="$RUNNER_TEMP/recache-test.log,tests/fixtures/http" \
+            scripts/check-recache-rate-limits.ts "$RUNNER_TEMP/recache-test.log" "${fixtures[@]}"; then
+            echo "::error::Recache validation failed; no fixtures will be committed or pushed."
+            {
+              echo "## Yahoo fixture recache aborted"
+              echo
+              echo "The rate-limit check failed. Inspect the log for HTTP 429 responses or unreadable fixtures."
+              echo "No fixtures were staged, committed, or pushed."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
 
       - name: Inspect recache results
         id: changes
