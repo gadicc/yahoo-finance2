@@ -76,7 +76,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          deno task test 2>&1 | tee "$RUNNER_TEMP/baseline-test.log"
+          deno task test:replay 2>&1 | tee "$RUNNER_TEMP/baseline-test.log"
           status=${PIPESTATUS[0]}
           set -e
 
