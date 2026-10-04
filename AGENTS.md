@@ -20,6 +20,9 @@ are most likely to need during edits.
 - Run the full test suite with `deno task test`.
 - Run `deno task test:replay` for a cache-only baseline that fails on missing
   fixtures and denies live network requests and fixture writes.
+- Run `FETCH_DEVEL=recache deno task test:recache` for a paced live batch after
+  an automatic replay-only baseline. It aborts on 429 without rolling back
+  earlier captures; generic getCrumb behavior tests remain replay-only.
 - Run a targeted test with `deno task test path/to/file.test.ts`.
 - Run serial tests with `deno task test:serial path/to/file.test.ts` when
   debugging or limiting live Yahoo request concurrency.

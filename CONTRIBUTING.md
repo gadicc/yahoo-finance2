@@ -100,9 +100,10 @@ fixture is deleted.
 
 Use `deno task test:replay` to verify a cache-only baseline. It sets
 fetch-mock-cache's native `FMC_CACHE_MODE=replay`, fails on missing fixtures,
-and denies network access and fixture writes. The recache workflow runs this
-baseline before requesting fresh responses. Normal development tests retain
-`auto` mode so new fixtures can still be recorded.
+and denies network access and fixture writes. It clears `FETCH_DEVEL`, including
+an inherited `recache` setting. Both the local recache runner and the workflow
+run this baseline before requesting fresh responses. Normal development tests
+retain `auto` mode so new fixtures can still be recorded.
 
 Set the environment variable `FETCH_DEVEL=nocache` to force-run all network
 tests without the cache. Set `FETCH_DEVEL=recache` to do the same, but also
@@ -124,14 +125,41 @@ decision about test coverage; it is not evidence that successful response fields
 are optional.
 
 Use `FETCH_DEVEL=recache deno task test:recache` for live recaching. This runner
-processes test files sequentially. The cache's network fetch wrapper serializes
-requests across library instances within each file, including cookie/crumb
-requests, with at least three seconds between request starts. Set
-`FETCH_DEVEL_RECACHE_INTERVAL` in milliseconds to change the delay. Cached
-responses remain immediate. A live HTTP 429 is rejected before writing a fixture
-and stops the run, even if the current test catches the error. The workflow also
-checks the log and changed/new fixtures before staging, committing, or pushing
-any fixture changes. Other test failures continue to capture response drift.
+first replays the selected tests with network access and fixture writes denied.
+If that baseline fails, no live recaching starts. It then processes test files
+sequentially. The cache's network fetch wrapper serializes requests across
+library instances within each file, including cookie/crumb requests, with at
+least three seconds between request starts. Set `FETCH_DEVEL_RECACHE_INTERVAL`
+in milliseconds to change the delay. Cached responses remain immediate. A live
+HTTP 429 is rejected before writing a fixture and stops the run, even if the
+current test catches the error. The workflow also checks the log and changed/new
+fixtures before staging, committing, or pushing any fixture changes. Other test
+failures continue to capture response drift.
+
+The abort diagnostics include the current test file, endpoint, observation time,
+`Retry-After` when supplied, and whether the request supplied a cookie header
+and User-Agent. They omit cookie values, crumbs, query strings, and response
+bodies. The runner does not automatically retry after a 429. Wait until any
+supplied `Retry-After` time has elapsed before considering another run; a new
+run does not reset Yahoo's limits.
+
+The runner reports fixture additions, updates, and removals since the live batch
+started. Earlier local edits are excluded from this report. It does not roll
+back fixtures after an abort: changes from earlier completed tests remain for
+review. The local runner never stages, commits, or pushes fixtures. To retain
+the complete output and preserve a failing exit status when using Bash:
+
+```bash
+set -o pipefail
+FETCH_DEVEL=recache deno task test:recache 2>&1 | tee /tmp/yahoo-recache.log
+```
+
+Generic getCrumb behavior tests always replay their recorded cookie/crumb
+values, including under `FETCH_DEVEL=recache`. Live module tests obtain a fresh
+matching cookie/crumb pair using the library's normal request headers. Use the
+dedicated country-profile capture command below to intentionally record
+authentication flows. The live session is shared within a test process, but not
+across the runner's separate test-file processes.
 
 Within each test file, identical successful Yahoo data GET requests reuse the
 fresh response in memory. Every test still executes its own assertions and
