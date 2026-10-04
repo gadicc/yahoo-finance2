@@ -15,6 +15,24 @@ function copyResponse(capture: CapturedResponse): Response {
   return new Response(capture.body?.slice() ?? null, capture);
 }
 
+/** Only log a parsed delay/date, never arbitrary header text or session values. */
+function retryAfterDescription(value: string | null): string {
+  if (value === null) return "not supplied";
+  if (/^\d+$/.test(value) && Number.isSafeInteger(Number(value))) {
+    return `${Number(value)} seconds`;
+  }
+  // HTTP-date uses this format; reject other text rather than reflecting it.
+  if (
+    /^[A-Z][a-z]{2}, \d{2} [A-Z][a-z]{2} \d{4} \d{2}:\d{2}:\d{2} GMT$/.test(
+      value,
+    )
+  ) {
+    const time = Date.parse(value);
+    if (Number.isFinite(time)) return new Date(time).toISOString();
+  }
+  return "unrecognized value (omitted)";
+}
+
 /** Auth/consent requests and POSTs must exercise their own state transitions. */
 function canReuse(request: Request, url: URL): boolean {
   return request.method === "GET" &&
@@ -111,7 +129,20 @@ export function createRecacheFetch(
         (counts.statuses[response.status] ?? 0) + 1;
       if (response.status === 429) {
         rateLimit = new Error(
-          "Yahoo recache aborted after HTTP 429 Too Many Requests",
+          [
+            "Yahoo recache aborted after HTTP 429 Too Many Requests",
+            `Endpoint: ${endpoint}`,
+            `Observed at: ${new Date(clock.now()).toISOString()}`,
+            `Retry-After: ${
+              retryAfterDescription(response.headers.get("retry-after"))
+            }; no automatic retry.`,
+            `Request cookie header: ${
+              effective.headers.has("cookie") ? "present" : "absent"
+            }`,
+            `Explicit User-Agent: ${
+              effective.headers.has("user-agent") ? "present" : "absent"
+            }`,
+          ].join("\n"),
         );
         // Print even if a test catches the error: the parent stops the whole run.
         report(rateLimit);

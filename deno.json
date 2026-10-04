@@ -15,7 +15,7 @@
     "release:check-notes": "node scripts/check-release-notes.mjs",
     "test": "deno test --no-prompt -P=test --parallel --ignore=tests/cloudflare",
     "test:serial": "deno test --no-prompt -P=test --ignore=tests/cloudflare",
-    "test:replay": "FMC_CACHE_MODE=replay deno task test --deny-net --deny-write",
+    "test:replay": "FETCH_DEVEL= FMC_CACHE_MODE=replay deno task test --deny-net --deny-write",
     "test:recache": "deno run --allow-read --allow-env --allow-run scripts/recache-tests.ts",
     "fixtures:capture:getcrumb": "deno run -A scripts/capture-get-crumb-fixtures.ts",
     "test:cloudflare": "deno task build:npm && npm ci --prefix tests/cloudflare && npm test --prefix tests/cloudflare",

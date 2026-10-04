@@ -1,5 +1,6 @@
 import { walk } from "@std/fs/walk";
 import { hasRateLimitLog } from "./check-recache-rate-limits.ts";
+import { fixtureChanges, snapshotFixtures } from "./recache-fixtures.ts";
 import {
   formatRecacheStats,
   mergeRecacheStats,
@@ -60,10 +61,38 @@ if (import.meta.main) {
     files.sort();
   }
 
+  console.log("### Yahoo recache replay-only baseline");
+  const baseline = await new Deno.Command(Deno.execPath(), {
+    args: [
+      "test",
+      "--no-prompt",
+      "-P=test",
+      "--parallel",
+      "--deny-net",
+      "--deny-write",
+      ...files,
+    ],
+    // Explicit per-test recache options override FMC_CACHE_MODE, so clear the
+    // recache control in this child without changing the parent's live mode.
+    env: { FETCH_DEVEL: "", FMC_CACHE_MODE: "replay" },
+    stdout: "inherit",
+    stderr: "inherit",
+  }).spawn().status;
+  if (!baseline.success) {
+    console.error(
+      "Recache ABORTED: replay-only baseline failed; live recaching did not start. Exit status: 1.",
+    );
+    Deno.exit(1);
+  }
+
+  const before = await snapshotFixtures();
   let failed = false;
   let rateLimited = false;
+  let currentFile: string | undefined;
   const snapshots = new Map<string, RecacheEndpointStats[]>();
   for (const [index, file] of files.entries()) {
+    currentFile = file;
+    console.log(`\n### Recaching ${file}`);
     // Each test file has its own runtime. Keep spacing across file boundaries,
     // as well as the network fetch wrapper's shared spacing within each file.
     if (index > 0 && interval > 0) {
@@ -106,5 +135,16 @@ if (import.meta.main) {
     if (rateLimited) break;
   }
   console.log(formatRecacheStats(mergeRecacheStats(snapshots.values())));
+  if (rateLimited) {
+    console.error(
+      `Recache ABORTED: HTTP 429 in ${currentFile}; no further test files started. Exit status: 1.`,
+    );
+  }
+  const changes = fixtureChanges(before, await snapshotFixtures());
+  console.log(`\nFixture changes since this run started: ${changes.length}.`);
+  for (const change of changes) console.log(`- ${change}`);
+  console.log(
+    "Fixture changes remain on disk for review; no rollback, staging, commit, or push was performed.",
+  );
   Deno.exit(failed || rateLimited ? 1 : 0);
 }

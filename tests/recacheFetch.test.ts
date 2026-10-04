@@ -265,6 +265,47 @@ Deno.test("recache fetch latches rate limits before queued requests run", async 
   expect(reports).toHaveLength(1);
 });
 
+Deno.test("rate-limit diagnostics report safe retry guidance without credentials", async () => {
+  for (
+    const [value, expected] of [
+      ["120", "120 seconds"],
+      ["Sun, 04 Oct 2026 12:00:00 GMT", "2026-10-04T12:00:00.000Z"],
+      [undefined, "not supplied"],
+      ["secret-crumb", "unrecognized value (omitted)"],
+    ]
+  ) {
+    const reports: Error[] = [];
+    const fetch = createRecacheFetch(
+      () =>
+        Promise.resolve(
+          new Response("secret-response-body", {
+            status: 429,
+            headers: {
+              ...(value ? { "retry-after": value } : {}),
+              "set-cookie": "A3=secret-response-cookie",
+            },
+          }),
+        ),
+      0,
+      fakeClock(),
+      (error) => reports.push(error),
+    );
+    await expect(fetch(
+      "https://query1.finance.yahoo.com/v1/test/getcrumb?crumb=secret-query",
+      { headers: { cookie: "A3=secret-cookie", "user-agent": "secret-agent" } },
+    )).rejects.toThrow("recache aborted");
+    const message = reports[0].message;
+    expect(message).toContain(
+      "Endpoint: query1.finance.yahoo.com/v1/test/getcrumb",
+    );
+    expect(message).toContain(`Retry-After: ${expected}; no automatic retry.`);
+    expect(message).toContain("Request cookie header: present");
+    expect(message).toContain("Explicit User-Agent: present");
+    expect(message).not.toContain("secret-");
+    expect(fetch.getStats()[0].requests).toBe(1);
+  }
+});
+
 Deno.test("recache fetch can continue after an ordinary network failure", async () => {
   let calls = 0;
   const fetch = createRecacheFetch(
