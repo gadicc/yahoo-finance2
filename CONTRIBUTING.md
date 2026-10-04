@@ -243,6 +243,34 @@ harness dependencies or need to regenerate its lockfile, use
 `deno task lock:cloudflare`; it pins lockfile generation to the npm behavior CI
 expects.
 
+### Dependency upgrades
+
+Baseline cached tests, open dependency PRs, and security alerts before
+upgrading. Use compatible patch and minor upgrades by default; review major
+upgrades and minor upgrades of `0.x` packages explicitly. Group packages that
+must work together, update their manifests and lockfiles in the same commit, and
+inspect transitive changes for security fixes. Keep the Node minimum supported
+by CI.
+
+After upgrades, run the full cached suite, type checks, schema checks, lint and
+format checks. Changes to npm build tooling or runtime dependencies also need
+the generated npm build and Cloudflare tests. Release tooling needs
+`deno task release:check-notes`. Keep the conventional-commits preset below v10
+until the writer compatibility issue documented in `renovate.json` is resolved.
+Check CI and automatic closure of superseded dependency PRs and alerts after
+pushing; do not dismiss alerts to make the result look clean.
+
+The Cloudflare harness temporarily overrides Miniflare's Sharp and Undici
+dependencies with patched versions in the same release lines. Remove these
+overrides when the Workers pool and its pinned Miniflare versions include the
+fixes. Check `npm audit --prefix tests/cloudflare` when changing this graph.
+
+`deno audit` currently reports one unpatched advisory,
+[GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm), in
+`braces@3.0.3` through semantic-release and its commit analyzer. It affects
+deeply nested glob patterns in release tooling. Keep the advisory visible and
+recheck for an upstream fix on subsequent upgrades.
+
 <a name="linting"></a>
 
 ### Linting, formatting
