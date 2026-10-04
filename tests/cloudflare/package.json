@@ -10,9 +10,15 @@
     "yahoo-finance2": "file:../../npm"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.20.3",
-    "tldts": "^7.4.10",
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "tldts": "^7.4.16",
     "tough-cookie": "^6.0.2",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "miniflare": {
+      "sharp": "~0.35.5",
+      "undici": "~7.30.0"
+    }
   }
 }
