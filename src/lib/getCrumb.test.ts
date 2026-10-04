@@ -15,7 +15,9 @@ import type Notices from "./notices.ts";
 describe("getCrumb", () => {
   setupCache();
   const cookieJar = new ExtendedCookieJar();
-  const fetch = fetchDevel();
+  // These behavior tests assert recorded session values. Fresh authentication
+  // is exercised by live module requests and the dedicated profile capture tool.
+  const fetch = fetchDevel({ mode: "replay" });
   const logger = spyLogger();
 
   describe("_getCrumb", () => {
