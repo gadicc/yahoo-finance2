@@ -1,5 +1,15 @@
 import { recacheEndpoint, type RecacheEndpointStats } from "./recacheStats.ts";
 
+// Capture real timing before behavior tests install FakeTime. Advancing a fake
+// debounce clock must neither accelerate Yahoo requests nor stall their pacing.
+const realNow = Date.now.bind(Date);
+const realSetTimeout = globalThis.setTimeout.bind(globalThis);
+const realClock = {
+  now: realNow,
+  sleep: (ms: number) =>
+    new Promise<void>((resolve) => realSetTimeout(resolve, ms)),
+};
+
 type RecacheFetch = typeof globalThis.fetch & {
   getStats(): RecacheEndpointStats[];
 };
@@ -68,11 +78,7 @@ async function requestKey(request: Request, url: URL): Promise<string> {
 export function createRecacheFetch(
   fetch: typeof globalThis.fetch,
   interval: number,
-  clock = {
-    now: () => Date.now(),
-    sleep: (ms: number) =>
-      new Promise<void>((resolve) => setTimeout(resolve, ms)),
-  },
+  clock = realClock,
   report: (error: Error) => void = (error) => console.error(error.message),
 ): RecacheFetch {
   if (!Number.isFinite(interval) || interval < 0) {

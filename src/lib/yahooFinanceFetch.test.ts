@@ -189,6 +189,9 @@ describe("yahooFinanceFetch", () => {
       const fetch = makeFetch();
       const yahooFinance = new YahooFinance({
         fetch: fetch as typeof globalThis.fetch,
+        // This mock test resolves three concurrent calls. Do not inherit the
+        // serial queue used to limit live recache requests.
+        queue: { concurrency: 3 },
       });
       const url = "http://example.com";
       const promises = [

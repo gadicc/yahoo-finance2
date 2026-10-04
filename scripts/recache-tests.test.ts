@@ -167,6 +167,101 @@ Deno.test({
         stderr: "piped",
       }).output();
       expect(replayAuth.code).toBe(0);
+
+      // Exercise recache's actual queue and pacing controls without contacting
+      // Yahoo: serve native fetch responses from existing fixtures, while the
+      // cache still bypasses reads and quoteCombine still uses FakeTime.
+      const preload = dir + "/offline-fetch.ts";
+      await Deno.writeTextFile(
+        preload,
+        `
+        globalThis.fetch = async (_input, init) => {
+          const id = (init as (RequestInit & { devel?: { id?: string } }) | undefined)?.devel?.id;
+          if (typeof id !== "string" || !/^[a-zA-Z0-9_.-]+$/.test(id)) {
+            throw new Error("Offline recache fetch requires a fixture id");
+          }
+          const fixture = JSON.parse(await Deno.readTextFile(
+            "tests/fixtures/http/" + id.replace(/\\.json$/, "") + ".json",
+          ));
+          const response = fixture.response;
+          const headers = new Headers();
+          for (const [key, value] of Object.entries(response.headers ?? {})) {
+            for (const item of Array.isArray(value) ? value : [value]) headers.append(key, String(item));
+          }
+          const body = response.bodyJson !== undefined
+            ? JSON.stringify(response.bodyJson) : response.bodyText;
+          if (body === undefined) throw new Error("Unsupported offline fixture body");
+          return new Response(body, { status: response.status, headers });
+        };
+      `,
+      );
+      const paced = await new Deno.Command(Deno.execPath(), {
+        args: [
+          "task",
+          "test",
+          "--preload=" + preload,
+          "--deny-net",
+          "--deny-write",
+          "src/lib/yahooFinanceFetch.test.ts",
+          "src/other/quoteCombine.test.ts",
+        ],
+        env: {
+          FETCH_DEVEL: "recache",
+          FETCH_DEVEL_RECACHE_CONCURRENCY: "1",
+          FETCH_DEVEL_RECACHE_INTERVAL: "20",
+          FMC_CACHE_MODE: "auto",
+        },
+        stdout: "piped",
+        stderr: "piped",
+      }).output();
+      const pacedOutput = new TextDecoder().decode(paced.stdout) +
+        new TextDecoder().decode(paced.stderr);
+      expect(pacedOutput).toContain("YF_RECACHE_STATS");
+      expect(pacedOutput).toContain('"requests":');
+      expect(paced.code, pacedOutput).toBe(0);
+
+      await Deno.writeTextFile(
+        preload,
+        `
+        globalThis.fetch = () => Promise.resolve(new Response("limited", { status: 429 }));
+      `,
+      );
+      await Deno.writeTextFile(
+        first,
+        `
+        import fetchCache from ${JSON.stringify(cache)};
+        Deno.test("caught rate limit with stubbed console", async () => {
+          const originalConsole = globalThis.console;
+          globalThis.console = { ...originalConsole, log() {}, error() {} };
+          try {
+            fetchCache.once({ id: "offline-limit", mode: "record", writeCache: false });
+            await fetchCache("https://query1.finance.yahoo.com/v1/test/getcrumb", {}).catch(() => {});
+          } finally {
+            globalThis.console = originalConsole;
+          }
+        });
+      `,
+      );
+      const hidden = await new Deno.Command(Deno.execPath(), {
+        args: [
+          "task",
+          "test",
+          "--preload=" + preload,
+          "--deny-net",
+          "--deny-write",
+          first,
+        ],
+        env: { FETCH_DEVEL: "recache", FMC_CACHE_MODE: "auto" },
+        stdout: "piped",
+        stderr: "piped",
+      }).output();
+      expect(hidden.code).toBe(0);
+      const hiddenOutput = new TextDecoder().decode(hidden.stdout) +
+        new TextDecoder().decode(hidden.stderr);
+      expect(hiddenOutput).toContain(
+        "Yahoo recache aborted after HTTP 429 Too Many Requests",
+      );
+      expect(hiddenOutput).toContain('"429":1');
     } finally {
       await Deno.remove(dir, { recursive: true });
     }

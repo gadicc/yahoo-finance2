@@ -12,6 +12,10 @@ import { createRecacheFetch } from "./recacheFetch.ts";
 import { RECACHE_STATS_PREFIX } from "./recacheStats.ts";
 
 const originalFetch = globalThis.fetch;
+// Behavior tests may stub console. The parent must still see counters and the
+// fatal rate-limit marker, even if the current test catches the fetch error.
+const recacheLog = console.log.bind(console);
+const recacheError = console.error.bind(console);
 const recaching = Deno.env.get("FETCH_DEVEL") === "recache";
 const recacheFetch = recaching
   ? createRecacheFetch(
@@ -21,14 +25,14 @@ const recacheFetch = recaching
     (error) => {
       // Emit counters before the abort signal so SIGKILL cannot lose this file.
       reportRecacheStats();
-      console.error(error.message);
+      recacheError(error.message);
     },
   )
   : undefined;
 
 function reportRecacheStats() {
   if (recacheFetch) {
-    console.log(RECACHE_STATS_PREFIX + JSON.stringify(recacheFetch.getStats()));
+    recacheLog(RECACHE_STATS_PREFIX + JSON.stringify(recacheFetch.getStats()));
   }
 }
 

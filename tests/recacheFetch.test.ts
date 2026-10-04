@@ -1,6 +1,7 @@
 import { expect } from "@std/expect";
 import createFetchCache from "@gadicc/fetch-mock-cache/runtimes/deno.ts";
 import MemoryStore from "@gadicc/fetch-mock-cache/stores/memory.ts";
+import { FakeTime } from "@std/testing/time";
 import { createRecacheFetch } from "./recacheFetch.ts";
 
 function fakeClock() {
@@ -44,6 +45,24 @@ Deno.test("recache fetch serializes and spaces requests across callers", async (
   await Promise.all(requests);
   expect(starts).toEqual([0, 3000]);
   expect(clock.delays).toEqual([3000]);
+});
+
+Deno.test("recache pacing progresses while test debounce timers are fake", async () => {
+  const fakeTime = new FakeTime("2000-01-01T00:00:00Z");
+  try {
+    const testTime = Date.now();
+    let calls = 0;
+    const fetch = createRecacheFetch(() => {
+      calls++;
+      return Promise.resolve(new Response());
+    }, 20);
+    await fetch("https://example.com/first");
+    await fetch("https://example.com/second");
+    expect(calls).toBe(2);
+    expect(Date.now()).toBe(testTime);
+  } finally {
+    fakeTime.restore();
+  }
 });
 
 Deno.test("recache reuses concurrent data requests with independent response bodies", async () => {
