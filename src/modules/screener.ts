@@ -608,6 +608,10 @@ export interface ScreenerQuote {
   tradeable: boolean;
   cryptoTradeable: boolean;
   exchange: string;
+  /** Previous exchange identifier reported by Yahoo. */
+  prevExchange?: string;
+  /** Exchange transfer date reported by Yahoo, as a YYYY-MM-DD string. */
+  exchangeTransferDate?: string;
   fiftyTwoWeekLow: number;
   fiftyTwoWeekHigh: number;
   shortName?: string;
