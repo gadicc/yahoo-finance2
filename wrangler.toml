@@ -1,0 +1,46 @@
+# Cloudflare Workers Configuration
+#
+# This configuration deploys the fundamental analysis API to Cloudflare Workers.
+#
+# To deploy:
+#   npm install -g wrangler
+#   wrangler login
+#   wrangler deploy
+
+name = "stock-fundamental-analysis"
+main = "examples/cloudflare-worker.ts"
+compatibility_date = "2024-01-01"
+
+# Account details (update these with your Cloudflare account info)
+# account_id = "your-account-id"  # Get this from Cloudflare dashboard
+# workers_dev = true  # Set to false if using a custom domain
+
+# Memory limits
+# limits = { cpu_ms = 50 }
+
+# Custom routes (optional - for custom domains)
+# routes = [
+#   { pattern = "api.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# Environment variables (optional)
+# [env.production]
+# name = "stock-fundamental-analysis-prod"
+
+# [env.staging]
+# name = "stock-fundamental-analysis-staging"
+
+# Compatibility flags for Deno/Node.js compatibility
+[build]
+command = ""
+
+# For better performance, enable these compatibility flags
+compatibility_flags = []
+
+# CORS headers (optional - uncomment if needed)
+# [site]
+# bucket = ""
+
+# Observability (optional)
+# [observability]
+# enabled = true
