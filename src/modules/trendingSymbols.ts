@@ -106,6 +106,8 @@ export interface TrendingSymbolsResult {
 
   /** Start interval for the trending period */
   startInterval: number;
+
+  keyVersion?: "v2";
 }
 
 /**
