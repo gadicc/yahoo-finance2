@@ -21,9 +21,10 @@ until `SCHEMA_REPAIR_ENABLED` is set to `true`.
    [OpenAI Projects](https://platform.openai.com/settings/organization/projects).
    Use a dedicated project (for example `yahoo-finance2-schema-repair`) and
    create a service account named `github-schema-repair`. Give it model
-   request/read access only. Do not save a service-account API key in GitHub;
-   this workflow uses federation. Project and service-account names are labels;
-   authentication uses IDs. An existing project does not need to be renamed.
+   Responses request access only. Do not save a service-account API key in
+   GitHub; this workflow uses federation. Project and service-account names are
+   labels; authentication uses IDs. An existing project does not need to be
+   renamed.
 2. Set a project hard monthly spend limit and a lower spend alert. A reasonable
    initial limit is $20/month with a $10 alert; adjust after observing usage.
    Spend alerts alone do not stop requests, and hard-limit enforcement can have
@@ -55,8 +56,15 @@ until `SCHEMA_REPAIR_ENABLED` is set to `true`.
    | `workflow_ref`        | `gadicc/yahoo-finance2/.github/workflows/recache-yahoo-fixtures.yaml@refs/heads/dev` |
    | `sub`                 | `repo:gadicc/yahoo-finance2:environment:schema-repair`                               |
 
-   Limit mapping permissions to `api.model.request` and `api.model.read`. Copy
-   the provider ID and service-account ID; these IDs are not secrets. See the
+   In the permissions UI, enable **Responses (`/v1/responses`)** with
+   **Write/Request** access, using the label offered by the dashboard. Leave
+   other model capabilities disabled. The documented `api.model.request` scope
+   covers model requests; `api.model.read` means **List models (`/v1/models`)**,
+   which this workflow does not need because the model is configured explicitly.
+   See
+   [OpenAI permission definitions](https://developers.openai.com/api/docs/guides/rbac).
+   Copy the provider ID and service-account ID; these IDs are not secrets. See
+   the
    [official GitHub WIF setup](https://developers.openai.com/api/docs/guides/workload-identity-federation/github-actions).
 
 ## GitHub configuration
@@ -115,6 +123,10 @@ untouched. Disabling `SCHEMA_REPAIR_ENABLED` stops automatic repair runs;
 disabling the OpenAI mapping prevents new federated exchanges.
 
 ## Isolation and verification
+
+The [security architecture](../.github/workflows/schema-repair-security.md),
+stored beside the workflow, explains each boundary, its rationale, and its
+limits. The main boundaries are:
 
 - The repair job has read-only repository access and OIDC issuance permission.
   It uses a fresh checkout of the trusted workflow commit and a separate
