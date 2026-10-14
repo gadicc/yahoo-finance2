@@ -270,7 +270,8 @@ For information on how to turn off the above logging or skip these errors, see h
 
 The "Help Fix Validation Errors" section also explains how to contribute a schema fix.
 `);
-      if (versionCheck) {
+      // Development builds use a placeholder version that is never current.
+      if (versionCheck && pkg.version !== "0.0.1") {
         execVersionCheck().then((result) => {
           if (!result.isLatest) {
             logger.info(

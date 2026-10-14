@@ -1,4 +1,7 @@
 import { describe, expect, it, spyLogger } from "../../tests/common.ts";
+import { stub } from "@std/testing/mock";
+import pkg from "../../deno.json" with { type: "json" };
+import { _clearCache } from "./versions.ts";
 
 import validateAndCoerceTypes from "./validateAndCoerceTypes.ts";
 import type { ValidateParams } from "./validateAndCoerceTypes.ts";
@@ -365,6 +368,48 @@ describe("validateAndCoerceTypes", () => {
         // expect(logger.error).toHaveBeenCalled();
         expect(logger.error.calls.length).toBeGreaterThan(0);
       });
+
+      it.each(["0.0.1", "3.0.0"])(
+        "checks the registry only for published version '%s'",
+        async (version) => {
+          const originalVersion = pkg.version;
+          const logger = spyLogger();
+          using fetch = stub(
+            globalThis,
+            "fetch",
+            () => Promise.resolve(Response.json({ version: "3.1.0" })),
+          );
+          _clearCache();
+          pkg.version = version;
+
+          try {
+            expect(() =>
+              validateAndCoerceTypes({
+                ...defLogParams,
+                object: { requiredRequired: {} },
+                logger,
+                logObj: logger.dir,
+                versionCheck: true,
+              })
+            ).toThrow("Failed Yahoo Schema validation");
+
+            // Let the asynchronous version-check logging finish.
+            await new Promise((resolve) => setTimeout(resolve, 0));
+
+            const isDevelopment = version === "0.0.1";
+            expect(fetch.calls.length).toBe(isDevelopment ? 0 : 1);
+            expect(logger.info.calls.length).toBe(isDevelopment ? 0 : 1);
+            if (!isDevelopment) {
+              expect(logger.info.calls[0].args[0]).toMatch(
+                /version out of date: 3\.0\.0 < 3\.1\.0/,
+              );
+            }
+          } finally {
+            pkg.version = originalVersion;
+            _clearCache();
+          }
+        },
+      );
 
       it("does not log errors when logErrors=false", () => {
         const logger = spyLogger();
