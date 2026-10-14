@@ -30,6 +30,11 @@ until `SCHEMA_REPAIR_ENABLED` is set to `true`.
    Spend alerts alone do not stop requests, and hard-limit enforcement can have
    a short delay. See
    [OpenAI spend controls](https://developers.openai.com/api/docs/guides/spend-limits).
+   The cap does not fund API usage. Check the organization's
+   [API billing](https://platform.openai.com/settings/organization/billing/overview)
+   and [limits](https://platform.openai.com/settings/organization/limits) for
+   available credits/payment setup and usage limits. A successful federation
+   exchange alone does not verify billing or model-request permissions.
 3. Open
    [Workload Identity Providers](https://platform.openai.com/settings/organization/security/workload-identity-provider)
    and create a provider with these settings:
@@ -79,12 +84,12 @@ At
 [Actions variables](https://github.com/gadicc/yahoo-finance2/settings/variables/actions),
 set:
 
-| Variable                      | Value                                                                |
-| ----------------------------- | -------------------------------------------------------------------- |
-| `OPENAI_IDENTITY_PROVIDER_ID` | The OpenAI provider ID                                               |
-| `OPENAI_SERVICE_ACCOUNT_ID`   | The OpenAI service-account ID                                        |
-| `SCHEMA_REPAIR_ENABLED`       | Leave `false` until the authentication check passes; then set `true` |
-| `SCHEMA_REPAIR_MODEL`         | Optional; defaults to `gpt-6.1-sol`                                  |
+| Variable                      | Value                                                                          |
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| `OPENAI_IDENTITY_PROVIDER_ID` | The OpenAI provider ID                                                         |
+| `OPENAI_SERVICE_ACCOUNT_ID`   | The OpenAI service-account ID                                                  |
+| `SCHEMA_REPAIR_ENABLED`       | Leave `false` until authentication and the model dry run pass; then set `true` |
+| `SCHEMA_REPAIR_MODEL`         | Optional; defaults to `gpt-6.1-sol`                                            |
 
 No `OPENAI_API_KEY` secret is needed. The model must be available to the
 project. The proxy restricts requests to that exact configured model and the
@@ -112,11 +117,13 @@ select **Run workflow** on `dev`, and use:
 
 This validates federation without invoking the model, recaching Yahoo, pushing,
 or opening a PR. The successful federation step reports that the proxy is ready.
-Manual `repair_only` runs work even while automatic repairs are disabled. Set
-`SCHEMA_REPAIR_ENABLED=true` after this check succeeds. Repeat with
-`auth_only=false` to test the agent and independent verifier against the
+Manual `repair_only` runs work even while automatic repairs are disabled. Repeat
+with `auth_only=false` to test the agent and independent verifier against the
 already-fixed historical drift. Leave `dry_run=true`: historical commits are
-suitable for smoke testing, not publication.
+suitable for smoke testing, not publication. Set `SCHEMA_REPAIR_ENABLED=true`
+only after both checks succeed. If the model reports a quota error, resolve API
+billing/credits or the applicable spend/usage limit before retrying; leave
+automatic repair disabled while resolving it.
 
 For a current unresolved fixture-drift commit, use its full SHA and tracking
 issue number. Set `dry_run=false` to publish after verification. The publisher
