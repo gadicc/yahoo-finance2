@@ -31,6 +31,26 @@ schemas in edits: the independent verifier regenerates them. The response must
 fit within 256 KiB. Summary and evidence should explain the change, fixture
 status/payload inspection, optionality, and focused/full replay results.
 
+End the summary with a short "Maintainer advice:" paragraph, with only the
+recommended action in bold. Base it on the observed drift and documented
+validation behavior, not simply on whether a field is optional:
+
+- For newly added result fields that existing releases accept with default
+  validation: "Maintainer advice: **include in the next planned release**.
+  Existing releases accept these new fields by default; strict-validation users
+  are affected."
+- When fixtures demonstrate a failure with default result validation (for
+  example, a changed known field type or an omitted required field): "Maintainer
+  advice: **merge to main when ready**. This fixes validation failures affecting
+  existing users."
+- If default-validation impact is uncertain: "Maintainer advice: **review user
+  impact before releasing**. Default-validation impact is not yet confirmed."
+
+Explain evidence for the chosen advice in evidence. Do not claim all users are
+unaffected: users can opt into strict validation with allowAdditionalProps:
+false. This paragraph appears in the generated PR description; it does not
+authorize a merge or release.
+
 If anything requires runtime code, tests, fixtures, alias changes, unsupported
 type syntax, or the full suite still fails, return status blocked with no edits
 and explain the evidence and proposed manual action. Never bypass validation.

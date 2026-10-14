@@ -4,6 +4,13 @@ The daily recache workflow can propose a draft repair PR after it records
 response drift and opens a tracking issue. Repairs target `dev`. Publication and
 merging remain separate manual decisions.
 
+Each repair PR includes concise maintainer advice with a bold recommended
+action. Newly added fields accepted by default validation can wait for the next
+planned release; repairs to failures affecting default validation recommend
+merging to `main` when ready. The advice cites fixture evidence and accounts for
+users who opt into strict validation. See
+[additional result properties](./validation.md#note-additional-props).
+
 Authentication uses GitHub OIDC and OpenAI Workload Identity Federation (WIF).
 There is no long-lived OpenAI key in GitHub. Automatic repair stays disabled
 until `SCHEMA_REPAIR_ENABLED` is set to `true`.
