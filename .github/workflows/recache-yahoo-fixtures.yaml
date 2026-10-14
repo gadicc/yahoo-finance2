@@ -17,6 +17,22 @@ on:
         required: false
         default: false
         type: boolean
+      repair_only:
+        description: Replay a recorded drift commit through the repair pipeline without live recaching
+        default: false
+        type: boolean
+      drift_commit:
+        description: Full fixture-drift commit SHA (repair_only)
+        default: ""
+        type: string
+      issue_number:
+        description: Tracking issue number (repair_only)
+        default: 0
+        type: number
+      auth_only:
+        description: Test federation configuration without invoking the model (use repair_only)
+        default: false
+        type: boolean
 
 concurrency:
   group: yahoo-fixtures-recache-dev
@@ -35,13 +51,19 @@ concurrency:
 # Direct pushes to dev also require branch protection/settings to allow this
 # workflow token to push.
 permissions:
-  contents: write
-  issues: write
+  contents: read
 
 jobs:
   recache:
+    if: ${{ !inputs.repair_only }}
     name: Re-cache Yahoo fixtures
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    outputs:
+      drift_sha: ${{ steps.commit.outputs.sha }}
+      issue_number: ${{ steps.issue.outputs.number }}
     env:
       DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
       SIMULATE_DRIFT: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && inputs.simulate_drift }}
@@ -373,6 +395,7 @@ jobs:
 
           issue_url="$(gh issue create --title "$ISSUE_TITLE" --body-file "$issue_body")"
           echo "url=$issue_url" >> "$GITHUB_OUTPUT"
+          echo "number=${issue_url##*/}" >> "$GITHUB_OUTPUT"
 
           {
             echo
@@ -393,3 +416,225 @@ jobs:
             echo "${{ steps.changes.outputs.commit_subject }}"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+  repair:
+    name: Propose schema repair
+    needs: recache
+    if: >-
+      always() && !cancelled() && github.ref == 'refs/heads/dev' &&
+      ((vars.SCHEMA_REPAIR_ENABLED == 'true' && needs.recache.result == 'success' && needs.recache.outputs.drift_sha != '') ||
+       (github.event_name == 'workflow_dispatch' && inputs.repair_only))
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: schema-repair
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      proposal: ${{ steps.codex.outputs.final-message }}
+      base: ${{ steps.prepare.outputs.base }}
+      issue: ${{ steps.prepare.outputs.issue }}
+    env:
+      REPAIR_BASE: ${{ inputs.repair_only && inputs.drift_commit || needs.recache.outputs.drift_sha }}
+      REPAIR_ISSUE: ${{ inputs.repair_only && inputs.issue_number || needs.recache.outputs.issue_number }}
+      SCHEMA_REPAIR_MODEL: ${{ vars.SCHEMA_REPAIR_MODEL || 'gpt-6.1-sol' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.workflow_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
+        with:
+          deno-version: 2.9.7
+          cache: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: 22
+          package-manager-cache: false
+
+      - name: Validate trusted inputs and prepare isolated checkout
+        id: prepare
+        shell: bash
+        run: |
+          [[ "$REPAIR_BASE" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$REPAIR_ISSUE" =~ ^[1-9][0-9]*$ ]]
+          git merge-base --is-ancestor "$REPAIR_BASE" origin/dev
+          # Accept only a recorded fixture-drift commit, never a fork or arbitrary code.
+          git diff-tree --no-commit-id --name-only -r "$REPAIR_BASE" > "$RUNNER_TEMP/drift-files.txt"
+          [[ -s "$RUNNER_TEMP/drift-files.txt" ]]
+          while IFS= read -r file; do
+            [[ "$file" =~ ^tests/fixtures/http/[A-Za-z0-9_.^=-]+\.json$ ]]
+            [[ ! "$file" =~ \.(static|fake)\.json$ ]]
+          done < "$RUNNER_TEMP/drift-files.txt"
+          git worktree add --detach candidate "$REPAIR_BASE"
+          deno install --frozen
+          (cd candidate && deno install --frozen)
+          echo "base=$REPAIR_BASE" >> "$GITHUB_OUTPUT"
+          echo "issue=$REPAIR_ISSUE" >> "$GITHUB_OUTPUT"
+
+      - name: Start credential-renewing federation proxy
+        id: federation
+        env:
+          OPENAI_IDENTITY_PROVIDER_ID: ${{ vars.OPENAI_IDENTITY_PROVIDER_ID }}
+          OPENAI_SERVICE_ACCOUNT_ID: ${{ vars.OPENAI_SERVICE_ACCOUNT_ID }}
+        shell: bash
+        run: |
+          # The root-owned process receives OIDC request credentials via stdin.
+          # Codex loses sudo before it starts and receives only a local proxy credential.
+          sudo install -d -m 700 "$RUNNER_TEMP/openai-wif"
+          sudo install -m 600 scripts/openai-wif-proxy.mjs "$RUNNER_TEMP/openai-wif/proxy.mjs"
+          node scripts/start-openai-wif-proxy.mjs "$RUNNER_TEMP/openai-wif/proxy.mjs"
+
+      # Keep Codex last: none of its runner/filesystem mutations are carried onward.
+      - name: Repair with Codex
+        id: codex
+        if: ${{ !inputs.auth_only }}
+        uses: openai/codex-action@bdf19a4a223ec2549a3e2274a0cf61556bc07675 # v1
+        timeout-minutes: 20
+        env:
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: ""
+          ACTIONS_ID_TOKEN_REQUEST_URL: ""
+        with:
+          codex-version: 0.162.1
+          openai-api-key: ${{ steps.federation.outputs.gateway-token }}
+          responses-api-endpoint: ${{ steps.federation.outputs.endpoint }}
+          working-directory: candidate
+          prompt-file: .github/codex/schema-repair.md
+          output-schema-file: .github/codex/schema-repair-output.json
+          model: ${{ env.SCHEMA_REPAIR_MODEL }}
+          effort: high
+          safety-strategy: drop-sudo
+          sandbox: workspace-write
+
+  verify-repair:
+    name: Verify schema repair without credentials
+    needs: repair
+    if: ${{ needs.repair.outputs.proposal != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    outputs:
+      ready: ${{ steps.apply.outputs.ready }}
+    env:
+      REPAIR_BASE: ${{ needs.repair.outputs.base }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.workflow_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
+        with:
+          deno-version: 2.9.7
+          cache: false
+      - name: Prepare verifier
+        run: |
+          deno install --frozen
+          git worktree add --detach candidate "$REPAIR_BASE"
+          (cd candidate && deno install --frozen)
+      - name: Check and apply interface-only proposal
+        id: apply
+        env:
+          PROPOSAL: ${{ needs.repair.outputs.proposal }}
+        run: |
+          printf '%s' "$PROPOSAL" > "$RUNNER_TEMP/proposal.json"
+          cd candidate
+          deno run --no-prompt -P=test --deny-net --allow-read --allow-write=src/modules --allow-run=git \
+            --config=../deno.json ../scripts/schema-repair.ts apply "$REPAIR_BASE" "$RUNNER_TEMP/proposal.json" \
+            > "$RUNNER_TEMP/repair-result.json"
+          echo "ready=$(jq -r .ready "$RUNNER_TEMP/repair-result.json")" >> "$GITHUB_OUTPUT"
+          jq -r '.summary, "", (.evidence[] | "- " + .)' "$RUNNER_TEMP/repair-result.json" >> "$GITHUB_STEP_SUMMARY"
+          [[ "$(jq -r .ready "$RUNNER_TEMP/repair-result.json")" == 'true' ]] || { echo '::error::Schema drift needs manual repair; see the summary.'; exit 1; }
+      - name: Independently regenerate and verify
+        if: steps.apply.outputs.ready == 'true'
+        working-directory: candidate
+        run: |
+          deno task schema --force
+          deno fmt --check src/modules
+          deno lint src/modules
+          deno task check
+          deno task test:replay
+          git diff --check
+          deno run --no-prompt -P=test --deny-net --allow-read --allow-write="$RUNNER_TEMP/verified-repair.json" --allow-run=git \
+            --config=../deno.json ../scripts/schema-repair.ts bundle "$REPAIR_BASE" "$RUNNER_TEMP/proposal.json" "$RUNNER_TEMP/verified-repair.json"
+      - name: Upload verified files only
+        if: steps.apply.outputs.ready == 'true'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: verified-schema-repair
+          path: ${{ runner.temp }}/verified-repair.json
+          retention-days: 7
+          if-no-files-found: error
+
+  publish-repair:
+    name: Open draft schema repair PR
+    needs: [repair, verify-repair]
+    if: ${{ needs.verify-repair.outputs.ready == 'true' && !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      REPAIR_BASE: ${{ needs.repair.outputs.base }}
+      REPAIR_ISSUE: ${{ needs.repair.outputs.issue }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.workflow_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
+        with:
+          deno-version: 2.9.7
+          cache: false
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: verified-schema-repair
+          path: ${{ runner.temp }}/verified-repair
+      - name: Restore verified data on a clean checkout
+        run: |
+          deno install --frozen
+          git worktree add --detach candidate "$REPAIR_BASE"
+          cd candidate
+          deno run --no-prompt -P=test --deny-net --allow-read --allow-write=src/modules --allow-run=git \
+            --config=../deno.json ../scripts/schema-repair.ts restore "$REPAIR_BASE" "$RUNNER_TEMP/verified-repair/verified-repair.json"
+      - name: Publish with trusted code only
+        working-directory: candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="codex/schema-drift-$REPAIR_ISSUE"
+          # One PR per issue. Do not overwrite an existing branch or someone's work.
+          existing="$(gh pr list --state all --head "$branch" --json url --jq '.[0].url // empty')"
+          if [[ -n "$existing" ]]; then
+            printf 'Existing repair PR: %s\n' "$existing" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          [[ -z "$(git ls-remote --heads origin "refs/heads/$branch")" ]] || { echo 'Repair branch already exists; leaving it untouched.'; exit 1; }
+          remote_base="$(gh api repos/$GITHUB_REPOSITORY/git/ref/heads/dev --jq .object.sha)"
+          [[ "$remote_base" == "$REPAIR_BASE" ]] || { echo 'dev moved; rerun against the current drift before publishing.'; exit 1; }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git add -- src/modules
+          {
+            printf 'fix(schema): repair Yahoo response drift (#%s)\n\n' "$REPAIR_ISSUE"
+            jq -r .summary "$RUNNER_TEMP/verified-repair/verified-repair.json"
+            printf '\nFixes #%s\n\nCo-authored-by: Codex (reasoning: high)\n' "$REPAIR_ISSUE"
+          } > "$RUNNER_TEMP/repair-commit.txt"
+          git commit -F "$RUNNER_TEMP/repair-commit.txt"
+          # The token is never persisted in git config or handed to proposed code.
+          header="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=$header" push \
+            --force-with-lease="refs/heads/$branch:" origin "HEAD:refs/heads/$branch"
+          {
+            jq -r '.summary, "", (.evidence[] | "- " + .)' "$RUNNER_TEMP/verified-repair/verified-repair.json"
+            printf '\nFixes #%s.\n\nValidation: independently regenerated schemas, formatting, lint, type checks, and full cache-only test suite.\n' "$REPAIR_ISSUE"
+            printf '\nGenerated from `%s`. Human review is required before merging.\n' "$REPAIR_BASE"
+          } > "$RUNNER_TEMP/repair-pr.md"
+          url="$(gh pr create --draft --base dev --head "$branch" --title "fix(schema): repair Yahoo response drift (#$REPAIR_ISSUE)" --body-file "$RUNNER_TEMP/repair-pr.md")"
+          printf 'Draft repair PR: %s\n' "$url" >> "$GITHUB_STEP_SUMMARY"

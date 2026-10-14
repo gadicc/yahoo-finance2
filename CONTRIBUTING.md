@@ -202,6 +202,11 @@ Replay focused cached tests, including affected schema consumers, then run the
 full suite. Inspect schema diffs and final Git status. Do not recache again as
 part of verifying a type/schema fix.
 
+The daily recache workflow can also prepare draft repair PRs with an isolated
+Codex job and independent type/schema verification. See
+[Automatic schema repair PRs](./docs/schema-repair.md) for federation setup,
+security boundaries, controls, and manual smoke testing.
+
 #### Country-specific getCrumb fixtures
 
 Yahoo's cookie, consent, and crumb flow can vary by request geography. We keep

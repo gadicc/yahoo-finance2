@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "summary", "evidence", "edits"],
+  "properties": {
+    "status": { "type": "string", "enum": ["repair", "blocked"] },
+    "summary": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "edits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "before", "after"],
+        "properties": {
+          "path": { "type": "string" },
+          "before": { "type": "string" },
+          "after": { "type": "string" }
+        }
+      }
+    }
+  }
+}
