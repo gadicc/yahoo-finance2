@@ -57,11 +57,13 @@ until `SCHEMA_REPAIR_ENABLED` is set to `true`.
    | `sub`                 | `repo:gadicc/yahoo-finance2:environment:schema-repair`                               |
 
    In the permissions UI, enable **Responses (`/v1/responses`)** with
-   **Write/Request** access, using the label offered by the dashboard. Leave
-   other model capabilities disabled. The documented `api.model.request` scope
-   covers model requests; `api.model.read` means **List models (`/v1/models`)**,
-   which this workflow does not need because the model is configured explicitly.
-   See
+   **Write/Request** access, using the label offered by the dashboard. The
+   expanded permission summary should include `api.responses.write`;
+   `api.responses.read` is optional because the proxy only creates responses.
+   Leave other model capabilities disabled. The documented `api.model.request`
+   scope covers model requests; `api.model.read` means **List models
+   (`/v1/models`)**, which this workflow does not need because the model is
+   configured explicitly. See
    [OpenAI permission definitions](https://developers.openai.com/api/docs/guides/rbac).
    Copy the provider ID and service-account ID; these IDs are not secrets. See
    the

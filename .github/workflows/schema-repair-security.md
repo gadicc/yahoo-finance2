@@ -74,7 +74,9 @@ API key in GitHub. A dedicated OpenAI project/service account keeps model access
 and spending separate from other workloads. The mapping grants Responses request
 access rather than administrative APIs or unrelated model capabilities. Model
 listing (`api.model.read`) is unnecessary because the workflow configures its
-model explicitly. The proxy also independently enforces the endpoint and model.
+model explicitly. The dashboard's Responses write selection grants
+`api.responses.write`; optional Responses read access is not used by the proxy.
+The proxy also independently enforces the endpoint and model.
 
 The OpenAI mapping binds the repository name and stable repository/owner IDs,
 `dev`, the exact workflow path/ref, and the `schema-repair` environment/subject.
