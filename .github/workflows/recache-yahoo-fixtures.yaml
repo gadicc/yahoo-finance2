@@ -513,7 +513,9 @@ jobs:
   verify-repair:
     name: Verify schema repair without credentials
     needs: repair
-    if: ${{ needs.repair.outputs.proposal != '' }}
+    # repair_only intentionally skips recache; override the implicit success()
+    # check across ancestors, while still requiring a successful proposal job.
+    if: ${{ !cancelled() && needs.repair.result == 'success' && needs.repair.outputs.proposal != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -574,7 +576,7 @@ jobs:
   publish-repair:
     name: Open draft schema repair PR
     needs: [repair, verify-repair]
-    if: ${{ needs.verify-repair.outputs.ready == 'true' && !inputs.dry_run }}
+    if: ${{ !cancelled() && needs.repair.result == 'success' && needs.verify-repair.result == 'success' && needs.verify-repair.outputs.ready == 'true' && !inputs.dry_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

@@ -35,6 +35,11 @@ maintainers can also dispatch `repair_only` on `dev`, including while automatic
 repair is disabled. There are no issue, pull-request, fork, or comment triggers.
 This keeps public contributors' text out of the authorization path.
 
+Downstream job conditions explicitly require successful proposal/verification
+jobs and reject cancellation. They override GitHub's implicit status check so a
+manual repair can intentionally skip recache without also skipping verification.
+An unsuccessful verifier can never authorize publication.
+
 The `schema-repair` GitHub environment permits only `dev`. No required reviewers
 are configured so scheduled repairs can run unattended; the draft PR provides
 the human review boundary before merging. Changes to this environment, workflow,
