@@ -577,7 +577,7 @@ export interface ScreenerQuote {
   fiftyTwoWeekRange: string;
   fiftyTwoWeekHighChange: number;
   fiftyTwoWeekHighChangePercent: number;
-  fiftyTwoWeekChangePercent: number;
+  fiftyTwoWeekChangePercent?: number;
   earningsTimestamp?: number;
   earningsTimestampStart?: number;
   earningsTimestampEnd?: number;
@@ -590,12 +590,12 @@ export interface ScreenerQuote {
   priceEpsCurrentYear?: number;
   sharesOutstanding?: number;
   bookValue?: number;
-  fiftyDayAverage: number;
-  fiftyDayAverageChange: number;
-  fiftyDayAverageChangePercent: number;
-  twoHundredDayAverage: number;
-  twoHundredDayAverageChange: number;
-  twoHundredDayAverageChangePercent: number;
+  fiftyDayAverage?: number;
+  fiftyDayAverageChange?: number;
+  fiftyDayAverageChangePercent?: number;
+  twoHundredDayAverage?: number;
+  twoHundredDayAverageChange?: number;
+  twoHundredDayAverageChangePercent?: number;
   marketCap?: number;
   forwardPE?: number;
   priceToBook?: number;
