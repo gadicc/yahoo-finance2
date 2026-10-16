@@ -137,6 +137,25 @@ no_new_privs before the workload. Every nested strict leaf repeats actual socket
 io_uring, mount and scratch checks. A postflight failure rolls back; there is no
 fallback or weaker retry. Composite and copied Copilot setup remain identical.
 
+## Nested postflight environment check
+
+Run [38909741201](https://github.com/gadicc/yahoo-finance2/actions/runs/38909741201)
+on `9028959` loaded the profile and passed strict and Workers controls, expected
+profile labels and the unrelated-process restriction comparison. Its nested
+leaf then failed because the helper launched the replay oracle using the minimal
+system-utility environment, erasing the guard's actual replay markers. Both jobs
+failed and rolled back the profile as designed.
+
+The internal strict leaf now calls the trusted `guard_inside` oracle in its
+existing guarded process. It checks the environment actually inherited from the
+inner guard and still runs the oracle's child inheritance control. It supplies
+no replacement marker values. Missing or unsafe markers remain failures; the
+minimal environment for system utilities and sudo is unchanged. The
+[focused fix receipt](results/i01-apparmor-leaf-fix.json) records the exact old
+failure, fixed nested branch and injected missing/unsafe marker controls. Local
+proof models only the unavailable AppArmor label and its adapter reentry path;
+actual AppArmor postflight success still requires a reviewed remote retry.
+
 ## Proof status
 
 The [preparation receipt](results/i01-apparmor-preparation.json) binds this

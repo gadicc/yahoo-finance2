@@ -8,6 +8,7 @@ import ctypes
 import errno
 import fcntl
 import hashlib
+import importlib.util
 import json
 import os
 import re
@@ -345,7 +346,14 @@ def inside(mode, root, scratch, host_namespace):
                         sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--strict-leaf", root, scratch,
                         os.readlink("/proc/self/ns/net")])
     if mode == "--strict-leaf":
-        return execute([sys.executable, "-I", "-B", str(Path(root) / "scripts/ci.py"), "--guard-inside", root, scratch, host_namespace])
+        # Observe the guard's actual inherited environment in this process.
+        # execute() deliberately supplies minimal ENV for privileged utilities;
+        # using it here would erase the replay markers before checking them.
+        spec = importlib.util.spec_from_file_location("ci_guard", Path(root) / "scripts/ci.py")
+        control = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(control)
+        control.guard_inside(root, scratch, host_namespace)
+        return None
     require(mode == "--workers-leaf", "Unknown internal probe")
     status = capabilities()
     require(all(int(status[key], 16) == 0 for key in ("CapInh", "CapPrm", "CapEff", "CapBnd", "CapAmb"))

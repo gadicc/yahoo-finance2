@@ -100,6 +100,30 @@ class ProfileTests(unittest.TestCase):
                 ci.trusted(alias)
 
 
+class StrictLeafEnvironmentTests(unittest.TestCase):
+    def test_leaf_observes_environment_without_reset_or_fabricated_controls(self):
+        cases = [
+            {"FETCH_DEVEL": "", "FMC_CACHE_MODE": "replay"},
+            {},
+            {"FETCH_DEVEL": "recache", "FMC_CACHE_MODE": "auto", "FMC_PROBE": "unsafe"},
+        ]
+        for environment in cases:
+            observed = []
+            control = SimpleNamespace(guard_inside=lambda *args: observed.append((args, dict(os.environ))))
+            loader = SimpleNamespace(exec_module=lambda module: None)
+            with self.subTest(environment=environment), patch.dict(os.environ, environment, clear=True), patch.object(ci, "assert_profile_label"), patch.object(ci.os, "readlink", return_value="net:guest"), patch.object(ci.importlib.util, "spec_from_file_location", return_value=SimpleNamespace(loader=loader)), patch.object(ci.importlib.util, "module_from_spec", return_value=control), patch.object(ci, "execute") as execute:
+                self.assertIsNone(ci.inside("--strict-leaf", "/trusted", "/scratch", "net:host"))
+                self.assertEqual(observed, [(("/trusted", "/scratch", "net:host"), environment)])
+                execute.assert_not_called()
+
+    def test_system_utility_execution_keeps_its_minimal_environment(self):
+        with patch.dict(os.environ, {"FETCH_DEVEL": "recache", "FMC_CACHE_MODE": "auto", "SECRET_SENTINEL": "private"}), patch.object(ci.subprocess, "run", return_value=result()) as run:
+            ci.execute(["/usr/bin/true"])
+            self.assertEqual(run.call_args.kwargs["env"], ci.ENV)
+            self.assertNotIn("FETCH_DEVEL", run.call_args.kwargs["env"])
+            self.assertNotIn("SECRET_SENTINEL", run.call_args.kwargs["env"])
+
+
 class AttachmentProbeTests(unittest.TestCase):
     def real_probe(self, current="unconfined"):
         # Actual rootless bwrap/pipe/pidfd/proc protocol; only the unavailable

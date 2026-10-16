@@ -641,6 +641,27 @@ before/after labels, retained default denial and complete CI still require a
 runner retry. No local profile was loaded and no I item is checked from this
 preparation; progress remains **43/71**.
 
+## Actual Ubuntu enforcement and nested oracle correction (2026-10-16)
+
+[Run 38909741201](https://github.com/gadicc/yahoo-finance2/actions/runs/38909741201)
+on `9028959` verified the actual Bubblewrap attachment, installed the reviewed
+profile and passed strict and Workers kernel controls with expected profile
+lineage. All capability sets were zero at the Workers leaf. System restrictions
+and unrelated-process denial matched before and after loading in both jobs.
+
+The workflow then failed closed because the nested helper reset its environment
+before checking the inherited replay markers. Both jobs rolled back; tests,
+artifacts and Codecov were skipped. The [bounded correction](results/i01-apparmor-leaf-fix.json)
+now runs the trusted oracle in its existing guarded process, preserving actual
+marker observations and the oracle's child syscall check. It leaves the minimal
+privileged-command environment and profile bytes unchanged.
+
+Independent Sol xhigh and Astra xhigh reviews cleared 39 controls, exact old
+failure/fixed success and missing/unsafe-marker failures. Import errors, child
+failures and errors following success output still propagate. Fixtures remain
+unchanged. Corrected actual postflight and complete CI acceptance still require
+a runner retry; progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
