@@ -1,3 +1,4 @@
+import { test } from "../../tests/migration/runner.ts";
 import { createYahooFinanceMcpWebHandler } from "./http.ts";
 import type { YahooFinanceMcpClient } from "./server.ts";
 
@@ -8,7 +9,7 @@ function assert(
   if (!condition) throw new Error(message);
 }
 
-Deno.test("createYahooFinanceMcpWebHandler rejects missing host by default", async () => {
+test("createYahooFinanceMcpWebHandler rejects missing host by default", async () => {
   const fakeClient: YahooFinanceMcpClient = {};
   const handler = createYahooFinanceMcpWebHandler({
     client: fakeClient,
@@ -20,7 +21,7 @@ Deno.test("createYahooFinanceMcpWebHandler rejects missing host by default", asy
   assert((await response.text()).includes("Invalid Host header"));
 });
 
-Deno.test("createYahooFinanceMcpWebHandler enforces bearer token", async () => {
+test("createYahooFinanceMcpWebHandler enforces bearer token", async () => {
   const fakeClient: YahooFinanceMcpClient = {};
   const handler = createYahooFinanceMcpWebHandler({
     client: fakeClient,
@@ -34,7 +35,7 @@ Deno.test("createYahooFinanceMcpWebHandler enforces bearer token", async () => {
   assert((await response.text()).includes("bearer token"));
 });
 
-Deno.test("createYahooFinanceMcpWebHandler bearer token validation cases", async () => {
+test("createYahooFinanceMcpWebHandler bearer token validation cases", async () => {
   const fakeClient: YahooFinanceMcpClient = {};
   const handler = createYahooFinanceMcpWebHandler({
     client: fakeClient,

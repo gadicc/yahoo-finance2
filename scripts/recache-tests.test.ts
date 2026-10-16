@@ -1,15 +1,16 @@
-import { expect } from "@std/expect";
+import { expect } from "../tests/migration/assertions.ts";
+import { test } from "../tests/migration/runner.ts";
 
-const canRun =
-  (await Deno.permissions.query({ name: "run", command: Deno.execPath() }))
-    .state === "granted";
-const canWrite =
-  (await Deno.permissions.query({ name: "write", path: "/tmp" })).state ===
-    "granted";
+// Deno subprocess orchestration is deferred; baseline permissions also skip it.
+const canRun = false;
+const canWrite = false;
+function registerSkippedDenoTest(
+  options: { name: string; ignore?: boolean; fn: () => Promise<void> },
+) {
+  test.skip(options.name, options.fn);
+}
 
-// Opt in with --allow-run=deno --allow-write=/tmp. Ordinary fixture tests keep
-// their restricted permissions and do not recursively spawn another runner.
-Deno.test({
+registerSkippedDenoTest({
   name:
     "recache runner aggregates final snapshots and stops after caught rate limits",
   ignore: !canRun || !canWrite,

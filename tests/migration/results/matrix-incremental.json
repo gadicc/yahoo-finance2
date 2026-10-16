@@ -1,0 +1,105 @@
+{
+  "versions": {
+    "node": "v24.21.0",
+    "deno": "deno 2.9.7 (stable, release, x86_64-unknown-linux-gnu)\nv8 15.0.245.2-rusty\ntypescript 6.0.3",
+    "bun": "1.4.2",
+    "vitest": "5.0.3"
+  },
+  "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+  "workers": 4,
+  "samples": 5,
+  "warmups": 1,
+  "results": {
+    "vitest-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.8384287339868024,
+        0.9306659959838726,
+        0.8705459710326977,
+        1.0430236430256628,
+        0.7701931020128541
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.8705459710326977,
+      "minSeconds": 0.7701931020128541,
+      "maxSeconds": 1.0430236430256628
+    },
+    "node-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.7566067299921997,
+        0.7032514400198124,
+        0.7342836759635247,
+        0.7292899419553578,
+        0.7510358049767092
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.7342836759635247,
+      "minSeconds": 0.7032514400198124,
+      "maxSeconds": 0.7566067299921997
+    },
+    "bun-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.7520508959423751,
+        0.7850384519551881,
+        0.7486819479963742,
+        0.7147012229543179,
+        0.7684760720003396
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.7520508959423751,
+      "minSeconds": 0.7147012229543179,
+      "maxSeconds": 0.7850384519551881
+    }
+  },
+  "fixtureFiles": 1201,
+  "roots": {
+    "deno": "/home/dragon/www/npm/yahoo-finance2",
+    "vitest": "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2",
+    "node": "/home/dragon/.codex/worktrees/test-runner-node/yahoo-finance2",
+    "bun": "/home/dragon/.codex/worktrees/test-runner-bun/yahoo-finance2"
+  },
+  "memory": "not measured: prior process-tree high-water RSS not comparable",
+  "watch": "not measured",
+  "coldStart": "first-run after install not measured; each matrix cell has one unmeasured warmup",
+  "fixtureHashesUnchanged": {
+    "deno": true,
+    "vitest": true,
+    "node": true,
+    "bun": true
+  }
+}

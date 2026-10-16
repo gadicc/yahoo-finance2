@@ -1,4 +1,5 @@
-import { expect } from "@std/expect";
+import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import {
   checkClaims,
   createProxy,
@@ -31,7 +32,7 @@ const config = {
   serviceAccountId: "synthetic-account",
 };
 
-Deno.test("federation validates exact repository, workflow, environment and event claims", () => {
+test("federation validates exact repository, workflow, environment and event claims", () => {
   expect(checkClaims(jwt(), now).repository).toBe("gadicc/yahoo-finance2");
   for (
     const override of [
@@ -53,7 +54,7 @@ Deno.test("federation validates exact repository, workflow, environment and even
   ) expect(() => checkClaims(jwt(override), now)).toThrow();
 });
 
-Deno.test("federation reuses valid tokens and single-flights renewal before expiry", async () => {
+test("federation reuses valid tokens and single-flights renewal before expiry", async () => {
   let time = now;
   let oidc = 0;
   let exchanges = 0;
@@ -91,7 +92,7 @@ Deno.test("federation reuses valid tokens and single-flights renewal before expi
   expect(await token(true)).toBe("token-3");
 });
 
-Deno.test("federation rejects untrusted endpoints and does not disclose failed exchange bodies", async () => {
+test("federation rejects untrusted endpoints and does not disclose failed exchange bodies", async () => {
   expect(() =>
     createTokenProvider({ ...config, requestURL: "https://evil.invalid/token" })
   ).toThrow("endpoint");
@@ -111,7 +112,7 @@ Deno.test("federation rejects untrusted endpoints and does not disclose failed e
   await expect(token()).rejects.toThrow("OpenAI token exchange failed (401)");
 });
 
-Deno.test("federation proxy restricts paths, methods, local credentials and models", async () => {
+test("federation proxy restricts paths, methods, local credentials and models", async () => {
   let calls = 0;
   const server = createProxy({
     gatewayToken: "local-only",
@@ -160,7 +161,7 @@ Deno.test("federation proxy restricts paths, methods, local credentials and mode
   server.close();
 });
 
-Deno.test("federation proxy streams responses, uses exchanged credentials, and renews once on 401", async () => {
+test("federation proxy streams responses, uses exchanged credentials, and renews once on 401", async () => {
   const renewed: boolean[] = [];
   const forwarded: string[] = [];
   const server = createProxy({

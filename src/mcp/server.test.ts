@@ -1,3 +1,4 @@
+import { test } from "../../tests/migration/runner.ts";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 
@@ -22,7 +23,7 @@ const intentionallyExcludedPublicMethods = new Set([
   "dailyLosers",
 ]);
 
-Deno.test("getYahooFinanceMcpToolNames returns curated tool names", () => {
+test("getYahooFinanceMcpToolNames returns curated tool names", () => {
   const names = getYahooFinanceMcpToolNames();
 
   assert(names.includes("quote"));
@@ -33,7 +34,7 @@ Deno.test("getYahooFinanceMcpToolNames returns curated tool names", () => {
   assert(!names.includes("dailyLosers"));
 });
 
-Deno.test("getYahooFinanceMcpToolNames covers supported public methods", () => {
+test("getYahooFinanceMcpToolNames covers supported public methods", () => {
   const publicMethodNames = [
     ...Object.keys(modules),
     ...Object.keys(other),
@@ -51,7 +52,7 @@ Deno.test("getYahooFinanceMcpToolNames covers supported public methods", () => {
   );
 });
 
-Deno.test("createYahooFinanceMcpServer lists and calls a tool", async () => {
+test("createYahooFinanceMcpServer lists and calls a tool", async () => {
   const fakeClient: YahooFinanceMcpClient = {
     quote: (...args) => ({ args }),
   };
@@ -80,6 +81,7 @@ Deno.test("createYahooFinanceMcpServer lists and calls a tool", async () => {
         queryOptions: { return: "object" },
       },
     });
+    assert(Array.isArray(result.content));
     const textContent = result.content.find((
       item: { type: string },
     ) => item.type === "text");
@@ -93,7 +95,7 @@ Deno.test("createYahooFinanceMcpServer lists and calls a tool", async () => {
   }
 });
 
-Deno.test("createYahooFinanceMcpServer calls quoteCombine", async () => {
+test("createYahooFinanceMcpServer calls quoteCombine", async () => {
   const fakeClient: YahooFinanceMcpClient = {
     quoteCombine: (...args) => ({ args }),
   };
@@ -119,6 +121,7 @@ Deno.test("createYahooFinanceMcpServer calls quoteCombine", async () => {
         queryOptions: { fields: ["regularMarketPrice"] },
       },
     });
+    assert(Array.isArray(result.content));
     const textContent = result.content.find((
       item: { type: string },
     ) => item.type === "text");
@@ -132,7 +135,7 @@ Deno.test("createYahooFinanceMcpServer calls quoteCombine", async () => {
   }
 });
 
-Deno.test("createYahooFinanceMcpServer rejects unknown enabled tools", () => {
+test("createYahooFinanceMcpServer rejects unknown enabled tools", () => {
   const fakeClient: YahooFinanceMcpClient = {};
 
   try {

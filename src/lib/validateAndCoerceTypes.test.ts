@@ -1,5 +1,5 @@
 import { describe, expect, it, spyLogger } from "../../tests/common.ts";
-import { stub } from "@std/testing/mock";
+import { stub } from "../../tests/migration/mock.ts";
 import pkg from "../../deno.json" with { type: "json" };
 import { _clearCache } from "./versions.ts";
 
@@ -85,7 +85,7 @@ const defLogParams: ValidateParams = {
     logOptionsErrors: true,
   },
   logger,
-  logObj: Deno.stdout.isTerminal()
+  logObj: process.stdout.isTTY
     // deno-lint-ignore no-explicit-any
     ? (obj: any, opts?: { depth?: number }) =>
       logger.dir(obj, { depth: opts?.depth ?? 4, colors: true })
