@@ -1,5 +1,19 @@
 // Trusted verifier/publisher code. Never import or evaluate proposed source.
 import { ts } from "ts-json-schema-generator";
+import { spawnSync } from "node:child_process";
+import {
+  closeSync,
+  constants,
+  fstatSync,
+  ftruncateSync,
+  lstatSync,
+  openSync,
+  readFileSync,
+  realpathSync,
+  writeFileSync,
+} from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 export interface RepairProposal {
   status: "repair" | "blocked";
@@ -401,13 +415,63 @@ export function proposedSources(
 }
 
 function git(...args: string[]): string {
-  const result = new Deno.Command("git", {
-    args,
-    stdout: "piped",
-    stderr: "piped",
-  }).outputSync();
-  requireCondition(result.success, "Git operation failed");
-  return new TextDecoder().decode(result.stdout);
+  const result = spawnSync("git", args, {
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+    maxBuffer: 8 * 1024 * 1024,
+  });
+  // Git stderr can include remote URLs or contents. Never forward it.
+  requireCondition(!result.error && result.status === 0, "Git operation failed");
+  return result.stdout;
+}
+
+function regularFile(file: string) {
+  const absolute = resolve(file);
+  requireCondition(
+    realpathSync(dirname(absolute)) === dirname(absolute),
+    "File parents must not contain symlinks",
+  );
+  const stat = lstatSync(absolute);
+  requireCondition(
+    stat.isFile() && !stat.isSymbolicLink() && stat.nlink === 1,
+    "File must be a regular file without symlinks or hardlinks",
+  );
+  requireCondition((stat.mode & 0o111) === 0, "File mode changes are forbidden");
+  return stat;
+}
+
+/** Check aliases before opening, then check the opened inode before truncation. */
+function writeRegularFile(file: string, content: string, create = false) {
+  const absolute = resolve(file);
+  requireCondition(
+    realpathSync(dirname(absolute)) === dirname(absolute),
+    "File parents must not contain symlinks",
+  );
+  // lstat also sees a dangling symlink, whereas existsSync follows it.
+  let previous;
+  try {
+    previous = regularFile(absolute);
+  } catch (error) {
+    if (!create || (error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  const fd = openSync(
+    absolute,
+    constants.O_WRONLY | constants.O_NOFOLLOW |
+      (previous ? 0 : constants.O_CREAT | constants.O_EXCL),
+    0o600,
+  );
+  try {
+    const stat = fstatSync(fd);
+    requireCondition(
+      stat.isFile() && stat.nlink === 1 && (stat.mode & 0o111) === 0 &&
+        (!previous || stat.dev === previous.dev && stat.ino === previous.ino),
+      "File changed before writing",
+    );
+    ftruncateSync(fd, 0);
+    writeFileSync(fd, content);
+  } finally {
+    closeSync(fd);
+  }
 }
 
 function trackedSource(base: string, path: string): string {
@@ -419,109 +483,190 @@ function trackedSource(base: string, path: string): string {
     git("ls-tree", base, "--", path).startsWith("100644 blob "),
     "Only existing regular tracked files are allowed",
   );
-  const stat = Deno.lstatSync(path);
-  requireCondition(
-    stat.isFile && !stat.isSymlink,
-    "File must be a regular file",
-  );
+  regularFile(path);
   return git("show", `${base}:${path}`);
 }
 
-function changedFiles(base: string) {
-  const paths = git("diff", "--name-only", "-z", base).split("\0").filter(
-    Boolean,
+function requireCleanIndex(base: string) {
+  // Git diff/status can hide worktree edits under these flags. Inspect every
+  // index entry, including unrelated paths, before trusting either inventory.
+  requireCondition(
+    git("ls-files", "-v", "-z").split("\0").filter(Boolean)
+      .every((entry) => entry.startsWith("H ")),
+    "Index must not use assume-unchanged or skip-worktree flags",
   );
+  requireCondition(
+    git("diff", "--cached", "--name-only", "-z", base).length === 0,
+    "Staged changes are forbidden",
+  );
+}
+
+function workingChanges(base: string) {
+  requireCleanIndex(base);
   requireCondition(
     git("ls-files", "--others", "--exclude-standard", "-z").length === 0,
     "Untracked files are forbidden",
   );
   requireCondition(
-    paths.length > 0 && paths.length <= 40,
-    "Invalid changed file count",
-  );
-  requireCondition(
     git("diff", "--name-only", "--diff-filter=ADRTUXB", base).length === 0,
     "Files cannot be added, deleted, renamed, or change mode",
   );
-  for (const path of paths) {
-    const old = trackedSource(base, path);
-    if (sourcePath.test(path)) {
-      assertSchemaOnly(old, Deno.readTextFileSync(path));
-    } else {
-      JSON.parse(Deno.readTextFileSync(path));
-      requireCondition(
-        git("show", `${base}:${path.replace(/\.schema\.json$/, ".ts")}`)
-          .includes("@yf-schema"),
-        "Schema must have a source marker",
-      );
-    }
+  // Mode-only changes have status M and evade the filter above. Also check the
+  // index, including when a subsequent worktree chmod masks a staged mode edit.
+  requireCondition(
+    git("diff", "--summary", base).length === 0 &&
+      git("diff", "--cached", "--summary", base).length === 0,
+    "File mode changes are forbidden",
+  );
+  return git("diff", "--name-only", "-z", base).split("\0").filter(Boolean);
+}
+
+function validateContent(
+  base: string,
+  path: string,
+  content: string,
+  old = trackedSource(base, path),
+) {
+  if (sourcePath.test(path)) {
+    assertSchemaOnly(old, content);
+  } else {
+    JSON.parse(content);
+    requireCondition(
+      git("show", `${base}:${path.replace(/\.schema\.json$/, ".ts")}`)
+        .includes("@yf-schema"),
+      "Schema must have a source marker",
+    );
   }
+}
+
+function requireRepairPaths(paths: string[]) {
+  requireCondition(paths.length > 0 && paths.length <= 40, "Invalid changed file count");
   requireCondition(
     paths.some((p) => sourcePath.test(p)) &&
       paths.some((p) => schemaPath.test(p)),
     "Repair needs source and regenerated schema changes",
   );
+}
+
+function changedFiles(base: string) {
+  const paths = workingChanges(base);
+  requireRepairPaths(paths);
+  for (const path of paths) {
+    const old = trackedSource(base, path);
+    validateContent(base, path, readFileSync(path, "utf8"), old);
+  }
   return paths;
 }
 
-if (import.meta.main) {
-  const [command, base, input, output] = Deno.args;
+/** Trusted CLI only: proposed source is parsed, never imported or evaluated. */
+export function schemaRepairMain(args: string[]): void {
+  const [command, base, input, output] = args;
   requireCondition(
-    /^[0-9a-f]{40}$/.test(base ?? ""),
-    "Expected full base commit SHA",
+    command === "apply" || command === "bundle" || command === "restore",
+    "Expected apply, bundle, or restore",
+  );
+  requireCondition(
+    args.length === (command === "bundle" ? 4 : 3),
+    "Expected COMMAND BASE_SHA INPUT [BUNDLE_OUTPUT]",
+  );
+  requireCondition(/^[0-9a-f]{40}$/.test(base ?? ""), "Expected full base commit SHA");
+  requireCondition(git("cat-file", "-t", base).trim() === "commit", "Expected a base commit");
+  requireCondition(
+    realpathSync(git("rev-parse", "--show-toplevel").trim()) === realpathSync(process.cwd()),
+    "Run schema repair from the repository root",
   );
   if (command === "apply") {
-    const proposal = parseProposal(Deno.readTextFileSync(input));
-    const sources = proposedSources(proposal, (p) => trackedSource(base, p));
-    for (const [path, content] of sources) {
-      Deno.writeTextFileSync(path, content);
-    }
-    console.log(
-      JSON.stringify({
-        ready: proposal.status === "repair",
-        summary: proposal.summary,
-        evidence: proposal.evidence,
-      }),
-    );
+    const proposal = parseProposal(readFileSync(input, "utf8"));
+    requireCleanIndex(base);
+    const sources = proposedSources(proposal, (path) => {
+      const old = trackedSource(base, path);
+      requireCondition(readFileSync(path, "utf8") === old, "Apply target has local edits");
+      return old;
+    });
+    // Preflight the entire batch before its first write.
+    for (const path of sources.keys()) regularFile(path);
+    for (const [path, content] of sources) writeRegularFile(path, content);
+    console.log(JSON.stringify({
+      ready: proposal.status === "repair",
+      summary: proposal.summary,
+      evidence: proposal.evidence,
+    }));
   } else if (command === "bundle") {
-    const proposal = parseProposal(Deno.readTextFileSync(input));
+    const proposal = parseProposal(readFileSync(input, "utf8"));
     const files = changedFiles(base).map((path) => ({
       path,
-      content: Deno.readTextFileSync(path),
+      content: readFileSync(path, "utf8"),
     }));
-    Deno.writeTextFileSync(
-      output,
-      JSON.stringify({
-        base,
-        summary: proposal.summary,
-        evidence: proposal.evidence,
-        files,
-      }),
-    );
-  } else if (command === "restore") {
-    const raw = Deno.readTextFileSync(input);
+    writeRegularFile(output, JSON.stringify({
+      base,
+      summary: proposal.summary,
+      evidence: proposal.evidence,
+      files,
+    }), true);
+  } else {
+    const raw = readFileSync(input, "utf8");
     requireCondition(raw.length <= 2 * 1024 * 1024, "Bundle too large");
     const bundle = JSON.parse(raw);
     requireCondition(
-      bundle.base === base && Array.isArray(bundle.files) &&
-        bundle.files.length > 0 && bundle.files.length <= 40,
+      bundle && typeof bundle === "object" && bundle.base === base &&
+        Array.isArray(bundle.files) && bundle.files.length > 0 &&
+        bundle.files.length <= 40,
       "Invalid verified bundle",
     );
-    const paths = new Set<string>();
+    const files = new Map<string, string>();
+    const changed: string[] = [];
     for (const file of bundle.files) {
       requireCondition(
-        typeof file.path === "string" && typeof file.content === "string" &&
-          !paths.has(file.path),
+        file && typeof file.path === "string" && typeof file.content === "string" &&
+          !files.has(file.path),
         "Invalid bundle file",
       );
-      paths.add(file.path);
       const old = trackedSource(base, file.path);
-      if (sourcePath.test(file.path)) assertSchemaOnly(old, file.content);
-      else JSON.parse(file.content);
+      const current = readFileSync(file.path, "utf8");
+      requireCondition(
+        current === old || current === file.content,
+        "Restore target has local edits",
+      );
+      if (old !== file.content) {
+        validateContent(base, file.path, file.content, old);
+        changed.push(file.path);
+      } else if (schemaPath.test(file.path)) {
+        JSON.parse(file.content);
+      }
+      files.set(file.path, file.content);
     }
-    for (const file of bundle.files) {
-      Deno.writeTextFileSync(file.path, file.content);
-    }
+    requireRepairPaths(changed);
+    // Check unrelated state before writing, rather than discovering it after
+    // restoring a valid source file. All listed targets are preflighted above.
+    requireCondition(
+      workingChanges(base).every((path) => files.has(path)),
+      "Unrelated working-tree changes are forbidden",
+    );
+    for (const [path, content] of files) writeRegularFile(path, content);
     changedFiles(base);
-  } else throw new Error("Expected apply, bundle, or restore");
+  }
+}
+
+function isMain(): boolean {
+  if (!process.argv[1]) return false;
+  try {
+    return realpathSync(resolve(process.argv[1])) ===
+      realpathSync(fileURLToPath(import.meta.url));
+  } catch {
+    // An importing host may provide a synthetic or missing argv entry.
+    return false;
+  }
+}
+
+if (isMain()) {
+  try {
+    schemaRepairMain(process.argv.slice(2));
+  } catch (error) {
+    console.error(
+      error instanceof SyntaxError
+        ? "Input is not valid JSON"
+        : error instanceof Error ? error.message : "Schema repair failed",
+    );
+    process.exitCode = 1;
+  }
 }

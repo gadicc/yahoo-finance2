@@ -295,6 +295,26 @@ publication occurred. Progress is **30/71**; L03/L04 final migration reviews
 remain unchecked. Old release preparation targets dnt output and must be
 replaced in J02/J04 before use.
 
+## Schema-repair CLI checkpoint (E/I prerequisite, 2026-10-16)
+
+The [portable CLI](SCHEMA-REPAIR.md) now runs on Bun 1.4.3 and Node 24.21.0
+using Node filesystem/process APIs. The original AST/proposal policy remains
+byte-for-byte unchanged. All **23 guarded focused tests** and the scoped strict
+Node/DOM TypeScript check pass. Apply, bundle and restore preflight local files,
+regular-file modes, aliases, staged content and hidden Git index flags before
+writing; executable symlinks run the same CLI. Refusals preserve local bytes and
+index state. Malformed-JSON and Git failures use fixed diagnostics.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the final fix after each
+reproduced the hidden-index failure on both runtimes and verified refusal before
+writes, alongside successful ordinary-index restores. The
+[machine receipt](results/e02-schema-repair-cli.json) records the exact source
+hashes, prior findings and fixes. Later I/O failures remain nontransactional;
+checkouts using assume-unchanged or skip-worktree flags must use an ordinary
+unflagged index for this command. Full production typecheck configurations and
+the CI repair workflow remain E02/E03/I06 work. No checklist item is completed
+by this prerequisite alone; progress remains **30/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
