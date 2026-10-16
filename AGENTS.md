@@ -1,28 +1,25 @@
 # Agent Notes
 
-This file applies to the whole repository. For fuller contributor guidance, read
-[CONTRIBUTING.md](./CONTRIBUTING.md); this file repeats the essentials agents
-are most likely to need during edits.
+This file applies to the whole repository. Read [CONTRIBUTING.md](./CONTRIBUTING.md)
+for contributor setup and [the migration tracker](./tests/migration/REPORT.md)
+for exact acceptance evidence and outstanding work.
 
 ## Project Context
 
-- Preserve JSR distribution and Deno >=2 consumer compatibility. This migration
-  branch uses Bun/Node development tooling; npm output remains generated.
-- Source code lives under `src/`. Tests usually sit beside the module they cover
-  and use fixtures from `tests/fixtures/http`.
-- The `npm/` directory is generated package output. Prefer editing source files
-  under `src/` and regenerate npm output only when the task explicitly calls for
-  it.
-- The default development branch is `dev`.
+- Development uses exact Bun 1.4.3, TypeScript 6.0.3 and Biome 2.5.15.
+- Consumers require Node >=22, Bun >=1.4.3 or Deno >=2. Retain JSR distribution.
+- Source lives under `src/`, with colocated tests and `tests/fixtures/http`.
+- `npm/` is generated output; edit source and build only when needed.
+- Target the default development branch, `dev`.
 
 ## Bun migration branch
 
 On `codex/bun-migration`, use
 [tests/migration/REPORT.md](./tests/migration/REPORT.md) as the staged migration
 tracker and source of acceptance counts, evidence, dependencies and next steps.
-The Bun experiment is complete; its adapters and existing Deno contributor
-commands below are transitional, not production readiness. Keep the tracker
-current as work lands. Use GPT-6.1 Sol High for orchestration, planning and
+Keep original benchmark receipts historical and update acceptance metadata
+only after the required reviews. Use GPT-6.1 Sol High for orchestration, planning
+and
 substantive implementation; Medium (or appropriate Terra/Luna) for bounded
 mechanical work; xhigh implementation only for unusually difficult debugging,
 tangled architecture or when High is demonstrably struggling. As an explicit
@@ -36,101 +33,63 @@ model settings or schedule future work as part of this branch policy.
 The branch retains JSR publication and Deno >=2 consumers. Do not invoke a Deno
 binary for development, tests, builds, formatting or linting. A Deno binary may
 be used only by the isolated publishing step. Unported development tools must
-be migrated before use; historical Deno commands below are reference only.
+be migrated before use.
 
 ## Commands
 
-On `codex/bun-migration`, first follow the
-[branch bootstrap](./CONTRIBUTING.md#bun-migration-branch-bootstrap): select Bun
-1.4.3 on `PATH`, run `bun run check:toolchain`, then
-`bun install --frozen-lockfile`. `bun.lock` owns the root JavaScript graph;
-`deno.lock` retains unported tooling/publisher metadata, and the Workers harness
-keeps its independent npm lockfile. Do not reintroduce a competing root lockfile
-or execute unported tooling through a Deno development process.
+Select Bun 1.4.3 on PATH, run `bun run check:toolchain`, then
+`bun install --frozen-lockfile` with normal lifecycle scripts. `bun.lock` alone
+owns root JavaScript dependencies. The private root manifest is not the public
+npm manifest. `tests/cloudflare/package-lock.json` belongs to the independent
+npm 10.9.9 Workers graph; never install it with Bun.
 
-Use the maintained Linux replay commands: `bun run test:replay`,
-`bun run test:focused`, `bun run test:serial -- path/to/file.test.ts`,
-`bun run test:watch`, and `bun run test:coverage`. The launcher requires
-Bubblewrap (`bwrap`), Python 3, `libseccomp.so.2` and namespace support; missing
-prerequisites fail closed. It clears inherited capture settings, denies network
-and fixture writes for every child, and needs no chmod preparation. Ordinary
-tests are replay-only, replacing automatic live capture; explicit recaching is
-still a separate command. Direct `bun test` bypasses launcher enforcement.
-For trusted library development, explicitly use `bun run test:native`, with
-optional focused paths, `--serial`, `--watch` or `--coverage`. This portable
-scope forces cache replay with a read-only FMC store and checks fixture bytes;
-it provides no OS network/filesystem sandbox. It never replaces a failed strict
-run automatically. See [native replay](./tests/migration/NATIVE-REPLAY.md) for
-its disclosed omissions and platform limits, and the
-[maintained command policy](./tests/migration/TESTING.md) for strict discovery,
-filters, timeouts/signals and watch behavior. Native macOS/Windows execution
-still requires the OS matrix proof.
+- Full strict replay: `bun run test:replay`.
+- Focused replay: `bun run test:serial -- src/modules/quote.test.ts`.
+- Watch or coverage: `bun run test:watch`, `bun run test:coverage`.
+- Trusted portable library replay: `bun run test:native`, optionally with a path,
+  `--serial`, `--watch` or `--coverage`.
+- Types: `bun run typecheck`, `bun run typecheck:negative`; use
+  `bun run typecheck:incremental` for local iteration.
+- Schemas: `bun run schema`, `bun run schema:check` (no-write stale gate).
+- Style: `bun run format`, `bun run format:check`, `bun run lint`.
+- API docs: `bun run docs:gen`, `bun run docs:lint`, `bun run docs:watch`;
+  `bun run docs:open` is an explicit platform opener.
+- npm output: `bun run build:npm`; optional `--out-dir` selects a new/empty
+  external output with an existing canonical parent. Only default `npm/` may
+  replace recognized nonempty output carrying the builder's ownership marker.
+- CLI help only: `bun bin/yahoo-finance.ts --help`; data commands make live
+  requests and are not offline verification.
 
-Use `bun run typecheck`, `bun run typecheck:incremental`, and
-`bun run typecheck:negative` for the maintained checker and overload control;
-see [the typechecking policy](./tests/migration/TYPECHECKING.md). No Deno or
-Node selection is required. Historical Python drivers and experiment configs
-require the corresponding experiment checkout and dependency graph; they are
-not maintained branch commands.
-Installation is separate from offline testing. Upgrade Bun only through a
-reviewed exact-pin change using the bootstrap policy.
-
-Generate `@yf-schema` outputs with `bun run schema`; use `bun run schema:check`
-for the no-write stale gate. Explicit roots and `--watch` are documented in
-[the schema policy](./tests/migration/SCHEMAS.md). Biome adoption remains open;
-use existing Bun/Node checks and manual style review until then.
-
-Build generated npm artifacts with `bun run build:npm`; optionally pass
-`--out-dir /absolute/new-or-empty-directory` outside the checkout and
-`--version VERSION`. The parent directory must exist. The default `npm/`
-output requires this builder's ownership marker before replacing nonempty
-output; move unmarked old dnt output aside explicitly. See the
-[package build contract](./tests/migration/PACKAGING.md) for guarded proofs and
-release handoff. Shipped executables require Node >=22.0.0 via their Node
-shebang; explicit Bun execution is also verified. Release preparation remains
-unported (J02/J04); do not run the old preparation against this output.
-
-The following Deno commands are legacy `dev`-branch reference only. Do not run
-them on `codex/bun-migration`, including the formatter/linter and old build,
-recache or capture commands. Port the relevant command first:
-
-- Run the full test suite with `deno task test`.
-- Run `deno task test:replay` for a cache-only baseline that fails on missing
-  fixtures and denies live network requests and fixture writes.
-- Run `FETCH_DEVEL=recache deno task test:recache` for a paced live batch after
-  an automatic replay-only baseline. It aborts on 429 without rolling back
-  earlier captures; generic getCrumb behavior tests remain replay-only.
-- Run a targeted test with `deno task test path/to/file.test.ts`.
-- Run serial tests with `deno task test:serial path/to/file.test.ts` when
-  debugging or limiting live Yahoo request concurrency.
-- Run schema generation with `deno task schema` after changing exported
-  interfaces marked with `@yf-schema`.
-- Use `deno fmt` and `deno lint` for formatting and linting.
-- Build npm output with `deno task build:npm` when generated npm artifacts are
-  required.
+Strict tests need Linux, Bubblewrap, Python 3, libseccomp and namespace support.
+They fail closed, clear capture controls, deny network and mount fixtures
+read-only for descendants. Direct `bun test` bypasses this policy. Explicit
+native replay provides a narrower trusted library/portable-tooling inventory,
+a read-only FMC store and fixture-byte checks, without an OS sandbox. It never
+retries a failed strict run automatically. Read [the trust boundaries](./tests/migration/TRUST-BOUNDARIES.md),
+[TESTING](./tests/migration/TESTING.md)
+and [NATIVE-REPLAY](./tests/migration/NATIVE-REPLAY.md) before selecting a mode.
 
 ## Testing And Fixtures
 
-On the migration branch, ordinary Bun tests always replay and clear inherited
-capture controls. The `FETCH_DEVEL` behavior below describes legacy explicit
-capture tooling; it does not enable live requests in the maintained launcher.
+Tests use `setupCache()` from `tests/common.ts` and `fetch-mock-cache` replay.
+A cache miss fails; deleting a fixture or setting `FETCH_DEVEL` does not enable
+ordinary live capture. Do not delete fixtures to refresh tests.
 
-- Tests use `fetch-mock-cache` and cached HTTP fixtures for repeatability.
-- New module tests should call `setupCache()` from `tests/common.ts` when they
-  touch Yahoo HTTP responses.
-- `FETCH_DEVEL=nocache` forces live network tests without cache.
-- `FETCH_DEVEL=recache` updates cache for failing tests. Be careful with fixture
-  churn, and do not recache files ending in `.static.json` or `.fake.json`.
-- Before committing recached fixtures, inspect their HTTP status and payload. Do
-  not commit transient failures such as rate limits, consent interstitials,
-  timeouts, or upstream 5xx responses as replacements for successful fixtures.
+Live capture needs operator authorization, `FETCH_DEVEL=recache` and explicit
+`--live`, after a successful strict replay baseline. Follow
+[RECACHE](./tests/migration/RECACHE.md) and
+[COUNTRY-CAPTURE](./tests/migration/COUNTRY-CAPTURE.md). Generic recache protects
+static/fake/geographic profiles; country captures are append-only. Inspect
+HTTP status/payload before retaining any capture. Never replace successful
+fixtures with 429, consent, timeout or upstream 5xx responses. Verification
+must not recache. Preserve fixture bytes and modes unless capture is authorized.
 
 ## Schema And Validation
 
 - TypeScript interfaces in module files are the source of truth for runtime
   validation schemas.
 - If a module file has `@yf-schema`, keep the generated `.schema.json` file in
-  sync with `bun run schema` on the migration branch.
+  sync with `bun run schema`.
 - Prefer updating typed interfaces and validation schemas together with focused
   tests that cover the Yahoo response shape involved.
 - When Yahoo adds a response field, model it as required first. Make it optional

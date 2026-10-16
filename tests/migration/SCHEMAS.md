@@ -67,8 +67,9 @@ even with the input mtime forced to the epoch; regeneration repairs them and the
 check passes. Historical/chart consumer tests also pass. All 1,201 HTTP fixture
 contents and `bun.lock` remain unchanged.
 
-E04 and E05 are implemented. **E06 remains open:** the maintained no-write
-command and stale/shared-import controls are ready, while CI still calls its
-transitional Deno schema gate. I02/E06 must route and verify the actual CI gate.
-Deno aliases for unrelated recache/capture tooling and the broader production
-checker configuration are separate B04/D/E02–E03 work.
+At the original E04/E05 snapshot, E06 routing and the Deno metadata cleanup
+were still pending. The maintained Tests workflow now runs `bun run schema:check`
+as its no-write gate; the [CI policy](CI.md) and [repair policy](CI-REPAIR.md)
+record stale/shared-import routing and independent repair controls. Ordinary
+schema/test/checker commands use the root Bun/TypeScript graph; retained source
+publication metadata has no development Deno tasks or permissions.

@@ -155,3 +155,15 @@ ran the normal-hook frozen root install, complete Workers pipeline, ten Python
 controls, malformed-report negatives and five failure-stage cleanup controls.
 This accepts the implementation preparation only: the final combined gates and
 remote Ubuntu/artifact/OIDC behavior remain required before I01–I04 acceptance.
+
+## API documentation gate (K03/K06)
+
+The strict Tests job also runs `bun run docs:lint` after schema checking. It
+uses the installed TypeDoc graph and the reviewed diagnostic baseline, renders
+to private temporary output and fails on new documentation diagnostics. It
+does not publish output, open a browser, fetch links, change authorization or
+require Deno. No condition or continue-on-error can hide this gate. A focused
+real undocumented-public-export negative proves the command exits nonzero;
+the original source restoration passes. Workflow triggers, permissions,
+concurrency, native/Workers/Codecov jobs and the 300000ms full-suite budget stay
+unchanged.

@@ -13,7 +13,8 @@ Use a real calendar date and a new lower-case profile id matching the country.
 Before capture, connect to the intended VPN exit and independently verify its
 country. The command records the operator's country label; it does not determine
 location or verify a VPN. No geolocation service or new host is introduced.
-The root package alias is a separate integration step; no alias is claimed here.
+The maintained root alias is `bun run fixtures:capture:getcrumb`; `--help` is
+safe to inspect without capture. Live work still requires both controls above.
 Independent Sol xhigh and Astra xhigh reviews cleared the repaired snapshot.
 All verification described below uses synthetic transport and disposable fixture
 roots, without contacting Yahoo or writing repository fixtures.

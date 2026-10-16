@@ -35,6 +35,7 @@ jobs:
       - run: bun run typecheck
       - run: bun run typecheck:negative
       - run: bun run schema:check
+      - run: bun run docs:lint
       - run: node scripts/check-release-notes.mjs
       - name: Run strict offline replay and native Bun coverage
         # Bound the complete guarded suite separately from ordinary launcher defaults.

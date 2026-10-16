@@ -1,55 +1,6 @@
 {
   "name": "@gadicc/yahoo-finance2",
   "version": "0.0.1",
-  "tasks": {
-    "check": "deno check src/index.ts src/mcp/mod.ts bin/yahoo-finance.ts bin/yahoo-finance-mcp.ts",
-    "cli": "deno run -A bin/yahoo-finance.ts",
-    "docs:gen": "deno doc --output=jsdocs --html $(jq -r '.exports | to_entries[] | .value' deno.json)",
-    "docs:lint": "deno doc --output=jsdocs --lint --html $(jq -r '.exports | to_entries[] | .value' deno.json)",
-    "docs:open": "xdg-open file://$(pwd)/jsdocs/index.html",
-    "docs:watch": "deno eval 'const run=async()=>{const p=new Deno.Command(\"deno\",{args:[\"task\",\"docs:gen\"],stdout:\"inherit\",stderr:\"inherit\"}).spawn(); const {code}=await p.status; if(code) console.error(\"[docs:gen] exited\", code);}; let t; const kick=()=>{clearTimeout(t); t=setTimeout(run,120)}; await run(); for await(const _ of Deno.watchFs([\"src\",\"docs\",\"scripts\",\"README.md\"])) kick();'",
-    "install-cli": "deno install -A --global -n yahoo-finance npm:yahoo-finance/bin/yahoo-finance.ts",
-    "schema_": "TODO below... separate watch mode, vscode scripts, mtime check, etc",
-    "schema": "deno run -A scripts/schema-gen.ts",
-    "schema:check": "deno task schema --force && git diff --exit-code -- '*.schema.json'",
-    "release:check-notes": "node scripts/check-release-notes.mjs",
-    "test": "deno test --no-prompt -P=test --parallel --ignore=tests/cloudflare",
-    "test:serial": "deno test --no-prompt -P=test --ignore=tests/cloudflare",
-    "test:replay": "FETCH_DEVEL= FMC_CACHE_MODE=replay deno task test --deny-net --deny-write",
-    "test:recache": "deno run --allow-read --allow-env --allow-run scripts/recache-tests.ts",
-    "fixtures:capture:getcrumb": "deno run -A scripts/capture-get-crumb-fixtures.ts",
-    "test:cloudflare": "deno task build:npm && npm ci --prefix tests/cloudflare && npm test --prefix tests/cloudflare",
-    "lock:cloudflare": "npx -p npm@10.9.9 npm install --prefix tests/cloudflare --package-lock-only",
-    "build:npm": "deno run -A scripts/build_npm.ts",
-    "devTODO": "deno run --watch main.ts"
-  },
-  "permissions": {
-    "test": {
-      "read": ["./tests/fixtures/http", "./tests/http"],
-      "write": ["./tests/fixtures/http"],
-      "env": {
-        "allow": [
-          "FETCH_DEVEL",
-          "FMC_CACHE_MODE",
-          "FETCH_DEVEL_GETCRUMB_MODE",
-          "FETCH_DEVEL_GETCRUMB_PROFILE",
-          "FETCH_DEVEL_RECACHE_CONCURRENCY",
-          "FETCH_DEVEL_RECACHE_INTERVAL"
-        ],
-        "ignore": true
-      },
-      "net": [
-        "query1.finance.yahoo.com",
-        "query2.finance.yahoo.com",
-        "finance.yahoo.com",
-        "guce.yahoo.com",
-        "consent.yahoo.com"
-      ]
-    }
-  },
-  "test": {
-    "permissions": "test"
-  },
   "exports": {
     "./src/index.ts": "./src/index.ts",
     ".": "./src/index.ts",
@@ -81,58 +32,31 @@
     "./lib/options": "./src/lib/options/options.ts"
   },
   "imports": {
-    "@deno/dnt": "jsr:@deno/dnt@^0.44.0",
-    "@gadicc/fetch-mock-cache": "jsr:@gadicc/fetch-mock-cache@^3.1.0",
     "@modelcontextprotocol/sdk/client/index.js": "npm:@modelcontextprotocol/sdk@^1.32.0/client/index.js",
-    "@modelcontextprotocol/sdk/inMemory.js": "npm:@modelcontextprotocol/sdk@^1.32.0/inMemory.js",
     "@modelcontextprotocol/sdk/server/mcp.js": "npm:@modelcontextprotocol/sdk@^1.32.0/server/mcp.js",
-    "@modelcontextprotocol/sdk/server/stdio.js": "npm:@modelcontextprotocol/sdk@^1.32.0/server/stdio.js",
     "@modelcontextprotocol/sdk/server/streamableHttp.js": "npm:@modelcontextprotocol/sdk@^1.32.0/server/streamableHttp.js",
     "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js": "npm:@modelcontextprotocol/sdk@^1.32.0/server/webStandardStreamableHttp.js",
     "@modelcontextprotocol/sdk/types.js": "npm:@modelcontextprotocol/sdk@^1.32.0/types.js",
-    "@sebbo2002/semantic-release-jsr": "npm:@sebbo2002/semantic-release-jsr@^4.0.2",
-    "@semantic-release/exec": "npm:@semantic-release/exec@^7.1.0",
-    "@std/async": "jsr:@std/async@^1.5.1",
-    "@std/cli": "jsr:@std/cli@^1.0.32",
-    "@std/expect": "jsr:@std/expect@^1.0.20",
-    "@std/fmt": "jsr:@std/fmt@^1.0.10",
-    "@std/fs": "jsr:@std/fs@^1.0.24",
-    "@std/path": "jsr:@std/path@^1.1.6",
-    "@std/testing": "jsr:@std/testing@^1.0.21",
     "@types/json-schema": "npm:@types/json-schema@^7.0.15",
-    "conventional-changelog-conventionalcommits": "npm:conventional-changelog-conventionalcommits@^9.3.1",
-    "fetch-mock-cache": "npm:fetch-mock-cache@^3.1.0",
-    "jest-get-type": "npm:jest-get-type@^29.6.3",
-    "json-schema": "npm:json-schema@^0.4.0",
-    "oas-schema-walker": "npm:oas-schema-walker@^1.1.5",
-    "semantic-release": "npm:semantic-release@^25.0.9",
     "tough-cookie": "npm:tough-cookie@^6.0.2",
     "tough-cookie-file-store": "npm:tough-cookie-file-store@^3.3.0",
-    "ts-json-schema-generator": "npm:ts-json-schema-generator@2.9.0",
-    "zod": "npm:zod@^4.6.5"
-  },
-  "nodeModulesDir": "auto",
-  "fmt": {
-    "exclude": [
-      "tests/fixtures",
-      "tests/http",
-      "**/*.schema.json",
-      "plans",
-      ".agents"
-    ]
+    "zod": "npm:zod@^4.6.5",
+    "json-schema": "npm:@types/json-schema@^7.0.15",
+    "@modelcontextprotocol/sdk/client/index": "npm:@modelcontextprotocol/sdk@^1.32.0/client/index",
+    "@modelcontextprotocol/sdk/server/mcp": "npm:@modelcontextprotocol/sdk@^1.32.0/server/mcp",
+    "@modelcontextprotocol/sdk/server/streamableHttp": "npm:@modelcontextprotocol/sdk@^1.32.0/server/streamableHttp",
+    "@modelcontextprotocol/sdk/server/webStandardStreamableHttp": "npm:@modelcontextprotocol/sdk@^1.32.0/server/webStandardStreamableHttp",
+    "@modelcontextprotocol/sdk/types": "npm:@modelcontextprotocol/sdk@^1.32.0/types"
   },
   "publish": {
-    "exclude": [
-      "./.circleci",
-      "./.editorconfig",
-      "./.github",
-      "./.vscode",
-      "./docs",
-      "./scripts",
-      "./tests"
-    ]
-  },
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+    "include": [
+      "deno.json",
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts",
+      "src/**/*.schema.json",
+      "src/lib/timeseries.json"
+    ],
+    "exclude": ["**/*.test.ts"]
   }
 }

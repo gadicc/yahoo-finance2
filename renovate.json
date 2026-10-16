@@ -10,6 +10,38 @@
       "description": "Keep the conventional-commits preset below v10 until semantic-release upgrades to conventional-changelog-writer v9; v10 otherwise generates header-only release notes. Track semantic-release/release-notes-generator#992 and #996.",
       "matchPackageNames": ["conventional-changelog-conventionalcommits"],
       "allowedVersions": "<10"
+    },
+    {
+      "description": "Root JavaScript versions stay exact and use Bun lock ownership. Workers npm ranges remain independent.",
+      "matchFileNames": ["/^package\\.json$/"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "pin"
+    },
+    {
+      "description": "Review every stable Bun toolchain upgrade together; both .bun-version and packageManager must agree before frozen installation.",
+      "matchPackageNames": ["bun"],
+      "matchManagers": ["bun", "bun-version", "npm"],
+      "matchFileNames": ["/^package\\.json$/", "/^\\.bun-version$/"],
+      "groupName": "Bun toolchain",
+      "automerge": false,
+      "dependencyDashboardApproval": true,
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/",
+      "rangeStrategy": "pin"
+    },
+    {
+      "description": "Retained Deno import mappings are public metadata, not a second development dependency graph. Coordinate ranges with reviewed root upgrades.",
+      "matchManagers": ["deno"],
+      "enabled": false
+    },
+    {
+      "description": "The independent Workers lock uses its reviewed npm 10 toolchain, never root Bun.",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["/^tests\\/cloudflare\\/package\\.json$/"],
+      "constraints": {
+        "node": "24.21.0",
+        "npm": "10.9.9"
+      }
     }
-  ]
+  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
 }

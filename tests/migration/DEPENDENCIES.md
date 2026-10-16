@@ -190,3 +190,41 @@ release preparation still needs its separate J02/J04 port. A fresh frozen Bun
 installation with normal hooks and exact dependency/import/compile evidence is
 recorded in the [B04/E03 integration receipt](results/b04-e03-integration.json);
 no Deno binary is used.
+
+## Current ownership cleanup (K03/K06, 2026-10-16)
+
+The preceding tables and deltas are immutable historical descriptions. Current
+root tooling uses exact `package.json` pins and sole authoritative `bun.lock`.
+`deno.json` now contains only retained identity/version, all 28 unchanged public
+exports, minimal production npm/type mappings and source publication metadata.
+Obsolete development tasks, permissions, formatting/compiler settings and
+Deno test/build/release/JSR aliases are removed. No maintained resolver consumes
+the old root `deno.lock`; its unused resolution graph is removed. The optional
+watch fingerprint tolerates the missing path. Historical
+experiment receipts/commands retain their original checkout context.
+
+The npm builder still reads public semver ranges from this reduced import map,
+including its SDK client-key lookup and JSON-schema declaration dependency.
+Those ranges remain unchanged. The `json-schema` type alias now points to the
+real `@types/json-schema` declaration package rather than its unused JavaScript
+implementation. Bare SDK extensionless type aliases share the same retained
+range as their `.js` runtime paths. No runtime package or root pin is changed.
+
+The separate publisher preparation derives its exact stage import map from the
+root manifest/Bun lock, computes the public closure and generates a private
+publisher-only auxiliary lock. It does not depend on the removed root lock.
+The publisher v3 integration is separately reviewed; its frozen evidence is not
+rewritten here. Final composed publisher/minimum-Deno rehearsal remains required.
+This cleanup executes no Deno binary.
+
+Renovate's built-in Bun and bun-version managers cover root graph/tool pins;
+no regex manager is introduced. Root dependency updates retain exact pins.
+Stable Bun pin updates are grouped and require dashboard approval/manual merge,
+including patches. Root `deno.json` is not an independently updated development
+graph. Workers retain npm management and npm 10.9.9/Node 24.21.0 artifact
+constraints; these constraints do not configure a globally supplied Renovate
+binary host, so actual lock acceptance still runs the pinned Workers CI gate.
+Existing schedules, branch policy, non-Bun automerge and preset<10 are preserved.
+See Renovate's [Bun manager](https://docs.renovatebot.com/modules/manager/bun/),
+[bun-version manager](https://docs.renovatebot.com/modules/manager/bun-version/)
+and [configuration reference](https://docs.renovatebot.com/configuration-options/).

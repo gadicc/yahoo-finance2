@@ -161,8 +161,10 @@ Want your project listed? Open a PR to add it here.
 
 ## Contributing
 
-Pull Requests welcome! Read [CONTRIBUTING.md](./CONTRIBUTING.md) and join our
-list of heroes:
+Pull requests target `dev`. Development uses pinned Bun 1.4.3 and the private
+root `bun.lock`; consumers retain Node >=22, Bun >=1.4.3 and Deno >=2/JSR.
+Use the maintained [contributor setup and replay commands](./CONTRIBUTING.md).
+Deno execution is confined to the isolated publisher. Join our list of heroes:
 
 <!--
 ![contributor-faces](https://contributors-svg.vercel.app/api/svg?user=gadicc&repo=yahoo-finance2)
