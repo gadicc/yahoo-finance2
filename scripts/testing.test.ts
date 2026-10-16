@@ -20,8 +20,7 @@ import { fingerprint, parseArguments } from "./test.ts";
 
 const launcher = new URL("./test.ts", import.meta.url).href;
 const guard = fileURLToPath(new URL("./testing/offline.py", import.meta.url));
-const pass =
-  `import {test,expect} from 'bun:test'; test('selected leaf',()=> { expect(1).toBe(1); console.log('SELECTED_LEAF'); });`;
+const pass = `import {test,expect} from 'bun:test'; test('selected leaf',()=> { expect(1).toBe(1); console.log('SELECTED_LEAF'); });`;
 function workspace() {
   const root = mkdtempSync(join(tmpdir(), "yf-command-"));
   const put = (path: string, content: string) => {
@@ -32,9 +31,9 @@ function workspace() {
   };
   const driver = put(
     "driver.mjs",
-    `import {main} from ${
-      JSON.stringify(launcher)
-    };process.exitCode=await main(process.argv.slice(3),process.argv[2]);`,
+    `import {main} from ${JSON.stringify(
+      launcher,
+    )};process.exitCode=await main(process.argv.slice(3),process.argv[2]);`,
   );
   return {
     root,
@@ -61,16 +60,15 @@ test("inventory is recursive, sorted, and excludes Workers, generated files and 
   space.put("src/z.test.ts", pass);
   space.put("tests/nested folder/a.test.ts", pass);
   space.put("scripts/worker.test.ts", pass);
-  for (
-    const path of [
-      "tests/cloudflare/worker.test.ts",
-      "src/node_modules/a.test.ts",
-      "tests/fixtures/a.test.ts",
-      "src/generated/a.test.ts",
-      "coverage/a.test.ts",
-      "npm/a.test.ts",
-    ]
-  ) space.put(path, pass);
+  for (const path of [
+    "tests/cloudflare/worker.test.ts",
+    "src/node_modules/a.test.ts",
+    "tests/fixtures/a.test.ts",
+    "src/generated/a.test.ts",
+    "coverage/a.test.ts",
+    "npm/a.test.ts",
+  ])
+    space.put(path, pass);
   symlinkSync(
     join(space.root, "src"),
     join(space.root, "tests", "linked"),
@@ -88,23 +86,22 @@ test("inventory is recursive, sorted, and excludes Workers, generated files and 
   expect(select(space.root, inventory(space.root), ["."], "nested")).toEqual([
     "tests/nested folder/a.test.ts",
   ]);
-  expect(() => select(space.root, inventory(space.root), ["../escape"]))
-    .toThrow("outside");
+  expect(() =>
+    select(space.root, inventory(space.root), ["../escape"]),
+  ).toThrow("outside");
 });
 
 test("strict options reject weakening flags and invalid selections", () => {
-  for (
-    const args of [
-      ["--parallel=99"],
-      ["--pass-with-no-tests"],
-      ["--preload", "escape.ts"],
-      ["--timeout", "0"],
-      ["--timeout=-1"],
-      ["--filter"],
-      ["--serial=yes"],
-      ["--name", "["],
-    ]
-  ) {
+  for (const args of [
+    ["--parallel=99"],
+    ["--pass-with-no-tests"],
+    ["--preload", "escape.ts"],
+    ["--timeout", "0"],
+    ["--timeout=-1"],
+    ["--filter"],
+    ["--serial=yes"],
+    ["--name", "["],
+  ]) {
     expect(() => parseArguments(args), args.join(" ")).toThrow();
   }
   expect(parseArguments(["--name=--help"]).name).toBe("--help");
@@ -152,8 +149,9 @@ test("empty files, unmatched names and failed leaves never report success", () =
   space.put("src/empty.test.ts", "export {};");
   expect(space.run(["src/empty.test.ts"]).code).not.toBe(0);
   space.put("src/pass.test.ts", pass);
-  expect(space.run(["src/pass.test.ts", "--name", "no such leaf"]).code).not
-    .toBe(0);
+  expect(
+    space.run(["src/pass.test.ts", "--name", "no such leaf"]).code,
+  ).not.toBe(0);
   space.put(
     "src/mixed.test.ts",
     "import{test}from'bun:test';test('before',()=>{throw Error('UNSELECTED')});test('selected',()=>{});test('after',()=>{throw Error('UNSELECTED')});",
@@ -214,33 +212,33 @@ print('GUARD_PROBE_PASSED')
   );
   const scratch = mkdtempSync(join(tmpdir(), "yf-guard-scratch-"));
   try {
-    const child = spawnSync("python3", [
-      guard,
-      space.root,
-      scratch,
-      "--",
-      "/usr/bin/python3",
-      probe,
-      fixture,
-    ], { encoding: "utf8", timeout: 20_000 });
+    const child = spawnSync(
+      "python3",
+      [guard, space.root, scratch, "--", "/usr/bin/python3", probe, fixture],
+      { encoding: "utf8", timeout: 20_000 },
+    );
     expect(child.status, child.stderr).toBe(0);
     expect(child.stdout.match(/GUARD_PROBE_PASSED/g)).toHaveLength(2);
     expect(readFileSync(fixture, "utf8")).toBe('{"success":true}');
     const descriptor = openSync(fixture, "r+");
     try {
-      const inherited = spawnSync("python3", [
-        guard,
-        space.root,
-        scratch,
-        "--",
-        "/usr/bin/python3",
-        "-c",
-        `
+      const inherited = spawnSync(
+        "python3",
+        [
+          guard,
+          space.root,
+          scratch,
+          "--",
+          "/usr/bin/python3",
+          "-c",
+          `
 import os,errno
 try:os.write(3,b'BYPASS');raise RuntimeError('INHERITED_FD_BYPASS')
 except OSError as error:assert error.errno==errno.EBADF,error
 `,
-      ], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe", descriptor] });
+        ],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "pipe", descriptor] },
+      );
       expect(inherited.status, inherited.stderr).toBe(0);
       expect(readFileSync(fixture, "utf8")).toBe('{"success":true}');
     } finally {
@@ -251,20 +249,24 @@ except OSError as error:assert error.errno==errno.EBADF,error
     try {
       const ramFixture = join(ramRoot, "fixture.json");
       writeFileSync(ramFixture, "original");
-      const ramProbe = spawnSync("python3", [
-        guard,
-        ramRoot,
-        scratch,
-        "--",
-        "/usr/bin/python3",
-        "-c",
-        `
+      const ramProbe = spawnSync(
+        "python3",
+        [
+          guard,
+          ramRoot,
+          scratch,
+          "--",
+          "/usr/bin/python3",
+          "-c",
+          `
 import pathlib,sys,errno
 try:pathlib.Path(sys.argv[1]).write_text('MUTATED');raise RuntimeError('RAM_FIXTURE_WRITE_BYPASS')
 except OSError as error:assert error.errno in (errno.EROFS,errno.EACCES,errno.EPERM),error
 `,
-        ramFixture,
-      ], { encoding: "utf8", timeout: 20_000 });
+          ramFixture,
+        ],
+        { encoding: "utf8", timeout: 20_000 },
+      );
       expect(ramProbe.status, ramProbe.stderr).toBe(0);
       expect(readFileSync(ramFixture, "utf8")).toBe("original");
     } finally {
@@ -307,50 +309,57 @@ test("guard rejects missing Bubblewrap and overlapping scratch without fallback"
   using space = workspace();
   const scratch = mkdtempSync(join(tmpdir(), "yf-guard-negative-"));
   try {
-    for (
-      const chosen of [
-        space.root,
-        join(space.root, "tests"),
-        dirname(space.root),
-      ]
-    ) {
+    for (const chosen of [
+      space.root,
+      join(space.root, "tests"),
+      dirname(space.root),
+    ]) {
       mkdirSync(chosen, { recursive: true });
-      const result = spawnSync("python3", [
-        guard,
-        space.root,
-        chosen,
-        "--",
-        process.execPath,
-        "-e",
-        "console.log('UNGUARDED')",
-      ], { encoding: "utf8" });
+      const result = spawnSync(
+        "python3",
+        [
+          guard,
+          space.root,
+          chosen,
+          "--",
+          process.execPath,
+          "-e",
+          "console.log('UNGUARDED')",
+        ],
+        { encoding: "utf8" },
+      );
       expect(result.status).not.toBe(0);
       expect(result.stdout).not.toContain("UNGUARDED");
       expect(result.stderr).toContain("non-overlapping");
     }
-    const noBwrap = spawnSync("/usr/bin/python3", [
-      guard,
-      space.root,
-      scratch,
-      "--",
-      process.execPath,
-      "-e",
-      "console.log('UNGUARDED')",
-    ], { encoding: "utf8", env: { ...process.env, PATH: "/nonexistent" } });
+    const noBwrap = spawnSync(
+      "/usr/bin/python3",
+      [
+        guard,
+        space.root,
+        scratch,
+        "--",
+        process.execPath,
+        "-e",
+        "console.log('UNGUARDED')",
+      ],
+      { encoding: "utf8", env: { ...process.env, PATH: "/nonexistent" } },
+    );
     expect(noBwrap.status).not.toBe(0);
     expect(noBwrap.stdout).not.toContain("UNGUARDED");
     expect(noBwrap.stderr).toContain("Bubblewrap");
-    const missingLibrary = spawnSync("/usr/bin/python3", [
-      "-c",
-      `
+    const missingLibrary = spawnSync(
+      "/usr/bin/python3",
+      [
+        "-c",
+        `
 import ctypes,runpy,sys
 original=ctypes.CDLL
 def load(name,*args,**kwargs):
  if name=='libseccomp.so.2':raise OSError('SYNTHETIC_MISSING_LIBSECCOMP')
  return original(name,*args,**kwargs)
 ctypes.CDLL=load
-sys.argv=${
-        JSON.stringify([
+sys.argv=${JSON.stringify([
           guard,
           space.root,
           scratch,
@@ -358,11 +367,12 @@ sys.argv=${
           process.execPath,
           "-e",
           "console.log('UNGUARDED')",
-        ])
-      }
+        ])}
 runpy.run_path(sys.argv[0],run_name='__main__')
 `,
-    ], { encoding: "utf8" });
+      ],
+      { encoding: "utf8" },
+    );
     expect(missingLibrary.status).not.toBe(0);
     expect(missingLibrary.stderr).toContain("SYNTHETIC_MISSING_LIBSECCOMP");
     expect(missingLibrary.stdout).not.toContain("UNGUARDED");
@@ -387,13 +397,15 @@ test("coverage stages regular output without granting writable fixture aliases",
   );
   const result = space.run(["--coverage", "--serial"]);
   expect(result.code, result.output).toBe(0);
-  expect(readFileSync(join(space.root, "coverage/lcov.info"), "utf8"))
-    .toContain("TN:");
+  expect(
+    readFileSync(join(space.root, "coverage/lcov.info"), "utf8"),
+  ).toContain("TN:");
   for (const selection of [["--filter", "missing"], ["src/missing.test.ts"]]) {
     const empty = space.run(["--coverage", ...selection]);
     expect(empty.code, empty.output).toBe(2);
-    expect(() => readFileSync(join(space.root, "coverage/lcov.info")))
-      .toThrow();
+    expect(() =>
+      readFileSync(join(space.root, "coverage/lcov.info")),
+    ).toThrow();
     expect(space.run(["--coverage", "--serial"]).code).toBe(0);
   }
   const fixture = space.put(
@@ -475,7 +487,7 @@ test("watch hard restarts and rediscovers test additions and removals", async ()
     fingerprint(space.root, (path) => {
       if (path === vanished) rmSync(path);
       return readFileSync(path);
-    })
+    }),
   ).not.toThrow();
 
   let phase = 0;

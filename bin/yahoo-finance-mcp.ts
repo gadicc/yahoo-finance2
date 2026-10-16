@@ -177,10 +177,12 @@ export function parseMcpArgs(
 }
 
 export function isLocalHost(host: string) {
-  return host === "127.0.0.1" ||
+  return (
+    host === "127.0.0.1" ||
     host === "localhost" ||
     host === "::1" ||
-    host === "[::1]";
+    host === "[::1]"
+  );
 }
 
 async function runStdio(options: McpCliOptions) {
@@ -201,11 +203,7 @@ async function runStdio(options: McpCliOptions) {
 }
 
 export function validateHttpOptions(options: McpCliOptions) {
-  if (
-    !isLocalHost(options.host) &&
-    !options.token &&
-    !options.unsafeNoToken
-  ) {
+  if (!isLocalHost(options.host) && !options.token && !options.unsafeNoToken) {
     throw new UsageError(
       "Refusing to bind HTTP MCP to a non-local host without --token. " +
         "Use --token or --unsafe-no-token.",
@@ -230,11 +228,12 @@ async function runHttp(options: McpCliOptions) {
       res.end();
     });
   });
-  const lifecycle = closeOnSignals(() =>
-    new Promise<void>((resolve) => {
-      server.close(() => resolve());
-      server.closeAllConnections?.();
-    })
+  const lifecycle = closeOnSignals(
+    () =>
+      new Promise<void>((resolve) => {
+        server.close(() => resolve());
+        server.closeAllConnections?.();
+      }),
   );
   try {
     await new Promise<void>((resolve, reject) => {
@@ -254,9 +253,8 @@ async function runHttp(options: McpCliOptions) {
     void lifecycle.shutdown();
   });
   const address = server.address();
-  const resolvedPort = typeof address === "object" && address
-    ? address.port
-    : options.port;
+  const resolvedPort =
+    typeof address === "object" && address ? address.port : options.port;
   const auth = options.token ? " with bearer token auth" : "";
   console.error(
     `yahoo-finance2 MCP HTTP listening on http://${options.host}:${resolvedPort}${options.path}${auth}`,
@@ -280,9 +278,8 @@ export async function mainMcp(args = process.argv.slice(2)): Promise<number> {
     else await runStdio(options);
     return 0;
   } catch (error) {
-    const detail = error instanceof Error
-      ? error.message
-      : "MCP startup failed.";
+    const detail =
+      error instanceof Error ? error.message : "MCP startup failed.";
     const message = token ? detail.split(token).join("[redacted]") : detail;
     console.error(
       `${error instanceof UsageError ? error.name : "Error"}: ${message}`,
@@ -292,10 +289,12 @@ export async function mainMcp(args = process.argv.slice(2)): Promise<number> {
 }
 
 if (isMainModule(import.meta.url)) {
-  void mainMcp().then((code) => {
-    process.exitCode = code || process.exitCode || 0;
-  }).catch(() => {
-    console.error("Error: Unable to run the Yahoo Finance MCP server.");
-    process.exitCode = 1;
-  });
+  void mainMcp()
+    .then((code) => {
+      process.exitCode = code || process.exitCode || 0;
+    })
+    .catch(() => {
+      console.error("Error: Unable to run the Yahoo Finance MCP server.");
+      process.exitCode = 1;
+    });
 }

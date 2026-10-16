@@ -9,7 +9,9 @@ describe("versions", () => {
   beforeEach(() => {
     _clearCache();
     globalThis.fetch = spy((input) => {
-      expect(String(input)).toBe("https://registry.npmjs.org/yahoo-finance2/latest");
+      expect(String(input)).toBe(
+        "https://registry.npmjs.org/yahoo-finance2/latest",
+      );
       return Promise.resolve(Response.json({ version: "2.13.3" }));
     });
   });

@@ -43,10 +43,12 @@ export async function mainCli(
 }
 
 if (isMainModule(import.meta.url)) {
-  void mainCli().then((code) => {
-    process.exitCode = code || process.exitCode || 0;
-  }).catch(() => {
-    console.error("Error: Unable to run the Yahoo Finance CLI.");
-    process.exitCode = 1;
-  });
+  void mainCli()
+    .then((code) => {
+      process.exitCode = code || process.exitCode || 0;
+    })
+    .catch(() => {
+      console.error("Error: Unable to run the Yahoo Finance CLI.");
+      process.exitCode = 1;
+    });
 }

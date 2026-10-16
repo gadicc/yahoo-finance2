@@ -206,26 +206,23 @@ describe("historical", () => {
   }
   */
 
-  it(
-    "handles events:dividends for stocks with no dividends (#658)",
-    async (t, onFinish) => {
-      await yf.historical(
-        "TSLA", // No dividends at time of writing
-        {
-          period1: 0,
-          period2: "2023-08-12", // time of writing :)
-          events: "dividends",
-          interval: "1d",
+  it("handles events:dividends for stocks with no dividends (#658)", async (t, onFinish) => {
+    await yf.historical(
+      "TSLA", // No dividends at time of writing
+      {
+        period1: 0,
+        period2: "2023-08-12", // time of writing :)
+        events: "dividends",
+        interval: "1d",
+      },
+      {
+        devel: {
+          id: "historical-via-chart-dividends-TSLA-no-dividends",
+          t,
+          onFinish,
         },
-        {
-          devel: {
-            id: "historical-via-chart-dividends-TSLA-no-dividends",
-            t,
-            onFinish,
-          },
-        },
-      );
-      // Enough to check that this doesn't throw.
-    },
-  );
+      },
+    );
+    // Enough to check that this doesn't throw.
+  });
 });

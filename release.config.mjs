@@ -20,13 +20,19 @@ export default {
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    ["@semantic-release/exec", {
-      "prepareCmd":
-        "deno run --no-prompt --allow-read=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js --allow-write=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js scripts/fix_versions.ts --version ${nextRelease.version}",
-    }],
-    ["@semantic-release/npm", {
-      pkgRoot: "npm",
-    }],
+    [
+      "@semantic-release/exec",
+      {
+        prepareCmd:
+          "deno run --no-prompt --allow-read=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js --allow-write=npm/src/deno.js,npm/esm/deno.js,npm/script/deno.js scripts/fix_versions.ts --version ${nextRelease.version}",
+      },
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        pkgRoot: "npm",
+      },
+    ],
     // semantic-release v25 does not accept the JSR package's pure named ESM
     // export object directly, so this wrapper default-exports lifecycle hooks.
     "./scripts/semantic-release-jsr.mjs",

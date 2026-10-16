@@ -7,8 +7,7 @@ try {
   const version = readFileSync(
     new URL("../.bun-version", import.meta.url),
     "utf8",
-  )
-    .trim();
+  ).trim();
   const manifest = JSON.parse(
     readFileSync(new URL("../package.json", import.meta.url), "utf8"),
   );
@@ -25,15 +24,13 @@ try {
       "Missing root bun.lock. Restore the committed lockfile before installing; do not resolve a new graph.",
     );
   }
-  for (
-    const name of [
-      "pnpm-lock.yaml",
-      "package-lock.json",
-      "npm-shrinkwrap.json",
-      "yarn.lock",
-      "bun.lockb",
-    ]
-  ) {
+  for (const name of [
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "npm-shrinkwrap.json",
+    "yarn.lock",
+    "bun.lockb",
+  ]) {
     if (existsSync(new URL(`../${name}`, import.meta.url))) {
       throw new Error(
         `Unexpected root ${name}. bun.lock is authoritative; remove the competing root lockfile.`,
@@ -51,7 +48,8 @@ try {
   // The offline test launcher also resolves "bun" from PATH.
   const selected = spawnSync("bun", ["--version"], { encoding: "utf8" });
   if (
-    selected.error || selected.status !== 0 ||
+    selected.error ||
+    selected.status !== 0 ||
     selected.stdout.trim() !== version
   ) {
     throw new Error(
@@ -60,7 +58,9 @@ try {
   }
   const agent = process.env.npm_config_user_agent;
   if (
-    agent && !agent.startsWith(`bun/${version} `) && agent !== `bun/${version}`
+    agent &&
+    !agent.startsWith(`bun/${version} `) &&
+    agent !== `bun/${version}`
   ) {
     throw new Error(
       `Use Bun ${version} for root dependencies and scripts (received ${

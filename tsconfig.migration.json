@@ -8,27 +8,13 @@
     "strict": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable",
-      "DOM.AsyncIterable"
-    ],
-    "types": [
-      "node",
-      "deno"
-    ],
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "DOM.AsyncIterable"],
+    "types": ["node", "deno"],
     "ignoreDeprecations": "6.0",
     "paths": {
-      "@std/cli/parse-args": [
-        "./tests/migration/std-tooling.ts"
-      ],
-      "@std/fs/walk": [
-        "./tests/migration/std-tooling.ts"
-      ],
-      "bun:test": [
-        "./tests/migration/bun-test-types.d.ts"
-      ]
+      "@std/cli/parse-args": ["./tests/migration/std-tooling.ts"],
+      "@std/fs/walk": ["./tests/migration/std-tooling.ts"],
+      "bun:test": ["./tests/migration/bun-test-types.d.ts"]
     },
     "allowJs": true,
     "checkJs": false
@@ -39,7 +25,5 @@
     "tests/migration/*.ts",
     "scripts/**/*.test.ts"
   ],
-  "exclude": [
-    "tests/cloudflare"
-  ]
+  "exclude": ["tests/cloudflare"]
 }

@@ -15,15 +15,28 @@ test("capture store drains deferred onFinish writes into private staged files", 
       fetch: async () => Response.json({ observedNewField: 42 }),
     });
     let finish!: (capture: boolean) => void;
-    cache.once({ id: "data-drift", readCache: false, writeCache: new Promise<boolean>((resolve) => finish = resolve) });
-    expect(await (await cache("https://query2.finance.yahoo.com/v7/finance/quote", {})).json())
-      .toEqual({ observedNewField: 42 });
+    cache.once({
+      id: "data-drift",
+      readCache: false,
+      writeCache: new Promise<boolean>((resolve) => (finish = resolve)),
+    });
+    expect(
+      await (
+        await cache("https://query2.finance.yahoo.com/v7/finance/quote", {})
+      ).json(),
+    ).toEqual({ observedNewField: 42 });
     expect(await readdir(fixtureRoot)).toEqual([]);
     finish(true);
     await storage.drain();
-    const fixture = JSON.parse(await readFile(join(fixtureRoot, "data-drift.json"), "utf8"));
+    const fixture = JSON.parse(
+      await readFile(join(fixtureRoot, "data-drift.json"), "utf8"),
+    );
     expect(fixture.response.bodyJson).toEqual({ observedNewField: 42 });
-    cache.once({ id: "passing", readCache: false, writeCache: Promise.resolve(false) });
+    cache.once({
+      id: "passing",
+      readCache: false,
+      writeCache: Promise.resolve(false),
+    });
     await cache("https://query2.finance.yahoo.com/v7/finance/quote", {});
     await storage.drain();
     expect(await readdir(fixtureRoot)).toEqual(["data-drift.json"]);
@@ -35,17 +48,36 @@ test("capture store drains deferred onFinish writes into private staged files", 
 test("capture store refuses protected ids and transient captures while accepting observed shape drift", async () => {
   const fixtureRoot = await mkdtemp(join(tmpdir(), "yf-store-"));
   try {
-    for (const id of ["protected.static", "protected.fake", "getCrumb-geo-gb-20261016-getcrumb", "../escape"]) {
-      const storage = captureStore({ fixtureRoot, mode: "recache", interval: 0 });
-      const cache = createFetchCache({ Store: storage.Store, fetch: async () => Response.json({ data: true }) });
+    for (const id of [
+      "protected.static",
+      "protected.fake",
+      "getCrumb-geo-gb-20261016-getcrumb",
+      "../escape",
+    ]) {
+      const storage = captureStore({
+        fixtureRoot,
+        mode: "recache",
+        interval: 0,
+      });
+      const cache = createFetchCache({
+        Store: storage.Store,
+        fetch: async () => Response.json({ data: true }),
+      });
       cache.once({ id, mode: "record" });
-      await expect(cache("https://query2.finance.yahoo.com/v7/finance/quote", {})).rejects.toThrow();
+      await expect(
+        cache("https://query2.finance.yahoo.com/v7/finance/quote", {}),
+      ).rejects.toThrow();
       await expect(storage.drain()).rejects.toThrow();
     }
     const storage = captureStore({ fixtureRoot, mode: "recache", interval: 0 });
-    const cache = createFetchCache({ Store: storage.Store, fetch: async () => new Response("unavailable", { status: 503 }) });
+    const cache = createFetchCache({
+      Store: storage.Store,
+      fetch: async () => new Response("unavailable", { status: 503 }),
+    });
     cache.once({ id: "transient", mode: "record" });
-    await expect(cache("https://query2.finance.yahoo.com/v7/finance/quote", {})).rejects.toThrow("server-error");
+    await expect(
+      cache("https://query2.finance.yahoo.com/v7/finance/quote", {}),
+    ).rejects.toThrow("server-error");
     await expect(storage.drain()).rejects.toThrow();
     expect(await readdir(fixtureRoot)).toEqual([]);
   } finally {

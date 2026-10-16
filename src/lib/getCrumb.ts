@@ -27,9 +27,8 @@ function crumbState(cookieJar: ExtendedCookieJar): CrumbState {
 }
 
 const parseHtmlEntities = (str: string) =>
-  str.replace(
-    /&#x([0-9A-Fa-f]{1,3});/gi,
-    (_, numStr) => String.fromCharCode(parseInt(numStr, 16)),
+  str.replace(/&#x([0-9A-Fa-f]{1,3});/gi, (_, numStr) =>
+    String.fromCharCode(parseInt(numStr, 16)),
   );
 
 type CrumbOptions = RequestInit & {
@@ -78,9 +77,10 @@ export async function _getCrumb(
   const consentFixtureId = (step: string) =>
     `getCrumb-quote-AAPL-${depth > 0 ? `depth-${depth}-` : ""}${step}`;
   const finalRedirectDepth = depth + 1;
-  const finalRedirectFixtureId = finalRedirectDepth === 1
-    ? "getCrumb-quote-AAPL-consent-final-redirect.html"
-    : `getCrumb-quote-AAPL-depth-${finalRedirectDepth}-consent-final-redirect.html`;
+  const finalRedirectFixtureId =
+    finalRedirectDepth === 1
+      ? "getCrumb-quote-AAPL-consent-final-redirect.html"
+      : `getCrumb-quote-AAPL-depth-${finalRedirectDepth}-consent-final-redirect.html`;
   const state = crumbState(cookieJar);
   if (!state.crumb) {
     const cookies = await cookieJar.getCookies(CONFIG_FAKE_URL);
@@ -216,7 +216,7 @@ export async function _getCrumb(
         };
         logger.debug(
           "fetch",
-          consentLocation, /*, collectConsentFetchOptions */
+          consentLocation /*, collectConsentFetchOptions */,
         );
 
         const collectConsentResponse = await fetch(
@@ -225,16 +225,17 @@ export async function _getCrumb(
         );
         const collectConsentBody = await collectConsentResponse.text();
 
-        const collectConsentResponseParams = [
-          ...collectConsentBody.matchAll(
-            /<input type="hidden" name="([^"]+)" value="([^"]+)">/g,
-          ),
-        ]
-          .map(
-            ([, name, value]) =>
-              `${name}=${encodeURIComponent(parseHtmlEntities(value))}&`,
-          )
-          .join("") + "agree=agree&agree=agree";
+        const collectConsentResponseParams =
+          [
+            ...collectConsentBody.matchAll(
+              /<input type="hidden" name="([^"]+)" value="([^"]+)">/g,
+            ),
+          ]
+            .map(
+              ([, name, value]) =>
+                `${name}=${encodeURIComponent(parseHtmlEntities(value))}&`,
+            )
+            .join("") + "agree=agree&agree=agree";
 
         const collectConsentSubmitFetchOptions: typeof fetchOptions = {
           ...consentFetchOptions,
@@ -254,7 +255,7 @@ export async function _getCrumb(
         };
         logger.debug(
           "fetch",
-          consentLocation, /*, collectConsentSubmitFetchOptions */
+          consentLocation /*, collectConsentSubmitFetchOptions */,
         );
         const collectConsentSubmitResponse = await fetch(
           consentLocation,
@@ -299,7 +300,7 @@ export async function _getCrumb(
 
         logger.debug(
           "fetch",
-          collectConsentSubmitResponseLocation, /*, copyConsentFetchOptions */
+          collectConsentSubmitResponseLocation /*, copyConsentFetchOptions */,
         );
         const copyConsentResponse = await fetch(
           collectConsentSubmitResponseLocation,
@@ -317,9 +318,8 @@ export async function _getCrumb(
           );
         }
 
-        const copyConsentResponseLocation = copyConsentResponse.headers.get(
-          "location",
-        );
+        const copyConsentResponseLocation =
+          copyConsentResponse.headers.get("location");
         if (!copyConsentResponseLocation) {
           throw new Error(
             "collectConsentSubmitResponse(2) unexpectedly did not return a Location header, please report.",

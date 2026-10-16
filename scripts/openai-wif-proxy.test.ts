@@ -34,24 +34,23 @@ const config = {
 
 test("federation validates exact repository, workflow, environment and event claims", () => {
   expect(checkClaims(jwt(), now).repository).toBe("gadicc/yahoo-finance2");
-  for (
-    const override of [
-      { ref: "refs/heads/main" },
-      { repository: "attacker/fork" },
-      { repository_id: "different-repository" },
-      { repository_owner_id: "different-owner" },
-      {
-        workflow_ref:
-          "gadicc/yahoo-finance2/.github/workflows/untrusted.yaml@refs/heads/dev",
-      },
-      { environment: "other-environment" },
-      { sub: "repo:gadicc/yahoo-finance2:pull_request" },
-      { aud: "wrong-audience" },
-      { iss: "https://evil.invalid" },
-      { event_name: "pull_request_target" },
-      { exp: now / 1000 + 10 },
-    ]
-  ) expect(() => checkClaims(jwt(override), now)).toThrow();
+  for (const override of [
+    { ref: "refs/heads/main" },
+    { repository: "attacker/fork" },
+    { repository_id: "different-repository" },
+    { repository_owner_id: "different-owner" },
+    {
+      workflow_ref:
+        "gadicc/yahoo-finance2/.github/workflows/untrusted.yaml@refs/heads/dev",
+    },
+    { environment: "other-environment" },
+    { sub: "repo:gadicc/yahoo-finance2:pull_request" },
+    { aud: "wrong-audience" },
+    { iss: "https://evil.invalid" },
+    { event_name: "pull_request_target" },
+    { exp: now / 1000 + 10 },
+  ])
+    expect(() => checkClaims(jwt(override), now)).toThrow();
 });
 
 test("federation reuses valid tokens and single-flights renewal before expiry", async () => {
@@ -94,7 +93,10 @@ test("federation reuses valid tokens and single-flights renewal before expiry", 
 
 test("federation rejects untrusted endpoints and does not disclose failed exchange bodies", async () => {
   expect(() =>
-    createTokenProvider({ ...config, requestURL: "https://evil.invalid/token" })
+    createTokenProvider({
+      ...config,
+      requestURL: "https://evil.invalid/token",
+    }),
   ).toThrow("endpoint");
   const token = createTokenProvider(
     config,
@@ -114,29 +116,30 @@ test("federation rejects untrusted endpoints and does not disclose failed exchan
 
 test("federation proxy restricts paths, methods, local credentials and models", async () => {
   let calls = 0;
-  const server = createProxy({
-    gatewayToken: "local-only",
-    model: "allowed-model",
-  }, () => {
-    calls++;
-    return Promise.resolve("short-lived-upstream-token");
-  });
+  const server = createProxy(
+    {
+      gatewayToken: "local-only",
+      model: "allowed-model",
+    },
+    () => {
+      calls++;
+      return Promise.resolve("short-lived-upstream-token");
+    },
+  );
   const handler = server.listeners("request")[0];
-  for (
-    const [url, method, authorization, model, status] of [
-      ["/v1/models", "GET", "Bearer local-only", "allowed-model", 404],
-      [
-        "/v1/responses?target=evil",
-        "POST",
-        "Bearer local-only",
-        "allowed-model",
-        404,
-      ],
-      ["/v1/responses", "GET", "Bearer local-only", "allowed-model", 404],
-      ["/v1/responses", "POST", "Bearer wrong", "allowed-model", 401],
-      ["/v1/responses", "POST", "Bearer local-only", "other-model", 403],
-    ] as const
-  ) {
+  for (const [url, method, authorization, model, status] of [
+    ["/v1/models", "GET", "Bearer local-only", "allowed-model", 404],
+    [
+      "/v1/responses?target=evil",
+      "POST",
+      "Bearer local-only",
+      "allowed-model",
+      404,
+    ],
+    ["/v1/responses", "GET", "Bearer local-only", "allowed-model", 404],
+    ["/v1/responses", "POST", "Bearer wrong", "allowed-model", 401],
+    ["/v1/responses", "POST", "Bearer local-only", "other-model", 403],
+  ] as const) {
     const request = Object.assign(
       Readable.from([new TextEncoder().encode(JSON.stringify({ model }))]),
       {
@@ -164,23 +167,27 @@ test("federation proxy restricts paths, methods, local credentials and models", 
 test("federation proxy streams responses, uses exchanged credentials, and renews once on 401", async () => {
   const renewed: boolean[] = [];
   const forwarded: string[] = [];
-  const server = createProxy({
-    gatewayToken: "local-only",
-    model: "allowed-model",
-  }, (force: boolean) => {
-    renewed.push(force);
-    return Promise.resolve(force ? "renewed-token" : "initial-token");
-  }, async (url: RequestInfo | URL, init?: RequestInit) => {
-    await Promise.resolve();
-    expect(String(url)).toBe("https://api.openai.com/v1/responses");
-    expect(init?.redirect).toBe("error");
-    forwarded.push(new Headers(init?.headers).get("authorization")!);
-    return forwarded.length === 1
-      ? new Response("expired", { status: 401 })
-      : new Response("data: success\n\n", {
-        headers: { "content-type": "text/event-stream" },
-      });
-  });
+  const server = createProxy(
+    {
+      gatewayToken: "local-only",
+      model: "allowed-model",
+    },
+    (force: boolean) => {
+      renewed.push(force);
+      return Promise.resolve(force ? "renewed-token" : "initial-token");
+    },
+    async (url: RequestInfo | URL, init?: RequestInit) => {
+      await Promise.resolve();
+      expect(String(url)).toBe("https://api.openai.com/v1/responses");
+      expect(init?.redirect).toBe("error");
+      forwarded.push(new Headers(init?.headers).get("authorization")!);
+      return forwarded.length === 1
+        ? new Response("expired", { status: 401 })
+        : new Response("data: success\n\n", {
+            headers: { "content-type": "text/event-stream" },
+          });
+    },
+  );
   const handler = server.listeners("request")[0];
   const request = Object.assign(
     Readable.from([
@@ -202,9 +209,9 @@ test("federation proxy streams responses, uses exchanged credentials, and renews
     },
   });
   let body = "";
-  response.on("data", (chunk) => body += chunk.toString());
+  response.on("data", (chunk) => (body += chunk.toString()));
   const finished = new Promise<void>((resolve) =>
-    response.once("finish", resolve)
+    response.once("finish", resolve),
   );
   await handler(request, response);
   await finished;

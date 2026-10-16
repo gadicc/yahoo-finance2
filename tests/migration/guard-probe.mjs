@@ -59,9 +59,9 @@ for (const host of ["127.0.0.1", "::1"]) {
 // The syscall filter must also survive child process exec.
 const child = spawnSync(process.execPath, [
   "-e",
-  `require('node:net').connect({host:'127.0.0.1',port:9}).on('error',e=>process.exit(e.code===${
-    JSON.stringify(deniedCode)
-  }?0:1))`,
+  `require('node:net').connect({host:'127.0.0.1',port:9}).on('error',e=>process.exit(e.code===${JSON.stringify(
+    deniedCode,
+  )}?0:1))`,
 ]);
 assert.equal(child.status, 0);
 assert.throws(

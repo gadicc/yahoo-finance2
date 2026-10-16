@@ -74,9 +74,10 @@ function callResult(result: unknown): CallToolResult {
 }
 
 function errorResult(error: unknown): CallToolResult {
-  const message = error instanceof Error
-    ? `${error.name}: ${error.message}`
-    : `Error: ${String(error)}`;
+  const message =
+    error instanceof Error
+      ? `${error.name}: ${error.message}`
+      : `Error: ${String(error)}`;
 
   return {
     content: [{ type: "text", text: message }],
@@ -95,9 +96,9 @@ function buildSymbolTool(
     description,
     inputSchema: {
       symbol: z.string().describe("Yahoo Finance symbol, e.g. AAPL."),
-      queryOptions: looseObjectSchema.optional().describe(
-        `Optional query options passed to yahooFinance.${name}().`,
-      ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(`Optional query options passed to yahooFinance.${name}().`),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -116,12 +117,16 @@ const TOOL_SPECS: ToolSpec[] = [
     description:
       "Get real-time or near real-time quote data for one or more Yahoo Finance symbols.",
     inputSchema: {
-      query: z.union([z.string(), z.array(z.string())]).describe(
-        'Yahoo Finance symbol or symbols, e.g. "AAPL" or ["AAPL", "MSFT"].',
-      ),
-      queryOptions: looseObjectSchema.optional().describe(
-        'Optional quote options such as fields or return: "array", "object", or "map".',
-      ),
+      query: z
+        .union([z.string(), z.array(z.string())])
+        .describe(
+          'Yahoo Finance symbol or symbols, e.g. "AAPL" or ["AAPL", "MSFT"].',
+        ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(
+          'Optional quote options such as fields or return: "array", "object", or "map".',
+        ),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -138,9 +143,11 @@ const TOOL_SPECS: ToolSpec[] = [
       "Get quote data for a single symbol through yahoo-finance2's debounced quote combiner.",
     inputSchema: {
       query: z.string().describe('Yahoo Finance symbol, e.g. "AAPL".'),
-      queryOptions: looseObjectSchema.optional().describe(
-        "Optional quote options such as fields. quoteCombine always returns a single quote result.",
-      ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(
+          "Optional quote options such as fields. quoteCombine always returns a single quote result.",
+        ),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -156,12 +163,16 @@ const TOOL_SPECS: ToolSpec[] = [
     description:
       "Search Yahoo Finance instruments, companies, and related news by symbol, name, or keyword.",
     inputSchema: {
-      query: z.string().describe(
-        'Search term, company name, or symbol, e.g. "Apple" or "AAPL".',
-      ),
-      queryOptions: looseObjectSchema.optional().describe(
-        "Optional search options such as quotesCount, newsCount, region, lang, or enableFuzzyQuery.",
-      ),
+      query: z
+        .string()
+        .describe(
+          'Search term, company name, or symbol, e.g. "Apple" or "AAPL".',
+        ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(
+          "Optional search options such as quotesCount, newsCount, region, lang, or enableFuzzyQuery.",
+        ),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -226,9 +237,11 @@ const TOOL_SPECS: ToolSpec[] = [
       "Get Yahoo Finance trending symbols for a region such as US, GB, or DE.",
     inputSchema: {
       region: z.string().describe('Region code, e.g. "US", "GB", or "DE".'),
-      queryOptions: looseObjectSchema.optional().describe(
-        "Optional trending symbols options such as lang, region, or count.",
-      ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(
+          "Optional trending symbols options such as lang, region, or count.",
+        ),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -244,19 +257,24 @@ const TOOL_SPECS: ToolSpec[] = [
     description:
       "Run a predefined Yahoo Finance stock screener such as day_gainers, day_losers, or most_actives.",
     inputSchema: {
-      scrId: z.string().optional().describe(
-        'Predefined screener id, e.g. "day_gainers", "day_losers", or "most_actives".',
-      ),
-      queryOptions: looseObjectSchema.optional().describe(
-        "Optional screener options such as scrIds, count, region, lang, or start.",
-      ),
+      scrId: z
+        .string()
+        .optional()
+        .describe(
+          'Predefined screener id, e.g. "day_gainers", "day_losers", or "most_actives".',
+        ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe(
+          "Optional screener options such as scrIds, count, region, lang, or start.",
+        ),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) => {
       const scrId = input.scrId;
       const opts = queryOptions(input);
       return callClient(client, "screener", [
-        typeof scrId === "string" ? scrId : opts ?? {},
+        typeof scrId === "string" ? scrId : (opts ?? {}),
         typeof scrId === "string" ? opts : undefined,
         moduleOptions(input),
       ]);
@@ -268,12 +286,14 @@ const TOOL_SPECS: ToolSpec[] = [
     description:
       "Get related and similar stock recommendations for one or more symbols.",
     inputSchema: {
-      query: z.union([z.string(), z.array(z.string())]).describe(
-        'Yahoo Finance symbol or symbols, e.g. "AAPL" or ["AAPL", "MSFT"].',
-      ),
-      queryOptions: looseObjectSchema.optional().describe(
-        "Optional recommendations query options.",
-      ),
+      query: z
+        .union([z.string(), z.array(z.string())])
+        .describe(
+          'Yahoo Finance symbol or symbols, e.g. "AAPL" or ["AAPL", "MSFT"].',
+        ),
+      queryOptions: looseObjectSchema
+        .optional()
+        .describe("Optional recommendations query options."),
       moduleOptions: moduleOptionsSchema.optional(),
     },
     call: (client, input) =>
@@ -316,8 +336,7 @@ export function getYahooFinanceMcpToolNames(): string[] {
 export function createYahooFinanceMcpServer(
   options: CreateYahooFinanceMcpServerOptions,
 ): McpServer {
-  const enabledTools = options.enabledTools ??
-    getYahooFinanceMcpToolNames();
+  const enabledTools = options.enabledTools ?? getYahooFinanceMcpToolNames();
   const knownToolNames = new Set(getYahooFinanceMcpToolNames());
   const unknownTools = enabledTools.filter((name) => !knownToolNames.has(name));
   if (unknownTools.length) {

@@ -3,7 +3,11 @@ import { expect } from "../tests/migration/assertions.ts";
 import { mkdtemp, mkdir, writeFile, rm, symlink, link } from "node:fs/promises";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { fixtureChanges, snapshotFixtures, readFixtureBytes } from "./recache-fixtures.ts";
+import {
+  fixtureChanges,
+  snapshotFixtures,
+  readFixtureBytes,
+} from "./recache-fixtures.ts";
 
 test("recache fixture report separates run changes from preexisting edits", () => {
   const before = new Map([
@@ -23,7 +27,6 @@ test("recache fixture report separates run changes from preexisting edits", () =
   ]);
   expect(before.get("updated.json")).toBe("old");
 });
-
 
 test("portable recache snapshot compares current bytes and excludes symlink aliases", async () => {
   const temporary = await mkdtemp(join(tmpdir(), "yf-snapshot-"));
@@ -49,7 +52,9 @@ test("portable recache snapshot compares current bytes and excludes symlink alia
       `removed: ${join(root, "removed.json")}`,
     ]);
     await symlink(root, join(temporary, "root-alias"));
-    await expect(snapshotFixtures(join(temporary, "root-alias"))).rejects.toThrow("symlink");
+    await expect(
+      snapshotFixtures(join(temporary, "root-alias")),
+    ).rejects.toThrow("symlink");
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }
@@ -62,11 +67,14 @@ test("capture reads refuse symlinks, nonregular files and hardlink publication a
     await writeFile(fixture, "original");
     expect((await readFixtureBytes(fixture, true)).toString()).toBe("original");
     await symlink(fixture, join(root, "symlink.json"));
-    await expect(readFixtureBytes(join(root, "symlink.json"), true)).rejects.toThrow();
+    await expect(
+      readFixtureBytes(join(root, "symlink.json"), true),
+    ).rejects.toThrow();
     await expect(readFixtureBytes(root, true)).rejects.toThrow();
     await symlink(root, join(root, "directory-alias"));
-    await expect(readFixtureBytes(join(root, "directory-alias", "fixture.json"), true))
-      .rejects.toThrow("symlink");
+    await expect(
+      readFixtureBytes(join(root, "directory-alias", "fixture.json"), true),
+    ).rejects.toThrow("symlink");
     await link(fixture, join(root, "hardlink.json"));
     await expect(readFixtureBytes(fixture, true)).rejects.toThrow("unaliased");
     expect((await readFixtureBytes(fixture)).toString()).toBe("original");

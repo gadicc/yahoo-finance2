@@ -8,16 +8,24 @@ const maintenanceBranch = /^[0-9]+(?:\.(?:[0-9]+|x))?\.x$/;
 
 /** @param {unknown} name */
 function isLiteralBranchName(name) {
-  return typeof name === "string" && name.length > 0 && name !== "@" &&
+  return (
+    typeof name === "string" &&
+    name.length > 0 &&
+    name !== "@" &&
     !/[~^:?*\\[\]{}()!]/u.test(name) &&
-    [...name].every((char) =>
-      char.charCodeAt(0) > 0x20 && char.charCodeAt(0) !== 0x7f
+    [...name].every(
+      (char) => char.charCodeAt(0) > 0x20 && char.charCodeAt(0) !== 0x7f,
     ) &&
-    !name.includes("..") && !name.includes("//") &&
+    !name.includes("..") &&
+    !name.includes("//") &&
     !name.endsWith(".") &&
-    name.split("/").every((part) =>
-      part.length > 0 && !part.startsWith(".") && !part.endsWith(".lock")
-    );
+    name
+      .split("/")
+      .every(
+        (part) =>
+          part.length > 0 && !part.startsWith(".") && !part.endsWith(".lock"),
+      )
+  );
 }
 
 /**
@@ -49,15 +57,16 @@ export function isAllowedWorkflowRef(
     return undefined;
   });
   if (
-    names.some((name) =>
-      name !== maintenancePattern && !isLiteralBranchName(name)
+    names.some(
+      (name) => name !== maintenancePattern && !isLiteralBranchName(name),
     )
-  ) return false;
+  )
+    return false;
 
   return names.some((name) =>
     name === maintenancePattern
       ? maintenanceBranch.test(branch)
-      : name === branch
+      : name === branch,
   );
 }
 
@@ -85,6 +94,10 @@ function run() {
 
 // Deno tests import the predicate without accessing Node argv or environment.
 if (
-  typeof (/** @type {typeof globalThis & {Deno?: unknown}} */ (globalThis)).Deno === "undefined" && process.argv[1] &&
+  typeof (
+    /** @type {typeof globalThis & {Deno?: unknown}} */ (globalThis).Deno
+  ) === "undefined" &&
+  process.argv[1] &&
   import.meta.url === pathToFileURL(process.argv[1]).href
-) run();
+)
+  run();

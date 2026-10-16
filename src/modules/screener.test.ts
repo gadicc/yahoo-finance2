@@ -32,13 +32,9 @@ describe("screener", () => {
   ])(
     "passes validation for predefined screener '%s'",
     async (predefined_screener, t, onFinish) => {
-      await yf.screener(
-        { scrIds: predefined_screener, count: 20 },
-        undefined,
-        {
-          devel: { id: `screener-${predefined_screener}`, t, onFinish },
-        },
-      );
+      await yf.screener({ scrIds: predefined_screener, count: 20 }, undefined, {
+        devel: { id: `screener-${predefined_screener}`, t, onFinish },
+      });
     },
   );
 
@@ -56,13 +52,9 @@ describe("screener", () => {
   it.each(["aggressive_small_caps"])(
     "passes validation for predefined screener '%s'",
     async (predefined_screener, t, onFinish) => {
-      await yf.screener(
-        predefined_screener,
-        undefined,
-        {
-          devel: { id: `screener-${predefined_screener}`, t, onFinish },
-        },
-      );
+      await yf.screener(predefined_screener, undefined, {
+        devel: { id: `screener-${predefined_screener}`, t, onFinish },
+      });
     },
   );
 

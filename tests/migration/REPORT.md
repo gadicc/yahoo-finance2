@@ -572,6 +572,23 @@ at Ubuntu Bubblewrap loopback setup (`RTM_NEWADDR: Operation not permitted`).
 A runner-policy fix is being prepared for separate review; this is not a passing
 CI or Codecov/artifact claim.
 
+## Mechanical formatting checkpoint (partial K02, 2026-10-16)
+
+The separate [formatting phase](results/k02-formatting.json) applies pinned
+Biome formatting to 119 maintained files. Independent Sol xhigh review confirms
+112 source AST comparisons, seven JSON-value comparisons, preserved directive
+wording/shebangs and parity for every excluded file. One existing narrow
+suppression moves directly above its intended callback after wrapping; adjacent
+`any` remains detectable. There are no rule, severity or exclusion changes.
+
+Formatting checks all 192 supported files successfully. Lint has zero errors,
+the same 150 existing warnings and 127 information diagnostics; the receipt
+explains the formatter-dependent information-count delta. Strict typechecking
+and no-write schema checks pass. All 1,201 HTTP fixtures remain unchanged.
+The exact reviewed patch is applied; full combined replay, actual runner
+acceptance and final integrated Astra review remain separate. K02 stays open
+until CI alignment is verified; progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

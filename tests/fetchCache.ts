@@ -16,8 +16,12 @@ const offlineFetch: typeof fetch = () => {
   throw new Error("Offline replay forbids network fetch");
 };
 const session = captureSession();
-if (isNativeReplay() && session) throw new Error("Native replay cannot capture fixtures");
-if (!session && (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL)) {
+if (isNativeReplay() && session)
+  throw new Error("Native replay cannot capture fixtures");
+if (
+  !session &&
+  (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL)
+) {
   throw new Error(
     "Runner experiments require FMC_CACHE_MODE=replay and cleared FETCH_DEVEL",
   );
@@ -30,15 +34,15 @@ const recaching = !!session && session.mode !== "geo-replay";
 const storage = session ? captureStore(session) : undefined;
 const recacheFetch = recaching
   ? createRecacheFetch(
-    originalFetch,
-    Number(process.env["FETCH_DEVEL_RECACHE_INTERVAL"] ?? 3000),
-    undefined,
-    (error) => {
-      // Emit counters before the abort signal so SIGKILL cannot lose this file.
-      reportRecacheStats();
-      recacheError(error.message);
-    },
-  )
+      originalFetch,
+      Number(process.env["FETCH_DEVEL_RECACHE_INTERVAL"] ?? 3000),
+      undefined,
+      (error) => {
+        // Emit counters before the abort signal so SIGKILL cannot lose this file.
+        reportRecacheStats();
+        recacheError(error.message);
+      },
+    )
   : undefined;
 
 function reportRecacheStats() {

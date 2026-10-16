@@ -69,7 +69,6 @@ describe("quoteSummary", () => {
 
   describe("quoteSummary", () => {
     // See also common module tests in moduleExec.spec.js
-
     /* TODO
     if (PERFORM_FAKE_TESTS) {
       it("throws on invalid result", async () => {
@@ -85,13 +84,18 @@ describe("quoteSummary", () => {
     it("deprecations", async (t, onFinish) => {
       const logger = spyLogger();
       const yahooFinance = new YahooFinance({ logger });
-      await yahooFinance.quoteSummary("AAPL", {
-        modules: ["balanceSheetHistory"],
-      }, {
-        devel: { id: "quoteSummary-balanceSheetHistory-AAPL", t, onFinish },
-      });
-      expect(logger.warn.calls[0].args[0].match(/fundamentalsTimeSeries/))
-        .not.toBeNull();
+      await yahooFinance.quoteSummary(
+        "AAPL",
+        {
+          modules: ["balanceSheetHistory"],
+        },
+        {
+          devel: { id: "quoteSummary-balanceSheetHistory-AAPL", t, onFinish },
+        },
+      );
+      expect(
+        logger.warn.calls[0].args[0].match(/fundamentalsTimeSeries/),
+      ).not.toBeNull();
     });
 
     describe("assetProfile", () => {

@@ -227,54 +227,47 @@ test("watch scheduling coalesces bursts, preserves in-flight edits and recovers 
   }
 });
 
-test(
-  "all committed production schemas retain byte parity after the comment migration",
-  () => {
-    const config = path.resolve("scripts/schema-tsconfig.json");
-    const sources = findSchemaSources(path.resolve("src"));
-    expect(sources).toHaveLength(13);
-    for (const source of sources) {
-      expect(generateSchema(source, config)).toBe(
-        readFileSync(source.replace(/\.ts$/, ".schema.json"), "utf8"),
-      );
-    }
-  },
-  120000,
-);
+test("all committed production schemas retain byte parity after the comment migration", () => {
+  const config = path.resolve("scripts/schema-tsconfig.json");
+  const sources = findSchemaSources(path.resolve("src"));
+  expect(sources).toHaveLength(13);
+  for (const source of sources) {
+    expect(generateSchema(source, config)).toBe(
+      readFileSync(source.replace(/\.ts$/, ".schema.json"), "utf8"),
+    );
+  }
+}, 120000);
 
-test(
-  "real watch brackets initial, failed and repaired scans and closes on SIGTERM",
-  async () => {
-    const f = fixture();
-    const child = spawn("bun", [
-      path.resolve("scripts/schema-gen.ts"),
-      "--watch",
-      "src/example.ts",
-    ], {
+test("real watch brackets initial, failed and repaired scans and closes on SIGTERM", async () => {
+  const f = fixture();
+  const child = spawn(
+    "bun",
+    [path.resolve("scripts/schema-gen.ts"), "--watch", "src/example.ts"],
+    {
       cwd: f.root,
       stdio: ["ignore", "pipe", "pipe"],
-    });
-    const exited = once(child, "exit");
-    let output = "";
-    child.stdout.on("data", (chunk) => {
-      output += chunk.toString();
-    });
-    child.stderr.on("data", (chunk) => {
-      output += chunk.toString();
-    });
-    const waitFor = async (condition: () => boolean) => {
-      const deadline = Date.now() + 15000;
-      while (!condition()) {
-        if (child.exitCode !== null || Date.now() > deadline) {
-          throw new Error(
-            `watch did not progress: ${output}`,
-          );
-        }
-        await new Promise((resolve) => setTimeout(resolve, 25));
+    },
+  );
+  const exited = once(child, "exit");
+  let output = "";
+  child.stdout.on("data", (chunk) => {
+    output += chunk.toString();
+  });
+  child.stderr.on("data", (chunk) => {
+    output += chunk.toString();
+  });
+  const waitFor = async (condition: () => boolean) => {
+    const deadline = Date.now() + 15000;
+    while (!condition()) {
+      if (child.exitCode !== null || Date.now() > deadline) {
+        throw new Error(`watch did not progress: ${output}`);
       }
-    };
-    try {
-      const scanEvents = () => output.split(/\r?\n/).flatMap((line) => {
+      await new Promise((resolve) => setTimeout(resolve, 25));
+    }
+  };
+  try {
+    const scanEvents = () =>
+      output.split(/\r?\n/).flatMap((line) => {
         if (line === "Schema scan started.") return ["start"];
         if (line === "Schema scan complete; watching.") return ["success"];
         if (line === "Schema generation failed; still watching.") {
@@ -282,46 +275,49 @@ test(
         }
         return [];
       });
-      await waitFor(() => scanEvents().includes("success"));
-      expect(scanEvents()).toEqual(["start", "success"]);
-      const initialSchema = readFileSync(f.schema, "utf8");
-      expect(
-        JSON.parse(initialSchema).definitions.Shared.properties.value.type,
-      ).toBe("string");
-      f.write("shared.ts", "export interface Shared {");
-      await waitFor(() => scanEvents().includes("failure"));
-      expect(scanEvents()).toEqual(["start", "success", "start", "failure"]);
-      expect(readFileSync(f.schema, "utf8")).toBe(initialSchema);
-      expect(output).toContain("src/shared.ts");
-      expect(output).toContain("TS1005");
-      f.write(
-        "shared.ts",
-        "export interface Shared { value: number; final: boolean; }",
-      );
-      await waitFor(() => scanEvents().length >= 6);
-      expect(scanEvents()).toEqual([
-        "start", "success", "start", "failure", "start", "success",
-      ]);
-      expect(
-        JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
-          .value.type,
-      ).toBe("number");
-      expect(
-        JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
-          .final.type,
-      ).toBe("boolean");
-      child.kill("SIGTERM");
-      const [code, signal] = await exited;
-      expect(code).toBe(0);
-      expect(signal).toBe(null);
-    } finally {
-      if (child.exitCode === null) child.kill("SIGKILL");
-      await exited;
-      f.cleanup();
-    }
-  },
-  30000,
-);
+    await waitFor(() => scanEvents().includes("success"));
+    expect(scanEvents()).toEqual(["start", "success"]);
+    const initialSchema = readFileSync(f.schema, "utf8");
+    expect(
+      JSON.parse(initialSchema).definitions.Shared.properties.value.type,
+    ).toBe("string");
+    f.write("shared.ts", "export interface Shared {");
+    await waitFor(() => scanEvents().includes("failure"));
+    expect(scanEvents()).toEqual(["start", "success", "start", "failure"]);
+    expect(readFileSync(f.schema, "utf8")).toBe(initialSchema);
+    expect(output).toContain("src/shared.ts");
+    expect(output).toContain("TS1005");
+    f.write(
+      "shared.ts",
+      "export interface Shared { value: number; final: boolean; }",
+    );
+    await waitFor(() => scanEvents().length >= 6);
+    expect(scanEvents()).toEqual([
+      "start",
+      "success",
+      "start",
+      "failure",
+      "start",
+      "success",
+    ]);
+    expect(
+      JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
+        .value.type,
+    ).toBe("number");
+    expect(
+      JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
+        .final.type,
+    ).toBe("boolean");
+    child.kill("SIGTERM");
+    const [code, signal] = await exited;
+    expect(code).toBe(0);
+    expect(signal).toBe(null);
+  } finally {
+    if (child.exitCode === null) child.kill("SIGKILL");
+    await exited;
+    f.cleanup();
+  }
+}, 30000);
 
 test("default scans reject empty inventories and orphan schemas without deleting them", () => {
   const f = fixture();

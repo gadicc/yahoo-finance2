@@ -22,36 +22,45 @@ type NonMergeable =
   | Promise<unknown>
   | readonly unknown[]; // arrays & tuples overwrite
 
-type IsPlainObject<T> = T extends object ? T extends NonMergeable ? false
-  : true
+type IsPlainObject<T> = T extends object
+  ? T extends NonMergeable
+    ? false
+    : true
   : false;
 
 type Simplify<T> = { [K in keyof T]: T[K] } & Record<PropertyKey, never>;
 
 /** Merge two object types; last wins for non-plain objects */
-type MergeTwoTypes<A, B> = IsPlainObject<A> extends true
-  ? IsPlainObject<B> extends true ? Simplify<
-      {
-        [K in keyof A | keyof B]: K extends keyof B
-          ? K extends keyof A ? MergeValue<A[K], B[K]>
-          : B[K]
-          : K extends keyof A ? A[K]
-          : never;
-      }
-    >
-  : B
-  : B;
+type MergeTwoTypes<A, B> =
+  IsPlainObject<A> extends true
+    ? IsPlainObject<B> extends true
+      ? Simplify<{
+          [K in keyof A | keyof B]: K extends keyof B
+            ? K extends keyof A
+              ? MergeValue<A[K], B[K]>
+              : B[K]
+            : K extends keyof A
+              ? A[K]
+              : never;
+        }>
+      : B
+    : B;
 
-type MergeValue<AV, BV> = IsPlainObject<AV> extends true
-  ? IsPlainObject<BV> extends true ? MergeTwoTypes<AV, BV>
-  : BV
-  : BV;
+type MergeValue<AV, BV> =
+  IsPlainObject<AV> extends true
+    ? IsPlainObject<BV> extends true
+      ? MergeTwoTypes<AV, BV>
+      : BV
+    : BV;
 
 /** Fold a tuple of objects left-to-right */
-type DeepMergeTuple<T extends readonly unknown[]> = T extends
-  readonly [infer A, ...infer R]
-  ? R extends readonly unknown[] ? MergeTwoTypes<A, DeepMergeTuple<R>>
-  : A
+type DeepMergeTuple<T extends readonly unknown[]> = T extends readonly [
+  infer A,
+  ...infer R,
+]
+  ? R extends readonly unknown[]
+    ? MergeTwoTypes<A, DeepMergeTuple<R>>
+    : A
   : Record<PropertyKey, never>;
 
 export type DeepMergeResult<T extends readonly unknown[]> = Simplify<

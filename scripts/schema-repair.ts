@@ -53,9 +53,10 @@ export function parseProposal(text: string): RepairProposal {
     "Invalid summary",
   );
   requireCondition(
-    Array.isArray(p.evidence) && p.evidence.length <= 30 &&
-      p.evidence.every((s: unknown) =>
-        typeof s === "string" && s.length <= 2000
+    Array.isArray(p.evidence) &&
+      p.evidence.length <= 30 &&
+      p.evidence.every(
+        (s: unknown) => typeof s === "string" && s.length <= 2000,
       ),
     "Invalid evidence",
   );
@@ -77,8 +78,10 @@ export function parseProposal(text: string): RepairProposal {
       "Only module source edits are allowed",
     );
     requireCondition(
-      typeof edit.before === "string" && edit.before.length > 0 &&
-        typeof edit.after === "string" && edit.before !== edit.after,
+      typeof edit.before === "string" &&
+        edit.before.length > 0 &&
+        typeof edit.after === "string" &&
+        edit.before !== edit.after,
       "Invalid replacement",
     );
   }
@@ -92,9 +95,9 @@ function parseSource(text: string): ts.SourceFile {
     ts.ScriptTarget.Latest,
     true,
   );
-  const diagnostics =
-    (source as ts.SourceFile & { parseDiagnostics: readonly ts.Diagnostic[] })
-      .parseDiagnostics;
+  const diagnostics = (
+    source as ts.SourceFile & { parseDiagnostics: readonly ts.Diagnostic[] }
+  ).parseDiagnostics;
   requireCondition(
     diagnostics.length === 0,
     "Proposed source has syntax errors",
@@ -107,7 +110,11 @@ function print(node: ts.Node, source: ts.SourceFile): string {
 }
 
 function tags(node: ts.Node): string {
-  return ts.getJSDocTags(node).map((tag) => tag.getText()).sort().join("\n");
+  return ts
+    .getJSDocTags(node)
+    .map((tag) => tag.getText())
+    .sort()
+    .join("\n");
 }
 
 function assertDataType(node: ts.TypeNode) {
@@ -120,7 +127,8 @@ function assertDataType(node: ts.TypeNode) {
   if (ts.isLiteralTypeNode(node)) {
     const value = node.literal;
     requireCondition(
-      ts.isStringLiteral(value) || ts.isNumericLiteral(value) ||
+      ts.isStringLiteral(value) ||
+        ts.isNumericLiteral(value) ||
         value.kind === ts.SyntaxKind.NullKeyword ||
         value.kind === ts.SyntaxKind.TrueKeyword ||
         value.kind === ts.SyntaxKind.FalseKeyword ||
@@ -162,7 +170,8 @@ function assertDataMember(member: ts.TypeElement) {
     "Only typed data properties may be added or changed",
   );
   requireCondition(
-    ts.isIdentifier(member.name) || ts.isStringLiteral(member.name) ||
+    ts.isIdentifier(member.name) ||
+      ts.isStringLiteral(member.name) ||
       ts.isNumericLiteral(member.name),
     "Computed properties are forbidden",
   );
@@ -228,10 +237,11 @@ function assertStringUnionAdditions(
   newSource: ts.SourceFile,
 ) {
   requireCondition(
-    !before.typeParameters && !after.typeParameters &&
+    !before.typeParameters &&
+      !after.typeParameters &&
       JSON.stringify(
-          before.modifiers?.map((n) => print(n, oldSource)) ?? [],
-        ) ===
+        before.modifiers?.map((n) => print(n, oldSource)) ?? [],
+      ) ===
         JSON.stringify(after.modifiers?.map((n) => print(n, newSource)) ?? []),
     "Changed aliases must be nongeneric and preserve their modifiers",
   );
@@ -239,9 +249,10 @@ function assertStringUnionAdditions(
     tags(before) === "" && tags(after) === "",
     "Schema-control JSDoc tags require manual review",
   );
-  for (
-    const [node, source] of [[before, oldSource], [after, newSource]] as const
-  ) {
+  for (const [node, source] of [
+    [before, oldSource],
+    [after, newSource],
+  ] as const) {
     // TypeScript does not attach every inline JSDoc comment to a union member.
     // Scan comment tokens too, without treating text inside a string as a tag.
     const scanner = ts.createScanner(
@@ -258,7 +269,8 @@ function assertStringUnionAdditions(
       const text = scanner.getTokenText();
       requireCondition(
         token !== ts.SyntaxKind.MultiLineCommentTrivia ||
-          !text.startsWith("/**") || !/@[A-Za-z]/.test(text),
+          !text.startsWith("/**") ||
+          !/@[A-Za-z]/.test(text),
         "Schema-control JSDoc tags require manual review",
       );
     }
@@ -290,21 +302,25 @@ export function assertSchemaOnly(before: string, after: string) {
     "Shebang changes are forbidden",
   );
   const directives = (source: ts.SourceFile) =>
-    JSON.stringify([
-      source.referencedFiles,
-      source.typeReferenceDirectives,
-      source.libReferenceDirectives,
-    ].map((refs) => refs.map((ref) => ref.fileName)));
+    JSON.stringify(
+      [
+        source.referencedFiles,
+        source.typeReferenceDirectives,
+        source.libReferenceDirectives,
+      ].map((refs) => refs.map((ref) => ref.fileName)),
+    );
   requireCondition(
     directives(oldSource) === directives(newSource),
     "Reference directives must remain unchanged",
   );
   const runtimeDeclarations = (source: ts.SourceFile) =>
     source.statements
-      .filter((node) =>
-        !ts.isInterfaceDeclaration(node) && !ts.isTypeAliasDeclaration(node)
+      .filter(
+        (node) =>
+          !ts.isInterfaceDeclaration(node) && !ts.isTypeAliasDeclaration(node),
       )
-      .map((node) => print(node, source)).join("\n");
+      .map((node) => print(node, source))
+      .join("\n");
   requireCondition(
     runtimeDeclarations(oldSource) === runtimeDeclarations(newSource),
     "Runtime, imports, and other declarations must remain unchanged",
@@ -331,8 +347,10 @@ export function assertSchemaOnly(before: string, after: string) {
   for (const [name, declaration] of newInterfaces) {
     const previous = oldInterfaces.get(name);
     if (
-      previous && print(previous, oldSource) === print(declaration, newSource)
-    ) continue;
+      previous &&
+      print(previous, oldSource) === print(declaration, newSource)
+    )
+      continue;
     changed = true;
     requireCondition(
       tags(declaration) === "",
@@ -351,9 +369,10 @@ export function assertSchemaOnly(before: string, after: string) {
       );
     } else {
       requireCondition(
-        !declaration.typeParameters && !declaration.heritageClauses &&
-          (declaration.modifiers ?? []).every((n) =>
-            n.kind === ts.SyntaxKind.ExportKeyword
+        !declaration.typeParameters &&
+          !declaration.heritageClauses &&
+          (declaration.modifiers ?? []).every(
+            (n) => n.kind === ts.SyntaxKind.ExportKeyword,
           ),
         "New interfaces must be plain data interfaces",
       );
@@ -404,7 +423,8 @@ export function proposedSources(
     );
     sources.set(
       edit.path,
-      current.slice(0, offset) + edit.after +
+      current.slice(0, offset) +
+        edit.after +
         current.slice(offset + edit.before.length),
     );
   }
@@ -421,7 +441,10 @@ function git(...args: string[]): string {
     maxBuffer: 8 * 1024 * 1024,
   });
   // Git stderr can include remote URLs or contents. Never forward it.
-  requireCondition(!result.error && result.status === 0, "Git operation failed");
+  requireCondition(
+    !result.error && result.status === 0,
+    "Git operation failed",
+  );
   return result.stdout;
 }
 
@@ -436,7 +459,10 @@ function regularFile(file: string) {
     stat.isFile() && !stat.isSymbolicLink() && stat.nlink === 1,
     "File must be a regular file without symlinks or hardlinks",
   );
-  requireCondition((stat.mode & 0o111) === 0, "File mode changes are forbidden");
+  requireCondition(
+    (stat.mode & 0o111) === 0,
+    "File mode changes are forbidden",
+  );
   return stat;
 }
 
@@ -452,19 +478,23 @@ function writeRegularFile(file: string, content: string, create = false) {
   try {
     previous = regularFile(absolute);
   } catch (error) {
-    if (!create || (error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    if (!create || (error as NodeJS.ErrnoException).code !== "ENOENT")
+      throw error;
   }
   const fd = openSync(
     absolute,
-    constants.O_WRONLY | constants.O_NOFOLLOW |
+    constants.O_WRONLY |
+      constants.O_NOFOLLOW |
       (previous ? 0 : constants.O_CREAT | constants.O_EXCL),
     0o600,
   );
   try {
     const stat = fstatSync(fd);
     requireCondition(
-      stat.isFile() && stat.nlink === 1 && (stat.mode & 0o111) === 0 &&
-        (!previous || stat.dev === previous.dev && stat.ino === previous.ino),
+      stat.isFile() &&
+        stat.nlink === 1 &&
+        (stat.mode & 0o111) === 0 &&
+        (!previous || (stat.dev === previous.dev && stat.ino === previous.ino)),
       "File changed before writing",
     );
     ftruncateSync(fd, 0);
@@ -491,7 +521,9 @@ function requireCleanIndex(base: string) {
   // Git diff/status can hide worktree edits under these flags. Inspect every
   // index entry, including unrelated paths, before trusting either inventory.
   requireCondition(
-    git("ls-files", "-v", "-z").split("\0").filter(Boolean)
+    git("ls-files", "-v", "-z")
+      .split("\0")
+      .filter(Boolean)
       .every((entry) => entry.startsWith("H ")),
     "Index must not use assume-unchanged or skip-worktree flags",
   );
@@ -532,15 +564,19 @@ function validateContent(
   } else {
     JSON.parse(content);
     requireCondition(
-      git("show", `${base}:${path.replace(/\.schema\.json$/, ".ts")}`)
-        .includes("@yf-schema"),
+      git("show", `${base}:${path.replace(/\.schema\.json$/, ".ts")}`).includes(
+        "@yf-schema",
+      ),
       "Schema must have a source marker",
     );
   }
 }
 
 function requireRepairPaths(paths: string[]) {
-  requireCondition(paths.length > 0 && paths.length <= 40, "Invalid changed file count");
+  requireCondition(
+    paths.length > 0 && paths.length <= 40,
+    "Invalid changed file count",
+  );
   requireCondition(
     paths.some((p) => sourcePath.test(p)) &&
       paths.some((p) => schemaPath.test(p)),
@@ -569,10 +605,17 @@ export function schemaRepairMain(args: string[]): void {
     args.length === (command === "bundle" ? 4 : 3),
     "Expected COMMAND BASE_SHA INPUT [BUNDLE_OUTPUT]",
   );
-  requireCondition(/^[0-9a-f]{40}$/.test(base ?? ""), "Expected full base commit SHA");
-  requireCondition(git("cat-file", "-t", base).trim() === "commit", "Expected a base commit");
   requireCondition(
-    realpathSync(git("rev-parse", "--show-toplevel").trim()) === realpathSync(process.cwd()),
+    /^[0-9a-f]{40}$/.test(base ?? ""),
+    "Expected full base commit SHA",
+  );
+  requireCondition(
+    git("cat-file", "-t", base).trim() === "commit",
+    "Expected a base commit",
+  );
+  requireCondition(
+    realpathSync(git("rev-parse", "--show-toplevel").trim()) ===
+      realpathSync(process.cwd()),
     "Run schema repair from the repository root",
   );
   if (command === "apply") {
@@ -580,36 +623,48 @@ export function schemaRepairMain(args: string[]): void {
     requireCleanIndex(base);
     const sources = proposedSources(proposal, (path) => {
       const old = trackedSource(base, path);
-      requireCondition(readFileSync(path, "utf8") === old, "Apply target has local edits");
+      requireCondition(
+        readFileSync(path, "utf8") === old,
+        "Apply target has local edits",
+      );
       return old;
     });
     // Preflight the entire batch before its first write.
     for (const path of sources.keys()) regularFile(path);
     for (const [path, content] of sources) writeRegularFile(path, content);
-    console.log(JSON.stringify({
-      ready: proposal.status === "repair",
-      summary: proposal.summary,
-      evidence: proposal.evidence,
-    }));
+    console.log(
+      JSON.stringify({
+        ready: proposal.status === "repair",
+        summary: proposal.summary,
+        evidence: proposal.evidence,
+      }),
+    );
   } else if (command === "bundle") {
     const proposal = parseProposal(readFileSync(input, "utf8"));
     const files = changedFiles(base).map((path) => ({
       path,
       content: readFileSync(path, "utf8"),
     }));
-    writeRegularFile(output, JSON.stringify({
-      base,
-      summary: proposal.summary,
-      evidence: proposal.evidence,
-      files,
-    }), true);
+    writeRegularFile(
+      output,
+      JSON.stringify({
+        base,
+        summary: proposal.summary,
+        evidence: proposal.evidence,
+        files,
+      }),
+      true,
+    );
   } else {
     const raw = readFileSync(input, "utf8");
     requireCondition(raw.length <= 2 * 1024 * 1024, "Bundle too large");
     const bundle = JSON.parse(raw);
     requireCondition(
-      bundle && typeof bundle === "object" && bundle.base === base &&
-        Array.isArray(bundle.files) && bundle.files.length > 0 &&
+      bundle &&
+        typeof bundle === "object" &&
+        bundle.base === base &&
+        Array.isArray(bundle.files) &&
+        bundle.files.length > 0 &&
         bundle.files.length <= 40,
       "Invalid verified bundle",
     );
@@ -617,7 +672,9 @@ export function schemaRepairMain(args: string[]): void {
     const changed: string[] = [];
     for (const file of bundle.files) {
       requireCondition(
-        file && typeof file.path === "string" && typeof file.content === "string" &&
+        file &&
+          typeof file.path === "string" &&
+          typeof file.content === "string" &&
           !files.has(file.path),
         "Invalid bundle file",
       );
@@ -650,8 +707,10 @@ export function schemaRepairMain(args: string[]): void {
 function isMain(): boolean {
   if (!process.argv[1]) return false;
   try {
-    return realpathSync(resolve(process.argv[1])) ===
-      realpathSync(fileURLToPath(import.meta.url));
+    return (
+      realpathSync(resolve(process.argv[1])) ===
+      realpathSync(fileURLToPath(import.meta.url))
+    );
   } catch {
     // An importing host may provide a synthetic or missing argv entry.
     return false;
@@ -665,7 +724,9 @@ if (isMain()) {
     console.error(
       error instanceof SyntaxError
         ? "Input is not valid JSON"
-        : error instanceof Error ? error.message : "Schema repair failed",
+        : error instanceof Error
+          ? error.message
+          : "Schema repair failed",
     );
     process.exitCode = 1;
   }

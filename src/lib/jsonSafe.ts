@@ -26,8 +26,8 @@ export function toJsonSafe(
     }
 
     if (value instanceof Map) {
-      const hasStringKeys = Array.from(value.keys()).every((key) =>
-        typeof key === "string"
+      const hasStringKeys = Array.from(value.keys()).every(
+        (key) => typeof key === "string",
       );
 
       if (hasStringKeys) {
@@ -46,7 +46,7 @@ export function toJsonSafe(
 
     if (value instanceof Set) {
       return Array.from(value.values()).map((entry) =>
-        toJsonSafe(entry, stack)
+        toJsonSafe(entry, stack),
       );
     }
 

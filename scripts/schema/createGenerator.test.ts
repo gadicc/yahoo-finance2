@@ -63,8 +63,8 @@ function createVirtualProgram() {
     getCurrentDirectory: () => "/",
     getDefaultLibFileName: () => "",
     getNewLine: () => "\n",
-    getSourceFile: (path) => path === fileName ? sourceFile : undefined,
-    readFile: (path) => path === fileName ? moduleOptionsSource : undefined,
+    getSourceFile: (path) => (path === fileName ? sourceFile : undefined),
+    readFile: (path) => (path === fileName ? moduleOptionsSource : undefined),
     useCaseSensitiveFileNames: () => true,
     writeFile: () => {},
   };
@@ -102,8 +102,10 @@ describe("schema generator integration", () => {
       expose: "export",
       topRef: true,
     } as Config as CompletedConfig;
-    const schema = createSchemaGenerator(createVirtualProgram(), config)
-      .createSchema(config.type) as Schema;
+    const schema = createSchemaGenerator(
+      createVirtualProgram(),
+      config,
+    ).createSchema(config.type) as Schema;
     const definitions = schema.definitions!;
     const base = definitions.ModuleOptions;
     const falseOptions = definitions.ModuleOptionsWithValidateFalse;

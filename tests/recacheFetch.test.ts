@@ -96,12 +96,14 @@ test("recache reuses concurrent data requests with independent response bodies",
   expect(await responses[1].text()).toBe("fresh data");
   expect(calls).toBe(1);
   expect(clock.delays).toEqual([]);
-  expect(fetch.getStats()).toEqual([{
-    endpoint: "query2.finance.yahoo.com/v7/finance/quote",
-    requests: 1,
-    reused: 1,
-    statuses: { "200": 1 },
-  }]);
+  expect(fetch.getStats()).toEqual([
+    {
+      endpoint: "query2.finance.yahoo.com/v7/finance/quote",
+      requests: 1,
+      reused: 1,
+      statuses: { "200": 1 },
+    },
+  ]);
 });
 
 test("recache distinguishes query parameters, sessions, headers, and fetch options", async () => {
@@ -116,13 +118,19 @@ test("recache distinguishes query parameters, sessions, headers, and fetch optio
     [url + "?count=20&crumb=one", { headers: { cookie: "one" } }],
     [url + "?count=25&crumb=one", { headers: { cookie: "one" } }],
     [url + "?count=20&crumb=two", { headers: { cookie: "two" } }],
-    [url + "?count=20&crumb=one", {
-      headers: { cookie: "one", "x-test": "different" },
-    }],
-    [url + "?count=20&crumb=one", {
-      headers: { cookie: "one" },
-      redirect: "manual",
-    }],
+    [
+      url + "?count=20&crumb=one",
+      {
+        headers: { cookie: "one", "x-test": "different" },
+      },
+    ],
+    [
+      url + "?count=20&crumb=one",
+      {
+        headers: { cookie: "one" },
+        redirect: "manual",
+      },
+    ],
   ];
   for (const [url, init] of requests) await (await fetch(url, init)).text();
   expect(calls).toBe(requests.length);
@@ -153,20 +161,25 @@ test("recache leaves auth flows, POST bodies, errors, and new cookies uncached",
   }, 0);
   for (let i = 0; i < 2; i++) {
     await (await fetch("https://finance.yahoo.com/quote/AAPL")).text();
-    await (await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb"))
-      .text();
-    await (await fetch(
-      new Request("https://consent.yahoo.com/v2/collectConsent", {
-        method: "POST",
-        body: "consent=yes",
-      }),
-    )).text();
-    await (await fetch(
-      "https://query2.finance.yahoo.com/v7/finance/quote?error=yes",
-    )).text();
-    await (await fetch(
-      "https://query2.finance.yahoo.com/v7/finance/quote?new-cookie=yes",
-    )).text();
+    await (
+      await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb")
+    ).text();
+    await (
+      await fetch(
+        new Request("https://consent.yahoo.com/v2/collectConsent", {
+          method: "POST",
+          body: "consent=yes",
+        }),
+      )
+    ).text();
+    await (
+      await fetch("https://query2.finance.yahoo.com/v7/finance/quote?error=yes")
+    ).text();
+    await (
+      await fetch(
+        "https://query2.finance.yahoo.com/v7/finance/quote?new-cookie=yes",
+      )
+    ).text();
   }
   expect(calls).toBe(10);
   expect(bodies).toEqual(["consent=yes", "consent=yes"]);
@@ -251,8 +264,9 @@ test("replay mode rejects missing fixtures without fetching or storing them", as
     },
   });
   cache.once({ id: "absent" });
-  await expect(cache("https://query2.finance.yahoo.com/v7/finance/quote", {}))
-    .rejects.toThrow("cache miss in replay mode");
+  await expect(
+    cache("https://query2.finance.yahoo.com/v7/finance/quote", {}),
+  ).rejects.toThrow("cache miss in replay mode");
   expect(calls).toBe(0);
   expect((cache._store as MemoryStore).store.size).toBe(0);
 });
@@ -286,14 +300,12 @@ test("recache fetch latches rate limits before queued requests run", async () =>
 });
 
 test("rate-limit diagnostics report safe retry guidance without credentials", async () => {
-  for (
-    const [value, expected] of [
-      ["120", "120 seconds"],
-      ["Sun, 04 Oct 2026 12:00:00 GMT", "2026-10-04T12:00:00.000Z"],
-      [undefined, "not supplied"],
-      ["secret-crumb", "unrecognized value (omitted)"],
-    ]
-  ) {
+  for (const [value, expected] of [
+    ["120", "120 seconds"],
+    ["Sun, 04 Oct 2026 12:00:00 GMT", "2026-10-04T12:00:00.000Z"],
+    [undefined, "not supplied"],
+    ["secret-crumb", "unrecognized value (omitted)"],
+  ]) {
     const reports: Error[] = [];
     const fetch = createRecacheFetch(
       () =>
@@ -310,10 +322,14 @@ test("rate-limit diagnostics report safe retry guidance without credentials", as
       fakeClock(),
       (error) => reports.push(error),
     );
-    await expect(fetch(
-      "https://query1.finance.yahoo.com/v1/test/getcrumb?crumb=secret-query",
-      { headers: { cookie: "A3=secret-cookie", "user-agent": "secret-agent" } },
-    )).rejects.toThrow("recache aborted");
+    await expect(
+      fetch(
+        "https://query1.finance.yahoo.com/v1/test/getcrumb?crumb=secret-query",
+        {
+          headers: { cookie: "A3=secret-cookie", "user-agent": "secret-agent" },
+        },
+      ),
+    ).rejects.toThrow("recache aborted");
     const message = reports[0].message;
     expect(message).toContain(
       "Endpoint: query1.finance.yahoo.com/v1/test/getcrumb",

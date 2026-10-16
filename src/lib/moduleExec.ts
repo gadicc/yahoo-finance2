@@ -154,7 +154,8 @@ async function moduleExec(
     disallowAdditionalProps(resultOpts.definitions as Record<string, unknown>);
   }
 
-  const validateOptions = !moduleOpts ||
+  const validateOptions =
+    !moduleOpts ||
     moduleOpts.validateOptions === undefined ||
     moduleOpts.validateOptions === true;
 
@@ -205,7 +206,8 @@ async function moduleExec(
    */
   if (opts.result.transformWith) result = opts.result.transformWith(result);
 
-  const validateResult = !moduleOpts ||
+  const validateResult =
+    !moduleOpts ||
     moduleOpts.validateResult === undefined ||
     moduleOpts.validateResult === true;
 

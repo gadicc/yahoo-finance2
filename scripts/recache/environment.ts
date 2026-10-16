@@ -10,7 +10,12 @@ export function captureEnvironment(
   source: NodeJS.ProcessEnv = process.env,
 ): NodeJS.ProcessEnv {
   const environment: NodeJS.ProcessEnv = {
-    PATH: [dirname(process.execPath), "/usr/local/bin", "/usr/bin", "/bin"].join(delimiter),
+    PATH: [
+      dirname(process.execPath),
+      "/usr/local/bin",
+      "/usr/bin",
+      "/bin",
+    ].join(delimiter),
     TMPDIR: temporary,
     LANG: "C.UTF-8",
     LC_ALL: "C.UTF-8",
@@ -21,8 +26,13 @@ export function captureEnvironment(
   };
   if (source.YF_EXPERIMENT_NODE && isAbsolute(source.YF_EXPERIMENT_NODE)) {
     environment.YF_EXPERIMENT_NODE = source.YF_EXPERIMENT_NODE;
-    environment.PATH = [dirname(process.execPath), dirname(source.YF_EXPERIMENT_NODE),
-      "/usr/local/bin", "/usr/bin", "/bin"].join(delimiter);
+    environment.PATH = [
+      dirname(process.execPath),
+      dirname(source.YF_EXPERIMENT_NODE),
+      "/usr/local/bin",
+      "/usr/bin",
+      "/bin",
+    ].join(delimiter);
   }
   return environment;
 }

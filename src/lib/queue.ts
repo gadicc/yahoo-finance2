@@ -52,9 +52,10 @@ export default class Queue {
     if (this._running >= this.concurrency) return;
     if (!this._queue.length) return;
 
-    const delay = this.interval > 0 && this._lastRun > 0
-      ? Math.max(0, this._lastRun + this.interval - Date.now())
-      : 0;
+    const delay =
+      this.interval > 0 && this._lastRun > 0
+        ? Math.max(0, this._lastRun + this.interval - Date.now())
+        : 0;
 
     if (delay > 0) {
       if (!this._timer) {

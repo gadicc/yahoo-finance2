@@ -17,8 +17,9 @@ import { ExtendedCookieJar } from "../src/lib/cookieJar.ts";
 export function isMainModule(url: string, entry = process.argv[1]): boolean {
   if (!entry) return false;
   try {
-    return realpathSync(fileURLToPath(url)) ===
-      realpathSync(path.resolve(entry));
+    return (
+      realpathSync(fileURLToPath(url)) === realpathSync(path.resolve(entry))
+    );
   } catch {
     return false;
   }
@@ -28,7 +29,8 @@ export function getCookiePath(
   env: NodeJS.ProcessEnv = process.env,
   platform: NodeJS.Platform = process.platform,
 ): string {
-  const home = env.HOME ||
+  const home =
+    env.HOME ||
     (platform === "win32"
       ? env.USERPROFILE ||
         (env.HOMEDRIVE && env.HOMEPATH
@@ -78,7 +80,9 @@ export function ensurePrivateFile(
     try {
       fd = fs.open(
         file,
-        constants.O_CREAT | constants.O_EXCL | constants.O_RDWR |
+        constants.O_CREAT |
+          constants.O_EXCL |
+          constants.O_RDWR |
           (constants.O_NOFOLLOW ?? 0),
         0o600,
       );
@@ -91,16 +95,21 @@ export function ensurePrivateFile(
       // NONBLOCK avoids hanging if a regular file is replaced with a FIFO.
       fd = fs.open(
         file,
-        constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0) |
+        constants.O_RDONLY |
+          (constants.O_NOFOLLOW ?? 0) |
           (constants.O_NONBLOCK ?? 0),
       );
     }
     const opened = fs.fstat(fd);
     const current = fs.lstat(file);
     if (
-      !opened.isFile() || !current.isFile() || current.isSymbolicLink() ||
-      opened.dev !== current.dev || opened.ino !== current.ino
-    ) throw new Error("not a stable regular file");
+      !opened.isFile() ||
+      !current.isFile() ||
+      current.isSymbolicLink() ||
+      opened.dev !== current.dev ||
+      opened.ino !== current.ino
+    )
+      throw new Error("not a stable regular file");
     try {
       fs.chmod(fd, 0o600);
     } catch (error) {
@@ -110,7 +119,8 @@ export function ensurePrivateFile(
         !["ENOSYS", "ENOTSUP", "EOPNOTSUPP", "EINVAL"].includes(
           errorCode(error) ?? "",
         )
-      ) throw error;
+      )
+        throw error;
     }
   } catch {
     // Do not surface file contents or upstream parser diagnostics on stderr.
@@ -171,10 +181,13 @@ export function closeOnSignals(
     stdin?.off("end", shutdown);
   };
   const shutdown = () => {
-    closing ??= Promise.resolve().then(close).catch(() => {
-      console.error("Unable to close the MCP server cleanly.");
-      process.exitCode = 1;
-    }).finally(dispose);
+    closing ??= Promise.resolve()
+      .then(close)
+      .catch(() => {
+        console.error("Unable to close the MCP server cleanly.");
+        process.exitCode = 1;
+      })
+      .finally(dispose);
     return closing;
   };
   process.on("SIGINT", shutdown);

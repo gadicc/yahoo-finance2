@@ -23,9 +23,9 @@ function spyLogger(shouldLog = false) {
   return {
     // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     info: spy((...args: any[]) => shouldLog && console.log(...args)),
-    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
-    warn: spy((...args: any[]) =>
-      shouldLog && console.warn(555, shouldLog, ...args)
+    warn: spy(
+      // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
+      (...args: any[]) => shouldLog && console.warn(555, shouldLog, ...args),
     ),
     // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     error: spy((...args: any[]) => shouldLog && console.error(...args)),
@@ -70,13 +70,16 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
     const { devel, ..._init } = init || {};
     // console.log({ devel });
     if (typeof devel === "string") {
-      const id = options.idTransform?.(devel.replace(/\.json$/, "")) ??
+      const id =
+        options.idTransform?.(devel.replace(/\.json$/, "")) ??
         devel.replace(/\.json$/, "");
       fetchCache.once({
         id,
         ...(/\.(?:static|fake)$/.test(id)
           ? { mode: "replay" as const }
-          : options.mode ? { mode: options.mode } : {}),
+          : options.mode
+            ? { mode: options.mode }
+            : {}),
       });
     } else if (typeof devel === "object" && "id" in devel) {
       const id = options.idTransform?.(devel.id) ?? devel.id;
@@ -112,7 +115,9 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
           // getCrumb as part of other tests, we don't want to require
           // onFinish to be set.
         } else {
-          console.warn("Capture request has no onFinish callback; scheduling capture");
+          console.warn(
+            "Capture request has no onFinish callback; scheduling capture",
+          );
           setTimeout(() => resolve(true), 0);
         }
 
@@ -121,9 +126,7 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
         fetchCache.once({ id });
       }
     } else {
-      throw new Error(
-        "unexpected fetchDevel value: " + JSON.stringify(devel),
-      );
+      throw new Error("unexpected fetchDevel value: " + JSON.stringify(devel));
     }
 
     return fetch(input, init);
@@ -139,17 +142,15 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
  */
 export function createTestYahooFinance<
   T extends Parameters<typeof createYahooFinance>[0],
->(
-  opts: T,
-): ReturnType<typeof createYahooFinance<T>> {
+>(opts: T): ReturnType<typeof createYahooFinance<T>> {
   const recacheQueue = FETCH_DEVEL_RECACHE
     ? {
-      queue: {
-        concurrency: FETCH_DEVEL_RECACHE_CONCURRENCY,
-        // Pace actual network fetches in fetchCache, so replay remains fast.
-        interval: 0,
-      },
-    }
+        queue: {
+          concurrency: FETCH_DEVEL_RECACHE_CONCURRENCY,
+          // Pace actual network fetches in fetchCache, so replay remains fast.
+          interval: 0,
+        },
+      }
     : {};
 
   return createYahooFinance({

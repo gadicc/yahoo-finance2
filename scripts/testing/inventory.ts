@@ -25,7 +25,8 @@ export function inventory(root: string): string[] {
         ["ENOENT", "ENOTDIR"].includes(
           (error as NodeJS.ErrnoException).code ?? "",
         )
-      ) return;
+      )
+        return;
       throw error;
     }
     for (const entry of entries) {
@@ -33,9 +34,8 @@ export function inventory(root: string): string[] {
       const path = resolve(directory, entry.name);
       const name = relative(root, path).split(sep).join("/");
       if (entry.isDirectory()) {
-        if (
-          excludedDirectories.has(entry.name) || name === "tests/cloudflare"
-        ) continue;
+        if (excludedDirectories.has(entry.name) || name === "tests/cloudflare")
+          continue;
         visit(path);
       } else if (entry.isFile() && entry.name.endsWith(".test.ts")) {
         files.push(name);
@@ -61,11 +61,14 @@ export function select(
     if (name.startsWith("../") || isAbsolute(name)) {
       throw new Error(`Test selection is outside the repository: ${path}`);
     }
-    const comparison = (value: string) => process.platform === "win32" ? value.toLowerCase() : value;
+    const comparison = (value: string) =>
+      process.platform === "win32" ? value.toLowerCase() : value;
     const wanted = comparison(name);
-    const matches = files.filter((file) =>
-      wanted === "" || comparison(file) === wanted ||
-      comparison(file).startsWith(wanted.replace(/\/$/, "") + "/")
+    const matches = files.filter(
+      (file) =>
+        wanted === "" ||
+        comparison(file) === wanted ||
+        comparison(file).startsWith(wanted.replace(/\/$/, "") + "/"),
     );
     if (!matches.length) throw new Error(`No test files match: ${path}`);
     // Refuse selections that resolve through symlinks outside the inventory root.
@@ -74,8 +77,9 @@ export function select(
     }
     for (const match of matches) selected.add(match);
   }
-  const result = files.filter((file) =>
-    selected.has(file) && (filter === undefined || file.includes(filter))
+  const result = files.filter(
+    (file) =>
+      selected.has(file) && (filter === undefined || file.includes(filter)),
   );
   if (!result.length) throw new Error("No test files selected");
   return result;
@@ -91,5 +95,7 @@ export const nativePortableTests: ReadonlySet<string> = new Set([
 ]);
 
 export function nativeInventory(files: string[]): string[] {
-  return files.filter((file) => file.startsWith("src/") || nativePortableTests.has(file));
+  return files.filter(
+    (file) => file.startsWith("src/") || nativePortableTests.has(file),
+  );
 }

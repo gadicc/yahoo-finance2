@@ -38,8 +38,7 @@ describe("lib/options", () => {
       expect(() => validateOptions({ YF_QUERY_HOST: "moo" })).not.toThrow();
       // @ts-expect-error: yup, exactly what we're testing for
       expect(() => validateOptions({ YF_QUERY_HOST: 123 })).toThrow();
-      expect(() => validateOptions({ queue: { interval: 250 } })).not
-        .toThrow();
+      expect(() => validateOptions({ queue: { interval: 250 } })).not.toThrow();
       // @ts-expect-error: yup, exactly what we're testing for
       expect(() => validateOptions({ queue: { interval: "fast" } })).toThrow();
     });

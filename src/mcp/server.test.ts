@@ -35,10 +35,7 @@ test("getYahooFinanceMcpToolNames returns curated tool names", () => {
 });
 
 test("getYahooFinanceMcpToolNames covers supported public methods", () => {
-  const publicMethodNames = [
-    ...Object.keys(modules),
-    ...Object.keys(other),
-  ];
+  const publicMethodNames = [...Object.keys(modules), ...Object.keys(other)];
   const expectedToolNames = publicMethodNames
     .filter((name) => !intentionallyExcludedPublicMethods.has(name))
     .sort();
@@ -46,9 +43,9 @@ test("getYahooFinanceMcpToolNames covers supported public methods", () => {
 
   assert(
     JSON.stringify(actualToolNames) === JSON.stringify(expectedToolNames),
-    `Expected MCP tools ${expectedToolNames.join(", ")}, got ${
-      actualToolNames.join(", ")
-    }`,
+    `Expected MCP tools ${expectedToolNames.join(", ")}, got ${actualToolNames.join(
+      ", ",
+    )}`,
   );
 });
 
@@ -62,8 +59,8 @@ test("createYahooFinanceMcpServer lists and calls a tool", async () => {
     enabledTools: ["quote"],
   });
   const client = new Client({ name: "test-client", version: "1.0.0" });
-  const [clientTransport, serverTransport] = InMemoryTransport
-    .createLinkedPair();
+  const [clientTransport, serverTransport] =
+    InMemoryTransport.createLinkedPair();
 
   await Promise.all([
     server.connect(serverTransport),
@@ -82,9 +79,9 @@ test("createYahooFinanceMcpServer lists and calls a tool", async () => {
       },
     });
     assert(Array.isArray(result.content));
-    const textContent = result.content.find((
-      item: { type: string },
-    ) => item.type === "text");
+    const textContent = result.content.find(
+      (item: { type: string }) => item.type === "text",
+    );
 
     assert(textContent?.type === "text");
     assert(textContent.text.includes("AAPL"));
@@ -105,8 +102,8 @@ test("createYahooFinanceMcpServer calls quoteCombine", async () => {
     enabledTools: ["quoteCombine"],
   });
   const client = new Client({ name: "test-client", version: "1.0.0" });
-  const [clientTransport, serverTransport] = InMemoryTransport
-    .createLinkedPair();
+  const [clientTransport, serverTransport] =
+    InMemoryTransport.createLinkedPair();
 
   await Promise.all([
     server.connect(serverTransport),
@@ -122,9 +119,9 @@ test("createYahooFinanceMcpServer calls quoteCombine", async () => {
       },
     });
     assert(Array.isArray(result.content));
-    const textContent = result.content.find((
-      item: { type: string },
-    ) => item.type === "text");
+    const textContent = result.content.find(
+      (item: { type: string }) => item.type === "text",
+    );
 
     assert(textContent?.type === "text");
     assert(textContent.text.includes("AAPL"));

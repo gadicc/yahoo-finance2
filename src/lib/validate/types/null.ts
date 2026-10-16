@@ -18,7 +18,8 @@ export const _null: Validator = function _null(
 ) {
   // YahooFinance type
   if (
-    typeof input === "object" && input !== null &&
+    typeof input === "object" &&
+    input !== null &&
     Object.keys(input).length === 0
   ) {
     set(dataCtx, null, instancePath);

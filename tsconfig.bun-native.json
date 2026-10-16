@@ -1,18 +1,10 @@
 {
   "extends": "./tsconfig.migration.json",
   "compilerOptions": {
-    "types": [
-      "node",
-      "deno",
-      "bun"
-    ],
+    "types": ["node", "deno", "bun"],
     "paths": {
-      "@std/cli/parse-args": [
-        "./tests/migration/std-tooling.ts"
-      ],
-      "@std/fs/walk": [
-        "./tests/migration/std-tooling.ts"
-      ]
+      "@std/cli/parse-args": ["./tests/migration/std-tooling.ts"],
+      "@std/fs/walk": ["./tests/migration/std-tooling.ts"]
     }
   }
 }

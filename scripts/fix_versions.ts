@@ -13,7 +13,10 @@ export function fixVersions(args: string[]): string {
 function isMain(): boolean {
   if (!process.argv[1]) return false;
   try {
-    return realpathSync(resolve(process.argv[1])) === realpathSync(fileURLToPath(import.meta.url));
+    return (
+      realpathSync(resolve(process.argv[1])) ===
+      realpathSync(fileURLToPath(import.meta.url))
+    );
   } catch {
     return false;
   }
@@ -21,9 +24,13 @@ function isMain(): boolean {
 
 if (isMain()) {
   try {
-    console.log(`Built versioned package at ${fixVersions(process.argv.slice(2))}`);
+    console.log(
+      `Built versioned package at ${fixVersions(process.argv.slice(2))}`,
+    );
   } catch (error) {
-    console.error(error instanceof Error ? error.message : "Version build failed");
+    console.error(
+      error instanceof Error ? error.message : "Version build failed",
+    );
     process.exitCode = 1;
   }
 }

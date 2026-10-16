@@ -52,7 +52,8 @@ export default class Notices {
     if (this._suppressed.has(id)) return;
     if (n.onceOnly) this._suppressed.add(id);
 
-    const text = n.text +
+    const text =
+      n.text +
       (n.onceOnly ? "  This will only be shown once, but you" : "You") +
       " can suppress this message in future with `new YahooFinance({ suppressNotices: ['" +
       id +

@@ -56,8 +56,8 @@ function disallowAdditionalProps(
     if (def.type === "object") {
       if (
         def.additionalProperties === undefined ||
-        typeof def.additionalProperties === "object" &&
-          Object.keys(def.additionalProperties).length === 0
+        (typeof def.additionalProperties === "object" &&
+          Object.keys(def.additionalProperties).length === 0)
       ) {
         def.additionalProperties = false;
         disallowed.add(key);
@@ -113,7 +113,7 @@ function aggregateErrors(inputErrors: ValidationError[]) {
   for (const arr of missingMap.values()) {
     const missing: string[] = [];
     for (const error of arr) {
-      missing.push(error.data as string || "somethingWentWrong(tm)");
+      missing.push((error.data as string) || "somethingWentWrong(tm)");
     }
     errors.push({
       schemaPath: arr[0].schemaPath,
@@ -126,11 +126,12 @@ function aggregateErrors(inputErrors: ValidationError[]) {
   for (const arr of additionalMap.values()) {
     const additionalProperties: Record<string, unknown> = {};
     for (const error of arr) {
-      const additionalProperty = error.params?.additionalProperty as string ||
+      const additionalProperty =
+        (error.params?.additionalProperty as string) ||
         "somethingWentWrong(tm)";
-      additionalProperties[
-        additionalProperty
-      ] = (error.data as Record<string, unknown>)[additionalProperty];
+      additionalProperties[additionalProperty] = (
+        error.data as Record<string, unknown>
+      )[additionalProperty];
     }
     errors.push({
       schemaPath: arr[0].schemaPath,
@@ -154,16 +155,12 @@ function validate({
   logObj,
   versionCheck,
 }: ValidateParams): void {
-  const _errors = validateAndCoerce(
-    object,
-    schemaOrSchemaKey,
-    {
-      definitions,
-      logger,
-      logObj,
-      allowAdditionalProps: type === "result" && options.allowAdditionalProps,
-    },
-  );
+  const _errors = validateAndCoerce(object, schemaOrSchemaKey, {
+    definitions,
+    logger,
+    logObj,
+    allowAdditionalProps: type === "result" && options.allowAdditionalProps,
+  });
   // if (_errors === false || !_errors.length) return;
   if (_errors.length === 0) return;
 
@@ -272,15 +269,17 @@ The "Help Fix Validation Errors" section also explains how to contribute a schem
 `);
       // Development builds use a placeholder version that is never current.
       if (versionCheck && pkg.version !== "0.0.1") {
-        execVersionCheck().then((result) => {
-          if (!result.isLatest) {
-            logger.info(
-              `Additionally, your yahoo-finance2 version out of date: ${result.current} < ${result.latest} (latest)`,
-            );
-          }
-        }).catch((error) => {
-          logger.error(`Failed to check version: ${error.message}`);
-        });
+        execVersionCheck()
+          .then((result) => {
+            if (!result.isLatest) {
+              logger.info(
+                `Additionally, your yahoo-finance2 version out of date: ${result.current} < ${result.latest} (latest)`,
+              );
+            }
+          })
+          .catch((error) => {
+            logger.error(`Failed to check version: ${error.message}`);
+          });
       }
     } /* if (logErrors) */
 

@@ -70,9 +70,8 @@ export function parseSchemaArgs(args: string[]): SchemaFlags {
 }
 
 export function findSchemaSources(directory: string): string[] {
-  return readdirSync(directory, { withFileTypes: true }).sort((a, b) =>
-    a.name.localeCompare(b.name)
-  )
+  return readdirSync(directory, { withFileTypes: true })
+    .sort((a, b) => a.name.localeCompare(b.name))
     .flatMap((entry) => {
       const file = path.join(directory, entry.name);
       if (entry.isDirectory()) return findSchemaSources(file);
@@ -82,11 +81,13 @@ export function findSchemaSources(directory: string): string[] {
 }
 
 function findSchemaOutputs(directory: string): string[] {
-  return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    const file = path.join(directory, entry.name);
-    if (entry.isDirectory()) return findSchemaOutputs(file);
-    return entry.isFile() && file.endsWith(".schema.json") ? [file] : [];
-  }).sort();
+  return readdirSync(directory, { withFileTypes: true })
+    .flatMap((entry) => {
+      const file = path.join(directory, entry.name);
+      if (entry.isDirectory()) return findSchemaOutputs(file);
+      return entry.isFile() && file.endsWith(".schema.json") ? [file] : [];
+    })
+    .sort();
 }
 
 function compilerOptions(configFile: string): ts.CompilerOptions {
@@ -145,7 +146,7 @@ export function generateSchema(
     return overlays.get(resolved)!;
   };
   host.fileExists = (file) => virtual(file) || exists(file);
-  host.readFile = (file) => virtual(file) ? "{}" : read(file);
+  host.readFile = (file) => (virtual(file) ? "{}" : read(file));
   const program = ts.createProgram([input], options, host);
   const diagnostics = ts.getPreEmitDiagnostics(program);
   if (diagnostics.length) throw new Error(formatDiagnostics(diagnostics));
@@ -182,15 +183,17 @@ export function runSchemas(
   const log = options.log ?? console.log;
   const discovered = findSchemaSources(path.join(root, "src"));
   if (!flags.files.length) {
-    const orphans = findSchemaOutputs(path.join(root, "src")).filter((output) =>
-      !discovered.includes(output.replace(/\.schema\.json$/, ".ts"))
+    const orphans = findSchemaOutputs(path.join(root, "src")).filter(
+      (output) =>
+        !discovered.includes(output.replace(/\.schema\.json$/, ".ts")),
     );
     if (orphans.length || !discovered.length) {
       for (const output of orphans) {
         log(
-          `* ${
-            path.relative(root, output)
-          }: orphan output; restore its marked source or remove the obsolete schema.`,
+          `* ${path.relative(
+            root,
+            output,
+          )}: orphan output; restore its marked source or remove the obsolete schema.`,
         );
       }
       if (!discovered.length) log("No @yf-schema sources found in src.");
@@ -203,7 +206,7 @@ export function runSchemas(
   const sources = [...new Set(selected)].sort();
   const generatedOutputs = new Set(
     [...discovered, ...sources].map((file) =>
-      file.replace(/\.ts$/, ".schema.json")
+      file.replace(/\.ts$/, ".schema.json"),
     ),
   );
   const changes: { output: string; content: string }[] = [];
@@ -374,15 +377,20 @@ export function schemaMain(
         ...flags.files.map((file) => path.dirname(path.resolve(root, file))),
       ]);
       for (const directory of directories) {
-        watchers.push(watch(directory, { recursive: true }, (_event, name) => {
-          const file = name?.toString();
-          if (
-            !file ||
-            !/(?:^|[/\\])(?:node_modules|\.git|\.migration-results|tests[/\\]fixtures)(?:[/\\]|$)/
-                .test(file) &&
-              /\.(?:ts|json)$/.test(file) && !file.endsWith(".schema.json")
-          ) scheduler.schedule();
-        }));
+        watchers.push(
+          watch(directory, { recursive: true }, (_event, name) => {
+            const file = name?.toString();
+            if (
+              !file ||
+              (!/(?:^|[/\\])(?:node_modules|\.git|\.migration-results|tests[/\\]fixtures)(?:[/\\]|$)/.test(
+                file,
+              ) &&
+                /\.(?:ts|json)$/.test(file) &&
+                !file.endsWith(".schema.json"))
+            )
+              scheduler.schedule();
+          }),
+        );
       }
       for (const watcher of watchers) watcher.on("error", onError);
       process.on("SIGINT", stop);

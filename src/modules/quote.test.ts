@@ -91,9 +91,9 @@ describe("quote", () => {
 
   it("throws on unexpected result", async (t, onFinish) => {
     const devel = { id: "weirdJsonResult.fake", t, onFinish };
-    await expect(
-      yf.quote("AAPL", {}, { devel }),
-    ).rejects.toThrow(/Unexpected result/);
+    await expect(yf.quote("AAPL", {}, { devel })).rejects.toThrow(
+      /Unexpected result/,
+    );
   });
 
   it("passes through single ?fields", async (t, onFinish) => {

@@ -77,10 +77,7 @@ function assertQueueOptions(queue: any, opts: any) {
     queue.timeout = opts.timeout;
   }
 
-  if (
-    typeof opts.interval === "number" &&
-    queue.interval !== opts.interval
-  ) {
+  if (typeof opts.interval === "number" && queue.interval !== opts.interval) {
     queue.interval = opts.interval;
   }
 }
@@ -115,9 +112,8 @@ async function yahooFinanceFetch(
   // TODO: adds func type to json schema which is not supported
   const queueOverride = (moduleOpts.queue as { _queue?: unknown } | undefined)
     ?._queue;
-  const queue = queueOverride instanceof Queue
-    ? queueOverride
-    : instanceQueue(this);
+  const queue =
+    queueOverride instanceof Queue ? queueOverride : instanceQueue(this);
   assertQueueOptions(queue, { ...this._opts.queue, ...moduleOpts.queue });
 
   const { fetch: envFetch, fetchDevel } = this._env;
@@ -156,8 +152,8 @@ async function yahooFinanceFetch(
   }
 
   const urlSearchParams = new URLSearchParams(params);
-  const url = substituteVariables.call(this, urlBase) + "?" +
-    urlSearchParams.toString();
+  const url =
+    substituteVariables.call(this, urlBase) + "?" + urlSearchParams.toString();
   // console.log(url);
 
   // console.log(cookieJar.serializeSync());

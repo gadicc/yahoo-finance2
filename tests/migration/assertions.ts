@@ -23,7 +23,8 @@ function withMessage<T extends object>(matchers: T, message: string): T {
       const value: unknown = Reflect.get(target, key, receiver);
       if (
         (key === "not" || key === "resolves" || key === "rejects") &&
-        typeof value === "object" && value !== null
+        typeof value === "object" &&
+        value !== null
       ) {
         return withMessage(value, message);
       }
@@ -31,7 +32,8 @@ function withMessage<T extends object>(matchers: T, message: string): T {
       return (...args: unknown[]) => {
         try {
           const result = Reflect.apply(value, target, args);
-          const thenable = result !== null &&
+          const thenable =
+            result !== null &&
             (typeof result === "object" || typeof result === "function") &&
             typeof result.then === "function";
           return thenable ? Promise.resolve(result).catch(annotate) : result;
@@ -43,10 +45,7 @@ function withMessage<T extends object>(matchers: T, message: string): T {
   });
 }
 
-export const expect = Object.assign(
-  (actual: unknown, message?: string) => {
-    const matchers = base(actual);
-    return message === undefined ? matchers : withMessage(matchers, message);
-  },
-  base,
-);
+export const expect = Object.assign((actual: unknown, message?: string) => {
+  const matchers = base(actual);
+  return message === undefined ? matchers : withMessage(matchers, message);
+}, base);

@@ -8,11 +8,11 @@ function voc(
   input: Parameters<typeof validateAndCoerce>[0],
   schema: Parameters<typeof validateAndCoerce>[1],
 ) {
-  return validateAndCoerce(
-    input,
-    schema,
-    { definitions, logger: console, logObj: console.dir },
-  );
+  return validateAndCoerce(input, schema, {
+    definitions,
+    logger: console,
+    logObj: console.dir,
+  });
 }
 
 describe("validateAndCoerce", () => {

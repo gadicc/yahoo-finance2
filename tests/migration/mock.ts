@@ -14,7 +14,7 @@ export function spy<T extends (...args: any[]) => any>(
     this: unknown,
     ...args: Parameters<T>
   ): ReturnType<T> {
-    const call: typeof calls[number] = { args, self: this };
+    const call: (typeof calls)[number] = { args, self: this };
     calls.push(call);
     try {
       const returned: ReturnType<T> = fn.apply(this, args);
@@ -42,12 +42,14 @@ export function stub<T extends object, K extends keyof T>(
   Object.defineProperty(
     object,
     key,
-    original && "value" in original ? { ...original, value: wrapped } : {
-      value: wrapped,
-      configurable: true,
-      enumerable: original?.enumerable ?? true,
-      writable: true,
-    },
+    original && "value" in original
+      ? { ...original, value: wrapped }
+      : {
+          value: wrapped,
+          configurable: true,
+          enumerable: original?.enumerable ?? true,
+          writable: true,
+        },
   );
   let restored = false;
   const restore = () => {

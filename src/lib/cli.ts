@@ -49,12 +49,12 @@ const defaultOutput: CliOutput = {
 };
 
 export function getModuleNames(prototype: object) {
-  return Object.getOwnPropertyNames(prototype)
-    .filter((name) =>
+  return Object.getOwnPropertyNames(prototype).filter(
+    (name) =>
       name !== "constructor" &&
       !name.startsWith("_") &&
-      typeof (prototype as Record<string, unknown>)[name] === "function"
-    );
+      typeof (prototype as Record<string, unknown>)[name] === "function",
+  );
 }
 
 export function createCliLogger(output: CliOutput): CliLogger {

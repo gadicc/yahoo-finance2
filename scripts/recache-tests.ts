@@ -30,7 +30,10 @@ export async function main(
       console.error("Recache requires FETCH_DEVEL=recache and explicit --live");
       return 2;
     }
-    const code = await runRecache(options, { ...dependencies, signal: abort.signal });
+    const code = await runRecache(options, {
+      ...dependencies,
+      signal: abort.signal,
+    });
     return signalExit || code;
   } catch {
     console.error(

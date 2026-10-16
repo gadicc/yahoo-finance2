@@ -45,11 +45,14 @@ function retryAfterDescription(value: string | null): string {
 
 /** Auth/consent requests and POSTs must exercise their own state transitions. */
 function canReuse(request: Request, url: URL): boolean {
-  return request.method === "GET" &&
+  return (
+    request.method === "GET" &&
     !["no-store", "reload", "no-cache"].includes(request.cache) &&
     /^(?:query1|query2)\.finance\.yahoo\.com$/.test(url.hostname) &&
-    /^\/(?:v\d+\/finance\/(?:quote|quoteSummary|options|chart|recommendationsbysymbol|search|screener\/predefined\/saved|trending)|ws\/fundamentals-timeseries\/v\d+\/finance\/timeseries|ws\/insights\/v\d+\/finance\/insights)(?:\/|$)/
-      .test(url.pathname);
+    /^\/(?:v\d+\/finance\/(?:quote|quoteSummary|options|chart|recommendationsbysymbol|search|screener\/predefined\/saved|trending)|ws\/fundamentals-timeseries\/v\d+\/finance\/timeseries|ws\/insights\/v\d+\/finance\/insights)(?:\/|$)/.test(
+      url.pathname,
+    )
+  );
 }
 
 /** Compare effective requests, including live credentials, without logging them. */
@@ -139,9 +142,9 @@ export function createRecacheFetch(
             "Yahoo recache aborted after HTTP 429 Too Many Requests",
             `Endpoint: ${endpoint}`,
             `Observed at: ${new Date(clock.now()).toISOString()}`,
-            `Retry-After: ${
-              retryAfterDescription(response.headers.get("retry-after"))
-            }; no automatic retry.`,
+            `Retry-After: ${retryAfterDescription(
+              response.headers.get("retry-after"),
+            )}; no automatic retry.`,
             `Request cookie header: ${
               effective.headers.has("cookie") ? "present" : "absent"
             }`,
@@ -178,10 +181,11 @@ export function createRecacheFetch(
 
   return Object.assign(recacheFetch, {
     getStats: () =>
-      [...stats.values()].map((row) => ({
-        ...row,
-        statuses: { ...row.statuses },
-      }))
+      [...stats.values()]
+        .map((row) => ({
+          ...row,
+          statuses: { ...row.statuses },
+        }))
         .sort((a, b) => a.endpoint.localeCompare(b.endpoint)),
   });
 }

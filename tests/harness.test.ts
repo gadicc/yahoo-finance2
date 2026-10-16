@@ -21,18 +21,20 @@ for (const asynchronous of [false, true]) {
   test(`finish awaits cleanup after ${asynchronous ? "async rejection" : "sync throw"}`, async () => {
     const failure = new Error("body failed");
     const order: string[] = [];
-    await expect(runTest((_context, onFinish) => {
-      onFinish(async (error) => {
-        expect(error).toBe(failure);
-        await Promise.resolve();
-        order.push("first");
-      });
-      onFinish(() => {
-        order.push("second");
-      });
-      if (asynchronous) return Promise.reject(failure);
-      throw failure;
-    })).rejects.toBe(failure);
+    await expect(
+      runTest((_context, onFinish) => {
+        onFinish(async (error) => {
+          expect(error).toBe(failure);
+          await Promise.resolve();
+          order.push("first");
+        });
+        onFinish(() => {
+          order.push("second");
+        });
+        if (asynchronous) return Promise.reject(failure);
+        throw failure;
+      }),
+    ).rejects.toBe(failure);
     expect(order).toEqual(["first", "second"]);
   });
 }
@@ -73,10 +75,11 @@ test("successful body runs finish once even when finish rejects", async () => {
     await Promise.resolve();
     throw cleanup;
   });
-  await expect(runTest((_context, onFinish) => {
-    onFinish(callback);
-  }))
-    .rejects.toBe(cleanup);
+  await expect(
+    runTest((_context, onFinish) => {
+      onFinish(callback);
+    }),
+  ).rejects.toBe(cleanup);
   expect(callback.calls).toHaveLength(1);
 });
 
@@ -119,11 +122,13 @@ test("thenables complete before cleanup and thrown undefined still fails", async
 
 test("invalid body returns fail and still drain cleanup", async () => {
   const cleanup = spy();
-  const invalid =
-    ((_context: unknown, onFinish: (cb: typeof cleanup) => void) => {
-      onFinish(cleanup);
-      return 123;
-    }) as unknown as Parameters<typeof runTest>[0];
+  const invalid = ((
+    _context: unknown,
+    onFinish: (cb: typeof cleanup) => void,
+  ) => {
+    onFinish(cleanup);
+    return 123;
+  }) as unknown as Parameters<typeof runTest>[0];
   await expect(runTest(invalid)).rejects.toThrow("undefined or a promise");
   expect(cleanup.calls).toHaveLength(1);
   expect(cleanup.calls[0].args[0]).toBeInstanceOf(TypeError);
@@ -131,19 +136,22 @@ test("invalid body returns fail and still drain cleanup", async () => {
 
 test("optional messages preserve sync, negated, and async assertion diagnostics", async () => {
   expect(() =>
-    expect({ nested: [1] }, "payload detail").toEqual({ nested: [2] })
-  )
-    .toThrow(/payload detail[\s\S]*nested/);
+    expect({ nested: [1] }, "payload detail").toEqual({ nested: [2] }),
+  ).toThrow(/payload detail[\s\S]*nested/);
   expect(() => expect(1, "negative detail").not.toBe(1)).toThrow(
     "negative detail",
   );
-  await expect(expect(Promise.resolve(1), "promise detail").resolves.toBe(2))
-    .rejects.toThrow("promise detail");
-  await expect(expect(Promise.resolve(1), "rejection detail").rejects.toThrow())
-    .rejects.toThrow("rejection detail");
   await expect(
-    expect(runInNewContext("Promise.resolve(1)"), "cross realm detail")
-      .resolves.toBe(2),
+    expect(Promise.resolve(1), "promise detail").resolves.toBe(2),
+  ).rejects.toThrow("promise detail");
+  await expect(
+    expect(Promise.resolve(1), "rejection detail").rejects.toThrow(),
+  ).rejects.toThrow("rejection detail");
+  await expect(
+    expect(
+      runInNewContext("Promise.resolve(1)"),
+      "cross realm detail",
+    ).resolves.toBe(2),
   ).rejects.toThrow("cross realm detail");
   expect(new Map([["key", new Set([1, 2])]])).toEqual(
     new Map([["key", new Set([2, 1])]]),
@@ -360,12 +368,13 @@ function childTests(sources: string[], flags: string[] = []) {
   }
 }
 const runnerUrl = new URL("./migration/runner.ts", import.meta.url).href;
-const assertionsUrl =
-  new URL("./migration/assertions.ts", import.meta.url).href;
+const assertionsUrl = new URL("./migration/assertions.ts", import.meta.url)
+  .href;
 const mockUrl = new URL("./migration/mock.ts", import.meta.url).href;
 
 test("native runner fails async cleanup, runs afterEach, and restores globals after failure", () => {
-  const child = childTests([`
+  const child = childTests([
+    `
     import { projectIt as it, afterEach } from ${JSON.stringify(runnerUrl)};
     import { expect } from ${JSON.stringify(assertionsUrl)};
     import { stub } from ${JSON.stringify(mockUrl)};
@@ -403,7 +412,8 @@ test("native runner fails async cleanup, runs afterEach, and restores globals af
     });
     it.each(["bounded"])("table %s timeout", () => new Promise(() => {}), 20);
     it("following test", () => { console.log("FOLLOWING_TEST_RAN"); });
-  `]);
+  `,
+  ]);
   expect(child.status).toBe(1);
   expect(child.output).toContain("CUSTOM_CLEANUP_DIAGNOSTIC");
   expect(child.output.match(/AFTER_EACH_RESTORED/g)).toHaveLength(4);

@@ -19,9 +19,7 @@ export interface YahooFinanceMcpHttpOptions
   bearerToken?: string;
 }
 
-export type YahooFinanceMcpWebHandler = (
-  request: Request,
-) => Promise<Response>;
+export type YahooFinanceMcpWebHandler = (request: Request) => Promise<Response>;
 
 export type YahooFinanceMcpNodeHandler = (
   req: IncomingMessage,
@@ -41,11 +39,7 @@ function jsonRpcError(status: number, code: number, message: string) {
   };
 }
 
-function writeJsonResponse(
-  res: ServerResponse,
-  status: number,
-  body: unknown,
-) {
+function writeJsonResponse(res: ServerResponse, status: number, body: unknown) {
   res.writeHead(status, { "content-type": "application/json" });
   res.end(JSON.stringify(body));
 }
@@ -77,15 +71,14 @@ function validateHost(
   if (allowedHosts.length === 0) return undefined;
 
   const hostname = getHostName(hostHeader);
-  if (hostname && allowedHosts.some((host) => host.toLowerCase() === hostname)) {
+  if (
+    hostname &&
+    allowedHosts.some((host) => host.toLowerCase() === hostname)
+  ) {
     return undefined;
   }
 
-  return jsonRpcError(
-    403,
-    -32000,
-    "Invalid Host header.",
-  );
+  return jsonRpcError(403, -32000, "Invalid Host header.");
 }
 
 function validateOrigin(
@@ -130,9 +123,11 @@ function validateRequestHeaders(
   options: YahooFinanceMcpHttpOptions,
 ) {
   const allowedHosts = options.allowedHosts ?? DEFAULT_ALLOWED_HOSTS;
-  return validateHost(headers.get("host"), allowedHosts) ??
+  return (
+    validateHost(headers.get("host"), allowedHosts) ??
     validateOrigin(headers.get("origin"), options.allowedOrigins ?? []) ??
-    validateBearerToken(headers.get("authorization"), options.bearerToken);
+    validateBearerToken(headers.get("authorization"), options.bearerToken)
+  );
 }
 
 function validateNodeRequestHeaders(
@@ -147,14 +142,18 @@ function validateNodeRequestHeaders(
 
   // IncomingMessage.headers discards duplicate Host fields by default. Inspect
   // rawHeaders as well, before a permitted first value can hide another field.
-  const hostCount = req.rawHeaders.filter((_, index) =>
-    index % 2 === 0 && req.rawHeaders[index].toLowerCase() === "host"
+  const hostCount = req.rawHeaders.filter(
+    (_, index) =>
+      index % 2 === 0 && req.rawHeaders[index].toLowerCase() === "host",
   ).length;
   const host = req.headers.host;
-  const ambiguousHost = hostCount > 1 || (Array.isArray(host) && host.length > 1);
-  return validateHost(ambiguousHost ? undefined : header("host"), allowedHosts) ??
+  const ambiguousHost =
+    hostCount > 1 || (Array.isArray(host) && host.length > 1);
+  return (
+    validateHost(ambiguousHost ? undefined : header("host"), allowedHosts) ??
     validateOrigin(header("origin"), options.allowedOrigins ?? []) ??
-    validateBearerToken(header("authorization"), options.bearerToken);
+    validateBearerToken(header("authorization"), options.bearerToken)
+  );
 }
 
 async function closeServer(server: { close: () => Promise<void> | void }) {

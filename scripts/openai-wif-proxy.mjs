@@ -97,8 +97,10 @@ export function createTokenProvider(config, fetcher = fetch, now = Date.now) {
         claims.exp * 1000,
       );
       if (
-        typeof result.access_token !== "string" || !result.access_token ||
-        !Number.isFinite(expiresAt) || expiresAt <= now() + 60_000 ||
+        typeof result.access_token !== "string" ||
+        !result.access_token ||
+        !Number.isFinite(expiresAt) ||
+        expiresAt <= now() + 60_000 ||
         result.token_type?.toLowerCase() !== "bearer"
       ) {
         throw new Error("Invalid OpenAI access token response");
@@ -167,14 +169,12 @@ export function createProxy(config, token, fetcher = fetch) {
       }
       /** @type {Record<string, string>} */
       const headers = {};
-      for (
-        const name of [
-          "content-type",
-          "cache-control",
-          "x-request-id",
-          "retry-after",
-        ]
-      ) {
+      for (const name of [
+        "content-type",
+        "cache-control",
+        "x-request-id",
+        "retry-after",
+      ]) {
         const value = response.headers.get(name);
         if (value) headers[name] = value;
       }
@@ -183,7 +183,9 @@ export function createProxy(config, token, fetcher = fetch) {
         // Node and DOM describe BYOB reader generics differently in TS6;
         // this assertion is local to Node's standard WebStream bridge.
         const stream = Readable.fromWeb(
-          /** @type {import("node:stream/web").ReadableStream<Uint8Array>} */ (response.body),
+          /** @type {import("node:stream/web").ReadableStream<Uint8Array>} */ (
+            response.body
+          ),
         );
         stream.on("error", () => res.destroy());
         stream.pipe(res);
@@ -198,7 +200,8 @@ export function createProxy(config, token, fetcher = fetch) {
 }
 
 if (
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   try {
     let input = "";
@@ -209,7 +212,10 @@ if (
     const server = createProxy(config, token);
     server.listen(0, "127.0.0.1", () => {
       process.stdout.write(
-        JSON.stringify({ port: (/** @type {import("node:net").AddressInfo} */ (server.address())).port }) + "\n",
+        JSON.stringify({
+          port: /** @type {import("node:net").AddressInfo} */ (server.address())
+            .port,
+        }) + "\n",
       );
     });
     setTimeout(() => {
@@ -220,8 +226,9 @@ if (
     const failure = /** @type {Error} */ (error);
     // Only known static diagnostics leave the credential-holding process.
     const safe =
-      /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\))$/
-        .test(failure.message);
+      /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\))$/.test(
+        failure.message,
+      );
     process.stderr.write(
       (safe ? failure.message : "Federation initialization failed") + "\n",
     );

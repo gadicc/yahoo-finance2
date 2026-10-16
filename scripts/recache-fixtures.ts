@@ -8,7 +8,7 @@ export async function readFixtureBytes(
   path: string,
   rejectHardlinks = false,
 ): Promise<Buffer> {
-  if (await realpath(path) !== resolve(path)) {
+  if ((await realpath(path)) !== resolve(path)) {
     throw new Error("Fixture path must not contain symlink aliases");
   }
   const handle = await open(
@@ -24,10 +24,13 @@ export async function readFixtureBytes(
     const after = await handle.stat();
     const named = await lstat(path);
     if (
-      named.isSymbolicLink() || named.dev !== before.dev ||
-      named.ino !== before.ino || after.size !== before.size ||
-      after.mtimeMs !== before.mtimeMs || after.ctimeMs !== before.ctimeMs ||
-      await realpath(path) !== resolve(path)
+      named.isSymbolicLink() ||
+      named.dev !== before.dev ||
+      named.ino !== before.ino ||
+      after.size !== before.size ||
+      after.mtimeMs !== before.mtimeMs ||
+      after.ctimeMs !== before.ctimeMs ||
+      (await realpath(path)) !== resolve(path)
     ) {
       throw new Error("Fixture changed while being read");
     }
@@ -42,7 +45,10 @@ export async function snapshotFixtures(
   root = "tests/fixtures/http",
 ): Promise<Map<string, string>> {
   const absolute = resolve(root);
-  if ((await lstat(absolute)).isSymbolicLink() || await realpath(absolute) !== absolute) {
+  if (
+    (await lstat(absolute)).isSymbolicLink() ||
+    (await realpath(absolute)) !== absolute
+  ) {
     throw new Error("Fixture root must not contain symlink aliases");
   }
   const snapshot = new Map<string, string>();
@@ -53,14 +59,19 @@ export async function snapshotFixtures(
       if (entry.isSymbolicLink()) continue;
       const path = join(directory, entry.name);
       if (entry.isDirectory()) {
-        if (!(await lstat(path)).isDirectory() || await realpath(path) !== resolve(path)) {
+        if (
+          !(await lstat(path)).isDirectory() ||
+          (await realpath(path)) !== resolve(path)
+        ) {
           throw new Error("Fixture directory changed during traversal");
         }
         await visit(path);
       } else if (entry.isFile() && entry.name.endsWith(".json")) {
         snapshot.set(
           path,
-          createHash("sha256").update(await readFixtureBytes(path)).digest("hex"),
+          createHash("sha256")
+            .update(await readFixtureBytes(path))
+            .digest("hex"),
         );
       }
     }
@@ -75,6 +86,11 @@ export function fixtureChanges(
   after: Map<string, string>,
 ): string[] {
   const paths = new Set([...before.keys(), ...after.keys()]);
-  return [...paths].filter((path) => before.get(path) !== after.get(path))
-    .sort().map((path) => `${!before.has(path) ? "added" : !after.has(path) ? "removed" : "updated"}: ${path}`);
+  return [...paths]
+    .filter((path) => before.get(path) !== after.get(path))
+    .sort()
+    .map(
+      (path) =>
+        `${!before.has(path) ? "added" : !after.has(path) ? "removed" : "updated"}: ${path}`,
+    );
 }

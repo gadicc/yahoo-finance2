@@ -479,7 +479,8 @@ export default async function historical(
       });
   }
 
-  const validateResult = !moduleOptions ||
+  const validateResult =
+    !moduleOptions ||
     moduleOptions.validateResult === undefined ||
     moduleOptions.validateResult === true;
 

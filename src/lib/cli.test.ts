@@ -134,11 +134,7 @@ test("runCli decodes JSON array positional arguments", async () => {
   assertEquals(code, EXIT_OK);
   assertEquals(
     stdout.join("\n"),
-    JSON.stringify(
-      { args: [["AAPL", "MSFT"], { return: "object" }] },
-      null,
-      2,
-    ),
+    JSON.stringify({ args: [["AAPL", "MSFT"], { return: "object" }] }, null, 2),
   );
   assertEquals(stderr.length, 0);
 });
@@ -170,11 +166,7 @@ test("runCli reads stdin args payload with module", async () => {
     stdout.join("\n"),
     JSON.stringify(
       {
-        args: [
-          ["AAPL", "MSFT"],
-          { return: "map" },
-          { validateOptions: false },
-        ],
+        args: [["AAPL", "MSFT"], { return: "map" }, { validateOptions: false }],
       },
       null,
       2,
@@ -209,11 +201,7 @@ test("runCli reads stdin convenience payload with CLI module", async () => {
     stdout.join("\n"),
     JSON.stringify(
       {
-        args: [
-          "AAPL",
-          null,
-          { validateOptions: false, validateResult: false },
-        ],
+        args: ["AAPL", null, { validateOptions: false, validateResult: false }],
       },
       null,
       2,
@@ -227,15 +215,10 @@ test("runCli rejects stdin mixed with positional module args", async () => {
   let didReadStdin = false;
 
   const code = await runCli(
-    createRunOptions(
-      ["quote", "AAPL", "--stdin"],
-      output,
-      undefined,
-      () => {
-        didReadStdin = true;
-        return "{}";
-      },
-    ),
+    createRunOptions(["quote", "AAPL", "--stdin"], output, undefined, () => {
+      didReadStdin = true;
+      return "{}";
+    }),
   );
 
   assertEquals(code, EXIT_USAGE);
@@ -248,11 +231,8 @@ test("runCli rejects conflicting stdin and CLI modules", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
-    createRunOptions(
-      ["quote", "--stdin"],
-      output,
-      undefined,
-      () => JSON.stringify({ module: "search", args: ["AAPL"] }),
+    createRunOptions(["quote", "--stdin"], output, undefined, () =>
+      JSON.stringify({ module: "search", args: ["AAPL"] }),
     ),
   );
 

@@ -13,9 +13,22 @@ import {
   writeFileSync,
 } from "node:fs";
 import { constants, tmpdir } from "node:os";
-import { delimiter, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
+import {
+  delimiter,
+  dirname,
+  isAbsolute,
+  join,
+  relative,
+  resolve,
+  sep,
+} from "node:path";
 import { fileURLToPath } from "node:url";
-import { excludedDirectories, inventory, nativeInventory, select } from "./testing/inventory.ts";
+import {
+  excludedDirectories,
+  inventory,
+  nativeInventory,
+  select,
+} from "./testing/inventory.ts";
 import {
   assertFixtureSnapshot,
   fixtureSnapshot,
@@ -106,7 +119,8 @@ export function parseArguments(args: string[]): TestOptions {
     }
     const value = suffix.length ? suffix.join("=") : args[++index];
     if (
-      value === undefined || !value.length ||
+      value === undefined ||
+      !value.length ||
       (!suffix.length && value.startsWith("--"))
     ) {
       throw new Error(`Missing value for ${flag}`);
@@ -147,7 +161,8 @@ export function fingerprint(
         !["ENOENT", "ENOTDIR"].includes(
           (error as NodeJS.ErrnoException).code ?? "",
         )
-      ) throw error;
+      )
+        throw error;
     }
   }
 
@@ -161,7 +176,8 @@ export function fingerprint(
         ["ENOENT", "ENOTDIR"].includes(
           (error as NodeJS.ErrnoException).code ?? "",
         )
-      ) return;
+      )
+        return;
       throw error;
     }
     entries.sort((left, right) => left.name.localeCompare(right.name));
@@ -181,24 +197,24 @@ export function fingerprint(
     visit(join(root, directory));
   }
   const rootInputs = readdirSync(root, { withFileTypes: true })
-    .filter((entry) =>
-      entry.isFile() && /\.(?:json|jsonc|toml|[cm]?[jt]sx?)$/.test(entry.name)
+    .filter(
+      (entry) =>
+        entry.isFile() &&
+        /\.(?:json|jsonc|toml|[cm]?[jt]sx?)$/.test(entry.name),
     )
     .map((entry) => entry.name);
   // Includes current root TypeScript extends chains, Bun/Deno metadata and
   // runtime/release policies; nested configs and executable code are scanned.
-  for (
-    const file of [
-      ...new Set([
-        "package.json",
-        "bun.lock",
-        "deno.lock",
-        ".bun-version",
-        "bunfig.toml",
-        ...rootInputs,
-      ]),
-    ].sort()
-  ) {
+  for (const file of [
+    ...new Set([
+      "package.json",
+      "bun.lock",
+      "deno.lock",
+      ".bun-version",
+      "bunfig.toml",
+      ...rootInputs,
+    ]),
+  ].sort()) {
     hashFile(join(root, file));
   }
   return hash.digest("hex");
@@ -207,7 +223,10 @@ export function fingerprint(
 function prepareCoverage(root: string) {
   const output = join(root, "coverage");
   mkdirSync(output, { recursive: true });
-  if (lstatSync(output).isSymbolicLink() || relative(realpathSync(output), output) !== "") {
+  if (
+    lstatSync(output).isSymbolicLink() ||
+    relative(realpathSync(output), output) !== ""
+  ) {
     throw new Error("coverage must be a real repository directory");
   }
   // Clear before selection too: an empty/invalid selection must not expose
@@ -229,9 +248,12 @@ async function runOnce(
 ): Promise<number> {
   const temporary = realpathSync(tmpdir());
   const temporaryRelative = relative(root, temporary);
-  if (temporaryRelative === "" ||
-    (!isAbsolute(temporaryRelative) && temporaryRelative !== ".." &&
-      !temporaryRelative.startsWith(`..${sep}`))) {
+  if (
+    temporaryRelative === "" ||
+    (!isAbsolute(temporaryRelative) &&
+      temporaryRelative !== ".." &&
+      !temporaryRelative.startsWith(`..${sep}`))
+  ) {
     throw new Error("TMPDIR must be outside the repository and fixtures");
   }
   const scratch = realpathSync(mkdtempSync(join(temporary, "yf-replay-")));
@@ -245,7 +267,12 @@ async function runOnce(
       "--no-env-file",
       "--no-orphans",
       ...(options.native
-        ? ["--preload", fileURLToPath(new URL("./testing/native-preload.ts", import.meta.url))]
+        ? [
+            "--preload",
+            fileURLToPath(
+              new URL("./testing/native-preload.ts", import.meta.url),
+            ),
+          ]
         : []),
       options.serial ? "--isolate" : "--parallel=4",
       `--timeout=${options.timeout}`,
@@ -256,11 +283,11 @@ async function runOnce(
         : [`--test-name-pattern=${options.name}`]),
       ...(options.coverage
         ? [
-          "--coverage",
-          `--coverage-dir=${join(scratch, "coverage")}`,
-          "--coverage-reporter=text",
-          "--coverage-reporter=lcov",
-        ]
+            "--coverage",
+            `--coverage-dir=${join(scratch, "coverage")}`,
+            "--coverage-reporter=text",
+            "--coverage-reporter=lcov",
+          ]
         : []),
       ...files.map((file) => resolve(root, file)),
     ];
@@ -268,15 +295,21 @@ async function runOnce(
       ...process.env,
       PATH: `${dirname(process.execPath)}${delimiter}${process.env.PATH ?? ""}`,
     };
-    const child = spawn(options.native ? command[0] : "python3", options.native
-      ? command.slice(1)
-      : [guard, root, scratch, "--", ...command], {
-      cwd: root,
-      env: options.native ? nativeEnvironment(environment, scratch) : environment,
-      stdio: "inherit",
-      detached: !options.native || process.platform !== "win32",
-      windowsHide: options.native,
-    });
+    const child = spawn(
+      options.native ? command[0] : "python3",
+      options.native
+        ? command.slice(1)
+        : [guard, root, scratch, "--", ...command],
+      {
+        cwd: root,
+        env: options.native
+          ? nativeEnvironment(environment, scratch)
+          : environment,
+        stdio: "inherit",
+        detached: !options.native || process.platform !== "win32",
+        windowsHide: options.native,
+      },
+    );
     let timeout = false;
     let code: number;
     if (options.native) {
@@ -308,10 +341,8 @@ async function runOnce(
       if (abort.aborted) terminate();
       code = await new Promise<number>((resolveExit, reject) => {
         child.once("error", reject);
-        child.once(
-          "close",
-          (code, signal) =>
-            resolveExit(code ?? (signal ? signalCode(signal) : 1)),
+        child.once("close", (code, signal) =>
+          resolveExit(code ?? (signal ? signalCode(signal) : 1)),
         );
       }).finally(() => {
         clearTimeout(timer);
@@ -391,8 +422,10 @@ export async function runTests(
   }
   let previous = options.watch ? fingerprint(root) : "";
   while (!signal?.aborted) {
-    const currentPin = readFileSync(join(repository, ".bun-version"), "utf8")
-      .trim();
+    const currentPin = readFileSync(
+      join(repository, ".bun-version"),
+      "utf8",
+    ).trim();
     if (process.versions.bun !== currentPin) {
       throw new Error(
         `Tests require Bun ${currentPin}; restart with the pinned binary`,
@@ -404,10 +437,17 @@ export async function runTests(
     if (options.native) {
       const included = new Set(allowed);
       const omitted = discovered.filter((file) => !included.has(file));
-      console.error(`Native trusted replay: no OS sandbox; omitted ${omitted.length} tooling files outside the library/portable-control scope:\n${omitted.join("\n")}`);
+      console.error(
+        `Native trusted replay: no OS sandbox; omitted ${omitted.length} tooling files outside the library/portable-control scope:\n${omitted.join("\n")}`,
+      );
       if (options.paths.length) {
-        const outside = select(root, discovered, options.paths).filter((file) => !included.has(file));
-        if (outside.length) throw new Error(`Native selection is outside its portable scope: ${outside.join(", ")}; use strict Linux replay`);
+        const outside = select(root, discovered, options.paths).filter(
+          (file) => !included.has(file),
+        );
+        if (outside.length)
+          throw new Error(
+            `Native selection is outside its portable scope: ${outside.join(", ")}; use strict Linux replay`,
+          );
       }
     }
     const files = select(root, allowed, options.paths, options.filter);
@@ -427,18 +467,18 @@ export async function runTests(
     let watchError: unknown;
     const poll = options.watch
       ? setInterval(() => {
-        try {
-          const current = fingerprint(root);
-          if (current !== previous) {
-            previous = current;
-            changed = true;
-            run.abort("changed");
+          try {
+            const current = fingerprint(root);
+            if (current !== previous) {
+              previous = current;
+              changed = true;
+              run.abort("changed");
+            }
+          } catch (error) {
+            watchError = error;
+            run.abort("watch error");
           }
-        } catch (error) {
-          watchError = error;
-          run.abort("watch error");
-        }
-      }, 200)
+        }, 200)
       : undefined;
     let code: number;
     try {

@@ -1,7 +1,10 @@
 import { createServer, request, type IncomingMessage } from "node:http";
 import { chmod, rm } from "node:fs/promises";
 import { randomBytes } from "node:crypto";
-import { recacheEndpoint, type RecacheEndpointStats } from "../../tests/recacheStats.ts";
+import {
+  recacheEndpoint,
+  type RecacheEndpointStats,
+} from "../../tests/recacheStats.ts";
 
 export const captureHosts = new Set([
   "finance.yahoo.com",
@@ -21,7 +24,10 @@ const realClearTimeout = globalThis.clearTimeout.bind(globalThis);
 function waitForSlot(milliseconds: number, signal: AbortSignal): Promise<void> {
   signal.throwIfAborted();
   return new Promise((resolve, reject) => {
-    const finish = () => { signal.removeEventListener("abort", cancel); resolve(); };
+    const finish = () => {
+      signal.removeEventListener("abort", cancel);
+      resolve();
+    };
     const timer = realSetTimeout(finish, milliseconds);
     const cancel = () => {
       realClearTimeout(timer);
@@ -53,24 +59,36 @@ interface WireResponse {
 
 /** Validate each hop in the parent; redirects are always returned to the child. */
 function validateRequest(value: unknown): WireRequest {
-  if (!value || typeof value !== "object") throw new Error("Invalid capture request");
+  if (!value || typeof value !== "object")
+    throw new Error("Invalid capture request");
   const data = value as WireRequest;
   const url = new URL(data.url);
   if (
-    url.protocol !== "https:" || !captureHosts.has(url.hostname) ||
-    (url.port && url.port !== "443") || url.username || url.password ||
+    url.protocol !== "https:" ||
+    !captureHosts.has(url.hostname) ||
+    (url.port && url.port !== "443") ||
+    url.username ||
+    url.password ||
     !["GET", "HEAD", "POST"].includes(data.method) ||
     !["follow", "manual", "error"].includes(data.redirect) ||
-    (data.fixtureId !== undefined && (typeof data.fixtureId !== "string" || data.fixtureId.length > 4096)) ||
-    !Array.isArray(data.headers) || data.headers.length > 200 ||
-    data.headers.some((header) =>
-      !Array.isArray(header) || header.length !== 2 ||
-      header.some((part) => typeof part !== "string") ||
-      /^(?:host|connection|transfer-encoding|content-length|proxy-.*)$/i.test(header[0])
+    (data.fixtureId !== undefined &&
+      (typeof data.fixtureId !== "string" || data.fixtureId.length > 4096)) ||
+    !Array.isArray(data.headers) ||
+    data.headers.length > 200 ||
+    data.headers.some(
+      (header) =>
+        !Array.isArray(header) ||
+        header.length !== 2 ||
+        header.some((part) => typeof part !== "string") ||
+        /^(?:host|connection|transfer-encoding|content-length|proxy-.*)$/i.test(
+          header[0],
+        ),
     ) ||
     (data.body !== undefined &&
-      (typeof data.body !== "string" || !/^[A-Za-z0-9+/]*={0,2}$/.test(data.body)))
-  ) throw new Error("Capture request outside allowed policy");
+      (typeof data.body !== "string" ||
+        !/^[A-Za-z0-9+/]*={0,2}$/.test(data.body)))
+  )
+    throw new Error("Capture request outside allowed policy");
   return data;
 }
 
@@ -141,18 +159,25 @@ export async function createCaptureBroker(
     const abort = new AbortController();
     // Request-body `end` is normal. Only a response connection that closes
     // before finishing means the caller no longer owns the upstream request.
-    const disconnected = () => { if (!outgoing.writableFinished) abort.abort(); };
+    const disconnected = () => {
+      if (!outgoing.writableFinished) abort.abort();
+    };
     outgoing.once("close", disconnected);
-    void handle(incoming, abort).then((result) => {
-      if (outgoing.destroyed) return;
-      outgoing.writeHead(200, { "content-type": "application/json" });
-      outgoing.end(JSON.stringify(result));
-    }, () => {
-      // Never forward an upstream error, URL query, cookie, crumb or payload.
-      if (outgoing.destroyed) return;
-      outgoing.writeHead(502, { "content-type": "application/json" });
-      outgoing.end('{"error":"Capture broker rejected or failed request"}');
-    }).finally(() => outgoing.off("close", disconnected))
+    void handle(incoming, abort)
+      .then(
+        (result) => {
+          if (outgoing.destroyed) return;
+          outgoing.writeHead(200, { "content-type": "application/json" });
+          outgoing.end(JSON.stringify(result));
+        },
+        () => {
+          // Never forward an upstream error, URL query, cookie, crumb or payload.
+          if (outgoing.destroyed) return;
+          outgoing.writeHead(502, { "content-type": "application/json" });
+          outgoing.end('{"error":"Capture broker rejected or failed request"}');
+        },
+      )
+      .finally(() => outgoing.off("close", disconnected))
       .catch(() => outgoing.destroy());
   });
   server.requestTimeout = deadline;
@@ -175,11 +200,22 @@ export async function createCaptureBroker(
       counts.requests++;
       let response: Promise<Response>;
       try {
-        response = Promise.resolve(transport(hop.url, {
-          method: hop.method, headers: hop.headers,
-          body: hop.body === undefined ? undefined : Buffer.from(hop.body, "base64"),
-          redirect: "manual", signal: abort.signal,
-        }, hop.fixtureId));
+        response = Promise.resolve(
+          transport(
+            hop.url,
+            {
+              method: hop.method,
+              headers: hop.headers,
+              body:
+                hop.body === undefined
+                  ? undefined
+                  : Buffer.from(hop.body, "base64"),
+              redirect: "manual",
+              signal: abort.signal,
+            },
+            hop.fixtureId,
+          ),
+        );
       } catch (error) {
         response = Promise.reject(error);
       } finally {
@@ -192,25 +228,37 @@ export async function createCaptureBroker(
     // Admission is serialized, not response completion. Cancellation keeps its
     // position in this chain; it cannot release a later caller ahead of a
     // preceding reservation. Every admitted hop rechecks abort and the 429 latch.
-    starts = turn.then(() => {}, () => {});
+    starts = turn.then(
+      () => {},
+      () => {},
+    );
     const { response, counts } = await turn;
     try {
       const result = await response;
-      counts.statuses[result.status] = (counts.statuses[result.status] ?? 0) + 1;
+      counts.statuses[result.status] =
+        (counts.statuses[result.status] ?? 0) + 1;
       return result;
     } catch (error) {
       counts.statuses.networkError = (counts.statuses.networkError ?? 0) + 1;
       throw error;
     }
   }
-  async function handle(incoming: IncomingMessage, abort: AbortController): Promise<WireResponse> {
+  async function handle(
+    incoming: IncomingMessage,
+    abort: AbortController,
+  ): Promise<WireResponse> {
     if (
-      incoming.method !== "POST" || incoming.url !== "/fetch" ||
-      incoming.headers.authorization !== `Bearer ${token}` || rateLimited
-    ) throw new Error("Capture broker unavailable");
-    const data = validateRequest(JSON.parse(
-      (await readBounded(incoming, maximumRequest)).toString("utf8"),
-    ));
+      incoming.method !== "POST" ||
+      incoming.url !== "/fetch" ||
+      incoming.headers.authorization !== `Bearer ${token}` ||
+      rateLimited
+    )
+      throw new Error("Capture broker unavailable");
+    const data = validateRequest(
+      JSON.parse(
+        (await readBounded(incoming, maximumRequest)).toString("utf8"),
+      ),
+    );
     abort.signal.throwIfAborted();
     active.add(abort);
     const timer = setTimeout(() => abort.abort(), deadline);
@@ -234,18 +282,32 @@ export async function createCaptureBroker(
         }
         if (redirect && location && hop.redirect === "follow") {
           await response.body?.cancel();
-          if (++redirects > 20) throw new Error("Capture redirect limit exceeded");
+          if (++redirects > 20)
+            throw new Error("Capture redirect limit exceeded");
           const previous = new URL(hop.url);
           const next = new URL(location, previous);
           let headers = hop.headers;
           if (previous.origin !== next.origin) {
-            headers = headers.filter(([name]) => !/^(?:authorization|cookie|cookie2)$/i.test(name));
+            headers = headers.filter(
+              ([name]) => !/^(?:authorization|cookie|cookie2)$/i.test(name),
+            );
           }
-          const rewrite = ((response.status === 301 || response.status === 302) && hop.method === "POST") ||
+          const rewrite =
+            ((response.status === 301 || response.status === 302) &&
+              hop.method === "POST") ||
             (response.status === 303 && !["GET", "HEAD"].includes(hop.method));
-          if (rewrite) headers = headers.filter(([name]) => !/^content-(?:encoding|language|location|type)$/i.test(name));
-          hop = { ...hop, url: next.href, headers,
-            method: rewrite ? "GET" : hop.method, body: rewrite ? undefined : hop.body };
+          if (rewrite)
+            headers = headers.filter(
+              ([name]) =>
+                !/^content-(?:encoding|language|location|type)$/i.test(name),
+            );
+          hop = {
+            ...hop,
+            url: next.href,
+            headers,
+            method: rewrite ? "GET" : hop.method,
+            body: rewrite ? undefined : hop.body,
+          };
           continue;
         }
         const body = response.body
@@ -255,10 +317,15 @@ export async function createCaptureBroker(
         for (const [name, value] of response.headers) {
           if (name.toLowerCase() !== "set-cookie") headers.push([name, value]);
         }
-        for (const cookie of response.headers.getSetCookie()) headers.push(["set-cookie", cookie]);
+        for (const cookie of response.headers.getSetCookie())
+          headers.push(["set-cookie", cookie]);
         return {
-          status: response.status, statusText: response.statusText, headers,
-          body: body.toString("base64"), url: hop.url, redirected: redirects > 0,
+          status: response.status,
+          statusText: response.statusText,
+          headers,
+          body: body.toString("base64"),
+          url: hop.url,
+          redirected: redirects > 0,
         };
       }
     } finally {
@@ -280,16 +347,21 @@ export async function createCaptureBroker(
   return {
     socket,
     token,
-    get rateLimited() { return rateLimited; },
+    get rateLimited() {
+      return rateLimited;
+    },
     getStats() {
-      return [...counters.values()].map((row) => ({ ...row, statuses: { ...row.statuses } }));
+      return [...counters.values()].map((row) => ({
+        ...row,
+        statuses: { ...row.statuses },
+      }));
     },
     async close() {
       closed = true;
       for (const controller of active) controller.abort();
       server.closeAllConnections();
       await new Promise<void>((resolve, reject) => {
-        server.close((error) => error ? reject(error) : resolve());
+        server.close((error) => (error ? reject(error) : resolve()));
       });
       await rm(socket, { force: true });
     },
@@ -303,7 +375,8 @@ export function brokerFetch(socket: string, token: string): typeof fetch {
     const body = effective.body
       ? Buffer.from(await effective.arrayBuffer()).toString("base64")
       : undefined;
-    const devel = (init as { devel?: string | { id?: string } } | undefined)?.devel;
+    const devel = (init as { devel?: string | { id?: string } } | undefined)
+      ?.devel;
     const data: WireRequest = {
       url: effective.url,
       method: effective.method,
@@ -317,37 +390,53 @@ export function brokerFetch(socket: string, token: string): typeof fetch {
       throw new Error("Capture request exceeds size limit");
     }
     return await new Promise<Response>((resolve, reject) => {
-      const outgoing = request({
-        socketPath: socket,
-        path: "/fetch",
-        method: "POST",
-        headers: {
-          authorization: `Bearer ${token}`,
-          "content-type": "application/json",
-          "content-length": Buffer.byteLength(serialized),
+      const outgoing = request(
+        {
+          socketPath: socket,
+          path: "/fetch",
+          method: "POST",
+          headers: {
+            authorization: `Bearer ${token}`,
+            "content-type": "application/json",
+            "content-length": Buffer.byteLength(serialized),
+          },
+          signal: effective.signal,
+          timeout: deadline,
         },
-        signal: effective.signal,
-        timeout: deadline,
-      }, (incoming) => {
-        void (async () => {
-          if (incoming.statusCode !== 200) throw new Error("Capture broker rejected request");
-          const value: WireResponse = JSON.parse(
-            (await readBounded(incoming, maximumResponse * 2)).toString("utf8"),
-          );
-          const response = new Response(
-            [101, 204, 205, 304].includes(value.status) || effective.method === "HEAD"
-              ? null
-              : Buffer.from(value.body, "base64"),
-            { status: value.status, statusText: value.statusText, headers: value.headers },
-          );
-          Object.defineProperties(response, {
-            url: { value: value.url }, redirected: { value: value.redirected },
-          });
-          resolve(response);
-        })().catch(reject);
-      });
-      outgoing.once("error", () => reject(new Error("Capture broker request failed")));
-      outgoing.once("timeout", () => outgoing.destroy(new Error("Capture broker timed out")));
+        (incoming) => {
+          void (async () => {
+            if (incoming.statusCode !== 200)
+              throw new Error("Capture broker rejected request");
+            const value: WireResponse = JSON.parse(
+              (await readBounded(incoming, maximumResponse * 2)).toString(
+                "utf8",
+              ),
+            );
+            const response = new Response(
+              [101, 204, 205, 304].includes(value.status) ||
+                effective.method === "HEAD"
+                ? null
+                : Buffer.from(value.body, "base64"),
+              {
+                status: value.status,
+                statusText: value.statusText,
+                headers: value.headers,
+              },
+            );
+            Object.defineProperties(response, {
+              url: { value: value.url },
+              redirected: { value: value.redirected },
+            });
+            resolve(response);
+          })().catch(reject);
+        },
+      );
+      outgoing.once("error", () =>
+        reject(new Error("Capture broker request failed")),
+      );
+      outgoing.once("timeout", () =>
+        outgoing.destroy(new Error("Capture broker timed out")),
+      );
       outgoing.end(serialized);
     });
   };

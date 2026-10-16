@@ -269,7 +269,8 @@ export default function recommendationsBySymbol(
     moduleName: "recommendationsBySymbol",
 
     query: {
-      url: "https://${YF_QUERY_HOST}/v6/finance/recommendationsbysymbol/" +
+      url:
+        "https://${YF_QUERY_HOST}/v6/finance/recommendationsbysymbol/" +
         symbols,
       definitions,
       schemaKey: "#/definitions/RecommendationsBySymbolOptions",

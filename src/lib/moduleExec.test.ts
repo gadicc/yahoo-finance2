@@ -54,18 +54,15 @@ describe("moduleExec", () => {
       await expect(rwo({ invalid: true })).rejects.toThrow(InvalidOptionsError);
     });
 
-    it(
-      "does not throw InvalidOptions on invalid options with validateOptions = false",
-      async (t, onFinish) => {
-        // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
-        const rwo = (options: any) =>
-          yf.search("symbol", options, {
-            validateOptions: false,
-            devel: { id: "search-invalid-opts", t, onFinish },
-          });
-        await expect(rwo({ invalid: true })).resolves.toBeDefined();
-      },
-    );
+    it("does not throw InvalidOptions on invalid options with validateOptions = false", async (t, onFinish) => {
+      // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
+      const rwo = (options: any) =>
+        yf.search("symbol", options, {
+          validateOptions: false,
+          devel: { id: "search-invalid-opts", t, onFinish },
+        });
+      await expect(rwo({ invalid: true })).resolves.toBeDefined();
+    });
 
     it("accepts empty queryOptions", async (t, onFinish) => {
       const devel = { id: "search-AAPL", t, onFinish };
@@ -110,48 +107,43 @@ describe("moduleExec", () => {
   describe("result validation", () => {
     it("throws on unexpected input", async (t, onFinish) => {
       const devel = { id: "search-badResult.fake", t, onFinish };
+      await expect(yf.search("AAPL", {}, { devel })).rejects.toThrow(
+        /Failed Yahoo Schema/,
+      );
+    });
+
+    it("throws on unexpected input with {validateResult: true}", async (t, onFinish) => {
+      const devel = { id: "search-badResult.fake", t, onFinish };
       await expect(
-        yf.search("AAPL", {}, { devel }),
+        yf.search("AAPL", {}, { devel, validateResult: true }),
       ).rejects.toThrow(/Failed Yahoo Schema/);
     });
 
-    it(
-      "throws on unexpected input with {validateResult: true}",
-      async (t, onFinish) => {
-        const devel = { id: "search-badResult.fake", t, onFinish };
-        await expect(
-          yf.search("AAPL", {}, { devel, validateResult: true }),
-        ).rejects.toThrow(/Failed Yahoo Schema/);
-      },
-    );
+    it("dont throw or log on unexpected input with {validateResult: false}", async (t, onFinish) => {
+      const logger = createNewLogger();
+      const yf = new YahooFinance({
+        logger,
+        validation: { logErrors: false },
+      });
+      await expect(
+        yf.search(
+          "AAPL",
+          {},
+          {
+            devel: { id: "search-badResult.fake", t, onFinish },
+            validateResult: false,
+          },
+        ),
+      ).resolves.toBeDefined();
 
-    it(
-      "dont throw or log on unexpected input with {validateResult: false}",
-      async (t, onFinish) => {
-        const logger = createNewLogger();
-        const yf = new YahooFinance({
-          logger,
-          validation: { logErrors: false },
-        });
-        await expect(
-          yf.search(
-            "AAPL",
-            {},
-            {
-              devel: { id: "search-badResult.fake", t, onFinish },
-              validateResult: false,
-            },
-          ),
-        ).resolves.toBeDefined();
-
-        // expect(logger.info).not.toHaveBeenCalled();
-        // expect(logger.error).not.toHaveBeenCalled();
-        // expect(logger.dir).not.toHaveBeenCalled();
-        expect(
-          logger.info.calls.length + logger.error.calls.length +
-            logger.dir.calls.length,
-        ).toBe(0);
-      },
-    );
+      // expect(logger.info).not.toHaveBeenCalled();
+      // expect(logger.error).not.toHaveBeenCalled();
+      // expect(logger.dir).not.toHaveBeenCalled();
+      expect(
+        logger.info.calls.length +
+          logger.error.calls.length +
+          logger.dir.calls.length,
+      ).toBe(0);
+    });
   });
 });

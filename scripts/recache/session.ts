@@ -9,7 +9,9 @@ export interface CaptureSession {
 const key = Symbol.for("yahoo-finance2.capture-session");
 
 export function captureSession(): CaptureSession | undefined {
-  return (globalThis as Record<symbol, unknown>)[key] as CaptureSession | undefined;
+  return (globalThis as Record<symbol, unknown>)[key] as
+    | CaptureSession
+    | undefined;
 }
 
 export function installCaptureSession(session: CaptureSession): void {

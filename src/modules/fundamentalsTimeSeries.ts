@@ -340,14 +340,12 @@ export interface FundamentalsTimeSeriesFinancialsResult {
   serviceChargeOnDepositorAccounts?: number;
   totalPremiumsEarned?: number;
   otherInterestExpense?: number;
-  interestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?:
-    number;
+  interestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?: number;
   interestExpenseForLongTermDebtAndCapitalSecurities?: number;
   interestExpenseForShortTermDebt?: number;
   interestExpenseForDeposit?: number;
   otherInterestIncome?: number;
-  interestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?:
-    number;
+  interestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?: number;
   interestIncomeFromDeposits?: number;
   interestIncomeFromSecurities?: number;
   interestIncomeFromLoansAndLease?: number;
@@ -784,8 +782,7 @@ export interface FundamentalsTimeSeriesCashFlowResult {
   proceedsPaymentInInterestBearingDepositsInBank?: number;
   increaseinInterestBearingDepositsinBank?: number;
   decreaseinInterestBearingDepositsinBank?: number;
-  proceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell?:
-    number;
+  proceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell?: number;
   changeInLoans?: number;
   changeInDeferredCharges?: number;
   provisionForLoanLeaseAndOtherLosses?: number;
@@ -804,11 +801,12 @@ export interface FundamentalsTimeSeriesCashFlowResult {
   AmortizationAmortizationCashFlow?: number;
 }
 
-export type FundamentalsTimeSeriesAllResult =
-  & Omit<FundamentalsTimeSeriesFinancialsResult, "TYPE">
-  & Omit<FundamentalsTimeSeriesBalanceSheetResult, "TYPE">
-  & Omit<FundamentalsTimeSeriesCashFlowResult, "TYPE">
-  & { TYPE: "ALL" };
+export type FundamentalsTimeSeriesAllResult = Omit<
+  FundamentalsTimeSeriesFinancialsResult,
+  "TYPE"
+> &
+  Omit<FundamentalsTimeSeriesBalanceSheetResult, "TYPE"> &
+  Omit<FundamentalsTimeSeriesCashFlowResult, "TYPE"> & { TYPE: "ALL" };
 
 export type FundamentalsTimeSeriesResult =
   | FundamentalsTimeSeriesBalanceSheetResult
@@ -874,8 +872,7 @@ export default function fundamentalsTimeSeries(
 
     query: {
       assertSymbol: symbol,
-      url:
-        `https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/${symbol}`,
+      url: `https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/${symbol}`,
       needsCrumb: false,
       definitions,
       schemaKey: "#/definitions/FundamentalsTimeSeriesOptions",
@@ -1022,16 +1019,19 @@ const processResponse = function (
       }
 
       const short = dataKey.replace(replace, "");
-      const key = short === short.toUpperCase()
-        ? short
-        : short[0].toLowerCase() + short.slice(1);
+      const key =
+        short === short.toUpperCase()
+          ? short
+          : short[0].toLowerCase() + short.slice(1);
       keyedByTimestamp[timestamp][key] = result[dataKey][ct].reportedValue.raw;
 
       const thisPeriodType = result[dataKey][ct].periodType;
       if (thisPeriodType) {
         if (periodType !== "UNKNOWN" && periodType !== thisPeriodType) {
           throw new Error(
-            "periodType mismatch - please report " + periodType + " " +
+            "periodType mismatch - please report " +
+              periodType +
+              " " +
               thisPeriodType,
           );
         }
@@ -1043,12 +1043,13 @@ const processResponse = function (
     }
   }
 
-  return Object.values(keyedByTimestamp).filter((entry) =>
-    Object.keys(entry).length > 1
-  ).map((entry) => ({
-    TYPE: requestModule === "all"
-      ? "ALL"
-      : requestModule.toUpperCase().replace("-", "_") as TYPES,
-    ...entry,
-  }));
+  return Object.values(keyedByTimestamp)
+    .filter((entry) => Object.keys(entry).length > 1)
+    .map((entry) => ({
+      TYPE:
+        requestModule === "all"
+          ? "ALL"
+          : (requestModule.toUpperCase().replace("-", "_") as TYPES),
+      ...entry,
+    }));
 };

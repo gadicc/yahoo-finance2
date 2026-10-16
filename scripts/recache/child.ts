@@ -7,7 +7,10 @@ import { captureEndpoint, captureHosts, type CaptureBroker } from "./broker.ts";
 import type { CaptureSession } from "./session.ts";
 import { captureEnvironment } from "./environment.ts";
 import { readFixtureBytes } from "../recache-fixtures.ts";
-import { parseRecacheStats, type RecacheEndpointStats } from "../../tests/recacheStats.ts";
+import {
+  parseRecacheStats,
+  type RecacheEndpointStats,
+} from "../../tests/recacheStats.ts";
 
 const guard = fileURLToPath(new URL("../testing/offline.py", import.meta.url));
 const preload = fileURLToPath(new URL("./preload.ts", import.meta.url));
@@ -32,25 +35,57 @@ export async function runCaptureChild(
   const identity = randomUUID();
   const configPath = join(scratch, `session-${identity}.json`);
   const report = join(scratch, `capture-${identity}.xml`);
-  await writeFile(configPath, JSON.stringify({ ...session, socket: broker.socket, token: broker.token }), {
-    mode: 0o600, flag: "wx",
-  });
+  await writeFile(
+    configPath,
+    JSON.stringify({ ...session, socket: broker.socket, token: broker.token }),
+    {
+      mode: 0o600,
+      flag: "wx",
+    },
+  );
   const environment = captureEnvironment(scratch);
   environment.YF_CAPTURE_SESSION = configPath;
-  const child = spawn("python3", [guard, root, scratch, "--", process.execPath,
-    "test", "--no-env-file", "--no-orphans", "--isolate", `--timeout=${runTimeout}`, `--preload=${preload}`,
-    "--reporter=junit", `--reporter-outfile=${report}`, file,
-  ], { cwd: root, env: environment, stdio: ["ignore", "pipe", "pipe"], detached: true });
+  const child = spawn(
+    "python3",
+    [
+      guard,
+      root,
+      scratch,
+      "--",
+      process.execPath,
+      "test",
+      "--no-env-file",
+      "--no-orphans",
+      "--isolate",
+      `--timeout=${runTimeout}`,
+      `--preload=${preload}`,
+      "--reporter=junit",
+      `--reporter-outfile=${report}`,
+      file,
+    ],
+    {
+      cwd: root,
+      env: environment,
+      stdio: ["ignore", "pipe", "pipe"],
+      detached: true,
+    },
+  );
   let stats: RecacheEndpointStats[] = [];
   let trace: unknown;
   let killTimer: ReturnType<typeof setTimeout> | undefined;
   const stop = () => {
     if (!child.pid) return;
-    try { process.kill(-child.pid, "SIGTERM"); }
-    catch (error) { if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error; }
+    try {
+      process.kill(-child.pid, "SIGTERM");
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error;
+    }
     killTimer ??= setTimeout(() => {
-      try { process.kill(-child.pid!, "SIGKILL"); }
-      catch (error) { if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error; }
+      try {
+        process.kill(-child.pid!, "SIGKILL");
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error;
+      }
     }, 500);
   };
   async function consume(source: AsyncIterable<Buffer>) {
@@ -61,21 +96,39 @@ export async function runCaptureChild(
       unfinished = lines.pop()!.slice(-65536);
       for (const line of lines) {
         const snapshot = parseRecacheStats(line);
-        if (snapshot) stats = snapshot.flatMap((row) => {
-          try {
-            const url = new URL("https://" + row.endpoint);
-            if (!captureHosts.has(url.hostname) || url.search || url.hash || url.username || url.password || url.port) return [];
-            return [{ ...row, endpoint: captureEndpoint(url) }];
-          } catch { return []; }
-        });
+        if (snapshot)
+          stats = snapshot.flatMap((row) => {
+            try {
+              const url = new URL("https://" + row.endpoint);
+              if (
+                !captureHosts.has(url.hostname) ||
+                url.search ||
+                url.hash ||
+                url.username ||
+                url.password ||
+                url.port
+              )
+                return [];
+              return [{ ...row, endpoint: captureEndpoint(url) }];
+            } catch {
+              return [];
+            }
+          });
         if (line.startsWith("GET_CRUMB_TRACE=")) {
-          try { trace = JSON.parse(line.slice("GET_CRUMB_TRACE=".length)); } catch { /* invalid trace is rejected later */ }
+          try {
+            trace = JSON.parse(line.slice("GET_CRUMB_TRACE=".length));
+          } catch {
+            /* invalid trace is rejected later */
+          }
         }
       }
     }
   }
   let timedOut = false;
-  const timer = setTimeout(() => { timedOut = true; stop(); }, runTimeout);
+  const timer = setTimeout(() => {
+    timedOut = true;
+    stop();
+  }, runTimeout);
   // The broker is authoritative even if test code hides its console or calls
   // the preload facade directly instead of the recache wrapper.
   let observedLimit: number | undefined;
@@ -94,14 +147,21 @@ export async function runCaptureChild(
         child.once("error", reject);
         child.once("close", (code) => resolve(code ?? 1));
       }),
-      consume(child.stdout!), consume(child.stderr!),
+      consume(child.stdout!),
+      consume(child.stderr!),
     ]);
     const rateLimited = broker.rateLimited;
     if (timedOut) return { code: 124, stats, rateLimited, trace };
-    if (abort.aborted || rateLimited) return { code: 1, stats, rateLimited, trace };
+    if (abort.aborted || rateLimited)
+      return { code: 1, stats, rateLimited, trace };
     // Successful native exit with zero registered leaves is not a completed run.
-    const xml = await readFixtureBytes(report, true).then((bytes) => bytes.toString("utf8"), () => "");
-    const cases = [...xml.matchAll(/<testcase\b[^>]*?(?:\/>|>[\s\S]*?<\/testcase>)/g)];
+    const xml = await readFixtureBytes(report, true).then(
+      (bytes) => bytes.toString("utf8"),
+      () => "",
+    );
+    const cases = [
+      ...xml.matchAll(/<testcase\b[^>]*?(?:\/>|>[\s\S]*?<\/testcase>)/g),
+    ];
     if (!cases.some((match) => !/<skipped\b/.test(match[0]))) {
       return { code: 1, stats, rateLimited, trace };
     }

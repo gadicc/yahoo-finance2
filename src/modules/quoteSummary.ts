@@ -257,7 +257,7 @@ export default function quoteSummary(
     "incomeStatementHistoryQuarterly",
   ];
   const usedFinanceModules = financeModules.filter((m) =>
-    queryOptionsOverrides?.modules?.includes(m)
+    queryOptionsOverrides?.modules?.includes(m),
   );
   if (usedFinanceModules.length) {
     // TODO https://github.com/gadicc/yahoo-finance2/issues/950

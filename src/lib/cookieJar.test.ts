@@ -5,10 +5,7 @@ describe("ExtendedCookieJar", () => {
   it("single string header sets a cookie", async () => {
     const jar = new ExtendedCookieJar();
     const url = "https://finance.yahoo.com/";
-    await jar.setFromSetCookieHeaders(
-      "A1=v1; Domain=.yahoo.com; Path=/",
-      url,
-    );
+    await jar.setFromSetCookieHeaders("A1=v1; Domain=.yahoo.com; Path=/", url);
 
     const cookies = await jar.getCookies(url);
     expect(cookies.length).toBe(1);
@@ -20,10 +17,7 @@ describe("ExtendedCookieJar", () => {
     const jar = new ExtendedCookieJar();
     const url = "https://finance.yahoo.com/";
     await jar.setFromSetCookieHeaders(
-      [
-        "A1=v1; Domain=.yahoo.com; Path=/",
-        "B2=v2; Domain=.yahoo.com; Path=/",
-      ],
+      ["A1=v1; Domain=.yahoo.com; Path=/", "B2=v2; Domain=.yahoo.com; Path=/"],
       url,
     );
 
@@ -60,10 +54,7 @@ describe("ExtendedCookieJar", () => {
   it("domain scoping: cookies are shared on matching subdomains but not other domains", async () => {
     const jar = new ExtendedCookieJar();
     const url = "https://finance.yahoo.com/";
-    await jar.setFromSetCookieHeaders(
-      "A1=v1; Domain=.yahoo.com; Path=/",
-      url,
-    );
+    await jar.setFromSetCookieHeaders("A1=v1; Domain=.yahoo.com; Path=/", url);
 
     // sub-domain of yahoo.com should match
     const subDomainCookies = await jar.getCookies(

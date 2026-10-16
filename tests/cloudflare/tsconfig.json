@@ -5,9 +5,7 @@
     "moduleResolution": "bundler",
     "strict": true,
     "noEmit": true,
-    "lib": [
-      "ES2022"
-    ],
+    "lib": ["ES2022"],
     "types": [
       "@cloudflare/workers-types",
       "@cloudflare/vitest-pool-workers/types",
@@ -16,11 +14,6 @@
     "ignoreDeprecations": "6.0",
     "skipLibCheck": true
   },
-  "include": [
-    "./worker.ts",
-    "./worker.test.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./worker.ts", "./worker.test.ts"],
+  "exclude": ["node_modules"]
 }

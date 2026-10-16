@@ -315,9 +315,10 @@ export function decodeTypedMarketMessage(
   const rawFields = parseProtobufFields(payloadBytes);
   const decoder = marketMessageDecoders[input.type];
 
-  const decoded = decoder !== undefined
-    ? decoder(input, payloadBytes, rawFields)
-    : decodeUnknownMarketMessage(input, payloadBytes, rawFields);
+  const decoded =
+    decoder !== undefined
+      ? decoder(input, payloadBytes, rawFields)
+      : decodeUnknownMarketMessage(input, payloadBytes, rawFields);
 
   if (options.includeRawFields === true) {
     return {
@@ -343,17 +344,13 @@ export function decodeTypedMarketMessage(
  */
 export function registerMarketMessageDecoder<
   TDecoded extends DecodedMarketMessageBase,
->(
-  type: string,
-  decoder: MarketMessageDecoder<TDecoded>,
-): void {
+>(type: string, decoder: MarketMessageDecoder<TDecoded>): void {
   if (type.trim() === "") {
     throw new Error("Cannot register decoder for an empty message type");
   }
 
-  marketMessageDecoders[type] = decoder as MarketMessageDecoder<
-    DecodedMarketMessageBase
-  >;
+  marketMessageDecoders[type] =
+    decoder as MarketMessageDecoder<DecodedMarketMessageBase>;
 }
 
 /**
@@ -806,8 +803,8 @@ function decodeUtf8IfTextLike(bytes: Uint8Array): string | undefined {
       return undefined;
     }
 
-    const isTabOrNewline = codePoint === 0x09 || codePoint === 0x0a ||
-      codePoint === 0x0d;
+    const isTabOrNewline =
+      codePoint === 0x09 || codePoint === 0x0a || codePoint === 0x0d;
     const isPrintableAscii = codePoint >= 0x20 && codePoint <= 0x7e;
     const isLikelyUnicodeText = codePoint >= 0xa0;
 
