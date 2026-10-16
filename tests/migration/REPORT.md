@@ -132,9 +132,9 @@ all items; the benchmark results above retain their historical meaning.
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | In progress     |        3/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
-| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        3/6 |
+| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        4/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **49/71** |
+| **Overall**                                                      | **In progress** |  **50/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -763,6 +763,34 @@ strict Linux suite passed **1,524 tests / 63 files**, with Workers and Codecov
 jobs successful. No performance benchmark was rerun. The
 [receipt](results/native-ci-51e1837.json) binds archive digests, exact commands,
 source hashes and the retained failure evidence.
+
+## API documentation tooling accepted (K05, 2026-10-16)
+
+The reviewed [API tooling](API_DOCS.md) supplies `docs:gen`, `docs:lint`,
+`docs:watch` and `docs:open` through pinned TypeDoc 0.28.20 and its pinned
+missing-exports plugin. All **28 public exports** retain rendered pages, all
+95 original Deno-style links have checked rendered targets, and public source
+comments and schemas are unchanged. An exact baseline records 2,269 existing
+own-source documentation warnings and two parser warnings; new or increased
+warnings fail. Internal copies without HTML pages remain explicitly disclosed.
+
+Independent Sol xhigh and Astra xhigh review cleared the implementation after
+fixes to source provenance, output rollback, watch recovery, startup errors,
+compiler/configuration input tracking and visible compiler diagnostics.
+Real config-only recovery and concurrent-input failure controls preserve all
+309 last-successful files. Generation refuses changed inputs before replacing
+output and binds source links to a verified exact commit. The
+[acceptance receipt](results/k05-api-docs.json) retains those reviews and bounds.
+
+Current-branch integration preserved every existing package alias, including
+`test:native`, and all 623 existing lock records. Only two pinned development
+dependencies and their 18-package closure were added. Fresh normal frozen
+installation passed, as did complete types, 212-file formatting, lint with zero
+errors, 13 guarded docs tests, docs lint and actual full generation. All 1,201
+fixture bytes/modes and production source/schema bytes stayed unchanged.
+K05 is accepted; progress is **50/71**. GUI opening, native OS opener execution,
+external link requests and documentation publication were not performed. The
+CI documentation gate and contributor-instruction cleanup follow separately.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -1496,9 +1524,13 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [x] K04 — Replace VSCode Deno extension/settings and automatic schema-watch
       tasks with TypeScript/Biome tooling; verify language service, imports,
       formatting-on-save and background task lifecycle from a fresh checkout.
-- [ ] K05 — Choose and verify API documentation generation/lint/watch/open
+- [x] K05 — Choose and verify API documentation generation/lint/watch/open
       commands and hosting links after the JSR decision; preserve export/JSDoc
-      coverage without assuming `deno doc` remains available.
+      coverage without assuming `deno doc` remains available. Evidence:
+      [TypeDoc commands and coverage policy](API_DOCS.md),
+      [reviewed implementation and integrated proof](results/k05-api-docs.json);
+      28 exports, actionable diagnostics, last-good output and watch recovery.
+      Actual GUI/native opener and publication are not claimed.
 - [ ] K06 — Audit repository automation/docs for stale Deno references,
       including `renovate.json`, `.github/copilot-instructions.md`, the separate
       `copilot-setup-steps.yml` workflow, install snippets and runtime policy;

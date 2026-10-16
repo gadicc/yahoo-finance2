@@ -1,0 +1,1233 @@
+{
+  "milestone": "K05 private API documentation candidate",
+  "base": "3f0b1ad",
+  "scope": "Private exact3f0b1ad base plus15owned paths. V4 closes actual compiler/configuration input tracking and emits bounded actionable conversion errors; prior corrections retained. No shared application or native/CI/formatting drafts.",
+  "versions": {
+    "bun": "1.4.3",
+    "node": "24.21.0",
+    "typescript": "6.0.3",
+    "typedoc": "0.28.20",
+    "missingExportsPlugin": "4.1.4",
+    "git": "2.56.0"
+  },
+  "dependencyReview": {
+    "existingLockEntriesChanged": [],
+    "addedPackages": [
+      {
+        "name": "@gerrit0/mini-shiki",
+        "version": "3.23.0",
+        "integrity": "sha512-bEMORlG0cqdjVyCEuU0cDQbORWX+kYCeo0kV1lbxF5bt4r7SID2l9bqsxJEM0zndaxpOUT7riCyIVEuqq/Ynxg==",
+        "sha256": "586020e844309c91f78c453fd02f9b48213314ddf49f950b454d01500e458ce5",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@gerrit0/mini-shiki/-/mini-shiki-3.23.0.tgz"
+      },
+      {
+        "name": "@shikijs/engine-oniguruma",
+        "version": "3.23.0",
+        "integrity": "sha512-1nWINwKXxKKLqPibT5f4pAFLej9oZzQTsby8942OTlsJzOBZ0MWKiwzMsd+jhzu8YPCHAswGnnN1YtQfirL35g==",
+        "sha256": "80ca6b694510aca626bfad47a9dde0d30db4fc55592189a56b8ac00c67530c7b",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@shikijs/engine-oniguruma/-/engine-oniguruma-3.23.0.tgz"
+      },
+      {
+        "name": "@shikijs/langs",
+        "version": "3.23.0",
+        "integrity": "sha512-2Ep4W3Re5aB1/62RSYQInK9mM3HsLeB91cHqznAJMuylqjzNVAVCMnNWRHFtcNHXsoNRayP9z1qj4Sq3nMqYXg==",
+        "sha256": "fed7460921474cff9a36c018aa003bc9c7f506f9ed43117841ccb2bbcffb9e89",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@shikijs/langs/-/langs-3.23.0.tgz"
+      },
+      {
+        "name": "@shikijs/themes",
+        "version": "3.23.0",
+        "integrity": "sha512-5qySYa1ZgAT18HR/ypENL9cUSGOeI2x+4IvYJu4JgVJdizn6kG4ia5Q1jDEOi7gTbN4RbuYtmHh0W3eccOrjMA==",
+        "sha256": "3ede8069dbdf87d16534256f06d9ff972fb317cd599c2ebfff4614e723430b0b",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@shikijs/themes/-/themes-3.23.0.tgz"
+      },
+      {
+        "name": "@shikijs/types",
+        "version": "3.23.0",
+        "integrity": "sha512-3JZ5HXOZfYjsYSk0yPwBrkupyYSLpAE26Qc0HLghhZNGTZg/SKxXIIgoxOpmmeQP0RRSDJTk1/vPfw9tbw+jSQ==",
+        "sha256": "00e7dd80041532200596d8d90edbcbef6ca181e64a34eb3bb75f677364aca788",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@shikijs/types/-/types-3.23.0.tgz"
+      },
+      {
+        "name": "@shikijs/vscode-textmate",
+        "version": "10.0.2",
+        "integrity": "sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==",
+        "sha256": "2164908fc8d7e4b891faa09953cf345f922ab9359d9c4757e97e2620e6207f34",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@shikijs/vscode-textmate/-/vscode-textmate-10.0.2.tgz"
+      },
+      {
+        "name": "@types/hast",
+        "version": "3.0.5",
+        "integrity": "sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g==",
+        "sha256": "a9b9ae07cbef416c00a5f1d7149ca03c5e20e7f5addb67203b7849ac80f1f761",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@types/hast/-/hast-3.0.5.tgz"
+      },
+      {
+        "name": "@types/unist",
+        "version": "3.0.3",
+        "integrity": "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==",
+        "sha256": "b50fd32f739207d1e8c96ef0b0c9dd003ef9cb0403c5b4eb71796b87332a2843",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/@types/unist/-/unist-3.0.3.tgz"
+      },
+      {
+        "name": "entities",
+        "version": "4.5.0",
+        "integrity": "sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==",
+        "sha256": "6b0c60f7351a0b65bb1fc8dbb9299f09e7ecf6d89103d0651bf369e6f463a632",
+        "license": "BSD-2-Clause",
+        "engines": {
+          "node": ">=0.12"
+        },
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
+      },
+      {
+        "name": "linkify-it",
+        "version": "5.0.2",
+        "integrity": "sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==",
+        "sha256": "f5169c5e5d837b5229180cb7214102d42f5c963f6932f284b608ef9549e927b4",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/linkify-it/-/linkify-it-5.0.2.tgz"
+      },
+      {
+        "name": "lunr",
+        "version": "2.3.9",
+        "integrity": "sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==",
+        "sha256": "d886e7dc4339a7ede2e5e7fe0e07e6a6feeb1b3bcca0adea836cf53c62699030",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/lunr/-/lunr-2.3.9.tgz"
+      },
+      {
+        "name": "markdown-it",
+        "version": "14.3.3",
+        "integrity": "sha512-L//tDAkjTjJCU6pBUSBTgs3Kg4InVaZuUZog/b6V12UKhcDQ7S78877ibbCanRExwPuYP1CZD7Gd2dxSy1GXRg==",
+        "sha256": "7191a8dc99822f327f6772f19f9ae8992c7b51f557eb85b8a3f9d18e703e2f3f",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/markdown-it/-/markdown-it-14.3.3.tgz"
+      },
+      {
+        "name": "mdurl",
+        "version": "2.1.0",
+        "integrity": "sha512-1+HBaOx0zi/dQWht8rNv9MYf9qqpqL/kxI0hXImU6Y547zM6Sni8BQibt7ifgMcYtQg41ao3Ivd6cnSM86inpg==",
+        "sha256": "23fc27c3d70e776c3aa40ec019c2be21ef43ed33b73f8476ada8715c5aabd11d",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/mdurl/-/mdurl-2.1.0.tgz"
+      },
+      {
+        "name": "punycode.js",
+        "version": "2.3.1",
+        "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==",
+        "sha256": "8768d89aa6359164220014ba575e1464e3ddff11bedff1cc268e39a21f7324a8",
+        "license": "MIT",
+        "engines": {
+          "node": ">=6"
+        },
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/punycode.js/-/punycode.js-2.3.1.tgz"
+      },
+      {
+        "name": "typedoc",
+        "version": "0.28.20",
+        "integrity": "sha512-uSKqkh8Cr48vllnEy+jdaAgOeR6Y+QCBW7usgUsKj7gJEfR7stw9U/fE49LBnj2tPRKPY0c0EBJSWe9Appmplg==",
+        "sha256": "56517aa116ab959bfef756c7149ff6cbe743960baa3cb6ef7b2e3ca110b127b6",
+        "license": "Apache-2.0",
+        "engines": {
+          "node": ">= 18",
+          "pnpm": ">= 10"
+        },
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/typedoc/-/typedoc-0.28.20.tgz"
+      },
+      {
+        "name": "typedoc-plugin-missing-exports",
+        "version": "4.1.4",
+        "integrity": "sha512-tIay6z6MRb/4+mfWgKNPR6qEM5rz9S8rTiz0JWmSb/66A6AlZIl9q+1lAFygj4n8GHH1fsqKYQNt9JbNcuE0Uw==",
+        "sha256": "ae25d0564a092861b4d2fa8ff1bdbf7cb833fe4b2b6ff3812f61b1cd3240b512",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/typedoc-plugin-missing-exports/-/typedoc-plugin-missing-exports-4.1.4.tgz"
+      },
+      {
+        "name": "uc.micro",
+        "version": "2.1.0",
+        "integrity": "sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==",
+        "sha256": "a31660c690ddac370fe4b17fe6a3a73b8df094f99194ac90d0668d797dabf69b",
+        "license": "MIT",
+        "engines": {},
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/uc.micro/-/uc.micro-2.1.0.tgz"
+      },
+      {
+        "name": "yaml",
+        "version": "2.9.1",
+        "integrity": "sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==",
+        "sha256": "4ef6c54cf559b8a207b7b518378230805a1c84af239b14960e8c67c7d59de5d3",
+        "license": "ISC",
+        "engines": {
+          "node": ">= 14.6"
+        },
+        "hooks": {},
+        "tarball": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz"
+      }
+    ],
+    "addedCount": 18,
+    "licenses": [
+      "Apache-2.0",
+      "BSD-2-Clause",
+      "ISC",
+      "MIT"
+    ],
+    "installHooksInAddedPackages": [],
+    "freshFrozenInstall": "462 packages; normal root preinstall guard passed; exact lock unchanged",
+    "registryAdvisoryPackagesBefore": [
+      "braces",
+      "sprintf-js"
+    ],
+    "registryAdvisoryPackagesAfter": [
+      "braces",
+      "sprintf-js"
+    ],
+    "addedAdvisories": {},
+    "upstreamSources": [
+      "https://registry.npmjs.org/typedoc/0.28.20",
+      "https://registry.npmjs.org/typedoc-plugin-missing-exports/4.1.4",
+      "https://typedoc.org/documents/Options.Input.html",
+      "https://typedoc.org/documents/Options.Validation.html",
+      "https://typedoc.org/documents/Options.Configuration.html",
+      "https://typedoc.org/documents/Options.Comments.html",
+      "https://typedoc.org/documents/Plugins.html",
+      "https://github.com/Gerrit0/typedoc-plugin-missing-exports",
+      "https://github.com/salesforce/tough-cookie/tree/v6.0.2/api/docs"
+    ]
+  },
+  "coverage": {
+    "exportKeys": 28,
+    "uniqueSourceModules": 27,
+    "explicitRootAliases": [
+      ".",
+      "./src/index.ts"
+    ],
+    "reflectionCount": 5022,
+    "internalReflectionCount": 273,
+    "originalDenoLinksRenderedAndHrefChecked": 95,
+    "additionalAnonymousCopiesResolvedOnlyInJSON": 66,
+    "missingDocumentationOwnSource": 2269,
+    "parserDiagnosticsSeparatelyTracked": 2,
+    "invalidLinksOrNotExportedWarnings": 0,
+    "customTags": [
+      "@yf-schema",
+      "@discriminator"
+    ],
+    "cookieJarPublicMembersBefore": 25,
+    "cookieJarPublicMembersAfter": 25,
+    "inheritedExternalSymbolsLinked": 13,
+    "rejectedProbe": "Global excludeExternals removed 23 cookie-jar members; insufficient event priority expanded to36129 reflections. Neither behavior is accepted.",
+    "acceptedBound": "Only missing-export expansion sees excludeExternals true, before plugin priority1e9; normal conversion preserves inherited members. Every added internal source must be under src/.",
+    "htmlAndReflectionRuntimeParity": "Retained v2 Bun/Node parity proof; v3 narrowly changes provenance Git flags, watch recovery and bootstrap diagnostic gate. No unaffected dependency/parity audit rerun claimed."
+  },
+  "parserCompatibility": {
+    "retainedRemarks": "Data Availability**: Insights data varies significantly by symbol. Popular large-cap stocks typically have the most comprehensive coverage. **Premium Content**: Some research reports and detailed analysis may require premium subscriptions or additional access rights. **Timeliness**: Recommendations and reports reflect the most recent analyst coverage but may not include the very latest market developments.",
+    "omittedDuplicateRemarks": "Data Availability**: Insights data availability varies by symbol. Premium content may require additional subscriptions.",
+    "omissionIsRepeatedAvailabilityAndPremiumCaveat": true,
+    "retainedHTMLControls": {
+      "Insights data varies significantly by symbol.": true,
+      "Some research reports and detailed analysis may": true,
+      "Recommendations and reports reflect the most recent": true,
+      "Promise resolving to unvalidated raw data": true
+    },
+    "typedocParserCondition": "Both repeated-remarks and repeated-returns checks use remarks.length > 1 in exact TypeDoc0.28.20 dist/index.js; this top module comment has no @returns tag.",
+    "nonJSDocImplementationBlock": "The separate implementation /* comment containing another return description is not JSDoc; no source change or new documentation claim."
+  },
+  "controls": [
+    {
+      "label": "bun-gen",
+      "code": 0,
+      "logSha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    {
+      "label": "node-gen",
+      "code": 0,
+      "logSha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    {
+      "label": "Bun/Node parity",
+      "identicalHtmlAndReflectionBytes": true,
+      "differentCompressedAssetsWithIdenticalInflatedPayload": [
+        "assets/search.js",
+        "assets/navigation.js",
+        "assets/hierarchy.js"
+      ]
+    },
+    {
+      "label": "bun-parity-reset",
+      "code": 0,
+      "logSha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    {
+      "label": "new-undocumented-export",
+      "code": 1,
+      "logSha256": "379e2e316471edcc2e97dddcef53fe086fed87b631c669309419b7870aff3caa"
+    },
+    {
+      "label": "new-invalid-link",
+      "code": 1,
+      "logSha256": "3a8063539a6eb95f3acb8074af98db5997205d7067fa3d45439f726ea92d5965"
+    },
+    {
+      "label": "removed-documentation",
+      "code": 1,
+      "logSha256": "81cf16c7ab3720c110878b3872d56d92a79f49c9f3e766141a7a9a4acb8ba863"
+    },
+    {
+      "label": "unknown-deno-link",
+      "code": 1,
+      "logSha256": "a50ea4f324cde1c1415183c737dd7f8720260ef7bd1886d6705c31b07209a671"
+    },
+    {
+      "label": "recovered-gen",
+      "code": 0,
+      "logSha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    {
+      "label": "actual-watch-edit-failure-recovery-SIGTERM",
+      "code": 130
+    }
+  ],
+  "interrupt": {
+    "signal": "SIGINT",
+    "exit": 130,
+    "observedWorkers": 1,
+    "allWorkersExited": true,
+    "outputPublished": false,
+    "stagingAndLockRemoved": true
+  },
+  "validation": {
+    "focusedGuardedTests": 12,
+    "focusedFailures": 0,
+    "newToolingBiomeDiagnostics": 0,
+    "strictLibrary": {
+      "roots": 58,
+      "files": 73,
+      "exports": 28,
+      "diagnostics": 0
+    },
+    "strictTools": {
+      "roots": 111,
+      "files": 184,
+      "diagnostics": 0
+    },
+    "offlineBoundary": "All final generation/lint/unit/watch/negative/signal proofs under existing strict Linux network/fixture guard. Registry/install checks were separate permitted metadata/dependency acquisition.",
+    "gui": "No browser or GUI opened. Injected headless launcher verifies exact opener argv.",
+    "publicSource": "No src/, deno.json, generated schema or fixture changes; archive overlay verification records exact base equality.",
+    "limits": [
+      "No Deno invocation or actual Deno documentation compatibility claim.",
+      "No actual native macOS/Windows or GUI proof.",
+      "Opener is bounded, shell-free; the docs output ownership protocol is not a portable process sandbox.",
+      "Exact baseline retains existing own-source missing-documentation debt; new/increased warnings fail.",
+      "TypeDoc plugin lifecycle adaptation is pinned and must be reviewed on upgrade.",
+      "Source provenance proves exact local src bytes at the observed commit, not remote commit availability or committed documentation tooling. No online source-link checks."
+    ]
+  },
+  "evidence": {
+    "typecheck-final.log": {
+      "path": "/tmp/yf-k05-evidence/typecheck-final.log",
+      "sha256": "e857acac9e1b39756d34c8e2e9e9b03e13dfd09d996349e0fd12d38c8cd29915"
+    },
+    "tests-final.log": {
+      "path": "/tmp/yf-k05-evidence/tests-final.log",
+      "sha256": "497f5ffcdf42b94219f6f1509ca3422a81004c7148ddc31322183a8ad1c8e3fe"
+    },
+    "docs-lint.log": {
+      "path": "/tmp/yf-k05-evidence/docs-lint.log",
+      "sha256": "b6ce75e387ad9284f5ddefe304c442ead1899edb02bdc60133fbb15936f17e24"
+    },
+    "lint-new.log": {
+      "path": "/tmp/yf-k05-evidence/lint-new.log",
+      "sha256": "6e48a220a7ee4cc1eee81ce94ac97f34f35baa3250df458008ed428f5c95ff53"
+    },
+    "frozen-install.log": {
+      "path": "/tmp/yf-k05-evidence/frozen-install.log",
+      "sha256": "fa50b8c0ebbb9ef6e77aa06a041a98687d4d12e9539f5b53fc0e7ae121943cef"
+    },
+    "real-controls.log": {
+      "path": "/tmp/yf-k05-evidence/real-controls.log",
+      "sha256": "68f2d7689d005d711693348d6a0fc8781b3c11db3fa157689a8f483078dabf14"
+    },
+    "guard-real/controls.json": {
+      "path": "/tmp/yf-k05-evidence/guard-real/controls.json",
+      "sha256": "b86e4958842e5b1cb3b85015ef0515dbd766d82ec76479019cbbf732eccb6011"
+    },
+    "interrupt-controls.log": {
+      "path": "/tmp/yf-k05-evidence/interrupt-controls.log",
+      "sha256": "97a7a01caf60aae3d12c31b357378ca7360bcd07ef11024ef6b5848dac47a3f1"
+    },
+    "guard-interrupt/interrupt.json": {
+      "path": "/tmp/yf-k05-evidence/guard-interrupt/interrupt.json",
+      "sha256": "9967dd1e237aae32cef29b616b2c3f8ed030019dd0d563413fddec05f4d65169"
+    },
+    "parser-compatibility-proof.json": {
+      "path": "/tmp/yf-k05-evidence/parser-compatibility-proof.json",
+      "sha256": "ebd96fbdfdebc8c73d8d2f2c7bfd093ae473941398ef69458568cde5fdc382d9"
+    },
+    "dependency-audit.json": {
+      "path": "/tmp/yf-k05-evidence/dependency-audit.json",
+      "sha256": "04814a47f9d4693ad86b9575d0561466654ae39217d9562f36e1a0a59f977d12"
+    },
+    "graph.json": {
+      "path": "/tmp/yf-k05-evidence/graph.json",
+      "sha256": "3f55e1429ea0c717e7f03d035d7cf4fbf910d87c42e618e1cdd3d1455cbdb060"
+    },
+    "guard-real/html/reflections.json": {
+      "path": "/tmp/yf-k05-evidence/guard-real/html/reflections.json",
+      "sha256": "7f52130f50a7bb6bdd612c8ed63f7f74591e07517d3557994f841f7c3d167c28"
+    },
+    "guard-real/html/documentation-report.json": {
+      "path": "/tmp/yf-k05-evidence/guard-real/html/documentation-report.json",
+      "sha256": "49136704afbe4962335fdc394508db2d3e6b3ae7e35a334a9a609eab28d91694"
+    },
+    "snapshot-typecheck.log": {
+      "path": "/tmp/yf-k05-evidence/snapshot-typecheck.log",
+      "sha256": "e857acac9e1b39756d34c8e2e9e9b03e13dfd09d996349e0fd12d38c8cd29915"
+    },
+    "snapshot-tests.log": {
+      "path": "/tmp/yf-k05-evidence/snapshot-tests.log",
+      "sha256": "83a9d529b9617b59262c0e101734128971f4a37119b41deb1c4f4f3e9f691c85"
+    },
+    "snapshot-docs-lint.log": {
+      "path": "/tmp/yf-k05-evidence/snapshot-docs-lint.log",
+      "sha256": "b6ce75e387ad9284f5ddefe304c442ead1899edb02bdc60133fbb15936f17e24"
+    },
+    "snapshot-biome.log": {
+      "path": "/tmp/yf-k05-evidence/snapshot-biome.log",
+      "sha256": "eeb8eaf85ffbbd64c0c656979f2bb3830f52fc587c5434f5372d2e9d6cfb0369"
+    },
+    "source-equality.json": {
+      "path": "/tmp/yf-k05-evidence/source-equality.json",
+      "sha256": "80ca0666761ca8f5ee6578c12527e14cf578dcd631bb6f49bb641f12147a5a78"
+    },
+    "v2/v1-source-link-reproduction.json": {
+      "path": "/tmp/yf-k05-v2-evidence/v1-source-link-reproduction.json",
+      "sha256": "f1d5cbe0c39deb7da40655d556cf218a413977460ec9e8c98fc260c8807e2b65"
+    },
+    "v2/v1-rollback-reproduction.json": {
+      "path": "/tmp/yf-k05-v2-evidence/v1-rollback-reproduction.json",
+      "sha256": "e858a2b92a406f2802c6c73fd1b39b768770806a841e0e46662d754ad8d4c11a"
+    },
+    "v2/source-links-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/source-links-final.log",
+      "sha256": "80400f4a477a0fb0abf1d239294e238e5c16a6ac47f77351a8aa7b0a040e32dc"
+    },
+    "v2/guard-source-final/source-links.json": {
+      "path": "/tmp/yf-k05-v2-evidence/guard-source-final/source-links.json",
+      "sha256": "fa5dbc9b52d18e54b578a9b967079e68850cd3ca06d7ca36e8d1f7a9c7d149ad"
+    },
+    "v2/head-movement-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/head-movement-final.log",
+      "sha256": "4a61b65916f22779defde64ffcd04d4572796e5521f7443a22c4c9f64a2becaf"
+    },
+    "v2/guard-source-final/head-movement.json": {
+      "path": "/tmp/yf-k05-v2-evidence/guard-source-final/head-movement.json",
+      "sha256": "fa90837f57deab61ff6afc280112a44c06c5e4dd4ee39e8a2af003674c5a9668"
+    },
+    "v2/guard-source-final/head-movement.log": {
+      "path": "/tmp/yf-k05-v2-evidence/guard-source-final/head-movement.log",
+      "sha256": "44742a218ea214b81a29863b74abefc6c6cc37f73afc8e622df0e8a936ae5b51"
+    },
+    "v2/parity-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/parity-final.log",
+      "sha256": "61d4370dcaf1b9c40aa87df15abe05b44437d8019c68117b76f30802af3fce63"
+    },
+    "v2/guard-parity-final/parity.json": {
+      "path": "/tmp/yf-k05-v2-evidence/guard-parity-final/parity.json",
+      "sha256": "1f5131ecc1785f56ae51f7c74909275086810430a75c39993d3033ef0dbacc3b"
+    },
+    "v2/unit-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/unit-final.log",
+      "sha256": "9112235b1080487de22feef221da4702771007a87e625a5d0e1e49ca5c892883"
+    },
+    "v2/types-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/types-final.log",
+      "sha256": "d1df87887e190ef7e0ab233925237e022e9a630075e2c97c7b9dd32dbd25781b"
+    },
+    "v2/biome-final.log": {
+      "path": "/tmp/yf-k05-v2-evidence/biome-final.log",
+      "sha256": "57d87df3577e4e1be3fabdc0f0954fdb10ed9013ce7e45b0b7da17f88ad44c43"
+    },
+    "v2/source-equality.json": {
+      "path": "/tmp/yf-k05-v2-evidence/source-equality.json",
+      "sha256": "ae0b57cea0b20846c00637ff861f40e0007ede178e4ae62f1c463db973835ac0"
+    },
+    "v3/v2-reproduction.json": {
+      "path": "/tmp/yf-k05-v3-evidence/v2-reproduction.json",
+      "sha256": "f0ef6ad9fe2586701ab840499daa55fc6ccde1d4d44d363319d5591a6d994442"
+    },
+    "v3/guard-bootstrap-v2/proof.json": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v2/proof.json",
+      "sha256": "62427e46e2c46844b5f251fd5f4e6590c5cc6b4acb4f31990dccb7bb3884f293"
+    },
+    "v3/guard-bootstrap-v2/generation.log": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v2/generation.log",
+      "sha256": "99e42d63c324e91b390b90c7423ef480f093f4159164b8c43017a87d52e5e14f"
+    },
+    "v3/guard-git/proof.json": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-git/proof.json",
+      "sha256": "b03f52391579ab5f5d298e58f7d5a7864a33baabd1655e8545f17354f282049f"
+    },
+    "v3/replacement-control.log": {
+      "path": "/tmp/yf-k05-v3-evidence/replacement-control.log",
+      "sha256": "cb7bccbf625c7d8ff8de15602735457656e19677f83f58f49e5fe570f53b7cfa"
+    },
+    "v3/guard-watch-final/watch-restore.json": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-watch-final/watch-restore.json",
+      "sha256": "f453f567a07d1fd194fa4043c8c7fd50bbbce2a6a962a5f69356a3a8afc36fc6"
+    },
+    "v3/guard-watch-final/watch.log": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-watch-final/watch.log",
+      "sha256": "be266c898feac75e6c09458bb811d2893d4e90959c8cf4448e17939bb1ba6994"
+    },
+    "v3/watch-restore-final.log": {
+      "path": "/tmp/yf-k05-v3-evidence/watch-restore-final.log",
+      "sha256": "cf3db6a3e466bdd040de7f3d1bc6bf35498a54d272b50174260e5c8d05c06815"
+    },
+    "v3/guard-bootstrap-v3/proof.json": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v3/proof.json",
+      "sha256": "e78ec08e027bd2216695a377cefc0f290ce59f2104b2d62c2046f6dac839b224"
+    },
+    "v3/guard-bootstrap-v3/valid.log": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v3/valid.log",
+      "sha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    "v3/guard-bootstrap-v3/invalid.log": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v3/invalid.log",
+      "sha256": "60c00a83ff88f54612f803d2a86f8d99d3ada1214355b00ea5bbb86e088d124b"
+    },
+    "v3/guard-bootstrap-v3/restored.log": {
+      "path": "/tmp/yf-k05-v3-evidence/guard-bootstrap-v3/restored.log",
+      "sha256": "ab2c057cc5cbcde75d3eb45ff9890392428c32c8f218534e68be29666f2d3727"
+    },
+    "v3/bootstrap-v3.log": {
+      "path": "/tmp/yf-k05-v3-evidence/bootstrap-v3.log",
+      "sha256": "e6cf447c996fa4a0e8782ad38097fcc3fe7fb916cb164ab15c4351b5bb161592"
+    },
+    "v3/unit-bootstrap.log": {
+      "path": "/tmp/yf-k05-v3-evidence/unit-bootstrap.log",
+      "sha256": "38d9e0ca764922394792ed8d6f762e75e4c47fe8a5db7d534f4e39888b95eca1"
+    },
+    "v3/types-final.log": {
+      "path": "/tmp/yf-k05-v3-evidence/types-final.log",
+      "sha256": "d1df87887e190ef7e0ab233925237e022e9a630075e2c97c7b9dd32dbd25781b"
+    },
+    "v3/biome-final.log": {
+      "path": "/tmp/yf-k05-v3-evidence/biome-final.log",
+      "sha256": "a7e7735efc0433f3cbc2361c68aa4d982ca440fcaf640047b07e05a42f36ab15"
+    },
+    "v3/source-equality.json": {
+      "path": "/tmp/yf-k05-v3-evidence/source-equality.json",
+      "sha256": "aecdd20e135076de67a3ab97ae2a0a57e2c7317c5955af28fb8b72c9f06266b3"
+    },
+    "v4/guard-v3/proof.json": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-v3/proof.json",
+      "sha256": "29b53145d4fba21900bb6f4b91683d364ce8c2bb2648e71b482ae5ee4645ad7d"
+    },
+    "v4/reproduce-v3.log": {
+      "path": "/tmp/yf-k05-v4-evidence/reproduce-v3.log",
+      "sha256": "1d9c4c1d1e0042596a995f6ec672ac52405822639acb1ca7504dc9c026f8505a"
+    },
+    "v4/guard-v3/bad-bin.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-v3/bad-bin.log",
+      "sha256": "ceba3832046ad254604034dd8d74c145bdda637e44a040f4be60fab7f7be51a9"
+    },
+    "v4/guard-closure/proof.json": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-closure/proof.json",
+      "sha256": "27c7c8550ea80d3a0ac5f82e4bde30b0f091c8bcb47936a9d5ed3dc4255d8394"
+    },
+    "v4/closure-controls.log": {
+      "path": "/tmp/yf-k05-v4-evidence/closure-controls.log",
+      "sha256": "bc847df31b6fdb0ebf7e107e2c9103271854e93d789a7a8c697c190703636d74"
+    },
+    "v4/guard-closure/selected-bin-type-error.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-closure/selected-bin-type-error.log",
+      "sha256": "053e99f756af3cf0beb663807418bec80a57de652d6292e1ee1cb5bc375ed59c"
+    },
+    "v4/guard-closure/many-type-errors.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-closure/many-type-errors.log",
+      "sha256": "ff23ead10a2ff254142cce3cfcb5ff5905b46230109d5cc9249333bfe8162147"
+    },
+    "v4/guard-closure/inherited-config-invalid.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-closure/inherited-config-invalid.log",
+      "sha256": "84e1cc14dd3981ace4f33b616ca4d63209774a9e67a9d8cc03c5102b5c0b6a5f"
+    },
+    "v4/guard-closure/concurrent-bin.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-closure/concurrent-bin.log",
+      "sha256": "1cc50fd0116d38fe11ab5e6e84b8d6cf32ef7d92873d37a3cb05d62fc3be2d4d"
+    },
+    "v4/guard-watch-final/proof.json": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-watch-final/proof.json",
+      "sha256": "c114fd1c9d1503a45c8161373dbe6cb8606cbbcc2b3b36ba9243fb3962817359"
+    },
+    "v4/guard-watch-final/watch.log": {
+      "path": "/tmp/yf-k05-v4-evidence/guard-watch-final/watch.log",
+      "sha256": "aaa47f2cd3d294ba9b5ee22e744fd54a58982f50f89b1a786b3fd2fc471dab76"
+    },
+    "v4/tsdoc-watch-final.log": {
+      "path": "/tmp/yf-k05-v4-evidence/tsdoc-watch-final.log",
+      "sha256": "346c569bb8b772f0bc9ed42d74d3c6c8a70a7f8a4a41c85e9db3d613a488a73c"
+    },
+    "v4/poll-performance-final.json": {
+      "path": "/tmp/yf-k05-v4-evidence/poll-performance-final.json",
+      "sha256": "79ed1e199fd1950cd494600dddce5f7b255c732aa74cc53738edb46d9ce0a5cf"
+    },
+    "v4/unit-final.log": {
+      "path": "/tmp/yf-k05-v4-evidence/unit-final.log",
+      "sha256": "84cd9a84eded212a38ebb4603352b3896c7333201d7ddb68398ea9c89ebe8567"
+    },
+    "v4/types-final.log": {
+      "path": "/tmp/yf-k05-v4-evidence/types-final.log",
+      "sha256": "554699bb1b7f443afa03fb99dd66e96058311585d4ca423a43a6601264c20e0c"
+    },
+    "v4/biome-final.log": {
+      "path": "/tmp/yf-k05-v4-evidence/biome-final.log",
+      "sha256": "6619e7bfe0e49c5d17d6cc471084ba6a07dabbb419c628c67df4e1f967ceb33d"
+    },
+    "v4/reproduce-v3.mjs": {
+      "path": "/tmp/yf-k05-v4-evidence/reproduce-v3.mjs",
+      "sha256": "b39a2e7a248ba3a27e659f2cc2ab3fcf4667eb225fd3fd220ed778d1ac32731e"
+    },
+    "v4/closure-controls.py": {
+      "path": "/tmp/yf-k05-v4-evidence/closure-controls.py",
+      "sha256": "f3e74da7f7384aaf05bc86949f22da51526036a7d9d285dfe354c4adb3ec7420"
+    },
+    "v4/tsdoc-watch-final.py": {
+      "path": "/tmp/yf-k05-v4-evidence/tsdoc-watch-final.py",
+      "sha256": "aff2bf3f2c8189747424888fa4bdced4ca5e4edf7e8c105a55276e0734915782"
+    },
+    "v4/measure-poll.ts": {
+      "path": "/tmp/yf-k05-v4-evidence/measure-poll.ts",
+      "sha256": "b70a91437280a8ffd92d9a73cc51aa44dc212ce6830294a5195d2e0a68b4cc32"
+    },
+    "v4/measure-poll.py": {
+      "path": "/tmp/yf-k05-v4-evidence/measure-poll.py",
+      "sha256": "df63c80a9040387b0bcbe1c6cb594991a045a91533e3208986f563c20536ddec"
+    },
+    "v4/source-equality.json": {
+      "path": "/tmp/yf-k05-v4-evidence/source-equality.json",
+      "sha256": "2ccfa99974be854c8d798008b616bc4fda96abfad19ef511006baebaf4976a15"
+    }
+  },
+  "sourceEquality": {
+    "base": "3f0b1ad",
+    "originalFileCount": 1539,
+    "onlyChangedOriginalPaths": [
+      "bun.lock",
+      "package.json"
+    ],
+    "addedPaths": [
+      "scripts/docs.test.ts",
+      "scripts/docs.ts",
+      "scripts/docs/diagnostics-baseline.json",
+      "scripts/docs/external-links.json",
+      "scripts/docs/inputs.ts",
+      "scripts/docs/missing-exports.d.ts",
+      "scripts/docs/model.ts",
+      "scripts/docs/output.ts",
+      "scripts/docs/parser-compatibility.json",
+      "scripts/docs/provenance.ts",
+      "scripts/docs/worker.ts",
+      "tests/migration/API_DOCS.md",
+      "tests/migration/results/k05-api-docs.json"
+    ],
+    "unownedOriginalFilesUnchanged": 1537,
+    "allPublicSourceAndSchemasAndFixturesUnchanged": true,
+    "groupCounts": {
+      "src/": 105,
+      "tests/fixtures/": 1201
+    },
+    "denoJsonAndAllCompilerConfigsUnchanged": true,
+    "manifestAndLockEqualPreviousAndFreshInstall": true
+  },
+  "finalFrozenGraphRevalidation": {
+    "tree": "/tmp/yf-k05-v4-tree",
+    "graph": "/tmp/yf-k05-frozen-install/node_modules",
+    "baseline": "Exact committed3f0b1ad plus15owned paths; all native/CI/formatting drafts excluded; package and lock identical to v3",
+    "strictTypecheck": "library58roots/73files/28exports; tools112roots/185files; zero diagnostics",
+    "focusedTests": "13passed/0failed under Linux offline guard,7.46seconds; real TypeDoc startup/conversion errors and preservation/recovery, selected bin/config/metadata/optional lookup controls",
+    "actualGeneration": "Full28-export bin/config/concurrent-mutation controls; actual optional-tsdoc watch recovery; Bun/Node HTML/reflection/input-inventory parity",
+    "newToolingBiome": "11files,0diagnostics",
+    "inheritedEvidence": "Unchanged npm graph/integrities/licenses/hooks/audit delta and prior provenance/output ownership controls retained; no claim that every earlier costly lifecycle proof was repeated."
+  },
+  "revision": 4,
+  "originalCandidate": {
+    "archive": "/tmp/yf-k05-api-docs-review-3f0b1ad.tar",
+    "sha256": "1a4750f1468ed8cd5b0bca605e1280978f3abf20216d4ddb8e8f82f35bb55501",
+    "patch": "/tmp/yf-k05-api-docs-3f0b1ad.patch",
+    "patchSha256": "c0032aee8b9b4d19015f2d60777ff3f1a1dcca848aa81288a1f8f7368c487a75",
+    "unchanged": true,
+    "validation": {
+      "tree": "/tmp/yf-k05-review-tree",
+      "graph": "/tmp/yf-k05-frozen-install/node_modules",
+      "baseline": "Exact committed3f0b1ad plus only13owned paths, excluding all native/CI/formatting drafts",
+      "strictTypecheck": "library58roots/73files/28exports and tools110roots/183files; zero diagnostics",
+      "focusedTests": "6passed/0failed under Linux offline guard",
+      "docsLint": "Real package alias;28exports/5022reflections/161links/2271tracked diagnostics; no new warnings",
+      "newToolingBiome": "9files;0diagnostics"
+    }
+  },
+  "parentFindings": [
+    {
+      "finding": "Mutable dev source URLs without checkout provenance",
+      "reproduction": {
+        "archiveHasGitCheckout": false,
+        "renderedSourceLinks": [
+          "https://github.com/gadicc/yahoo-finance2/blob/dev/src/modules/autoc.ts#L40"
+        ],
+        "sourceProvenanceInReport": false,
+        "finding": "Archive output advertises mutable dev URLs although source checkout/commit provenance is unavailable."
+      },
+      "resolution": "Source positions retained; URLs emitted only for verified exact HEAD source blobs/inventory and recognized upstream origin. No dev fallback. Provenance plus full input fingerprint recorded and rechecked before publication."
+    },
+    {
+      "finding": "Both publish and backup restore fail, then close deletes previous docs",
+      "reproduction": {
+        "failure": "deliberate rename failure",
+        "renames": 3,
+        "outputExists": false,
+        "backupExists": false,
+        "lastSuccessfulOutputLost": true
+      },
+      "resolution": "Preserve OUTPUT.lock/previous and explicit recovery path on failed restore; repeated close retains it; new writers refuse the recovery lock."
+    },
+    {
+      "finding": "Git replacement object allows replacement bytes to claim original HEAD source URL",
+      "reproduction": {
+        "a": "f4fdd1cdb854b26797b79a81399ea361c3661da4",
+        "b": "31f82d2bfc6f11477f6ec34674a74a0df7d89b1d",
+        "realSource": "export const value=1;",
+        "actual": "export const value=2;\n",
+        "reported": {
+          "kind": "commit",
+          "commit": "f4fdd1cdb854b26797b79a81399ea361c3661da4",
+          "repository": "https://github.com/gadicc/yahoo-finance2",
+          "sourceDigest": "0d742200fc69739d165b0a481fafae784870fab826f005ded1d2da4ce48a275b"
+        }
+      },
+      "resolution": "Every read-only provenance Git call explicitly uses --no-replace-objects. Real replacement refs cannot alter source tree comparison; matching original committed bytes remain accepted with the replacement ref present."
+    },
+    {
+      "finding": "Watch inputDigest read failure rejects watcher permanently",
+      "reproduction": {
+        "settled": true,
+        "failure": "ENOENT: no such file or directory, open '/tmp/v2-k05-BQfOzz/repo/package.json'",
+        "outputAfterRestoreAndEdit": "good"
+      },
+      "resolution": "Catch fingerprint-read errors inside polling loop, show/deduplicate unchanged errors, preserve prior output, retry restored inputs even with identical bytes. No fabricated input defaults."
+    },
+    {
+      "finding": "Replacing startup logger loses bootstrap diagnostics and allows publication",
+      "reproduction": {
+        "code": 0,
+        "bootstrapErrorVisible": true,
+        "incorrectlyPublished": true
+      },
+      "resolution": "Reject TypeDoc startup error/warning counts before replacing logger. Native startup diagnostics remain visible; no generic baseline waiver. Real invalid configuration preserves all previous output and recovers after restoration."
+    },
+    {
+      "finding": "Fingerprint omits actual selected bin source, inherited compiler configuration and optional resolved TSDoc configuration",
+      "resolution": "Use pinned TypeScript parser/program discovery with a tracked read/resolution inventory; verify actual pinned TypeDoc options, roots and source texts and convert the same program objects. Bind optional presence and supported configuration closure; reject unsupported closure, inherited TypeDoc overrides and untracked render inputs. Pass expected fingerprint to worker and retain before/after publication checks."
+    },
+    {
+      "finding": "Captured compiler conversion errors are lost when project conversion returns undefined",
+      "resolution": "Print bounded normalized error diagnostics before aborting, retaining compiler code, relative file, line and message. Limit20errors,1600characters per error/16000total with omission count, without dumping baseline warnings."
+    }
+  ],
+  "sourceProvenanceControls": [
+    {
+      "case": "archive",
+      "provenance": {
+        "kind": "omitted",
+        "reason": "no-checkout-metadata",
+        "sourceDigest": "cf8d254a6ee43bc9e817591a7638afee4f6a3933fca8bf6f09cd1fc97bb6f626"
+      },
+      "hyperlinks": 0
+    },
+    {
+      "case": "committed-contributor-branch",
+      "devCommit": "af6f06a99fcaa0e68dfc61d5ec221916d8398d2c",
+      "observedCommit": "a028b3599e0c0ac856f941233572a1ae1ff58f23",
+      "linkedSourceReferences": 4287,
+      "verifiedRenderedHref": "https://github.com/gadicc/yahoo-finance2/blob/a028b3599e0c0ac856f941233572a1ae1ff58f23/src/modules/autoc.ts#L41",
+      "inputFingerprint": "676f4d76926563b584266245b60b92a96b0e39ce6e9722627535e71631d5e824",
+      "provenance": {
+        "kind": "commit",
+        "commit": "a028b3599e0c0ac856f941233572a1ae1ff58f23",
+        "repository": "https://github.com/gadicc/yahoo-finance2",
+        "sourceDigest": "efd2520aa3064225c0c9520eb698900e83ef9631e2fd6c9b637eca97b8ca357e"
+      }
+    },
+    {
+      "case": "dirty-source-with-assume-unchanged",
+      "provenance": {
+        "kind": "omitted",
+        "reason": "source-differs-from-commit",
+        "sourceDigest": "8234c886c6b27cfdd809a49ac06a41fe5d311dc351b95fd0fc0144d639c13639",
+        "observedCommit": "a028b3599e0c0ac856f941233572a1ae1ff58f23"
+      },
+      "hyperlinks": 0
+    }
+  ],
+  "headMovementControl": {
+    "oldCommit": "ecde46dd605a1809a60d2e60e017140388c815e7",
+    "newCommit": "117838dc8f228bcac18e56519448850411c75133",
+    "sourceBytesChanged": false,
+    "code": 1,
+    "previousOutputPreserved": true,
+    "inputIdentityChangeRejected": true,
+    "observedWorkerPid": 17
+  },
+  "v2RuntimeParity": {
+    "identicalHtmlReflectionAndReportBytes": true,
+    "differentCompressedAssetsWithEqualPayload": [
+      "assets/search.js",
+      "assets/hierarchy.js",
+      "assets/navigation.js"
+    ],
+    "files": 309,
+    "sourceProvenance": {
+      "kind": "omitted",
+      "reason": "no-checkout-metadata",
+      "sourceDigest": "cf8d254a6ee43bc9e817591a7638afee4f6a3933fca8bf6f09cd1fc97bb6f626"
+    },
+    "inputFingerprint": "0326c2ac2e27a4e4fd39a011b0769df060798538e13a0779b07c8ccb58e2a32b"
+  },
+  "provenanceImplementation": {
+    "sourceScope": "All src/ file bytes and inventory, independent of index dirty flags",
+    "gitCalls": [
+      "rev-parse --show-toplevel",
+      "rev-parse --verify HEAD^{commit}",
+      "config --get remote.origin.url",
+      "ls-tree -rz EXACT_COMMIT -- src"
+    ],
+    "boundary": "No replacement-object semantics (--no-replace-objects),hooks,remote requests,index writes; inherited GIT_* ignored; optional locks/fsmonitor disabled; shell false;1second SIGKILL timeout; fallback omits hyperlinks",
+    "remoteForms": "Canonical repository HTTPS and SSH/SCP URLs, optional.git; unknown forms omit links",
+    "metadata": "Exact commit/sourceDigest plus complete inputFingerprint; worker and launcher recheck inputs before publication"
+  },
+  "previousCandidate": {
+    "revision": 3,
+    "archive": "/tmp/yf-k05-api-docs-review-v3-3f0b1ad.tar",
+    "sha256": "d120b217244f0efd6e28dc1feb38702ab2e40f0c50f473c70216547494d54cfd",
+    "patch": "/tmp/yf-k05-api-docs-v3-3f0b1ad.patch",
+    "patchSha256": "550cf2de2e61b199f976e2dd1595ae514695f19ab4d38c85e7d88761d556257a",
+    "unchanged": true,
+    "validation": {
+      "tree": "/tmp/yf-k05-v3-tree",
+      "graph": "/tmp/yf-k05-frozen-install/node_modules",
+      "baseline": "Exact committed3f0b1ad plus14owned paths, excluding all native/CI/formatting drafts; package and lock identical to original K05/v2 candidates",
+      "strictTypecheck": "library58roots/73files/28exports; tools111roots/184files; zero diagnostics",
+      "focusedTests": "12passed/0failed under Linux offline guard; includes real Git replacement refs and real TypeDoc startup failure/preservation/recovery",
+      "actualGeneration": "Full28-export configuration-error control; real watch missing/restore/edit/deduplication/abort control on final source",
+      "newToolingBiome": "10files,0diagnostics",
+      "inheritedEvidence": "Unchanged npm graph/integrities/licenses/hooks/audit delta and full v2 model/export/link/runtime proofs retained; no claim that every earlier costly lifecycle proof was repeated."
+    }
+  },
+  "v3ReplacementControl": {
+    "replacementRejected": {
+      "a": "d931ae51288f65626e9c80e275ffae844e379f5d",
+      "b": "ceefdf6e999fc8f0bad616e6b7d7ea9b023c6d41",
+      "realSource": "export const value=1;",
+      "actual": "export const value=2;\n",
+      "reported": {
+        "kind": "omitted",
+        "reason": "source-differs-from-commit",
+        "sourceDigest": "0d742200fc69739d165b0a481fafae784870fab826f005ded1d2da4ce48a275b",
+        "observedCommit": "d931ae51288f65626e9c80e275ffae844e379f5d"
+      }
+    },
+    "originalMatchWithReplacementRefStillPresent": {
+      "kind": "commit",
+      "commit": "d931ae51288f65626e9c80e275ffae844e379f5d",
+      "repository": "https://github.com/gadicc/yahoo-finance2",
+      "sourceDigest": "dc7c7d163de48d6a9d371986f1e6e1b38a49f08be68f696abd14b017f9f64f77"
+    },
+    "verifiedUrl": "https://github.com/gadicc/yahoo-finance2/blob/d931ae51288f65626e9c80e275ffae844e379f5d/src/sample.ts#L1"
+  },
+  "v3ActualWatchControl": {
+    "actualCommand": "bun scripts/docs.ts watch",
+    "missingConfigurationSurvived": true,
+    "lastSuccessfulOutputPreservedDuringMissingInput": true,
+    "unchangedErrorLoggedOnceAcrossMultiplePolls": true,
+    "identicalConfigurationRestoreRebuilt": true,
+    "subsequentSourceEditRebuilt": true,
+    "abortDuringMissingInputExit": 130,
+    "noRemainingLockOrStaging": true
+  },
+  "v3BootstrapControl": {
+    "realPublicProject": true,
+    "exportKeys": 28,
+    "invalidBootstrapCode": 1,
+    "specificStartupDiagnosticVisible": true,
+    "startupErrorRejectedBeforeLoggerReplacement": true,
+    "allPreviousOutputHashesPreserved": true,
+    "restorationRegeneratedIdenticalOutput": true,
+    "noLockRemaining": true
+  },
+  "bootstrapPolicy": "Startup warnings/errors are fatal before replacing logger, with original native diagnostics visible; conversion-only existing-debt baseline cannot waive startup errors.",
+  "watchRecoveryPolicy": "Fingerprint-read failures are caught, retained output is unchanged, equal errors log once across300ms polls, restoring inputs resets the retry fingerprint and rebuilds; abort still waits/cleans up.",
+  "maintainedIntegrationOuterBudgetsMs": {
+    "realTypeDocValidInvalidRestored": 30000,
+    "watchMissingConfigurationRestoreEdit": 15000,
+    "compilerConfigurationClosure": 15000
+  },
+  "historicalV2Candidate": {
+    "revision": 2,
+    "archive": "/tmp/yf-k05-api-docs-review-v2-3f0b1ad.tar",
+    "sha256": "55823f21da862cb02e83eb777d6349aeac0ca851581f6ae7735967fb6dca54a5",
+    "patch": "/tmp/yf-k05-api-docs-v2-3f0b1ad.patch",
+    "patchSha256": "68aabeba87e8598ec3a4184102ff175f276aa4f4ce83ea5d6adcd6e29ec8c689",
+    "unchanged": true,
+    "validation": {
+      "tree": "/tmp/yf-k05-v2-tree",
+      "graph": "/tmp/yf-k05-frozen-install/node_modules",
+      "baseline": "Exact committed3f0b1ad plus14owned paths, excluding all native/CI/formatting drafts; package and lock identical to original K05 candidate",
+      "strictTypecheck": "library58roots/73files/28exports; tools111roots/184files; zero diagnostics",
+      "focusedTests": "9passed/0failed under Linux offline guard",
+      "actualGeneration": "Archive(no links), committed contributor branch(4287exact source refs), masked dirty source(no links), HEAD-only concurrent change(reject/preserve), Bun/Node HTML/reflection/metadata parity",
+      "newToolingBiome": "10files,0diagnostics"
+    }
+  },
+  "v4ReviewEvidence": {
+    "astraReport": {
+      "path": "/tmp/yf-k05-astra-kkwdz3h2/review.json",
+      "sha256": "a2003e1bbf61103bf20e3ceb4bd3b11d6449c402476d64e187987befc2fd7ad7"
+    },
+    "parentInputProof": {
+      "path": "/tmp/yf-k05-parent-input-proof.json",
+      "sha256": "387924b47b8e63b90dd969baeb0a7cfd5652c8654a4f5963c22af8b30543a9fb"
+    },
+    "originalV3Reproduction": {
+      "optionalTsdocFourHashes": [
+        "43f27e96f564cc821a941303a40c1d4481f2e0e8a5d35d4290a0a25578db8a09",
+        "43f27e96f564cc821a941303a40c1d4481f2e0e8a5d35d4290a0a25578db8a09",
+        "43f27e96f564cc821a941303a40c1d4481f2e0e8a5d35d4290a0a25578db8a09",
+        "43f27e96f564cc821a941303a40c1d4481f2e0e8a5d35d4290a0a25578db8a09"
+      ],
+      "optionalTsdocIgnored": true,
+      "binDigestUnchanged": true,
+      "binGenerationCode": 1,
+      "actualTypeScriptCodeVisible": false,
+      "genericConversionErrorVisible": true,
+      "resolvedInheritedConfigIgnored": true
+    }
+  },
+  "v4ActualClosureControls": {
+    "cases": [
+      {
+        "case": "initial",
+        "code": 0
+      },
+      {
+        "case": "optional-tsdoc-add-extends-parent-change-remove",
+        "initial": "bfa5efa0b8f1b9fdff9938380b3d8bad7632a47c53e8d3366fc30cef213ec708",
+        "added": "af099d72e3cac4ff47899f5442832a501d4259b6d46a29c6e94da8d8354676e6",
+        "parentChanged": "0e9397bb9431794f52812527326b2abd80f257b484ef7e4ea04c53383639637a",
+        "removedReturnsInitial": true
+      },
+      {
+        "case": "selected-bin-type-error",
+        "code": 1
+      },
+      {
+        "case": "many-type-errors",
+        "code": 1
+      },
+      {
+        "case": "inherited-config-valid",
+        "code": 0
+      },
+      {
+        "case": "inherited-config-invalid",
+        "code": 1
+      },
+      {
+        "case": "unsupported-package-config",
+        "code": 1
+      },
+      {
+        "case": "concurrent-selected-bin-mutation",
+        "code": 1,
+        "previousOutputPreserved": true
+      },
+      {
+        "case": "restored-bun",
+        "code": 0
+      },
+      {
+        "case": "restored-node",
+        "code": 0
+      }
+    ],
+    "inventory": {
+      "roots": 58,
+      "programSources": 374,
+      "configurations": [
+        {
+          "path": "tsconfig.base.json",
+          "sha256": "92d14e7a46e8dab57163c1536bd504887484b291173cb9809446ea8b5c975551"
+        },
+        {
+          "path": "tsconfig.library.json",
+          "sha256": "04a3bbe2884c7f806a11e27d73a22b3f1d238b33500ebae3c0083f2d8c02b504"
+        }
+      ],
+      "lookups": 107
+    },
+    "actualProgramObjectsVerifiedBeforeConversion": true,
+    "boundedTypeErrors": true,
+    "lastGoodPreserved": true,
+    "bunNodeHtmlReflectionAndInventoryParity": true,
+    "compressedOnlyDifferences": [
+      "assets/search.js",
+      "assets/hierarchy.js",
+      "assets/navigation.js"
+    ]
+  },
+  "v4ActualTsdocWatchControl": {
+    "initialOptionalTsdocFailureObserved": true,
+    "removingOnlyTsdocRecoveredWithoutSourceEdit": true,
+    "addingTsdocWithLocalExtendsTriggeredFailureAndPreservedLastGood": true,
+    "changingOnlyResolvedTsdocParentTriggeredNewAttempt": true,
+    "removalRecoveredAgainWithoutUnrelatedEdit": true,
+    "exit": 130,
+    "cleanupComplete": true
+  },
+  "v4PollPerformance": {
+    "coldMs": 325.917058,
+    "allWarmReturnedSameSnapshot": true,
+    "warmMs": [
+      13.12635899999998,
+      21.509678000000008,
+      19.299753999999893,
+      21.173287000000073,
+      18.453755999999885,
+      22.480850000000373,
+      26.05121599999984,
+      13.17882499999996,
+      22.173373999999967,
+      19.380909999999858,
+      19.860106000000087,
+      13.616942999999992,
+      15.750436000000263,
+      21.064778999999362,
+      23.737457000000177,
+      15.997349999999642,
+      13.070955999999569,
+      20.03474499999993,
+      21.24316700000054,
+      17.89936300000045
+    ],
+    "warmMeanMs": 18.955165549999993,
+    "parentCpuMs": 612.599,
+    "windowSeconds": 6,
+    "roots": 58,
+    "sources": 374,
+    "lookupCount": 107,
+    "totalWallSecondsIncludingCold": 6.883894869999494,
+    "totalCpuMsIncludingColdAndWaitedGitChildren": 2160.4339999999997,
+    "method": "Linux Bun1.4.3 committed source checkout with canonical origin;20warm inputSnapshot checks separated by300msidle. Parent CPU from process.cpuUsage; total wrapper CPU from resource.RUSAGE_CHILDREN includes cold work and waited Git children. Local measurement, not portable performance promise."
+  },
+  "inputClosurePolicy": {
+    "discovery": "TS6.0.3 actual selected program,374sources/58roots including bin/declarations, with compiler metadata reads and107project lookups on this graph",
+    "supportedConfig": "Explicit repository-local JSON/JSONC extends resolving identically through Node/TypeScript; optional root tsdoc and local extends included. Package/ambiguous/outside config,project references,project symlinks and TypeDoc option overrides predictably fail. Native bootstrap diagnostics still run before override rejection.",
+    "warmCache": "Fresh configuration parse/base hashing/provenance; recheck extra mutable project reads and resolution file/directory presence/enumerations. Recreate program after relevant change.300ms idle between serialized polls.",
+    "workerBinding": "Launcher passes expected fingerprint; worker independently discovers snapshot, validates actual pinned TypeDoc options/roots/source text, converts those exact program objects, and rechecks before publication; launcher rechecks again.",
+    "trustedGraph": "Registry dependency/theme/TypeScript standard library bytes retain trusted frozen-install assumptions. Restart watch after reinstall or manual dependency changes; no general hostile-code sandbox claim."
+  },
+  "parentAcceptance": {
+    "reviewedReceiptSha256": "7aa559533873239c5472f0696031d63cf1bd4cdf6af0418eb943734c247b02b0",
+    "reviews": {
+      "sol": {
+        "path": "/tmp/yf-k05-v4-sol-rj7lnt3m/review.json",
+        "sha256": "a054da9454bfc9a0d6a6beac565f6c4d0998cb5d26f993af2012b9762b8eb884"
+      },
+      "astra": {
+        "path": "/tmp/yf-k05-v4-astra-e5r36677/review.json",
+        "sha256": "52fd71ff260f264af758873b6f49c99aa28e3b7fdbf223e146722768f69bea10"
+      },
+      "priorWholeAstra": {
+        "path": "/tmp/yf-k05-astra-kkwdz3h2/review.json",
+        "sha256": "a2003e1bbf61103bf20e3ceb4bd3b11d6449c402476d64e187987befc2fd7ad7"
+      }
+    },
+    "finalVerdict": "Independent Sol xhigh and Astra xhigh clear after resolving provenance, rollback, watch recovery, startup errors, actual input closure and actionable compiler diagnostics. Prior whole review retained; no claim of final whole-migration review.",
+    "application": {
+      "path": "/tmp/yf-k05-v4-applied-proof.json",
+      "sha256": "ebd524b38be5ac00a9a50b6f2c77497e562e0c7d1c754efd82c53cf62d8eb370",
+      "packageMerge": {
+        "aliases": {
+          "docs:gen": "bun scripts/docs.ts gen",
+          "docs:lint": "bun scripts/docs.ts lint",
+          "docs:watch": "bun scripts/docs.ts watch",
+          "docs:open": "bun scripts/docs.ts open"
+        },
+        "devDependencies": {
+          "typedoc": "0.28.20",
+          "typedoc-plugin-missing-exports": "4.1.4"
+        },
+        "oldScriptsRetained": true,
+        "privateAndPackageManagerRetained": true,
+        "oldLockEntriesUnchanged": 623,
+        "addedLockEntries": [
+          "@gerrit0/mini-shiki",
+          "@shikijs/engine-oniguruma",
+          "@shikijs/langs",
+          "@shikijs/themes",
+          "@shikijs/types",
+          "@shikijs/vscode-textmate",
+          "@types/hast",
+          "@types/unist",
+          "entities",
+          "linkify-it",
+          "lunr",
+          "markdown-it",
+          "mdurl",
+          "punycode.js",
+          "typedoc",
+          "typedoc-plugin-missing-exports",
+          "uc.micro",
+          "yaml"
+        ],
+        "lockWorkspaceOnlyTwoDevDependenciesAdded": true
+      },
+      "checks": {
+        "normalTypecheck": {
+          "libraryRoots": 58,
+          "libraryFiles": 73,
+          "toolsRoots": 126,
+          "toolsFiles": 199,
+          "diagnostics": 0
+        },
+        "format": {
+          "files": 212,
+          "exitCode": 0
+        },
+        "lint": {
+          "errors": 0,
+          "warnings": 150,
+          "infos": 145
+        },
+        "guardedDocsTests": {
+          "passed": 13,
+          "failed": 0
+        },
+        "docsLintAndActualGeneration": {
+          "commands": [
+            {
+              "phase": "docs-lint",
+              "exitCode": 0,
+              "argv": [
+                "python3",
+                "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+                "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+                "/tmp/yf-k05-v4-apply-k_tmlczw/docs-scratch",
+                "--",
+                "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+                "--no-env-file",
+                "run",
+                "docs:lint"
+              ]
+            },
+            {
+              "phase": "docs-gen",
+              "exitCode": 0,
+              "argv": [
+                "python3",
+                "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+                "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+                "/tmp/yf-k05-v4-apply-k_tmlczw/docs-scratch",
+                "--",
+                "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+                "--no-env-file",
+                "run",
+                "docs:gen",
+                "--",
+                "--out-dir",
+                "/tmp/yf-k05-v4-apply-k_tmlczw/docs-scratch/html"
+              ]
+            }
+          ],
+          "exportKeys": 28,
+          "reportKeys": [
+            "tool",
+            "sourceProvenance",
+            "inputFingerprint",
+            "inputInventory",
+            "typescript",
+            "coverage",
+            "normalizedLinks",
+            "reflectionCount",
+            "internalCount",
+            "diagnostics"
+          ],
+          "htmlFiles": 309,
+          "reportSha256": "58be58dcfc15344465f96cf837b489093e45859149491f264b1f69e593553277",
+          "output": "/tmp/yf-k05-v4-apply-k_tmlczw/docs-scratch/html",
+          "sourceProvenance": {
+            "kind": "commit",
+            "commit": "0ee80091b21fa3e5a0b0c1cfde2f98859ef04b08",
+            "repository": "https://github.com/gadicc/yahoo-finance2",
+            "sourceDigest": "7161198cf02b2f16a3798ba802633dbb224032323036a79eb0a2b4ece9562050"
+          }
+        }
+      },
+      "fixtures": {
+        "count": 1201,
+        "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+        "unchanged": true
+      },
+      "unownedTrackedBytesAndModesUnchanged": true,
+      "sourceAndSchemasUnchanged": true
+    },
+    "accepted": [
+      "K05"
+    ],
+    "overall": "50/71",
+    "limits": [
+      "GUI opener launch was tested headlessly on Linux only; no actual browser/native macOS/Windows opener claim.",
+      "Installed dependency/theme/library bytes rely on the trusted frozen graph; restart watch after reinstalling or manually changing dependencies.",
+      "2269 existing own-source documentation warnings and two parser warnings remain an explicit exact baseline; no auto-baseline or blanket warning suppression.",
+      "No JSR/website publication, external HTTP link checks, Deno development command, live Yahoo, fixture writes or new benchmark.",
+      "CI documentation gate is a separate integration; current source/lock changes passed maintained local checks."
+    ]
+  }
+}
