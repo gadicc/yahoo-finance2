@@ -1,0 +1,345 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "decaaa34d571c7773c8f5aef2cc37d902ee04b6b",
+  "bun": "1.4.3",
+  "node": "24.21.0",
+  "checks": [
+    {
+      "command": [
+        "bun",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exitCode": 0,
+      "seconds": 0.019,
+      "summary": "bun install v1.4.3 (c6da4a4d3)\n\n$ bun scripts/check-toolchain.mjs\nToolchain OK: Bun 1.4.3; root package manager bun; lockfile bun.lock.\n\nChecked 469 installs across 557 packages (no changes) [17.00ms]"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "run",
+        "schema:check"
+      ],
+      "exitCode": 0,
+      "seconds": 10.351,
+      "summary": "$ bun scripts/schema-gen.ts --check"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "run",
+        "schema",
+        "--force"
+      ],
+      "exitCode": 0,
+      "seconds": 10.16,
+      "summary": "$ bun scripts/schema-gen.ts --force"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "seconds": 1.485,
+      "summary": "$ python3 tests/migration/run.py --typecheck"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck:incremental"
+      ],
+      "exitCode": 0,
+      "seconds": 1.587,
+      "summary": "$ python3 tests/migration/run.py --typecheck-incremental"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "seconds": 1.555,
+      "summary": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:replay"
+      ],
+      "exitCode": 0,
+      "seconds": 15.034,
+      "summary": "..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................\n\nQuoteSummary financial statements submodules like balanceSheetHistory, balanceSheetHistoryQuarterly, cashflowStatementHistory, cashflowStatementHistoryQuarterly, incomeStatementHistory, incomeStatementHistoryQuarterly have provided almost no data since Nov 2024. Use `fundamentalsTimeSeries` instead.\n.............................................................................................................................................................................................................................................................................................................\n\n1347 pass\n8 skip\n0 fail\nRan 1355 tests across 45 files. [14.97s]"
+    }
+  ],
+  "fixtures": {
+    "count": 1201,
+    "unchanged": true,
+    "fingerprintSha256": "47756b269c878dc6a9be594d78a68d7ada694f4b00bb5bf8b0fc2fe395111ede"
+  },
+  "outputs": {
+    "count": 13,
+    "unchangedDuringVerification": true,
+    "commentOnlyComparedToBase": true,
+    "newComment": "bun run schema; removed unimplemented automatic VSCode claim",
+    "allOtherBytesAndPropertyOrderPreserved": true,
+    "commentOnlyFiles": [
+      "src/lib/options/options.schema.json",
+      "src/modules/chart.schema.json",
+      "src/modules/fundamentalsTimeSeries.schema.json",
+      "src/modules/historical.schema.json",
+      "src/modules/insights.schema.json",
+      "src/modules/options.schema.json",
+      "src/modules/quote.schema.json",
+      "src/modules/quoteSummary-iface.schema.json",
+      "src/modules/quoteSummary.schema.json",
+      "src/modules/recommendationsBySymbol.schema.json",
+      "src/modules/screener.schema.json",
+      "src/modules/search.schema.json",
+      "src/modules/trendingSymbols.schema.json"
+    ]
+  },
+  "bunLockUnchanged": true,
+  "isolated": {
+    "baseCommit": "decaaa34d571c7773c8f5aef2cc37d902ee04b6b",
+    "scope": "git archive + exact schema milestone files; excludes concurrent C07 helper changes",
+    "checks": [
+      {
+        "label": "install",
+        "command": [
+          "bun",
+          "install",
+          "--frozen-lockfile"
+        ],
+        "exitCode": 0,
+        "seconds": 0.159,
+        "summary": "+ ts-json-schema-generator@2.9.0\n+ typescript@6.0.3\n+ @modelcontextprotocol/sdk@1.32.0\n+ tough-cookie@6.0.2\n+ tough-cookie-file-store@3.3.0\n+ zod@4.6.5\n\n442 packages installed [155.00ms]"
+      },
+      {
+        "label": "prepare",
+        "command": [
+          "python3",
+          "tests/migration/prepare.py"
+        ],
+        "exitCode": 0,
+        "seconds": 0.054,
+        "summary": "Read-only fixture preparation completed"
+      },
+      {
+        "label": "check",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema:check"
+        ],
+        "exitCode": 0,
+        "seconds": 10.208,
+        "summary": "$ bun scripts/schema-gen.ts --check"
+      },
+      {
+        "label": "types",
+        "command": [
+          "bun",
+          "run",
+          "typecheck"
+        ],
+        "exitCode": 0,
+        "seconds": 1.611,
+        "summary": "$ python3 tests/migration/run.py --typecheck"
+      },
+      {
+        "label": "replay",
+        "command": [
+          "bun",
+          "run",
+          "test:replay"
+        ],
+        "exitCode": 0,
+        "seconds": 15.552,
+        "summary": "\nQuoteSummary financial statements submodules like balanceSheetHistory, balanceSheetHistoryQuarterly, cashflowStatementHistory, cashflowStatementHistoryQuarterly, incomeStatementHistory, incomeStatementHistoryQuarterly have provided almost no data since Nov 2024. Use `fundamentalsTimeSeries` instead.\n.........................................................................................................................................................................................................................................................\n\n1347 pass\n8 skip\n0 fail\nRan 1355 tests across 45 files. [15.46s]"
+      },
+      {
+        "label": "shared-negative",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema:check"
+        ],
+        "exitCode": 1,
+        "seconds": 10.001,
+        "summary": "$ bun scripts/schema-gen.ts --check\n* src/modules/options.schema.json: stale or missing.\n* src/modules/quote.schema.json: stale or missing.\nerror: script \"schema:check\" exited with code 1"
+      },
+      {
+        "label": "shared-repair",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema"
+        ],
+        "exitCode": 0,
+        "seconds": 9.825,
+        "summary": "$ bun scripts/schema-gen.ts\n* src/modules/options.schema.json: generated.\n* src/modules/quote.schema.json: generated."
+      },
+      {
+        "label": "shared-recheck",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema:check"
+        ],
+        "exitCode": 0,
+        "seconds": 9.948,
+        "summary": "$ bun scripts/schema-gen.ts --check"
+      },
+      {
+        "label": "historical-consumer",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "test",
+          "src/modules/historical.test.ts",
+          "src/modules/chart.test.ts"
+        ],
+        "exitCode": 0,
+        "seconds": 0.097,
+        "summary": "(pass) chart > query transformWith > uses today's date as default for period2 [0.14ms]\n(pass) chart > return type > array (not specified, as default) [0.40ms]\n(pass) chart > return type > array [2.21ms]\n(pass) chart > return type > object [0.52ms]\n\n 53 pass\n 0 fail\nRan 53 tests across 2 files. [78.00ms]"
+      }
+    ],
+    "sharedDependencyControl": {
+      "source": "src/modules/quote.ts",
+      "dependent": "src/modules/options.schema.json",
+      "inputMtimeForcedToEpoch": true,
+      "staleCheckRejected": true,
+      "checkWroteNothing": true,
+      "regenerationRepaired": true,
+      "chartHistoricalConsumersPassed": true
+    },
+    "freshFrozenInstallPassed": true
+  },
+  "limitations": [
+    "E06 command and stale/shared-import controls implemented; CI routing remains I02/E06 and unchecked",
+    "Watch verified on Linux Bun1.4.3; broader OS support remains H05",
+    "Schema compiler retains generator-bundled TypeScript5.9.3; normal typecheck remains TypeScript6.0.3",
+    "Atomic replacement per output; generation failures cause no writes across batch, filesystem rename failures can leave earlier outputs updated",
+    "Deno import aliases retained for unmigrated recache/capture tooling"
+  ],
+  "finalIsolatedChecks": [
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "seconds": 1.547,
+      "summary": "$ python3 tests/migration/run.py --typecheck"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck:incremental"
+      ],
+      "exitCode": 0,
+      "seconds": 1.575,
+      "summary": "$ python3 tests/migration/run.py --typecheck-incremental"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "run",
+        "schema:check"
+      ],
+      "exitCode": 0,
+      "seconds": 10.308,
+      "summary": "$ bun scripts/schema-gen.ts --check"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "test",
+        "scripts/schema-gen.test.ts"
+      ],
+      "exitCode": 0,
+      "seconds": 14.376,
+      "summary": "(pass) all committed production schemas retain byte parity after the comment migration [9490.98ms]\n(pass) real watch follows shared type edits and closes cleanly on SIGTERM [2413.08ms]\n(pass) default scans reject empty inventories and orphan schemas without deleting them [57.92ms]\n\n 9 pass\n 0 fail\nRan 9 tests across 1 file. [14.27s]"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:replay"
+      ],
+      "exitCode": 0,
+      "seconds": 15.145,
+      "summary": "QuoteSummary financial statements submodules like balanceSheetHistory, balanceSheetHistoryQuarterly, cashflowStatementHistory, cashflowStatementHistoryQuarterly, incomeStatementHistory, incomeStatementHistoryQuarterly have provided almost no data since Nov 2024. Use `fundamentalsTimeSeries` instead.\n..........................................................................................................................................................................................................................................................................................................................\n\n1348 pass\n8 skip\n0 fail\nRan 1356 tests across 45 files. [15.07s]"
+    }
+  ],
+  "missingAllOutputsControl": {
+    "originalOutputCount": 13,
+    "checks": [
+      {
+        "label": "missing-check",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema:check"
+        ],
+        "exitCode": 1,
+        "seconds": 9.814,
+        "summary": "* src/modules/recommendationsBySymbol.schema.json: stale or missing.\n* src/modules/screener.schema.json: stale or missing.\n* src/modules/search.schema.json: stale or missing.\n* src/modules/trendingSymbols.schema.json: stale or missing.\nerror: script \"schema:check\" exited with code 1"
+      },
+      {
+        "label": "missing-repair",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema",
+          "--force"
+        ],
+        "exitCode": 0,
+        "seconds": 9.875,
+        "summary": "* src/modules/quoteSummary.schema.json: generated.\n* src/modules/recommendationsBySymbol.schema.json: generated.\n* src/modules/screener.schema.json: generated.\n* src/modules/search.schema.json: generated.\n* src/modules/trendingSymbols.schema.json: generated."
+      },
+      {
+        "label": "missing-recheck",
+        "command": [
+          "python3",
+          "tests/migration/offline.py",
+          "bun",
+          "run",
+          "schema:check"
+        ],
+        "exitCode": 0,
+        "seconds": 10.228,
+        "summary": "$ bun scripts/schema-gen.ts --check"
+      }
+    ],
+    "checkCreatedNoPlaceholders": true,
+    "repairExactlyReproducedAllOutputs": true
+  }
+}

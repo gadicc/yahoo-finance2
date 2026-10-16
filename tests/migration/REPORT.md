@@ -86,7 +86,7 @@ all items; the benchmark results above retain their historical meaning.
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        3/6 |
 | [C. Test runner and harness](#migration-c)                       | In progress     |        5/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        2/8 |
-| [E. Type checking and schema generation](#migration-e)           | In progress     |        1/6 |
+| [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | Planned         |        0/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | Planned         |        0/5 |
@@ -94,7 +94,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **16/71** |
+| **Overall**                                                      | **In progress** |  **18/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -213,6 +213,38 @@ unsettled body or guarantee its finish callbacks; resource disposal/native hooks
 remain necessary. Maintained command support is C07, and other OS/offline policy
 is D04. These results supersede the experimental lifecycle/message limitations
 in the historical adaptation notes below.
+
+The foundation steps through `e06cbbc` also passed an independent GPT-6 Astra
+xhigh adversarial review with no unresolved findings. Its checks included
+1,339/44 guarded replay, typecheck/release notes, 40 repeated harness runs,
+environment isolation and unchanged hashes for all 1,201 fixtures. This is a
+review of the completed foundation steps, not the final L03/L04 readiness gate.
+
+## Schema tooling (E04–E05, 2026-10-16)
+
+`bun run schema` and `bun run schema:check` now use Node APIs and root-installed
+schema tooling, preserving the custom formatter while removing Deno cache,
+`deno info`, lockfile inspection and symlink mutation. Every run regenerates
+imported types in memory; unchanged bytes retain output timestamps. The no-write
+check rejects stale/missing/invalid schemas, empty default inventories and
+orphan outputs. Generation failures preserve every selected output; successful
+writes use sibling temporary files and atomic replacement per output. Watch
+coalesces edits, retains in-flight changes and closes cleanly on signals.
+
+All **13 schemas** retain exact non-comment bytes and property ordering. Their
+only change updates the generated command to `bun run schema` and removes an
+unimplemented VSCode automation claim. The generator retains its own bundled
+TypeScript 5.9.3 and uses Node ambient types; project checks stay on TypeScript
+6.0.3. No dependency versions, interfaces or fixtures changed.
+
+[Schema behavior and limitations](SCHEMAS.md) and
+[evidence](results/e04-e05-schema.json) cover clean frozen installation,
+full/focused guarded replay, normal/incremental typechecks, custom formatting,
+JSON imports, explicit/force modes, unchanged timestamps, watch subprocess and
+signal cleanup. A disposable real quote/options shared-type negative control
+rejects stale outputs without writing, then regeneration repairs them; the
+historical/chart consumer tests pass. **E06 stays unchecked** until I02 routes
+and verifies the actual CI gate; its maintained command and controls are ready.
 
 ## What was adapted
 
@@ -392,10 +424,10 @@ explicit cross-references when work crosses these areas.
 **Next small milestones:** port recache subprocess checks and resolve skip
 policy (C06), then discovery/commands and offline policy (C07/D03–D04). B04 can
 independently port import resolution and real traversal/CLI helpers using B03's
-ownership map; E02–E04 can establish production checker and schema
-configurations. B01–B03 now establish the pinned toolchain, lockfile and
-dependency boundaries; CLI/build/schema ports, cross-platform validation and CI
-remain separate work.
+ownership map; E02–E03 can establish production checker configurations, while
+E06/I02 must adopt the verified schema check in CI. B01–B03 now establish the
+pinned toolchain, lockfile and dependency boundaries; CLI/build ports,
+cross-platform validation and CI remain separate work.
 
 <a id="migration-a"></a>
 
@@ -545,15 +577,25 @@ remain separate work.
 - [ ] E03 — Check all production entrypoints, CLI/MCP, scripts and test helpers;
       keep real negative overload tests and independently check the Workers
       harness.
-- [ ] E04 — Port `schema-gen.ts` and generator resolution away from Deno cache,
+- [x] E04 — Port `schema-gen.ts` and generator resolution away from Deno cache,
       lockfile inspection and `deno info`; verify custom type formatters, JSON
-      import handling and package resolution from a clean install.
-- [ ] E05 — Prove generated schema parity against committed outputs, or review
+      import handling and package resolution from a clean install. Evidence:
+      Node APIs, compiler-host JSON overlays, retained custom formatter and
+      [clean-install/compile/runtime controls](results/e04-e05-schema.json).
+- [x] E05 — Prove generated schema parity against committed outputs, or review
       each justified difference; exercise explicit file, force, watch, timestamp
-      and imported-type dependency behavior with deterministic output.
+      and imported-type dependency behavior with deterministic output. Evidence:
+      all 13 outputs retain exact non-comment bytes; reviewed comments advertise
+      Bun and remove the unimplemented VSCode claim. Focused temporary-project,
+      watch/shutdown, real shared-import negative controls and preserved output
+      timestamps are documented in [schema behavior](SCHEMAS.md) and
+      [verification](results/e04-e05-schema.json).
 - [ ] E06 — Restore a stale-schema CI gate, including shared-schema consumers
       such as historical/chart; demonstrate an intentional stale schema fails
       and regeneration repairs it without recaching or loosening validation.
+      Partial evidence: maintained no-write `bun run schema:check` plus real
+      quote/options dependency and repair controls now pass; actual CI routing
+      and verification remain I02/E06.
 
 <a id="migration-f"></a>
 

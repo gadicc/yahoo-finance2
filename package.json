@@ -9,7 +9,9 @@
     "test:focused": "python3 tests/migration/run.py --focus",
     "test:coverage": "python3 tests/migration/run.py --coverage",
     "typecheck": "python3 tests/migration/run.py --typecheck",
-    "typecheck:incremental": "python3 tests/migration/run.py --typecheck-incremental"
+    "typecheck:incremental": "python3 tests/migration/run.py --typecheck-incremental",
+    "schema": "bun scripts/schema-gen.ts",
+    "schema:check": "bun scripts/schema-gen.ts --check"
   },
   "devDependencies": {
     "@sebbo2002/semantic-release-jsr": "4.0.2",
