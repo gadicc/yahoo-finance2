@@ -72,12 +72,16 @@ are most likely to need during edits.
   `deno task schema src/modules/quote.ts src/modules/options.ts`; alternatively
   run `deno task schema --force` to regenerate all schemas. Also test consumers
   of shared schemas, such as historical after chart changes.
-- Automated fixture repair is limited to interfaces and generated schemas. If a
-  failure needs runtime code, test expectations, or fixture changes, stop that
-  particular repair, report the evidence and proposed action to the operator,
-  and await feedback. Continue independent type/schema fixes while waiting and
-  check for feedback before finishing. Do not disable validation or broaden a
-  type simply to make a test pass.
+- Automated fixture repair is limited to interfaces, additions of observed
+  strings to existing nongeneric string-literal-union aliases, and generated
+  schemas. Alias edits must preserve names, modifiers, all existing literals in
+  order (including duplicates), and add only distinct new plain string literals.
+  Other alias edits require manual review. If a failure needs runtime code, test
+  expectations, or fixture changes, stop that particular repair, report the
+  evidence and proposed action to the operator, and await feedback. Continue
+  independent type/schema fixes while waiting and check for feedback before
+  finishing. Do not disable validation or broaden a type simply to make a test
+  pass.
 - Replay focused cached tests first, then the full suite. Inspect generated
   schema diffs and final Git status; do not recache again as part of
   verification.

@@ -1,6 +1,6 @@
 import { expect } from "@std/expect";
 import {
-  assertInterfaceOnly,
+  assertSchemaOnly,
   parseProposal,
   proposedSources,
 } from "./schema-repair.ts";
@@ -33,16 +33,132 @@ Deno.test("schema repair accepts literal fields and new named data interfaces", 
     "  count: number;",
     '  count: number;\n  keyVersion?: "v2";',
   );
-  expect(() => assertInterfaceOnly(original, repaired)).not.toThrow();
+  expect(() => assertSchemaOnly(original, repaired)).not.toThrow();
   expect(() =>
-    assertInterfaceOnly(
+    assertSchemaOnly(
       original,
       repaired + "\nexport interface Extra { value: string | null; }",
     )
   ).not.toThrow();
 });
 
-Deno.test("schema repair rejects runtime, imports, aliases, removed members and altered headers", () => {
+const unionSource = original +
+  '\nexport type Field = "old" | "other" | "old";\n';
+
+Deno.test("schema repair accepts alias-only and mixed string-union additions", () => {
+  const extended = unionSource.replace(
+    '"old" | "other" | "old"',
+    '"new" | "old" | "other" | "old" | "another"',
+  );
+  expect(() => assertSchemaOnly(unionSource, extended)).not.toThrow();
+  expect(() =>
+    assertSchemaOnly(
+      unionSource,
+      unionSource.replace('"other"', '"other" | "literal /** @type any */"'),
+    )
+  ).not.toThrow();
+  expect(() =>
+    assertSchemaOnly(
+      unionSource,
+      extended.replace("count: number;", 'count: number; added?: "yes";'),
+    )
+  ).not.toThrow();
+  const p = proposal(
+    '"old" | "other" | "old"',
+    '"old" | "other" | "old" | "new"',
+  );
+  expect(proposedSources(p, () => unionSource).get("src/modules/example.ts"))
+    .toContain('"old" | "other" | "old" | "new"');
+});
+
+Deno.test("schema repair rejects union removals, replacements, reordering and duplicates", () => {
+  for (
+    const type of [
+      '"old" | "new"',
+      '"old" | "other" | "replaced"',
+      '"other" | "old" | "old" | "new"',
+      '"old" | "other" | "new"',
+      '"old" | "other" | "old" | "old" | "new"',
+      '"old" | "other" | "old" | "new" | "new"',
+    ]
+  ) {
+    expect(() =>
+      assertSchemaOnly(
+        unionSource,
+        unionSource.replace('"old" | "other" | "old"', type),
+      )
+    ).toThrow();
+  }
+});
+
+Deno.test("schema repair rejects broad, executable and non-string union additions", () => {
+  for (
+    const type of [
+      "string",
+      "any",
+      "unknown",
+      "never",
+      "number",
+      "null",
+      "1",
+      "Other",
+      "typeof execute",
+      "(() => void)",
+      "{ value: string }",
+      "`template`",
+      "`prefix${string}`",
+      '("wrapped")',
+      '/** @type any */ "new"',
+    ]
+  ) {
+    expect(() =>
+      assertSchemaOnly(
+        unionSource,
+        unionSource.replace('"other"', `"other" | ${type}`),
+      )
+    ).toThrow();
+  }
+});
+
+Deno.test("schema repair preserves alias declarations and rejects generic or nonliteral originals", () => {
+  const extended = unionSource.replace('"other"', '"other" | "new"');
+  for (
+    const after of [
+      extended.replace("export type Field", "type Field"),
+      extended.replace("type Field", "type Renamed"),
+      extended.replace("type Field", "type Field<T>"),
+      extended.replace(
+        "export type Field",
+        "/** @type any */ export type Field",
+      ),
+      extended + '\ntype Added = "a" | "b";',
+      extended + '\ntype Field = "a" | "b";',
+      extended.replace("return schema", "return fetch('/secret')"),
+      original.replace("count: number;", "count: number; added: string;"),
+    ]
+  ) expect(() => assertSchemaOnly(unionSource, after)).toThrow();
+  for (const type of ['"a" | number', '"single"', '"a" | Other', "string"]) {
+    const before = original + `\ntype Field = ${type};`;
+    expect(() =>
+      assertSchemaOnly(before, before.replace(type, `${type} | "new"`))
+    )
+      .toThrow();
+  }
+  const generic = unionSource.replace("type Field", "type Field<T>");
+  expect(() =>
+    assertSchemaOnly(generic, generic.replace('"other"', '"other" | "new"'))
+  ).toThrow();
+  // Unchanged aliases retain their original scope, even when interfaces change.
+  const unchanged = original + "\ntype Existing = any;\n";
+  expect(() =>
+    assertSchemaOnly(
+      unchanged,
+      unchanged.replace("count: number;", "count: number; added: string;"),
+    )
+  ).not.toThrow();
+});
+
+Deno.test("schema repair rejects runtime, imports, arbitrary aliases, removed members and altered headers", () => {
   for (
     const after of [
       original.replace(
@@ -60,7 +176,7 @@ Deno.test("schema repair rejects runtime, imports, aliases, removed members and 
         "const stolen = fetch('/secret');\nexport default function",
       ),
     ]
-  ) expect(() => assertInterfaceOnly(original, after)).toThrow();
+  ) expect(() => assertSchemaOnly(original, after)).toThrow();
 });
 
 Deno.test("schema repair rejects broadening shortcuts, computed properties and schema JSDoc directives", () => {
@@ -82,7 +198,7 @@ Deno.test("schema repair rejects broadening shortcuts, computed properties and s
       "  count: number;",
       `  count: number;\n  ${member}`,
     );
-    expect(() => assertInterfaceOnly(original, after)).toThrow();
+    expect(() => assertSchemaOnly(original, after)).toThrow();
   }
 });
 

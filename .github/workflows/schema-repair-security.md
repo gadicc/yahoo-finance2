@@ -45,20 +45,29 @@ are configured so scheduled repairs can run unattended; the draft PR provides
 the human review boundary before merging. Changes to this environment, workflow,
 repository variables, or OpenAI mapping are privileged maintainer operations.
 
-The workflow validates a full commit SHA and positive issue number. The SHA must
-be an ancestor of repository `dev`, and its changed paths must be non-static,
-non-fake HTTP fixtures with restricted filenames. This prevents using the manual
-entry point to supply an arbitrary fork or a commit changing executable code. It
-does not prove that a fixture contains a valid successful response; the agent
-and reviewer must still inspect HTTP status and payload.
+The workflow validates full drift/base commit SHAs and a positive issue number.
+The repair base must be an ancestor of repository `dev`. The recorded drift's
+changed paths must be non-static, non-fake HTTP fixtures with restricted
+filenames. This prevents using the manual entry point to supply an arbitrary
+fork or a commit changing executable code. It does not prove that a fixture
+contains a valid successful response; the agent and reviewer must still inspect
+HTTP status and payload.
+
+Manual retries can supply `repair_base` after an automation update. The recorded
+fixture-only drift must be an ancestor of that trusted `dev` base, and a Git
+diff must confirm that the complete HTTP fixture tree is unchanged between them.
+This allows new verifier/prompt code to repair the same recorded evidence
+without recaching or publishing a patch from a stale base. The publisher still
+requires remote `dev` to equal the verified base.
 
 ## Trusted code and dependencies
 
 Each repair-stage job checks out `github.workflow_sha` for its prompt, scripts,
-and configuration. A separate `candidate` worktree holds the recorded drift
-commit. The verifier and publisher invoke the script from the trusted checkout,
-not a script copied from the candidate or produced by the agent. This prevents a
-proposal from replacing the guard that judges it.
+and configuration. A separate `candidate` worktree holds the selected repair
+base, with the recorded fixtures preserved. The verifier and publisher invoke
+the script from the trusted checkout, not a script copied from the candidate or
+produced by the agent. This prevents a proposal from replacing the guard that
+judges it.
 
 The repair, verification, and publication actions are pinned to commit SHAs; the
 Codex CLI and Deno runtime have explicit versions. Dependency installation uses
@@ -150,11 +159,19 @@ replacements in existing regular module source files; traversal, test paths,
 schema replacements, added files, symlinks, and unrelated paths are excluded.
 The guard parses TypeScript before writing any proposed source.
 
-Its AST checks preserve runtime declarations, imports, type aliases, interface
-headers, existing members, index signatures, shebangs, and reference directives.
-It permits typed data properties and plain data interfaces, while rejecting
+Its AST checks preserve runtime declarations, imports, interface headers,
+existing members, index signatures, shebangs, and reference directives. It
+permits typed data properties and plain data interfaces, while rejecting
 computed properties, executable type syntax, schema-control JSDoc tags, and
 broad shortcuts such as `any`, `unknown`, or empty objects in changed members.
+The one allowed alias edit is adding distinct plain strings to an existing
+nongeneric string-literal union. Alias names/modifiers and every existing
+literal must remain, in order and with their original multiplicity.
+New/deleted/renamed aliases, generic parameters, nonliteral members, templates,
+type references, and schema-control JSDoc tags are rejected. Existing unrelated
+aliases remain unchanged. This permits observed enum growth without allowing
+arbitrary type expressions or replacing a precise union with `string`.
+
 This narrow scope keeps automated repairs reviewable and prevents source edits
 from introducing executable behavior or bypassing schema validation.
 

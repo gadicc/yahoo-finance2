@@ -191,9 +191,13 @@ and empty arrays. Record representative fixture filenames in the change
 description. Add JSDoc for new fields when their meaning is clear, without
 guessing units or semantics.
 
-Agents repairing recached fixtures should automatically change only interfaces
-and generated schemas. If a failure requires runtime code, test expectations, or
-fixture changes, report the evidence and proposed action and await operator
+Agents repairing recached fixtures should automatically change only interfaces,
+additions of observed values to existing nongeneric string-literal-union
+aliases, and generated schemas. Alias names and modifiers must stay unchanged;
+retain all existing literals in order, including duplicates, and add only
+distinct new plain string literals backed by successful fixtures. Other alias
+edits need manual review. If a failure requires runtime code, test expectations,
+or fixture changes, report the evidence and proposed action and await operator
 feedback for that repair. Continue independent type/schema fixes while waiting,
 and check for feedback before finishing. Do not bypass validation to make tests
 pass.

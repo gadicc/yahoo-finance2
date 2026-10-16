@@ -126,10 +126,15 @@ billing/credits or the applicable spend/usage limit before retrying; leave
 automatic repair disabled while resolving it.
 
 For a current unresolved fixture-drift commit, use its full SHA and tracking
-issue number. Set `dry_run=false` to publish after verification. The publisher
-rejects a stale base if `dev` has moved, and leaves existing repair branches/PRs
-untouched. Disabling `SCHEMA_REPAIR_ENABLED` stops automatic repair runs;
-disabling the OpenAI mapping prevents new federated exchanges.
+issue number. When retrying after an automation update on `dev`, set the
+optional `repair_base` input to the current full `dev` SHA. The recorded
+`drift_commit` must be its ancestor, and all HTTP fixtures must match that
+recorded snapshot. The agent uses the recorded drift's parent for evidence while
+repairing/testing the newer base. Leaving `repair_base` empty retains the
+original recorded base. Set `dry_run=false` to publish after verification. The
+publisher rejects a stale base if `dev` has moved, and leaves existing repair
+branches/PRs untouched. Disabling `SCHEMA_REPAIR_ENABLED` stops automatic repair
+runs; disabling the OpenAI mapping prevents new federated exchanges.
 
 ## Isolation and verification
 
@@ -148,9 +153,13 @@ limits. The main boundaries are:
   scripts, git state, caches, or runner state are carried forward. Comments and
   upstream text remain untrusted evidence.
 - The verifier parses source without executing it. It allows interface data
-  changes, rejects runtime/import/alias changes and broad shortcuts, regenerates
-  schemas independently, then runs formatting, lint, type checks and cache-only
-  tests. More complicated repairs return a blocked result for manual work.
+  changes and additions to existing nongeneric string-literal-union aliases.
+  Alias edits preserve names, modifiers, and existing literals in order
+  (including duplicates); new values must be distinct plain string literals
+  supported by successful fixtures. It rejects other alias edits, runtime/import
+  changes and broad shortcuts, regenerates schemas independently, then runs
+  formatting, lint, type checks and cache-only tests. More complicated repairs
+  return a blocked result for manual work.
 - The publisher restores only the verified source/schema files on another fresh
   checkout. Trusted code receives a write token only for branch/PR publication.
   It creates `codex/schema-drift-<issue>` and a draft PR targeting `dev`.

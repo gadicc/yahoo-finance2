@@ -27,6 +27,10 @@ on:
         description: Full fixture-drift commit SHA (repair_only)
         default: ""
         type: string
+      repair_base:
+        description: Optional full dev commit SHA to repair after automation updates; fixtures must match drift_commit (repair_only)
+        default: ""
+        type: string
       issue_number:
         description: Tracking issue number (repair_only)
         default: 0
@@ -437,7 +441,8 @@ jobs:
       base: ${{ steps.prepare.outputs.base }}
       issue: ${{ steps.prepare.outputs.issue }}
     env:
-      REPAIR_BASE: ${{ inputs.repair_only && inputs.drift_commit || needs.recache.outputs.drift_sha }}
+      REPAIR_DRIFT: ${{ inputs.repair_only && inputs.drift_commit || needs.recache.outputs.drift_sha }}
+      REPAIR_BASE: ${{ inputs.repair_only && (inputs.repair_base || inputs.drift_commit) || needs.recache.outputs.drift_sha }}
       REPAIR_ISSUE: ${{ inputs.repair_only && inputs.issue_number || needs.recache.outputs.issue_number }}
       SCHEMA_REPAIR_MODEL: ${{ vars.SCHEMA_REPAIR_MODEL || 'gpt-6.1-sol' }}
     steps:
@@ -461,15 +466,22 @@ jobs:
         shell: bash
         run: |
           [[ "$REPAIR_BASE" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$REPAIR_DRIFT" =~ ^[0-9a-f]{40}$ ]]
           [[ "$REPAIR_ISSUE" =~ ^[1-9][0-9]*$ ]]
           git merge-base --is-ancestor "$REPAIR_BASE" origin/dev
+          git merge-base --is-ancestor "$REPAIR_DRIFT" "$REPAIR_BASE"
           # Accept only a recorded fixture-drift commit, never a fork or arbitrary code.
-          git diff-tree --no-commit-id --name-only -r "$REPAIR_BASE" > "$RUNNER_TEMP/drift-files.txt"
+          git diff-tree --no-commit-id --name-only -r "$REPAIR_DRIFT" > "$RUNNER_TEMP/drift-files.txt"
           [[ -s "$RUNNER_TEMP/drift-files.txt" ]]
           while IFS= read -r file; do
             [[ "$file" =~ ^tests/fixtures/http/[A-Za-z0-9_.^=-]+\.json$ ]]
             [[ ! "$file" =~ \.(static|fake)\.json$ ]]
           done < "$RUNNER_TEMP/drift-files.txt"
+          # Retry on newer trusted dev code without changing the captured evidence.
+          git diff --quiet "$REPAIR_DRIFT" "$REPAIR_BASE" -- tests/fixtures/http || {
+            echo '::error::Repair base fixtures differ from the recorded drift; select the matching drift commit.'
+            exit 1
+          }
           git worktree add --detach candidate "$REPAIR_BASE"
           deno install --frozen
           (cd candidate && deno install --frozen)
@@ -539,7 +551,7 @@ jobs:
           deno install --frozen
           git worktree add --detach candidate "$REPAIR_BASE"
           (cd candidate && deno install --frozen)
-      - name: Check and apply interface-only proposal
+      - name: Check and apply schema type proposal
         id: apply
         env:
           PROPOSAL: ${{ needs.repair.outputs.proposal }}

@@ -176,7 +176,95 @@ function memberKey(member: ts.TypeElement, source: ts.SourceFile): string {
   return member.name ? print(member.name, source) : print(member, source);
 }
 
-export function assertInterfaceOnly(before: string, after: string) {
+function aliases(source: ts.SourceFile) {
+  const result = new Map<string, ts.TypeAliasDeclaration>();
+  for (const statement of source.statements) {
+    if (!ts.isTypeAliasDeclaration(statement)) continue;
+    requireCondition(
+      !result.has(statement.name.text),
+      "Duplicate type aliases are forbidden",
+    );
+    result.set(statement.name.text, statement);
+  }
+  return result;
+}
+
+function stringUnionValues(node: ts.TypeNode): string[] {
+  requireCondition(
+    ts.isUnionTypeNode(node),
+    "Only existing string-literal unions may be extended",
+  );
+  return node.types.map((member) => {
+    requireCondition(
+      ts.isLiteralTypeNode(member) && ts.isStringLiteral(member.literal),
+      "Union additions must be plain string literals",
+    );
+    requireCondition(
+      tags(member) === "",
+      "Schema-control JSDoc tags require manual review",
+    );
+    return member.literal.text;
+  });
+}
+
+function assertStringUnionAdditions(
+  before: ts.TypeAliasDeclaration,
+  after: ts.TypeAliasDeclaration,
+  oldSource: ts.SourceFile,
+  newSource: ts.SourceFile,
+) {
+  requireCondition(
+    !before.typeParameters && !after.typeParameters &&
+      JSON.stringify(
+          before.modifiers?.map((n) => print(n, oldSource)) ?? [],
+        ) ===
+        JSON.stringify(after.modifiers?.map((n) => print(n, newSource)) ?? []),
+    "Changed aliases must be nongeneric and preserve their modifiers",
+  );
+  requireCondition(
+    tags(before) === "" && tags(after) === "",
+    "Schema-control JSDoc tags require manual review",
+  );
+  for (
+    const [node, source] of [[before, oldSource], [after, newSource]] as const
+  ) {
+    // TypeScript does not attach every inline JSDoc comment to a union member.
+    // Scan comment tokens too, without treating text inside a string as a tag.
+    const scanner = ts.createScanner(
+      ts.ScriptTarget.Latest,
+      false,
+      ts.LanguageVariant.Standard,
+      source.text.slice(node.getFullStart(), node.end),
+    );
+    for (
+      let token = scanner.scan();
+      token !== ts.SyntaxKind.EndOfFileToken;
+      token = scanner.scan()
+    ) {
+      const text = scanner.getTokenText();
+      requireCondition(
+        token !== ts.SyntaxKind.MultiLineCommentTrivia ||
+          !text.startsWith("/**") || !/@[A-Za-z]/.test(text),
+        "Schema-control JSDoc tags require manual review",
+      );
+    }
+  }
+  const previous = stringUnionValues(before.type);
+  const next = stringUnionValues(after.type);
+  const existing = new Set(previous);
+  const retained = next.filter((value) => existing.has(value));
+  const added = next.filter((value) => !existing.has(value));
+  requireCondition(
+    JSON.stringify(retained) === JSON.stringify(previous),
+    "Existing union literals must retain their order and multiplicity",
+  );
+  requireCondition(
+    added.length > 0 && new Set(added).size === added.length,
+    "Union edits must add distinct new string literals",
+  );
+}
+
+export function assertSchemaOnly(before: string, after: string) {
   requireCondition(
     before.includes("@yf-schema"),
     "Source must already participate in schema generation",
@@ -197,20 +285,35 @@ export function assertInterfaceOnly(before: string, after: string) {
     directives(oldSource) === directives(newSource),
     "Reference directives must remain unchanged",
   );
-  const nonInterfaces = (source: ts.SourceFile) =>
+  const runtimeDeclarations = (source: ts.SourceFile) =>
     source.statements
-      .filter((node) => !ts.isInterfaceDeclaration(node))
+      .filter((node) =>
+        !ts.isInterfaceDeclaration(node) && !ts.isTypeAliasDeclaration(node)
+      )
       .map((node) => print(node, source)).join("\n");
   requireCondition(
-    nonInterfaces(oldSource) === nonInterfaces(newSource),
-    "Runtime, imports, type aliases, and other declarations must remain unchanged",
+    runtimeDeclarations(oldSource) === runtimeDeclarations(newSource),
+    "Runtime, imports, and other declarations must remain unchanged",
   );
+  const oldAliases = aliases(oldSource);
+  const newAliases = aliases(newSource);
+  requireCondition(
+    oldAliases.size === newAliases.size &&
+      [...oldAliases.keys()].every((name) => newAliases.has(name)),
+    "Type aliases cannot be added, removed, or renamed",
+  );
+  let changed = false;
+  for (const [name, declaration] of newAliases) {
+    const previous = oldAliases.get(name)!;
+    if (print(previous, oldSource) === print(declaration, newSource)) continue;
+    assertStringUnionAdditions(previous, declaration, oldSource, newSource);
+    changed = true;
+  }
   const oldInterfaces = interfaces(oldSource);
   const newInterfaces = interfaces(newSource);
   for (const name of oldInterfaces.keys()) {
     requireCondition(newInterfaces.has(name), "Interfaces cannot be removed");
   }
-  let changed = false;
   for (const [name, declaration] of newInterfaces) {
     const previous = oldInterfaces.get(name);
     if (
@@ -267,7 +370,7 @@ export function assertInterfaceOnly(before: string, after: string) {
       assertDataMember(member);
     }
   }
-  requireCondition(changed, "No interface change found");
+  requireCondition(changed, "No permitted schema type change found");
 }
 
 export function proposedSources(
@@ -292,7 +395,7 @@ export function proposedSources(
     );
   }
   for (const [path, after] of sources) {
-    assertInterfaceOnly(originals.get(path)!, after);
+    assertSchemaOnly(originals.get(path)!, after);
   }
   return sources;
 }
@@ -343,7 +446,7 @@ function changedFiles(base: string) {
   for (const path of paths) {
     const old = trackedSource(base, path);
     if (sourcePath.test(path)) {
-      assertInterfaceOnly(old, Deno.readTextFileSync(path));
+      assertSchemaOnly(old, Deno.readTextFileSync(path));
     } else {
       JSON.parse(Deno.readTextFileSync(path));
       requireCondition(
@@ -413,7 +516,7 @@ if (import.meta.main) {
       );
       paths.add(file.path);
       const old = trackedSource(base, file.path);
-      if (sourcePath.test(file.path)) assertInterfaceOnly(old, file.content);
+      if (sourcePath.test(file.path)) assertSchemaOnly(old, file.content);
       else JSON.parse(file.content);
     }
     for (const file of bundle.files) {
