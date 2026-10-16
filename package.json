@@ -21,7 +21,8 @@
     "typecheck:negative": "bun scripts/typecheck.ts --negative",
     "format": "biome format --write .",
     "format:check": "biome format .",
-    "lint": "biome lint ."
+    "lint": "biome lint .",
+    "test:native": "bun scripts/test.ts --native"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",

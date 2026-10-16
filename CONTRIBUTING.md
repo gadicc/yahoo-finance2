@@ -64,11 +64,16 @@ is recommended, with 3.10 the minimum. Use the correct binary for your platform;
 these are upstream requirements, not a claim that this branch passed its OS
 matrix.
 
-The maintained test launcher requires Linux with Bubblewrap (`bwrap`), Python 3,
+The default strict test launcher requires Linux with Bubblewrap (`bwrap`), Python 3,
 `libseccomp.so.2`, and host support for user/mount/network/PID namespaces. It
 runs replay-only with network requests and fixture writes denied by inherited
 kernel boundaries. A fresh checkout needs no fixture chmod preparation. Missing
-prerequisites fail closed; other platforms currently receive Linux/WSL guidance.
+prerequisites fail closed; this strict mode gives other platforms Linux/WSL
+guidance. Explicit `bun run test:native` provides trusted portable library replay
+with a read-only FMC store and fixture-byte checks, without an OS sandbox.
+It never retries a failed strict run automatically. Read its
+[scope and native platform limits](tests/migration/NATIVE-REPLAY.md), including
+the still-pending actual macOS/Windows matrix.
 The maintained TypeScript checker runs the pinned TypeScript 6.0.3 compiler
 API with Bun. It does not require `YF_EXPERIMENT_NODE` or use Bun's newer
 TypeScript checker. Its library and tools environments remain separate; see
@@ -80,6 +85,7 @@ bun run test:focused
 bun run test:serial -- src/lib/queue.test.ts
 bun run test:watch
 bun run test:coverage
+bun run test:native
 bun run test -- --filter quote --name 'validates|symbol'
 bun run typecheck
 bun run typecheck:incremental
@@ -88,12 +94,14 @@ bun run typecheck:negative
 
 The [maintained command and offline policy](tests/migration/TESTING.md)
 documents selection, discovery, exit codes, watch restarts and guard limits.
-Full runs select all discovered repository test files with four isolated
-workers; the separate Workers harness is excluded. Ordinary tests deliberately
+Strict full runs select all discovered repository test files with four isolated
+workers; the separate Workers harness is excluded. Native runs select the
+explicit library/portable-control scope and print every omitted tooling file. Ordinary tests deliberately
 replace Deno's automatic live fixture capture with replay-only behavior. A cache
 miss fails without fallback. Explicit live recaching uses the separate
 [controlled capture policy](tests/migration/RECACHE.md). Direct `bun test`
-bypasses the boundary. Cross-platform offline support remains D04. Generate schemas with `bun run schema`, select explicit roots with
+bypasses launcher policy. The explicit native command retains replay controls
+but has no kernel boundary. Generate schemas with `bun run schema`, select explicit roots with
 `bun run schema src/modules/quote.ts src/modules/options.ts`, and run
 `bun run schema:check` for the no-write stale gate. See the
 [schema behavior](tests/migration/SCHEMAS.md) for watch and failure semantics.

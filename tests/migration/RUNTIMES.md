@@ -16,12 +16,12 @@ versions produce a logger warning; construction is not rejected.
 These Linux results do not establish native macOS/Windows coverage. Consumer
 support is retained; H05 must exercise the actual supported OS paths. The user
 selected native replay for trusted macOS/Windows development while retaining
-the strong Linux guard in CI. That native implementation is underway separately;
-this step does not claim it is delivered or provides a portable process sandbox.
-The current maintained replay boundary requires Linux namespaces, Bubblewrap,
-Python 3 and libseccomp, and fails closed elsewhere with Linux/WSL guidance.
-A WSL or VM environment must actually satisfy those Linux prerequisites. Actual
-native OS verification remains pending.
+the strong Linux guard in CI. The explicit `bun run test:native` implementation
+is now available; its [policy and evidence](NATIVE-REPLAY.md) distinguish the
+read-only cache boundary from process isolation. Actual native OS execution
+remains pending. The strict default requires Linux namespaces, Bubblewrap,
+Python 3 and libseccomp and fails closed if they are unavailable. A WSL or VM
+environment must actually satisfy those prerequisites.
 
 
 A Deno binary is permitted **only inside the isolated publisher**. None was

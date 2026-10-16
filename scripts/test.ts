@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
+  type Dirent,
   lstatSync,
   mkdirSync,
   mkdtempSync,
@@ -12,18 +13,25 @@ import {
   writeFileSync,
 } from "node:fs";
 import { constants, tmpdir } from "node:os";
-import { delimiter, dirname, join, resolve, sep } from "node:path";
+import { delimiter, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
-import { excludedDirectories, inventory, select } from "./testing/inventory.ts";
+import { excludedDirectories, inventory, nativeInventory, select } from "./testing/inventory.ts";
+import {
+  assertFixtureSnapshot,
+  fixtureSnapshot,
+  nativeEnvironment,
+  waitNativeChild,
+} from "./testing/native.ts";
 
 const repository = realpathSync(fileURLToPath(new URL("../", import.meta.url)));
 const guard = fileURLToPath(new URL("./testing/offline.py", import.meta.url));
 const help = `Usage: bun scripts/test.ts [OPTIONS] [TEST FILE OR DIRECTORY ...]
 Default: offline replay, isolated files, four workers; test bodies remain serial.
+  --native                 Trusted portable library replay; no OS sandbox (explicit opt-in)
   --serial                 Isolated serial files
   --filter TEXT            Select test paths containing TEXT
   --name REGEX, -t REGEX    Select test names matching REGEX
-  --watch                  Restart guarded runs after source/test content changes
+  --watch                  Restart the selected mode after source/test content changes
   --coverage               Write native Bun coverage to coverage/
   --timeout MS             Per-test timeout (default 5000)
   --run-timeout MS         Whole-run timeout (default 120000)
@@ -35,6 +43,7 @@ Linux requires Bubblewrap, Python 3 and libseccomp; there is no unguarded fallba
 
 export interface TestOptions {
   paths: string[];
+  native: boolean;
   serial: boolean;
   watch: boolean;
   coverage: boolean;
@@ -49,6 +58,7 @@ export interface TestOptions {
 export function parseArguments(args: string[]): TestOptions {
   const options: TestOptions = {
     paths: [],
+    native: false,
     serial: false,
     watch: false,
     coverage: false,
@@ -70,6 +80,7 @@ export function parseArguments(args: string[]): TestOptions {
     }
     const [flag, ...suffix] = argument.split("=");
     const boolean = {
+      "--native": "native",
       "--serial": "serial",
       "--watch": "watch",
       "--coverage": "coverage",
@@ -141,7 +152,7 @@ export function fingerprint(
   }
 
   function visit(directory: string) {
-    let entries;
+    let entries: Dirent<string>[];
     try {
       if (lstatSync(directory).isSymbolicLink()) return;
       entries = readdirSync(directory, { withFileTypes: true });
@@ -196,7 +207,7 @@ export function fingerprint(
 function prepareCoverage(root: string) {
   const output = join(root, "coverage");
   mkdirSync(output, { recursive: true });
-  if (lstatSync(output).isSymbolicLink() || realpathSync(output) !== output) {
+  if (lstatSync(output).isSymbolicLink() || relative(realpathSync(output), output) !== "") {
     throw new Error("coverage must be a real repository directory");
   }
   // Clear before selection too: an empty/invalid selection must not expose
@@ -205,7 +216,9 @@ function prepareCoverage(root: string) {
 }
 
 function signalCode(signal: NodeJS.Signals) {
-  return 128 + constants.signals[signal];
+  if (signal === "SIGINT") return 130;
+  if (signal === "SIGTERM") return 143;
+  return 128 + (constants.signals[signal] ?? 1);
 }
 
 async function runOnce(
@@ -215,17 +228,25 @@ async function runOnce(
   abort: AbortSignal,
 ): Promise<number> {
   const temporary = realpathSync(tmpdir());
-  if (temporary === root || temporary.startsWith(root + sep)) {
+  const temporaryRelative = relative(root, temporary);
+  if (temporaryRelative === "" ||
+    (!isAbsolute(temporaryRelative) && temporaryRelative !== ".." &&
+      !temporaryRelative.startsWith(`..${sep}`))) {
     throw new Error("TMPDIR must be outside the repository and fixtures");
   }
   const scratch = realpathSync(mkdtempSync(join(temporary, "yf-replay-")));
+  let before: string | undefined;
   try {
+    if (options.native) before = fixtureSnapshot(root);
     const report = join(scratch, "junit.xml");
     const command = [
       process.execPath,
       "test",
       "--no-env-file",
       "--no-orphans",
+      ...(options.native
+        ? ["--preload", fileURLToPath(new URL("./testing/native-preload.ts", import.meta.url))]
+        : []),
       options.serial ? "--isolate" : "--parallel=4",
       `--timeout=${options.timeout}`,
       "--reporter=junit",
@@ -243,55 +264,64 @@ async function runOnce(
         : []),
       ...files.map((file) => resolve(root, file)),
     ];
-    const child = spawn("python3", [guard, root, scratch, "--", ...command], {
+    const environment = {
+      ...process.env,
+      PATH: `${dirname(process.execPath)}${delimiter}${process.env.PATH ?? ""}`,
+    };
+    const child = spawn(options.native ? command[0] : "python3", options.native
+      ? command.slice(1)
+      : [guard, root, scratch, "--", ...command], {
       cwd: root,
-      env: {
-        ...process.env,
-        PATH: `${dirname(process.execPath)}${delimiter}${
-          process.env.PATH ?? ""
-        }`,
-      },
+      env: options.native ? nativeEnvironment(environment, scratch) : environment,
       stdio: "inherit",
-      detached: true,
+      detached: !options.native || process.platform !== "win32",
+      windowsHide: options.native,
     });
     let timeout = false;
-    let killTimer: ReturnType<typeof setTimeout> | undefined;
-    const terminate = () => {
-      if (!child.pid) return;
-      try {
-        process.kill(-child.pid, "SIGTERM");
-      } catch (error) {
-        if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error;
-      }
-      killTimer ??= setTimeout(() => {
+    let code: number;
+    if (options.native) {
+      const result = await waitNativeChild(child, abort, options.runTimeout);
+      code = result.code;
+      timeout = result.timeout;
+    } else {
+      let killTimer: ReturnType<typeof setTimeout> | undefined;
+      const terminate = () => {
+        if (!child.pid) return;
         try {
-          process.kill(-child.pid!, "SIGKILL");
+          process.kill(-child.pid, "SIGTERM");
         } catch (error) {
           if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error;
         }
-      }, 1000);
-    };
-    const timer = setTimeout(() => {
-      timeout = true;
-      terminate();
-    }, options.runTimeout);
-    abort.addEventListener("abort", terminate, { once: true });
-    if (abort.aborted) terminate();
-    const code = await new Promise<number>((resolveExit, reject) => {
-      child.once("error", reject);
-      child.once(
-        "close",
-        (code, signal) =>
-          resolveExit(code ?? (signal ? signalCode(signal) : 1)),
-      );
-    }).finally(() => {
-      clearTimeout(timer);
-      if (killTimer) clearTimeout(killTimer);
-      abort.removeEventListener("abort", terminate);
-    });
+        killTimer ??= setTimeout(() => {
+          try {
+            process.kill(-child.pid!, "SIGKILL");
+          } catch (error) {
+            if ((error as NodeJS.ErrnoException).code !== "ESRCH") throw error;
+          }
+        }, 1000);
+      };
+      const timer = setTimeout(() => {
+        timeout = true;
+        terminate();
+      }, options.runTimeout);
+      abort.addEventListener("abort", terminate, { once: true });
+      if (abort.aborted) terminate();
+      code = await new Promise<number>((resolveExit, reject) => {
+        child.once("error", reject);
+        child.once(
+          "close",
+          (code, signal) =>
+            resolveExit(code ?? (signal ? signalCode(signal) : 1)),
+        );
+      }).finally(() => {
+        clearTimeout(timer);
+        if (killTimer) clearTimeout(killTimer);
+        abort.removeEventListener("abort", terminate);
+      });
+    }
     if (options.coverage) {
-      // Stage output inside the writable scratch mount. The tested process
-      // never receives a writable alias to repository files (including hardlinks).
+      // Stage and atomically replace metrics in both modes. Only strict mode
+      // has the kernel boundary denying writable repository aliases.
       const source = join(scratch, "coverage", "lcov.info");
       try {
         if (!lstatSync(source).isFile() || lstatSync(source).isSymbolicLink()) {
@@ -331,7 +361,11 @@ async function runOnce(
     }
     return 0;
   } finally {
-    rmSync(scratch, { recursive: true, force: true });
+    try {
+      if (before !== undefined) assertFixtureSnapshot(root, before);
+    } finally {
+      rmSync(scratch, { recursive: true, force: true });
+    }
   }
 }
 
@@ -350,7 +384,7 @@ export async function runTests(
   if (process.versions.bun !== pin) {
     throw new Error(`Tests require Bun ${pin}; select the pinned binary`);
   }
-  if (!options.list && process.platform !== "linux") {
+  if (!options.native && !options.list && process.platform !== "linux") {
     throw new Error(
       "Offline replay requires Linux with Bubblewrap/Python/libseccomp. Use Linux or WSL; no unguarded fallback is available.",
     );
@@ -365,13 +399,24 @@ export async function runTests(
       );
     }
     if (options.coverage && !options.list) prepareCoverage(root);
-    const files = select(root, inventory(root), options.paths, options.filter);
+    const discovered = inventory(root);
+    const allowed = options.native ? nativeInventory(discovered) : discovered;
+    if (options.native) {
+      const included = new Set(allowed);
+      const omitted = discovered.filter((file) => !included.has(file));
+      console.error(`Native trusted replay: no OS sandbox; omitted ${omitted.length} tooling files outside the library/portable-control scope:\n${omitted.join("\n")}`);
+      if (options.paths.length) {
+        const outside = select(root, discovered, options.paths).filter((file) => !included.has(file));
+        if (outside.length) throw new Error(`Native selection is outside its portable scope: ${outside.join(", ")}; use strict Linux replay`);
+      }
+    }
+    const files = select(root, allowed, options.paths, options.filter);
     if (options.list) {
       for (const file of files) console.log(file);
       return 0;
     }
     console.error(
-      `Replay: ${files.length} files; ${
+      `${options.native ? "Native replay" : "Replay"}: ${files.length} files; ${
         options.serial ? "isolated serial" : "4 isolated workers"
       }`,
     );
@@ -400,7 +445,9 @@ export async function runTests(
       code = await runOnce(root, files, options, run.signal);
       if (!options.watch || signal?.aborted) return code;
       console.error(
-        "Watch: waiting for source/test content changes (fresh guarded restart)",
+        options.native
+          ? "Watch: waiting for source/test content changes (fresh native replay restart)"
+          : "Watch: waiting for source/test content changes (fresh guarded restart)",
       );
       while (!changed && !signal?.aborted && !watchError) {
         await new Promise((resolveWait) => setTimeout(resolveWait, 100));

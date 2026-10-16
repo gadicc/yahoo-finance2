@@ -1,4 +1,4 @@
-# Maintained test commands and Linux replay boundary
+# Maintained strict replay and explicit native development
 
 On this migration branch, ordinary test commands are **replay only**. This
 replaces the Deno development command's automatic live capture on a cache miss.
@@ -19,8 +19,12 @@ Select the exact Bun version in `.bun-version`, install with the frozen root
 lockfile, and install Linux Bubblewrap (`bwrap`), Python 3 and
 `libseccomp.so.2`. User/mount/network/PID namespace creation must be permitted
 by the host. A missing component or rejected namespace operation fails closed.
-Other platforms fail with Linux/WSL guidance; D04's full platform decision
-remains open. No fixture chmod preparation is needed after checkout.
+Strict mode fails on other platforms with Linux/WSL guidance. Explicit
+`bun run test:native` provides a smaller trusted library/portable-control scope
+without the kernel boundary; see [native replay](NATIVE-REPLAY.md). It never
+runs as an automatic retry after any strict failure. Native macOS/Windows
+execution still needs actual OS verification. No fixture chmod preparation is
+needed after checkout.
 
 ```sh
 bun run test:replay
@@ -46,8 +50,8 @@ skipped tests also returns nonzero; full-suite intentional skips stay visible.
 Discovery recursively scans `src`, `tests`, and `scripts` for `.test.ts`, in
 sorted order. It excludes the independently managed `tests/cloudflare` harness,
 symlinks, and directories named `node_modules`, `.git`, `.migration-results`,
-`coverage`, `npm`, `jsdocs`, `generated`, or `fixtures`. No existing test leaves
-are dropped. `--list` exposes the actual selection without launching tests.
+`coverage`, `npm`, `jsdocs`, `generated`, or `fixtures`. Strict discovery drops no existing test leaves. Native discovery explicitly
+selects its documented scope and reports every omitted file. `--list` exposes the actual selection without launching tests.
 
 The default per-test timeout is 5,000 ms; explicit test registrations can set
 their own timeout. `--timeout MS` changes the default. `--run-timeout MS` limits
@@ -101,7 +105,9 @@ receive a writable coverage alias to repository files. A selection with no
 instrumented source reports that no coverage was generated. Scratch and
 temporary publication files are cleaned on ordinary completion, failure, timeout
 and handled signals; SIGKILL cannot run JavaScript cleanup. Direct `bun test`
-bypasses this launcher and its boundary. Use `bun run typecheck`,
+bypasses this launcher and its boundary. Explicit `--native` also omits the
+kernel boundary while retaining trusted replay/store/parity controls; it is not
+strict CI replay. Use `bun run typecheck`,
 `bun run typecheck:incremental`, and `bun run typecheck:negative` for current
 typechecking; see [the typechecking policy](TYPECHECKING.md). No Deno or Node
 selection is required. The historical Python drivers, including
@@ -116,11 +122,14 @@ protection. It does not claim protection against arbitrary malicious tests or
 every host service. Bubblewrap's guarantees depend on the configured
 mounts/namespaces; see the
 [upstream security discussion](https://github.com/containers/bubblewrap).
-Installation remains separate from test execution. Containers/native support for
-other operating systems, CI package provisioning, coverage quality gates and
-explicit live capture are separate milestones.
+Installation remains separate from test execution. Strict boundaries for other
+operating systems, actual native OS matrix verification, CI package provisioning
+and coverage quality gates remain separate milestones.
 
 The focused regressions live in `scripts/testing.test.ts`. They use synthetic
 workspaces with ordinary writable fixtures, nested guards and explicit test-only
-root injection. There is no CLI/environment switch that disables the guard or
-changes its root.
+root injection. Strict mode has no fallback or environment switch disabling its
+guard or changing its root. The explicit `--native` CLI mode is a separate
+trusted-development policy with a smaller disclosed inventory, read-only cache
+store and fixture parity detection. It makes no raw-socket or arbitrary-write
+denial claim. See [native command details and tests](NATIVE-REPLAY.md).

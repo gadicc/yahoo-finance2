@@ -1,0 +1,430 @@
+{
+  "milestone": "Explicit trusted native replay v2; accepted Sol P2 portable DOS filename correction; awaiting independent fix re-review",
+  "date": "2026-10-16T13:10:10.155439+00:00",
+  "baselineCommit": "0e10be3a350fe5bcdbc6874f25333bc62bff2978",
+  "immutableReviewRoot": "/tmp/yf-native-replay-v2-l9w_6u7_",
+  "candidateRoot": "/tmp/yf-native-replay-v2-l9w_6u7_/candidate",
+  "scope": [
+    "scripts/test.ts",
+    "scripts/testing/inventory.ts",
+    "scripts/testing/native.ts",
+    "scripts/testing/native-preload.ts",
+    "scripts/native-replay.test.ts",
+    "tests/fetchCache.ts",
+    "tests/replayStore.ts",
+    "tests/replayStore.test.ts",
+    "package.json",
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "tests/migration/TESTING.md",
+    "tests/migration/NATIVE-REPLAY.md",
+    "tests/migration/results/native-replay.json"
+  ],
+  "sourceSha256": {
+    "scripts/test.ts": "b14bd3c591e35e25f8f2a7196a23a0f0c71b03f12493a06ceb71093cf2ac8e29",
+    "scripts/testing/inventory.ts": "c33e57c71b2d4e7e5c3227267a5955eefd4b1cc4b6b96ae7b4d788e3ddac0e85",
+    "scripts/testing/native.ts": "4512711e2df481eab80f756c47acbc38a3dd0f88237452fc30e21c9df9719e40",
+    "scripts/testing/native-preload.ts": "86b53f62a2d8c0b27ca36165554bb4c4f7f80ab6f44abc52568bc63033df5c2c",
+    "scripts/native-replay.test.ts": "d81b20eb4c67016e85b59cb95c8a8879947770d4ab75339b23ce9a2b20972f49",
+    "tests/fetchCache.ts": "34e1d680688d764053a22055dc2bf7cb38526746fbc0e162a454255786ca3b5f",
+    "tests/replayStore.ts": "1d1a3d4689e34582b4e53eb298427b8006deecf5405eb64a21596e4b6f21c40a",
+    "tests/replayStore.test.ts": "7f3fe8b53391a719821e51f7aad21f29593f25aa01e66f23aa032a954d7d5b1f",
+    "package.json": "9f5337fd9f991b391487f4164cfea614b9a2cc754cb5b60cd1cc36b39acd4417",
+    "AGENTS.md": "8f007bcb428889ac3947c28ef70ef575cebc39bd45c4fb029c962b82fbf93fcd",
+    "CONTRIBUTING.md": "3e86dbfc0cc653843f501a00c966094e559288e9ff3b10d3aa8f75abc1b7dd33",
+    "tests/migration/TESTING.md": "6385e2c8748f923d6ec66aeee03443ba2d45e629561b36397b3fb447c23bbfad",
+    "tests/migration/NATIVE-REPLAY.md": "c88da68b6d130df7b202efc8c62a0685b353bc5ab5b414e90b068c7dfe0c75e6"
+  },
+  "basePlusOwnedFilesOnly": true,
+  "parallelDraftExclusions": "CI workflows/helpers and uncommitted src/modules/quoteSummary-iface.test.ts excluded; accepted H runtime commit0e10be3 included byte-identically; K02 source changes excluded",
+  "runtime": {
+    "bun": "1.4.3",
+    "nodeForExistingIntegrationControls": "24.21.0",
+    "platform": "Linux x64",
+    "denoInvoked": false,
+    "actualMacOSWindowsVerified": false
+  },
+  "commands": {
+    "newAlias": {
+      "test:native": "bun scripts/test.ts --native"
+    },
+    "flag": "--native explicit boolean; no environment selection or automatic fallback",
+    "existingAliasesAndPinsPreserved": true,
+    "lockByteIdenticalToBase": true,
+    "frozenInstall": "Normal-hook bun install --frozen-lockfile passes; preinstall toolchain check runs; no ignore-scripts/trust override/dependency change",
+    "nativeFlags": "Existing bounded focused paths/filter/name/serial/watch/coverage/list/timeout flags compose with explicit native mode",
+    "ci": "No CI files changed; existing strict default requires Linux helper and fails closed on missing prerequisites"
+  },
+  "nativeInventory": {
+    "includedCount": 40,
+    "omittedCount": 20,
+    "included": [
+      "scripts/native-replay.test.ts",
+      "src/createYahooFinance.test.ts",
+      "src/index.test.ts",
+      "src/lib/cli.test.ts",
+      "src/lib/cookieJar.test.ts",
+      "src/lib/getCrumb.geo.test.ts",
+      "src/lib/getCrumb.test.ts",
+      "src/lib/moduleExec.test.ts",
+      "src/lib/notices.test.ts",
+      "src/lib/options/options.test.ts",
+      "src/lib/queue.test.ts",
+      "src/lib/runtime-detect.test.ts",
+      "src/lib/validate/index.test.ts",
+      "src/lib/validate/types/undefined.test.ts",
+      "src/lib/validateAndCoerceTypes.test.ts",
+      "src/lib/versions.test.ts",
+      "src/lib/yahooFinanceFetch.test.ts",
+      "src/mcp/http.test.ts",
+      "src/mcp/server.test.ts",
+      "src/modules/autoc.test.ts",
+      "src/modules/chart.test.ts",
+      "src/modules/dailyGainers.test.ts",
+      "src/modules/dailyLosers.test.ts",
+      "src/modules/fundamentalsTimeSeries.test.ts",
+      "src/modules/historical.test.ts",
+      "src/modules/insights.test.ts",
+      "src/modules/options.test.ts",
+      "src/modules/options.type.test.ts",
+      "src/modules/quote.test.ts",
+      "src/modules/quoteSummary.test.ts",
+      "src/modules/recommendationsBySymbol.test.ts",
+      "src/modules/screener.test.ts",
+      "src/modules/search.test.ts",
+      "src/modules/streamer.test.ts",
+      "src/modules/trendingSymbols.test.ts",
+      "src/other/quoteCombine.test.ts",
+      "tests/harness.test.ts",
+      "tests/recacheFetch.test.ts",
+      "tests/recacheStats.test.ts",
+      "tests/replayStore.test.ts"
+    ],
+    "omitted": [
+      "scripts/build_npm.test.ts",
+      "scripts/capture-get-crumb-cli.test.ts",
+      "scripts/capture-get-crumb-fixtures.test.ts",
+      "scripts/check-recache-rate-limits.test.ts",
+      "scripts/fix_versions.test.ts",
+      "scripts/openai-wif-proxy.test.ts",
+      "scripts/recache-broker.test.ts",
+      "scripts/recache-child.test.ts",
+      "scripts/recache-fixtures.test.ts",
+      "scripts/recache-staging.test.ts",
+      "scripts/recache-store.test.ts",
+      "scripts/recache-tests.test.ts",
+      "scripts/schema-gen.test.ts",
+      "scripts/schema-repair-cli.test.ts",
+      "scripts/schema-repair.test.ts",
+      "scripts/schema/createGenerator.test.ts",
+      "scripts/testing.test.ts",
+      "scripts/typecheck.test.ts",
+      "scripts/workflow-policy.test.ts",
+      "tests/cli-entrypoints.test.ts"
+    ],
+    "policy": "All src/**/*.test.ts plus explicit portable harness/recacheFetch/recacheStats/store/native controls. Other tooling files reported explicitly. Explicit selection containing any omitted test fails rather than narrowing silently; source-only selection remains available.",
+    "equivalence": "No full root-suite equivalence claim; some omitted tooling may be portable but remains outside this trusted library scope"
+  },
+  "replayPolicy": {
+    "preload": "No .env; native environment clears case-insensitive FETCH_DEVEL*/FMC_*/NODE_OPTIONS/BUN_OPTIONS controls; replay mode and cleared FETCH_DEVEL; canonical child PATH plus per-run TMPDIR/TMP/TEMP; before-import global rejecting fetch remains writable for controlled stubs",
+    "captureIsolation": "Native-only nonconfigurable capture-session slot prevents installation; strict capture sessions keep their original dedicated store/preload",
+    "cache": "No-session tests/fetchCache uses ReplayStore for strict/native replay; capture Store unchanged. cache_dir never mkdirs, storeContent always rejects, plain portable IDs and path aliases checked. Missing dirs remain absent. Per-call record/off/auto/read/write overrides cannot enable repository fallback network or store writes; actual singleton verified.",
+    "fixtureParity": "Native pre/post path/directory/byte hashes cover tests/fixtures and tests/http on ordinary completion/failure/handled abort. Detection only, no rollback or arbitrary filesystem write denial. Strict kernel mount/seccomp boundary unchanged.",
+    "scopeLimit": "Trusted tests can use raw sockets, alternate HTTP clients, filesystem APIs and host services; no hostile-test/raw-socket sandbox guarantee"
+  },
+  "termination": {
+    "POSIXNative": "Own detached process group; TERM on cancellation, KILL group in completion cleanup. Actual descendant timeout marker control passes. Strict Linux original namespace/group shutdown preserved.",
+    "WindowsNative": "Direct Bun process without POSIX detachment; win32.join absolute SystemRoot/taskkill.exe plus /PID /T /F, no shell or negative PID; five-second taskkill call timeout. Separate1500ms close deadline records cleanup error/unrefs nonclosing child, so cancellation cannot wait indefinitely for close under ordinary host scheduling.",
+    "exitCodes": "Test errors retain nonzero; normal whole-run timeout124; handled public SIGINT/SIGTERM130/143 explicitly independent of platform constants; operational cleanup failure2. Forced Windows termination can bypass JS finally.",
+    "limits": "Normal Windows exit relies on Bun --no-orphans. Exited-parent/taskkill failure reports descendant cleanup unverified; no Windows tree guarantee inferred from POSIX checks. Actual OS signal/tree/stdio matrix pending."
+  },
+  "acceptedParentFinding": {
+    "severity": "P2",
+    "finding": "Windows timeout could wait indefinitely for close after the direct child exited while descendant stdio stayed open; old terminateNativeWindows returned without cleanup.",
+    "repair": "Bounded native completion helper; exited-parent failure explicitly reported; real taskkill-result handling covered with injected results; visible unref/settlement on no-close and taskkill/close races. Strict path retains its reviewed termination behavior.",
+    "regressions": [
+      "Exited-parent/no-close reports cleanup unverified and settles",
+      "Taskkill failure through actual Windows branch settles visibly",
+      "Close/failure race retains cleanup failure",
+      "POSIX actual child tree cannot create a delayed survivor marker after whole-run timeout"
+    ]
+  },
+  "verification": {
+    "v2StrictFocused": {
+      "command": "bun scripts/test.ts --serial --timeout=30000 tests/replayStore.test.ts scripts/native-replay.test.ts scripts/testing.test.ts",
+      "passes": 26,
+      "failures": 0,
+      "skips": 0,
+      "files": 3,
+      "scope": "14 native/store controls plus 12 unchanged strict launcher controls, all maintained Linux guard; no automatic native fallback"
+    },
+    "v2GuardedNativeFocused": {
+      "command": "python3 scripts/testing/offline.py <candidate> <scratch> -- <pinned-bun> scripts/test.ts --native --serial --timeout=30000 tests/replayStore.test.ts scripts/native-replay.test.ts",
+      "passes": 14,
+      "failures": 0,
+      "skips": 0,
+      "files": 2,
+      "scope": "Actual native runner inside outer Linux offline guard for verification. Guard is a proof wrapper, not a native-mode requirement."
+    },
+    "typecheck": {
+      "command": "bun run typecheck",
+      "libraryRoots": 58,
+      "toolsRoots": 108,
+      "diagnostics": 0
+    },
+    "biome": {
+      "command": "bun node_modules/@biomejs/biome/bin/biome check tests/replayStore.ts tests/replayStore.test.ts",
+      "files": 2,
+      "errors": 0,
+      "warnings": 0,
+      "fixes": 0
+    },
+    "v1StoreNegativeControl": {
+      "expectedExitCode": 1,
+      "actualExitCode": 1,
+      "passes": 3,
+      "failures": 1
+    },
+    "fullSuites": "Not rerun for v2; immutable v1 results retained under historicalEvidence with original source/proof hashes"
+  },
+  "parityAndMetadata": {
+    "manifestDelta": "only scripts.test:native",
+    "existingScriptsPinsUnchanged": true,
+    "lockByteIdenticalToBase": true,
+    "fixtureCount": 1201,
+    "allFixtureBytesMatchBaseAndCandidate": true,
+    "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "windowsFilenameAudit": {
+      "policy": "forbidden characters/control/trailing dot or space; first stem ASCII-space rstrip; CON/PRN/AUX/NUL/CONIN$/CONOUT$/COM1-9,\u00b9\u00b2\u00b3/LPT1-9,\u00b9\u00b2\u00b3 case-insensitive",
+      "forbiddenOrReserved": [],
+      "casefoldCollisions": [],
+      "longestFilename": 84
+    },
+    "actualNativeOsMatrix": false,
+    "v2Reaudit": {
+      "baselineCommit": "0e10be3a350fe5bcdbc6874f25333bc62bff2978",
+      "exactBasePlusOwnedFiles": true,
+      "unexpectedFiles": [],
+      "missingFiles": [],
+      "foreignFileChanges": [],
+      "fixtureCount": 1201,
+      "fixtureBytesMatchBaseV1V2AndShared": true,
+      "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+      "aggregateRecipe": "sorted repository path + NUL + sha256 hex + LF",
+      "windowsFilenameAudit": {
+        "policy": "forbidden characters/control/trailing dot or space; first stem ASCII-space rstrip; CON/PRN/AUX/NUL/CONIN$/CONOUT$/COM1-9,\u00b9\u00b2\u00b3/LPT1-9,\u00b9\u00b2\u00b3 case-insensitive",
+        "forbiddenOrReserved": [],
+        "casefoldCollisions": [],
+        "longestFilename": 84
+      },
+      "v1OriginalReceiptUnchanged": true,
+      "lockMatchesBase": true,
+      "actualNativeMacOSWindowsVerified": false
+    }
+  },
+  "upstreamFollowUp": {
+    "package": "fetch-mock-cache3.1.0",
+    "evidence": "Inspected installed Bun adapter delegates to Node; default FSStore cache_dir mkdirs even on reads and constructor path.join(cwd,absoluteLocation) changes intended root. ReplayStore resolves explicitly and omits mkdir.",
+    "relevance": "Existing YF location is relative; this upstream behavior was not the source of the Linux-only whole-process guard restriction.",
+    "action": "Bounded documented follow-up only; no upstream edit, new dependency or unreleased version required"
+  },
+  "proofSha256": {
+    "proof/audit-v2.py": "24f1336a2522e5f377237ebe9017f6fc0c7ab002ed050080e9eb83aafa9df7aa",
+    "proof/biome-check.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/biome-check.stdout": "967c1eb73ff103928ef8edf73b47e89032eeb26ac7ff0f457c68f8c3928f9618",
+    "proof/candidate-source-sha256.json": "c2b42a09b1a877bb69e2b3c6db03955cc3d48972a8445af747ad68f12b931c78",
+    "proof/commands.json": "f266cc2d60a9f69bf2f48b0ede4566003caf418444da15176635b90719d8a706",
+    "proof/guarded-native-focused.stderr": "eca375e8f931b42ec963f822825f30508ea7520b6ad23aa113bff87df92a26b6",
+    "proof/guarded-native-focused.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+    "proof/negative-v1-store-status.json": "6ea61050f43dd7ee549710039de6e0068eebd636eddb4d396ae213a883e8bf08",
+    "proof/negative-v1-store.stderr": "25c91ca55a0d449d4fa665d5c07900ce539db9b09e586ae69b507d96ec65cac3",
+    "proof/negative-v1-store.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+    "proof/parity-and-filename-audit.json": "ed1dc7bb1211978f19fc9efcdc745e64ecc865c6a584664b37340c82a9c1b6d0",
+    "proof/run-focused.py": "28642705b27cadecd5fbf2f3e7a44084b2c5778be9b473686d2fcb063de96088",
+    "proof/strict-focused.stderr": "0ee14bbe4bd77aaa11a4e83834cb2b2fc9906c774ad22c7582957ed99a0ae543",
+    "proof/strict-focused.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+    "proof/typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+    "proof/typecheck.stdout": "2d74078064933719b6b191052592c12c10f9b16c5a1fbed3da51d3c71e8418c0",
+    "proof/v1-astra-review.json": "7cc3a5f170d13a308b14b4759e363395e9f1b5ca3959dddeacf8dbc73558ad9d",
+    "proof/v1-native-replay.json": "4e4e420b23686af173c3d1d79d0246cbccf9020753198b1d98094cfa8c0f7270",
+    "proof/v1-superscript-reproduction.log": "4aa3e4a92da5afa54ab7ac14513b26bdcfc327ba0b0ff5dc9996cd3216a51b4a"
+  },
+  "limitations": [
+    "Actual macOS and Windows native execution, coverage/watch/signals/process-tree and stdio behavior remain unverified pending OS CI matrix",
+    "No arbitrary-code sandbox, raw-socket denial or write denial for native mode; fixture hash checks are detection and may be bypassed by external hard termination/surviving descendants",
+    "No production src/runtime/CI changes; no Deno binary, live Yahoo request or original fixture writes/capture",
+    "No report ticks, staging, commit or push; model reviews pending",
+    "Preparation-era no-commit/review-pending statements above describe the immutable author phase; parent acceptance is recorded in review. D04/H05 stay open for actual native OS verification."
+  ],
+  "review": {
+    "status": "Accepted implementation after independent Sol xhigh and Astra xhigh full and narrow fix reviews; actual native OS and final combined acceptance remain pending",
+    "reviewedReceiptSha256": "c24631354347da06aca3a175327d17c830a0f15733897c7113808537b1249839",
+    "sol": {
+      "verdict": "Clear; reserved-name P2 repaired, no additional findings",
+      "evidence": [
+        "/tmp/yf-native-v2-sol-repro.log",
+        "/tmp/yf-native-v2-sol-focused.log"
+      ],
+      "evidenceSha256": {
+        "/tmp/yf-native-v2-sol-repro.log": "4a19cbde4666ef76df9a746131eb196889134d74626d566043d3e2cf5a38b1bc",
+        "/tmp/yf-native-v2-sol-focused.log": "75e1bf04b8cb8cde5f7b29ec3d4352e2402b77a5825aa141f8f2f59862cf24fd"
+      }
+    },
+    "astra": {
+      "verdict": "Clear; no additional findings",
+      "initialEvidence": "/tmp/yf-native-astra-aca6o66r/review.json",
+      "evidence": [
+        "/tmp/yf-native-v2-astra-i8lc9c24/review.json"
+      ],
+      "evidenceSha256": {
+        "/tmp/yf-native-v2-astra-i8lc9c24/review.json": "ce55ffe032fc0fa70da7e88e3f48d03583de5d4c307bb39c0b912108b8245bf8"
+      }
+    },
+    "acceptedParentWindowsFindingRepaired": true,
+    "acceptedSolPortableFilenameFindingRepaired": true,
+    "parentAfterReview": "Documentation acceptance wording, current runtime-policy link and tracker only; reviewed executable/configuration source bytes unchanged"
+  },
+  "historicalEvidence": {
+    "v1ReviewRoot": "/tmp/yf-native-replay-review-mvmp7ueq",
+    "v1ReceiptSha256": "4e4e420b23686af173c3d1d79d0246cbccf9020753198b1d98094cfa8c0f7270",
+    "v1SourceSha256": {
+      "scripts/test.ts": "b14bd3c591e35e25f8f2a7196a23a0f0c71b03f12493a06ceb71093cf2ac8e29",
+      "scripts/testing/inventory.ts": "c33e57c71b2d4e7e5c3227267a5955eefd4b1cc4b6b96ae7b4d788e3ddac0e85",
+      "scripts/testing/native.ts": "4512711e2df481eab80f756c47acbc38a3dd0f88237452fc30e21c9df9719e40",
+      "scripts/testing/native-preload.ts": "86b53f62a2d8c0b27ca36165554bb4c4f7f80ab6f44abc52568bc63033df5c2c",
+      "scripts/native-replay.test.ts": "d81b20eb4c67016e85b59cb95c8a8879947770d4ab75339b23ce9a2b20972f49",
+      "tests/fetchCache.ts": "34e1d680688d764053a22055dc2bf7cb38526746fbc0e162a454255786ca3b5f",
+      "tests/replayStore.ts": "a67c3836fe7b579f6ce5aa59a21849d2a05d46f6f7d103c6758f36996da8c61f",
+      "tests/replayStore.test.ts": "004c3ceb7be9fb32b350ad059e9fb6cbf324a524fdbf9308b2f67c5b746b0861",
+      "package.json": "9f5337fd9f991b391487f4164cfea614b9a2cc754cb5b60cd1cc36b39acd4417",
+      "AGENTS.md": "8f007bcb428889ac3947c28ef70ef575cebc39bd45c4fb029c962b82fbf93fcd",
+      "CONTRIBUTING.md": "3e86dbfc0cc653843f501a00c966094e559288e9ff3b10d3aa8f75abc1b7dd33",
+      "tests/migration/TESTING.md": "6385e2c8748f923d6ec66aeee03443ba2d45e629561b36397b3fb447c23bbfad",
+      "tests/migration/NATIVE-REPLAY.md": "58d81bf728fb8fb986036e649b759882b6f1b3a48db8f537247329953faac0de"
+    },
+    "v1ProofSha256": {
+      "proof/baseline.txt": "f9407b7a312fb86ec50a542a83263ce0000aa92f16745c965a39a18c06a7420d",
+      "proof/candidate-source-sha256.json": "1fb76f90937795069fd22c7261c097d04134ea0907f9b1062bc8d143b2d1c861",
+      "proof/commands.json": "7a301c2624b13f1bf2a0cde00b63d0c304838c60c6629147d36a0cd82b34b9c5",
+      "proof/frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+      "proof/frozen-install.stdout": "5a781e340da21179172565aea82363e205dab96e113d3b3cefcfdd1a0094357f",
+      "proof/inventory.json": "7baaadf8dab913599a3bb6861e2812302e1e83795b9f67e94bf31d1ab56e3ea8",
+      "proof/lint.json": "ae452ff3caac1a41a142e3b1f605cda634bb06e537331912349873ea992a1eea",
+      "proof/lint.stderr": "0913004effb614bc48cd4a3dbeeb8ff43aca0acce8fa7b57a4681b43cfbfca1e",
+      "proof/native-full.stderr": "bc10c6a195b115f1f2a887b42ea299490065fbfee40d88b38719fe3c77e7c1bb",
+      "proof/native-full.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+      "proof/native-inventory.stderr": "0a2164e1437df2390b25e860314c4c4022917696713662acb687e787d5b131c1",
+      "proof/native-inventory.stdout": "f8a6d64d2cb3c9f8881a620adb0f33d22a5f8082ac135b032f5def4c48995db2",
+      "proof/native-parallel-command.json": "c316cebd601ff39abd686a6ba764ca3a29d6eb0e79ce63092683dbc6d802f3d0",
+      "proof/native-parallel.stderr": "a564ca4029539b9c26f3162dbc52a9f6e856c903a68e5875c562ebc7ef441772",
+      "proof/native-parallel.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/owned.json": "c6ffc42cbe5277a698d4c2abba0ad31a6cc2b306660e685c13e5119bd40b26f0",
+      "proof/parity-and-metadata.json": "96ac6fe0ba6e9299bee473b90f3f6bd1fd74c3e340cb1accc7e0e9894a5004b2",
+      "proof/run-proof.py": "88c9279551a6e5c00734f942e31dded072c6b9e063a294157c64507a1162e80e",
+      "proof/strict-focused.stderr": "b95cd19dac519579f4b7c33b8411e2a37f2c6bd295063f222062503f9601667a",
+      "proof/strict-focused.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/strict-full-command.json": "cc8886a05b2f613ac663b10b4d27258a456f143aeac99794c70184480af49c8f",
+      "proof/strict-full.stderr": "00494f76bb5495e3739f7643985611f01aa71bf7b6968e7d0d9be56a6cce4f80",
+      "proof/strict-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+      "proof/typecheck.stdout": "2d74078064933719b6b191052592c12c10f9b16c5a1fbed3da51d3c71e8418c0"
+    },
+    "reuseScope": "Original 1356-native and 1512-strict full-suite proofs remain scoped to v1 hashes. Unchanged runner, preload, inventory, cache integration, package/lock and other owned inputs reuse v1 evidence. Broad suites were not rerun for this bounded store-name fix. V2 focused checks below execute final store/test source.",
+    "v1Verification": {
+      "nativeDefaultParallel": {
+        "command": "bun run test:native",
+        "passes": 1356,
+        "failures": 0,
+        "skips": 0,
+        "files": 40,
+        "inheritedControls": "Deliberately supplied recache/record/custom cache-directory environment; cleared in child",
+        "OSBoundary": "Native direct trusted mode; no Linux guard used for this run"
+      },
+      "nativeSerial": {
+        "command": "bun run test:native --serial --timeout=30000",
+        "passes": 1356,
+        "failures": 0,
+        "skips": 0,
+        "files": 40
+      },
+      "strictFull": {
+        "command": "bun scripts/test.ts --timeout=30000 --run-timeout=300000",
+        "passes": 1512,
+        "failures": 0,
+        "skips": 0,
+        "files": 60,
+        "guard": "Maintained Linux read-only mounts/network namespaces/inherited seccomp; no fallback"
+      },
+      "strictFocused": {
+        "command": "See proof/commands.json",
+        "passes": 56,
+        "failures": 0,
+        "skips": 0,
+        "files": 7,
+        "covers": "New native/store controls; existing strict kernel/network/fixture mutation/missing-prerequisite/signal/watch/coverage controls; recache and auth/geo regressions"
+      },
+      "newRegressions": {
+        "tests": 13,
+        "files": [
+          "scripts/native-replay.test.ts",
+          "tests/replayStore.test.ts"
+        ],
+        "covers": "Portable inventory/omissions/explicit rejection; no Python environment; clearing live controls and capture slot; controlled fetch stubs; invalid/empty/skipped/no-match/failing/timeout leaves; disposable mutation detection; staged coverage/no-match stale clearing; watch add/remove/package/helper fingerprint changes; process-tree timeout; actual repo cache override behavior; bounded Windows failure controls; no-mkdir readOnly store/plain IDs/portable filenames/offline misses"
+      },
+      "typecheck": {
+        "command": "bun run typecheck",
+        "libraryRoots": 58,
+        "toolsRoots": 108,
+        "diagnostics": 0
+      },
+      "lint": {
+        "ownedFiles": 8,
+        "errors": 0,
+        "warnings": 2,
+        "infos": 2,
+        "notes": "New files lint clean. Existing strict child.pid! and fetchCache use-strict warnings retained; existing template/literal-key infos remain. Both touched implicit-any entries declarations now Dirent<string>[]; no broad lint suppressions."
+      },
+      "watch": "Native real process control verifies add/remove, package.json and native helper file fingerprint changes, fresh rediscovery and controlled143 shutdown. Actual Windows Ctrl-C not simulated or claimed."
+    }
+  },
+  "portableFilenameReviewResolution": {
+    "severity": "P2",
+    "finding": "Initial ReplayStore omitted COM/LPT superscript \u00b9,\u00b2,\u00b3 Windows device aliases. Adjacent parent audit identified CONIN$/CONOUT$ and reserved stems with trailing ASCII spaces before an extension.",
+    "policy": "Reject first filename stem after stripping trailing ASCII spaces against case-insensitive CON/PRN/AUX/NUL/CONIN$/CONOUT$/COM1-9,\u00b9\u00b2\u00b3/LPT1-9,\u00b9\u00b2\u00b3 set. Existing forbidden-character/plain-filename rules remain. Conservative portable policy; no actual Windows filesystem execution claimed.",
+    "sourceDeltaFromV1": {
+      "tests/replayStore.ts": {
+        "v1": "a67c3836fe7b579f6ce5aa59a21849d2a05d46f6f7d103c6758f36996da8c61f",
+        "v2": "1d1a3d4689e34582b4e53eb298427b8006deecf5405eb64a21596e4b6f21c40a"
+      },
+      "tests/replayStore.test.ts": {
+        "v1": "004c3ceb7be9fb32b350ad059e9fb6cbf324a524fdbf9308b2f67c5b746b0861",
+        "v2": "7f3fe8b53391a719821e51f7aad21f29593f25aa01e66f23aa032a954d7d5b1f"
+      },
+      "tests/migration/NATIVE-REPLAY.md": {
+        "v1": "58d81bf728fb8fb986036e649b759882b6f1b3a48db8f537247329953faac0de",
+        "v2": "c7143e054b60fafbd003f25173f4ab6c8a86e9c4d8b52151bbcfea088df07d52"
+      }
+    },
+    "regression": "30 DOS basenames x 5 case/extension/space variants x both idFromRequest and direct cache_dir = 300 rejection assertions; fixture-root getter remains untouched. Valid ordinary cache_dir reaches throwing root sentinel as negative control; 14 legitimate neighbors resolve normally without mkdir.",
+    "negativeControl": "Replacing only the store implementation with v1 in a separate guarded mirror yields 3 passes/1 failure: Con .txt.json incorrectly resolves. Original immutable candidate untouched.",
+    "sources": [
+      "https://learn.microsoft.com/en-gb/windows/win32/fileio/naming-a-file",
+      "https://docs.python.org/3.13/library/os.path.html#os.path.isreserved"
+    ]
+  },
+  "reviewedSourceSha256": {
+    "scripts/test.ts": "b14bd3c591e35e25f8f2a7196a23a0f0c71b03f12493a06ceb71093cf2ac8e29",
+    "scripts/testing/inventory.ts": "c33e57c71b2d4e7e5c3227267a5955eefd4b1cc4b6b96ae7b4d788e3ddac0e85",
+    "scripts/testing/native.ts": "4512711e2df481eab80f756c47acbc38a3dd0f88237452fc30e21c9df9719e40",
+    "scripts/testing/native-preload.ts": "86b53f62a2d8c0b27ca36165554bb4c4f7f80ab6f44abc52568bc63033df5c2c",
+    "scripts/native-replay.test.ts": "d81b20eb4c67016e85b59cb95c8a8879947770d4ab75339b23ce9a2b20972f49",
+    "tests/fetchCache.ts": "34e1d680688d764053a22055dc2bf7cb38526746fbc0e162a454255786ca3b5f",
+    "tests/replayStore.ts": "1d1a3d4689e34582b4e53eb298427b8006deecf5405eb64a21596e4b6f21c40a",
+    "tests/replayStore.test.ts": "7f3fe8b53391a719821e51f7aad21f29593f25aa01e66f23aa032a954d7d5b1f",
+    "package.json": "9f5337fd9f991b391487f4164cfea614b9a2cc754cb5b60cd1cc36b39acd4417",
+    "AGENTS.md": "8f007bcb428889ac3947c28ef70ef575cebc39bd45c4fb029c962b82fbf93fcd",
+    "CONTRIBUTING.md": "3e86dbfc0cc653843f501a00c966094e559288e9ff3b10d3aa8f75abc1b7dd33",
+    "tests/migration/TESTING.md": "6385e2c8748f923d6ec66aeee03443ba2d45e629561b36397b3fb447c23bbfad",
+    "tests/migration/NATIVE-REPLAY.md": "c7143e054b60fafbd003f25173f4ab6c8a86e9c4d8b52151bbcfea088df07d52"
+  }
+}

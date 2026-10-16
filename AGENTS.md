@@ -55,10 +55,16 @@ Bubblewrap (`bwrap`), Python 3, `libseccomp.so.2` and namespace support; missing
 prerequisites fail closed. It clears inherited capture settings, denies network
 and fixture writes for every child, and needs no chmod preparation. Ordinary
 tests are replay-only, replacing automatic live capture; explicit recaching is
-still a separate migration step. Direct `bun test` bypasses enforcement. See
-[maintained command policy](./tests/migration/TESTING.md) for discovery,
-filters, timeouts/signals and watch behavior. Other operating systems remain
-D04.
+still a separate command. Direct `bun test` bypasses launcher enforcement.
+For trusted library development, explicitly use `bun run test:native`, with
+optional focused paths, `--serial`, `--watch` or `--coverage`. This portable
+scope forces cache replay with a read-only FMC store and checks fixture bytes;
+it provides no OS network/filesystem sandbox. It never replaces a failed strict
+run automatically. See [native replay](./tests/migration/NATIVE-REPLAY.md) for
+its disclosed omissions and platform limits, and the
+[maintained command policy](./tests/migration/TESTING.md) for strict discovery,
+filters, timeouts/signals and watch behavior. Native macOS/Windows execution
+still requires the OS matrix proof.
 
 Use `bun run typecheck`, `bun run typecheck:incremental`, and
 `bun run typecheck:negative` for the maintained checker and overload control;

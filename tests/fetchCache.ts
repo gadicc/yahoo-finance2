@@ -3,11 +3,9 @@
 import { spy } from "./migration/mock.ts";
 import { afterAll, beforeAll } from "./migration/runner.ts";
 
-// XXX TODO npm?
-// import createFetchCache from "fetch-mock-cache/lib/runtimes/deno.ts";
-// import Store from "fetch-mock-cache/lib/stores/fs.ts";
 import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
-import Store from "fetch-mock-cache/stores/fs.ts";
+import ReplayStore from "./replayStore.ts";
+import { isNativeReplay } from "../scripts/testing/native.ts";
 import { createRecacheFetch } from "./recacheFetch.ts";
 import { RECACHE_STATS_PREFIX } from "./recacheStats.ts";
 import { captureSession } from "../scripts/recache/session.ts";
@@ -18,6 +16,7 @@ const offlineFetch: typeof fetch = () => {
   throw new Error("Offline replay forbids network fetch");
 };
 const session = captureSession();
+if (isNativeReplay() && session) throw new Error("Native replay cannot capture fixtures");
 if (!session && (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL)) {
   throw new Error(
     "Runner experiments require FMC_CACHE_MODE=replay and cleared FETCH_DEVEL",
@@ -49,7 +48,7 @@ function reportRecacheStats() {
 }
 
 const fetchCache = createFetchCache({
-  Store: storage?.Store ?? Store,
+  Store: storage?.Store ?? ReplayStore,
   // Wrap the network fetch inside the cache so replay is neither delayed nor
   // aborted, and a live 429 is rejected before fetch-mock-cache can store it.
   fetch: recacheFetch ?? offlineFetch,

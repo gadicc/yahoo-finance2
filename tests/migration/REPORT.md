@@ -541,6 +541,37 @@ The native filename fix continued afterward, so this is not final combined
 replay proof. Formatting and final CI alignment remain open; K02 is not checked
 complete and progress remains **43/71**.
 
+## Native development replay checkpoint (partial D04/H05, 2026-10-16)
+
+`bun run test:native` now provides explicit trusted development replay with
+focused/serial/watch/coverage options. The strict default and Linux CI retain
+the kernel guard and never retry unguarded. Native replay uses a rejecting
+network fallback, read-only FMC store, portable fixture paths and clear capture
+controls; it compares fixture paths/bytes after runs. Arbitrary trusted test code
+still has host APIs. The [native policy](NATIVE-REPLAY.md) states the scope and
+cleanup limits, including bounded Windows failure handling.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the implementation and a
+Windows device-name correction, including superscript COM/LPT aliases and
+conservative adjacent DOS names. Both re-reviews verified rejection before root
+access and unchanged fixtures; Astra checked 1,620 rejection assertions and 21
+valid neighbors. The [receipt](results/native-replay.json) preserves the original
+snapshot's 1,356 native tests/40 included files/20 disclosed omissions and
+1,512 strict tests/60 files; v2 has separate focused controls and does not
+relabel those broad historical results. All 1,201 fixture names and bytes pass.
+
+The Linux restriction originated in the process guard, rather than a known FMC
+Bun/Node platform incompatibility. Two bounded FMC follow-ups are recorded:
+mkdir during reads and absolute cache-directory joins. No new FMC release is
+required by this implementation. Actual macOS/Windows and final combined CI
+proof remain open; D04/H05 are not checked and progress remains **43/71**.
+
+The first actual [GitHub Tests smoke](https://github.com/gadicc/yahoo-finance2/actions/runs/38904432143)
+verified tool selection and normal-hook frozen installation, then failed closed
+at Ubuntu Bubblewrap loopback setup (`RTM_NEWADDR: Operation not permitted`).
+A runner-policy fix is being prepared for separate review; this is not a passing
+CI or Codecov/artifact claim.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -994,14 +1025,17 @@ review and publisher-only Deno compatibility proof remain separate gates.
       [maintained replay policy](TESTING.md), cleared capture environment and
       cache-miss/no-fallback controls. CI wiring remains I02 and explicit live
       capture remains D05.
-- [ ] D04 — Replace or explicitly support the Python/libseccomp launcher on each
-      supported OS; prove replay denies real network and fixture creation,
-      modification and deletion in subprocesses, fails closed without its guard,
-      and handles fresh-checkout permissions and missing-cache failures. Linux
-      read-only mount, namespace, syscall, inherited-fd, writable-checkout and
-      missing-guard controls pass in
-      [C07/D03 evidence](results/c07-d03-linux-guard.json). Other supported
-      operating systems remain unverified; item stays open.
+- [ ] D04 — Retain process-level network/fixture denial and fail-closed guard
+      behavior for Linux CI, and verify the user-selected explicit native
+      replay policy for trusted macOS/Windows development. Native replay must
+      use an offline fallback, read-only cache store and fixture-change detection
+      with documented process-level limits; it does not promise a portable OS
+      sandbox. Linux kernel controls pass in
+      [C07/D03 evidence](results/c07-d03-linux-guard.json); the reviewed native
+      implementation and path/cleanup controls pass on Linux in
+      [native evidence](results/native-replay.json). Fresh native OS permissions,
+      misses, watch, coverage and termination still need H05 execution, so this
+      item remains open. This split follows the user's clarified platform choice.
 - [x] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
       baseline-before-live ordering, sequential pacing, request reuse, counters,
       nonzero failures, 429 aborts and preservation of earlier captures.
