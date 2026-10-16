@@ -107,11 +107,12 @@ must not recache. Preserve fixture bytes and modes unless capture is authorized.
   older, static, and fake fixtures as well as the newly recached fixtures, and
   record representative filenames in the change description.
 - Edit TypeScript interfaces, then regenerate every affected schema **before**
-  retrying tests. The generator's timestamp check does not track imported type
-  dependencies. Explicit file arguments force regeneration, e.g.
-  `bun run schema src/modules/quote.ts src/modules/options.ts`; alternatively
-  run `bun run schema --force` to regenerate all schemas. Also test consumers
-  of shared schemas, such as historical after chart changes.
+  retrying tests. Every selected generation run compiles current imported types;
+  there is no source/output timestamp shortcut. Explicit file arguments select
+  consumers, e.g. `bun run schema src/modules/quote.ts src/modules/options.ts`;
+  plain `bun run schema` regenerates all schemas. `--force` remains accepted for
+  command compatibility. Also test consumers of shared schemas, such as
+  historical after chart changes.
 - Automated fixture repair is limited to interfaces, additions of observed
   strings to existing nongeneric string-literal-union aliases, and generated
   schemas. Alias edits must preserve names, modifiers, all existing literals in

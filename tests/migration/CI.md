@@ -1,4 +1,11 @@
-# Maintained CI core (I01–I04 / E06 preparation)
+# Maintained CI core and scoped verification
+
+Current acceptance and exact validated commits are recorded in [REPORT](REPORT.md).
+The [hosted checkpoint](results/ci-250a96c.json),
+[accepted native matrix](results/native-ci-8b9d42c.json) and
+[composed publisher rehearsal](results/release-rehearsal.json) have distinct scopes.
+A passing leaf-test count alone does not satisfy full LCOV validation; each
+composed head needs its own complete pipeline evidence.
 
 The Tests workflow preserves `push: dev`, the existing four pull-request event
 kinds, reusable/manual entrypoints, and the `tests-*` concurrency namespace.
@@ -21,7 +28,9 @@ security-policy changes are made. The targeted ephemeral CI exception and its
 required before/after controls are documented in [CI AppArmor](CI-APPARMOR.md).
 The upstream AppArmor `bwrap-userns-restrict` profile strips child capabilities, which can conflict
 with Workers' namespace-local loopback setup; it must not be blindly loaded as
-a workaround. Actual GitHub runner behavior remains a required remote proof.
+a workaround. Actual Ubuntu guard controls and Tests/Workers gates passed in
+the [hosted evidence](results/ci-250a96c.json). A new composed source head still
+requires its own combined verification.
 
 The gate order is Python CI unit controls, Biome formatting and lint, complete
 TypeScript checking plus negative controls, no-write stale-schema checking,
@@ -34,8 +43,10 @@ failures. Ordinary launcher defaults remain 5000ms per test and 120000ms per
 run. These budgets do not alter replay isolation or fixture protections.
 Jobs use read-only contents and checkout credentials are not persisted. No gate has continue-on-error. Release already depends on the entire
 reusable Tests workflow; an unsuccessful gate prevents its publisher job.
-The existing K02 formatting/lint debt remains intentionally failing until its
-separate cleanup lands. CI integration does not weaken the recommended preset.
+The reviewed K02 cleanup passes formatting and lint with the recommended preset.
+Existing warning/information diagnostics remain disclosed separately; see the
+[accepted integration](results/integration-a32cb00.json) and
+[hosted gates](results/ci-250a96c.json).
 
 Tests also calls `./.github/workflows/native-platforms.yaml` as an ordinary
 unconditional job with only `contents: read` and no inherited secrets. The
@@ -116,10 +127,15 @@ Codecov runs in a separate job with `id-token: write`; no repository scripts or
 dependency installs run there. Fork and Dependabot PRs retain validated artifacts
 but skip OIDC upload. Other runs use OIDC with one explicit file, search disabled,
 plugins disabled and native line accounting preserved; missing reports and upload
-errors fail. There is no token secret or pull_request_target escape. Actual
-artifact transfer/OIDC service behavior still needs a remote test run.
+errors fail. There is no token secret or pull_request_target escape. The
+[hosted checkpoint](results/ci-250a96c.json) records artifact transfer and accepted
+OIDC upload/queueing; later Codecov service UI processing is not inferred.
 
-## Verification and remaining gates
+## Historical I01–I04 preparation evidence
+
+The preparation and review paragraphs below describe their original snapshot.
+Later acceptance is recorded in the tracker and hosted receipts linked above;
+their old pending-work statements are not current command guidance.
 
 The [preparation receipt](results/i01-i04-preparation.json) records the scoped
 file hashes, commands, successes, known draft-run failure and pending acceptance.

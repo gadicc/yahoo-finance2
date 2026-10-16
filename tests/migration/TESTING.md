@@ -3,17 +3,22 @@
 On this migration branch, ordinary test commands are **replay only**. This
 replaces the Deno development command's automatic live capture on a cache miss.
 A missing fixture fails; there is no network or writable-fixture fallback.
-Explicit live recaching remains D05 and is not enabled by these commands.
+Live recache is a separate maintained explicit capture command, never enabled
+by ordinary replay. Its opt-ins and safety checks are documented in
+[RECACHE](RECACHE.md) and [COUNTRY-CAPTURE](COUNTRY-CAPTURE.md).
 
-CI's intended root-test policy is the same guarded replay command, with package
-installation and guard provisioning performed separately (I02). Integration
-tests included in the root inventory also replay fixtures without network. The
-separately npm-managed Workers integration suite remains excluded: its local
-emulator/process traffic needs its own external-network-denial policy and guard
-verification under H04/I02. This milestone does not claim that suite is guarded.
-Future live integration/capture tests must use separately named, explicit opt-in
-commands with reviewed network scope; they cannot be an automatic fallback from
-ordinary or CI replay. Such live commands are not provided here (D05/H04).
+CI uses the same guarded root replay command, with installation and guard
+provisioning performed separately. Root integration tests replay fixtures without
+network. The independent npm-managed Workers suite is excluded from root
+discovery and runs through its separate isolated-loopback launcher and own
+source-type gate; see [WORKERS](WORKERS.md) and [CI](CI.md). That launcher
+permits namespace-local emulator traffic while denying external IP routes; its
+trusted-code and visible host Unix-socket limits remain explicit.
+
+Live recache and country capture require their own `FETCH_DEVEL=recache` plus
+`--live` opt-ins and a successful strict replay baseline. They cannot be an
+automatic fallback from ordinary or CI replay. Safe command help and the capture
+contracts above describe those separately authorized workloads.
 
 Select the exact Bun version in `.bun-version`, install with the frozen root
 lockfile, and install Linux Bubblewrap (`bwrap`), Python 3 and
@@ -22,9 +27,11 @@ by the host. A missing component or rejected namespace operation fails closed.
 Strict mode fails on other platforms with Linux/WSL guidance. Explicit
 `bun run test:native` provides a smaller trusted library/portable-control scope
 without the kernel boundary; see [native replay](NATIVE-REPLAY.md). It never
-runs as an automatic retry after any strict failure. Native macOS/Windows
-execution still needs actual OS verification. No fixture chmod preparation is
-needed after checkout.
+runs as an automatic retry after any strict failure. Actual Linux/macOS/Windows
+replay and installed consumers are recorded in the
+[accepted native matrix](results/native-ci-8b9d42c.json); this is not an OS
+sandbox or private Windows ACL/interactive-console claim. No fixture chmod
+preparation is needed after checkout.
 
 ```sh
 bun run test:replay
@@ -122,9 +129,11 @@ protection. It does not claim protection against arbitrary malicious tests or
 every host service. Bubblewrap's guarantees depend on the configured
 mounts/namespaces; see the
 [upstream security discussion](https://github.com/containers/bubblewrap).
-Installation remains separate from test execution. Strict boundaries for other
-operating systems, actual native OS matrix verification, CI package provisioning
-and coverage quality gates remain separate milestones.
+Installation remains separate from test execution. Strict kernel replay remains
+Linux-only; native replay on other supported OSes is explicitly trusted. Actual
+native and hosted CI proofs describe their exact source commits; [REPORT](REPORT.md)
+records current acceptance. Complete coverage validation remains a separate gate
+from passing test leaves; see the [native coverage contract](CI.md#native-coverage-contract).
 
 The focused regressions live in `scripts/testing.test.ts`. They use synthetic
 workspaces with ordinary writable fixtures, nested guards and explicit test-only

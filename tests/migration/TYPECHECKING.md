@@ -85,9 +85,10 @@ in the maintained tools graph.
 | `tests/migration/{benchmark,prepare,run,watch,offline,negative-typecheck}.py`, `tsconfig.migration.json`, `tsconfig.bun-native.json` | Historical experiment/reproducer files. Maintained checker commands do not invoke or extend them. |
 | Fixtures, result receipts, generated output, dependencies and coverage | Data or separately generated/installed artifacts rather than maintained root checker inputs. |
 
-Release configuration and publisher wrapper JavaScript are semantically checked;
-the legacy Deno release preparation command itself remains J02/J04 work and is
-not executed here. Workers coverage requires its
+Release configuration and publisher controller JavaScript are semantically
+checked. This checker executes no Deno or publisher lifecycle; the
+[release guide](../../docs/RELEASING.md) owns the composed preparation and
+isolated publisher verification. Workers coverage requires its
 independently reviewed [H04 evidence](results/h04-workers.json) and
 [Workers policy](WORKERS.md); the root checker does not execute that gate.
 Selecting only the library is not a claim that all repository environments passed.
@@ -135,9 +136,10 @@ are never temporary mutation targets.
 the package manifest and both runtime metadata JSON versions together instead
 of regex-editing obsolete dnt `deno.js` paths. The builder preserves its
 staging/ownership/validation contract. An I/O failure during final package
-replacement retains the builder's documented bounds. This compatibility command
-does not port or authorize publication; the legacy release prepare command
-still needs J02/J04 migration.
+replacement retains the builder's documented bounds. The release prepare hook
+uses this same versioned builder; the [release guide](../../docs/RELEASING.md)
+records ordering and isolated publisher gates. This command authorizes no
+publication.
 
 Focused regressions run through the maintained strict offline launcher:
 

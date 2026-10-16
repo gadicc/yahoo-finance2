@@ -1,4 +1,4 @@
-# Portable executable source phase (G01–G03)
+# Portable executables and scoped source evidence
 
 Both `bin/yahoo-finance.ts` and `bin/yahoo-finance-mcp.ts` now use
 Node-compatible APIs for arguments, environment, filesystem operations, streams,
@@ -8,10 +8,15 @@ source explicitly with Bun. Both preserve their existing `deno.json` metadata
 imports and the published Node 22.0 minimum policy. The accepted H02 decision
 retains JSR distribution and Deno consumer compatibility at the existing Deno
 2.0.0 minimum. Development, tests and builds use Bun/Node; a Deno binary may be
-owned only by the isolated publisher. Publication implementation and
-compatibility proof remain J01/H03/H05.
+owned only by the isolated publisher. Actual packed native checks are recorded
+in the [accepted OS matrix](results/native-ci-8b9d42c.json); the
+[release guide](../../docs/RELEASING.md) and
+[composed publisher rehearsal](results/release-rehearsal.json) cover the separate
+publication architecture and Linux Deno consumer proof. Current acceptance is
+recorded in [REPORT](REPORT.md), not inferred from this source-phase receipt.
 
-The shared `bin/runtime.ts` helper must be included by the future package build.
+The complete [package builder](PACKAGING.md) includes the shared `bin/runtime.ts`
+helper in generated executable output.
 Its main guard compares real paths, allowing direct entrypoints and executable
 symlinks from another working directory while keeping imports free of client,
 cookie and transport startup. Source help/version paths require no HOME, cookie
@@ -55,6 +60,12 @@ silently overwritten by a later successful startup status. The real source stdio
 child completes initialize and tools/list with an allow-list, then exits cleanly
 on EOF, SIGTERM and SIGINT without fetching Yahoo data.
 
+## Historical G01–G03 source-phase evidence (2026-10-16)
+
+The following source receipt preserves its original scope and then-open packed/OS
+checks. Later packed/native evidence is linked above; its limitations must not be
+read as missing current implementation.
+
 `tests/cli-entrypoints.test.ts` supplies fourteen meaningful regression cases,
 including real children outside the checkout, symlinks, import safety, usage and
 stdin errors, controlled successful JSON output, TTY routing, split UTF-8,
@@ -88,7 +99,12 @@ remain G04. CLI data success uses an injected fake client. No generated npm
 output, dependency versions, consumer metadata, CI, fixtures or shared library
 source changed in this phase.
 
+## Later cookie and native evidence
+
 The later G03 cookie milestone adds actual packed CLI/MCP quote persistence and
 hardlink/race controls. See [cookie integrity evidence](results/g03-cookie-integrity.json)
 and the [G06 trust-boundary inventory](TRUST-BOUNDARIES.md). Those distinguish
-Linux proof, pending native OS execution, trusted HOME and Windows ACL limits.
+Linux packed proof and the [accepted native matrix](results/native-ci-8b9d42c.json),
+including native persistence and hardlink refusals. Trusted HOME and Windows ACL
+limits remain; no interactive Windows console or native HTTP-listener equivalence
+is claimed.

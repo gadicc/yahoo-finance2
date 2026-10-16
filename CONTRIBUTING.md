@@ -98,8 +98,10 @@ experiment Node selector or alternative Bun checker is required. See
 [TYPECHECKING](tests/migration/TYPECHECKING.md).
 
 Interfaces marked `@yf-schema` are the source of truth for runtime schemas.
-Run `bun run schema` after changes. Explicit files force regeneration, including
-imported-type consumers; use `bun run schema --force` when uncertain:
+Run `bun run schema` after changes; it regenerates all schemas from current
+imported types. Every selected run compiles fresh, without a source/output mtime
+shortcut. Explicit files select affected consumers; `--force` remains accepted
+for command compatibility:
 
 ```sh
 bun run schema src/modules/quote.ts src/modules/options.ts

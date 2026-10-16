@@ -1,6 +1,6 @@
 # Runtime permissions and trust boundaries
 
-This G06 preparation records the boundaries implemented by the migration; it does
+This inventory records the boundaries implemented by the migration; it does
 not add a general sandbox. The library, executables and ordinary npm dependencies
 run with the launching process's OS privileges. Retained Deno/JSR consumers keep
 their runtime's permission model; Deno execution and publisher verification belong
@@ -97,8 +97,11 @@ those persisted cookies. The installed store is reopened for inspection, retaini
 its actual on-disk format. Successful results are schema-validated by the ordinary
 client; an invalid response must fail. Unrecognized fetch requests are rejected,
 and initial hardlinks are refused by both executable entrypoints without changing
-the synthetic target. Current Linux evidence and pending native OS proof are
-recorded separately in the [receipt](results/g03-cookie-integrity.json).
+the synthetic target. Linux packed evidence is recorded in the
+[cookie receipt](results/g03-cookie-integrity.json); actual Linux/macOS/Windows
+persistence and hardlink refusals are recorded in the
+[accepted native matrix](results/native-ci-8b9d42c.json). Windows regular-file
+checks do not establish private owner ACLs.
 
 ## MCP request and service boundaries
 
@@ -122,8 +125,10 @@ Existing request/framing/auth/Host/Origin/protocol controls remain unchanged by
 this cookie milestone. No listener, real token or remote service was used for its
 persistence proof.
 
-This is a scoped migration boundary inventory and preparation for G06 acceptance,
-not a dependency vulnerability scan or a claim that every runtime permission has
-a portable replacement. Ordinary-user Windows ACL privacy, interactive console
-behavior, publisher isolation and actual Deno compatibility remain separately
-owned verification work.
+This is a scoped migration boundary inventory, not a dependency vulnerability
+scan or a claim that every former runtime permission has a portable replacement.
+Actual native and [isolated-publisher Linux Deno evidence](results/release-rehearsal.json)
+are separate from this boundary audit; [REPORT](REPORT.md) records current
+acceptance and exact validated heads. Ordinary-user Windows ACL privacy,
+interactive console/GUI and native HTTP behavior remain qualified limits. Local
+publisher verification does not prove real registry OIDC or provenance acceptance.

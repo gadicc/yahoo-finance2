@@ -16,9 +16,9 @@ and Bun `>=1.4.3`; Deno `>=2.0.0` remains the JSR/npm consumer requirement.
 
 | Consumer | Current policy | Evidence |
 | --- | --- | --- |
-| Node | >=22.0.0; upstream Linux/macOS/Windows platforms | Exact 22.0.0 and 24.21.0 Linux packed checks; native OS results remain separate |
-| Bun | >=1.4.3 for all consumers; upstream Linux/macOS/Windows platforms | Exact 1.4.3 Linux packed library/runtime/full MCP checks; native OS results remain separate |
-| Deno | >=2.0.0; retain JSR and npm consumers | Simulated globals and official 2.0 source inspection only; actual execution remains publisher-owned |
+| Node | >=22.0.0; upstream Linux/macOS/Windows platforms | Exact 22.0.0 and 24.21.0 installed consumers on Linux/macOS/Windows in the [accepted native matrix](results/native-ci-8b9d42c.json); final-head integration remains separate |
+| Bun | >=1.4.3 for all consumers; upstream Linux/macOS/Windows platforms | Exact 1.4.3 installed consumers on Linux/macOS/Windows in the [accepted native matrix](results/native-ci-8b9d42c.json); final-head integration remains separate |
+| Deno | >=2.0.0; retain JSR and npm consumers | Actual Linux isolated-publisher Deno 2.0.0/2.6.7 source and installed npm ESM checks, precise SDK type negatives and pipe/PTY observations in the [composed rehearsal](results/release-rehearsal.json); no Deno CommonJS or native Windows terminal claim |
 | Cloudflare Workers | Existing nodejs_compat configuration, compatibility date 2026-06-12 | Prior local workerd evidence; independent locked harness unchanged |
 
 The current minimum change is bound by the
@@ -27,22 +27,28 @@ controls below 1.4.3, release candidates and malformed versions. The historical
 Bun 1.0/1.1 observations below and in the native preparation receipt are dated
 2026-10-16 evidence, not successful support claims for the new major.
 
-These Linux results do not establish native macOS/Windows coverage. Consumer
-support is retained; H05 must exercise the actual supported OS paths. The user
+Actual Linux/macOS/Windows installed consumers and trusted replay are recorded
+in the [accepted native matrix](results/native-ci-8b9d42c.json). These are exact
+tested runtimes and paths, not every upstream-supported combination or private
+Windows ACL, interactive console/GUI or native HTTP-listener proof. The user
 selected native replay for trusted macOS/Windows development while retaining
 the strong Linux guard in CI. The explicit `bun run test:native` implementation
-is now available; its [policy and evidence](NATIVE-REPLAY.md) distinguish the
-read-only cache boundary from process isolation. Actual native OS execution
-remains pending. The strict default requires Linux namespaces, Bubblewrap,
+and its [policy and evidence](NATIVE-REPLAY.md) distinguish the read-only cache
+boundary from process isolation. Final composed-head verification is separate. The strict default requires Linux
+namespaces, Bubblewrap,
 Python 3 and libseccomp and fails closed if they are unavailable. A WSL or VM
 environment must actually satisfy those prerequisites.
 
 
-A Deno binary is permitted **only inside the isolated publisher**. None was
-invoked for this work, including tests, development, builds or formatting.
-Deno-shaped globals and inspection of the official Deno 2.0 implementation of
-`process.versions.deno` are detection controls, not actual Deno compatibility or
-terminal proof. That H03 portion remains open until publisher verification.
+A Deno binary is permitted **only inside the isolated publisher**, including
+its explicitly selected nonpublishing consumer rehearsal. Ordinary development,
+tests, builds, formatting and linting do not execute it. The
+[composed rehearsal](results/release-rehearsal.json) records actual Linux Deno
+2.0.0/2.6.7 source and real installed npm ESM positive/precise-negative checks,
+controlled offline execution and pipe/stdout-PTY detection. Simulated globals
+and official source inspection remain separate adversarial detection controls.
+Neither those controls nor a local rehearsal prove registry OIDC/provenance
+acceptance. [REPORT](REPORT.md) owns current acceptance and final-head evidence.
 
 ## Runtime selection and terminal behavior
 
@@ -89,6 +95,10 @@ VM contexts because Bun's own `Bun` global is immutable. Constructor integration
 changes only configurable globals synchronously and restores their property
 descriptors. Old-source negative controls fail the shadowed-global, incidental
 Bun, malformed-version and prerelease regressions.
+
+The following records the original source-phase snapshot. Its old Bun versions
+and then-open Deno/native work are historical; the current evidence table above
+links the later native and isolated-publisher results.
 
 A fresh package is built and packed under `scripts/testing/offline.py`, then
 installed into a separate real consumer with public dependencies. Installation

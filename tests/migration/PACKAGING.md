@@ -77,13 +77,11 @@ and chosen version, preserving relative runtime imports without publishing
 Deno development configuration. User-Agent and executable version probes
 verify the injected version.
 
-**Release handoff:** `scripts/fix_versions.ts` and the current release
-`prepareCmd` still reference obsolete dnt `npm/{src,esm,script}/deno.js` paths.
-J02/J04 must replace that preparation with
-`bun run build:npm --version VERSION` (and verify npm and JSR release ordering).
-Do not invoke the old preparation command against this output. This milestone
-does not publish, port the release workflow or claim Deno consumer execution;
-JSR and Deno 2.0 consumer support remain retained requirements.
+**Release handoff:** `scripts/fix_versions.ts --version VERSION` delegates to
+the same complete builder. The [release guide](../../docs/RELEASING.md) describes
+the initial prebuild, versioned Bun prepare, Node controller and isolated JSR
+publisher order. Local build checks authorize no publication and do not replace
+the final accepted-head publisher rehearsal or real registry/provenance gates.
 
 ## Guarded proof from a real tarball
 

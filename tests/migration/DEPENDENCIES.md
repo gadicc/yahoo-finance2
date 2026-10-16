@@ -1,7 +1,12 @@
 # B03 dependency and configuration ownership (historical snapshot)
 
-This B03 snapshot preserves its original ownership and version receipts. See
-the dated F01–F06 and B04/E03 deltas below for current ownership.
+The dated B03, F01–F06 and B04/E03 sections preserve their original ownership
+and version receipts verbatim, including then-retained root Deno metadata.
+Current root/tool ownership is described in the
+[current cleanup](#current-ownership-cleanup-k03k06-2026-10-16) below: `bun.lock`
+is the sole root JavaScript lock, with reduced consumer/build `deno.json` metadata
+and an independent publisher auxiliary lock. The [release guide](../../docs/RELEASING.md)
+and [REPORT](REPORT.md) own current publisher routing and acceptance.
 
 The root `package.json` remains a **private migration workspace**, with exact
 versions and `bun.lock` owning its JavaScript graph. It is not the published
@@ -213,9 +218,11 @@ range as their `.js` runtime paths. No runtime package or root pin is changed.
 The separate publisher preparation derives its exact stage import map from the
 root manifest/Bun lock, computes the public closure and generates a private
 publisher-only auxiliary lock. It does not depend on the removed root lock.
-The publisher v3 integration is separately reviewed; its frozen evidence is not
-rewritten here. Final composed publisher/minimum-Deno rehearsal remains required.
-This cleanup executes no Deno binary.
+The [composed publisher rehearsal](results/release-rehearsal.json) records the
+actual Linux minimum/modern source and installed-consumer checks on its exact
+source head. It does not establish real registry authorization/provenance, and
+older publisher receipts remain immutable. [REPORT](REPORT.md) records current
+acceptance; this ownership description invokes no Deno binary.
 
 Renovate's built-in Bun and bun-version managers cover root graph/tool pins;
 no regex manager is introduced. Root dependency updates retain exact pins.
