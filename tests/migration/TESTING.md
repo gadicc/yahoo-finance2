@@ -61,10 +61,15 @@ Watch polls source/test/configuration contents and inventories every 200 ms. It
 terminates an in-flight run on edits, then discovers files again and launches a
 fresh guarded child. Added and removed tests therefore affect the next run.
 Watch does not reuse a runner's module/global state and does not use soft/hot
-reload. Source files with JS/TS/JSON extensions and root package/lock/version
-files trigger restarts; excluded fixture/generated directories do not. Removing
-the last selected file fails clearly. Stopping watch returns the corresponding
-signal status. Watch verification checks behavior, not timing performance.
+reload. Source files with JS/TS/JSON extensions under `src`, `tests`, `scripts`
+and `bin`, regular root JS/TS runtime policies (including `release.config.mjs`),
+root JSON/JSONC/TOML configuration files (including TypeScript extends chains,
+Bun settings and retained Deno metadata), and root lock/version files trigger
+restarts. Excluded fixture/generated directories do not. Arbitrary external
+configuration/extends targets outside these project watch roots are not tracked.
+Removing the last selected file fails clearly. Stopping watch returns the
+corresponding signal status. Watch verification checks behavior, not timing
+performance.
 
 ## Guard implementation and limits
 
@@ -89,8 +94,9 @@ JUnit output stays in scratch and lets the supervisor reject successful native
 runs that execute no tests. Coverage also stays in scratch while tests run.
 Afterward, the supervisor publishes only regular `lcov.info` using an atomic
 replacement under the real repository `coverage/` directory. A symlink output
-directory is rejected. A new coverage run unlinks the previous lcov entry first,
-including old hardlinks/symlinks without mutating their targets. Tests never
+directory is rejected. A valid coverage attempt unlinks the previous lcov entry
+before discovery/selection, including an empty or invalid file/filter selection.
+Unlinking old hardlinks/symlinks does not mutate their targets. Tests never
 receive a writable coverage alias to repository files. A selection with no
 instrumented source reports that no coverage was generated. Scratch and
 temporary publication files are cleaned on ordinary completion, failure, timeout

@@ -377,6 +377,13 @@ test("coverage stages regular output without granting writable fixture aliases",
   expect(result.code, result.output).toBe(0);
   expect(readFileSync(join(space.root, "coverage/lcov.info"), "utf8"))
     .toContain("TN:");
+  for (const selection of [["--filter", "missing"], ["src/missing.test.ts"]]) {
+    const empty = space.run(["--coverage", ...selection]);
+    expect(empty.code, empty.output).toBe(2);
+    expect(() => readFileSync(join(space.root, "coverage/lcov.info")))
+      .toThrow();
+    expect(space.run(["--coverage", "--serial"]).code).toBe(0);
+  }
   const fixture = space.put(
     "tests/fixtures/http/original.json",
     '{"original":true}',
@@ -486,4 +493,65 @@ test("watch hard restarts and rediscovers test additions and removals", async ()
   expect(result.code, result.output).toBe(143);
   expect(result.output).toContain("Replay: 2 files");
   expect(result.output.match(/Replay: 1 files/g)).toHaveLength(2);
+});
+
+test("watch reruns after config, executable and root policy changes", async () => {
+  using space = workspace();
+  space.put("src/one.ts", "export const value = 'one';");
+  space.put("src/two.ts", "export const value = 'two';");
+  space.put("bin/helper.ts", "export const value = 'bin-one';");
+  space.put("runtime-policy.mjs", "export const value = 'policy-one';");
+  space.put(
+    "src/alias.test.ts",
+    "import {test} from 'bun:test';import {value} from 'selected';import {value as bin} from '../bin/helper.ts';import {value as policy} from '../runtime-policy.mjs';test('alias',()=>console.log('ALIAS_VALUE_'+value+' BIN_VALUE_'+bin+' ROOT_VALUE_'+policy));",
+  );
+  space.put(
+    "tsconfig.json",
+    JSON.stringify({ extends: "./tsconfig.paths.json" }),
+  );
+  const config = (value: string) =>
+    JSON.stringify({
+      compilerOptions: {
+        baseUrl: ".",
+        paths: { selected: [`./src/${value}.ts`] },
+      },
+    });
+  space.put("tsconfig.paths.json", config("one"));
+  for (const name of ["tsconfig.migration.json", "deno.json", "bunfig.toml"]) {
+    const before = fingerprint(space.root);
+    space.put(name, name.endsWith(".toml") ? "# runtime configuration" : "{}");
+    expect(fingerprint(space.root), name).not.toBe(before);
+  }
+
+  let phase = 0;
+  const result = await observedProcess(
+    space,
+    ["--watch", "--serial"],
+    (output, child) => {
+      const waits =
+        output.match(/Watch: waiting for source\/test content changes/g)
+          ?.length ?? 0;
+      if (phase === 0 && waits === 1) {
+        phase++;
+        space.put("tsconfig.paths.json", config("two"));
+      } else if (phase === 1 && waits === 2) {
+        phase++;
+        space.put("bin/helper.ts", "export const value = 'bin-two';");
+      } else if (phase === 2 && waits === 3) {
+        phase++;
+        space.put("runtime-policy.mjs", "export const value = 'policy-two';");
+      } else if (phase === 3 && waits === 4) {
+        phase++;
+        child.kill("SIGTERM");
+      }
+    },
+  );
+  expect(phase, result.output).toBe(4);
+  expect(result.code, result.output).toBe(143);
+  expect(result.output).toContain("ALIAS_VALUE_one");
+  expect(result.output).toContain("ALIAS_VALUE_two");
+  expect(result.output).toContain("BIN_VALUE_bin-one");
+  expect(result.output).toContain("BIN_VALUE_bin-two");
+  expect(result.output).toContain("ROOT_VALUE_policy-one");
+  expect(result.output).toContain("ROOT_VALUE_policy-two");
 });

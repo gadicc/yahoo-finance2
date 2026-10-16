@@ -123,6 +123,23 @@ export function fingerprint(
   readContents: (path: string) => Uint8Array = (path) => readFileSync(path),
 ): string {
   const hash = createHash("sha256");
+  function hashFile(path: string) {
+    try {
+      const contents = readContents(path);
+      hash.update(path);
+      hash.update("\0");
+      hash.update(String(contents.length));
+      hash.update("\0");
+      hash.update(contents);
+    } catch (error) {
+      if (
+        !["ENOENT", "ENOTDIR"].includes(
+          (error as NodeJS.ErrnoException).code ?? "",
+        )
+      ) throw error;
+    }
+  }
+
   function visit(directory: string) {
     let entries;
     try {
@@ -145,34 +162,46 @@ export function fingerprint(
       if (path === join(root, "tests", "cloudflare")) continue;
       if (entry.isDirectory()) visit(path);
       else if (entry.isFile() && /\.(?:[cm]?[jt]sx?|json)$/.test(entry.name)) {
-        try {
-          const contents = readContents(path);
-          hash.update(path);
-          hash.update("\0");
-          hash.update(String(contents.length));
-          hash.update("\0");
-          hash.update(contents);
-        } catch (error) {
-          if (
-            !["ENOENT", "ENOTDIR"].includes(
-              (error as NodeJS.ErrnoException).code ?? "",
-            )
-          ) throw error;
-        }
+        hashFile(path);
       }
     }
   }
-  for (const directory of ["src", "tests", "scripts"]) {
+  for (const directory of ["src", "tests", "scripts", "bin"]) {
     visit(join(root, directory));
   }
-  for (const file of ["package.json", "bun.lock", ".bun-version"]) {
-    try {
-      hash.update(readFileSync(join(root, file)));
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-    }
+  const rootInputs = readdirSync(root, { withFileTypes: true })
+    .filter((entry) =>
+      entry.isFile() && /\.(?:json|jsonc|toml|[cm]?[jt]sx?)$/.test(entry.name)
+    )
+    .map((entry) => entry.name);
+  // Includes current root TypeScript extends chains, Bun/Deno metadata and
+  // runtime/release policies; nested configs and executable code are scanned.
+  for (
+    const file of [
+      ...new Set([
+        "package.json",
+        "bun.lock",
+        "deno.lock",
+        ".bun-version",
+        "bunfig.toml",
+        ...rootInputs,
+      ]),
+    ].sort()
+  ) {
+    hashFile(join(root, file));
   }
   return hash.digest("hex");
+}
+
+function prepareCoverage(root: string) {
+  const output = join(root, "coverage");
+  mkdirSync(output, { recursive: true });
+  if (lstatSync(output).isSymbolicLink() || realpathSync(output) !== output) {
+    throw new Error("coverage must be a real repository directory");
+  }
+  // Clear before selection too: an empty/invalid selection must not expose
+  // another run's metrics. Unlink affects only this entry, not its link target.
+  rmSync(join(output, "lcov.info"), { force: true });
 }
 
 function signalCode(signal: NodeJS.Signals) {
@@ -191,18 +220,6 @@ async function runOnce(
   }
   const scratch = realpathSync(mkdtempSync(join(temporary, "yf-replay-")));
   try {
-    if (options.coverage) {
-      const output = join(root, "coverage");
-      mkdirSync(output, { recursive: true });
-      if (
-        lstatSync(output).isSymbolicLink() || realpathSync(output) !== output
-      ) {
-        throw new Error("coverage must be a real repository directory");
-      }
-      // A new selection must never leave the previous run's metrics visible.
-      // Unlinking an old symlink/hardlink removes only that directory entry.
-      rmSync(join(output, "lcov.info"), { force: true });
-    }
     const report = join(scratch, "junit.xml");
     const command = [
       process.execPath,
@@ -346,6 +363,7 @@ export async function runTests(
         `Tests require Bun ${currentPin}; restart with the pinned binary`,
       );
     }
+    if (options.coverage && !options.list) prepareCoverage(root);
     const files = select(root, inventory(root), options.paths, options.filter);
     if (options.list) {
       for (const file of files) console.log(file);
