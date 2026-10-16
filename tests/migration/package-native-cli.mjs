@@ -1,7 +1,9 @@
 // Run beside a real installed package with the native-platform fetch preload.
 import assert from "node:assert/strict";
+import { probeCookies } from "./package-cookie-probe.mjs";
 import { McpFrames } from "./native-mcp-frames.mjs";
 import { spawn, spawnSync } from "node:child_process";
+import { finished } from "node:stream/promises";
 import {
   lstatSync,
   mkdirSync,
@@ -156,6 +158,14 @@ for (const shutdown of shutdowns) {
   let stderr = "";
   /** @type {unknown} */
   let protocolError;
+  /** @param {unknown} error */
+  const recordError = (error) => {
+    protocolError ??= error;
+  };
+  for (const stream of [child.stdin, child.stdout, child.stderr])
+    stream.on("error", recordError);
+  child.on("error", recordError);
+  const reaped = new Promise((resolve) => child.once("close", resolve));
   child.stdout.on("data", (chunk) => {
     try {
       frames.write(chunk);
@@ -176,7 +186,7 @@ for (const shutdown of shutdowns) {
   /** @type {ReturnType<typeof setTimeout> | undefined} */
   let deadline;
   /** @type {Promise<{code:number|null,signal:NodeJS.Signals|null,closeCode:number|null,closeSignal:NodeJS.Signals|null}>} */
-  const closed = new Promise((resolve, reject) => {
+  const closed = new Promise((resolve) => {
     /** @type {{code:number|null,signal:NodeJS.Signals|null} | undefined} */
     let exited;
     /** @type {{code:number|null,signal:NodeJS.Signals|null} | undefined} */
@@ -189,7 +199,6 @@ for (const shutdown of shutdowns) {
           closeSignal: closeEvent.signal,
         });
     };
-    child.once("error", reject);
     child.once("exit", (code, signal) => {
       exited = { code, signal };
       finish();
@@ -198,15 +207,20 @@ for (const shutdown of shutdowns) {
       closeEvent = { code, signal };
       finish();
     });
-    deadline = setTimeout(() => {
-      child.kill("SIGKILL");
-      reject(
-        new Error("Installed MCP process failed to close within deadline"),
-      );
-    }, 20000);
   });
-  // Handle early spawn/close errors while protocol initialization is in flight.
-  void closed.catch(() => {});
+  /** @type {Promise<never>} */
+  const timedOut = new Promise((_, reject) => {
+    deadline = setTimeout(
+      () =>
+        reject(
+          new Error("Installed MCP process failed to close within deadline"),
+        ),
+      20000,
+    );
+  });
+  void timedOut.catch(() => {});
+  /** @template T @param {Promise<T>} operation */
+  const bounded = (operation) => Promise.race([operation, timedOut]);
   /** @param {number} id */
   async function response(id) {
     const end = Date.now() + 10000;
@@ -224,9 +238,19 @@ for (const shutdown of shutdowns) {
     throw new Error("No MCP response: " + stderr);
   }
   /** @param {unknown} message */
-  const send = (message) => child.stdin.write(JSON.stringify(message) + "\n");
+  async function send(message) {
+    if (protocolError) throw protocolError;
+    await bounded(
+      new Promise((resolve, reject) => {
+        child.stdin.write(`${JSON.stringify(message)}\n`, (error) =>
+          error ? reject(error) : resolve(undefined),
+        );
+      }),
+    );
+    if (protocolError) throw protocolError;
+  }
   try {
-    send({
+    await send({
       jsonrpc: "2.0",
       id: 1,
       method: "initialize",
@@ -237,8 +261,8 @@ for (const shutdown of shutdowns) {
       },
     });
     assert.equal((await response(1)).result.serverInfo.version, pkg.version);
-    send({ jsonrpc: "2.0", method: "notifications/initialized" });
-    send({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} });
+    await send({ jsonrpc: "2.0", method: "notifications/initialized" });
+    await send({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} });
     assert.deepEqual(
       (await response(2)).result.tools.map(
         /** @param {{name:string}} tool */ (tool) => tool.name,
@@ -246,9 +270,12 @@ for (const shutdown of shutdowns) {
       ["quote", "search"],
     );
     const began = Date.now();
-    if (shutdown === "EOF") child.stdin.end();
-    else assert(child.kill(shutdown === "forced" ? "SIGKILL" : shutdown));
-    const observed = await closed;
+    if (shutdown === "EOF") {
+      const ended = finished(child.stdin, { cleanup: true });
+      child.stdin.end();
+      await bounded(ended);
+    } else assert(child.kill(shutdown === "forced" ? "SIGKILL" : shutdown));
+    const observed = await bounded(closed);
     if (protocolError) throw protocolError;
     const status = { code: observed.code, signal: observed.signal };
     if (shutdown !== "forced")
@@ -270,19 +297,54 @@ for (const shutdown of shutdowns) {
       assert.equal(statSync(cookie).mode & 0o777, 0o600);
     checks++;
   } finally {
+    /** @type {ReturnType<typeof setTimeout> | undefined} */ let cleanupDeadline;
     try {
       if (child.exitCode === null && child.signalCode === null)
         child.kill("SIGKILL");
-      await closed;
+      await Promise.race([
+        reaped,
+        new Promise((_, reject) => {
+          cleanupDeadline = setTimeout(
+            () =>
+              reject(
+                new Error(
+                  "Installed MCP process did not close after cleanup kill",
+                ),
+              ),
+            5000,
+          );
+        }),
+      ]);
     } finally {
       clearTimeout(deadline);
-      child.stdin.destroy();
-      child.stdout.destroy();
-      child.stderr.destroy();
-      child.unref();
+      clearTimeout(cleanupDeadline);
+      try {
+        child.stdin.destroy();
+      } finally {
+        try {
+          child.stdout.destroy();
+        } finally {
+          try {
+            child.stderr.destroy();
+          } finally {
+            child.unref();
+          }
+        }
+      }
     }
   }
 }
+const cookiePersistence =
+  protocolScope === "full"
+    ? await probeCookies({
+        root: outside,
+        installed,
+        runtime,
+        runtimeKind,
+        env,
+        preload,
+      })
+    : undefined;
 console.log(
   JSON.stringify({
     runtime,
@@ -299,6 +361,7 @@ console.log(
         ? "Explicit historical Bun1.0 stdio/termination gap; not a passed protocol control"
         : undefined,
     lifecycle,
+    cookiePersistence,
     cookieHome:
       protocolScope === "full"
         ? process.platform === "win32"

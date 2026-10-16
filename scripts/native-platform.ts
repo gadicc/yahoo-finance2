@@ -559,6 +559,8 @@ export async function main(options: Options): Promise<void> {
         "package-consumer.mjs",
         "package-runtime.mjs",
         "package-native-cli.mjs",
+        "package-cookie-probe.mjs",
+        "package-cookie-fetch.mjs",
         "native-mcp-frames.mjs",
         "native-mcp-fragment.mjs",
       ])

@@ -1,0 +1,2190 @@
+{
+  "milestone": "G03 cookie integrity/persistence and G06 boundary-audit preparation",
+  "base": "e48a7aff2c860f9743214e41c3858750d783af38",
+  "initialInvestigationBase": "f9b2ecad4c34db35163c6405b75d3b02d81b4512",
+  "scope": "Private exact accepted Bun-floor base plus11owned paths. V2 changes only two probe lifecycles, one new maintained regression and this receipt after frozen v1. No shared edits,minimum/engine changes,MCP source changes,REPORT ticks,publication or dispatch.",
+  "rebase": {
+    "initialBase": "f9b2ecad4c34db35163c6405b75d3b02d81b4512",
+    "finalBase": "e48a7aff2c860f9743214e41c3858750d783af38",
+    "acceptedDriverSha256": "2b64475d299c49c0c50484e4080b8781ece018ec713100ce5e890f87bd46fb64",
+    "driverMutation": "Only2copy-list lines added; accepted consumer minimum and full MCP rows preserved.",
+    "otherOwnedBaseFilesUnchangedAcrossBases": true
+  },
+  "versions": {
+    "bun": "1.4.3",
+    "node22": "22.0.0",
+    "node24": "24.21.0",
+    "typescript": "6.0.3"
+  },
+  "finding": {
+    "root": "/tmp/yf-cookie-hardlink-MUljFk",
+    "beforeMode": 420,
+    "afterMode": 384,
+    "links": 2,
+    "aliasAccepted": true,
+    "bytes": "{}",
+    "scope": "Synthetic private files only; no real cookie or network"
+  },
+  "beforeAfterControl": [
+    {
+      "label": "base",
+      "linkCount": 2,
+      "beforeMode": 420,
+      "afterMode": 384,
+      "bytesUnchanged": true
+    },
+    {
+      "label": "candidate",
+      "linkCount": 2,
+      "beforeMode": 420,
+      "afterMode": 420,
+      "error": "Error: Unable to prepare the private cookie store; use a regular file with owner-only access.",
+      "bytesUnchanged": true
+    }
+  ],
+  "resolution": {
+    "fileChecks": "Refuse known nlink>1 on initial existing,opened,current Stats before chmod and FileCookieStore construction. Existing exclusive0600creation,device/inode comparison,NOFOLLOW/NONBLOCK,descriptor cleanup and sanitized close-error precedence retained.",
+    "raceCoverage": [
+      "link after initial lstat",
+      "link after fstat snapshot/current-only multiple links",
+      "alias removed after fstat/opened-only multiple links",
+      "path replacement with another hardlinked inode"
+    ],
+    "limits": "HOME and parent paths remain trusted. A link can be added after these checks; retained FileCookieStore reopens by path. This is not race-free descriptor-only persistence. Windows unsupported chmod remains best effort, with no ACL privacy guarantee."
+  },
+  "sourceControls": {
+    "focused": "37passed/0failed across5files under strict offline guard;18CLI(cookie15inherited+3newgroups),11MCPboundary/server,8portable-driver/framing controls",
+    "strictTypecheck": "library58roots/73files/28exports;tools128roots/201files;0diagnostics",
+    "lint": {
+      "baseDiagnostics": 13,
+      "candidateDiagnostics": 13,
+      "exactCategorySeverityMessageFileMultisetEqual": true,
+      "newDiagnostics": 0,
+      "errors": 0,
+      "warnings": 0
+    },
+    "generatedPackage": {
+      "generatedFiles": 253,
+      "onlyChangedOutputFiles": [
+        "esm/bin/runtime.js"
+      ],
+      "allDeclarationBytesEqual": true,
+      "declarationFiles": 108,
+      "packageMetadataEqual": true,
+      "executableFormat": "Accepted builder emits executable helpers under ESM only; public CommonJS library output unchanged."
+    }
+  },
+  "packedControls": {
+    "actualOS": "linux",
+    "install": "Fresh actual npm install from candidate tarball,offline from previously accepted private cache,normal hooks enabled,no --ignore-scripts,101packages. Root graph reused previously accepted pinned frozen graph; no dependency changes.",
+    "tarballSha256": "a2cb1ca8e69156e3359aba58b50e8dcc6cd7d5bf1386e0736f23f7eef72cf186",
+    "report": {
+      "packed": {
+        "id": "yahoo-finance2@0.0.1",
+        "name": "yahoo-finance2",
+        "version": "0.0.1",
+        "size": 207014,
+        "unpackedSize": 2192232,
+        "shasum": "231e30cb587ab5fd672480b8f44ca11b905af646",
+        "integrity": "sha512-Wx1TGQGfjwHBzS4a4z0uQY/akNpj8HiKT9PmajDxVmdcSotkaRnisfs/wFhAXidSGvGVLOlNzwBrw2XutSP/6A==",
+        "filename": "yahoo-finance2-0.0.1.tgz",
+        "files": [
+          {
+            "path": "LICENSE",
+            "size": 1050,
+            "mode": 420
+          },
+          {
+            "path": "README.md",
+            "size": 7860,
+            "mode": 420
+          },
+          {
+            "path": "esm/bin/runtime.d.ts",
+            "size": 1276,
+            "mode": 420
+          },
+          {
+            "path": "esm/bin/runtime.js",
+            "size": 5516,
+            "mode": 420
+          },
+          {
+            "path": "esm/bin/yahoo-finance-mcp.d.ts",
+            "size": 620,
+            "mode": 420
+          },
+          {
+            "path": "esm/bin/yahoo-finance-mcp.js",
+            "size": 9007,
+            "mode": 493
+          },
+          {
+            "path": "esm/bin/yahoo-finance.d.ts",
+            "size": 301,
+            "mode": 420
+          },
+          {
+            "path": "esm/bin/yahoo-finance.js",
+            "size": 1081,
+            "mode": 493
+          },
+          {
+            "path": "esm/deno.json",
+            "size": 61,
+            "mode": 420
+          },
+          {
+            "path": "esm/package.json",
+            "size": 23,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/consts.d.ts",
+            "size": 78,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/consts.js",
+            "size": 70,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/createYahooFinance.d.ts",
+            "size": 4816,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/createYahooFinance.js",
+            "size": 5170,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/index.d.ts",
+            "size": 1823,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/index.js",
+            "size": 957,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/cli.d.ts",
+            "size": 1069,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/cli.js",
+            "size": 8816,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/commonTypes.d.ts",
+            "size": 100,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/commonTypes.js",
+            "size": 11,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/cookieJar.d.ts",
+            "size": 1576,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/cookieJar.js",
+            "size": 2492,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/deepmerge.d.ts",
+            "size": 1751,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/deepmerge.js",
+            "size": 1383,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/errors.d.ts",
+            "size": 726,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/errors.js",
+            "size": 1339,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/getCrumb.d.ts",
+            "size": 2072,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/getCrumb.js",
+            "size": 15417,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/headers.d.ts",
+            "size": 73,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/headers.js",
+            "size": 193,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/jsonSafe.d.ts",
+            "size": 169,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/jsonSafe.js",
+            "size": 1829,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/moduleCommon.d.ts",
+            "size": 1166,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/moduleCommon.js",
+            "size": 11,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/moduleExec.d.ts",
+            "size": 3681,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/moduleExec.js",
+            "size": 5226,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/notices.d.ts",
+            "size": 342,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/notices.js",
+            "size": 1997,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/defaults.d.ts",
+            "size": 125,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/defaults.js",
+            "size": 1159,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/logger.d.ts",
+            "size": 897,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/logger.js",
+            "size": 1412,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/options.d.ts",
+            "size": 3822,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/options.js",
+            "size": 1955,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/options/options.schema.json",
+            "size": 23248,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/queue.d.ts",
+            "size": 677,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/queue.js",
+            "size": 1592,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/runtime-detect.d.ts",
+            "size": 1421,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/runtime-detect.js",
+            "size": 7469,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/runtimeGlobal.d.ts",
+            "size": 197,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/runtimeGlobal.js",
+            "size": 355,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/timeseries.json",
+            "size": 17374,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/index.d.ts",
+            "size": 1327,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/index.js",
+            "size": 8878,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/array.d.ts",
+            "size": 85,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/array.js",
+            "size": 643,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/boolean.d.ts",
+            "size": 87,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/boolean.js",
+            "size": 346,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/index.d.ts",
+            "size": 370,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/index.js",
+            "size": 394,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/null.d.ts",
+            "size": 85,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/null.js",
+            "size": 559,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/number.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/number.js",
+            "size": 1874,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/object.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/object.js",
+            "size": 3935,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/string.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/string.js",
+            "size": 3434,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/undefined.d.ts",
+            "size": 90,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validate/types/undefined.js",
+            "size": 364,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validateAndCoerceTypes.d.ts",
+            "size": 1013,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/validateAndCoerceTypes.js",
+            "size": 9111,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/versions.d.ts",
+            "size": 283,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/versions.js",
+            "size": 927,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/yahooFinanceFetch.d.ts",
+            "size": 1709,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/lib/yahooFinanceFetch.js",
+            "size": 5431,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/http.d.ts",
+            "size": 1093,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/http.js",
+            "size": 7349,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/mod.d.ts",
+            "size": 287,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/mod.js",
+            "size": 185,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/server.d.ts",
+            "size": 709,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/mcp/server.js",
+            "size": 10819,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/autoc.d.ts",
+            "size": 1293,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/autoc.js",
+            "size": 1509,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/chart.d.ts",
+            "size": 9908,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/chart.js",
+            "size": 10491,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/chart.schema.json",
+            "size": 15213,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/dailyGainers.d.ts",
+            "size": 2421,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/dailyGainers.js",
+            "size": 2677,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/dailyLosers.d.ts",
+            "size": 2679,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/dailyLosers.js",
+            "size": 2933,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/fundamentalsTimeSeries.d.ts",
+            "size": 30757,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/fundamentalsTimeSeries.js",
+            "size": 13486,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/fundamentalsTimeSeries.schema.json",
+            "size": 84102,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/historical.d.ts",
+            "size": 7413,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/historical.js",
+            "size": 13844,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/historical.schema.json",
+            "size": 6723,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/index.d.ts",
+            "size": 874,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/index.js",
+            "size": 874,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/insights.d.ts",
+            "size": 9336,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/insights.js",
+            "size": 5203,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/insights.schema.json",
+            "size": 12466,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/options.d.ts",
+            "size": 6669,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/options.js",
+            "size": 6635,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/options.schema.json",
+            "size": 105238,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quote.d.ts",
+            "size": 21995,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quote.js",
+            "size": 7324,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quote.schema.json",
+            "size": 116888,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary-iface.d.ts",
+            "size": 28642,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary-iface.js",
+            "size": 4026,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary-iface.schema.json",
+            "size": 73131,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary.d.ts",
+            "size": 5817,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary.js",
+            "size": 7053,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/quoteSummary.schema.json",
+            "size": 74682,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/recommendationsBySymbol.d.ts",
+            "size": 9225,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/recommendationsBySymbol.js",
+            "size": 8598,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/recommendationsBySymbol.schema.json",
+            "size": 1305,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/screener.d.ts",
+            "size": 22232,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/screener.js",
+            "size": 10843,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/screener.schema.json",
+            "size": 82147,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/search.d.ts",
+            "size": 10197,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/search.js",
+            "size": 3939,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/search.schema.json",
+            "size": 20706,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/trendingSymbols.d.ts",
+            "size": 4768,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/trendingSymbols.js",
+            "size": 3724,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/modules/trendingSymbols.schema.json",
+            "size": 1456,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/other/index.d.ts",
+            "size": 176,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/other/index.js",
+            "size": 176,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/other/quoteCombine.d.ts",
+            "size": 3435,
+            "mode": 420
+          },
+          {
+            "path": "esm/src/other/quoteCombine.js",
+            "size": 6330,
+            "mode": 420
+          },
+          {
+            "path": "package.json",
+            "size": 9607,
+            "mode": 420
+          },
+          {
+            "path": "script/deno.json",
+            "size": 61,
+            "mode": 420
+          },
+          {
+            "path": "script/package.json",
+            "size": 25,
+            "mode": 420
+          },
+          {
+            "path": "script/src/consts.d.ts",
+            "size": 78,
+            "mode": 420
+          },
+          {
+            "path": "script/src/consts.js",
+            "size": 171,
+            "mode": 420
+          },
+          {
+            "path": "script/src/createYahooFinance.d.ts",
+            "size": 4816,
+            "mode": 420
+          },
+          {
+            "path": "script/src/createYahooFinance.js",
+            "size": 5714,
+            "mode": 420
+          },
+          {
+            "path": "script/src/index.d.ts",
+            "size": 1823,
+            "mode": 420
+          },
+          {
+            "path": "script/src/index.js",
+            "size": 2608,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/commonTypes.d.ts",
+            "size": 100,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/commonTypes.js",
+            "size": 77,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/cookieJar.d.ts",
+            "size": 1576,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/cookieJar.js",
+            "size": 2703,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/deepmerge.d.ts",
+            "size": 1751,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/deepmerge.js",
+            "size": 1484,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/errors.d.ts",
+            "size": 726,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/errors.js",
+            "size": 1773,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/getCrumb.d.ts",
+            "size": 2072,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/getCrumb.js",
+            "size": 15653,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/headers.d.ts",
+            "size": 73,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/headers.js",
+            "size": 314,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/jsonSafe.d.ts",
+            "size": 169,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/jsonSafe.js",
+            "size": 1972,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/moduleCommon.d.ts",
+            "size": 1166,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/moduleCommon.js",
+            "size": 77,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/moduleExec.d.ts",
+            "size": 3681,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/moduleExec.js",
+            "size": 6728,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/notices.d.ts",
+            "size": 342,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/notices.js",
+            "size": 2086,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/defaults.d.ts",
+            "size": 125,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/defaults.js",
+            "size": 1375,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/logger.d.ts",
+            "size": 897,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/logger.js",
+            "size": 1553,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/options.d.ts",
+            "size": 3822,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/options.js",
+            "size": 2350,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/options/options.schema.json",
+            "size": 23248,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/queue.d.ts",
+            "size": 677,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/queue.js",
+            "size": 1679,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/runtime-detect.d.ts",
+            "size": 1421,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/runtime-detect.js",
+            "size": 8007,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/runtimeGlobal.d.ts",
+            "size": 197,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/runtimeGlobal.js",
+            "size": 504,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/timeseries.json",
+            "size": 17374,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/index.d.ts",
+            "size": 1327,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/index.js",
+            "size": 9260,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/array.d.ts",
+            "size": 85,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/array.js",
+            "size": 920,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/boolean.d.ts",
+            "size": 87,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/boolean.js",
+            "size": 469,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/index.d.ts",
+            "size": 370,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/index.js",
+            "size": 639,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/null.d.ts",
+            "size": 85,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/null.js",
+            "size": 700,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/number.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/number.js",
+            "size": 2050,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/object.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/object.js",
+            "size": 5445,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/string.d.ts",
+            "size": 86,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/string.js",
+            "size": 3642,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/undefined.d.ts",
+            "size": 90,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validate/types/undefined.js",
+            "size": 496,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validateAndCoerceTypes.d.ts",
+            "size": 1013,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/validateAndCoerceTypes.js",
+            "size": 9486,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/versions.d.ts",
+            "size": 283,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/versions.js",
+            "size": 1279,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/yahooFinanceFetch.d.ts",
+            "size": 1709,
+            "mode": 420
+          },
+          {
+            "path": "script/src/lib/yahooFinanceFetch.js",
+            "size": 5845,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/http.d.ts",
+            "size": 1093,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/http.js",
+            "size": 7615,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/mod.d.ts",
+            "size": 287,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/mod.js",
+            "size": 960,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/server.d.ts",
+            "size": 709,
+            "mode": 420
+          },
+          {
+            "path": "script/src/mcp/server.js",
+            "size": 12421,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/autoc.d.ts",
+            "size": 1293,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/autoc.js",
+            "size": 1596,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/chart.d.ts",
+            "size": 9908,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/chart.js",
+            "size": 10779,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/chart.schema.json",
+            "size": 15213,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/dailyGainers.d.ts",
+            "size": 2421,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/dailyGainers.js",
+            "size": 2771,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/dailyLosers.d.ts",
+            "size": 2679,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/dailyLosers.js",
+            "size": 3026,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/fundamentalsTimeSeries.d.ts",
+            "size": 30757,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/fundamentalsTimeSeries.js",
+            "size": 13919,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/fundamentalsTimeSeries.schema.json",
+            "size": 84102,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/historical.d.ts",
+            "size": 7413,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/historical.js",
+            "size": 14228,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/historical.schema.json",
+            "size": 6723,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/index.d.ts",
+            "size": 874,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/index.js",
+            "size": 2252,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/insights.d.ts",
+            "size": 9336,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/insights.js",
+            "size": 5480,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/insights.schema.json",
+            "size": 12466,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/options.d.ts",
+            "size": 6669,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/options.js",
+            "size": 6909,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/options.schema.json",
+            "size": 105238,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quote.d.ts",
+            "size": 21995,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quote.js",
+            "size": 7592,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quote.schema.json",
+            "size": 116888,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary-iface.d.ts",
+            "size": 28642,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary-iface.js",
+            "size": 4235,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary-iface.schema.json",
+            "size": 73131,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary.d.ts",
+            "size": 5817,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary.js",
+            "size": 7434,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/quoteSummary.schema.json",
+            "size": 74682,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/recommendationsBySymbol.d.ts",
+            "size": 9225,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/recommendationsBySymbol.js",
+            "size": 8916,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/recommendationsBySymbol.schema.json",
+            "size": 1305,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/screener.d.ts",
+            "size": 22232,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/screener.js",
+            "size": 11120,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/screener.schema.json",
+            "size": 82147,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/search.d.ts",
+            "size": 10197,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/search.js",
+            "size": 4210,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/search.schema.json",
+            "size": 20706,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/trendingSymbols.d.ts",
+            "size": 4768,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/trendingSymbols.js",
+            "size": 4022,
+            "mode": 420
+          },
+          {
+            "path": "script/src/modules/trendingSymbols.schema.json",
+            "size": 1456,
+            "mode": 420
+          },
+          {
+            "path": "script/src/other/index.d.ts",
+            "size": 176,
+            "mode": 420
+          },
+          {
+            "path": "script/src/other/index.js",
+            "size": 475,
+            "mode": 420
+          },
+          {
+            "path": "script/src/other/quoteCombine.d.ts",
+            "size": 3435,
+            "mode": 420
+          },
+          {
+            "path": "script/src/other/quoteCombine.js",
+            "size": 6718,
+            "mode": 420
+          },
+          {
+            "path": "skills/yahoo-finance2/SKILL.md",
+            "size": 7323,
+            "mode": 420
+          }
+        ],
+        "entryCount": 252,
+        "bundled": []
+      },
+      "runtimes": [
+        {
+          "runtime": "/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node",
+          "controllerRuntime": "Node 22.0.0",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 9
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim",
+          "libraryExports": {
+            "runtime": "Node 22.0.0",
+            "exports": 28,
+            "formats": [
+              "ESM",
+              "CommonJS"
+            ],
+            "fetchCalls": 2,
+            "version": "0.0.1"
+          },
+          "runtimePolicy": {
+            "runtime": "node",
+            "version": "22.0.0",
+            "terminal": false,
+            "platform": "linux",
+            "compatibilityGlobals": "passed, including throwing accessors and proxies",
+            "constructorWarnings": 0
+          }
+        },
+        {
+          "runtime": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+          "controllerRuntime": "Node 24.21.0",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 11
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 6
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim",
+          "libraryExports": {
+            "runtime": "Node 24.21.0",
+            "exports": 28,
+            "formats": [
+              "ESM",
+              "CommonJS"
+            ],
+            "fetchCalls": 2,
+            "version": "0.0.1"
+          },
+          "runtimePolicy": {
+            "runtime": "node",
+            "version": "24.21.0",
+            "terminal": false,
+            "platform": "linux",
+            "compatibilityGlobals": "passed, including throwing accessors and proxies",
+            "constructorWarnings": 0
+          }
+        },
+        {
+          "runtime": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 5
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 9
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 8
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim",
+          "libraryExports": {
+            "runtime": "Bun 1.4.3",
+            "exports": 28,
+            "formats": [
+              "ESM",
+              "CommonJS"
+            ],
+            "fetchCalls": 2,
+            "version": "0.0.1"
+          },
+          "runtimePolicy": {
+            "runtime": "bun",
+            "version": "1.4.3",
+            "terminal": false,
+            "platform": "linux",
+            "compatibilityGlobals": "passed, including throwing accessors and proxies",
+            "constructorWarnings": 0
+          }
+        }
+      ],
+      "fragmented": {
+        "runtime": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "controllerRuntime": "Node 24.21.0",
+        "platform": "linux",
+        "checks": 14,
+        "aliases": [
+          "yahoo-finance2",
+          "yahoo-finance",
+          "yahoo-finance-mcp"
+        ],
+        "protocolScope": "full",
+        "mcp": [
+          "initialize",
+          "tools/list"
+        ],
+        "lifecycle": [
+          {
+            "shutdown": "EOF",
+            "observed": {
+              "code": 0,
+              "signal": null,
+              "closeCode": 0,
+              "closeSignal": null
+            },
+            "elapsedMs": 12
+          },
+          {
+            "shutdown": "SIGTERM",
+            "observed": {
+              "code": 0,
+              "signal": null,
+              "closeCode": 0,
+              "closeSignal": null
+            },
+            "elapsedMs": 11
+          },
+          {
+            "shutdown": "SIGINT",
+            "observed": {
+              "code": 0,
+              "signal": null,
+              "closeCode": 0,
+              "closeSignal": null
+            },
+            "elapsedMs": 11
+          }
+        ],
+        "cookiePersistence": {
+          "separateExecutables": [
+            "CLI write",
+            "CLI read",
+            "MCP tools/call write",
+            "CLI read MCP"
+          ],
+          "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+          "creation": "actual CLI creates missing file before controlled fetch refusal",
+          "preservedCookies": [
+            "crumb",
+            "A1",
+            "CLI",
+            "MCP"
+          ],
+          "requestCount": 5,
+          "hardlinkRefusals": 2,
+          "targetBytesAndModeUnchanged": true,
+          "unknownRequestsRefused": 5,
+          "invalidQuoteResultRefused": true,
+          "permissions": "0600",
+          "platform": "linux"
+        },
+        "cookieHome": "HOME",
+        "permissions": "0600",
+        "http": "not attempted; no native socket denial claim",
+        "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+      },
+      "actualOS": "linux",
+      "offlineInstall": true,
+      "noWindowsMacProof": true
+    },
+    "semantics": "Actual CLI creates missing private cookie file before a blocked ordinary fetch; actual installed jar seeds fake crumb/A1. Separate CLIwrite,CLIread,MCP tools/call quote write,CLIreadMCP each validate PACKED symbol/123.45/date. A fifth malformed quote response must fail schema validation. Post-write mode/regular/single-link checks run before inspection; later separate installed jar readers prove persisted contents using actual Netscape store format.",
+    "negativeControls": "Both executable entrypoints refuse a real initial hardlink without target bytes/mode changes.5unrecognized URL/parameter/method/body requests fail; no fallback fetch exists. Original14LinuxCLI/lifecycle assertions remain, with3existing lifecycle fragments and1additional cookie-tool fragment checked separately.",
+    "futureNativeMatrix": "Only2driver copy-list lines added; version-neutral probes follow existing full MCP scope. Accepted1.4.3consumer floor/internal import/full-MCP runtime rows preserved. Actual corrected macOS/Windows cookie proof pending."
+  },
+  "G06Audit": {
+    "status": "Scoped preparation, no general sandbox or completed cross-platform/Deno acceptance claim.",
+    "historicalDevRef": "93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459",
+    "historicalDenoConfigSha256": "8e9f9ed341a2e4ed11cefc13819e2bd32969dc1e0f8ae4ba6a33eff10fac4c2b",
+    "officialPermissionReference": "https://docs.deno.com/runtime/fundamentals/security/",
+    "sourceMap": [
+      "deno.json legacy tasks/profile",
+      "bin/runtime.ts cookie/HOME handling",
+      "bin/yahoo-finance.ts ordinary client/stdio",
+      "bin/yahoo-finance-mcp.ts bind/token/stdin/lifecycle",
+      "src/mcp/http.ts Host/Origin/bearer behavior",
+      "src/mcp/server.ts fixed tool dispatch",
+      "scripts/testing/offline.py read-only/IP/syscall boundary",
+      "scripts/testing/native-preload.ts and native.ts trusted policy",
+      "scripts/testing/workers-loopback.py loopback/Unix-socket limits",
+      "scripts/recache/orchestrator.ts and broker.ts separate capture boundary"
+    ],
+    "actualSyntheticLinuxBoundaryProof": {
+      "hostRead": true,
+      "hostWriteDenied": true,
+      "syntheticHostUnixSocketReachable": true,
+      "subprocessIPSocketDenied": "EPERM"
+    },
+    "explicitLimits": [
+      "ambient process/dependency privileges outside guard",
+      "broad host reads and reachable pathname Unix sockets inside strict guard",
+      "operator stdio and trusted scratch/launcher/kernel/dependencies",
+      "trusted HOME/path-based cookie persistence",
+      "native read-only cache/parity is not OS write/socket denial",
+      "default localhost Host checks; Origin absent/empty optional; configured token; explicit empty Host/unsafe/nonlocal policy retained",
+      "no Windows ordinary-user ACL/console proof",
+      "publisher isolation and Deno consumer verification separately owned"
+    ]
+  },
+  "evidence": {
+    "original-hardlink-proof.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/original-hardlink-proof.json",
+      "sha256": "ef3ca8aa9b5b2b9c0c29a54c6cc306e71f0250e583d075554dbf741514055f65"
+    },
+    "hardlink-before-after.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/hardlink-before-after.json",
+      "sha256": "46913f73357b558519b79eb64d42f4c559ecc7cebd3cee7e299d58756c42d4f1"
+    },
+    "hardlink-before-after.mjs": {
+      "path": "/tmp/yf-g03-cookie-evidence/hardlink-before-after.mjs",
+      "sha256": "c81a73cac548a783a1866b13db8e6ce8c0cec840391898160a02089c2981120e"
+    },
+    "source-races-final-initial-base.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/source-races-final-initial-base.log",
+      "sha256": "b24ae17bd48f304c0d80a92fe4ad4a747b1a06590942dfad75d23df870ac2451"
+    },
+    "types-final-initial-base.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/types-final-initial-base.log",
+      "sha256": "91e7323f5e70fe806705d7f91bfe079fa07509fa893fd2c79518157719515ab8"
+    },
+    "mcp-boundary-tests.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/mcp-boundary-tests.log",
+      "sha256": "1da99c9b3042331188c011e5c268407d5b0849feda585a579685904bbdd07c37"
+    },
+    "fragment-proof.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/fragment-proof.log",
+      "sha256": "ada14ec39ba4084ce2ccb37281da1427e9c09205522c231288002abd0f3ee00f"
+    },
+    "guard-package/fragmented-proof.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-package/fragmented-proof.json",
+      "sha256": "68d50eee82d6575595ca95bc44b6651e9903661f8d87069dc4c4ffa8477e1cfc"
+    },
+    "rebase.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/rebase.json",
+      "sha256": "63d66530d74e17c23fc5b9bbe3b8f084e62ab243302c86d98f5939ad45d05c93"
+    },
+    "build-final.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/build-final.log",
+      "sha256": "fa8be8fecb0b0fd26589a76e2486dfe4ffa62189b0e93993afd4a92a7a4e7098"
+    },
+    "build-baseline.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/build-baseline.log",
+      "sha256": "b96cba1d29c2ee19af2e81fb061344d23d66682ac4efa446c820b66e23d7e6b6"
+    },
+    "types-final.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/types-final.log",
+      "sha256": "91e7323f5e70fe806705d7f91bfe079fa07509fa893fd2c79518157719515ab8"
+    },
+    "focused-final.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/focused-final.log",
+      "sha256": "97f48890a77bc69d858619f4f9a0a67218a8e19ded78d91e76f6a14199155e3e"
+    },
+    "biome-final.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/biome-final.log",
+      "sha256": "d19c0519a5e488bce11b9ef484b906ddfc9fbb77a98797fbc7b4f02a6999ff52"
+    },
+    "biome-base.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/biome-base.json",
+      "sha256": "e182cb20ac873956cb57ca8e9bdc7237fd670786364be48f81a9d01dfcdeb335"
+    },
+    "biome-candidate.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/biome-candidate.json",
+      "sha256": "a2729ff7004e616f33043abf2c7c16853e85f6a7ce505f043be8fcf1c0518c8d"
+    },
+    "lint-parity.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/lint-parity.json",
+      "sha256": "02d81c73949a9aeb896c58152db91af33fd92eb748dcc10deb5ff657c501f50e"
+    },
+    "generated-parity.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/generated-parity.json",
+      "sha256": "55c6617d4d61bd5d22f615a2376a75a8c6e06951a37bfd6e73d3e86b4a64aa45"
+    },
+    "package-final.py": {
+      "path": "/tmp/yf-g03-cookie-evidence/package-final.py",
+      "sha256": "a6809cde17d265cd77ba52887fbab2b1857ef454bc82e175d9a108a25e03dfea"
+    },
+    "package-final.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/package-final.log",
+      "sha256": "3b39a00d988f8737da62bf2c89f7af17c76aa33b8cfe7fa27718de43924d3825"
+    },
+    "guard-final-package/proof.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/proof.json",
+      "sha256": "8e7a97f6a44041271974711cc2840ecfabe29a800a704453ebcab962669f4ca4"
+    },
+    "guard-final-package/pack.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/pack.stdout",
+      "sha256": "c612f833798782d6790e48b624bb08f54a4ef0b3c0c49243d8f1549ac8f81a36"
+    },
+    "guard-final-package/install.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/install.stdout",
+      "sha256": "c85c79b41234b5b6b71e6a4290016df841845cab19632905571f9090ff384d35"
+    },
+    "guard-final-package/install.stderr": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/install.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "audit-boundary.py": {
+      "path": "/tmp/yf-g03-cookie-evidence/audit-boundary.py",
+      "sha256": "eb16aae54d4233963ddb75893cc84850d84354df633c1deb8424061fcb014c57"
+    },
+    "audit-boundary.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/audit-boundary.json",
+      "sha256": "069b73e03cee6ecb6d7c611d2f733db168280d321d91b647a64bc76de99c2d41"
+    },
+    "audit-boundary.log": {
+      "path": "/tmp/yf-g03-cookie-evidence/audit-boundary.log",
+      "sha256": "0526553b0508a04b3cf412a72e573f911a7ed4a36c6cb0d83bcf44f07b0ca2ab"
+    },
+    "guard-final-package/node22.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node22.stdout",
+      "sha256": "cf1c857acb8703b57910f6de706b60eb5cecf438417ba29392acd0f1cd96b045"
+    },
+    "guard-final-package/node22.stderr": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node22.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "guard-final-package/node24.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node24.stdout",
+      "sha256": "1d858770b2818d5d54ba3a8ae1ef9740feeb3ebc797a5a8c6027cdb4cd2641f7"
+    },
+    "guard-final-package/node24.stderr": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node24.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "guard-final-package/bun.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/bun.stdout",
+      "sha256": "720732ef5f2899a2d50e731d278e3d3c711dc998875e079fa350a07a5e86f719"
+    },
+    "guard-final-package/bun.stderr": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/bun.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "guard-final-package/node24-fragmented.stdout": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node24-fragmented.stdout",
+      "sha256": "c7884867c198fc8134f6fc8a701a4a25c3ac5a693d2154dae5666f371b9f7d71"
+    },
+    "guard-final-package/node24-fragmented.stderr": {
+      "path": "/tmp/yf-g03-cookie-evidence/guard-final-package/node24-fragmented.stderr",
+      "sha256": "bad686b6db8e52910e33ce43c57127b560620e44bc16d13b950cc2dce72989f8"
+    },
+    "source-equality.json": {
+      "path": "/tmp/yf-g03-cookie-evidence/source-equality.json",
+      "sha256": "967cfc457ef2fd76deb0b4319bd399899d68c576b0442e284f071b332e1bde48"
+    }
+  },
+  "sourceEquality": {
+    "base": "e48a7aff2c860f9743214e41c3858750d783af38",
+    "originalFileCount": 1591,
+    "changedOriginalPaths": [
+      "bin/runtime.ts",
+      "scripts/native-platform.ts",
+      "tests/cli-entrypoints.test.ts",
+      "tests/migration/EXECUTABLES.md",
+      "tests/migration/native-mcp-fragment.mjs",
+      "tests/migration/package-native-cli.mjs"
+    ],
+    "addedPaths": [
+      "tests/migration/TRUST-BOUNDARIES.md",
+      "tests/migration/package-cookie-fetch.mjs",
+      "tests/migration/package-cookie-probe.mjs",
+      "tests/migration/results/g03-cookie-integrity.json"
+    ],
+    "unownedOriginalFilesUnchanged": 1585,
+    "publicSourceAndSchemasByteIdentical": true,
+    "sourceFileCount": 105,
+    "fixtureFileCount": 1201,
+    "rootMetadataAndLocksUnchanged": true,
+    "McpAndGuardSourceUnchanged": true,
+    "minimumPolicyUntouched": true
+  },
+  "v2ReviewCorrection": {
+    "priorFrozen": {
+      "manifest": "/tmp/yf-g03-cookie-evidence/manifest.json",
+      "sha256": "3747e7f6384ef090875f8e9c329f0f7d653dd63a05c7a1377bed68ef3f9fd288",
+      "archiveSha256": "a74dc6895f3d3e6cb3db35f7b53df873b2be59152bc91ddf8c521e0b873df709",
+      "patchSha256": "73da57123c959773865fa6e32e4e3dbc4d8c51a61a9eb56ad076003f6e9d8401"
+    },
+    "review": {
+      "path": "/tmp/yf-g03-astra-qvku8bbw/review.json",
+      "sha256": "1e9fcfcaa5614495e0abeb3102a5d472f8419f27a0649fdc45a81a2c60681477",
+      "finding": "G03-ASTRA-P2-STDIN-EPIPE; whole review otherwise clear within disclosed bounds"
+    },
+    "correction": [
+      "Attach stdin/stdout/stderr and child error handlers before writes; preserve protocol/transport failure through awaited response loops.",
+      "Await write callbacks and stream finish on end, bounded by existing20second operation deadline.",
+      "Keep separate close/reap observation for teardown, SIGKILL if running, bounded5second cleanup wait and independent nested three-stream destroy/child unref.",
+      "Apply same narrow fix to existing active native CLI lifecycle loop without changing14check count, signal/forced termination assertions or fragment expectations."
+    ],
+    "maintainedRegression": "scripts/package-cookie-probe.test.ts: real Node supervised controllers accept initialize then close fd0 for each probe; actual EPIPE caught, close observed, all three streams destroyed and no live child PID. Separate controlled stdout/stderr error events also fail safely. One generated package build, explicit60000ms integration budget; supervisor retains rescue ownership only while PID may be alive.",
+    "originalReproductions": {
+      "cookie": "Exact Astra topology rerun twice each: frozen v1 crashes with unhandled EPIPE and live child; v2 throws EPIPE after cleanup, no live child/no supervisor rescue.",
+      "native": "Equivalent prior native loop independently reproduced once for v1 and once for v2: v1 requires rescue, v2 reaps child without unhandled stream event."
+    },
+    "positive": "Previously actual installed unchanged public package graph copied privately, not a new install claim: Node22.0/Node24.21/Bun1.4.3 each retain14checks and all5synthetic cookie requests; fragmented Node24 retains14checks and4MCP sessions. Only actual OS is Linux.",
+    "types": "Library58roots/73files/28exports and tools129roots/202files:0diagnostics.",
+    "lint": "0errors,0warnings;2 inherited useTemplate infos remain in unchanged native-probe expressions; new source/control format check passes.",
+    "unchanged": "All production source including hardlink fix, generated package source/signatures/schemas, approved minimum policy, root lock/manifests, driver copy-list, strict/native split and fixtures unchanged from frozen v1. No new transport helper.",
+    "residualPriorGuardedHarnesses": "package-http.mjs and package-bins.mjs retain prior analogous unawaited-send patterns. They are Linux guarded artifact probes, not native driver copies, and remain outside this focused correction per parent scope. This is disclosed residual behavior, not a guarantee supplied by namespace containment.",
+    "evidence": {
+      "/tmp/yf-g03-cookie-v2-evidence/negative-controls.log": "199374d5e1cbb5925916ef2ddb74423c5e8072ca3e350f4346a0ae1b2fdffb02",
+      "/tmp/yf-g03-cookie-v2-evidence/typecheck.log": "b12cf0c0f4892d8cf2dbbd6495cb4b1f66dedc355dc4c62d119747080020b901",
+      "/tmp/yf-g03-cookie-v2-evidence/lint.log": "e43a59f47746f5a7962399667f508cde4957fd81f6d4d275ec754fed8bba8784",
+      "/tmp/yf-g03-cookie-v2-evidence/format.log": "5ac1a5fe0e5effc25acb80a91934c3bd4ec190ea040f6108a7d218c9b79d4b75",
+      "/tmp/yf-g03-cookie-v2-evidence/package-and-pipe-proof.py": "006456eccb37682e91b5302cac4956a57598482114e88191a2d3053bc34fb9ac",
+      "/tmp/yf-g03-cookie-v2-evidence/package-and-pipe.log": "b46ae81754af567def2c9f220da3b6ea42ac4a8ff2ff86dcafdd7bb450a4345e",
+      "/tmp/yf-g03-cookie-v2-evidence/native-pipe-proof.py": "9bdc89d2cd943c6e4de947b00748aa40219501f92fd55c50b5d818cb3afac851",
+      "/tmp/yf-g03-cookie-v2-evidence/native-pipe.log": "475d340b93f0cdd2d7e26f2cc224772d47af8b76a63eec6c2b7d6f2bf30118a3",
+      "/tmp/yf-g03-cookie-v2-checks/proof.json": "45f9569f603d557ee646aa5c983184397ee1a6ea7986b04b4067e98c83101b28",
+      "/tmp/yf-g03-cookie-v2-checks/native-pipe-proof.json": "658e8296cad06cc6a3eabfaaa0394b4bafc2df187165f8687b02c6ec495f6818",
+      "/tmp/yf-g03-astra-qvku8bbw/review.json": "1e9fcfcaa5614495e0abeb3102a5d472f8419f27a0649fdc45a81a2c60681477",
+      "/tmp/yf-g03-astra-qvku8bbw/scratch/pipe-failure-proof.json": "8fb78be2aba38a1c5e650fb36140bf234280b81053e94fdc2c343f4aa3d8d45a",
+      "/tmp/yf-g03-astra-qvku8bbw/pipe-failure-proof.py": "0ad365ba96ff64ee035eb7ea3db1dd6b109c6ae549900b2ab86f8dbbae09bac8"
+    },
+    "limits": [
+      "No actual macOS/Windows v2 run; next matrix must exercise portable probes.",
+      "No Deno,Yahoo,auth,publication,dispatch,shared edits or tracker ticks.",
+      "No new independent full graph installation or broad replay claimed. Historical v1 proof remains preserved and separately labeled."
+    ]
+  },
+  "parentAcceptance": {
+    "status": "G06 accepted; source and Linux packed G03 correction accepted, native platform G01/G03 verification remains pending.",
+    "reviewedReceiptSha256": "929a50f13d791652434db328a41bf50103d201e9cc2f29aa69b0c5d8fc9a67bd",
+    "reviews": {
+      "sol": {
+        "path": "/tmp/yf-g03-sol-v2-3dzfqs_d/review.json",
+        "sha256": "969ce468be862db9f841f2b7a726d7786480189e6a52270aea0ce0bb20968ecd"
+      },
+      "astra": {
+        "path": "/tmp/yf-g03-v2-astra-9qvodaig/review.json",
+        "sha256": "b61a99c786e1d1f8f1c6274628e216b023aa4a14874c967c425f47cfa60bc219"
+      }
+    },
+    "resolvedFinding": {
+      "path": "/tmp/yf-g03-astra-qvku8bbw/review.json",
+      "sha256": "1e9fcfcaa5614495e0abeb3102a5d472f8419f27a0649fdc45a81a2c60681477",
+      "finding": "Unhandled child stdin EPIPE terminated native probe controller before finally and left owned child alive.",
+      "correction": "Both active probe loops handle all stream errors and await writes/end; protocol errors always reach owned child/stream cleanup. Maintained real supervised regression added.",
+      "runtimeQualification": "Retained independent v2 review: actual Node22/24 closed-pipe topologies report EPIPE and cleanup; Bun1.4.3 does not emit EPIPE through these callbacks/events and instead rejects at its existing roughly10-11s missing-response timeout, naturally exits and leaves no live child. V1 Bun behaved similarly; the demonstrated v1 unhandled-EPIPE leak is Node-specific. Current focused regression and normal runtime positives are new evidence; expanded adversarial controls were not blindly repeated."
+    },
+    "application": {
+      "path": "/tmp/yf-g03-v2-applied-proof.json",
+      "sha256": "669d9a214c0952ad69279ec52cb81ea654bc57b561d2a0082b35dfac891d5f7d",
+      "checks": {
+        "strictFocused": {
+          "passed": 35,
+          "failed": 0,
+          "files": 5,
+          "serial": true
+        },
+        "typecheck": {
+          "libraryRoots": 58,
+          "libraryFiles": 73,
+          "toolsRoots": 129,
+          "toolsFiles": 202,
+          "diagnostics": 0
+        },
+        "format": {
+          "files": 215,
+          "exitCode": 0
+        },
+        "lint": {
+          "errors": 0,
+          "warnings": 150,
+          "infos": 143
+        },
+        "schemaCheck": {
+          "exitCode": 0,
+          "writes": false
+        },
+        "docsLint": {
+          "exitCode": 0,
+          "exports": 28,
+          "reflections": 5022,
+          "compatibleLinks": 161,
+          "existingDiagnostics": 2271
+        },
+        "allFreshInstalledPayloadFilesBytesModesMatchTarball": 252
+      },
+      "packedConsumer": {
+        "freshOfflineConsumerNormalHooks": true,
+        "ignoreScriptsUsed": false,
+        "engines": {
+          "node": ">=22.0.0",
+          "bun": ">=1.4.3"
+        },
+        "exportCount": 28,
+        "packedEntries": 252,
+        "tarballSha256": "d83133004d2bf5ab59271c0fdde80e1bfea35ec4c7d318b3488790b331a7be07",
+        "runtimes": {
+          "node22": "v22.0.0",
+          "node24": "v24.21.0",
+          "bun143": "1.4.3"
+        },
+        "limits": "Strict Linux offline guarded build, pack, fresh consumer install and actual CLI/MCP; no registry network, Deno,publisher or real Yahoo. Windows/macOS remain hosted evidence.",
+        "rows": [
+          {
+            "name": "node22",
+            "checks": 14,
+            "cookiePersistence": {
+              "separateExecutables": [
+                "CLI write",
+                "CLI read",
+                "MCP tools/call write",
+                "CLI read MCP"
+              ],
+              "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+              "creation": "actual CLI creates missing file before controlled fetch refusal",
+              "preservedCookies": [
+                "crumb",
+                "A1",
+                "CLI",
+                "MCP"
+              ],
+              "requestCount": 5,
+              "hardlinkRefusals": 2,
+              "targetBytesAndModeUnchanged": true,
+              "unknownRequestsRefused": 5,
+              "invalidQuoteResultRefused": true,
+              "permissions": "0600",
+              "platform": "linux"
+            },
+            "fragmentMarkers": 0
+          },
+          {
+            "name": "node24",
+            "checks": 14,
+            "cookiePersistence": {
+              "separateExecutables": [
+                "CLI write",
+                "CLI read",
+                "MCP tools/call write",
+                "CLI read MCP"
+              ],
+              "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+              "creation": "actual CLI creates missing file before controlled fetch refusal",
+              "preservedCookies": [
+                "crumb",
+                "A1",
+                "CLI",
+                "MCP"
+              ],
+              "requestCount": 5,
+              "hardlinkRefusals": 2,
+              "targetBytesAndModeUnchanged": true,
+              "unknownRequestsRefused": 5,
+              "invalidQuoteResultRefused": true,
+              "permissions": "0600",
+              "platform": "linux"
+            },
+            "fragmentMarkers": 0
+          },
+          {
+            "name": "bun143",
+            "checks": 14,
+            "cookiePersistence": {
+              "separateExecutables": [
+                "CLI write",
+                "CLI read",
+                "MCP tools/call write",
+                "CLI read MCP"
+              ],
+              "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+              "creation": "actual CLI creates missing file before controlled fetch refusal",
+              "preservedCookies": [
+                "crumb",
+                "A1",
+                "CLI",
+                "MCP"
+              ],
+              "requestCount": 5,
+              "hardlinkRefusals": 2,
+              "targetBytesAndModeUnchanged": true,
+              "unknownRequestsRefused": 5,
+              "invalidQuoteResultRefused": true,
+              "permissions": "0600",
+              "platform": "linux"
+            },
+            "fragmentMarkers": 0
+          },
+          {
+            "name": "node24-fragmented",
+            "checks": 14,
+            "cookiePersistence": {
+              "separateExecutables": [
+                "CLI write",
+                "CLI read",
+                "MCP tools/call write",
+                "CLI read MCP"
+              ],
+              "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+              "creation": "actual CLI creates missing file before controlled fetch refusal",
+              "preservedCookies": [
+                "crumb",
+                "A1",
+                "CLI",
+                "MCP"
+              ],
+              "requestCount": 5,
+              "hardlinkRefusals": 2,
+              "targetBytesAndModeUnchanged": true,
+              "unknownRequestsRefused": 5,
+              "invalidQuoteResultRefused": true,
+              "permissions": "0600",
+              "platform": "linux"
+            },
+            "fragmentMarkers": 4
+          }
+        ]
+      },
+      "dependencyVersionQualification": {
+        "rootSDK": "1.32.0",
+        "rootZod": "4.6.5",
+        "freshOfflineInstalledSDK": "1.32.1",
+        "freshOfflineInstalledZod": "4.6.7",
+        "meaning": "Fresh public-package consumer resolved cached versions allowed by published semver ranges, not an identical-root-graph claim. No registry network or root dependency changes."
+      },
+      "fixtures": {
+        "count": 1201,
+        "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+        "bytesAndModesUnchanged": true
+      },
+      "allUnownedTrackedBytesAndExistingModesUnchanged": true,
+      "approvedBunFloorAndSdkPreserved": true
+    },
+    "acceptedItems": [
+      "G06"
+    ],
+    "counts": "G4/6;overall53/71. G01/G03/H05/D04/I01 await actual updated native matrix.",
+    "limits": [
+      "Trusted HOME pathname races and native Windows inherited ACL/console behavior remain explicit; no race-free hostile-HOME guarantee.",
+      "Linux strict guard denies IP/fixture writes but retains broad host read and reachable pathname Unix sockets; explicit native replay is trusted and not an OS sandbox.",
+      "Actual Node EPIPE cleanup differs from actual Bun bounded missing-response failure/cleanup; invalid named-builtin interception was not counted as a product result.",
+      "Current application is real Linux source/packed proof. Native macOS/Windows and final complete pipeline remain separate."
+    ]
+  }
+}

@@ -128,13 +128,13 @@ all items; the benchmark results above retain their historical meaning.
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
 | [E. Type checking and schema generation](#migration-e)           | Complete        |        6/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
-| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
+| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        4/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | In progress     |        5/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | In progress     |        4/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **52/71** |
+| **Overall**                                                      | **In progress** |  **53/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -906,6 +906,35 @@ root dependency pins/lockfile and unrelated files remain unchanged. Progress
 stays **52/71**: root import-map cleanup, maintained publisher controls and the
 final accepted-head publisher/platform rehearsal are separate gates.
 
+## Cookie integrity and permission audit (G03 / G06, 2026-10-16)
+
+The [cookie-file correction](results/g03-cookie-integrity.json) rejects known
+hard links before changing permissions or opening the persistent store. Real
+before/after controls show the old chmod could change another linked path's
+mode; the corrected path preserves bytes/modes and closes its descriptor.
+Existing create-new, symlink/nonregular, concurrency and sanitized-error checks
+remain. Trusted HOME pathname races and Windows inherited ACL limits are
+explicit in the [permission audit](TRUST-BOUNDARIES.md).
+
+Astra review found a separate native-probe cleanup defect: a child closing stdin
+could raise unhandled EPIPE and leave an owned child alive. Both active probe
+loops now handle stream failures and always reach teardown. Independent Sol
+xhigh and Astra xhigh controls reproduce the old leak and verify corrected
+Node failures without rescue. Real Bun controllers instead reach a bounded
+missing-response failure and also reap the child; no Bun EPIPE claim is made.
+
+The current composed SDK/cookie package passed a guarded build, offline pack and
+fresh normal-hook offline consumer installation. Node 22/24 and Bun each retain
+all 14 CLI checks, five synthetic cookie requests and two hardlink refusals;
+Node 24 also passes four fragmented MCP sessions. Public ranges resolved cached
+SDK 1.32.1/Zod 4.6.7, while the unchanged root remains pinned to 1.32.0/4.6.5.
+All 252 installed payload files match the tarball. Thirty-five guarded focused
+tests, complete types, format/lint, no-write schema and docs gates pass; all
+1,201 real fixtures remain unchanged.
+
+G06 is accepted and progress is **53/71**. Actual native OS results still gate
+G01/G03/H05/D04/I01; the final complete pipeline remains separate.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -1504,10 +1533,12 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [ ] G03 — Preserve cookie-store create-new behavior and restrictive file modes
       where supported; check existing files, concurrent creation and failure
       handling without exposing cookie values in output.
-      Partial Linux source evidence: exclusive initial 0600 creation, preserved
-      contents, descriptor chmod, rejected symlink/nonregular files, concurrent
-      creators and fixed/redacted diagnostics pass. Windows/packed persistence
-      verification remains open. See [source phase](EXECUTABLES.md).
+      Source and actual packed Linux evidence now covers exclusive 0600
+      creation, preserved contents, rejected symlink/nonregular/hardlinked files,
+      concurrent creators, redacted errors and separate CLI/MCP cookie reuse on
+      Node 22/24 and Bun. See [executable policy](EXECUTABLES.md) and the
+      [reviewed receipt](results/g03-cookie-integrity.json). Actual native
+      macOS/Windows persistence and file behavior remain open.
 - [x] G04 — Verify MCP stdio protocol, HTTP startup, shutdown/signals and error
       paths using the packed executable and production SDK dependencies.
       Evidence: [packed transport policy](MCP-TRANSPORTS.md) and
@@ -1521,10 +1552,14 @@ review and publisher-only Deno compatibility proof remain separate gates.
       diagnostics, opt-out/Origin/token compatibility and independent raw HTTP
       and web-handler probes in the [G04/G05 receipt](results/g04-g05-packed-mcp.json).
       G06 and other operating-system verification remain separate.
-- [ ] G06 — Audit the loss of Deno runtime permissions across CLI/MCP and
+- [x] G06 — Audit the loss of Deno runtime permissions across CLI/MCP and
       subprocess tooling; document and verify replacement limits or explicit
       trust requirements for filesystem, environment, network and child
-      processes.
+      processes. Evidence: [explicit trust boundaries](TRUST-BOUNDARIES.md) and
+      [reviewed source/packed controls](results/g03-cookie-integrity.json),
+      including actual Linux IP/write denial and disclosed host-read/Unix-socket
+      access. Native replay and CLI/MCP require trusted code/HOME; native ACL,
+      console and broader OS verification remain H05.
 
 <a id="migration-h"></a>
 

@@ -290,6 +290,113 @@ test("cookie setup rejects symlinks/directories and sanitizes failures while clo
   expect(closes).toBe(2);
 });
 
+test("cookie setup rejects real hardlinks before chmod or store parsing", () => {
+  using space = workspace();
+  const source = space.put("unrelated.json", "private linked contents");
+  const cookie = path.join(space.root, ".yf2-cookies.json");
+  fs.chmodSync(source, 0o644);
+  fs.linkSync(source, cookie);
+  const before = fs.statSync(source);
+  expect(before.nlink).toBe(2);
+  expect(() => ensurePrivateFile(cookie)).toThrow("owner-only access");
+  expect(() => createCookieJar({ HOME: space.root })).toThrow(
+    "Unable to prepare",
+  );
+  expect(fs.readFileSync(source, "utf8")).toBe("private linked contents");
+  expect(fs.statSync(source).mode).toBe(before.mode);
+  expect(fs.statSync(cookie).ino).toBe(before.ino);
+});
+
+test("cookie setup rejects links added around opened/current checks and still closes the descriptor", () => {
+  for (const stage of [
+    "after-lstat",
+    "after-fstat",
+    "removed-after-fstat",
+    "replacement",
+  ] as const) {
+    using space = workspace();
+    const cookie = space.put("cookie", "preserve race bytes");
+    const alias = path.join(space.root, "unrelated.json");
+    const replacement = space.put("replacement", "preserve replacement bytes");
+    fs.chmodSync(cookie, 0o644);
+    fs.chmodSync(replacement, 0o640);
+    const cookieMode = fs.statSync(cookie).mode;
+    const replacementMode = fs.statSync(replacement).mode;
+    let stats = 0;
+    let chmods = 0;
+    let closes = 0;
+    expect(() =>
+      ensurePrivateFile(cookie, {
+        fs: {
+          open: fs.openSync,
+          lstat: (file) => {
+            const result = fs.lstatSync(file);
+            if (++stats === 1 && stage === "after-lstat")
+              fs.linkSync(cookie, alias);
+            return result;
+          },
+          fstat: (fd) => {
+            if (stage === "removed-after-fstat") fs.linkSync(cookie, alias);
+            const result = fs.fstatSync(fd);
+            if (stage === "removed-after-fstat") fs.unlinkSync(alias);
+            if (stage === "after-fstat") fs.linkSync(cookie, alias);
+            if (stage === "replacement") {
+              fs.renameSync(cookie, alias);
+              fs.linkSync(replacement, cookie);
+            }
+            return result;
+          },
+          chmod: (fd, mode) => {
+            chmods++;
+            fs.fchmodSync(fd, mode);
+          },
+          close: (fd) => {
+            closes++;
+            fs.closeSync(fd);
+          },
+        },
+      }),
+    ).toThrow("owner-only access");
+    expect(chmods).toBe(0);
+    expect(closes).toBe(1);
+    const original = stage === "replacement" ? alias : cookie;
+    expect(fs.readFileSync(original, "utf8")).toBe("preserve race bytes");
+    expect(fs.statSync(original).mode).toBe(cookieMode);
+    expect(fs.readFileSync(replacement, "utf8")).toBe(
+      "preserve replacement bytes",
+    );
+    expect(fs.statSync(replacement).mode).toBe(replacementMode);
+  }
+});
+
+test("hardlink rejection retains sanitized close-error precedence", () => {
+  using space = workspace();
+  const cookie = space.put("cookie", "private marker");
+  let closed = false;
+  expect(() =>
+    ensurePrivateFile(cookie, {
+      fs: {
+        open: fs.openSync,
+        lstat: fs.lstatSync,
+        fstat: (fd) => {
+          fs.linkSync(cookie, path.join(space.root, "alias"));
+          return fs.fstatSync(fd);
+        },
+        chmod: () => {
+          throw new Error("chmod must not run");
+        },
+        close: (fd) => {
+          fs.closeSync(fd);
+          closed = true;
+          throw new Error("private close marker");
+        },
+      },
+    }),
+  ).toThrow("Unable to close the private cookie store.");
+  expect(closed).toBe(true);
+  expect(fs.readFileSync(cookie, "utf8")).toBe("private marker");
+});
+
 test("cookie setup keeps sanitized close failures ahead of preparation failures", () => {
   using space = workspace();
   for (const failPreparation of [false, true]) {

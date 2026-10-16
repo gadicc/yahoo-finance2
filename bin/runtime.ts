@@ -89,7 +89,11 @@ export function ensurePrivateFile(
     } catch (error) {
       if (errorCode(error) !== "EEXIST") throw error;
       const existing = fs.lstat(file);
-      if (!existing.isFile() || existing.isSymbolicLink()) {
+      if (
+        !existing.isFile() ||
+        existing.isSymbolicLink() ||
+        existing.nlink > 1
+      ) {
         throw new Error("not a regular file");
       }
       // NONBLOCK avoids hanging if a regular file is replaced with a FIFO.
@@ -100,12 +104,16 @@ export function ensurePrivateFile(
           (constants.O_NONBLOCK ?? 0),
       );
     }
+    // Refuse known aliases before changing the inode. Later path-based store
+    // access still relies on a trusted HOME; these checks are not race-free.
     const opened = fs.fstat(fd);
     const current = fs.lstat(file);
     if (
       !opened.isFile() ||
       !current.isFile() ||
       current.isSymbolicLink() ||
+      opened.nlink > 1 ||
+      current.nlink > 1 ||
       opened.dev !== current.dev ||
       opened.ino !== current.ino
     )

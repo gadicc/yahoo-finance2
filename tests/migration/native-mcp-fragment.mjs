@@ -5,11 +5,13 @@ import { syncBuiltinESMExports } from "node:module";
 
 const original = childProcess.spawn;
 let fragmented = 0;
+let fragmentedCookie = 0;
 childProcess.spawn = new Proxy(original, {
   apply(target, context, args) {
     const child = Reflect.apply(target, context, args);
     assert(child instanceof childProcess.ChildProcess);
     if (Array.isArray(args[1]) && args[1].includes("--stdio")) {
+      const cookieProbe = args[1][args[1].indexOf("--tools") + 1] === "quote";
       const stdout = child.stdout;
       assert(stdout, "MCP stdout must be piped");
       const emit = stdout.emit;
@@ -39,7 +41,8 @@ childProcess.spawn = new Proxy(original, {
                 emit.call(stdout, "data", frame.subarray(at));
                 if (held.length) emit.call(stdout, "data", held);
                 pending = false;
-                fragmented++;
+                if (cookieProbe) fragmentedCookie++;
+                else fragmented++;
                 if (ended) emit.call(stdout, "end");
               }, 100);
             }
@@ -54,6 +57,8 @@ childProcess.spawn = new Proxy(original, {
 });
 syncBuiltinESMExports();
 process.once("exit", (code) => {
-  if (code === 0)
+  if (code === 0) {
     assert.equal(fragmented, process.platform === "win32" ? 2 : 3);
+    assert.equal(fragmentedCookie, 1);
+  }
 });

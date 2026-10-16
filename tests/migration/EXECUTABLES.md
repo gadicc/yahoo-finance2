@@ -30,7 +30,10 @@ there is no creation interval with permissive mode bits, including under umask
 explicitly best effort for ENOSYS/ENOTSUP/EOPNOTSUPP/EINVAL; this does not claim
 POSIX modes establish Windows ACL privacy.
 
-Existing symlinks and nonregular files are rejected, O_NOFOLLOW protects opens
+Existing symlinks, nonregular files and known multiple hardlinks are rejected
+before chmod/store construction. Opened/current link counts and identities are
+checked; this does not prevent links added after those checks in an attacker-owned
+HOME. O_NOFOLLOW protects opens
 where available, and descriptor/path identities are checked. Nonblocking opens
 avoid waiting on a substituted FIFO. Descriptors close on success and failure;
 all preparation/load errors use fixed messages. The pinned file-store's
@@ -84,3 +87,8 @@ Yahoo access stay denied during these tests; packed HTTP and SDK integration
 remain G04. CLI data success uses an injected fake client. No generated npm
 output, dependency versions, consumer metadata, CI, fixtures or shared library
 source changed in this phase.
+
+The later G03 cookie milestone adds actual packed CLI/MCP quote persistence and
+hardlink/race controls. See [cookie integrity evidence](results/g03-cookie-integrity.json)
+and the [G06 trust-boundary inventory](TRUST-BOUNDARIES.md). Those distinguish
+Linux proof, pending native OS execution, trusted HOME and Windows ACL limits.
