@@ -128,13 +128,13 @@ all items; the benchmark results above retain their historical meaning.
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        4/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
-| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
+| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **36/71** |
+| **Overall**                                                      | **In progress** |  **38/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -405,6 +405,29 @@ verification used synthetic transports and disposable roots. The
 [receipt](results/d07-country-capture.json) records source hashes and bounds.
 Root alias and compiler/dependency cleanup follow separately in B04/E03.
 Progress is **36/71**.
+
+## Packed MCP checkpoint (G04/G05, 2026-10-16)
+
+The [packed transport proof](MCP-TRANSPORTS.md) covers real stdio and HTTP
+executables plus public handlers on Node 22.0.0, Node 24.21.0 and Bun 1.4.3.
+Seventeen groups pass per runtime. Host validation now rejects comma-separated,
+duplicate and malformed authorities, preserves explicit policy opt-outs, and
+returns fixed diagnostics. Routing handles malformed targets independently of
+Host. Bearer and non-local bind policies retain their intended behavior.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the snapshot after
+additional authority, protocol, authentication, lifecycle and declaration checks.
+Sol's offline rebuild matches all 252 shipped files and its real SDK client
+completes controlled tools calls on every runtime. The rebuilt artifact also
+passes eight author workerd checks. No CLI lifecycle rewrite was needed; the
+receipt explicitly bounds the separate bare pre-request TCP observation.
+Linux trust/Unix-socket limitations, cookie-store scope and G06 remain separate.
+
+The [combined integration receipt](results/integration-2026-10-16.json) records
+1,478 passing tests across 57 files in both coverage and serial replay, valid
+LCOV paths, zero type diagnostics, the no-write schema gate and unchanged bytes
+for all 1,201 fixtures. That combined proof includes the pending B04/E03 draft;
+it does not mark that review accepted. Progress is **38/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -991,11 +1014,19 @@ and CI remain separate work.
       contents, descriptor chmod, rejected symlink/nonregular files, concurrent
       creators and fixed/redacted diagnostics pass. Windows/packed persistence
       verification remains open. See [source phase](EXECUTABLES.md).
-- [ ] G04 — Verify MCP stdio protocol, HTTP startup, shutdown/signals and error
+- [x] G04 — Verify MCP stdio protocol, HTTP startup, shutdown/signals and error
       paths using the packed executable and production SDK dependencies.
-- [ ] G05 — Preserve MCP host validation, token comparison and non-local bind
+      Evidence: [packed transport policy](MCP-TRANSPORTS.md) and
+      [G04/G05 receipt](results/g04-g05-packed-mcp.json), 17 native groups on
+      each Node 22.0.0/24.21.0 and Bun 1.4.3; independent Sol and Astra xhigh
+      checks include real protocol/lifecycle and strict declaration controls.
+- [x] G05 — Preserve MCP host validation, token comparison and non-local bind
       safeguards, including environment-provided tokens and explicit unsafe
       opt-out; add focused regression evidence for these security boundaries.
+      Evidence: fixed comma/duplicate/malformed Host acceptance, sanitized target
+      diagnostics, opt-out/Origin/token compatibility and independent raw HTTP
+      and web-handler probes in the [G04/G05 receipt](results/g04-g05-packed-mcp.json).
+      G06 and other operating-system verification remain separate.
 - [ ] G06 — Audit the loss of Deno runtime permissions across CLI/MCP and
       subprocess tooling; document and verify replacement limits or explicit
       trust requirements for filesystem, environment, network and child
