@@ -9,18 +9,13 @@ import {
 import yahooFinanceFetch from "./lib/yahooFinanceFetch.ts";
 import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
-import { assertSupported, stdoutIsTerminal } from "./lib/runtime-detect.ts";
+import {
+  assertSupported,
+  MIN_SUPPORTED_RUNTIMES,
+  stdoutIsTerminal,
+} from "./lib/runtime-detect.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 import { deepMerge } from "./lib/deepmerge.ts";
-
-const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
-  node: "22.0.0",
-  deno: "2.0.0",
-  bun: "1.0.0",
-  cloudflare: {
-    requireFeatures: [],
-  },
-};
 
 /**
  * Instantiate a new YahooFinance client.

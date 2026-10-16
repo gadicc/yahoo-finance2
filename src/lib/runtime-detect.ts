@@ -12,6 +12,14 @@ export interface SupportPolicy {
   bun?: string;
   cloudflare?: { requireFeatures?: string[] };
 }
+/** Consumer minimums for the new major; independent of the development pin. */
+export const MIN_SUPPORTED_RUNTIMES = {
+  node: "22.0.0",
+  deno: "2.0.0",
+  bun: "1.4.3",
+  cloudflare: { requireFeatures: [] },
+} satisfies SupportPolicy;
+
 export interface SupportCheckResult {
   ok: boolean;
   info: RuntimeInfo;

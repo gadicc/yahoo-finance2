@@ -173,7 +173,7 @@ test("npm build emits deterministic public artifacts, declarations, schemas and 
       readFileSync(path.join(first, "package.json"), "utf8"),
     );
     expect(Object.keys(pkg.exports)).toEqual(Object.keys(source.exports));
-    expect(pkg.engines).toEqual({ node: ">=22.0.0" });
+    expect(pkg.engines).toEqual({ node: ">=22.0.0", bun: ">=1.4.3" });
     expect(pkg.dependencies["@types/json-schema"]).toBe("^7.0.15");
     expect(pkg.dependencies["fetch-mock-cache"]).toBeUndefined();
     expect(pkg.devDependencies).toBeUndefined();
@@ -273,6 +273,11 @@ test("compiler inputs reject imported JSON/source/schema links and escapes while
       "scripts/build_npm.ts",
       readFileSync(path.join(repository, "scripts/build_npm.ts"), "utf8"),
     );
+    for (const name of ["runtime-detect.ts", "runtimeGlobal.ts"])
+      put(
+        `src/lib/${name}`,
+        readFileSync(path.join(repository, "src/lib", name), "utf8"),
+      );
     put("package.json", '{"private":true,"type":"module"}');
     put("deno.json", JSON.stringify(metadata));
     put("src/index.ts", index);

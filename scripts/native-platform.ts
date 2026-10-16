@@ -1,5 +1,6 @@
 /** Actual hosted-OS proof driver. Native execution is trusted, not a sandbox. */
 import assert from "node:assert/strict";
+import { MIN_SUPPORTED_RUNTIMES } from "../src/lib/runtime-detect.ts";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
@@ -490,10 +491,7 @@ export async function main(options: Options): Promise<void> {
         command("node24-version", node24, ["--version"]).trim(),
         "v24.21.0",
       );
-      assert.equal(
-        minimumVersion,
-        process.platform === "win32" ? "1.1.0" : "1.0.0",
-      );
+      assert.equal(minimumVersion, MIN_SUPPORTED_RUNTIMES.bun);
       assert.equal(
         command("minimum-bun-version", minimumBun, ["--version"]).trim(),
         minimumVersion,
@@ -605,9 +603,7 @@ export async function main(options: Options): Promise<void> {
             process.execPath,
             preload,
             bun ? "bun" : "node",
-            name === "minimum-bun" && minimumVersion === "1.0.0"
-              ? "library-static"
-              : "full",
+            "full",
           ],
           consumer,
           120000,
@@ -652,14 +648,11 @@ export async function main(options: Options): Promise<void> {
         ],
         consumer,
       );
-      summary.legacyMcpStdioGap =
-        minimumVersion === "1.0.0"
-          ? "Minimum Bun1.0 observation covers all exports/library/runtime and static CLI checks. Installed MCP stdio/signals remain unresolved: Node24-parent stdin EINVAL, legacy controller premature close and missing accurate exit. No successful protocol result is inferred."
-          : undefined;
-      summary.minimumRuntimeQualification =
-        process.platform === "win32"
-          ? "Bun1.0 unavailable upstream on Windows; 1.1.0 is an explicit earliest-native observation row, not a revised global support minimum"
-          : "Bun1.0 on upstream-supported OS";
+      summary.minimumRuntime = {
+        version: MIN_SUPPORTED_RUNTIMES.bun,
+        platforms: "Linux/macOS/Windows upstream-supported combinations",
+        cliScope: "full",
+      };
     }
     summary.phases[options.phase] = "passed";
     summary.status =

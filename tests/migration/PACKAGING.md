@@ -12,7 +12,10 @@ step. The compiler host and type roots are anchored to the source checkout, so
 invoking the builder by absolute path from another working directory is supported. Install the pinned root graph first with `bun install --frozen-lockfile`.
 The private root package and its exact development dependencies are not the
 published manifest. Public dependency ranges continue to come from the retained
-Deno/JSR import map. Consumer Node support remains `>=22.0.0`.
+Deno/JSR import map. Generated npm engines are Node `>=22.0.0` and Bun
+`>=1.4.3`, derived from the same internal consumer policy used by constructor
+warnings. Deno consumer support remains `>=2.0.0`; npm engine metadata does not
+replace runtime checks or the separate JSR contract.
 
 ## Output and publication contract
 

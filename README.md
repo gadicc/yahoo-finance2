@@ -26,7 +26,7 @@ git commands to update your local installation.
 
 ## Supported runtimes:
 
-- **Bun**: v1+.
+- **Bun**: v1.4.3+ for the new major.
 - **Cloudflare**: Modern releases, tested in CI via Workers Vitest under
   `nodejs_compat`.
 - **Deno**: v2+.

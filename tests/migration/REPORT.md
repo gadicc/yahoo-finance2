@@ -478,7 +478,8 @@ portable replay behavior is distinct from the Linux kernel guard.
 
 ## Consumer runtime checkpoint (H01 / partial H03, 2026-10-16)
 
-[Runtime policy](RUNTIMES.md) retains Node >=22.0.0, Bun >=1.0.0 and Deno
+At this historical checkpoint, the [runtime policy](RUNTIMES.md) retained
+Node >=22.0.0, Bun >=1.0.0 and Deno
 >=2.0.0 on upstream-supported OS/runtime combinations, plus the existing Workers
 compatibility configuration. Consumer minimums remain independent of the exact
 development pin. Unsupported environments continue to warn without rejecting
@@ -857,6 +858,28 @@ Linux process checks, 18 helpers, types, format and lint pass; all real fixtures
 and unrelated files remain unchanged. Actual corrected Windows execution is
 still pending, so D04/H05/I01 and progress **52/71** remain unchanged. The next
 matrix will also carry the separately approved Bun >=1.4.3 consumer baseline.
+
+## Bun consumer minimum implementation (2026-10-16)
+
+The approved new-major policy now requires **Bun >=1.4.3 for all consumers**.
+Node >=22.0.0 and Deno >=2.0.0 remain supported. A single internal minimums
+constant drives constructor warnings, generated npm engines, native bootstrap,
+and installed-package probes. Construction keeps its existing warning-only
+behavior. All current native matrix rows now require full MCP process checks;
+historical Bun 1.0/1.1 observations remain dated evidence outside this policy.
+
+Independent Sol xhigh and adversarial Astra xhigh reviews cleared the
+[implementation](results/bun-consumer-minimum.json), including actual installed
+Node 22/24 and Bun 1.4.3 exports, declarations, CLI/MCP and fragmented stdio.
+Current-branch application preserved the separately reviewed Windows fixture
+paragraph and passed 32 guarded focused tests, full types, format/lint, no-write
+schema and docs checks, plus a fresh guarded build and offline pack with the
+expected engines, 28 exports and 252 entries. Root dependency pins/lockfile and
+all 1,201 fixtures remain unchanged.
+
+H01 was already accepted; progress stays **52/71**. Actual updated native OS
+results and the final composed publisher/Deno rehearsal remain pending. This
+breaking policy change is committed with a breaking-change release marker.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -1486,8 +1509,10 @@ review and publisher-only Deno compatibility proof remain separate gates.
       independently of the development runner: Node 22/24, Bun and Cloudflare
       Workers, with Deno governed by H02 rather than silently dropped.
       Evidence: [retained runtime/OS policy](RUNTIMES.md); Node >=22.0.0,
-      Bun >=1.0.0 and Deno >=2.0.0 on upstream-supported combinations,
-      independently of the Bun 1.4.3 development pin. Actual OS coverage is H05.
+      Bun >=1.4.3 and Deno >=2.0.0 on upstream-supported combinations,
+      following the approved new-major Bun baseline in the
+      [consumer-minimum receipt](results/bun-consumer-minimum.json). The exact
+      development pin remains separate. Actual OS coverage is H05.
 - [x] H02 — Decide and document ongoing Deno consumer compatibility and JSR
       distribution with J01; removing Deno as a development dependency alone
       does not decide either policy. Evidence: explicit user decision to retain

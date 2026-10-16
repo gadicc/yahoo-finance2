@@ -1,5 +1,6 @@
 /** Build the public npm package without a runtime shim or bundler. */
 import * as ts from "typescript";
+import { MIN_SUPPORTED_RUNTIMES } from "../src/lib/runtime-detect.ts";
 import {
   chmodSync,
   copyFileSync,
@@ -496,7 +497,10 @@ export function buildNpm(options: BuildOptions = {}): string {
         "agent-skill",
         "mcp-server",
       ],
-      engines: { node: ">=22.0.0" },
+      engines: {
+        node: `>=${MIN_SUPPORTED_RUNTIMES.node}`,
+        bun: `>=${MIN_SUPPORTED_RUNTIMES.bun}`,
+      },
       main: "./script/src/index.js",
       module: "./esm/src/index.js",
       types: "./esm/src/index.d.ts",

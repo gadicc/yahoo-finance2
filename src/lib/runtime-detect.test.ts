@@ -2,7 +2,8 @@ import { describe, it } from "../../tests/migration/runner.ts";
 import { expect } from "../../tests/migration/assertions.ts";
 import createYahooFinance from "../createYahooFinance.ts";
 import { readFileSync } from "node:fs";
-import { createContext, runInContext } from "node:vm";
+import { createContext, runInContext, type Context } from "node:vm";
+import { createRequire } from "node:module";
 import ts from "typescript";
 import * as nativeRuntime from "./runtime-detect.ts";
 import * as nativeGlobal from "./runtimeGlobal.ts";
@@ -34,7 +35,10 @@ const getGlobalValue = (name: string) => globals.getGlobalValue(name);
 const { isVersionAtLeast } = nativeRuntime;
 
 /** Separate contexts model host globals without changing Bun's immutable Bun global. */
-function withGlobals(values: Record<string, unknown>, body: () => void): void {
+function withGlobals(
+  values: Record<string, unknown>,
+  body: (context: Context) => void,
+): void {
   const previous = { runtime, globals, expectedGlobal };
   const context = createContext({ exports: {} });
   Object.defineProperties(context, Object.getOwnPropertyDescriptors(values));
@@ -50,7 +54,7 @@ function withGlobals(values: Record<string, unknown>, body: () => void): void {
   runtime = context.exports as typeof nativeRuntime;
   expectedGlobal = runInContext("globalThis", context);
   try {
-    body();
+    body(context);
   } finally {
     ({ runtime, globals, expectedGlobal } = previous);
   }
@@ -446,12 +450,62 @@ describe("unavailable compatibility properties", () => {
   });
 });
 
+describe("runtime consumer minimum", () => {
+  it("keeps the canonical Node/Deno policy and Bun 1.4.3 minimum", () => {
+    expect(nativeRuntime.MIN_SUPPORTED_RUNTIMES).toEqual({
+      node: "22.0.0",
+      deno: "2.0.0",
+      bun: "1.4.3",
+      cloudflare: { requireFeatures: [] },
+    });
+  });
+  it("constructs and warns only for unsupported Bun versions", () => {
+    const sourceRequire = createRequire(
+      new URL("../createYahooFinance.ts", import.meta.url),
+    );
+    const constructorSource = compile("../createYahooFinance.ts");
+    for (const version of [
+      "1.4.3",
+      "1.4.4",
+      "1.4.3+build.1",
+      "1.4.2",
+      "1.0.0",
+      "1.4.3-rc.1",
+      "1.4",
+      "malformed",
+    ]) {
+      withGlobals({ Bun: { version } }, (context) => {
+        const supported = ["1.4.3", "1.4.4", "1.4.3+build.1"].includes(version);
+        expect(checkSupport(runtime.MIN_SUPPORTED_RUNTIMES).ok).toBe(supported);
+        context.require = (name: string) =>
+          name === "./lib/runtime-detect.ts" ? runtime : sourceRequire(name);
+        context.exports = {};
+        runInContext(constructorSource, context);
+        const Client = context.exports.default({ modules: {} });
+        const warnings: string[] = [];
+        const logger = {
+          info() {},
+          dir() {},
+          debug() {},
+          error() {},
+          warn(message: string) {
+            warnings.push(message);
+          },
+        };
+        expect(() => new Client({ versionCheck: false, logger })).not.toThrow();
+        expect(warnings.length).toBe(supported ? 0 : 1);
+        if (!supported) expect(warnings[0]).toContain("Requires Bun >= 1.4.3");
+      });
+    }
+  });
+});
+
 describe("runtime version policy", () => {
   it("checks each retained exact minimum and immediately lower versions", () => {
     for (const [runtime, minimum, below] of [
       ["node", "22.0.0", "21.99.99"],
       ["deno", "2.0.0", "1.99.99"],
-      ["bun", "1.0.0", "0.99.99"],
+      ["bun", "1.4.3", "1.4.2"],
     ] as const) {
       for (const version of [minimum, below, `${minimum}-rc.1`]) {
         const values =

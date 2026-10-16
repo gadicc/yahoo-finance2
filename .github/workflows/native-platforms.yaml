@@ -22,15 +22,13 @@ jobs:
         include:
           - runner: ubuntu-24.04
             platform: linux
-            minimum-bun: 1.0.0
+            minimum-bun: 1.4.3
           - runner: macos-15-intel
             platform: darwin
-            minimum-bun: 1.0.0
+            minimum-bun: 1.4.3
           - runner: windows-2022
             platform: win32
-            # Bun1.0 has no native Windows release. This is an observation row,
-            # not a change to the retained minimum on upstream-supported OSes.
-            minimum-bun: 1.1.0
+            minimum-bun: 1.4.3
     defaults:
       run:
         shell: bash

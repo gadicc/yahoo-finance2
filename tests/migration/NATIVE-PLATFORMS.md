@@ -16,14 +16,18 @@ Node release manifests list the Linux/macOS/Windows x64 assets for
 [22.0.0](https://nodejs.org/download/release/v22.0.0/SHASUMS256.txt) and
 [24.21.0](https://nodejs.org/download/release/v24.21.0/SHASUMS256.txt).
 
-Consumer minimums remain unchanged on upstream-supported combinations. Linux
-and macOS also exercise exact Bun 1.0.0; native Windows uses an explicit Bun
-1.1.0 observation row. The official [1.0 assets](https://github.com/oven-sh/bun/releases/expanded_assets/bun-v1.0.0)
-have no Windows binary, while the [1.1 assets](https://github.com/oven-sh/bun/releases/expanded_assets/bun-v1.1.0)
-include one. This does not establish a new global Bun minimum or support every
-intermediate Windows release. The minimum consumer binary is copied to a
-separate temporary location before selecting development Bun, so the second
-setup cannot silently replace the first binary under the same pathname.
+The new major requires Bun **>=1.4.3 for all consumers**. Node >=22.0.0 and
+Deno >=2.0.0 are unchanged. Every Linux/macOS/Windows row exercises exact Bun
+1.4.3 as the consumer minimum, including full installed MCP protocol and process
+controls. The internal consumer policy is shared by the constructor, generated
+npm engines, native bootstrap and package driver. The bootstrap runs on exact
+Node 24 before dependency installation and refuses a mismatched requested
+minimum. The consumer binary is copied to a separate temporary location before
+selecting development Bun, so later setup cannot silently replace it.
+
+Earlier Bun 1.0 Linux/macOS and Windows 1.1 observations are retained as dated
+2026-10-16 evidence in the preparation receipts. They are outside the current
+support policy and do not satisfy a current matrix row.
 
 ## Installation and source replay
 
@@ -124,19 +128,17 @@ and accept either an absolute filesystem resolution or a file URL. Bun 1.0's
 filename form fixes it. Internal/import-safety probes use relative module
 specifiers and real script files rather than newer eval flags. The preserved
 minimal standard-package URL negative and decoded-file positive controls
-isolate this harness issue. All old-Bun spaced-path export/library/runtime and static CLI checks remain
-mandatory; there is no package support qualification or minimum change.
+isolate this harness issue. Those earlier old-Bun checks remain historical evidence. The current Bun
+1.4.3 minimum row requires all modern library/runtime and full CLI/MCP checks.
 
-The Bun 1.0 observation explicitly uses `library-static` CLI scope. Additional
+The historical 2026-10-16 Bun 1.0 observation explicitly used `library-static` CLI scope. Additional
 installed MCP experiments found two separate limitations: a Node24 parent
 triggers Bun1.0 stdin lazyLoadStream/getReader EINVAL at SDK stdio startup,
 while the old Bun controller emits premature close(null,null) after SIGTERM
 without a real exit within the deadline. The identified owned orphan was
 explicitly cleaned. These failed protocol/termination controls are retained
-as failures, and are not called successful or retried in another mode. Modern
-Node22/24 and development Bun rows keep mandatory full installed MCP controls;
-the Windows1.1 observation also keeps full controls pending actual execution.
-The legacy MCP support decision remains separate from this bounded preparation.
+as failures, and are not called successful or retried in another mode. Current Node22/24 and Bun 1.4.3 rows require full installed MCP controls on every
+OS. The old Windows1.1 observation is not a current supported row.
 
 ## Evidence and reproduction
 
@@ -157,11 +159,11 @@ bun scripts/native-platform.ts install --results /absolute/outside/results --exp
 bun scripts/native-platform.ts replay --results /absolute/outside/results --expected-os linux
 bun scripts/native-platform.ts package --results /absolute/outside/results --expected-os linux \
   --node22 /absolute/node22 --node24 /absolute/node24 --npm /absolute/npm-cli.js \
-  --minimum-bun /absolute/consumer-bun --minimum-version 1.0.0
+  --minimum-bun /absolute/consumer-bun --minimum-version 1.4.3
 ```
 
-Use `darwin` or `win32` and actual native paths on those hosts; Windows uses the
-explicit 1.1.0 consumer observation version. The workflow preserves the runtime
+Use `darwin` or `win32` and actual native paths on those hosts, with the same
+1.4.3 consumer minimum. The workflow preserves the runtime
 paths automatically. Its scope is trusted native development: replay store
 writes and ordinary fallback fetch are blocked, and fixture paths/bytes are
 compared before/after every phase, including failure. Arbitrary test code can
@@ -175,7 +177,7 @@ The platform contract remains bounded before and after workflow dispatch:
 | --- | --- | --- |
 | H05 source development | Actual OS install/replay/coverage/watch, AbortSignal cancellation, timeout/descendant/held-stdio controls and fixture parity | Hosted execution/artifact acceptance; real interactive console/PTY behavior |
 | G01 CLI | Real installed targets, version/help/import safety, npm/bunx resolution, spaced outside cwd, home selection and observed cookie behavior | Actual native quote command parsing/output with controlled Yahoo responses; ACL privacy review |
-| G03 MCP | Modern installed stdio initialize/tools-list/EOF; POSIX cooperative signals or Windows bounded forced termination | Bun1.0 installed stdio/termination gaps; native HTTP listen/transport, interactive signals and persistence after tool calls |
+| G03 MCP | Modern installed stdio initialize/tools-list/EOF; POSIX cooperative signals or Windows bounded forced termination | Hosted Node22/24/Bun1.4.3 execution; native HTTP listen/transport, interactive signals and persistence after tool calls |
 | Strict Linux | Existing guarded workflow/setup and Unix packed probes stay byte-identical | Its separate hosted kernel preflight and combined CI acceptance |
 
 Windows inherited ACL semantics require actual Windows evidence and the later
@@ -224,5 +226,6 @@ revalidation of that report, not a new full-suite execution claim.
 
 The v3 receipt binds both accepted P2 resolutions, the unchanged v2 cross-drive
 correction, new private proofs and original evidence reuse. Actual hosted
-macOS/Windows results and the pending Bun consumer-minimum policy are still
-separate decisions.
+macOS/Windows results remain required separately from the now-approved Bun
+1.4.3 consumer minimum. The [minimum-change receipt](results/bun-consumer-minimum.json)
+binds the updated source and current proof scope.

@@ -1,17 +1,31 @@
 # Consumer runtime policy and verification (H01/H03)
 
-Consumer minimums remain **Node 22.0.0, Bun 1.0.0 and Deno 2.0.0**.
-The Bun 1.4.3 development pin is independent. Minimums apply to upstream-supported
-OS/runtime combinations; Bun 1.0 predates native Windows binaries. npm and JSR distribution remain
-required. The constructor preserves its existing behavior: unsupported hosts or
-versions produce a logger warning; construction is not rejected.
+Consumer minimums for the new major are **Node 22.0.0, Bun 1.4.3 and Deno
+2.0.0** on upstream-supported platforms. The user approved Bun 1.4.3 as the
+minimum for all consumers, including Linux, macOS and Windows. The exact Bun
+1.4.3 development pin remains separately owned by `.bun-version`; the root
+package manager and lock are unchanged. npm and JSR distribution remain
+required. The constructor preserves warning-only behavior: unsupported hosts or
+versions produce a logger warning and construction continues.
 
-| Consumer | Retained policy | Actual evidence in this step |
+The internal `MIN_SUPPORTED_RUNTIMES` in
+[src/lib/runtime-detect.ts](../../src/lib/runtime-detect.ts) is the canonical
+consumer policy. The constructor, npm Node/Bun engines and native proof tooling
+read it. It is not a public export subpath. npm engines declare Node `>=22.0.0`
+and Bun `>=1.4.3`; Deno `>=2.0.0` remains the JSR/npm consumer requirement.
+
+| Consumer | Current policy | Evidence |
 | --- | --- | --- |
-| Node | >=22.0.0; upstream Linux/macOS/Windows platforms | Exact 22.0.0 and 24.21.0 on Linux x64 |
-| Bun | >=1.0.0; upstream Linux/macOS/Windows platforms | Exact 1.0.0 and development 1.4.3 on Linux x64 |
+| Node | >=22.0.0; upstream Linux/macOS/Windows platforms | Exact 22.0.0 and 24.21.0 Linux packed checks; native OS results remain separate |
+| Bun | >=1.4.3 for all consumers; upstream Linux/macOS/Windows platforms | Exact 1.4.3 Linux packed library/runtime/full MCP checks; native OS results remain separate |
 | Deno | >=2.0.0; retain JSR and npm consumers | Simulated globals and official 2.0 source inspection only; actual execution remains publisher-owned |
-| Cloudflare Workers | Existing nodejs_compat configuration, compatibility date 2026-06-12 | Local workerd 1.20260815.1; existing independent locked harness and generated installed package |
+| Cloudflare Workers | Existing nodejs_compat configuration, compatibility date 2026-06-12 | Prior local workerd evidence; independent locked harness unchanged |
+
+The current minimum change is bound by the
+[Bun minimum receipt](results/bun-consumer-minimum.json), including constructor
+controls below 1.4.3, release candidates and malformed versions. The historical
+Bun 1.0/1.1 observations below and in the native preparation receipt are dated
+2026-10-16 evidence, not successful support claims for the new major.
 
 These Linux results do not establish native macOS/Windows coverage. Consumer
 support is retained; H05 must exercise the actual supported OS paths. The user
@@ -61,7 +75,7 @@ Deno's bound `stdout.isTerminal()` only when Deno is selected. Workers, unknown
 hosts and unavailable terminal properties or calls use nonterminal logging. A Deno shim
 cannot force colors or throw through Node/Bun construction.
 
-## Evidence and reproduction
+## Earlier H01/H03 evidence and reproduction (2026-10-16)
 
 The [receipt](results/h01-h03-runtime.json) identifies the exact source snapshot,
 package hash, runtime provenance, commands, results and remaining limitations.
@@ -79,7 +93,7 @@ Bun, malformed-version and prerelease regressions.
 A fresh package is built and packed under `scripts/testing/offline.py`, then
 installed into a separate real consumer with public dependencies. Installation
 is the separate registry-enabled step; runtime probes return to the strict
-offline boundary. All 28 public exports, ESM/CommonJS, controlled quote/date
+offline boundary. At that earlier snapshot, all 28 public exports, ESM/CommonJS, controlled quote/date
 coercion/validation/cookies and MCP APIs pass on the four tested Node/Bun
 versions. Old Bun's asynchronous `import.meta.resolve` needs `await` in the
 existing disposable consumer probe; no package change is needed.
@@ -114,5 +128,5 @@ old installed package fails the supplied detection/terminal/constructor probe
 on all four Node/Bun versions; the fixed package passes. Astra additionally
 checked 348 property failures, 10,036 SemVer comparisons and 32 constructor
 cases, rebuilt all 252 package files, and reran the real workerd checks. These
-reviews accept H01 policy and the bounded Linux portion of H03; actual publisher
+reviews accepted the then-current H01 policy and bounded Linux portion of H03; actual publisher
 Deno and native OS verification remain open.
