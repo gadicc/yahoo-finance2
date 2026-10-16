@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "date": "2026-10-16",
+  "scope": "Actual final no-auth combined publisher rehearsal after accepted K/J03/publisher V7/J05 source composition; Linux only, no publication/provenance authorization claim",
+  "sourceRoot": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+  "acceptedSourceHead": "00b961915b351c6423bc33bc8e56f5b8868cc34a",
+  "version": "5.0.0-next.1",
+  "syntheticVersionBoundary": "Synthetic major/prerelease verification value only, consistent with policy fixture4.2\u21925.0; not an actual release version/tag/channel decision. Root deno metadata remains0.0.1.",
+  "results": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal",
+  "status": "passed",
+  "controllerExit": 0,
+  "summary": "proof/rehearsal/summary.json",
+  "summarySha256": "c1e627bd26ab3a9a06e5919819142e1b26395f127c09e137ac1c610fa89ae2d9",
+  "invocation": "proof/invocation.json",
+  "controllerLog": "proof/rehearsal.log",
+  "commands": {
+    "count": 31,
+    "statuses": {
+      "0": 26,
+      "1": 5
+    },
+    "expectedNonzero": "Four intended SDK numeric registerTool TS2345 negatives and one real corrupted publisher-lock refusal; all assertions passed."
+  },
+  "composition": {
+    "rootPackagePrivate": true,
+    "rootGraphAuthority": "bun.lock",
+    "rootDenoLockExists": false,
+    "rootDenoConfig": "minimal maintained production metadata/import map, 28 exports; no development tasks",
+    "rootSourceParity": "proof/source-parity.json",
+    "trackedEntries": 1616,
+    "byteModeSymlinkParity": true,
+    "fixtureCount": 1201,
+    "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "fixtureModesUnchanged": true,
+    "statusBeforeAfter": "clean",
+    "rootMetadataBefore": {
+      "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+      "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+      "deno.json": "304ee029188261ed932bc06485df9c0ef44c3bf2ad4742039924c7e8100c9b04"
+    },
+    "rootMetadataAfter": {
+      "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+      "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+      "deno.json": "304ee029188261ed932bc06485df9c0ef44c3bf2ad4742039924c7e8100c9b04"
+    }
+  },
+  "tools": {
+    "node24": {
+      "path": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "sha256": "7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c",
+      "version": "v24.21.0"
+    },
+    "bun": {
+      "path": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+      "sha256": "7ce7d6b654eddeec20afddf2396317fba6dc19ab52788a27e894e1806bf8f24b",
+      "version": "1.4.3"
+    },
+    "publisherDeno": {
+      "binary": "/tmp/semantic-release-jsr-Yiw8Us/v2.6.7/linux/deno",
+      "version": "2.6.7",
+      "sha256": "238a8182c2f22d94eba9868be7bd946c4409dd64f8435d11c628543c7cca177d",
+      "lockSha256": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19"
+    },
+    "minimumDeno": {
+      "path": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "version": "2.0.0",
+      "sha256": "097ca199e64f5cd67318cdd3750ab3da9374edeaa205032b74c905f8c99901a6"
+    },
+    "transitive": {
+      "npm": {
+        "version": "11.21.1",
+        "metadataPath": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/npm/package.json",
+        "sha256": "7b9dd464a74df2a96e608a36f6e6213ebe7a869659019083786ef685bf1908c2",
+        "engines": {
+          "node": "^20.17.0 || >=22.9.0"
+        },
+        "license": "Artistic-2.0"
+      },
+      "jsr": {
+        "version": "0.14.3",
+        "metadataPath": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/jsr/package.json",
+        "sha256": "56e679662475bd155cc9bf2752914439c25f98638d8bc29d2aed5b38c7a3501c",
+        "engines": null,
+        "license": "MIT"
+      }
+    },
+    "publisherBinaryLifecycle": "Pinned JSR downloader hash-checks archive; actual binary SHA retained in summary. Maintained cleanup removes its temporary2.6.7 binary. Minimum2.0 binary and all selected caches/graphs/results remain preserved."
+  },
+  "artifact": {
+    "npm": {
+      "sha256": "4a32126a17fe417d1e1d96616d148929c0e35b02fc3485f187831b5f67a956b7",
+      "id": "yahoo-finance2@5.0.0-next.1",
+      "name": "yahoo-finance2",
+      "version": "5.0.0-next.1",
+      "size": 208335,
+      "unpackedSize": 2195526,
+      "shasum": "d841b162eba87c70ae2cf339c8e164bf2a7f511e",
+      "integrity": "sha512-7gBqyNc3SYUR5aMMRehRHJSui/azVCyD+IavpfpX2zIwRzuKNO4Fy1bsTsiKns85sAUkyLwFrWEvtQUYxjyXhw==",
+      "filename": "yahoo-finance2-5.0.0-next.1.tgz",
+      "entryCount": 252,
+      "bundled": []
+    },
+    "installed": {
+      "version": "5.0.0-next.1",
+      "exports": 28,
+      "formats": [
+        "ESM",
+        "CommonJS"
+      ],
+      "runtimes": [
+        "Node24",
+        "Bun1.4.3"
+      ],
+      "bins": [
+        "yahoo-finance2",
+        "yahoo-finance",
+        "yahoo-finance-mcp"
+      ],
+      "types": "real ESM/CommonJS consumer declarations",
+      "registryAcquisition": "normal hooks, exact root-derived runtime pins plus authoritative Node ambient pin; distinct from guarded consumers"
+    },
+    "tarball": "proof/rehearsal/yahoo-finance2-5.0.0-next.1.tgz",
+    "publicMetadata": "proof/rehearsal/npm/package.json",
+    "privateGraph": "proof/installed-consumer-graph.json",
+    "actualInstalledPackages": 103,
+    "normalHooks": "Actual npm install argv retained; no --ignore-scripts. Exact root-derived direct runtime pins plus root @types/node in private consumer graph; registry acquisition precedes guarded consumers. Existing public npm semver caret ranges unchanged.",
+    "privateRootGraph": "proof/root-installed-direct-graph.json; all26root direct pins match; complete authoritative copied bun.lock plus transitive tool metadata retained. Root frozen install not redundantly rerun in this rehearsal."
+  },
+  "jsr": {
+    "head": "00b961915b351c6423bc33bc8e56f5b8868cc34a",
+    "sourceFiles": 68,
+    "exports": 28,
+    "plugin": {
+      "cwd": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/yf-publisher-stage-tdGnVj/jsr",
+      "pkgJsonPath": null,
+      "publishArgs": [
+        "--allow-dirty"
+      ]
+    },
+    "dryRun": "passed; upstream verifyConditions always appends --dry-run; no publish lifecycle invoked",
+    "privateLockBeforeAfterVersion": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19",
+    "frozenLockNegative": "altered direct specifier refused by actual pinned publisher",
+    "stageFiles": "proof/rehearsal/stage/; original source layout/source hashes and exact generated metadata/auxiliary lock. Private lock generated/hash-bound, excluded from publication, never root authoritative.",
+    "scope": "Real pinned publisher full source/type/slow-type dry-runs with pkgJsonPath=null, then exact auxiliary frozen lock reuse and actual corrupted direct-specifier refusal. No publish lifecycle, no fake OIDC/provenance exemptions."
+  },
+  "denoConsumers": {
+    "publisherDenosource": {
+      "runtime": "2.6.7",
+      "kind": "source",
+      "config": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/publisher-consumers/source/deno.json",
+      "positiveFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/publisher-consumers/source/publisher-consumer.ts",
+      "negativeFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/publisher-consumers/source/publisher-invalid-sdk.ts",
+      "positiveTypes": "passed",
+      "negativeSdkTypes": {
+        "code": "TS2345",
+        "file": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/publisher-consumers/source/publisher-invalid-sdk.ts",
+        "line": 53,
+        "column": 21
+      },
+      "stdout": "{\"kind\":\"source\",\"exports\":28,\"deno\":\"2.6.7\",\"version\":\"5.0.0-next.1\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}",
+      "lockSha256": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19",
+      "lockFormat": "5"
+    },
+    "publisherDenonpm": {
+      "runtime": "2.6.7",
+      "kind": "npm",
+      "config": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/deno.json",
+      "positiveFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/publisher-consumer.ts",
+      "negativeFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/publisher-invalid-sdk.ts",
+      "positiveTypes": "passed",
+      "negativeSdkTypes": {
+        "code": "TS2345",
+        "file": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/publisher-invalid-sdk.ts",
+        "line": 53,
+        "column": 21
+      },
+      "stdout": "{\"kind\":\"npm\",\"exports\":28,\"deno\":\"2.6.7\",\"version\":\"5.0.0-next.1\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}"
+    },
+    "minimumDenosource": {
+      "runtime": "2.0.0",
+      "kind": "source",
+      "config": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/minimum-consumers/source/deno.json",
+      "positiveFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/minimum-consumers/source/minimum-consumer.ts",
+      "negativeFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/minimum-consumers/source/minimum-invalid-sdk.ts",
+      "positiveTypes": "passed",
+      "negativeSdkTypes": {
+        "code": "TS2345",
+        "file": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/minimum-consumers/source/minimum-invalid-sdk.ts",
+        "line": 53,
+        "column": 21
+      },
+      "stdout": "{\"kind\":\"source\",\"exports\":28,\"deno\":\"2.0.0\",\"version\":\"5.0.0-next.1\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}",
+      "lockSha256": "a860af300fc15daa54a00465152d628d9caa3781376349628298701e2b4c1c82",
+      "lockFormat": "4"
+    },
+    "minimumDenonpm": {
+      "runtime": "2.0.0",
+      "kind": "npm",
+      "config": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/deno.json",
+      "positiveFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/minimum-consumer.ts",
+      "negativeFile": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/minimum-invalid-sdk.ts",
+      "positiveTypes": "passed",
+      "negativeSdkTypes": {
+        "code": "TS2345",
+        "file": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal/installed-consumer/minimum-invalid-sdk.ts",
+        "line": 53,
+        "column": 21
+      },
+      "stdout": "{\"kind\":\"npm\",\"exports\":28,\"deno\":\"2.0.0\",\"version\":\"5.0.0-next.1\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}"
+    }
+  },
+  "runtimeTerminalObservations": {
+    "publisher": {
+      "pipe": {
+        "runtime": "deno",
+        "version": "2.6.7",
+        "nodeCompat": "24.2.0",
+        "denoCompat": "2.6.7",
+        "terminal": false,
+        "network": "denied"
+      },
+      "pty": {
+        "runtime": "deno",
+        "version": "2.6.7",
+        "nodeCompat": "24.2.0",
+        "denoCompat": "2.6.7",
+        "terminal": true,
+        "network": "denied"
+      }
+    },
+    "minimum": {
+      "pipe": {
+        "runtime": "deno",
+        "version": "2.0.0",
+        "nodeCompat": "20.11.1",
+        "denoCompat": "2.0.0",
+        "terminal": false,
+        "network": "denied"
+      },
+      "pty": {
+        "runtime": "deno",
+        "version": "2.0.0",
+        "nodeCompat": "20.11.1",
+        "denoCompat": "2.0.0",
+        "terminal": true,
+        "network": "denied"
+      }
+    },
+    "scope": "Actual Deno detector/support/version despite real Node compatibility globals; pipe terminal=false and Linux stdout PTY terminal=true. Cached-only denied-network runtime, rejecting ordinary fetch, controlled quote/MCP/cookies/dates/validation. No Windows/interactive keyboard/GUI or Deno CommonJS claim."
+  },
+  "pureControls": {
+    "policyNotes": "proof/release-policy-notes.log",
+    "releaseType": "major",
+    "branchExamples": 16,
+    "scope": "Pure real commit-analyzer/writer/semantic-release version and channel functions; no Git refs, auth, registry, Deno or publish hooks",
+    "writer": "proof/release-notes-writer.log; actual locked feature/bugfix notes writer passed",
+    "focused": "proof/release-focused.log; 11 tests pass across release-policy/workflow-policy, zero failures, strict Linux guard; real local npm metadata/prepare and bounded credential/preflight controls, no auth/registry/Git remote operations"
+  },
+  "acceptedPublisherReviews": {
+    "sol": {
+      "path": "proof/publisher-sol-review.json",
+      "sha256": "6ecec66af74acdf345dd0a6bcdb71afe140c8042941513e15041adc8a55ad9e7"
+    },
+    "astra": {
+      "path": "proof/publisher-astra-review.json",
+      "sha256": "aa4a7d7aca664cb5d36c2020be9987da01b80fa8e4e204dd1e36f6ce6fb30698"
+    },
+    "qualification": "These clear accepted V7 source. This receipt supplies actual composed execution; independent reconciliation of current receipt remains parent-owned."
+  },
+  "noAuthAndAcquisition": "Controller started after stripping auth/token/npm config/preload/live controls and GitHub context without printing values. Maintained rehearsal again sanitizes and binds private HOME plus empty user/global npm configs. Registry/npm/type/tool acquisition is separate from subsequent whole-process guarded artifact probes and cached-only Deno deny-net probes. No auth/OIDC exchange, registry publication, semantic-release publish lifecycle, actual distribution refs/tags/disttags, GitHub writes or Yahoo traffic.",
+  "preservedPaths": {
+    "currentGraphAndCaches": "/tmp/yf-publisher-composed-tq5h9vju/scratch/current combined rehearsal",
+    "selectedArtifacts": "proof/rehearsal/",
+    "minimumRuntime": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+    "oldPublisherEvidence": "All original frozen V1\u2013V7 source/proofs/failures remain unchanged; no quota failure or retry in this actual combined run."
+  },
+  "limits": [
+    "No source/report/commit/remote/tag/publication changes by this agent; root source/fixtures byte+mode+symlink snapshots match.",
+    "Local no-auth dry-run is not actual registry trusted-publisher configuration, OIDC exchange, attestation/provenance/source-link or real release acceptance. Those require separately authorized release.",
+    "No new native Windows/macOS/TTY/ACL or minimum Node22 proof inferred from this Linux Node24/Bun publisher rehearsal; those lanes retain their separate exact scopes.",
+    "No redundant Unicode/reference grammar matrix rerun: accepted V7 proof/reviews retained; this run exercises actual current production/source/consumer paths after combined changes."
+  ]
+}
