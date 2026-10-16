@@ -1,4 +1,5 @@
-import { expect } from "@std/expect";
+import { test } from "./migration/runner.ts";
+import { expect } from "./migration/assertions.ts";
 import {
   formatRecacheStats,
   mergeRecacheStats,
@@ -7,7 +8,7 @@ import {
   recacheEndpoint,
 } from "./recacheStats.ts";
 
-Deno.test("recache endpoint counts combine symbols without exposing query credentials", () => {
+test("recache endpoint counts combine symbols without exposing query credentials", () => {
   expect(
     recacheEndpoint(
       new URL(
@@ -26,7 +27,7 @@ Deno.test("recache endpoint counts combine symbols without exposing query creden
     .toBe("query2.finance.yahoo.com/v10/finance/quoteSummary/:symbol");
 });
 
-Deno.test("recache counts aggregate files while preserving HTTP and network outcomes", () => {
+test("recache counts aggregate files while preserving HTTP and network outcomes", () => {
   const rows = mergeRecacheStats([
     [{
       endpoint: "query2.finance.yahoo.com/v7/finance/quote",

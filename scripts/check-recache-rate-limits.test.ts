@@ -1,10 +1,11 @@
-import { expect } from "@std/expect";
+import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import {
   hasRateLimitLog,
   isRateLimitedFixture,
 } from "./check-recache-rate-limits.ts";
 
-Deno.test("recache guard catches rate limits in logs even without a written fixture", () => {
+test("recache guard catches rate limits in logs even without a written fixture", () => {
   for (
     const log of [
       "Failed to get crumb, status 429, statusText: Too Many Requests",
@@ -18,7 +19,7 @@ Deno.test("recache guard catches rate limits in logs even without a written fixt
   }
 });
 
-Deno.test("recache guard permits schema drift and unrelated numbers", () => {
+test("recache guard permits schema drift and unrelated numbers", () => {
   for (
     const log of [
       "Failed Yahoo Schema validation",
@@ -32,7 +33,7 @@ Deno.test("recache guard permits schema drift and unrelated numbers", () => {
   }
 });
 
-Deno.test("recache guard catches a cached 429 even if the log omits it", () => {
+test("recache guard catches a cached 429 even if the log omits it", () => {
   expect(isRateLimitedFixture({ response: { status: 429 } })).toBe(true);
   expect(isRateLimitedFixture({ response: { status: 200 } })).toBe(false);
   expect(isRateLimitedFixture({ response: { status: 404 } })).toBe(false);

@@ -50,8 +50,8 @@ const COMMITTED_PROFILES: GeoProfile[] = [{
   ],
 }];
 
-const captureProfile = Deno.env.get("FETCH_DEVEL_GETCRUMB_PROFILE");
-const captureMode = Deno.env.get("FETCH_DEVEL_GETCRUMB_MODE");
+const captureProfile = process.env["FETCH_DEVEL_GETCRUMB_PROFILE"];
+const captureMode = process.env["FETCH_DEVEL_GETCRUMB_MODE"];
 
 function traceEntry(
   input: Parameters<typeof fetch>[0],

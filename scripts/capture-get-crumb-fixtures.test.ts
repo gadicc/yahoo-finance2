@@ -1,5 +1,5 @@
-import { describe, it } from "@std/testing/bdd";
-import { expect } from "@std/expect";
+import { describe, it } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import {
   compactFixture,
   defaultProfileId,

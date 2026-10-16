@@ -1,0 +1,668 @@
+{
+  "versions": {
+    "node": "v24.21.0",
+    "deno": "deno 2.9.7 (stable, release, x86_64-unknown-linux-gnu)\nv8 15.0.245.2-rusty\ntypescript 6.0.3",
+    "bun": "1.4.2",
+    "vitest": "5.0.3"
+  },
+  "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+  "workers": 4,
+  "samples": 5,
+  "warmups": 1,
+  "results": {
+    "deno-full": {
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "deno",
+        "test",
+        "--no-prompt",
+        "--cached-only",
+        "-P=test",
+        "--parallel",
+        "--ignore=tests/cloudflare",
+        "--deny-net",
+        "--deny-write",
+        "--no-check"
+      ],
+      "seconds": [
+        1.4264026260352693,
+        1.488460153050255,
+        1.39500555297127,
+        1.4277996009914204,
+        1.497787517029792
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 1.4277996009914204,
+      "minSeconds": 1.39500555297127,
+      "maxSeconds": 1.497787517029792
+    },
+    "vitest-full": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py"
+      ],
+      "seconds": [
+        2.328357280988712,
+        2.369781019981019,
+        2.3714501679642126,
+        2.407021342020016,
+        2.338987329043448
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 2.369781019981019,
+      "minSeconds": 2.328357280988712,
+      "maxSeconds": 2.407021342020016
+    },
+    "node-full": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py"
+      ],
+      "seconds": [
+        2.4820572049939074,
+        2.4092785410466604,
+        2.5126277480158024,
+        2.442334696999751,
+        2.552240437013097
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 2.4820572049939074,
+      "minSeconds": 2.4092785410466604,
+      "maxSeconds": 2.552240437013097
+    },
+    "bun-full": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py"
+      ],
+      "seconds": [
+        0.4834170459653251,
+        0.49778164603048936,
+        0.48130565200699493,
+        0.48199177300557494,
+        0.5019887009984814
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.4834170459653251,
+      "minSeconds": 0.48130565200699493,
+      "maxSeconds": 0.5019887009984814
+    },
+    "deno-focused": {
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "deno",
+        "test",
+        "--no-prompt",
+        "--cached-only",
+        "-P=test",
+        "--parallel",
+        "--ignore=tests/cloudflare",
+        "--deny-net",
+        "--deny-write",
+        "--no-check",
+        "src/modules/quote.test.ts"
+      ],
+      "seconds": [
+        0.19106225500581786,
+        0.2091770240222104,
+        0.2170437959721312,
+        0.21676610701251775,
+        0.19021570100449026
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.2091770240222104,
+      "minSeconds": 0.19021570100449026,
+      "maxSeconds": 0.2170437959721312
+    },
+    "vitest-focused": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--focus"
+      ],
+      "seconds": [
+        0.6592207130161114,
+        0.7303670769906603,
+        0.6788554899976589,
+        0.732217626995407,
+        0.7195794019498862
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.7195794019498862,
+      "minSeconds": 0.6592207130161114,
+      "maxSeconds": 0.732217626995407
+    },
+    "node-focused": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--focus"
+      ],
+      "seconds": [
+        0.35126025398494676,
+        0.36191825999412686,
+        0.4365105709875934,
+        0.3342192590353079,
+        0.34208076301729307
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.35126025398494676,
+      "minSeconds": 0.3342192590353079,
+      "maxSeconds": 0.4365105709875934
+    },
+    "bun-focused": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--focus"
+      ],
+      "seconds": [
+        0.1475934649934061,
+        0.14737757301190868,
+        0.15383841702714562,
+        0.16934570099692792,
+        0.16563225002028048
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.15383841702714562,
+      "minSeconds": 0.14737757301190868,
+      "maxSeconds": 0.16934570099692792
+    },
+    "deno-coverage": {
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "deno",
+        "test",
+        "--no-prompt",
+        "--cached-only",
+        "-P=test",
+        "--parallel",
+        "--ignore=tests/cloudflare",
+        "--deny-net",
+        "--deny-write",
+        "--no-check",
+        "--coverage=/tmp/yf-runtime-experiment/matrix/deno-coverage"
+      ],
+      "seconds": [
+        2.12057534098858,
+        2.034138332004659,
+        2.099766417988576,
+        2.054986195988022,
+        2.060868369997479
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 2.060868369997479,
+      "minSeconds": 2.034138332004659,
+      "maxSeconds": 2.12057534098858
+    },
+    "vitest-coverage": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--coverage"
+      ],
+      "seconds": [
+        3.0192240279866382,
+        2.885080046020448,
+        2.9454623670317233,
+        2.9527599060093053,
+        2.9682117349584587
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 2.9527599060093053,
+      "minSeconds": 2.885080046020448,
+      "maxSeconds": 3.0192240279866382
+    },
+    "node-coverage": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--coverage"
+      ],
+      "seconds": [
+        4.102471180027351,
+        3.88396962499246,
+        4.217833816015627,
+        4.110074929019902,
+        3.9807088649831712
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 4.102471180027351,
+      "minSeconds": 3.88396962499246,
+      "maxSeconds": 4.217833816015627
+    },
+    "bun-coverage": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--coverage"
+      ],
+      "seconds": [
+        0.5654586930177175,
+        0.5222416580072604,
+        0.5701371909817681,
+        0.5141045299824327,
+        0.5094456159858964
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.5222416580072604,
+      "minSeconds": 0.5094456159858964,
+      "maxSeconds": 0.5701371909817681
+    },
+    "deno-typecheck": {
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "deno",
+        "check",
+        "--cached-only",
+        "scripts/capture-get-crumb-fixtures.test.ts",
+        "scripts/check-recache-rate-limits.test.ts",
+        "scripts/openai-wif-proxy.test.ts",
+        "scripts/recache-fixtures.test.ts",
+        "scripts/recache-tests.test.ts",
+        "scripts/schema-repair.test.ts",
+        "scripts/schema/createGenerator.test.ts",
+        "src/createYahooFinance.test.ts",
+        "src/index.test.ts",
+        "src/lib/cli.test.ts",
+        "src/lib/cookieJar.test.ts",
+        "src/lib/getCrumb.geo.test.ts",
+        "src/lib/getCrumb.test.ts",
+        "src/lib/moduleExec.test.ts",
+        "src/lib/notices.test.ts",
+        "src/lib/options/options.test.ts",
+        "src/lib/queue.test.ts",
+        "src/lib/validate/index.test.ts",
+        "src/lib/validate/types/undefined.test.ts",
+        "src/lib/validateAndCoerceTypes.test.ts",
+        "src/lib/versions.test.ts",
+        "src/lib/yahooFinanceFetch.test.ts",
+        "src/mcp/http.test.ts",
+        "src/mcp/server.test.ts",
+        "src/modules/autoc.test.ts",
+        "src/modules/chart.test.ts",
+        "src/modules/dailyGainers.test.ts",
+        "src/modules/dailyLosers.test.ts",
+        "src/modules/fundamentalsTimeSeries.test.ts",
+        "src/modules/historical.test.ts",
+        "src/modules/insights.test.ts",
+        "src/modules/options.test.ts",
+        "src/modules/options.type.test.ts",
+        "src/modules/quote.test.ts",
+        "src/modules/quoteSummary.test.ts",
+        "src/modules/recommendationsBySymbol.test.ts",
+        "src/modules/screener.test.ts",
+        "src/modules/search.test.ts",
+        "src/modules/streamer.test.ts",
+        "src/modules/trendingSymbols.test.ts",
+        "src/other/quoteCombine.test.ts",
+        "tests/recacheFetch.test.ts",
+        "tests/recacheStats.test.ts"
+      ],
+      "seconds": [
+        0.033772840979509056,
+        0.13590731896692887,
+        0.0482386130024679,
+        0.04182740702526644,
+        0.04897114302730188
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.0482386130024679,
+      "minSeconds": 0.033772840979509056,
+      "maxSeconds": 0.13590731896692887
+    },
+    "vitest-typecheck": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck"
+      ],
+      "seconds": [
+        1.5058879340067506,
+        1.4972205000231043,
+        1.5014609100180678,
+        1.5089176070177928,
+        1.5377200720249675
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 1.5058879340067506,
+      "minSeconds": 1.4972205000231043,
+      "maxSeconds": 1.5377200720249675
+    },
+    "node-typecheck": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck"
+      ],
+      "seconds": [
+        1.4524321950157173,
+        1.4869681909913197,
+        1.4363659609807655,
+        1.4797891500056721,
+        1.3506810709950514
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 1.4524321950157173,
+      "minSeconds": 1.3506810709950514,
+      "maxSeconds": 1.4869681909913197
+    },
+    "bun-typecheck": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck"
+      ],
+      "seconds": [
+        1.5114906239905395,
+        1.4752240979578346,
+        1.5751840260345489,
+        1.4142280379892327,
+        1.3824083150248043
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 1.4752240979578346,
+      "minSeconds": 1.3824083150248043,
+      "maxSeconds": 1.5751840260345489
+    },
+    "vitest-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.8384287339868024,
+        0.9306659959838726,
+        0.8705459710326977,
+        1.0430236430256628,
+        0.7701931020128541
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.8705459710326977,
+      "minSeconds": 0.7701931020128541,
+      "maxSeconds": 1.0430236430256628
+    },
+    "node-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.7566067299921997,
+        0.7032514400198124,
+        0.7342836759635247,
+        0.7292899419553578,
+        0.7510358049767092
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.7342836759635247,
+      "minSeconds": 0.7032514400198124,
+      "maxSeconds": 0.7566067299921997
+    },
+    "bun-typecheck-incremental": {
+      "command": [
+        "/usr/bin/python3",
+        "tests/migration/run.py",
+        "--typecheck-incremental"
+      ],
+      "seconds": [
+        0.7520508959423751,
+        0.7850384519551881,
+        0.7486819479963742,
+        0.7147012229543179,
+        0.7684760720003396
+      ],
+      "exitCodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "medianSeconds": 0.7520508959423751,
+      "minSeconds": 0.7147012229543179,
+      "maxSeconds": 0.7850384519551881
+    }
+  },
+  "fixtureFiles": 1201,
+  "roots": {
+    "deno": "/home/dragon/www/npm/yahoo-finance2",
+    "vitest": "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2",
+    "node": "/home/dragon/.codex/worktrees/test-runner-node/yahoo-finance2",
+    "bun": "/home/dragon/.codex/worktrees/test-runner-bun/yahoo-finance2"
+  },
+  "memory": "not measured: prior process-tree high-water RSS not comparable",
+  "watch": {
+    "deno": {
+      "seconds": [
+        0.41751831403234974,
+        0.4197793800267391,
+        0.4215199290192686
+      ],
+      "medianSeconds": 0.4197793800267391,
+      "status": "passed",
+      "trigger": "whitespace-only content change",
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "deno",
+        "test",
+        "--no-prompt",
+        "--cached-only",
+        "--no-check",
+        "-P=test",
+        "--deny-net",
+        "--deny-write",
+        "--watch",
+        "--no-clear-screen",
+        "src/lib/queue.test.ts"
+      ]
+    },
+    "vitest": {
+      "seconds": [
+        0.33952488499926403,
+        0.34776906901970506,
+        0.3568604689789936
+      ],
+      "medianSeconds": 0.34776906901970506,
+      "status": "passed",
+      "trigger": "whitespace-only content change",
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "node_modules/vitest/vitest.mjs",
+        "watch",
+        "src/lib/queue.test.ts",
+        "--reporter=default",
+        "--no-clearScreen"
+      ]
+    },
+    "node": {
+      "seconds": [
+        0.5179699859581888,
+        0.5119447340257466,
+        0.5170873409952037
+      ],
+      "medianSeconds": 0.5170873409952037,
+      "status": "passed",
+      "trigger": "whitespace-only content change",
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "--import",
+        "tsx",
+        "--test",
+        "--watch",
+        "--test-reporter=tap",
+        "src/lib/queue.test.ts"
+      ]
+    },
+    "bun": {
+      "seconds": [
+        0.14401669101789594,
+        0.14399394497741014,
+        0.14601891400525346
+      ],
+      "medianSeconds": 0.14401669101789594,
+      "status": "passed",
+      "trigger": "whitespace-only content change",
+      "command": [
+        "/usr/bin/python3",
+        "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+        "bun",
+        "test",
+        "--watch",
+        "src/lib/queue.test.ts"
+      ]
+    }
+  },
+  "coldStart": "first-run after install not measured; each matrix cell has one unmeasured warmup",
+  "fixtureHashesUnchanged": {
+    "deno": true,
+    "vitest": true,
+    "node": true,
+    "bun": true
+  },
+  "provenance": {
+    "original": "matrix-vitest4.json",
+    "currentVitest": "matrix-vitest5.json",
+    "incremental": "matrix-incremental.json",
+    "watch": "watch-content.json",
+    "note": "Only affected Vitest cells rerun after upgrading4.0.18 to5.0.3; native runtime cells are unchanged. All cells measured sequentially; no concurrent candidates."
+  }
+}

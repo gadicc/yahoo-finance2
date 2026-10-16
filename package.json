@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "test:replay": "python3 tests/migration/run.py",
+    "test:focused": "python3 tests/migration/run.py --focus",
+    "test:coverage": "python3 tests/migration/run.py --coverage",
+    "typecheck": "python3 tests/migration/run.py --typecheck",
+    "typecheck:incremental": "python3 tests/migration/run.py --typecheck-incremental"
+  },
+  "devDependencies": {
+    "vitest": "4.0.18",
+    "@vitest/coverage-v8": "4.0.18",
+    "tsx": "4.23.0",
+    "typescript": "6.0.3",
+    "@types/node": "24.10.1",
+    "@sinonjs/fake-timers": "15.0.0",
+    "@types/sinonjs__fake-timers": "15.0.1",
+    "expect": "30.4.1",
+    "sprintf-js": "1.1.3",
+    "@types/sprintf-js": "1.1.4",
+    "jest-get-type": "29.6.3",
+    "fetch-mock-cache": "3.1.0",
+    "@modelcontextprotocol/sdk": "1.32.0",
+    "tough-cookie": "6.0.2",
+    "tough-cookie-file-store": "3.3.0",
+    "ts-json-schema-generator": "2.9.0",
+    "zod": "4.6.5",
+    "@types/deno": "2.5.0"
+  }
+}

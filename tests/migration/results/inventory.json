@@ -1,0 +1,232 @@
+{
+  "files": [
+    {
+      "path": "scripts/capture-get-crumb-fixtures.test.ts",
+      "passed": 7,
+      "skipped": 0
+    },
+    {
+      "path": "scripts/check-recache-rate-limits.test.ts",
+      "passed": 3,
+      "skipped": 0
+    },
+    {
+      "path": "scripts/openai-wif-proxy.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "scripts/recache-fixtures.test.ts",
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "path": "scripts/recache-tests.test.ts",
+      "passed": 0,
+      "skipped": 1
+    },
+    {
+      "path": "scripts/schema-repair.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "scripts/schema/createGenerator.test.ts",
+      "passed": 4,
+      "skipped": 0
+    },
+    {
+      "path": "src/createYahooFinance.test.ts",
+      "passed": 12,
+      "skipped": 0
+    },
+    {
+      "path": "src/index.test.ts",
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/cli.test.ts",
+      "passed": 17,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/cookieJar.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/getCrumb.geo.test.ts",
+      "passed": 2,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/getCrumb.test.ts",
+      "passed": 10,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/moduleExec.test.ts",
+      "passed": 10,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/notices.test.ts",
+      "passed": 6,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/options/options.test.ts",
+      "passed": 3,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/queue.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/validate/index.test.ts",
+      "passed": 12,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/validate/types/undefined.test.ts",
+      "passed": 2,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/validateAndCoerceTypes.test.ts",
+      "passed": 34,
+      "skipped": 0
+    },
+    {
+      "path": "src/lib/versions.test.ts",
+      "passed": 0,
+      "skipped": 5
+    },
+    {
+      "path": "src/lib/yahooFinanceFetch.test.ts",
+      "passed": 12,
+      "skipped": 0
+    },
+    {
+      "path": "src/mcp/http.test.ts",
+      "passed": 3,
+      "skipped": 0
+    },
+    {
+      "path": "src/mcp/server.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/autoc.test.ts",
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/chart.test.ts",
+      "passed": 29,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/dailyGainers.test.ts",
+      "passed": 2,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/dailyLosers.test.ts",
+      "passed": 2,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/fundamentalsTimeSeries.test.ts",
+      "passed": 43,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/historical.test.ts",
+      "passed": 24,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/insights.test.ts",
+      "passed": 27,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/options.test.ts",
+      "passed": 29,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/options.type.test.ts",
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/quote.test.ts",
+      "passed": 47,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/quoteSummary.test.ts",
+      "passed": 850,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/recommendationsBySymbol.test.ts",
+      "passed": 24,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/screener.test.ts",
+      "passed": 18,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/search.test.ts",
+      "passed": 28,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/streamer.test.ts",
+      "passed": 1,
+      "skipped": 0
+    },
+    {
+      "path": "src/modules/trendingSymbols.test.ts",
+      "passed": 5,
+      "skipped": 0
+    },
+    {
+      "path": "src/other/quoteCombine.test.ts",
+      "passed": 9,
+      "skipped": 0
+    },
+    {
+      "path": "tests/recacheFetch.test.ts",
+      "passed": 13,
+      "skipped": 0
+    },
+    {
+      "path": "tests/recacheStats.test.ts",
+      "passed": 2,
+      "skipped": 0
+    }
+  ],
+  "fileCount": 43,
+  "passedLeafTests": 1319,
+  "baselineSkippedLeafTests": 6,
+  "skipReasons": {
+    "src/lib/versions.test.ts": "Existing describe.skip suite; five leaf tests retained.",
+    "scripts/recache-tests.test.ts": "Existing baseline permission skip for Deno subprocess orchestration; original body retained."
+  },
+  "accounting": {
+    "deno": "86 passed top-level tests,1333 steps,2 ignored. Parent tree audit resolves1319 actual passed leaf tests, plus one empty describe suite.",
+    "vitest": "1319 passed,6 skipped. Empty quoteSummary describe is permitted via passWithNoTests, preserving Deno behavior.",
+    "node": "1319 passed,1 skipped test; additionally the skipped versions suite has5 unexecuted children, reported as a skipped suite rather than5 skipped leaf tests.",
+    "bun": "1319 passed,8 skipped: six baseline leaf skips plus two unnamed skipped hook entries in the versions suite (confirmed by JUnit)."
+  }
+}

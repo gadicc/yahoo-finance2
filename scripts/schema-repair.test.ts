@@ -1,4 +1,5 @@
-import { expect } from "@std/expect";
+import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import {
   assertSchemaOnly,
   parseProposal,
@@ -28,7 +29,7 @@ function proposal(
   }));
 }
 
-Deno.test("schema repair accepts literal fields and new named data interfaces", () => {
+test("schema repair accepts literal fields and new named data interfaces", () => {
   const repaired = original.replace(
     "  count: number;",
     '  count: number;\n  keyVersion?: "v2";',
@@ -45,7 +46,7 @@ Deno.test("schema repair accepts literal fields and new named data interfaces", 
 const unionSource = original +
   '\nexport type Field = "old" | "other" | "old";\n';
 
-Deno.test("schema repair accepts alias-only and mixed string-union additions", () => {
+test("schema repair accepts alias-only and mixed string-union additions", () => {
   const extended = unionSource.replace(
     '"old" | "other" | "old"',
     '"new" | "old" | "other" | "old" | "another"',
@@ -71,7 +72,7 @@ Deno.test("schema repair accepts alias-only and mixed string-union additions", (
     .toContain('"old" | "other" | "old" | "new"');
 });
 
-Deno.test("schema repair rejects union removals, replacements, reordering and duplicates", () => {
+test("schema repair rejects union removals, replacements, reordering and duplicates", () => {
   for (
     const type of [
       '"old" | "new"',
@@ -91,7 +92,7 @@ Deno.test("schema repair rejects union removals, replacements, reordering and du
   }
 });
 
-Deno.test("schema repair rejects broad, executable and non-string union additions", () => {
+test("schema repair rejects broad, executable and non-string union additions", () => {
   for (
     const type of [
       "string",
@@ -120,7 +121,7 @@ Deno.test("schema repair rejects broad, executable and non-string union addition
   }
 });
 
-Deno.test("schema repair preserves alias declarations and rejects generic or nonliteral originals", () => {
+test("schema repair preserves alias declarations and rejects generic or nonliteral originals", () => {
   const extended = unionSource.replace('"other"', '"other" | "new"');
   for (
     const after of [
@@ -158,7 +159,7 @@ Deno.test("schema repair preserves alias declarations and rejects generic or non
   ).not.toThrow();
 });
 
-Deno.test("schema repair rejects runtime, imports, arbitrary aliases, removed members and altered headers", () => {
+test("schema repair rejects runtime, imports, arbitrary aliases, removed members and altered headers", () => {
   for (
     const after of [
       original.replace(
@@ -179,7 +180,7 @@ Deno.test("schema repair rejects runtime, imports, arbitrary aliases, removed me
   ) expect(() => assertSchemaOnly(original, after)).toThrow();
 });
 
-Deno.test("schema repair rejects broadening shortcuts, computed properties and schema JSDoc directives", () => {
+test("schema repair rejects broadening shortcuts, computed properties and schema JSDoc directives", () => {
   for (
     const member of [
       "extra: any;",
@@ -202,7 +203,7 @@ Deno.test("schema repair rejects broadening shortcuts, computed properties and s
   }
 });
 
-Deno.test("schema repair applies replacements once and validates the final source before writes", () => {
+test("schema repair applies replacements once and validates the final source before writes", () => {
   const sources = proposedSources(proposal(), () => original);
   expect(sources.get("src/modules/example.ts")).toContain('keyVersion?: "v2"');
   expect(() =>
@@ -219,7 +220,7 @@ Deno.test("schema repair applies replacements once and validates the final sourc
   ).toThrow("Runtime");
 });
 
-Deno.test("schema repair rejects paths outside module source and invalid handoffs", () => {
+test("schema repair rejects paths outside module source and invalid handoffs", () => {
   for (
     const path of [
       "../../secret.ts",

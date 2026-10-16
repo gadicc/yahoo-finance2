@@ -6,9 +6,9 @@ import {
   it,
   setupCache,
 } from "../../tests/common.ts";
-import { spy } from "@std/testing/mock";
-import { afterEach, beforeEach } from "@std/testing/bdd";
-import { FakeTime } from "@std/testing/time";
+import { spy } from "../../tests/migration/mock.ts";
+import { afterEach, beforeEach } from "../../tests/migration/runner.ts";
+import { FakeTime } from "../../tests/migration/time.ts";
 
 import Queue from "./queue.ts";
 import _yahooFinanceFetch, {
@@ -39,7 +39,6 @@ describe("yahooFinanceFetch", () => {
 
     // @ts-expect-error: test stubs
     beforeEach(() => (globalThis.console = fakeConsole));
-    // @ts-expect-error: actually i don't know why this is an error `:)
     afterEach(() => (globalThis.console = origConsole));
   }
 
