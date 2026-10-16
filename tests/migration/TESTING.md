@@ -101,9 +101,13 @@ receive a writable coverage alias to repository files. A selection with no
 instrumented source reports that no coverage was generated. Scratch and
 temporary publication files are cleaned on ordinary completion, failure, timeout
 and handled signals; SIGKILL cannot run JavaScript cleanup. Direct `bun test`
-bypasses this launcher and its boundary. The old `tests/migration/run.py` and
-`offline.py` remain historical tooling for unmigrated commands, including
-current typechecking.
+bypasses this launcher and its boundary. Use `bun run typecheck`,
+`bun run typecheck:incremental`, and `bun run typecheck:negative` for current
+typechecking; see [the typechecking policy](TYPECHECKING.md). No Deno or Node
+selection is required. The historical Python drivers, including
+`tests/migration/run.py` and `offline.py`, and experiment configs require the
+corresponding experiment checkout and dependency graph; they are not maintained
+branch commands.
 
 This is a boundary for offline replay and immutable fixtures, not a general
 hostile-code sandbox. It retains broad read access and Unix sockets;

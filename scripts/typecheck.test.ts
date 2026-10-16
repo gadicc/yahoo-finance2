@@ -7,6 +7,7 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it as nativeIt } from "bun:test";
+import * as ts from "typescript";
 import { projectIt as test } from "../tests/migration/runner.ts";
 import { expect } from "../tests/migration/assertions.ts";
 import { checkProjects, negativeControls, parseArguments, prepareCache, repository, strictOptionNames } from "./typecheck.ts";
@@ -74,7 +75,7 @@ test("checker options fail closed for unknown, missing and incompatible commands
   expect(space.run(["--help"]).code).toBe(0);
   const listed = space.run(["--list"]);
   expect(listed.code, listed.output).toBe(0);
-  expect(listed.output).toContain("capture-get-crumb-fixtures.ts");
+  expect(listed.output).toContain("Workers uses its independent gate");
   expect(existsSync(join(space.root, ".migration-results"))).toBe(false);
   const overlapping = space.run(["--negative"], { TMPDIR: space.root });
   expect(overlapping.code, overlapping.output).toBe(1);
@@ -150,6 +151,8 @@ test("real checker include graphs and actual options overload directives have re
   expect(result.included).toEqual([
     "src/typecheck-negative.ts", "bin/typecheck-negative.ts", "scripts/typecheck-negative.ts",
     "tests/typecheck-negative.ts", "scripts/typecheck-negative.mjs",
+    "scripts/capture-get-crumb-fixtures.ts", "scripts/capture-get-crumb-fixtures.test.ts",
+    "scripts/capture-get-crumb-cli.test.ts", "src/lib/getCrumb.geo.test.ts",
   ]);
   expect(existsSync(join(repository, "src/typecheck-negative.ts"))).toBe(false);
   expect(existsSync(join(repository, "bin/typecheck-negative.ts"))).toBe(false);
@@ -240,3 +243,46 @@ test("default strict options and explicit true strict options both accept valid 
   expect(checkProjects(space.root).every((result) => !result.diagnostics.length)).toBe(true);
   expect(checkProjects(space.root, undefined, true).every((result) => !result.diagnostics.length)).toBe(true);
 });
+
+
+test("maintained imports and effective editor mappings no longer require Deno tooling", () => {
+  function references(text: string, name: string) {
+    const source = ts.createSourceFile(name, text, ts.ScriptTarget.Latest, true);
+    const found: string[] = [];
+    function visit(node: ts.Node) {
+      if ((ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) &&
+        node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) found.push(node.moduleSpecifier.text);
+      if (ts.isImportTypeNode(node) && ts.isLiteralTypeNode(node.argument) &&
+        ts.isStringLiteral(node.argument.literal)) found.push(node.argument.literal.text);
+      if (ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword &&
+        node.arguments[0] && ts.isStringLiteral(node.arguments[0])) found.push(node.arguments[0].text);
+      ts.forEachChild(node, visit);
+    }
+    visit(source);
+    return found;
+  }
+  // Parse syntax, rather than flagging embedded source programs in CLI tests.
+  expect(references('const example = \'import "@std/cli";\';', "example.ts")).toEqual([]);
+  expect(references('export * from "@std/cli"; import("jsr:example"); type T = import("npm:example").T;', "example.ts"))
+    .toEqual(["@std/cli", "jsr:example", "npm:example"]);
+  const checked = checkProjects();
+  expect(checked.every((result) => !result.diagnostics.length)).toBe(true);
+  const files = new Set(checked.flatMap((result) => result.files).filter((file) => /\.(?:ts|mjs)$/.test(file)));
+  let count = 0;
+  for (const file of files) {
+    for (const specifier of references(readFileSync(join(repository, file), "utf8"), file)) {
+      expect(/^(?:@std\/|@deno\/|npm:|jsr:)/.test(specifier), `${file}: ${specifier}`).toBe(false);
+      count++;
+    }
+  }
+  expect(count).toBeGreaterThan(0);
+  const configFile = join(repository, "tsconfig.json");
+  const raw = ts.readConfigFile(configFile, ts.sys.readFile);
+  expect(raw.error).toBeUndefined();
+  const editor = ts.parseJsonConfigFileContent(raw.config, ts.sys, repository, {}, configFile);
+  expect(editor.errors).toEqual([]);
+  expect(Object.keys(editor.options.paths ?? {})).toEqual(["bun:test"]);
+  expect(editor.options.types).toEqual(["node"]);
+  const manifest = JSON.parse(readFileSync(join(repository, "package.json"), "utf8"));
+  expect(Object.hasOwn(manifest.devDependencies, "@types/deno")).toBe(false);
+}, 30_000);

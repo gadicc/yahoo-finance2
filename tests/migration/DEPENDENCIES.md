@@ -1,7 +1,7 @@
 # B03 dependency and configuration ownership (historical snapshot)
 
 This B03 snapshot preserves its original ownership and version receipts. See
-the dated F01–F06 delta below for current package-build ownership.
+the dated F01–F06 and B04/E03 deltas below for current ownership.
 
 The root `package.json` remains a **private migration workspace**, with exact
 versions and `bun.lock` owning its JavaScript graph. It is not the published
@@ -149,3 +149,44 @@ owners: their old dnt `deno.js` targets must not be used with the new output.
 Version injection is now `bun run build:npm --version VERSION`; publication,
 JSR/Deno 2 consumer execution, Workers integration and cross-platform validation
 remain separate open work. The publishing-only Deno policy is unchanged.
+
+
+## Root tool resolution delta (B04/E03, 2026-10-16)
+
+All maintained library, executable, script, test-helper and package-probe imports
+resolve through root npm dependencies and portable local paths. The active
+root/editor configuration no longer maps `@std/cli/parse-args` or
+`@std/fs/walk` to throwing migration stubs. The real schema, recache,
+version and country-capture commands now use Node-compatible APIs through Bun.
+The root `@types/deno` development dependency and its sole lock entry are
+removed without upgrading other dependencies. The library and tools compiler
+environments explicitly select Node ambient types and the tools alone map the
+bounded native `bun:test` declaration.
+
+The import audit examines parsed import/export declarations, import types and
+literal dynamic imports in maintained TypeScript/JavaScript, rather than
+matching strings inside synthetic CLI test programs. No maintained module
+reference uses `@std/`, `@deno/`, `npm:` or `jsr:` resolution. Private subprocess
+entrypoints remain compiler roots even when their filenames occur only in
+process argument strings. The country-capture source and both test files, plus
+its geographic helper consumer, have explicit negative include controls.
+
+Retain `deno.json` and `deno.lock` for the JSR/Deno >=2 distribution and isolated
+publisher. Source identity/version imports and the full 28-export inventory
+still read that JSON; the npm builder also preserves public dependency ranges
+from its import-map data. These reads do not activate Deno module resolution.
+Unused historical import-map entries are retained rather than changing the
+consumer/publisher metadata during this root dependency cleanup.
+
+`tsconfig.migration.json`, `tsconfig.bun-native.json` and their historical
+experiment drivers/stub retain their original context. They are excluded from
+the maintained commands and may require the matching historical checkout and
+dependency graph. Earlier dependency and benchmark receipts remain unchanged.
+The independent npm-managed Workers graph remains outside the root lockfile.
+
+`scripts/fix_versions.ts` now delegates validated version injection to the
+complete npm builder; the preceding F delta records its earlier state. Legacy
+release preparation still needs its separate J02/J04 port. A fresh frozen Bun
+installation with normal hooks and exact dependency/import/compile evidence is
+recorded in the [B04/E03 integration receipt](results/b04-e03-integration.json);
+no Deno binary is used.

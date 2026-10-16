@@ -60,9 +60,12 @@ still a separate migration step. Direct `bun test` bypasses enforcement. See
 filters, timeouts/signals and watch behavior. Other operating systems remain
 D04.
 
-For existing checker commands, select Node 24.21.0 via `YF_EXPERIMENT_NODE`,
-then use `bun run typecheck` and `bun run typecheck:incremental`;
-`python3 tests/migration/negative-typecheck.py` remains the overload control.
+Use `bun run typecheck`, `bun run typecheck:incremental`, and
+`bun run typecheck:negative` for the maintained checker and overload control;
+see [the typechecking policy](./tests/migration/TYPECHECKING.md). No Deno or
+Node selection is required. Historical Python drivers and experiment configs
+require the corresponding experiment checkout and dependency graph; they are
+not maintained branch commands.
 Installation is separate from offline testing. Upgrade Bun only through a
 reviewed exact-pin change using the bootstrap policy.
 

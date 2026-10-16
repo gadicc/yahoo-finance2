@@ -8,18 +8,5 @@
     "tests/**/*.ts",
     "tests/migration/*.mjs",
     "release.config.mjs"
-  ],
-  "compilerOptions": {
-    "paths": {
-      "@std/fs/walk": [
-        "./tests/migration/std-tooling.ts"
-      ],
-      "@std/cli/parse-args": [
-        "./tests/migration/std-tooling.ts"
-      ],
-      "bun:test": [
-        "./tests/migration/bun-test-types.d.ts"
-      ]
-    }
-  }
+  ]
 }

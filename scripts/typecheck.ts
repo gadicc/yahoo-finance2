@@ -27,7 +27,7 @@ No arguments checks the production library and maintained tools/tests.
 --incremental writes only the owned .migration-results/typecheck-v1 cache.
 --negative proves overload rejection and include coverage in disposable scratch.
 --list prints actual root inventories and explicit exclusions, without compiling.
-The separate Workers gate and deferred D07 capture paths are not claimed here.
+Workers uses its independent gate; historical experiment inputs remain separate.
 `;
 
 function requireCondition(value: unknown, message: string): asserts value {
@@ -234,10 +234,21 @@ export function negativeControls(root = repository): { overload: number; library
       ["library", "src/typecheck-negative.ts"], ["library", "bin/typecheck-negative.ts"],
       ["tools", "scripts/typecheck-negative.ts"], ["tools", "tests/typecheck-negative.ts"],
       ["tools", "scripts/typecheck-negative.mjs"],
+      ["tools", "scripts/capture-get-crumb-fixtures.ts"],
+      ["tools", "scripts/capture-get-crumb-fixtures.test.ts"],
+      ["tools", "scripts/capture-get-crumb-cli.test.ts"],
+      ["tools", "src/lib/getCrumb.geo.test.ts"],
     ] as const;
-    for (const [, file] of controls) writeFileSync(join(mirror, file), file.endsWith(".mjs")
-      ? '/** @type {number} */ export const rejected = "invalid";\n'
-      : 'export const rejected: number = "invalid";\n');
+    const toolRoots = baseline.find((result) => result.project === "tools")!.roots;
+    for (const [, file] of controls.slice(5)) requireCondition(toolRoots.includes(file),
+      `Ported capture input is missing from tooling roots: ${file}`);
+    for (const [, file] of controls) {
+      const target = join(mirror, file);
+      const prefix = stat(target) ? readFileSync(target, "utf8") + "\n" : "";
+      writeFileSync(target, prefix + (file.endsWith(".mjs")
+        ? '/** @type {number} */ export const __typecheckRejected = "invalid";\n'
+        : 'export const __typecheckRejected: number = "invalid";\n'));
+    }
     writeFileSync(join(mirror, "src/typecheck-negative.ts"),
       'export const rejected: number = "invalid";\nexport const future = [3, 1].toSorted();\n');
     const invalid = checkProjects(mirror);
@@ -282,7 +293,7 @@ export function typecheckMain(args: string[], root = repository): number {
     const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
     requireCondition(process.versions.bun === pin, `Typechecking requires the pinned Bun ${pin}`);
     requireCondition(ts.version === manifest.devDependencies.typescript, "Installed TypeScript does not match its exact root pin");
-    console.log("Coverage: D07 capture CLI, its two importing tests and the independent Workers gate remain excluded.");
+    console.log(`Selected compiler projects: ${options.selected.join(", ")}; Workers uses its independent gate.`);
     console.log("Policy: historical experiment drivers/configs and fixture/result data are separate; --list shows exact roots and exclusions.");
     if (options.mode === "negative") {
       console.log(JSON.stringify({ negativeControls: negativeControls(root), typescript: ts.version }));

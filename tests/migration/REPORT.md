@@ -123,10 +123,10 @@ all items; the benchmark results above retain their historical meaning.
 | Area                                                             | Status          | Done/total |
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
-| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
+| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        5/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
-| [E. Type checking and schema generation](#migration-e)           | In progress     |        4/6 |
+| [E. Type checking and schema generation](#migration-e)           | In progress     |        5/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
@@ -134,7 +134,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **38/71** |
+| **Overall**                                                      | **In progress** |  **40/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -428,6 +428,30 @@ The [combined integration receipt](results/integration-2026-10-16.json) records
 LCOV paths, zero type diagnostics, the no-write schema gate and unchanged bytes
 for all 1,201 fixtures. That combined proof includes the pending B04/E03 draft;
 it does not mark that review accepted. Progress is **38/71**.
+
+## Import and compiler integration checkpoint (B04/E03, 2026-10-16)
+
+The country command is now available as `bun run fixtures:capture:getcrumb`.
+All deferred capture/compiler exclusions and active throwing std aliases are
+removed. The root graph drops only obsolete Deno declarations, with no version
+upgrades; a fresh normal-hook frozen offline install succeeds. The retained
+JSR/Deno consumer metadata and explicitly historical experiment files remain
+separate from active root import resolution.
+
+The frozen [integration receipt](results/b04-e03-integration.json) covers every
+production entrypoint, CLI, maintained script and helper: library 58 roots/73
+files/28 export keys, tools 99/171 and editor 157/172, with no diagnostics.
+The parsed audit finds no forbidden references in 157 inputs/601 module imports.
+All four D07 paths have real normal and incremental rejection controls. Later
+G integration adds its probe to the combined 100-root tooling graph recorded in
+the [combined receipt](results/integration-2026-10-16.json).
+
+Sol xhigh cleared the source/install evidence and the correction of two stale
+active checker passages. Astra xhigh independently cleared installation,
+compilation, negatives and documentation, using a byte-identical normal-mode
+mirror for scratch mutation tests after the documentation archive was frozen
+read-only. No historical checker or Deno process was run. The separate H04
+Workers gate remains required. Progress is **40/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -739,14 +763,13 @@ K's Biome and documentation work can proceed in small independent commits after
 B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
-**Next small milestones:** port recache subprocess checks and resolve skip
-policy (C06/D05), and finish the portable offline policy (D04). B04 can
-independently port import resolution and real traversal/CLI helpers using B03's
-ownership map; E02–E03 can establish production checker configurations, while
-E06/I02 must adopt the verified schema check in CI. B01–B03 now establish the
-pinned toolchain, lockfile and dependency boundaries; F packaging now has its
-bounded Linux proof. Remaining CLI/runtime checks, cross-platform validation
-and CI remain separate work.
+**Next small milestones:** finish runtime detection/support-policy checks in H,
+adopt Biome configuration/editor integration and then isolated formatting/lint
+cleanup in K, and port the maintained commands into CI and publication in I/J.
+B04/E03 now cover root import resolution and production/tooling compilation;
+F, G04/G05 and H04 provide bounded installed-package/runtime proofs. Native OS
+installation/consumer checks, development offline policy, broader permission
+review and publisher-only Deno compatibility proof remain separate gates.
 
 <a id="migration-a"></a>
 
@@ -800,10 +823,16 @@ and CI remain separate work.
       [isolated frozen-install/offline/typecheck controls](results/b03-dependencies.json).
       Generated package metadata and unmigrated Deno commands remain owned by
       F/J/B04 rather than being claimed migrated.
-- [ ] B04 — Resolve source/tool imports without Deno import maps or `npm:` /
+- [x] B04 — Resolve source/tool imports without Deno import maps or `npm:` /
       `jsr:` specifiers; replace needed `@std` functions and remove the two
       throwing `walk`/`parseArgs` aliases only after real CLI/traversal paths
-      execute.
+      execute. Evidence: [dated dependency delta](DEPENDENCIES.md) and
+      [B04/E03 receipt](results/b04-e03-integration.json): active aliases and
+      unused Deno declarations removed after real capture/traversal execution,
+      157 parsed inputs/601 module references without forbidden imports, and
+      fresh normal-hook frozen installation. Sol xhigh and Astra xhigh cleared
+      the source, install and corrected active documentation. Historical
+      experiment files remain explicitly separate.
 - [ ] B05 — Verify clean-clone frozen installation on supported OSes with
       legitimate dependency lifecycle hooks enabled under an explicit trust
       policy; record reproducible commands rather than relying on
@@ -929,9 +958,14 @@ and CI remain separate work.
       owned incremental caches. Sol xhigh and Astra xhigh cleared effective
       configuration and cache-preservation fixes; D07 exclusions and transitional
       dependency cleanup remain E03/B04.
-- [ ] E03 — Check all production entrypoints, CLI/MCP, scripts and test helpers;
+- [x] E03 — Check all production entrypoints, CLI/MCP, scripts and test helpers;
       keep real negative overload tests and independently check the Workers
-      harness.
+      harness. Evidence: [maintained compiler policy](TYPECHECKING.md) and
+      [B04/E03 receipt](results/b04-e03-integration.json), library 58/73 with all
+      28 exports, tools 99/171 and editor 157/172 at the frozen base, with zero
+      diagnostics. All four D07 files have real normal/incremental negative
+      controls; the separately reviewed H04 gate checks Workers. Independent
+      Sol xhigh and Astra xhigh reviews cleared the integration.
 - [x] E04 — Port `schema-gen.ts` and generator resolution away from Deno cache,
       lockfile inspection and `deno info`; verify custom type formatters, JSON
       import handling and package resolution from a clean install. Evidence:

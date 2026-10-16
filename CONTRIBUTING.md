@@ -39,9 +39,9 @@ Bun's frozen flag alone does not reject a missing lockfile. Skipping lifecycle
 scripts bypasses the installation guard.
 
 `bun.lock` is authoritative for root JavaScript dependencies. Do not create a
-root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` as metadata for
-unported tooling and the isolated publisher; unported development/build commands
-must be migrated rather than executed through Deno. Retain
+root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` with the
+consumer/JSR metadata and isolated publisher; it does not resolve root tooling.
+Unported development/build commands must be migrated before execution. Retain
 `tests/cloudflare/package-lock.json` for the independently npm-managed
 Workers harness. Do not install that harness with Bun. The private root manifest
 separates runtime dependencies from test, schema and release tools; see
@@ -69,11 +69,12 @@ The maintained test launcher requires Linux with Bubblewrap (`bwrap`), Python 3,
 runs replay-only with network requests and fixture writes denied by inherited
 kernel boundaries. A fresh checkout needs no fixture chmod preparation. Missing
 prerequisites fail closed; other platforms currently receive Linux/WSL guidance.
-The existing TypeScript checker separately still selects Node 24.21.0 through
-`YF_EXPERIMENT_NODE`; Bun's new checker is not adopted here.
+The maintained TypeScript checker runs the pinned TypeScript 6.0.3 compiler
+API with Bun. It does not require `YF_EXPERIMENT_NODE` or use Bun's newer
+TypeScript checker. Its library and tools environments remain separate; see
+[TypeScript coverage and negative controls](tests/migration/TYPECHECKING.md).
 
 ```sh
-export YF_EXPERIMENT_NODE=/absolute/path/to/node-24.21.0
 bun run test:replay
 bun run test:focused
 bun run test:serial -- src/lib/queue.test.ts
@@ -82,7 +83,7 @@ bun run test:coverage
 bun run test -- --filter quote --name 'validates|symbol'
 bun run typecheck
 bun run typecheck:incremental
-python3 tests/migration/negative-typecheck.py
+bun run typecheck:negative
 ```
 
 The [maintained command and offline policy](tests/migration/TESTING.md)
@@ -90,14 +91,17 @@ documents selection, discovery, exit codes, watch restarts and guard limits.
 Full runs select all discovered repository test files with four isolated
 workers; the separate Workers harness is excluded. Ordinary tests deliberately
 replace Deno's automatic live fixture capture with replay-only behavior. A cache
-miss fails without fallback; explicit recaching remains a separate migration
-step. Direct `bun test` bypasses the boundary. Cross-platform offline support
-remains D04. Generate schemas with `bun run schema`, select explicit roots with
+miss fails without fallback. Explicit live recaching uses the separate
+[controlled capture policy](tests/migration/RECACHE.md). Direct `bun test`
+bypasses the boundary. Cross-platform offline support remains D04. Generate schemas with `bun run schema`, select explicit roots with
 `bun run schema src/modules/quote.ts src/modules/options.ts`, and run
 `bun run schema:check` for the no-write stale gate. See the
 [schema behavior](tests/migration/SCHEMAS.md) for watch and failure semantics.
 Biome remains a later milestone; use the existing Bun/Node checks and manual
-style review meanwhile. Unported capture tools need migration before use.
+style review meanwhile. Country-specific fixture capture has its own
+[controlled CLI policy](tests/migration/COUNTRY-CAPTURE.md). Read its usage
+with `bun run fixtures:capture:getcrumb --help`; ordinary tests remain
+replay-only.
 
 Build npm artifacts with `bun run build:npm`. Optional
 `--out-dir /absolute/new-or-empty-directory` selects an external destination
@@ -107,8 +111,9 @@ ownership marker; explicitly move unmarked old dnt output aside before building.
 The [packaging contract](tests/migration/PACKAGING.md) documents output safety,
 real installed consumer proofs and release handoff. Shipped executables require
 Node >=22.0.0 through their Node shebang; explicit Bun execution is verified.
-The old `fix_versions.ts`/release preparation still targets dnt output and must
-not run against these artifacts; J02/J04 remain open.
+`scripts/fix_versions.ts --version VERSION` is a compatibility command that
+delegates to the same complete builder. The legacy release preparation command
+still needs J02/J04 migration before execution.
 
 Bun upgrades are deliberate changes, including patch releases. Review release
 notes, update `.bun-version` and `packageManager` together to one exact stable

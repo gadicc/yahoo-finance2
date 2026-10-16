@@ -28,10 +28,10 @@ project cannot publish an earlier project's new successful build info.
 Unknown flags, missing/unknown projects, duplicate modes and incompatible options
 return 2; help returns 0. The commands work outside the repository's current
 working directory. Normal checks do not write output. Every invocation reports
-its explicit D07/Workers coverage limitation; `--list` prints actual root
-inventories, export keys and configuration exclusions. The root package script
-handoff changes `typecheck` and `typecheck:incremental` from the experimental
-Python launcher and adds `typecheck:negative` with these exact arguments.
+its selected projects and independent Workers boundary; `--list` prints actual
+root inventories, export keys and configuration exclusions. The root package
+scripts `typecheck`, `typecheck:incremental` and
+`typecheck:negative` invoke this maintained checker directly.
 
 ## Compiler environments and coverage
 
@@ -68,26 +68,26 @@ Bun is `node:test`. Full native Bun ambient types remain unselected: their
 contract. Compile-time controls prove a normal async fetch implementation is
 accepted, `preconnect` is absent, and Bun/Deno globals do not leak into tools.
 
-`tsconfig.json` provides the combined editor inventory and retains the two
-transitional `@std` runtime paths. Bun also reads that root configuration at
-runtime: removing those aliases before D07 would break geographic fixture-test
-imports. The library/tools compiler environments do not use those aliases.
+`tsconfig.json` provides the combined editor inventory. It inherits only the
+bounded `bun:test` module mapping from the tools configuration. The root no
+longer maps `@std` imports to throwing compatibility stubs, and the root
+dependency graph no longer installs `@types/deno`. The country-capture CLI, its
+helper and process tests, and the geographic fixture helper tests are included
+in the maintained tools graph.
 
 ## Explicit outstanding and historical exclusions (2026-10-16)
 
 | Path or group | Reason and owner |
 | --- | --- |
-| `scripts/capture-get-crumb-fixtures.ts` | Unported Deno capture CLI; D07 must replace it before execution. |
-| `scripts/capture-get-crumb-fixtures.test.ts`, `src/lib/getCrumb.geo.test.ts` | Both import that CLI's pure helpers; excluded from this compiler graph until D07. They remain in the guarded runtime replay inventory. |
 | `tests/cloudflare/**` | Independently npm-managed Workers environment and TypeScript gate; H04 owns its configuration and proof. The root checker does not substitute Node ambient types for Workers types. |
-| `tests/migration/std-tooling.ts` | Transitional throwing `@std` exports, still required for deferred D07 imports at runtime. B04 removes them after the real port. |
+| `tests/migration/std-tooling.ts` | Inactive throwing stub retained only for historical experiment configurations; no active root mapping or maintained command imports it. |
 | `tests/migration/guard-probe.mjs` | Historical experiment driver; current guard regressions live in `scripts/testing.test.ts`. Do not execute this probe through the historical writable-fixture guard. |
 | `tests/migration/{benchmark,prepare,run,watch,offline,negative-typecheck}.py`, `tsconfig.migration.json`, `tsconfig.bun-native.json` | Historical experiment/reproducer files. Maintained checker commands do not invoke or extend them. |
 | Fixtures, result receipts, generated output, dependencies and coverage | Data or separately generated/installed artifacts rather than maintained root checker inputs. |
 
 Release configuration and publisher wrapper JavaScript are semantically checked;
 the legacy Deno release preparation command itself remains J02/J04 work and is
-not executed here. E03 remains partial while D07 is outstanding. Workers coverage requires its
+not executed here. Workers coverage requires its
 independently reviewed [H04 evidence](results/h04-workers.json) and
 [Workers policy](WORKERS.md); the root checker does not execute that gate.
 Selecting only the library is not a claim that all repository environments passed.
@@ -122,7 +122,10 @@ be inside the repository. It first checks a clean mirror, removes the actual
 options overload `@ts-expect-error` directive and requires TS2322, then injects
 invalid assignments into real `src`, `bin`, non-test script and test-helper
 include paths. Each must produce TS2322 in its owning compiler project. An
-invalid JavaScript script must also fail, and a future `Array.toSorted` call in
+invalid JavaScript script must also fail. Additional controls append invalid
+assignments to the actual country-capture CLI, both capture test files and
+`getCrumb.geo.test.ts`; each must already be present in the clean tools roots
+and must produce TS2322. A future `Array.toSorted` call in
 production must produce TS2550 under ES2022. Mirror cleanup touches only the
 private directory created for that invocation; repository files and fixtures
 are never temporary mutation targets.
@@ -142,7 +145,30 @@ Focused regressions run through the maintained strict offline launcher:
 bun scripts/test.ts scripts/typecheck.test.ts scripts/fix_versions.test.ts
 ```
 
-The [stage evidence](results/e02-e03-typecheck.json) records exact source hashes,
+The [E02 stage evidence](results/e02-e03-typecheck.json) preserves its earlier
+D07 exclusions and dependency snapshot. It records exact source hashes,
 normal/incremental/negative commands, meaningful failures, fixture/schema
 immutability and the explicit coverage gaps. Independent reviews remain required
-before this stage is committed.
+for each integration checkpoint.
+
+## B04/E03 integration delta (2026-10-16)
+
+The reviewed D07 country-capture port is committed at `8e9f34e`. The active
+root compiler graph includes its portable CLI and all maintained capture tests.
+The immutable integration snapshot checks 58 library roots/73 project files,
+99 tools roots/171 project files, and 157 editor roots/172 project files, all
+without diagnostics. All 28 consumer export keys remain covered. Concurrent
+HTTP probe work is outside that snapshot; it remains covered by normal
+discovery when integrated. Historical experiment configurations are
+retained unchanged to explain earlier receipts; reproducing them requires their
+matching checkout and dependency graph. Their old Deno ambient selection and
+throwing aliases do not define current development dependencies. The retained
+`deno.json`/`deno.lock` remain consumer/publisher metadata; this integration
+does not run Deno, remove JSR distribution, or change consumer exports.
+
+The [integration receipt](results/b04-e03-integration.json) records a fresh
+frozen Bun installation with normal lifecycle hooks, parsed import inventory,
+current compiler roots, 41 focused tests and expanded negative controls. The
+independently reviewed H04 Workers gate is complete with its documented
+third-party declaration limits; its receipt remains separate. Release-command
+migration retains its own owner and is not exercised by these checks.
