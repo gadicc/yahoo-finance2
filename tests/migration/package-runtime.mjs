@@ -1,18 +1,24 @@
-// Copy beside a real installed node_modules; run under the strict offline guard.
+// Copy beside real installed node_modules; use the strict guard or explicit native job.
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
-import { dirname, resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import { dirname, relative, resolve, sep } from "node:path";
+import { fileURLToPath } from "node:url";
 const packageName = "yahoo-finance2";
 const { default: YahooFinance } = await import(packageName);
 
-const require = createRequire(import.meta.url);
+const require = createRequire(fileURLToPath(import.meta.url));
 const packageRoot = resolve(
   dirname(require.resolve("yahoo-finance2")),
   "../..",
 );
+const detector = `./${relative(
+  dirname(fileURLToPath(import.meta.url)),
+  resolve(packageRoot, "esm/src/lib/runtime-detect.js"),
+)
+  .split(sep)
+  .join("/")}`;
 const { detectRuntime, checkSupport, stdoutIsTerminal } = await import(
-  pathToFileURL(resolve(packageRoot, "esm/src/lib/runtime-detect.js")).href
+  detector
 );
 const expectedRuntime = process.versions.bun ? "bun" : "node";
 const expectedVersion = process.versions.bun ?? process.versions.node;

@@ -1,13 +1,14 @@
 // Copy this probe into a fresh consumer directory beside its installed node_modules.
-// Run only under scripts/testing/offline.py; installation is a separate step.
+// Use the strict offline guard, or the explicitly trusted native-platform job.
+// Registry installation is a separate step; runtime requests use controlled fetch.
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
 import { lstatSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { dirname, isAbsolute, join, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(fileURLToPath(import.meta.url));
-const require = createRequire(import.meta.url);
+const require = createRequire(fileURLToPath(import.meta.url));
 const installed = join(root, "node_modules/yahoo-finance2");
 assert(!lstatSync(join(root, "node_modules")).isSymbolicLink());
 assert(!lstatSync(installed).isSymbolicLink());
@@ -60,9 +61,23 @@ for (const name of names) {
   if ("default" in esm) assert.equal(typeof esm.default, "function", name);
   imports.set(name, esm);
   requires.set(name, cjs);
-  assert.match(require.resolve(specifier), /\/script\/src\/.*\.js$/);
-  if (typeof import.meta.resolve === "function")
-    assert.match(import.meta.resolve(specifier), /\/esm\/src\/.*\.js$/);
+  const cjsPath = relative(installed, require.resolve(specifier))
+    .split(sep)
+    .join("/");
+  assert.match(cjsPath, /^script\/src\/.*\.js$/);
+  if (typeof import.meta.resolve === "function") {
+    // Early Bun resolves asynchronously to a filesystem path; modern hosts use URLs.
+    const resolution = await import.meta.resolve(specifier);
+    const file = resolution.startsWith("file:")
+      ? fileURLToPath(resolution)
+      : resolution;
+    assert(
+      isAbsolute(file),
+      "ESM resolution must identify an absolute installed file",
+    );
+    const esmPath = relative(installed, file).split(sep).join("/");
+    assert.match(esmPath, /^esm\/src\/.*\.js$/);
+  }
 }
 assert.equal(
   imports.get("./modules/quoteSummary-iface").Grade.StrongBuy,

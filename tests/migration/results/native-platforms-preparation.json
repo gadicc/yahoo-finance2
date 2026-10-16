@@ -1,0 +1,841 @@
+{
+  "milestones": [
+    "B05 native installation preparation",
+    "H05 native OS preparation",
+    "bounded G01/G03 installed CLI contracts"
+  ],
+  "status": "Accepted reviewed native preparation and same-commit Tests integration; actual hosted OS matrix pending.",
+  "recordedAt": "2026-10-16T14:29:24.807404+00:00",
+  "baselineCommit": "a32cb00362cb975ed354cfdceb5de075b60d78b2",
+  "candidateRoot": "/tmp/yf-native-platform-v3-ksdsfbt8/candidate",
+  "immutableReviewRoot": "/tmp/yf-native-platform-v3-ksdsfbt8",
+  "scope": [
+    ".github/workflows/native-platforms.yaml",
+    "scripts/native-platform-bootstrap.mjs",
+    "scripts/native-platform.ts",
+    "scripts/native-platform-process.ts",
+    "scripts/native-platform.test.ts",
+    "scripts/testing/native-platform-preload.mjs",
+    "tests/migration/package-consumer.mjs",
+    "tests/migration/package-runtime.mjs",
+    "tests/migration/package-native-cli.mjs",
+    "tests/migration/NATIVE-PLATFORMS.md",
+    "tests/migration/results/native-platforms-preparation.json",
+    "scripts/native-platform-frames.test.ts",
+    "tests/migration/native-mcp-fragment.mjs",
+    "tests/migration/native-mcp-frames.mjs"
+  ],
+  "sourceSha256": {
+    ".github/workflows/native-platforms.yaml": "55676b0a8611cea42aee6943ed3c7ee1f439ae92b7c69665eda85b044172ce19",
+    "scripts/native-platform-bootstrap.mjs": "2de947ccf497da0d0a02f2009c9f8da67c483bb06e2cd539693c2aec45242c0a",
+    "scripts/native-platform.ts": "324d91ae1859d6261a75dadacfdd84ffa2a3f53a3be37cde4c459800bf6339c0",
+    "scripts/native-platform-process.ts": "3ec895c7d10a25c0fb7af7199cb9d19404215d529c828009b69f6b7e7d27f74b",
+    "scripts/native-platform.test.ts": "a8fa03f87bd60ac77e547bb04b54b2cf3f8742e72e8d87c19e0919372b902060",
+    "scripts/testing/native-platform-preload.mjs": "ed36ace84d49466cf483048d36ea4344965ccd21a35c3124309e071cf2c5542e",
+    "tests/migration/package-consumer.mjs": "7e11c2e408c619528a51243204e3582a8466150b1a63104c93c0cf0757c5e412",
+    "tests/migration/package-runtime.mjs": "4c39f82df9c0d1c02f8f756e8278da4d684c6596e683be41680810cd58d15121",
+    "tests/migration/package-native-cli.mjs": "12a4e321a946a7c1a84b97a7736a35999687a929e42807d2b3679de48a03ddd4",
+    "tests/migration/NATIVE-PLATFORMS.md": "ec275dffcbd75442b86b458cad9e69eca71e44afd011c5507da31431381c1076",
+    "scripts/native-platform-frames.test.ts": "7ce54f7a592162aac19fa107c248446d827bb3f567b8a7004365c1b58d271cc5",
+    "tests/migration/native-mcp-fragment.mjs": "8ad2c1dfa690b551b65a920e46df23bb5046563bf8e98f97ad16b6ecd667299d",
+    "tests/migration/native-mcp-frames.mjs": "2f327ec2af53f960f9509d2009ceb1b26e883d5c9febf83de164aafe59e96def"
+  },
+  "basePlusOwnedAudit": {
+    "baseCommit": "a32cb00362cb975ed354cfdceb5de075b60d78b2",
+    "added": [
+      ".github/workflows/native-platforms.yaml",
+      "scripts/native-platform-bootstrap.mjs",
+      "scripts/native-platform-frames.test.ts",
+      "scripts/native-platform-process.ts",
+      "scripts/native-platform.test.ts",
+      "scripts/native-platform.ts",
+      "scripts/testing/native-platform-preload.mjs",
+      "tests/migration/NATIVE-PLATFORMS.md",
+      "tests/migration/native-mcp-fragment.mjs",
+      "tests/migration/native-mcp-frames.mjs",
+      "tests/migration/package-native-cli.mjs",
+      "tests/migration/results/native-platforms-preparation.json"
+    ],
+    "changed": [
+      "tests/migration/package-consumer.mjs",
+      "tests/migration/package-runtime.mjs"
+    ],
+    "missing": [],
+    "onlyOwnedDelta": true,
+    "protectedStrictAndUnixProbesByteIdentical": {
+      ".github/workflows/tests.yaml": "5c37cc72fd6808425717f496cd41af3c08b128aa8f230294eace0eb9c6aab6d3",
+      ".github/actions/setup/action.yml": "0b81f203af2cff81f6c295af3755e9a7603547a645bf4d3334a1499465468f59",
+      "tests/migration/package-bins.mjs": "a172c88af88acbd8731247128b017debd7314acfd1e0aeba516304cc02add519",
+      "scripts/test.ts": "2971b58b4f54d82351d1e5e99d769070416c829fa6986c1733c777f445089353",
+      "scripts/testing/native.ts": "4512711e2df481eab80f756c47acbc38a3dd0f88237452fc30e21c9df9719e40",
+      "scripts/testing/offline.py": "e61aae8bedddff3dcdd9c95dfbdc35be9d2b8b853a9f965177799711868da682"
+    },
+    "fixtureCount": 1201,
+    "allFixtureBytesUnchanged": true,
+    "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "lockUnchanged": true,
+    "packageUnchanged": true,
+    "productionSourceUnchanged": true,
+    "sharedWorktreeWrites": false,
+    "sourceAndReceiptDeltaOnly": true,
+    "v3SuccessorAudit": "proof/v3-audit.json"
+  },
+  "sharedApplied": false,
+  "commitStageTicksPush": false,
+  "architecture": {
+    "workflow": ".github/workflows/native-platforms.yaml",
+    "triggers": [
+      "workflow_dispatch",
+      "workflow_call"
+    ],
+    "permission": "contents:read only",
+    "schedule": false,
+    "existingStrictWorkflowAndSetupChanged": false,
+    "runnerRows": [
+      {
+        "label": "ubuntu-24.04",
+        "platform": "linux",
+        "architecture": "x64",
+        "consumerBunObservation": "1.0.0 library/runtime/static-CLI only"
+      },
+      {
+        "label": "macos-15-intel",
+        "platform": "darwin",
+        "architecture": "x64",
+        "consumerBunObservation": "1.0.0 library/runtime/static-CLI only"
+      },
+      {
+        "label": "windows-2022",
+        "platform": "win32",
+        "architecture": "x64",
+        "consumerBunObservation": "1.1.0 full observation pending actual execution;1.0 native unavailable upstream"
+      }
+    ],
+    "developmentBun": "1.4.3",
+    "nodeConsumers": [
+      "22.0.0",
+      "24.21.0"
+    ],
+    "downloadCaches": "No cache/node_modules restoration; install requires absent node_modules and fresh job-local Bun cache",
+    "windowsCheckout": "Per-job Git configuration environment disables autocrlf; no local/global user Git configuration edit",
+    "consumerGraph": "Build/pack outside checkout; actual tarball install with normal npm hooks; declared public ranges resolve during the explicit registry-enabled consumer install; no claim consumer transitive graph is frozen by root bun.lock",
+    "artifact": "Only JSON/stdout/stderr and validated native LCOV; no cookies, node_modules, fixtures, caches or tarballs",
+    "portableHelperSelection": [
+      "scripts/native-platform.test.ts",
+      "scripts/native-platform-frames.test.ts"
+    ],
+    "fragmentedInstalledNode24": "Additional full installed CLI invocation imports native-mcp-fragment.mjs through file URL; normal unsplit rows remain mandatory; helper copied beside consumer controller"
+  },
+  "localProof": {
+    "strictFocused": {
+      "passes": 8,
+      "failures": 0,
+      "files": 2,
+      "retainsV2CrossDriveControls": true
+    },
+    "matrixPortableHelper": {
+      "passes": 8,
+      "failures": 0,
+      "files": 2,
+      "exactExplicitPhaseSelection": true
+    },
+    "negativeV2Coverage": {
+      "passes": 7,
+      "failures": 1,
+      "exitCode": 1,
+      "expectedFailure": true,
+      "onlyValidatorRestored": true
+    },
+    "installedNode24": {
+      "unsplitChecks": 14,
+      "fragmentedChecks": 14,
+      "fragmentedSessions": 3,
+      "frameBytes": 417,
+      "splitBytes": [
+        208,
+        209
+      ],
+      "gapMs": 100,
+      "actualProtocol": [
+        "initialize",
+        "tools/list"
+      ],
+      "actualShutdown": [
+        "EOF",
+        "SIGTERM",
+        "SIGINT"
+      ],
+      "exitAndClose": 0,
+      "restoredV2ControllerFailsAtByte208": true,
+      "separatePhysicalTarballInstalledConsumerWithSpaces": true,
+      "registryInstallRepeated": false
+    },
+    "installedModernControllers": {
+      "node22.0.0": 14,
+      "bun1.4.3": 14,
+      "fullProtocolAndShutdown": true
+    },
+    "actualNativeCoverage": {
+      "sources": 74,
+      "reportSha256": "130c823cebaaf73fd5e011cbdfa2232cd477cf0f9d9f48ea9d20bcc880a9f305",
+      "allCoveredSourceBytesUnchangedFromV2": true,
+      "generation": "Preserved immutable actual Bun1.4.3 full native report; revalidated here, no fresh full-suite execution claimed"
+    },
+    "typecheck": {
+      "libraryRoots": 58,
+      "libraryFiles": 73,
+      "consumerExports": 28,
+      "toolsRoots": 118,
+      "toolsFiles": 190,
+      "diagnostics": 0
+    },
+    "biome": {
+      "files": 6,
+      "errors": 0,
+      "warnings": 0,
+      "styleInfos": 17,
+      "recommendedRulesUnchanged": true
+    },
+    "actualOS": "Linux only; no actual hosted macOS/Windows result inferred"
+  },
+  "portableProbeCorrections": {
+    "files": [
+      "tests/migration/package-consumer.mjs",
+      "tests/migration/package-runtime.mjs"
+    ],
+    "scope": "Decode createRequire filename; normalize actual platform-relative export paths; await asynchronous historical resolution; accept absolute file path or URL; relative internal runtime import",
+    "negativeStandardPackage": "proof/legacy-resolver-control/url-input-results.json",
+    "positiveStandardPackage": "proof/legacy-resolver-decoded-control/url-input-results.json",
+    "all28ExportsStillRequired": true,
+    "spacedPathsStillRequired": true,
+    "supportMinimumChanged": false,
+    "evidenceRoot": "/tmp/yf-native-platform-y7___zho"
+  },
+  "legacyMcpFindings": {
+    "policy": "Separate dated failed observations; no global support qualification, minimum change, production workaround, successful-protocol inference or automatic retry",
+    "node24ToBun100": {
+      "result": "Installed MCP stdio startup fails EINVAL in Bun lazyLoadStream/getReader -> SDK server/stdio.js",
+      "outsideGuardFailure": "proof/minimum-bun-native-final-cli.stderr",
+      "stack": "proof/legacy-debug-stack.stderr",
+      "diagnosticScratchRestored": "proof/legacy-debug-scratch-restored.json"
+    },
+    "bun100Controller": {
+      "result": "EOF historically passes, but SIGTERM emits premature close(null,null), real exit does not arrive within20s; actual owned child remains alive",
+      "events": "proof/legacy-controller-events.stderr",
+      "accurateExitCloseTimeout": "proof/minimum-bun-exit-close.stderr",
+      "explicitOwnedCleanup": "proof/legacy-owned-process-cleanup.json"
+    },
+    "currentScope": "Modern Node22/24 and Bun1.4.3 full installed MCP controls mandatory; Bun1.0 library/runtime/static-CLI observation explicit; Windows1.1 full observation remains strict until native evidence",
+    "userPolicyDecision": "Parent surfaced separate asynchronous minimum-policy choice; no minimum changed by this preparation",
+    "evidenceRoot": "/tmp/yf-native-platform-y7___zho"
+  },
+  "processProof": {
+    "actualSource": "scripts/native-platform-process.ts",
+    "actualLinuxResult": {
+      "platform": "linux",
+      "bun": "1.4.3",
+      "cancellation": {
+        "code": 143,
+        "timeout": false,
+        "elapsedMs": 203,
+        "exitCode": null,
+        "signalCode": "SIGTERM",
+        "mechanism": "actual POSIX group SIGTERM"
+      },
+      "heldStdioParentRuntime": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "exitedParentHeldStdio": {
+        "realInheritedPipe": true,
+        "elapsedMs": 205,
+        "ended": {
+          "code": 0,
+          "timeout": true
+        },
+        "cleanup": "Actual POSIX group cleanup closes inherited stdio"
+      }
+    },
+    "WindowsPlanned": "Actual taskkill branch, known exited Node24 parent with descendant-held stdio must visibly settle as cleanup-unverified failure; explicit known-descendant cleanup. No Windows result inferred from Linux or injected tests.",
+    "nativeWatch": "Full native suite actually exercises additions/removals/package/helper edits and controlled AbortSignal cancellation on each executing OS",
+    "consoleSignals": "No native Windows interactive Ctrl-C/ConPTY or GUI claim",
+    "evidenceRoot": "/tmp/yf-native-platform-y7___zho"
+  },
+  "contracts": {
+    "H05": "Prepared install/replay/coverage/watch/path/process proofs; actual hosted Linux/macOS/Windows results still required",
+    "G01": "Installed version/help/import safety/aliases, outside spaced cwd, home selection and observed POSIX cookie modes; native quote CLI command/output still pending",
+    "G03": "Modern installed stdio initialize/tools-list/EOF and platform-specific termination controls; legacy Bun1.0 stdio/signals, native HTTP listen/transport/persistence after calls and interactive signals remain open",
+    "G06": "Windows inherited ACL/private-permission semantics require actual Windows evidence and separate review; regular file is not private ACL proof"
+  },
+  "limits": [
+    "Trusted native mode is not a hostile-test, raw-socket or arbitrary filesystem sandbox",
+    "Fixture byte comparison is detection, not write denial; readonly FMC cache boundary remains unchanged",
+    "No Deno execution, live Yahoo requests, real fixture writes, source production changes, publishing, scheduling or existing strict CI edits",
+    "Actual native OS artifacts must pass and be inspected after independent reviews; preparation does not tick B05/H05/G01/G03",
+    "User minimum policy remains pending separately; observed Bun1.0 gaps remain historical evidence rather than broad claims"
+  ],
+  "primarySources": {
+    "verifiedAt": "2026-10-16",
+    "sources": {
+      "runners": "https://github.com/actions/runner-images/blob/main/README.md",
+      "node22": "https://nodejs.org/download/release/v22.0.0/SHASUMS256.txt",
+      "node24": "https://nodejs.org/download/release/v24.21.0/SHASUMS256.txt",
+      "bun100": "https://github.com/oven-sh/bun/releases/expanded_assets/bun-v1.0.0",
+      "bun110": "https://github.com/oven-sh/bun/releases/expanded_assets/bun-v1.1.0",
+      "setupBun": "https://github.com/oven-sh/setup-bun/blob/main/README.md"
+    },
+    "qualifications": [
+      "Node22/24 official x64 Linux/macOS/Windows assets exist",
+      "GitHub explicit x64 labels verified",
+      "Bun1.0 Linux/macOS release exists; no native Windows asset",
+      "Bun1.1.0 Windows observation available, no global minimum change"
+    ]
+  },
+  "review": {
+    "status": "Awaiting independent Sol and Astra affected-fix review of immutable v3",
+    "wholeV2": "Independent Astra whole review otherwise cleared 31 guarded tests, types, 28 exports/four runtimes, installed Node24 MCP baseline and process checks; two accepted P2 findings fixed here",
+    "actualNativeRuns": "Parent dispatch only after required reviews; none dispatched"
+  },
+  "proofSha256": {
+    "proof/accepted-astra-review.json": "132df3912db717365bba4fac254962bc9172e8cc8df7446ee6c29afb608cd22c",
+    "proof/actual-coverage.log": "5944bb26ef5c7708d60163613d5a8f69487595ee3d831c3059f71c51be4e932e",
+    "proof/actual-coverage.ts": "4b804d2a265d2d8c23d07d1143b2da407c45708c52eb8e0f26a368dff2b8d08f",
+    "proof/actual-lcov-provenance.json": "c114f6db4f89979e174a93b8e74cd67a9f5afc9c3d75444fe652904b68826a68",
+    "proof/actual-native-lcov.info": "130c823cebaaf73fd5e011cbdfa2232cd477cf0f9d9f48ea9d20bcc880a9f305",
+    "proof/biome.log": "df557f055b54ea3006ef06ddb55c9ebdf582b148e844e12c93f79735ece14382",
+    "proof/bun143-installed-cli.log": "7bddb0a9fdd5c3de46bd4546cd81c0b7aaacf0b28bb4f6770b7df65261e69a5e",
+    "proof/commands.json": "caa1fe6c87ba53ea102673bbcba57c817cff95600b1b05d4f8bb1f87c25c9042",
+    "proof/coverage-negative-status.json": "8a8d68e3a82d4018b5c34c63259596efe8f5adce2877a79302592fa1f69eae70",
+    "proof/coverage-negative.log": "158f16e535765c247918d1097e686d50949db50583641c8e264e07c12878be58",
+    "proof/focused.log": "bdf8fb9e0c314dae92883ba362896d3a61ab98bd0beb7cb1a6914b0117a69684",
+    "proof/installed-baseline.log": "dc868de376c5c326cf8f01c8752cf78d170bc05eda70be1b418e054928870bc1",
+    "proof/installed-commands.json": "2ff6dc83fc3461cad53e64f1eba71d4607cf83a8c7a569858eeb51e97b29b8fd",
+    "proof/installed-fragmented.log": "201d57a85238885720d63b1094a12b9a2079215ccde1b559e9515c1112db1404",
+    "proof/installed-v2-fragmented.log": "7a49179ea999246e25e134ea68963c90a929409a9306c6c57077278c5d98effe",
+    "proof/matrix-helper-controls.log": "490364ad2fbb3ce0fb1d832b3cb383e117f9a5d8c4deb349c0afc5ca3bb34bb0",
+    "proof/modern-commands.json": "604475c7e561918d7a9ee7c10df06731c56d3c1d1ff8c6266221c0a41070b8d6",
+    "proof/node22-installed-cli.log": "c017d6b36a61ad2ae0d975c7fba8056210aa10f212128b7cfa92fb0678fad29c",
+    "proof/run-installed.py": "359363d301423c786fb568cb0df03144fc63863c567f3ffaf72ce76f1c4961c3",
+    "proof/run-modern.py": "8769c67424979ed91c65cbf82a0ce70d6c8175936d183d34034850a8b00307be",
+    "proof/typecheck.log": "e0dac4580f179d2866b58cae1012cb0d7fddbcf03b3a39600114f30024139ad0",
+    "proof/v2-native-platforms-preparation.json": "64c4af1d26d04d65ba14273b80f8b666bff59e1736f6dcb0bbc241c6b0e0b35d",
+    "proof/v3-audit.json": "07273f29d9f48d95ac44248064a84bb18c79a294246125428d367e97c6b77808"
+  },
+  "historicalV1": {
+    "root": "/tmp/yf-native-platform-y7___zho",
+    "receiptSha256": "99b8b6e21ad7ad0c49f3985dc2c50ffcd2029ed185619abae798d68e41e4cd3b",
+    "sourceSha256": {
+      ".github/workflows/native-platforms.yaml": "55676b0a8611cea42aee6943ed3c7ee1f439ae92b7c69665eda85b044172ce19",
+      "scripts/native-platform-bootstrap.mjs": "2de947ccf497da0d0a02f2009c9f8da67c483bb06e2cd539693c2aec45242c0a",
+      "scripts/native-platform.ts": "5e29de04baf002a5731556e016595b57f5d937afc098d21575123b38c6ec1729",
+      "scripts/native-platform-process.ts": "3ec895c7d10a25c0fb7af7199cb9d19404215d529c828009b69f6b7e7d27f74b",
+      "scripts/native-platform.test.ts": "b9ef314b4563c75e60ecf715c8c1300c39c3772a65cacfdea7362ba7799cbd84",
+      "scripts/testing/native-platform-preload.mjs": "ed36ace84d49466cf483048d36ea4344965ccd21a35c3124309e071cf2c5542e",
+      "tests/migration/package-consumer.mjs": "7e11c2e408c619528a51243204e3582a8466150b1a63104c93c0cf0757c5e412",
+      "tests/migration/package-runtime.mjs": "4c39f82df9c0d1c02f8f756e8278da4d684c6596e683be41680810cd58d15121",
+      "tests/migration/package-native-cli.mjs": "34e7f955b7a7d2facd017f2120a4170d89ebbabbc1c838c4625b00e0fec4af20",
+      "tests/migration/NATIVE-PLATFORMS.md": "b5fe2ab280af12887220cebed64b5f12bcf3c4850b9985a06677138704abcabb"
+    },
+    "proofSha256": {
+      "proof/base-plus-owned-audit.json": "4bfa18c62d76f98382794b24a1ed754427cde66d7da43810b055c771b1a1efb9",
+      "proof/biome-initial.stderr": "f995623445cb4be89047acc27f149d35f47d1679a1e4de6b8fc5007cb08e94c4",
+      "proof/biome-initial.stdout": "fcdf5b3ff949e06620046235493d0779399bc476c7639e3c3d689094697b08db",
+      "proof/final-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-bun-cli.stdout": "a02417333d5fc5499e0fad64ba43c173a73340e1dc1cbb8caa9d1c086636647e",
+      "proof/final-cli-commands.json": "5ee9fc9bfbf2554163b0835235adc354713795f61013568fe53c940516e701e7",
+      "proof/final-cli-proof.py": "f3f2b81d66b36bf1f19c7ce53d18e6af1d5857940002dd7d19a7b961945a2913",
+      "proof/final-format.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-format.stdout": "7a6a793f76ab80b4b9b4cb29f5b7416b3dc93daec7abc2c14a39563ad1aad0c0",
+      "proof/final-lint.json": "e58b652f93de6655d4cadcf26720e068cbdfa3aa0a6b46348db2f69853fa9683",
+      "proof/final-lint.stderr": "0913004effb614bc48cd4a3dbeeb8ff43aca0acce8fa7b57a4681b43cfbfca1e",
+      "proof/final-linux/actual-process-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/actual-process-controls.stdout": "eb0711c465f9ab83fa57efdea5d99b39b3730189c797507b9f6221f32ec67b3e",
+      "proof/final-linux/actual-process-metadata.json": "76a4d2fc4727e57196128f1de0b99ea72dcc5d81d51ad39e22a744170307793c",
+      "proof/final-linux/build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/build.stdout": "1a78d7a0db7205a5ec1041681fdb39225d72f7b48b84e10bacd726ed2bf1255a",
+      "proof/final-linux/bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/bun-cli.stdout": "8a5e5cc967bef6a5a14cf634355c2062a6dd55dc14dfb4f096eabcc00c6f1923",
+      "proof/final-linux/bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+      "proof/final-linux/bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/bun-runtime.stdout": "367349cd657d5ad5ef431333a7e8a678599c2bb88dd9b620810abfc440f0eff3",
+      "proof/final-linux/consumer-registry-install.stderr": "e49b794cae6663ada86efea1579a0381251a5d4d1ff9b0cefed3e5622b21317d",
+      "proof/final-linux/consumer-registry-install.stdout": "1ca1d19627d9478eb09c2cf2c9653dd110a3288901e934551d86421770f7d870",
+      "proof/final-linux/consumer-types.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/consumer-types.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+      "proof/final-linux/frozen-install.stdout": "2de5f53622dc8096e1417c4206591f0724316c06e960a9d21056981a9ab69b7f",
+      "proof/final-linux/installed-packages.json": "53db2d6274ff79576e7c5398f7bf7d7463df29286d6faff492e5774cc9120343",
+      "proof/final-linux/local-biome.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/local-biome.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+      "proof/final-linux/minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/minimum-bun-cli.stdout": "8937aeea0d0c254bb596ce225916683c6871033d0e3c8c54d4f7e5c38164d143",
+      "proof/final-linux/minimum-bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/minimum-bun-consumer.stdout": "352511bfc953de0112aa10b81160bcf803e83efe8d39533cc6b0fa79023563e2",
+      "proof/final-linux/minimum-bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/minimum-bun-runtime.stdout": "da5eb5b5f732f3b6b183fe5215e6975268ae3f2de78dce4f88fad486cbbd4545",
+      "proof/final-linux/minimum-bun-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/minimum-bun-version.stdout": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+      "proof/final-linux/native-coverage.stderr": "0383e5db1560cf3709559643642a99e45fc6461ea23165f2e5c24ddfd695d05d",
+      "proof/final-linux/native-coverage.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/final-linux/native-full.stderr": "ed1a1dda4f567be55aedcfdebe292d9f0e93369d56c87809e8c31503f4ae5ddd",
+      "proof/final-linux/native-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/final-linux/native-inventory.stderr": "7d67281825f528c519e585bb3aa8f9395fc6eb0d1870ea661bbfd25a8623e94e",
+      "proof/final-linux/native-inventory.stdout": "8d2e771294b200691d3b09a1577fbd48220330b65883b590e852b04bd2da95ac",
+      "proof/final-linux/native-lcov.info": "130c823cebaaf73fd5e011cbdfa2232cd477cf0f9d9f48ea9d20bcc880a9f305",
+      "proof/final-linux/native-serial.stderr": "dfbe36e830da773467318a97f41a897abf1224c4b34a18cc984ff96ddb0cbd2b",
+      "proof/final-linux/native-serial.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+      "proof/final-linux/node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node22-cli.stdout": "c44471feadca591158c31e2c1da7290a14b4932abfbb56a6b39e20a9ac51ad5e",
+      "proof/final-linux/node22-consumer.stderr": "27880006fc9abe35fc29a72bef574197da1cd20735aa8545118ac772c6c86c34",
+      "proof/final-linux/node22-consumer.stdout": "5ae77d0c7d75244e1e9e280e181c420b5d9160eb547b1ae16adc2691030f0eca",
+      "proof/final-linux/node22-runtime.stderr": "71661016bc9e0314af524488cd829385dfd12a179aa3fc82e3348eaa8e484600",
+      "proof/final-linux/node22-runtime.stdout": "6c0b663f93b8d8f7c5f0b04a1047d5e9036734b4072e0dbfb42c83c130cf83de",
+      "proof/final-linux/node22-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node22-version.stdout": "8cc3f3bd688f6d2f51479b82dc0e1bcc9f8f240f02b809e67206da750cf13154",
+      "proof/final-linux/node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node24-cli.stdout": "f9038aabfeedba333bc2bbc5b885217cbc0632b8d16c1b864ab24863e17758ef",
+      "proof/final-linux/node24-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node24-consumer.stdout": "b9e4df71b58a662327b65b109f6dfd7eacd96b652155d0b221c4d33ad66857d3",
+      "proof/final-linux/node24-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node24-runtime.stdout": "b22cea297d081aa7548fe822e3422f4577b904f54c7519ccc057145c0ef7cb35",
+      "proof/final-linux/node24-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-linux/node24-version.stdout": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+      "proof/final-linux/pack.stderr": "e49b794cae6663ada86efea1579a0381251a5d4d1ff9b0cefed3e5622b21317d",
+      "proof/final-linux/pack.stdout": "fe9ea8d00081c8d5625598323ede26841abec423da721e669918c2aa48fbcb2c",
+      "proof/final-linux/portable-helper-controls.stderr": "4317f516e20fa884cc61e359d932ba74229ad77d6c42d37d3e35554e13bce36b",
+      "proof/final-linux/portable-helper-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/final-linux/summary.json": "e4861f98b1287788bf1fa3de333c305d0018d15a207754801b1b203b834431ba",
+      "proof/final-linux/toolchain-before.stderr": "7b06740e83f4fb425fd4bfa3e671cfabfe0ea5d38ecc13908bef1720ea703cc4",
+      "proof/final-linux/toolchain-before.stdout": "57257402c57850c836e3e1af17541b5b22126ed970b21e11382c3e8539197ccf",
+      "proof/final-minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-minimum-bun-cli.stdout": "3ba7062ca27c8e67b41b33e5b1037c9400cd2c71e34b79375a49eb6ffd258a39",
+      "proof/final-node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-node22-cli.stdout": "db8a086170b3db14ae84e8727ac27751d8117cb36fe083ac0c17dd399bb5749d",
+      "proof/final-node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-node24-cli.stdout": "739c7970cc91dd79ac6cd81dde48b9d39e4e39a70d7fbf520f9e7bb7a885705b",
+      "proof/final-node24-process-metadata.json": "b55a4d41d9b5c2e2106c78f4f0b52dedd8e6334bbf1c495f15e45bfd0fcf324e",
+      "proof/final-process.stderr": "edf3dcaf8f4c3a9343de7e862b7834a35d8adf15d6355006b5fac5ebf080be25",
+      "proof/final-process.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/final-source-sha256.json": "2897dbf9b460e3444ad5dd51a21f70e491a9c202464ca83d4e103085ef7c3c07",
+      "proof/final-strict-controls.stderr": "b4ad4e4d9309e480ac1d90ac4cd74abe00e58a961173826e455243f3509479b6",
+      "proof/final-strict-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/final-typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+      "proof/final-typecheck.stdout": "b5bcd64c49894b7e3220289fead2b83a874d5e7b68c5dfdb6c574f293c44743d",
+      "proof/guarded-process-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/guarded-process-final.stdout": "0045bab71ccd4178a545eeef36bb46ed03bb9335d62039a6c21a5994e7ccb8e4",
+      "proof/install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+      "proof/install.stdout": "8a8296bc2a6b41af6508783172f84659ced3d11744aabb1078fca0f7323ea41e",
+      "proof/legacy-cli-corrected.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-cli-corrected.stdout": "8937aeea0d0c254bb596ce225916683c6871033d0e3c8c54d4f7e5c38164d143",
+      "proof/legacy-cli.stderr": "4357ffb656d12ace8e79b113760f94561533d36af8d169d77a5c2dd5418f6c04",
+      "proof/legacy-cli.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-controller-events.stderr": "da2ff7bc6f23fa803c2ffaee04bd882b5d3b1a0c76404ab9d647f212fff23842",
+      "proof/legacy-controller-events.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-debug-scratch-restored.json": "e3932a48c7697cb58df869550172113f46d180934ec8ba1ec501112076253522",
+      "proof/legacy-debug-stack.stderr": "1d62c7d52c05ce5c4bec36ce2df3d41a627b0c1d0c24e8caecedca8bad1290de",
+      "proof/legacy-decoded-results.stdout": "2bbbbccd5e8d06654d42fee625c3f429cfe56efb331ed6ced41a232bb4283b2b",
+      "proof/legacy-owned-process-cleanup.json": "f5f455ebdeee6ea3d579d5e97d1b30e0707e51165168eabfd2b3ad8a517164c5",
+      "proof/legacy-plain.stderr": "981a79c33b828262d7057773f1d6d1f3da59d0c9a199f45013a0741310f0a02d",
+      "proof/legacy-plain.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-resolver-control/plain/node_modules/standard-export-probe/esm/index.js": "8c70376679aa60b9134c7a7cc5c4616d5626b4edafe9bd42ffd0c546b28c3e3d",
+      "proof/legacy-resolver-control/plain/node_modules/standard-export-probe/package.json": "c5400c9ace9dda91433957622be8a44ed6c82a6da022ae65d3398393967c6550",
+      "proof/legacy-resolver-control/plain/package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "proof/legacy-resolver-control/plain/probe.mjs": "466cc337b2382317c47289c735382ff26fe5c7fc556625cdbb3f6a071c068357",
+      "proof/legacy-resolver-control/results.json": "8b59d0432b18a547a449a8c45de3d8e88f8cf078a874faeaadb906821825dca9",
+      "proof/legacy-resolver-control/url-input-results.json": "8b59d0432b18a547a449a8c45de3d8e88f8cf078a874faeaadb906821825dca9",
+      "proof/legacy-resolver-control/with spaces/node_modules/standard-export-probe/esm/index.js": "8c70376679aa60b9134c7a7cc5c4616d5626b4edafe9bd42ffd0c546b28c3e3d",
+      "proof/legacy-resolver-control/with spaces/node_modules/standard-export-probe/package.json": "c5400c9ace9dda91433957622be8a44ed6c82a6da022ae65d3398393967c6550",
+      "proof/legacy-resolver-control/with spaces/package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "proof/legacy-resolver-control/with spaces/probe.mjs": "466cc337b2382317c47289c735382ff26fe5c7fc556625cdbb3f6a071c068357",
+      "proof/legacy-resolver-decoded-control/plain/node_modules/standard-export-probe/esm/index.js": "8c70376679aa60b9134c7a7cc5c4616d5626b4edafe9bd42ffd0c546b28c3e3d",
+      "proof/legacy-resolver-decoded-control/plain/node_modules/standard-export-probe/package.json": "c5400c9ace9dda91433957622be8a44ed6c82a6da022ae65d3398393967c6550",
+      "proof/legacy-resolver-decoded-control/plain/package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "proof/legacy-resolver-decoded-control/plain/probe.mjs": "c8c1d134a30138de3c7fc847ab1bc628f297405789824d996253b64a2e6b32e1",
+      "proof/legacy-resolver-decoded-control/url-input-results.json": "2bbbbccd5e8d06654d42fee625c3f429cfe56efb331ed6ced41a232bb4283b2b",
+      "proof/legacy-resolver-decoded-control/with spaces/node_modules/standard-export-probe/esm/index.js": "8c70376679aa60b9134c7a7cc5c4616d5626b4edafe9bd42ffd0c546b28c3e3d",
+      "proof/legacy-resolver-decoded-control/with spaces/node_modules/standard-export-probe/package.json": "c5400c9ace9dda91433957622be8a44ed6c82a6da022ae65d3398393967c6550",
+      "proof/legacy-resolver-decoded-control/with spaces/package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+      "proof/legacy-resolver-decoded-control/with spaces/probe.mjs": "c8c1d134a30138de3c7fc847ab1bc628f297405789824d996253b64a2e6b32e1",
+      "proof/legacy-runtime-corrected.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-runtime-corrected.stdout": "da5eb5b5f732f3b6b183fe5215e6975268ae3f2de78dce4f88fad486cbbd4545",
+      "proof/legacy-spaced-corrected.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/legacy-spaced-corrected.stdout": "352511bfc953de0112aa10b81160bcf803e83efe8d39533cc6b0fa79023563e2",
+      "proof/legacy-url-results.stdout": "8b59d0432b18a547a449a8c45de3d8e88f8cf078a874faeaadb906821825dca9",
+      "proof/lint-current.json": "99ba1a5e85e2992c80d7f1f0ee2746e716b57cecc3437467ac9a5ec7e3e7a475",
+      "proof/lint-current.stderr": "0913004effb614bc48cd4a3dbeeb8ff43aca0acce8fa7b57a4681b43cfbfca1e",
+      "proof/lint-initial.json": "e6821020482a7a9477bc56a95bd4b02d8070a7e5d0a3e3c1dc59b136c95fce2f",
+      "proof/lint-initial.stderr": "0913004effb614bc48cd4a3dbeeb8ff43aca0acce8fa7b57a4681b43cfbfca1e",
+      "proof/minimum-bun-controller-context.stderr": "86433ea773e213dc6fbcd56b527b2cf8f62690f2f364342fa188b2a9ad7c4ede",
+      "proof/minimum-bun-controller-context.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/minimum-bun-current-controller.stderr": "528a83e71ae496d811891622b111616259be9d3f9016e124847590bdfd8a36b6",
+      "proof/minimum-bun-current-controller.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/minimum-bun-exit-close.stderr": "fa5830f3893e5fbedcc0e4a8f10de366f5c0ef38623306cd80751043b8abf3d1",
+      "proof/minimum-bun-exit-close.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/minimum-bun-final-cli.stderr": "0511b2bcbd07d555b89480f110c7aea9f8acf890b0ea096df6c2b420ad889773",
+      "proof/minimum-bun-final-cli.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/minimum-bun-native-final-cli.stderr": "86433ea773e213dc6fbcd56b527b2cf8f62690f2f364342fa188b2a9ad7c4ede",
+      "proof/minimum-bun-native-final-cli.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/negative-existing-install/owner.txt": "872faf6871f762e3f96929bf8c26861479a250d0e2df09b37d69e06f26a14143",
+      "proof/negative-existing-install/summary.json": "3e72f53693a556e9f1f65203ca885a80b4e52b5ce315f363c31a6db119bb93cc",
+      "proof/node-stdio-final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/node-stdio-final.stdout": "7e1187b189df2e66bbd251da5a993c01276f8e1114781c34247cb01643e10764",
+      "proof/node-stdio-process.stderr": "95c4a9eaa5bf308eac4395678a63a0a5ada540fcf8d10616fe6490618d6acd33",
+      "proof/node-stdio-process.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/owned.json": "916a054ac2897f5a7640df75d553ebb5349543cb9b38b2d8ea2aa6ec433a8f87",
+      "proof/pipeline-executed-source-sha256.json": "ba8c28bc277cd624b68eed25685db4f0577b31f274734e34ef67c02ce77668c4",
+      "proof/primary-sources.json": "fcf8254e3d1bd556a73d834aff8180a1ce6bd9c6ef0ef8310b8759f537ce1bcc",
+      "proof/release-linux/actual-process-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/actual-process-controls.stdout": "186796f9182152c0c1a590ce622ef1a0786c1292405268333cca0c264e5a9523",
+      "proof/release-linux/actual-process-metadata.json": "0d88e5cad100b17e824185c0fc4797cd749cb1f6ccf2eb87b9b9ee9cd51e0f67",
+      "proof/release-linux/build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/build.stdout": "77ffdfcaa502b2b782df6f472d6e91772441ffb52ad7c88606fdeaf2bfce8cef",
+      "proof/release-linux/bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/bun-cli.stdout": "31a35df35de2a1f987f499f7bc72960488a898c79bd3f5d482439f1e0cf02084",
+      "proof/release-linux/bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+      "proof/release-linux/bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/bun-runtime.stdout": "367349cd657d5ad5ef431333a7e8a678599c2bb88dd9b620810abfc440f0eff3",
+      "proof/release-linux/consumer-registry-install.stderr": "e49b794cae6663ada86efea1579a0381251a5d4d1ff9b0cefed3e5622b21317d",
+      "proof/release-linux/consumer-registry-install.stdout": "1ca1d19627d9478eb09c2cf2c9653dd110a3288901e934551d86421770f7d870",
+      "proof/release-linux/consumer-types.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/consumer-types.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+      "proof/release-linux/frozen-install.stdout": "fbc18e529e4b78f1e9683221bbef153a632d7a445fed23fb852ba4a89d074c3d",
+      "proof/release-linux/installed-packages.json": "8e94f89a9975922dd62b29ee91d032aac6812bc471407f74367951d069ec903f",
+      "proof/release-linux/local-biome.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/local-biome.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+      "proof/release-linux/minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/minimum-bun-cli.stdout": "da1828ac8d5738d5d71d9d6804b75f51215e592e3e77c58ae369850f5e79cb60",
+      "proof/release-linux/minimum-bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/minimum-bun-consumer.stdout": "352511bfc953de0112aa10b81160bcf803e83efe8d39533cc6b0fa79023563e2",
+      "proof/release-linux/minimum-bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/minimum-bun-runtime.stdout": "da5eb5b5f732f3b6b183fe5215e6975268ae3f2de78dce4f88fad486cbbd4545",
+      "proof/release-linux/minimum-bun-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/minimum-bun-version.stdout": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03",
+      "proof/release-linux/native-coverage.stderr": "0eb4188c0e21410f7018b0eaa1ab137dbad085d9b830e81151d9a77f67de208d",
+      "proof/release-linux/native-coverage.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/release-linux/native-full.stderr": "5008214cf9daa3fa3768f16810bf6f3a8a76eabf76b7e7442480750a4b29c22f",
+      "proof/release-linux/native-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+      "proof/release-linux/native-inventory.stderr": "7d67281825f528c519e585bb3aa8f9395fc6eb0d1870ea661bbfd25a8623e94e",
+      "proof/release-linux/native-inventory.stdout": "8d2e771294b200691d3b09a1577fbd48220330b65883b590e852b04bd2da95ac",
+      "proof/release-linux/native-lcov.info": "cfaa8268af341c8e998804b0c7e0c1c3e315947b7b909d5496b1fac35d25d714",
+      "proof/release-linux/native-serial.stderr": "b82d7f4992d6d0f838ff753a2a30eb4f5ca546e191c35896e7ebb95649ae14d4",
+      "proof/release-linux/native-serial.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+      "proof/release-linux/node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node22-cli.stdout": "9dacddaa896cc55c59397e02132e3c7462cf9677af1dfc090cae3690b7083225",
+      "proof/release-linux/node22-consumer.stderr": "50be4ad4a90ec611ce9699c85b1c5493d8f679adcfda182a72c0c167381d484d",
+      "proof/release-linux/node22-consumer.stdout": "5ae77d0c7d75244e1e9e280e181c420b5d9160eb547b1ae16adc2691030f0eca",
+      "proof/release-linux/node22-runtime.stderr": "bd04457582dad1f7710da279feb2a3eebbae693494cd5470bf3b61ced9d2456d",
+      "proof/release-linux/node22-runtime.stdout": "6c0b663f93b8d8f7c5f0b04a1047d5e9036734b4072e0dbfb42c83c130cf83de",
+      "proof/release-linux/node22-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node22-version.stdout": "8cc3f3bd688f6d2f51479b82dc0e1bcc9f8f240f02b809e67206da750cf13154",
+      "proof/release-linux/node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node24-cli.stdout": "ba38e933a70851522355d13ed55ee070c392eed9a75266096a7bec205664b350",
+      "proof/release-linux/node24-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node24-consumer.stdout": "b9e4df71b58a662327b65b109f6dfd7eacd96b652155d0b221c4d33ad66857d3",
+      "proof/release-linux/node24-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node24-runtime.stdout": "b22cea297d081aa7548fe822e3422f4577b904f54c7519ccc057145c0ef7cb35",
+      "proof/release-linux/node24-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/node24-version.stdout": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+      "proof/release-linux/pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "proof/release-linux/pack.stdout": "fe9ea8d00081c8d5625598323ede26841abec423da721e669918c2aa48fbcb2c",
+      "proof/release-linux/portable-helper-controls.stderr": "6460d986653297d735b84b952708029fcd7f7a074a7fd9b31e91698e7020cdd0",
+      "proof/release-linux/portable-helper-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/release-linux/summary.json": "01bc4f263769724702d7b0e1b8a51280e85050a0e00e89ab7d22e0e87ed384e9",
+      "proof/release-linux/toolchain-before.stderr": "7b06740e83f4fb425fd4bfa3e671cfabfe0ea5d38ecc13908bef1720ea703cc4",
+      "proof/release-linux/toolchain-before.stdout": "57257402c57850c836e3e1af17541b5b22126ed970b21e11382c3e8539197ccf",
+      "proof/release-pipeline-executed-source-sha256.json": "2ace3564223e81785a4306da2a947c09e19108a96f4a78f03e2d3d3c4352b792",
+      "proof/reproduce-legacy-decoded.py": "e6631a02c98fdc2102a142ca4579d0b325cf44cf90d3ef7e42fe494678e24c89",
+      "proof/reproduce-legacy-space.py": "04ad462d19c182d77f95c0ad2dcbd5dc36324c219020b09cd694379a83038b2c",
+      "proof/strict-controls.stderr": "1796a8ee2021ed1d112a54b824042874e052b6c4f6f1b8b74bd76a0d44ea92b5",
+      "proof/strict-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/typecheck-initial.stderr": "48de695293334882513193bcf0fd163730a2547e27668e8f1eed1c0671c379f6",
+      "proof/typecheck-initial.stdout": "92c808b9aff6a72c9a1a5bf4c7faca40a6261007300e8ac74e4055abd2d870f9",
+      "proof/typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+      "proof/typecheck.stdout": "b5bcd64c49894b7e3220289fead2b83a874d5e7b68c5dfdb6c574f293c44743d",
+      "proof/workflow-structure.json": "ee60bd138e1fa970c316e3f70c34e38a673180155b58ab4001327728ea62b542"
+    },
+    "localProof": {
+      "actualPlatform": "Linux x64; existing local kernel, not GitHub ubuntu-24.04",
+      "hostedLinuxVerified": false,
+      "actualMacOSVerified": false,
+      "actualWindowsVerified": false,
+      "fullPipeline": {
+        "sourceManifest": "proof/release-pipeline-executed-source-sha256.json",
+        "commands": "proof/release-linux/summary.json",
+        "commandCount": 28,
+        "phases": {
+          "install": "passed",
+          "replay": "passed",
+          "package": "passed"
+        },
+        "nativeRuns": {
+          "native-full": {
+            "passes": 1359,
+            "failures": 0,
+            "skips": 0,
+            "files": 41
+          },
+          "native-serial": {
+            "passes": 1359,
+            "failures": 0,
+            "skips": 0,
+            "files": 41
+          },
+          "native-coverage": {
+            "passes": 1359,
+            "failures": 0,
+            "skips": 0,
+            "files": 41
+          }
+        },
+        "nativeCoverageSources": 74,
+        "installedPackageManifestEntries": 614,
+        "installedUniqueNameVersions": 567,
+        "bunReportedInstallCount": 444,
+        "lifecyclePackagesObserved": [],
+        "nativePackagesObserved": [
+          "@biomejs/cli-linux-x64-musl",
+          "@biomejs/cli-linux-x64"
+        ],
+        "rootPreinstallActuallyRan": true,
+        "normalHooks": true,
+        "ignoreScriptsOrTrustOverride": false,
+        "fixturesUnchanged": true,
+        "lockUnchanged": true,
+        "packageUnchanged": true
+      },
+      "postPipelineDelta": {
+        "file": "tests/migration/package-native-cli.mjs",
+        "change": "Output metadata now says permission/home/signal controls were not exercised in library-static scope; no assertion or process behavior change",
+        "finalSourceProof": "proof/final-cli-commands.json",
+        "allFourFinalCliRowsPassed": true,
+        "modernCliChecksPerRow": 14,
+        "modernMcpLifecycle": [
+          "initialize",
+          "tools/list",
+          "EOF",
+          "SIGTERM",
+          "SIGINT"
+        ],
+        "modernObservedExit": "Actual exit event0/null plus stream close; raw close args retained",
+        "minimumBunStaticCliChecks": 11,
+        "minimumMcpProtocolOmittedExplicitly": true
+      },
+      "strictRetention": {
+        "proof": "proof/final-strict-controls.stderr",
+        "passes": 29,
+        "failures": 0,
+        "skips": 0,
+        "files": 4,
+        "scope": "3 new helper controls +10 existing native controls +4 replay store controls +12 existing strict Linux infrastructure controls; no full strict suite rerun claimed"
+      },
+      "typecheck": {
+        "libraryRoots": 58,
+        "toolsRoots": 115,
+        "diagnostics": 0
+      },
+      "format": {
+        "files": 8,
+        "passed": true
+      },
+      "lint": {
+        "changed": 0,
+        "unchanged": 8,
+        "matches": 0,
+        "duration": 9017093,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 17,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 917258
+      },
+      "workflowSyntax": {
+        "proof": "proof/workflow-structure.json",
+        "parser": "PyYAML BaseLoader plus bounded structural assertions; not hosted Actions execution"
+      },
+      "runtimeBinarySha256": {
+        "bun143": "7ce7d6b654eddeec20afddf2396317fba6dc19ab52788a27e894e1806bf8f24b",
+        "node220": "0570891fc6e07540b25f18b753445fc16d4428b8a894cca5cf9805c2feee230f",
+        "node2421": "7fde7b8afa198da66257f42ee2001d874c7355631e6d1579a5fb5ef1f246df4c",
+        "bun100": "4ad9232b40453b6b068650d8b49c5efb36a10a2571dcb66cb7d9805ceded6aae"
+      }
+    },
+    "reuse": "All whole-pipeline/native/consumer proofs remain scoped to immutable v1 hashes. V2 reruns only affected path controls/typecheck/Biome; original source, test and review evidence remain unmodified."
+  },
+  "acceptedSolP2": {
+    "finding": "Windows path.relative returns an absolute result across volumes; old starts-with-parent assertion rejected canonical outside-checkout results",
+    "repair": "One shared actual decision helper accepts absolute disjoint trees across drives/shares and rejects checkout, descendant and ancestor overlaps. Canonical, regular-directory and ownership validation remains byte-identical.",
+    "audit": {
+      "v1ReceiptUnchanged": true,
+      "v1Root": "/tmp/yf-native-platform-y7___zho",
+      "baselineCommit": "a32cb00362cb975ed354cfdceb5de075b60d78b2",
+      "sourceDelta": {
+        "scripts/native-platform.ts": {
+          "v1": "5e29de04baf002a5731556e016595b57f5d937afc098d21575123b38c6ec1729",
+          "v2": "07781953337e24487ad10a56b5a168626585e42080b9ab77e98aef9fb3787961"
+        },
+        "scripts/native-platform.test.ts": {
+          "v1": "b9ef314b4563c75e60ecf715c8c1300c39c3772a65cacfdea7362ba7799cbd84",
+          "v2": "bbe56ddf714f60bb3ec4f53f52f997a987bd24a9158c8ced636cbf1a3ceb293b"
+        },
+        "tests/migration/NATIVE-PLATFORMS.md": {
+          "v1": "b5fe2ab280af12887220cebed64b5f12bcf3c4850b9985a06677138704abcabb",
+          "v2": "631c84570fefeac9e8d1bcfe778b797156ea280897a6c914a851debc085a9baa"
+        }
+      },
+      "allOtherCandidateFilesByteIdentical": true,
+      "ownershipAndCanonicalValidationTailUnchanged": true,
+      "ownershipAndCanonicalTailSha256": "34f6ed216fbf17640043bd199516d7aa2f52eee948886406ad6fee630dac3d9f",
+      "fixtureCount": 1201,
+      "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+      "allFixtureBytesUnchanged": true,
+      "packageLockWorkflowProductionSourceUnchanged": true,
+      "sharedWrites": false,
+      "minimumPolicyChanged": false
+    },
+    "scope": "Only main path decision, focused controls, docs and receipt changed; no workflow/minimum/shared edits",
+    "remaining": "Actual native OS proof and outstanding user minimum-policy choice remain pending",
+    "evidenceRoot": "/tmp/yf-native-platform-v2-adumltlo"
+  },
+  "historicalV2": {
+    "root": "/tmp/yf-native-platform-v2-adumltlo",
+    "receiptSha256": "64c4af1d26d04d65ba14273b80f8b666bff59e1736f6dcb0bbc241c6b0e0b35d",
+    "manifestSha256": "56f81d6a06d4e1de7f68b1e88fc52d1688a9ba3bb4b63f6dbc6db7b284629816",
+    "sourceSha256": {
+      ".github/workflows/native-platforms.yaml": "55676b0a8611cea42aee6943ed3c7ee1f439ae92b7c69665eda85b044172ce19",
+      "scripts/native-platform-bootstrap.mjs": "2de947ccf497da0d0a02f2009c9f8da67c483bb06e2cd539693c2aec45242c0a",
+      "scripts/native-platform.ts": "07781953337e24487ad10a56b5a168626585e42080b9ab77e98aef9fb3787961",
+      "scripts/native-platform-process.ts": "3ec895c7d10a25c0fb7af7199cb9d19404215d529c828009b69f6b7e7d27f74b",
+      "scripts/native-platform.test.ts": "bbe56ddf714f60bb3ec4f53f52f997a987bd24a9158c8ced636cbf1a3ceb293b",
+      "scripts/testing/native-platform-preload.mjs": "ed36ace84d49466cf483048d36ea4344965ccd21a35c3124309e071cf2c5542e",
+      "tests/migration/package-consumer.mjs": "7e11c2e408c619528a51243204e3582a8466150b1a63104c93c0cf0757c5e412",
+      "tests/migration/package-runtime.mjs": "4c39f82df9c0d1c02f8f756e8278da4d684c6596e683be41680810cd58d15121",
+      "tests/migration/package-native-cli.mjs": "34e7f955b7a7d2facd017f2120a4170d89ebbabbc1c838c4625b00e0fec4af20",
+      "tests/migration/NATIVE-PLATFORMS.md": "631c84570fefeac9e8d1bcfe778b797156ea280897a6c914a851debc085a9baa"
+    },
+    "proofSha256": {
+      "proof/biome.stderr": "c491ef6f652d3802b6dee90d0d0f02caae19bef1e4cb7cc13d7e142e9175e50a",
+      "proof/biome.stdout": "195fa1300ed8841bbc707674759965724e3348490b886857157868a6cc5a8e61",
+      "proof/commands.json": "2cc9cd08bf9d8f6ab4630f2b936a2f0738a486cd0e3f06d9d2f5b413a213a9fa",
+      "proof/final-source-sha256.json": "551da4083e26a3971a4ac0b7c8212f182cf0f51a2e6c19cb1541a5f1e1740ef8",
+      "proof/negative-old-policy.stderr": "4d0bb3e3f248b55281817f83c53774ca45acd53da25bb6acb5003230f6965e49",
+      "proof/negative-old-policy.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/negative-status.json": "166b716cc04ec898a08f6d78d8992c7b47312cf80c46655968db290a6feb9b1d",
+      "proof/strict-path-controls.stderr": "8d6448c842135062d211bca5a933250be8d4ede16f5f296bfdba854e8112888d",
+      "proof/strict-path-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+      "proof/typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+      "proof/typecheck.stdout": "b5bcd64c49894b7e3220289fead2b83a874d5e7b68c5dfdb6c574f293c44743d",
+      "proof/v1-native-platforms-preparation.json": "99b8b6e21ad7ad0c49f3985dc2c50ffcd2029ed185619abae798d68e41e4cd3b",
+      "proof/v2-audit.json": "f70b053735ffe4b3ca33c7a75f953f660404c64edf737bcda27d374956958523"
+    },
+    "localProof": {
+      "v2FocusedPathControls": {
+        "passes": 5,
+        "failures": 0,
+        "files": 1,
+        "windowsPureCases": 12,
+        "posixPureCases": 6,
+        "actualMainControls": "Checkout/same/descendant/immediate and higher ancestor refuse before ownership; unowned outside directory preserved; valid owned outside directory accepted through ownership and reaches missing-install gate",
+        "actualOS": "Linux; win32 tests are pure actual decision-helper arithmetic, not native Windows filesystem proof"
+      },
+      "negativeOldPolicy": {
+        "passes": 3,
+        "failures": 2,
+        "expectedExitCode": 1,
+        "actualExitCode": 1,
+        "meaning": "Restoring original predicate makes the cross-volume policy test and actual ancestor-before-ownership test fail"
+      },
+      "typecheck": {
+        "libraryRoots": 58,
+        "toolsRoots": 115,
+        "diagnostics": 0
+      },
+      "biome": {
+        "files": 2,
+        "passed": true,
+        "recommendedPresetUnchanged": true
+      }
+    },
+    "scope": "Preserved exact original v2; prior whole-pipeline and cross-drive proofs remain historical, not rerun claims for v3"
+  },
+  "acceptedAstraP2": {
+    "report": "proof/accepted-astra-review.json",
+    "reportSha256": "132df3912db717365bba4fac254962bc9172e8cc8df7446ee6c29afb608cd22c",
+    "mcpFraming": {
+      "fix": "Shared streaming fatal UTF-8 decoder buffers unfinished frames; only newline-complete JSON is parsed; malformed complete frames/invalid UTF-8/truncated EOF fail. Original deadlines, real exit+close and finally cleanup retained.",
+      "newPaths": [
+        "scripts/native-platform-frames.test.ts",
+        "tests/migration/native-mcp-fragment.mjs",
+        "tests/migration/native-mcp-frames.mjs"
+      ],
+      "controls": "Coalesced/CRLF/blank frames, every Unicode byte boundary, bytewise chunks, malformed complete JSON, invalid/incomplete UTF-8 and unterminated EOF; real installed Node24 split session positive and v2 negative",
+      "matrix": "Both helper tests explicitly selected; new Node24 full fragmented invocation uses safe file URL in spaced consumer path; adapter asserts 3 real POSIX sessions or 2 actual Windows sessions on success"
+    },
+    "nativeLcov": {
+      "fix": "Records require existing unique sources in unchanged scope, nonempty unique positive mapped physical lines, safe nonnegative DA/totals, required LF/LH/FNF/FNH, exact LF and LH accounting and FNH<=FNF; reject duplicate/missing/malformed/unexpected fields or unterminated records. Physical bounds handle CRLF/trailing newline.",
+      "controls": "30 malformed variants plus original invalid-path/source/termination controls; valid LF/CRLF/no-final-newline and zero-hit records; restored-v2 negative; preserved actual 74-source native report positive",
+      "scope": "Four original required sentinels and source scope unchanged; no invented Bun FN/branch records, coverage threshold or full-suite equivalence"
+    },
+    "crossDriveV2Preserved": true,
+    "audit": "proof/v3-audit.json",
+    "minimumDecision": "Still pending user choice; no consumer minimum changed"
+  },
+  "parentAcceptance": {
+    "reviewedReceiptSha256": "01cfb689f0ef8f5468c069cce2f5241bd94bd654571eba4b09eb8036487130c9",
+    "reviews": {
+      "solNative": {
+        "path": "/tmp/yf-native-v3-sol-igeukv24/review.json",
+        "sha256": "19c27a0be8d16f48206766667793eafe08facb7c16931b45928e2939304f7f14",
+        "verdict": "clear; no findings"
+      },
+      "solCaller": {
+        "path": "/tmp/yf-native-caller-sol-_sbn_abw/review.json",
+        "sha256": "2ae84b97b715a991d26cf1526f3e74f8dd4c8bccb6f6566a6008a13b8cae5519",
+        "verdict": "clear; no findings"
+      },
+      "astraBoth": {
+        "path": "/tmp/yf-native-v3-astra-5biku_53/review.json",
+        "sha256": "474ee685fef048c832ea23b6a497c6bedd0fda6b117fb77091463c7dea05a0c3",
+        "verdict": "clear; no findings"
+      }
+    },
+    "application": {
+      "path": "/tmp/yf-native-combined-applied-proof.json",
+      "sha256": "1d8a0dd1167ae6d9794f8b6074faec7792310a1b6d51ad1512196015921c2136",
+      "verification": {
+        "focused": {
+          "logPath": "/tmp/yf-native-applied-focused.log",
+          "logSha256": "81da4962be7c6648c4d9105ff6c5b61eb9b6863425251b5f9cbcd35b6418c0de",
+          "exitCode": 0,
+          "passed": 8,
+          "failed": 0,
+          "files": 2,
+          "strictOfflineGuard": true
+        },
+        "typecheck": {
+          "logPath": "/tmp/yf-native-applied-typecheck.log",
+          "logSha256": "e0dac4580f179d2866b58cae1012cb0d7fddbcf03b3a39600114f30024139ad0",
+          "exitCode": 0
+        },
+        "format-check": {
+          "logPath": "/tmp/yf-native-applied-format-check.log",
+          "logSha256": "e519b2ce50e1146ca96b4e05202a66a698ccd419332dac2901ab99aece9c392c",
+          "exitCode": 0,
+          "files": 201
+        },
+        "lint": {
+          "logPath": "/tmp/yf-native-applied-lint.log",
+          "logSha256": "cc6ff0933ec67070c21beb5f76cc141121c4bc7d3722a4a8d64fcede8d4eae05",
+          "exitCode": 0,
+          "errors": 0,
+          "warnings": 150,
+          "infos": 145
+        }
+      }
+    },
+    "scope": "Exact native14 and caller3 paths co-applied; only receipt acceptance metadata and REPORT added by parent.",
+    "acceptanceCounts": "No additional checklist ticks; hosted matrix and consumer-minimum decision pending.",
+    "limits": "No actual native macOS/Windows or ACL/interactive-console claim, no general native sandbox claim; known old-Bun MCP failures remain disclosed. No Deno, live Yahoo, real fixture writes or publication."
+  }
+}

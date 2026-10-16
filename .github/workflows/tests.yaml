@@ -94,3 +94,9 @@ jobs:
         run: npm install --prefix "$RUNNER_TEMP/yf-npm10" --no-save --package-lock=false npm@10.9.9
       - name: Build and check actual Workers package in private scratch
         run: python3 scripts/ci.py workers --bun "$(command -v bun)" --node "$(command -v node)" --npm "$RUNNER_TEMP/yf-npm10/node_modules/npm/bin/npm-cli.js"
+
+  native-platforms:
+    name: Native platforms
+    uses: ./.github/workflows/native-platforms.yaml
+    permissions:
+      contents: read

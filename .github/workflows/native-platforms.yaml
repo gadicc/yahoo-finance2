@@ -1,0 +1,89 @@
+name: Native platforms
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+# Independent of tests-* and release-*: this never cancels the strict gate.
+concurrency:
+  group: native-platforms-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  native:
+    name: Native ${{ matrix.runner }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            platform: linux
+            minimum-bun: 1.0.0
+          - runner: macos-15-intel
+            platform: darwin
+            minimum-bun: 1.0.0
+          - runner: windows-2022
+            platform: win32
+            # Bun1.0 has no native Windows release. This is an observation row,
+            # not a change to the retained minimum on upstream-supported OSes.
+            minimum-bun: 1.1.0
+    defaults:
+      run:
+        shell: bash
+    env:
+      # Keep committed fixture bytes on Windows without changing global config.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: "false"
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22.0.0
+          package-manager-cache: false
+      - name: Preserve exact Node22 path
+        run: node -e "require('node:fs').appendFileSync(process.env.GITHUB_ENV, 'YF_NODE22='+process.execPath+'\n')"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - name: Preserve exact Node24 and npm CLI paths
+        run: |
+          node -e "const p=require('node:path'),f=require('node:fs'); const base=p.dirname(process.execPath); const npm=p.join(base,process.platform==='win32'?'node_modules':'../lib/node_modules','npm/bin/npm-cli.js'); if(!f.statSync(npm).isFile())throw Error('Missing actual npm CLI'); f.appendFileSync(process.env.GITHUB_ENV,'YF_NODE24='+process.execPath+'\nYF_NPM='+npm+'\n');"
+      - id: minimum
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ matrix.minimum-bun }}
+      - name: Retain separate minimum consumer binary
+        run: node scripts/native-platform-bootstrap.mjs
+        env:
+          YF_MINIMUM_SOURCE: ${{ steps.minimum.outputs.bun-path }}
+          YF_MINIMUM_VERSION: ${{ matrix.minimum-bun }}
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+      # No dependency cache or node_modules restoration: prove a fresh graph.
+      - name: Fresh normal-hook frozen installation
+        run: bun scripts/native-platform.ts install --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}"
+      - name: Native replay, serial, coverage and actual process controls
+        run: bun scripts/native-platform.ts replay --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}"
+      - name: Build, install and probe actual package on explicit runtimes
+        run: bun scripts/native-platform.ts package --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}" --node22 "$YF_NODE22" --node24 "$YF_NODE24" --npm "$YF_NPM" --minimum-bun "$YF_MINIMUM_BUN" --minimum-version "$YF_MINIMUM_VERSION"
+      - name: Retain native evidence, including failure logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: native-${{ matrix.runner }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/yf-native-platform/*.json
+            ${{ runner.temp }}/yf-native-platform/*.stdout
+            ${{ runner.temp }}/yf-native-platform/*.stderr
+            ${{ runner.temp }}/yf-native-platform/native-lcov.info
+          if-no-files-found: error
+          retention-days: 7

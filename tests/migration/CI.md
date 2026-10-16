@@ -37,6 +37,24 @@ reusable Tests workflow; an unsuccessful gate prevents its publisher job.
 The existing K02 formatting/lint debt remains intentionally failing until its
 separate cleanup lands. CI integration does not weaken the recommended preset.
 
+Tests also calls `./.github/workflows/native-platforms.yaml` as an ordinary
+unconditional job with only `contents: read` and no inherited secrets. The
+callee must be integrated in the same commit: GitHub resolves this local
+reusable reference from the caller's commit. Its Linux, macOS and Windows
+matrix participates in the complete Tests result, including Release's existing
+reusable Tests dependency. No additional dependency or condition hides a native
+matrix failure. The native workflow uses its separate `native-platforms-*`
+concurrency namespace with cancellation disabled, alongside `tests-*` and
+`release-*`.
+
+The existing Tests dispatch can select an integration branch containing both
+workflows before merge. Standalone manual dispatch of the new native workflow
+requires that workflow to be present on the default branch. See GitHub's
+[local reusable workflow rules](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_iduses)
+and [manual dispatch requirements](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
+Hosted native results remain required; this caller integration adds no runtime
+or installation proof by itself.
+
 Workers use `python3 scripts/ci.py workers --bun ABSOLUTE_BUN --node ABSOLUTE_NODE
 --npm ABSOLUTE_NPM_CLI`. Versions must be Bun 1.4.3, Node 24.21.0 and npm 10.9.9.
 CI installs that npm tool independently. A private outside 0700 scratch receives

@@ -705,6 +705,36 @@ remain open. This hosted run used restored download caches; it does not replace
 the pending clean native matrix or establish production readiness. All 1,201
 fixture bytes and modes remain unchanged.
 
+## Native platform matrix preparation and CI integration (2026-10-16)
+
+The [native matrix](NATIVE-PLATFORMS.md) now covers hosted Ubuntu 24.04,
+macOS 15 Intel and Windows 2022 with fresh normal frozen installation, native
+full/serial/coverage replay, process/watch controls, packed exports and installed
+CLI/MCP probes. The existing Tests workflow calls it at the same commit with
+read-only permissions; its failures also block Release. The strict Linux,
+Workers and isolated Codecov jobs retain their existing gates and privileges.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the
+[preparation](results/native-platforms-preparation.json) and
+[caller](results/i01-native-matrix-caller.json) after fixing cross-volume results
+paths, incomplete MCP pipe-frame parsing and false acceptance of empty or
+inconsistent LCOV records. Real fragmented installed MCP responses now retain
+all 14 checks across three shutdown sessions; malformed late frames fail. The
+actual historical 74-source native coverage report still validates, with its
+source bytes unchanged. The original negative reproductions remain recorded.
+
+After exact co-application, eight focused guarded tests, complete typecheck,
+201-file format check and lint passed. Lint has zero errors, 150 retained
+warnings and 145 information diagnostics. All 1,201 fixture bytes/modes, the
+root dependency graph and strict replay defaults remain unchanged.
+
+Actual hosted matrix evidence remains pending, so B05/D04/H05/I01 stay open and
+progress remains **48/71**. The old Bun 1.0 installed MCP stdin/termination gaps
+are disclosed; the consumer-minimum policy question is still pending. Windows
+1.1 is an earliest-native observation row, not a revised global minimum. Native
+replay remains trusted development execution with no portable OS sandbox or
+Windows ACL/interactive-console guarantee.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
