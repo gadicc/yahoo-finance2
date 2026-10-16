@@ -123,7 +123,7 @@ all items; the benchmark results above retain their historical meaning.
 | Area                                                             | Status          | Done/total |
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
-| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        5/6 |
+| [B. Dependencies, configuration and installation](#migration-b)  | Complete        |        6/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
 | [E. Type checking and schema generation](#migration-e)           | Complete        |        6/6 |
@@ -134,7 +134,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | In progress     |        3/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **48/71** |
+| **Overall**                                                      | **In progress** |  **49/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -735,6 +735,35 @@ are disclosed; the consumer-minimum policy question is still pending. Windows
 replay remains trusted development execution with no portable OS sandbox or
 Windows ACL/interactive-console guarantee.
 
+## First hosted native matrix (B05, 2026-10-16)
+
+The [first actual matrix run](https://github.com/gadicc/yahoo-finance2/actions/runs/38930691010)
+at `51e1837cd497d47b65a40f0c619da0b8ff3172fa` completed fresh normal-hook frozen
+installation on Linux, macOS Intel and Windows with exact Bun 1.4.3. These
+native rows restored no dependency download cache and installed 444/443/443
+platform-dependent packages. Lockfiles, root manifests and all 1,201 fixture
+bytes stayed unchanged. This accepts B05 and raises progress to **49/71**.
+
+All three operating systems passed **1,359 native tests / 41 files** in each
+full, serial and coverage mode, plus eight separate portable helper controls.
+Linux and macOS also passed installed Node 22.0.0/24.21.0 and Bun 1.4.3 package,
+CLI and MCP checks, including fragmented MCP frames. The historical Bun 1.0
+row covers exports, runtime and static CLI checks only; its known MCP gap and
+then-pending consumer-minimum decision remain explicit. The user has since
+approved **Bun >=1.4.3 for all consumers** for the new major; its metadata,
+runtime checks and updated matrix are the next policy integration. Node >=22
+and retained Deno >=2/JSR support are unchanged.
+
+The overall run failed at the Windows inherited-stdio process fixture: its
+assumed held-open parent close had already arrived. Windows package checks
+therefore did not run. D04/H05/I01 remain open pending diagnosis, correction and
+actual rerun. This does not change native replay's trusted-development scope
+or establish Windows ACL/interactive-console guarantees. The independent
+strict Linux suite passed **1,524 tests / 63 files**, with Workers and Codecov
+jobs successful. No performance benchmark was rerun. The
+[receipt](results/native-ci-51e1837.json) binds archive digests, exact commands,
+source hashes and the retained failure evidence.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -1115,10 +1144,13 @@ review and publisher-only Deno compatibility proof remain separate gates.
       fresh normal-hook frozen installation. Sol xhigh and Astra xhigh cleared
       the source, install and corrected active documentation. Historical
       experiment files remain explicitly separate.
-- [ ] B05 — Verify clean-clone frozen installation on supported OSes with
+- [x] B05 — Verify clean-clone frozen installation on supported OSes with
       legitimate dependency lifecycle hooks enabled under an explicit trust
       policy; record reproducible commands rather than relying on
-      `--ignore-scripts`.
+      `--ignore-scripts`. Evidence: fresh normal-hook installs on hosted Linux,
+      macOS Intel and Windows in the [first native matrix](results/native-ci-51e1837.json);
+      exact Bun 1.4.3, lock/manifest and all fixture bytes unchanged. Other
+      Windows process/package checks remain H05 and I01.
 - [x] B06 — Audit dependency versions, peer constraints, licenses and security
       advisories; validate native/optional dependencies and distinguish runtime
       dependencies from tools that must never enter the shipped package.
