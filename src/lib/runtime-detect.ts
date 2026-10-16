@@ -1,243 +1,221 @@
-// deno-coverage-ignore-file
-// deno-lint-ignore-file no-explicit-any
 import { getGlobalValue, getRuntimeGlobal } from "./runtimeGlobal.ts";
 
 type RuntimeName = "node" | "deno" | "bun" | "cloudflare" | "unknown";
-
 export interface RuntimeInfo {
   runtime: RuntimeName;
   version: string | null;
   details: Record<string, unknown>;
 }
-
 export interface SupportPolicy {
   node?: string;
   deno?: string;
   bun?: string;
-  cloudflare?: {
-    requireFeatures?: string[];
-  };
+  cloudflare?: { requireFeatures?: string[] };
 }
-
 export interface SupportCheckResult {
   ok: boolean;
   info: RuntimeInfo;
   reason?: string;
 }
-
-/** Detect the current JS runtime and version (if available). */
+function record(value: unknown): Record<string, unknown> | undefined {
+  return value !== null &&
+    (typeof value === "object" || typeof value === "function")
+    ? (value as Record<string, unknown>)
+    : undefined;
+}
+function string(value: unknown): string | undefined {
+  return typeof value === "string" && value.length > 0 ? value : undefined;
+}
+/** Unavailable compatibility getters and proxy properties behave like missing APIs. */
+function property(value: unknown, key: string): unknown {
+  try {
+    return record(value)?.[key];
+  } catch {
+    return undefined;
+  }
+}
+/** Identify host capabilities; mutable compatibility globals are not security identities. */
 export function detectRuntime(): RuntimeInfo {
-  const info: RuntimeInfo = { runtime: "unknown", version: null, details: {} };
-
-  const deno = getGlobalValue("Deno") as any;
-  const proc = getGlobalValue("process") as any;
-  const bun = getGlobalValue("Bun") as any;
-
-  // Heuristic: real Deno exposes build info alongside a deno version.
-  const isRealDeno = (d: any): boolean =>
-    !!(d && d.version?.deno && d.build?.os && d.build?.arch);
-
-  // Cloudflare Workers (workerd)
-  const navigator = getGlobalValue("navigator") as
-    | { userAgent?: unknown }
-    | undefined;
-  const ua =
-    (typeof navigator === "object" && typeof navigator?.userAgent === "string")
-      ? navigator.userAgent
-      : "";
-  if (/Cloudflare-Workers/i.test(ua)) {
-    info.runtime = "cloudflare";
-    info.version = null;
-    info.details = {
-      userAgent: ua,
-      miniflare: !!getGlobalValue("MINIFLARE") || /Miniflare/i.test(ua),
-      hasWebSocketPair: typeof getGlobalValue("WebSocketPair") !== "undefined",
-      hasCaches: typeof getGlobalValue("caches") !== "undefined",
-    };
-    return info;
-  }
+  const proc = getGlobalValue("process");
+  const versions = property(proc, "versions");
+  const nodeVersion = string(property(versions, "node"));
+  const ua = string(property(getGlobalValue("navigator"), "userAgent")) ?? "";
+  const workerFeatures =
+    typeof getGlobalValue("WebSocketPair") === "function" &&
+    record(getGlobalValue("caches")) !== undefined;
+  const worker = (): RuntimeInfo => ({
+    runtime: "cloudflare",
+    version: null,
+    details: {
+      userAgent: ua || null,
+      heuristic: ua !== "Cloudflare-Workers",
+      miniflare: !!getGlobalValue("MINIFLARE"),
+      hasWebSocketPair: true,
+      hasCaches: true,
+    },
+  });
+  // Workers can expose process.versions.node under nodejs_compat. Check their
+  // host evidence before touching unrelated Bun or Deno compatibility objects.
   if (
-    typeof getGlobalValue("process") === "undefined" &&
-    typeof getGlobalValue("Deno") === "undefined" &&
-    typeof getGlobalValue("Bun") === "undefined" &&
-    typeof getGlobalValue("WebSocketPair") !== "undefined" &&
-    typeof getGlobalValue("caches") !== "undefined"
-  ) {
-    info.runtime = "cloudflare";
-    info.version = null;
-    info.details = { userAgent: ua || null, heuristic: true };
-    return info;
-  }
-
-  // Bun
-  if (typeof bun === "object" && typeof bun?.version === "string") {
-    info.runtime = "bun";
-    info.version = bun.version;
-    info.details = {
-      bunRevision: bun.revision ?? null,
-      nodeCompat: (typeof proc === "object") && !!proc?.versions?.node,
+    workerFeatures &&
+    (ua === "Cloudflare-Workers" || property(proc, "argv0") === "workerd")
+  )
+    return worker();
+  const bunCompat = string(property(versions, "bun"));
+  const denoCompat = string(property(versions, "deno"));
+  // A Node host without these markers does not need candidate version getters.
+  const bun = !nodeVersion || bunCompat ? getGlobalValue("Bun") : undefined;
+  const bunVersion = string(property(bun, "version"));
+  const deno = !nodeVersion || denoCompat ? getGlobalValue("Deno") : undefined;
+  const denoVersions = property(deno, "version");
+  const denoVersion = string(property(denoVersions, "deno"));
+  if (workerFeatures && !nodeVersion && !bunVersion && !denoVersion)
+    return worker();
+  if (bunVersion && (!nodeVersion || bunCompat === bunVersion)) {
+    return {
+      runtime: "bun",
+      version: bunVersion,
+      details: {
+        bunRevision: property(bun, "revision") ?? null,
+        nodeCompat: !!nodeVersion,
+      },
     };
-    return info;
   }
-
-  // Prefer Node when process.versions.node exists but process.versions.deno does not.
-  const hasNode = typeof proc === "object" && !!proc?.versions?.node;
-  const nodeDominant = hasNode && !proc?.versions?.deno;
-
-  if (nodeDominant) {
-    info.runtime = "node";
-    info.version = String(proc.versions.node);
-    info.details = {
-      v8: proc.versions.v8,
-      arch: proc.arch,
-      platform: proc.platform,
-      denoShimDetected: typeof deno === "object",
+  if (denoVersion && (!nodeVersion || denoCompat === denoVersion)) {
+    const build = property(deno, "build");
+    return {
+      runtime: "deno",
+      version: denoVersion,
+      details: {
+        v8: property(denoVersions, "v8"),
+        typescript: property(denoVersions, "typescript"),
+        os: property(build, "os"),
+        arch: property(build, "arch"),
+        nodeCompat: !!denoCompat,
+      },
     };
-    return info;
   }
-
-  // Prefer "real Deno"; otherwise Deno compat in Deno will still identify as Deno.
-  const hasDeno = typeof deno === "object" && !!deno?.version?.deno;
-
-  if (hasDeno && (!hasNode || isRealDeno(deno) || proc?.versions?.deno)) {
-    info.runtime = "deno";
-    info.version = String(deno.version.deno);
-    info.details = {
-      v8: deno.version.v8,
-      typescript: deno.version.typescript,
-      os: deno.build?.os,
-      arch: deno.build?.arch,
-      nodeCompat: !!proc?.versions?.deno,
+  if (nodeVersion) {
+    return {
+      runtime: "node",
+      version: nodeVersion,
+      details: {
+        v8: property(versions, "v8"),
+        arch: property(proc, "arch"),
+        platform: property(proc, "platform"),
+        denoShimDetected: record(getGlobalValue("Deno")) !== undefined,
+      },
     };
-    return info;
   }
-
-  // Fallback Node
-  if (hasNode) {
-    info.runtime = "node";
-    info.version = String(proc.versions.node);
-    info.details = {
-      v8: proc.versions.v8,
-      arch: proc.arch,
-      platform: proc.platform,
-    };
-    return info;
-  }
-
-  return info;
+  return { runtime: "unknown", version: null, details: {} };
 }
-
 interface ParsedSemver {
-  maj: number;
-  min: number;
-  pat: number;
-  pre: string;
+  core: [number, number, number];
+  pre: string[];
 }
-
-/** Minimal semver parser (major.minor.patch only; pre-release makes it "lower"). */
-function parseSemver(v: unknown): ParsedSemver | null {
-  if (v == null) return null;
-  let s = String(v).trim();
-  if (s.startsWith("v")) s = s.slice(1);
-  const core = s.split("+")[0];
-  const [nums, pre = ""] = core.split("-");
-  const [maj = "0", min = "0", pat = "0"] = nums.split(".");
-  const toInt = (x: unknown) => {
-    const n = parseInt(String(x), 10);
-    return Number.isFinite(n) ? n : 0;
-  };
-  return { maj: toInt(maj), min: toInt(min), pat: toInt(pat), pre };
+function parseSemver(version: unknown): ParsedSemver | null {
+  if (typeof version !== "string") return null;
+  const match =
+    /^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/.exec(
+      version,
+    );
+  if (!match) return null;
+  const core = [Number(match[1]), Number(match[2]), Number(match[3])] as [
+    number,
+    number,
+    number,
+  ];
+  if (!core.every(Number.isSafeInteger)) return null;
+  const pre = match[4]?.split(".") ?? [];
+  if (pre.some((id) => /^\d+$/.test(id) && id.length > 1 && id.startsWith("0")))
+    return null;
+  return { core, pre };
 }
-
-/** Compare two semvers: returns -1, 0, 1 */
-function cmpSemver(a: unknown, b: unknown): number {
-  const A = parseSemver(a), B = parseSemver(b);
-  if (!A || !B) return 0;
-  if (A.maj !== B.maj) return A.maj < B.maj ? -1 : 1;
-  if (A.min !== B.min) return A.min < B.min ? -1 : 1;
-  if (A.pat !== B.pat) return A.pat < B.pat ? -1 : 1;
-  // Treat pre-release as lower than stable
-  const aPre = A.pre && A.pre.length > 0;
-  const bPre = B.pre && B.pre.length > 0;
-  if (aPre !== bPre) return aPre ? -1 : 1;
-  if (aPre && bPre) return A.pre < B.pre ? -1 : (A.pre > B.pre ? 1 : 0);
-  return 0;
-}
-
-/** Check current >= minimum (major.minor.patch). */
+/** Compare strict major.minor.patch versions, including SemVer prerelease precedence. */
 export function isVersionAtLeast(
   current: string | null | undefined,
   minimum: string,
 ): boolean {
-  return cmpSemver(current, minimum) >= 0;
+  const a = parseSemver(current),
+    b = parseSemver(minimum);
+  if (!a || !b) return false;
+  for (let i = 0; i < 3; i++) {
+    if (a.core[i] !== b.core[i]) return a.core[i] > b.core[i];
+  }
+  if (!a.pre.length || !b.pre.length) return !a.pre.length;
+  for (let i = 0; i < Math.max(a.pre.length, b.pre.length); i++) {
+    const x = a.pre[i],
+      y = b.pre[i];
+    if (x === y) continue;
+    if (x === undefined || y === undefined) return y === undefined;
+    const xn = /^\d+$/.test(x),
+      yn = /^\d+$/.test(y);
+    if (xn !== yn) return !xn;
+    // Equal-length decimal strings compare numerically without precision loss.
+    return xn && x.length !== y.length ? x.length > y.length : x > y;
+  }
+  return true;
 }
-
-/**
- * Check support against your policy.
- */
+/** Check current host against the policy; unknown and malformed versions fail closed. */
 export function checkSupport(policy: SupportPolicy = {}): SupportCheckResult {
   const info = detectRuntime();
-
   const fail = (reason: string): SupportCheckResult => ({
     ok: false,
     info,
     reason,
   });
   const pass = (): SupportCheckResult => ({ ok: true, info });
-
-  const hasGlobalPath = (path: string): boolean => {
-    const parts = path.split(".");
-    let cur: any = getRuntimeGlobal();
-    for (const p of parts) {
-      if (cur == null || !(p in cur)) return false;
-      cur = cur[p];
+  for (const [runtime, label] of [
+    ["node", "Node"],
+    ["deno", "Deno"],
+    ["bun", "Bun"],
+  ] as const) {
+    const minimum = policy[runtime];
+    if (info.runtime === runtime && minimum) {
+      return isVersionAtLeast(info.version, minimum)
+        ? pass()
+        : fail(
+            `Requires ${label} >= ${minimum}, found ${info.version ?? "unknown"}.`,
+          );
     }
-    return true;
-  };
-
-  if (info.runtime === "node" && policy.node) {
-    if (!info.version || !isVersionAtLeast(info.version, policy.node)) {
-      return fail(
-        `Requires Node >= ${policy.node}, found ${info.version ?? "unknown"}.`,
-      );
-    }
-    return pass();
-  }
-  if (info.runtime === "deno" && policy.deno) {
-    if (!info.version || !isVersionAtLeast(info.version, policy.deno)) {
-      return fail(
-        `Requires Deno >= ${policy.deno}, found ${info.version ?? "unknown"}.`,
-      );
-    }
-    return pass();
-  }
-  if (info.runtime === "bun" && policy.bun) {
-    if (!info.version || !isVersionAtLeast(info.version, policy.bun)) {
-      return fail(
-        `Requires Bun >= ${policy.bun}, found ${info.version ?? "unknown"}.`,
-      );
-    }
-    return pass();
   }
   if (info.runtime === "cloudflare") {
-    const feats = policy.cloudflare?.requireFeatures ?? [];
-    for (const f of feats) {
-      if (!hasGlobalPath(f)) {
-        return fail(`Cloudflare Workers missing required feature: ${f}`);
-      }
+    for (const path of policy.cloudflare?.requireFeatures ?? []) {
+      let value: unknown = getRuntimeGlobal();
+      for (const key of path.split(".")) value = property(value, key);
+      if (value == null)
+        return fail(`Cloudflare Workers missing required feature: ${path}`);
     }
     return pass();
   }
   return fail("Unsupported runtime.");
 }
-
-/** Throw an Error if current runtime/version is unsupported. */
 export function assertSupported(policy: SupportPolicy): void {
-  const res = checkSupport(policy);
-  if (!res.ok) {
-    const { runtime, version } = res.info;
+  const result = checkSupport(policy);
+  if (!result.ok) {
     throw new Error(
-      `Unsupported environment: ${res.reason} (runtime=${runtime}, version=${version})`,
+      `Unsupported environment: ${result.reason} (runtime=${result.info.runtime}, version=${result.info.version})`,
     );
   }
+}
+/** Use only the selected runtime's terminal API, preserving Deno's receiver. */
+export function stdoutIsTerminal(): boolean {
+  const { runtime } = detectRuntime();
+  if (runtime === "node" || runtime === "bun") {
+    return (
+      property(property(getGlobalValue("process"), "stdout"), "isTTY") === true
+    );
+  }
+  if (runtime === "deno") {
+    const stdout = property(getGlobalValue("Deno"), "stdout");
+    const isTerminal = property(stdout, "isTerminal");
+    if (typeof isTerminal === "function") {
+      try {
+        return Reflect.apply(isTerminal, stdout, []) === true;
+      } catch {
+        return false;
+      }
+    }
+  }
+  return false;
 }

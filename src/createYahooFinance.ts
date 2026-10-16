@@ -9,10 +9,9 @@ import {
 import yahooFinanceFetch from "./lib/yahooFinanceFetch.ts";
 import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
-import { assertSupported } from "./lib/runtime-detect.ts";
+import { assertSupported, stdoutIsTerminal } from "./lib/runtime-detect.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 import { deepMerge } from "./lib/deepmerge.ts";
-import { getGlobalValue } from "./lib/runtimeGlobal.ts";
 
 const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
   node: "22.0.0",
@@ -22,20 +21,6 @@ const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
     requireFeatures: [],
   },
 };
-
-function stdoutIsTerminal() {
-  const deno = getGlobalValue("Deno") as
-    | { stdout?: { isTerminal?: () => boolean } }
-    | undefined;
-  if (typeof deno?.stdout?.isTerminal === "function") {
-    return deno.stdout.isTerminal();
-  }
-
-  const process = getGlobalValue("process") as
-    | { stdout?: { isTTY?: boolean } }
-    | undefined;
-  return !!process?.stdout?.isTTY;
-}
 
 /**
  * Instantiate a new YahooFinance client.

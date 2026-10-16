@@ -129,12 +129,12 @@ all items; the benchmark results above retain their historical meaning.
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        5/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
-| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
+| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | In progress     |        2/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **42/71** |
+| **Overall**                                                      | **In progress** |  **43/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -475,6 +475,30 @@ The user has also selected native replay for trusted macOS/Windows development,
 with stronger process-level network and fixture denial retained in Linux CI.
 That implementation and native OS proof remain pending; fetch-mock-cache's
 portable replay behavior is distinct from the Linux kernel guard.
+
+## Consumer runtime checkpoint (H01 / partial H03, 2026-10-16)
+
+[Runtime policy](RUNTIMES.md) retains Node >=22.0.0, Bun >=1.0.0 and Deno
+>=2.0.0 on upstream-supported OS/runtime combinations, plus the existing Workers
+compatibility configuration. Consumer minimums remain independent of the exact
+development pin. Unsupported environments continue to warn without rejecting
+client construction.
+
+Detection now uses the host global, recognizes actual Workers with Node
+compatibility, rejects incidental mismatched Bun/Deno shims, compares strict
+SemVer and chooses only the detected host's terminal API. Optional getters and
+proxy failures cannot escape through construction. Independent Sol xhigh and
+Astra xhigh reviews cleared the implementation and the repaired getter
+regression. The [receipt](results/h01-h03-runtime.json) records 33 focused
+passes, 1,498 full replay passes in its isolated snapshot, all 28 packed exports
+on four Node/Bun versions, eight pipe/PTY rows and real workerd tests. Astra's
+additional controls cover 348 property failures, 10,036 version comparisons
+and 32 constructor cases; all 252 rebuilt package files match. Schemas and all
+1,201 fixtures remain unchanged.
+
+H01 policy is accepted. H03 stays open for actual publisher-owned Deno proof;
+H05 native OS and the separately selected native development replay remain
+pending. Progress is **43/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -1093,9 +1117,12 @@ review and publisher-only Deno compatibility proof remain separate gates.
 
 ### H. Supported runtime and platform matrix
 
-- [ ] H01 — Define the consumer runtime/OS support matrix and minimums
+- [x] H01 — Define the consumer runtime/OS support matrix and minimums
       independently of the development runner: Node 22/24, Bun and Cloudflare
       Workers, with Deno governed by H02 rather than silently dropped.
+      Evidence: [retained runtime/OS policy](RUNTIMES.md); Node >=22.0.0,
+      Bun >=1.0.0 and Deno >=2.0.0 on upstream-supported combinations,
+      independently of the Bun 1.4.3 development pin. Actual OS coverage is H05.
 - [x] H02 — Decide and document ongoing Deno consumer compatibility and JSR
       distribution with J01; removing Deno as a development dependency alone
       does not decide either policy. Evidence: explicit user decision to retain
@@ -1105,6 +1132,11 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [ ] H03 — Verify runtime detection/version enforcement and terminal behavior
       on each supported runtime, without an incidental compatibility global
       selecting the wrong runtime or introducing a Node/Bun API into Workers.
+      Partial accepted evidence: exact Node 22/24 and Bun 1.0/1.4 package,
+      real pipe/PTY and actual workerd checks in the [runtime receipt](results/h01-h03-runtime.json).
+      Sol xhigh and Astra xhigh cleared detection, warning-only construction,
+      strict versions and unavailable getter/proxy/terminal handling. Actual
+      Deno proof remains publisher-owned; this item stays open.
 - [x] H04 — Run the generated package in `tests/cloudflare` with its independent
       npm lockfile and Vitest 4 harness and supported overrides; verify
       Worker-safe imports and affected fetch/cookie/streaming behavior after the
