@@ -6,6 +6,7 @@ import releaseConfig from "../release.config.mjs";
 const maintenancePattern = "+([0-9])?(.{+([0-9]),x}).x";
 const maintenanceBranch = /^[0-9]+(?:\.(?:[0-9]+|x))?\.x$/;
 
+/** @param {unknown} name */
 function isLiteralBranchName(name) {
   return typeof name === "string" && name.length > 0 && name !== "@" &&
     !/[~^:?*\\[\]{}()!]/u.test(name) &&
@@ -84,6 +85,6 @@ function run() {
 
 // Deno tests import the predicate without accessing Node argv or environment.
 if (
-  typeof Deno === "undefined" && process.argv[1] &&
+  typeof (/** @type {typeof globalThis & {Deno?: unknown}} */ (globalThis)).Deno === "undefined" && process.argv[1] &&
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) run();

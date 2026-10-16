@@ -1,5 +1,14 @@
 {
-  "extends": "./tsconfig.migration.json",
+  "extends": "./tsconfig.tools.json",
+  "include": [
+    "src/**/*.ts",
+    "bin/**/*.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mjs",
+    "tests/**/*.ts",
+    "tests/migration/*.mjs",
+    "release.config.mjs"
+  ],
   "compilerOptions": {
     "paths": {
       "@std/fs/walk": [
@@ -7,6 +16,9 @@
       ],
       "@std/cli/parse-args": [
         "./tests/migration/std-tooling.ts"
+      ],
+      "bun:test": [
+        "./tests/migration/bun-test-types.d.ts"
       ]
     }
   }

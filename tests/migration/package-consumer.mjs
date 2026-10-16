@@ -52,6 +52,7 @@ for (const modules of [imports, requires]) {
   await cookieJar.setCookie("A1=packed-cookie; Domain=.yahoo.com; Path=/", "https://finance.yahoo.com/");
   const client = new YahooFinance({
     cookieJar, versionCheck: false, suppressNotices: ["yahooSurvey"],
+    /** @param {RequestInfo | URL} input @param {RequestInit} init */
     fetch: async (input, init) => {
       fetchCalls++;
       const url = new URL(String(input));
@@ -59,7 +60,7 @@ for (const modules of [imports, requires]) {
       assert.equal(url.pathname, "/v7/finance/quote");
       assert.equal(url.searchParams.get("symbols"), "PACKED");
       assert.equal(url.searchParams.get("crumb"), "packed-crumb");
-      assert.match(new Headers(init.headers).get("User-Agent"), new RegExp(pkg.version.replaceAll(".", "\\.")));
+      assert.match(/** @type {string} */ (new Headers(init.headers).get("User-Agent")), new RegExp(pkg.version.replaceAll(".", "\\.")));
       return Response.json({ quoteResponse: { result: [quote], error: null } });
     },
   });

@@ -9,14 +9,15 @@
     "test:focused": "bun scripts/test.ts src/modules/quote.test.ts",
     "test:coverage": "bun scripts/test.ts --coverage",
     "test:recache": "bun scripts/recache-tests.ts",
-    "typecheck": "python3 tests/migration/run.py --typecheck",
-    "typecheck:incremental": "python3 tests/migration/run.py --typecheck-incremental",
+    "typecheck": "bun scripts/typecheck.ts",
+    "typecheck:incremental": "bun scripts/typecheck.ts --incremental",
     "schema": "bun scripts/schema-gen.ts",
     "schema:check": "bun scripts/schema-gen.ts --check",
     "test": "bun scripts/test.ts",
     "test:serial": "bun scripts/test.ts --serial",
     "test:watch": "bun scripts/test.ts --watch",
-    "build:npm": "bun scripts/build_npm.ts"
+    "build:npm": "bun scripts/build_npm.ts",
+    "typecheck:negative": "bun scripts/typecheck.ts --negative"
   },
   "devDependencies": {
     "@sebbo2002/semantic-release-jsr": "4.0.2",

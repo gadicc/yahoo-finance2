@@ -1,0 +1,37 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "paths": {
+      "bun:test": [
+        "./tests/migration/bun-test-types.d.ts"
+      ]
+    },
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable",
+      "DOM.AsyncIterable",
+      "ESNext.Disposable"
+    ]
+  },
+  "include": [
+    "src/**/*.test.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mjs",
+    "tests/**/*.ts",
+    "tests/migration/*.mjs",
+    "release.config.mjs"
+  ],
+  "exclude": [
+    "tests/cloudflare",
+    "tests/fixtures",
+    "tests/migration/results",
+    "tests/migration/std-tooling.ts",
+    "scripts/capture-get-crumb-fixtures.ts",
+    "scripts/capture-get-crumb-fixtures.test.ts",
+    "src/lib/getCrumb.geo.test.ts",
+    "tests/migration/guard-probe.mjs"
+  ]
+}

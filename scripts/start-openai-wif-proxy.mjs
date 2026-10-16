@@ -30,7 +30,7 @@ child.stderr.on(
   "data",
   (chunk) => diagnostic += chunk.toString().slice(0, 500),
 );
-await new Promise((resolve, reject) => {
+await new Promise(/** @param {(value: void) => void} resolve */ (resolve, reject) => {
   const timeout = setTimeout(() => {
     child.kill();
     reject(new Error("Federation startup timed out"));
@@ -65,7 +65,7 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 // GitHub/OpenAI credentials remain in the root process's memory, not on disk.
 console.log(`::add-mask::${config.gatewayToken}`);
 appendFileSync(
-  process.env.GITHUB_OUTPUT,
+  /** @type {string} */ (process.env.GITHUB_OUTPUT),
   `endpoint=http://127.0.0.1:${port}/v1/responses\ngateway-token=${config.gatewayToken}\n`,
 );
 child.stdout.destroy();

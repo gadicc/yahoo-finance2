@@ -15,8 +15,10 @@ const npm = process.argv[3];
 const bun = process.argv[4];
 const npmRuntime = process.argv[5] ?? runtime;
 assert(runtime && npm && bun, "Usage: node bins.mjs RUNTIME NPM_CLI_JS BUN");
+/** @type {NodeJS.ProcessEnv} */
 const environment = { ...process.env, PATH: dirname(runtime) + delimiter + process.env.PATH };
 for (const name of ["HOME", "USERPROFILE", "HOMEDRIVE", "HOMEPATH"]) delete environment[name];
+/** @param {string} stderr */
 function jsonWarningOnly(stderr) {
   if (!stderr) return;
   const lines = stderr.trim().split("\n");
@@ -25,6 +27,7 @@ function jsonWarningOnly(stderr) {
   assert.equal(lines[1], "(Use `node --trace-warnings ...` to show where the warning was created)");
 }
 let checks = 0;
+/** @param {string} executable @param {string[]} args */
 function run(executable, args, cwd = outside) {
   const child = spawnSync(executable, args, { cwd, env: environment, encoding: "utf8", timeout: 15000 });
   assert.ifError(child.error);
@@ -55,7 +58,7 @@ assert.match(inferred.stdout, /Usage:/i);
 const bunExec = run(bun, ["x", "--no-install", "--bun", "yahoo-finance2", "--version"], root);
 assert.equal(bunExec.stdout.trim(), pkg.version);
 const mcp = join(root, "node_modules/.bin/yahoo-finance-mcp");
-for (const shutdown of ["eof", "SIGTERM", "SIGINT"]) {
+for (const shutdown of /** @type {Array<"eof" | "SIGTERM" | "SIGINT">} */ (["eof", "SIGTERM", "SIGINT"])) {
   const home = join(outside, "mcp-" + shutdown);
   mkdirSync(home, { recursive: true });
   const cookie = join(home, ".yf2-cookies.json");
@@ -68,6 +71,7 @@ for (const shutdown of ["eof", "SIGTERM", "SIGINT"]) {
   let stderr = "";
   child.stdout.on("data", (chunk) => { stdout += chunk; });
   child.stderr.on("data", (chunk) => { stderr += chunk; });
+  /** @param {number} id */
   const response = async (id) => {
     const deadline = Date.now() + 8000;
     while (true) {
@@ -81,6 +85,7 @@ for (const shutdown of ["eof", "SIGTERM", "SIGINT"]) {
       await new Promise((resolve) => setTimeout(resolve, 10));
     }
   };
+  /** @param {unknown} message */
   const send = (message) => child.stdin.write(JSON.stringify(message) + "\n");
   try {
     send({ jsonrpc: "2.0", id: 1, method: "initialize", params: {
@@ -91,7 +96,7 @@ for (const shutdown of ["eof", "SIGTERM", "SIGINT"]) {
     assert.equal(initialized.result.serverInfo.version, pkg.version);
     send({ jsonrpc: "2.0", method: "notifications/initialized" });
     send({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} });
-    assert.deepEqual((await response(2)).result.tools.map((tool) => tool.name), ["quote", "search"]);
+    assert.deepEqual((await response(2)).result.tools.map(/** @param {{name: string}} tool */ (tool) => tool.name), ["quote", "search"]);
     if (shutdown === "eof") child.stdin.end();
     else child.kill(shutdown);
     const [code, signal] = await exited;

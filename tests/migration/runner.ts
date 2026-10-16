@@ -78,14 +78,7 @@ function each(table: EachTable) {
 /** Keep project context separate: Bun treats callback parameters as done. */
 export const projectIt = Object.assign(
   (name: string, body: TestBody, timeout?: number) => {
-    // The migration declaration temporarily aliases node:test, whose timeout
-    // argument is in a different position. This is Bun's actual call shape.
-    const register = nativeIt as unknown as (
-      name: string,
-      body: () => Promise<void>,
-      timeout?: number,
-    ) => void;
-    register(name, () => runTest(body), timeout);
+    nativeIt(name, () => runTest(body), timeout);
   },
   { each },
 );

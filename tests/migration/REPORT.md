@@ -126,7 +126,7 @@ all items; the benchmark results above retain their historical meaning.
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        6/8 |
-| [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
+| [E. Type checking and schema generation](#migration-e)           | In progress     |        4/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
@@ -134,7 +134,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **34/71** |
+| **Overall**                                                      | **In progress** |  **35/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -364,6 +364,27 @@ operator and private scratch; G06 remains open. Ordinary tests retain the strict
 socket-denying launcher. No Yahoo requests or repository fixture writes occurred.
 This completes H04 within Linux/nodejs_compat scope; CI, other platforms and
 runtime policy remain separate gates. Progress is **34/71**.
+
+## Production typechecker checkpoint (E02, 2026-10-16)
+
+The [maintained checker](TYPECHECKING.md) uses Bun and the root-pinned TypeScript
+6 compiler API. Separate strict library and tooling environments preserve the
+standard fetch contract without native Bun/Deno globals. The frozen proof covers
+58 production roots, all 28 consumer export keys and 95 tooling roots, with
+zero diagnostics; maintained root scripts now own normal, incremental and
+negative checking. The version compatibility wrapper delegates to the reviewed
+package builder, keeping package and runtime versions aligned.
+
+Independent Sol xhigh and Astra xhigh follow-up reviews cleared the inherited
+noCheck and false strict-option bypasses. Invalid effective configurations fail
+before cache creation or publication, including a later project's invalid
+configuration. Warm caches retain their bytes, and older weakly checked caches
+cannot conceal restored semantic errors. Sol reran all 43 focused tests; Astra
+ran ten focused checks plus independent configuration/cache probes. The
+[receipt](results/e02-e03-typecheck.json) preserves exact inputs and evidence.
+E03 remains partial until country-capture integration removes its temporary
+exclusions; Workers retain the separately completed H04 gate. Progress is
+**35/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -850,9 +871,15 @@ and CI remain separate work.
       runtime tests. Evidence: the passing Node/DOM-based Bun check and overload
       negative control in [verification.json](results/verification.json); native
       Bun ambient types still fail on `fetch.preconnect` as documented above.
-- [ ] E02 — Choose production library and tooling TypeScript configurations;
+- [x] E02 — Choose production library and tooling TypeScript configurations;
       resolve or isolate native Bun ambient types without widening public fetch
       contracts, and remove obsolete Deno globals/shims from migrated paths.
+      Evidence: [maintained compiler policy](TYPECHECKING.md) and
+      [E02 receipt](results/e02-e03-typecheck.json): strict library/tools graphs,
+      bounded native test declarations, real overload/include negatives and
+      owned incremental caches. Sol xhigh and Astra xhigh cleared effective
+      configuration and cache-preservation fixes; D07 exclusions and transitional
+      dependency cleanup remain E03/B04.
 - [ ] E03 — Check all production entrypoints, CLI/MCP, scripts and test helpers;
       keep real negative overload tests and independently check the Workers
       harness.
