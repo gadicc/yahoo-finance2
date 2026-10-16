@@ -206,34 +206,38 @@ const expected: McpServer = returned;
 const reverse: ReturnType<typeof createYahooFinanceMcpServer> = new McpServer({name:"identity",version:"1"});
 expected.registerTool("valid", {}, () => ({ content: [] }));
 void reverse;`;
+      const negativeConsumer = path.join(
+        scratch,
+        `identity-negative.${extension}`,
+      );
+      const invalidCall =
+        "expected.registerTool(123, {}, () => ({ content: [] }));";
+      const negative = `${positive}\n${invalidCall}`;
+      writeFileSync(consumer, positive);
+      writeFileSync(negativeConsumer, negative);
       for (const skipLibCheck of [false, true]) {
-        const diagnostics = (text: string) => {
-          writeFileSync(consumer, text);
-          const program = ts.createProgram([consumer], {
-            target: ts.ScriptTarget.ES2022,
-            module: ts.ModuleKind.NodeNext,
-            moduleResolution: ts.ModuleResolutionKind.NodeNext,
-            strict: true,
-            noEmit: true,
-            skipLibCheck,
-            types: ["node"],
-            typeRoots: [path.join(scratch, "node_modules/@types")],
-          });
-          return ts.getPreEmitDiagnostics(program);
-        };
+        // One program shares the SDK/declaration closure for independent positive
+        // and negative roots. The sole exact diagnostic proves the positive root
+        // (both identity assignments and valid string registerTool) stays clean.
+        const program = ts.createProgram([consumer, negativeConsumer], {
+          target: ts.ScriptTarget.ES2022,
+          module: ts.ModuleKind.NodeNext,
+          moduleResolution: ts.ModuleResolutionKind.NodeNext,
+          strict: true,
+          noEmit: true,
+          skipLibCheck,
+          types: ["node"],
+          typeRoots: [path.join(scratch, "node_modules/@types")],
+        });
+        const diagnostics = ts.getPreEmitDiagnostics(program);
+        expect(diagnostics).toHaveLength(1);
+        const diagnostic = diagnostics[0];
+        expect(diagnostic.code).toBe(2345);
+        expect(diagnostic.file?.fileName).toBe(negativeConsumer);
+        expect(diagnostic.start).toBe(negative.indexOf("123", positive.length));
+        expect(diagnostic.length).toBe(3);
         expect(
-          diagnostics(positive).map((item) =>
-            ts.flattenDiagnosticMessageText(item.messageText, "\n"),
-          ),
-        ).toEqual([]);
-        const negative = diagnostics(
-          positive +
-            "\nexpected.registerTool(123, {}, () => ({ content: [] }));",
-        );
-        expect(negative).toHaveLength(1);
-        expect(negative[0].code).toBe(2345);
-        expect(
-          ts.flattenDiagnosticMessageText(negative[0].messageText, "\n"),
+          ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n"),
         ).toContain("number");
       }
     }
