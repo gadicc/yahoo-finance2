@@ -84,7 +84,7 @@ all items; the benchmark results above retain their historical meaning.
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        3/6 |
-| [C. Test runner and harness](#migration-c)                       | In progress     |        2/7 |
+| [C. Test runner and harness](#migration-c)                       | In progress     |        5/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        2/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        1/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
@@ -94,7 +94,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **13/71** |
+| **Overall**                                                      | **In progress** |  **16/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -163,15 +163,15 @@ Unused root Vitest, its V8 coverage plugin, tsx and Bun ambient types are
 removed. Historical comparison reproduction uses its original candidate graphs;
 the separate Workers Vitest 4/npm harness is unchanged. Current source uses
 fetch-mock-cache only for tests; the old generated package declaration still
-ships it and F03 owns reconciling that declaration against packed artifacts.
-No public package exports, binaries, engines or publication metadata changed.
+ships it and F03 owns reconciling that declaration against packed artifacts. No
+public package exports, binaries, engines or publication metadata changed.
 
 [Dependency/configuration ownership](DEPENDENCIES.md) accounts for every root
 dependency, all 29 Deno import keys, 20 tasks, 28 exports and the remaining
 permissions, compiler, formatter and publish metadata. Deno/dnt/JSR/std tooling
-and release preparation remain transitional, with explicit successor items.
-The root manifest stays private; full Deno removal and production packaging are
-not completed by B03. This classification supersedes the B01–B02 snapshot.
+and release preparation remain transitional, with explicit successor items. The
+root manifest stays private; full Deno removal and production packaging are not
+completed by B03. This classification supersedes the B01–B02 snapshot.
 
 [Evidence](results/b03-dependencies.json) comes from an isolated archive of
 `704d1a5c005b699596a1ae363c652f693a821c74` with only B03's manifest/lock
@@ -180,12 +180,39 @@ normal lifecycle defaults passed; manifest drift failed without changing the
 lock. Guarded replay passed **1,319 tests / 43 files**, with eight existing
 reported skips; normal/incremental typechecks, overload negative control,
 release-note generation and socket/cache/write guards passed. All **1,201
-fixtures**, **13 source schemas**, Deno metadata and Workers manifests/lock stayed
-byte-identical. The lock changes are removed comparison tools and added release
-tool closure, with retained runtime/test package versions preserved; B06's
-broader dependency audit remains open. Parent integration separately verified
-the concurrent C03 draft at **1,338 passing tests / 44 files** and a passing
-typecheck; that draft is outside this milestone's isolated evidence.
+fixtures**, **13 source schemas**, Deno metadata and Workers manifests/lock
+stayed byte-identical. The lock changes are removed comparison tools and added
+release tool closure, with retained runtime/test package versions preserved;
+B06's broader dependency audit remains open. Parent integration separately
+verified the concurrent C03 draft at **1,338 passing tests / 44 files** and a
+passing typecheck; that draft is outside this milestone's isolated evidence.
+
+## Harness behavior (C03–C05, 2026-10-16)
+
+The maintained harness decision retains native Bun registration/hooks, upstream
+Jest assertions, Sinon fake clocks and a bounded function-spy adapter.
+[HARNESS.md](HARNESS.md) documents the chosen contracts, regression coverage and
+limits; [machine-readable evidence](results/c03-c05-harness.json) records the
+commands and outcomes. `onFinish` callbacks are now awaited exactly once per
+invocation, all cleanup drains after body/callback failures, and multiple errors
+retain their causes. Optional assertion messages survive synchronous and
+asynchronous matcher failures. Stub disposal restores original descriptors and
+inherited properties. Table names and numeric timeouts have negative controls.
+
+The complete Linux replay now has **1,339 pass, 8 skip, 0 fail / 44 files**: all
+original 1,319 passing leaves plus 20 new harness regressions. Isolated serial
+execution has the same counts; parallel `--rerun-each=2` gives **2,678 pass, 16
+skip, 0 fail**. Typecheck passes. The 1,201 fixture before/after hash manifests
+are identical. The intentional versions/recache skip policy remains C06, and
+this milestone does not update historical experiment counts.
+
+File globals remain live between native repeated runs, so tests own cleanup. A
+guarded watch file-change probe verified two hard restarts with fresh global
+fetch/console/sentinel and environment state. Native timeouts do not cancel an
+unsettled body or guarantee its finish callbacks; resource disposal/native hooks
+remain necessary. Maintained command support is C07, and other OS/offline policy
+is D04. These results supersede the experimental lifecycle/message limitations
+in the historical adaptation notes below.
 
 ## What was adapted
 
@@ -219,8 +246,8 @@ Bun's native ambient types additionally require `fetch.preconnect`, rejecting
 many valid standard-fetch mocks. The passing Bun typecheck uses Node/DOM library
 types and a narrow local declaration of the runner surface. This is an explicit
 limit, not a native-Bun typecheck pass. The following historical reproducer
-requires the original Bun experiment dependency graph (including
-`@types/bun` 1.3.8), rather than the pruned B03 bootstrap:
+requires the original Bun experiment dependency graph (including `@types/bun`
+1.3.8), rather than the pruned B03 bootstrap:
 
 ```sh
 python3 tests/migration/offline.py "$YF_EXPERIMENT_NODE" node_modules/typescript/bin/tsc -p tsconfig.bun-native.json
@@ -228,9 +255,9 @@ python3 tests/migration/offline.py "$YF_EXPERIMENT_NODE" node_modules/typescript
 
 `tsconfig.bun-native.json` exists only on the Bun branch. B03 removes the unused
 `@types/bun` dependency because the supported checker selects Node/Deno types;
-running this historical config on a fresh B03 install reports missing Bun
-types. E02 owns resolving or isolating native Bun typing without widening the
-public fetch contract.
+running this historical config on a fresh B03 install reports missing Bun types.
+E02 owns resolving or isolating native Bun typing without widening the public
+fetch contract.
 
 ## Inventory and safety
 
@@ -362,12 +389,13 @@ K's Biome and documentation work can proceed in small independent commits after
 B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
-**Next small milestones:** complete the production harness design (C03–C05),
-then discovery/commands and offline policy (C07/D03–D04). B04 can independently
-port import resolution and real traversal/CLI helpers using B03's ownership
-map; E02–E04 can establish production checker and schema configurations. B01–B03
-now establish the pinned toolchain, lockfile and dependency boundaries;
-CLI/build/schema ports, cross-platform validation and CI remain separate work.
+**Next small milestones:** port recache subprocess checks and resolve skip
+policy (C06), then discovery/commands and offline policy (C07/D03–D04). B04 can
+independently port import resolution and real traversal/CLI helpers using B03's
+ownership map; E02–E04 can establish production checker and schema
+configurations. B01–B03 now establish the pinned toolchain, lockfile and
+dependency boundaries; CLI/build/schema ports, cross-platform validation and CI
+remain separate work.
 
 <a id="migration-a"></a>
 
@@ -413,10 +441,10 @@ CLI/build/schema ports, cross-platform validation and CI remain separate work.
       [milestone evidence](results/b01-b02-toolchain.json).
 - [x] B03 — Separate runtime, build, test and release dependencies in the
       private root manifest, with generated package owners explicit; remove
-      inherited unused runner dependencies and map
-      the `deno.json` imports/exports/tasks/permissions/publish metadata to
-      their owners. Evidence: private root runtime/development classification,
-      exact release pins sourced from the existing Deno graph, runner pruning,
+      inherited unused runner dependencies and map the `deno.json`
+      imports/exports/tasks/permissions/publish metadata to their owners.
+      Evidence: private root runtime/development classification, exact release
+      pins sourced from the existing Deno graph, runner pruning,
       [complete ownership map](DEPENDENCIES.md) and
       [isolated frozen-install/offline/typecheck controls](results/b03-dependencies.json).
       Generated package metadata and unmigrated Deno commands remain owned by
@@ -444,15 +472,21 @@ CLI/build/schema ports, cross-platform validation and CI remain separate work.
       was adapted” documents shared Jest assertions, `createRequire`, the
       zero-argument callback and unused context; skipped Deno bodies remain
       visible.
-- [ ] C03 — Choose a maintainable production runner/assertion/spy design and
+- [x] C03 — Choose a maintainable production runner/assertion/spy design and
       replace or justify the custom `.calls[].args` adapter; verify failure
       messages, cleanup, thrown/rejected failures, hooks, `onFinish` and
-      table-driven tests.
-- [ ] C04 — Verify fake clock parity for timer order, tick/runAll, promises,
+      table-driven tests. Evidence: [harness decision](HARNESS.md) and
+      [C03–C05 results](results/c03-c05-harness.json), including 20 regression
+      leaves and negative controls.
+- [x] C04 — Verify fake clock parity for timer order, tick/runAll, promises,
       microtasks and restoration after failures, including queue/debounce tests.
-- [ ] C05 — Verify global fetch/console/environment/mock restoration and file
+      Evidence: focused clock regressions and unchanged full replay under
+      parallel, isolated serial and repeated runs.
+- [x] C05 — Verify global fetch/console/environment/mock restoration and file
       isolation under serial, parallel and repeated/watch runs; rule out order
-      leaks.
+      leaks. Evidence: isolated subprocess controls, failure restoration, full
+      serial/parallel/repeat replay and guarded hard-watch restart probe. Native
+      reruns require cleanup; maintained commands remain C07.
 - [ ] C06 — Port and run recache subprocess orchestration checks (D05); decide
       and document coverage for the five skipped versions leaves and remove
       experiment-only skip/hook artifacts without concealing intentional skips.

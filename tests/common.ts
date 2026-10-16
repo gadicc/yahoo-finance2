@@ -1,5 +1,4 @@
-import { sprintf } from "sprintf-js";
-import { describe, it as _it } from "./migration/runner.ts";
+import { describe, projectIt as it } from "./migration/runner.ts";
 export {
   afterAll,
   afterEach,
@@ -37,91 +36,6 @@ function spyLogger(shouldLog = false) {
     // _setShouldLog: (value: boolean) => shouldLog = value,
   };
 }
-
-type EachTable = ReadonlyArray<unknown | ReadonlyArray<unknown>>;
-// Deliberately permissive: table rows determine the callback arguments at runtime.
-// deno-lint-ignore no-explicit-any
-type EachTestFn = (...args: any[]) => void | Promise<void>;
-
-function each(table: EachTable) {
-  const _table = table.map((item) => Array.isArray(item) ? item : [item]);
-
-  return function (
-    name: string,
-    fn: EachTestFn,
-    timeout?: number,
-  ) {
-    if (timeout) throw new Error("timeout not implemented yet");
-
-    for (const row of _table) {
-      const _name = sprintf(name, ...row);
-      wrappedIt(_name, (...args) => fn(...[...row, ...args]));
-    }
-  };
-}
-
-/**
- * Wraps test functions to allow an optional callback that will be called after the test.
- * If the test passed, it will be called without any arguments.
- * If the test failed, it will be passed the `error` object as the first paramater.
- * @param suite The name of the test suite.
- * @param fn The test function.
- * @returns A wrapped test function.
- *
- * For yf2 specifically, we use this together with some fetch-mock-cache options to allow
- * us, when FETCH_DEVEL=recache, to only rewrite the cache file for failing tests.
- */
-function wrappedIt(
-  suite: string,
-  fn: (
-    t: unknown,
-    onFinish: (cb: (error?: unknown) => void | Promise<void>) => void,
-  ) => void | Promise<void>,
-) {
-  const finishCallbacks = [] as Array<(error?: unknown) => void>;
-
-  const onFinish = (cb: (error?: unknown) => void) => {
-    finishCallbacks.push(cb);
-  };
-
-  const finish = (error?: unknown) => {
-    for (const cb of finishCallbacks) {
-      cb(error);
-    }
-  };
-
-  const wrappedFn = (t: unknown) => {
-    let result: ReturnType<typeof fn>;
-    try {
-      result = fn(t, onFinish);
-    } catch (error) {
-      finish(error);
-      throw error;
-    }
-
-    if (result === undefined) {
-      finish();
-      return undefined;
-    }
-
-    if (result instanceof Promise) {
-      return result.then(finish).catch((error) => {
-        finish(error);
-        throw error;
-      });
-    }
-
-    throw new Error(
-      `Test "${name}" failed with unexpected result: ${result}`,
-    );
-  };
-
-  // Bun treats callback parameters as done callbacks; retain project context separately.
-  _it(suite, () => wrappedFn(undefined));
-}
-
-const it = wrappedIt as typeof wrappedIt & { each: typeof each };
-Object.assign(it, { each });
 
 _expect.extend({
   toBeType(value: unknown, expected: ReturnType<typeof getType>) {
