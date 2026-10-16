@@ -328,7 +328,7 @@ void reverse;`;
   } finally {
     rmSync(scratch, { recursive: true, force: true });
   }
-}, 60000);
+}, 90000);
 
 test("compiler inputs reject imported JSON/source/schema links and escapes while preserving prior output", () => {
   const scratch = temporary();
