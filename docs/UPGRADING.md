@@ -26,6 +26,13 @@ do not run the historical Deno development commands on the migration branch.
 See [contributor setup](../CONTRIBUTING.md) and
 [release guidance](./RELEASING.md) for the new build and publisher order.
 
+JSR's isolated publish manifest uses exact runtime dependency pins derived from
+the authoritative root Bun graph. The generated npm package retains its existing
+caret dependency constraints. These are intentional packaging policies; exact
+pins in a private consumer verification graph do not narrow npm's published
+ranges. See the [publisher contract](../scripts/publisher/README.md) for source
+and installed-consumer verification and its limits.
+
 <a name="from-v3-to-v4"></a>
 
 ## Upgrading from v3 to v4 (2026)

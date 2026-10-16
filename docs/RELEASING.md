@@ -104,17 +104,157 @@ identity or disable provenance to make verification pass. See
 [JSR publishing](https://jsr.io/docs/publishing-packages) and
 [JSR trust](https://jsr.io/docs/trust).
 
-## Local verification and pending integration
+## Nonpublishing verification
 
-Run `bun test scripts/release-policy.test.ts scripts/workflow-policy.test.ts`
-inside the maintained offline guard. The real prepare control has an explicit
-60-second outer budget; the exact Git-helper control has a 15-second outer
-budget and a 10-second child deadline. Child tools keep their own bounded controls.
-Run `node scripts/check-release-notes.mjs` for the pinned writer compatibility
-check. All writes belong to disposable scratch, and no publication is attempted.
+Use the maintained Linux test wrapper for the release controls:
 
-The J03/J04 review snapshot uses accepted commit `ef34bc52` plus the frozen
-J01/J02 v2 publisher overlay. Its owner is separately correcting v3 Git-binding
-findings. Integration with its accepted successor and the current branch still
-needs a rehearsal; this snapshot does not claim a completed real npm/JSR release
-or successful provenance exchange.
+```sh
+bun run test:serial scripts/release-policy.test.ts scripts/workflow-policy.test.ts
+node scripts/check-release-notes.mjs
+node scripts/publisher/check-policy.mjs
+```
+
+The wrapper enforces the strict replay guard. The other commands check the pinned
+release-note writer and synthetic analyzer/version/channel policy without
+creating tags or contacting a publisher. See the [publisher contract](../scripts/publisher/README.md)
+for the separate Linux publisher prerequisites and source/installed-consumer checks.
+
+A complete publisher rehearsal must use the accepted composed source commit,
+a new canonical absolute result directory outside the checkout, a synthetic
+version, the pinned Bun binary and a checksum-verified Deno 2.0.0 binary:
+
+```sh
+node scripts/publisher/rehearse.mjs --publisher-rehearsal \
+  --results /absolute/new-publisher-results --version 9.8.7-next.1 \
+  --bun /absolute/pinned-bun-1.4.3 \
+  --minimum-deno /absolute/checksum-verified-deno-2.0.0
+```
+
+This explicit publisher command owns Deno execution; it is not an ordinary
+contributor test. Registry acquisition happens before the controlled cached/offline
+runtime probes. The receipt must distinguish those phases. It checks a real packed
+npm artifact, 28 ESM/CommonJS exports and declarations under Node/Bun, all three
+installed bin version paths, and source plus installed-npm ESM consumers under
+minimum and modern publisher Deno. It pairs SDK type positives with precise
+negative diagnostics. Deno CommonJS support is not inferred from these ESM checks.
+Without `--minimum-deno`, the command makes no Deno 2.0 acceptance claim.
+
+Retain the new result directory, complete command statuses and logs, source commit,
+root metadata hashes, tarball checksum/integrity, runtime binary versions/hashes,
+notes/channel analysis and fixture byte/mode snapshots. Verify the root graph and
+fixtures remain unchanged. Original failed or superseded rehearsals remain dated
+evidence. A successful synthetic rehearsal does not push a tag, publish either
+registry, create a GitHub release, exchange real OIDC credentials or prove
+provenance acceptance. Final integration requires a new complete rehearsal on the
+accepted composed head; earlier private overlays are historical evidence.
+
+## Partial publication and recovery
+
+A release is not one transaction. In pinned semantic-release 25.0.9,
+[`index.js` lines 196–220](https://github.com/semantic-release/semantic-release/blob/v25.0.9/index.js#L196-L220)
+run verification, notes and prepare, then create the Git tag, add channel notes,
+push tags and push notes **before** running publish hooks. The configured publish
+order is **npm → JSR → GitHub release**. The pinned
+[publish definition](https://github.com/semantic-release/semantic-release/blob/v25.0.9/lib/definitions/plugins.js)
+uses the default stop-on-first-error
+[pipeline](https://github.com/semantic-release/semantic-release/blob/v25.0.9/lib/plugins/pipeline.js).
+Later publish hooks are not reached after an earlier failure; already completed
+remote effects remain. Git tag and notes pushes can also fail independently.
+
+A failed job is therefore not evidence that nothing was released. Stop automatic
+retries and preserve the run URL, exact workflow/source SHA, selected version,
+channel, generated artifacts, checksums and every completed/failed step. The table
+is an investigation aid; classify from remote observations, not only log messages.
+
+| Observed state for the exact version | Possible boundary | Required decision after inventory |
+| --- | --- | --- |
+| No remote tag and no registry artifact | Preflight/verification/prepare failure, or a failed tag push | Fix the cause and review the version/channel decision before authorizing another release attempt. Check local and remote refs separately. |
+| Remote tag, with notes present or missing; no npm/JSR artifact | Tag/notes pushes completed partly or fully; npm publication was not confirmed | Preserve the tag/SHA and note state. Review an explicit completion or follow-up release plan; a workflow rerun is not a repair plan. |
+| npm version exists; JSR version and GitHub release absent | npm completed before JSR, or an npm acknowledgement was lost | Verify npm bytes, provenance and dist-tag. Authorize only a reviewed missing-destination plan or a new release; do not republish npm. |
+| npm and JSR versions exist; GitHub release missing | GitHub publication failed after both registries | Verify both artifacts and identities, then separately authorize the missing GitHub release/asset work if appropriate. |
+| All artifacts/releases exist, but the job failed | A later success hook or acknowledgement may have failed | Inspect release notes, assets, channels and provenance before declaring completion or approving any remaining metadata repair. |
+| Timeout, disconnect or conflicting registry/UI responses | The server may have accepted an operation before its acknowledgement was lost | Treat the state as unknown. Repeat read-only inventory and resolve visibility/cache/auth errors before any write. |
+
+### Read-only inventory before any repair
+
+An operator should first authorize read-only remote inspection. These examples
+are inspection recipes, not commands run by ordinary tests or by the rehearsal.
+Use an independent disposable inspection checkout and record timestamps and full
+responses without exposing credentials. Replace the version with the exact value
+from the failed run; never use `latest` to identify an artifact.
+
+```sh
+release_version='REPLACE_WITH_EXACT_VERSION'
+release_tag="v${release_version}"
+release_repo='https://github.com/gadicc/yahoo-finance2'
+git ls-remote --exit-code "$release_repo" \
+  "refs/tags/$release_tag" "refs/tags/$release_tag^{}"
+git ls-remote "$release_repo" \
+  "refs/notes/semantic-release-$release_tag" "refs/notes/semantic-release"
+node node_modules/npm/bin/npm-cli.js view "yahoo-finance2@$release_version" \
+  version gitHead dist.integrity dist.shasum dist.tarball dist.attestations \
+  --registry=https://registry.npmjs.org --json
+node node_modules/npm/bin/npm-cli.js view yahoo-finance2 dist-tags \
+  --registry=https://registry.npmjs.org --json
+```
+
+Use the pinned Node/npm controller from a frozen inspection-tool checkout; do
+not install tools into the failed publisher workspace. Record both tag object and
+peeled commit where applicable, and compare the commit to the failed run's source
+SHA. `ls-remote` reports refs without updating the remote. Fetching exact refs and
+notes into the disposable inspection checkout may be needed to read their
+contents; that changes only the inspection copy and still needs the read-only
+inspection authorization. Check channel notes against `release.config.mjs` and
+the generated notes. A nonzero command or unavailable metadata is not proof of
+absence: separate a confirmed missing version/ref from authentication, transport
+and registry visibility errors. See [Git ref inspection](https://git-scm.com/docs/git-ls-remote)
+and [npm view](https://docs.npmjs.com/cli/v11/commands/npm-view/).
+
+For npm, download the exact reported tarball into private inspection scratch
+without installing it or running its scripts. Verify its registry integrity and
+compare its bytes/manifest/version/28-export inventory to the retained release
+artifact. Record the current dist-tags independently of immutable version bytes;
+check the intended branch/channel rather than assuming `latest`. Inspect and
+cryptographically verify the published provenance/signature evidence against the
+actual repository, workflow, source SHA and artifact digest using the supported
+[npm provenance verification](https://docs.npmjs.com/generating-provenance-statements/)
+procedure in a separate inspection graph. A metadata link or a local checksum
+alone is not proof of provenance.
+
+For JSR, inspect the exact version on the package page and its provenance link.
+The public [JSR registry API](https://jsr.io/docs/api) provides package metadata at
+`https://jsr.io/@gadicc/yahoo-finance2/meta.json` and immutable version metadata at
+`https://jsr.io/@gadicc/yahoo-finance2/<VERSION>_meta.json`. Record exports, file
+checksums and source paths, compare them with the retained staged source, and
+verify the linked [provenance identity](https://jsr.io/docs/trust). Inspect yanked
+status in package metadata separately. The npm compatibility endpoint can lag
+JSR's native metadata; a missing compatibility tarball alone does not establish
+that native publication failed.
+
+Inspect the GitHub release for the exact tag in the repository's Releases page.
+Record draft/prerelease state, notes, target/tag commit, asset names, sizes and
+checksums. Compare its notes and assets with the retained run and both registry
+artifacts. A GitHub release object, Git tag, npm dist-tag and JSR version are
+separate observations; none proves all others completed.
+
+### Separately authorized recovery
+
+Write down the observed state and the intended changes before obtaining repair
+authorization. A rerun can see the already-pushed tag as the last release and find
+no eligible commits; it does not automatically resume the missing publish hook.
+Do not delete or move tags, reset release history, unpublish as rollback, or try to
+replace an existing immutable version. npm documents that a published name/version
+[cannot be reused even after removal](https://docs.npmjs.com/cli/v11/commands/npm-publish/).
+
+If released code is defective, restore the desired last-good behavior through a
+reviewed follow-up source fix or revert commit and a new release. That preserves
+published history. A channel/dist-tag change can redirect consumers to an already
+verified version, but it does not replace artifacts or repair their provenance;
+such a change needs separate authorization and an explicit before/after channel
+inventory. Do not promise automated rollback or cross-registry atomicity.
+
+A missing destination, Git note, release note or asset requires its own reviewed
+completion plan bound to the existing tag/SHA, exact artifact and real trusted
+publisher permissions. Never fabricate CI/OIDC context, disable provenance, or
+reuse a synthetic rehearsal version to work around authorization. This guide
+performs no remote recovery and does not authorize publication.

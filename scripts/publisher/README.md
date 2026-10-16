@@ -2,8 +2,9 @@
 
 This directory owns JSR staging and explicit nonpublishing publisher rehearsals.
 Ordinary Bun tests, checking, generation and builds do not execute Deno. The
-release workflow is still a separate J04 integration task; do not run its old
-Deno/root-package-overwrite steps.
+[release workflow](../../.github/workflows/release.yaml) uses the Bun build and
+Node controller described in the [release guide](../../docs/RELEASING.md). Deno
+runs only inside this isolated publisher boundary; the root manifest stays private.
 
 Use the private root's frozen Bun graph and Node 24.21.0 for the publisher
 controller. Pure analysis is separate:
@@ -14,7 +15,8 @@ node scripts/publisher/check-policy.mjs
 
 It exercises the real pinned analyzer, conventionalcommits writer and
 semantic-release version/channel functions with synthetic breaking and fix
-commits, including main-only, master-only and both-present stable branch sets. It creates no Git refs, tags, releases or registry requests. Versions
+commits, including main-only, master-only and both-present stable branch sets.
+It creates no Git refs, tags, releases or registry requests. Versions
 in this fixture are examples, not an instruction to publish them. Existing
 release branches and channels stay in `release.config.mjs`.
 
@@ -67,9 +69,9 @@ Actual subsequent dry-run and publish routing retain that lock, and the
 rehearsal checks that deleting a direct lock specifier fails verification.
 This private lock is generated/hashed, excluded from publication, and never
 replaces or modifies authoritative root `bun.lock`. It does not depend on a
-root Deno lock: any retained historical root `deno.lock` is not its input, and
-K06 may remove that unused file. Deno 2.0 consumer verification uses its own
-compatible graph/lock format.
+root Deno lock. The root Bun lock is the development graph; the private publisher
+lock is auxiliary. Deno 2.0 consumer verification uses its own compatible
+graph/lock format.
 
 The JSR wrapper preserves native GitHub Actions OIDC/provenance behavior and
 requires the source commit to match `GITHUB_SHA` on a real Actions publisher.
@@ -78,17 +80,16 @@ real GitHub environment variables; staging does not replace them. Its publish
 config remains at repository-root-relative `deno.json`, and source paths retain
 the original `src/` layout. A local dry-run validates files/types and does not
 generate, attest or prove a real provenance statement. Package/repository
-linkage, actual npm/JSR OIDC authorization and attestation acceptance remain J04
-and real-release gates.
+linkage, actual npm/JSR OIDC authorization and attestation acceptance require a
+separately authorized real release. Neither a local rehearsal nor its Git source
+checks establishes GitHub provenance, a distribution ref/tag or publication.
 
-The minimum/modern SDK compatibility correction is a separate reviewed patch.
-Do not interpret a successful publisher fast/slow type check as proof that an
-ordinary consumer with a different node_modules mode typechecks. The receipt
-records exact runtimes/modes, including negative controls. The new-major user
-policy requires Bun >=1.4.3 and retains Node >=22 and Deno >=2. This revision
-uses the accepted SDK/floor source head; the earlier v2 private-overlay proof
-remains preserved in its own immutable receipt. Final acceptance still requires
-a rehearsal of the current shared accepted source head.
+Consumer floors and the new-major upgrade are defined in the
+[upgrade guide](../../docs/UPGRADING.md#next-major-bun-development-and-consumer-floor)
+and [runtime policy](../../tests/migration/RUNTIMES.md). A passing publisher
+fast/slow-type check does not prove a consumer with a different node_modules mode
+typechecks. Keep source and installed-consumer observations, exact runtime/mode
+records and negative controls distinct.
 
 The bounded rehearsal currently runs on Linux with Python, Bubblewrap and
 libseccomp. Artifact installation uses normal hooks in a fresh consumer with
@@ -114,15 +115,13 @@ including receiver behavior; it does not claim native Windows terminal,
 interactive keyboard or GUI behavior. The controller records exact commands,
 runtime binary hashes and output in its new result directory.
 
-The original preparation against its old base remains immutable, including its
-red source-type result and original wording. The earlier v2 receipt records an
-accepted floor base plus an exact SDK overlay
-in an authorized private synthetic commit. V3 instead uses real accepted SDK
-source HEAD, with no synthetic commit. Neither a local rehearsal nor its Git
-source checks establish GitHub provenance, a distribution ref/tag or publication.
-Final acceptance must rerun the complete version/minimum-consumer rehearsal on
-the accepted composed source. Original failed acquisition, flag and mode
-experiments remain dated evidence rather than being replaced by later passes.
+Acceptance requires the complete version/minimum-consumer rehearsal on the
+accepted composed source head. Earlier private-overlay/source-type failures and
+subsequent narrow source-binding, npm-configuration and type-hint proofs remain
+dated evidence in their immutable receipts. They do not replace that final
+combined rehearsal or prove real registry authorization. Use the
+[partial-release inventory and recovery guide](../../docs/RELEASING.md#partial-publication-and-recovery)
+before considering any separately authorized remote repair.
 
 The maintained rehearsal always checks standalone source and real installed npm
 ESM consumers on pinned publisher Deno 2.6.7; `--minimum-deno` adds exact Deno
@@ -159,40 +158,22 @@ both required. Offline fake-token controls inspect the actual pinned npm config
 loader and prove ambient global/user credentials are absent. This isolation is
 specific to the nonpublishing rehearsal; actual publisher OIDC hooks are unchanged.
 
-V4 retains the immutable v3 source-binding fixes/proofs and resolves the two
-later closure/configuration review findings. It uses accepted source commit
-`8b9d42ca2127e803032a78c7120e5e8bb9c16b2b`, including the SDK correction. The
-external-declaration control reproduces changed real Deno 2.0 typing while v3
-stage verification remains green, then proves v4 refuses both external versions.
-Current production source uses the supported import hints; this control does not
-claim that a previously published artifact had the synthetic defect. Final
-acceptance still requires the accepted composed release source and real release
-authorization/provenance gates.
+Type-hint classification rejects case aliases at import and export boundaries,
+including Unicode simple case folding (`/iu`). Canonical lowercase ASCII
+`@deno-types` remains the only accepted import hint, with the approved matching
+runtime/type subpath. Unsupported export hints, same-comment/duplicate hints,
+external declarations and alternate marker spellings fail before resolution.
+Directive-looking strings, templates and regular expressions remain ordinary
+source. Maintained controls enumerate the ASCII/Unicode marker variants and
+include U+017F LATIN SMALL LETTER LONG S (`ſ`); explicit publisher controls cover
+actual Deno 2.0.0/2.6.7 no-hint failures and external-only declaration mutation.
+These synthetic controls do not claim a previously published package had a defect.
 
-V5 classifies Deno/TS type-hint markers without regard to letter case. Accepted
-import hints still require the canonical lowercase `@deno-types` syntax and the
-same approved dependency/subpath; case aliases are refused before resolution.
-Maintained ordinary tests enumerate all 640 ASCII-case marker variants at import
-and export boundaries, plus duplicate/same-comment hints and literal-text
-positives. Explicit isolated publisher controls reproduce mixed-case external
-typing changes on actual Deno 2.0.0 and 2.6.7, then prove the new refusal. The
-production stage retains exactly the v4 source closure/import map, and a fresh
-real JSR dry-run checks that supported SDK hints still pass. The v4 full
-consumer/install/lock proof stays immutable; it is reused for this narrow change,
-not represented as a new full rehearsal. Final composed K/J03 verification
-remains required.
-
-V6 extends unsupported-marker detection to Unicode simple case folding (`/iu`).
-For the Deno/TS marker alphabet, U+017F LATIN SMALL LETTER LONG S (`ſ`) is the
-only non-ASCII fold equivalent; ordinary tests exhaust the Unicode range and
-then check all 1,056 ASCII/Unicode marker variants at both import and export
-boundaries. Canonical lowercase ASCII `@deno-types` remains the only accepted
-import hint. Long-s aliases are refused, including same-comment and duplicate
-hints, while directive-looking strings, templates and regular expressions stay
-ordinary source. Actual isolated Deno 2.0.0/2.6.7 controls include no-hint failures
-and external-only declaration mutation before the new refusal. A fresh real
-production JSR dry-run preserves the same source closure/import map. All prior
-full-rehearsal proof and the final composed K/J03 gate remain as scoped above.
+The hint-hardening evidence includes a fresh real production JSR dry-run with the
+same source closure/import map. It reuses the prior full consumer/install/lock
+proof for that narrow change and does not claim a fresh full registry-consumer
+rehearsal. Record each result's exact source and scope. The final accepted-head
+rehearsal and real release/provenance gates remain separate.
 
 V7 refuses the contiguous `<reference` marker in any actual lexical comment,
 using Unicode-aware case-insensitive matching. This deliberately conservative
