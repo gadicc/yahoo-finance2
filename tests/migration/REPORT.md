@@ -125,16 +125,16 @@ all items; the benchmark results above retain their historical meaning.
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | Complete        |        6/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
-| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
+| [D. Offline fixtures, recache and capture](#migration-d)         | Complete        |        8/8 |
 | [E. Type checking and schema generation](#migration-e)           | Complete        |        6/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
-| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        4/6 |
-| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
-| [I. CI, coverage and repair automation](#migration-i)            | In progress     |        5/6 |
+| [G. CLI, MCP and runtime I/O](#migration-g)                      | Complete        |        6/6 |
+| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        4/5 |
+| [I. CI, coverage and repair automation](#migration-i)            | Complete        |        6/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | In progress     |        4/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **53/71** |
+| **Overall**                                                      | **In progress** |  **58/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -935,6 +935,51 @@ tests, complete types, format/lint, no-write schema and docs gates pass; all
 G06 is accepted and progress is **53/71**. Actual native OS results still gate
 G01/G03/H05/D04/I01; the final complete pipeline remains separate.
 
+## Accepted native platform matrix (2026-10-16)
+
+[Hosted run 38940879639](https://github.com/gadicc/yahoo-finance2/actions/runs/38940879639)
+validated commit `8b9d42ca2127e803032a78c7120e5e8bb9c16b2b`. Linux,
+macOS Intel and Windows jobs all passed; the downloaded artifact SHA-256
+values independently match GitHub's digests. The
+[machine-readable receipt](results/native-ci-8b9d42c.json) binds the commands,
+images, process observations and evidence-file hashes.
+
+| Actual hosted platform | Fresh frozen install | Replay / serial / coverage | Packed consumers |
+| --- | ---: | --- | --- |
+| Ubuntu 24.04 x64 | 462 packages | 1,361 pass each / 41 files | Node 22.0.0, Node 24.21.0, Bun 1.4.3 |
+| macOS 15 Intel | 461 packages | 1,361 pass each / 41 files | Node 22.0.0, Node 24.21.0, Bun 1.4.3 |
+| Windows Server 2022 x64 | 461 packages | 1,361 pass each / 41 files | Node 22.0.0, Node 24.21.0, Bun 1.4.3 |
+
+Normal lifecycle policy is retained; installs have no restored root dependency
+cache or `--ignore-scripts`. Each platform also passes eight portable helper
+controls, native watch/cancellation, 28 installed ESM/CommonJS exports, consumer
+types in strict mode with `skipLibCheck` and all three CLI aliases. Current
+and minimum Bun rows both
+use the approved 1.4.3 floor and exercise full MCP initialization/tools listing.
+Linux/macOS have 14 CLI checks and four fragmented MCP sessions; Windows has
+13 and three because it exercises EOF and forced termination instead of
+claiming cooperative POSIX signals or console Ctrl-C.
+
+Separate CLI/MCP executions persist synthetic cookies on every runtime/OS row,
+with five controlled requests, two hardlink refusals and unchanged linked target
+bytes/modes. Windows uses USERPROFILE when HOME is absent and checks a regular
+single-link file; owner-ACL privacy is not claimed. Unix mode checks pass.
+The Windows held-pipe probe demonstrates the expected bounded error after a
+parent exits before tree cleanup, then explicitly removes its known surviving
+child. POSIX group cleanup closes both inherited pipes. Fixtures, root manifest
+and root lock remain unchanged on every platform.
+
+D04, G01, G03, H05 and I01 are accepted, bringing progress to **58/71**. These
+native tests use trusted development replay, with no raw-network/arbitrary-file
+sandbox or native HTTP-listen claim. Strong Linux CI enforcement is retained.
+This is correctness evidence, not a rerun of the original timing benchmark.
+
+The same run's Workers job passed, but its full strict coverage job had
+**1,543 pass, 1 fail / 65 files**: the package-build test exceeded its existing
+60-second budget while compiling SDK identity controls. Codecov correctly
+skipped. That failure is under correction and is not accepted as a passing
+strict gate; complete current-pipeline readiness remains open under L01.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -1391,7 +1436,7 @@ review and publisher-only Deno compatibility proof remain separate gates.
       [maintained replay policy](TESTING.md), cleared capture environment and
       cache-miss/no-fallback controls. CI wiring remains I02 and explicit live
       capture remains D05.
-- [ ] D04 — Retain process-level network/fixture denial and fail-closed guard
+- [x] D04 — Retain process-level network/fixture denial and fail-closed guard
       behavior for Linux CI, and verify the user-selected explicit native
       replay policy for trusted macOS/Windows development. Native replay must
       use an offline fallback, read-only cache store and fixture-change detection
@@ -1399,9 +1444,11 @@ review and publisher-only Deno compatibility proof remain separate gates.
       sandbox. Linux kernel controls pass in
       [C07/D03 evidence](results/c07-d03-linux-guard.json); the reviewed native
       implementation and path/cleanup controls pass on Linux in
-      [native evidence](results/native-replay.json). Fresh native OS permissions,
-      misses, watch, coverage and termination still need H05 execution, so this
-      item remains open. This split follows the user's clarified platform choice.
+      [native evidence](results/native-replay.json). Actual three-OS fresh
+      replay, misses, watch, coverage and termination pass in the
+      [accepted native matrix](results/native-ci-8b9d42c.json), with Windows
+      orphan cleanup uncertainty exposed as a bounded failure. This split
+      follows the user's clarified platform choice.
 - [x] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
       baseline-before-live ordering, sequential pacing, request reuse, counters,
       nonzero failures, 429 aborts and preservation of earlier captures.
@@ -1518,19 +1565,22 @@ review and publisher-only Deno compatibility proof remain separate gates.
 
 ### G. CLI, MCP and runtime I/O
 
-- [ ] G01 — Port both `bin/` entrypoints' arguments, environment, home-path
+- [x] G01 — Port both `bin/` entrypoints' arguments, environment, home-path
       resolution, filesystem errors, permissions and exit codes; cover missing
       HOME and supported OS path behavior through executable invocation.
       Partial source evidence: portable Node APIs, missing-HOME fast/error paths,
-      real-path/symlink main guards and Node/Bun invocation pass; packed and
-      supported-OS checks remain open. See [source phase](EXECUTABLES.md).
+      real-path/symlink main guards and Node/Bun invocation pass. Actual
+      installed Node 22/24 and Bun 1.4.3 executables pass across Linux, macOS
+      and Windows, including HOME/USERPROFILE selection and full MCP stdio.
+      See [source phase](EXECUTABLES.md) and
+      [accepted native matrix](results/native-ci-8b9d42c.json).
 - [x] G02 — Verify CLI stdin/TTY behavior, JSON and terminal output, help,
       invalid arguments and dispatch errors; keep stdout usable for machine
       output. Evidence: real source child invocations, actual stdin, pipe JSON
       and separate real Linux PTY control in [source evidence](results/g01-g03-source-cli.json)
       plus fourteen focused executable regressions. Packed alias and OS proof
       remain F/G01/H05.
-- [ ] G03 — Preserve cookie-store create-new behavior and restrictive file modes
+- [x] G03 — Preserve cookie-store create-new behavior and restrictive file modes
       where supported; check existing files, concurrent creation and failure
       handling without exposing cookie values in output.
       Source and actual packed Linux evidence now covers exclusive 0600
@@ -1538,7 +1588,10 @@ review and publisher-only Deno compatibility proof remain separate gates.
       concurrent creators, redacted errors and separate CLI/MCP cookie reuse on
       Node 22/24 and Bun. See [executable policy](EXECUTABLES.md) and the
       [reviewed receipt](results/g03-cookie-integrity.json). Actual native
-      macOS/Windows persistence and file behavior remain open.
+      macOS/Windows persistence and hardlink refusals also pass in the
+      [accepted native matrix](results/native-ci-8b9d42c.json). Unix modes are
+      checked where supported; Windows regular single-link files carry no
+      owner-ACL privacy claim.
 - [x] G04 — Verify MCP stdio protocol, HTTP startup, shutdown/signals and error
       paths using the packed executable and production SDK dependencies.
       Evidence: [packed transport policy](MCP-TRANSPORTS.md) and
@@ -1597,17 +1650,25 @@ review and publisher-only Deno compatibility proof remain separate gates.
       pass. Sol xhigh and Astra xhigh cleared the boundary fixes. This is Linux
       with nodejs_compat; upstream declaration, npm actual-tree diagnostics and
       reachable host Unix sockets are explicitly bounded, with G06 still open.
-- [ ] H05 — Exercise supported Linux/macOS/Windows paths, process spawning, file
+- [x] H05 — Exercise supported Linux/macOS/Windows paths, process spawning, file
       permissions, watch and offline enforcement with the documented support
       policy; record unsupported behavior explicitly and guard it predictably.
+      Evidence: [actual three-OS matrix](results/native-ci-8b9d42c.json), 1,361
+      tests in each replay mode, eight helper controls, packed exports/consumer types and
+      full CLI/MCP cookie reuse. Native OS sandbox, Windows ACL/console and
+      HTTP-listen limits remain explicit.
 
 <a id="migration-i"></a>
 
 ### I. CI, coverage and repair automation
 
-- [ ] I01 — Replace the reusable setup action and test workflow's Deno steps
+- [x] I01 — Replace the reusable setup action and test workflow's Deno steps
       with pinned Bun/tool installations and frozen dependency caches; prove
       clean CI installs on the supported Node/OS matrix without local caches.
+      Evidence: [actual three-OS normal frozen installations and installed
+      consumer rows](results/native-ci-8b9d42c.json); root lock/manifest and
+      fixtures remain unchanged. The independent full strict-coverage timeout
+      is recorded and remains a final integration gate.
 - [x] I02 — Gate formatting, lint, complete typecheck, stale schemas, release
       notes, offline tests and packed Workers compatibility using maintained
       commands; verify failed gates stop dependent release work. Evidence:
