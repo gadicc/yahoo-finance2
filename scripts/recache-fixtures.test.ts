@@ -1,7 +1,8 @@
-import { expect } from "@std/expect";
+import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import { fixtureChanges } from "./recache-fixtures.ts";
 
-Deno.test("recache fixture report separates run changes from preexisting edits", () => {
+test("recache fixture report separates run changes from preexisting edits", () => {
   const before = new Map([
     ["preexisting-local-edit.json", "already-edited"],
     ["updated.json", "old"],

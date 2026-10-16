@@ -1,18 +1,23 @@
-import { sprintf } from "@std/fmt/printf";
-import { describe, it as _it } from "@std/testing/bdd";
-export { afterAll, afterEach, beforeAll, beforeEach } from "@std/testing/bdd";
-import { type Async, expect as _expect, type Expected } from "@std/expect";
+import { sprintf } from "sprintf-js";
+import { describe, it as _it } from "./migration/runner.ts";
+export {
+  afterAll,
+  afterEach,
+  beforeAll,
+  beforeEach,
+} from "./migration/runner.ts";
+import { expect as _expect } from "./migration/assertions.ts";
 import { getType } from "jest-get-type";
 import fetchCache, { fetchCacheSetup } from "./fetchCache.ts";
-import { spy } from "@std/testing/mock";
+import { spy } from "./migration/mock.ts";
 
 import testSymbols from "./testSymbols.ts";
 import createYahooFinance from "../src/createYahooFinance.ts";
 
-const FETCH_DEVEL_NOCACHE = Deno.env.get("FETCH_DEVEL") === "nocache";
-const FETCH_DEVEL_RECACHE = Deno.env.get("FETCH_DEVEL") === "recache";
+const FETCH_DEVEL_NOCACHE = process.env["FETCH_DEVEL"] === "nocache";
+const FETCH_DEVEL_RECACHE = process.env["FETCH_DEVEL"] === "recache";
 const FETCH_DEVEL_RECACHE_CONCURRENCY = Number(
-  Deno.env.get("FETCH_DEVEL_RECACHE_CONCURRENCY") ?? 1,
+  process.env["FETCH_DEVEL_RECACHE_CONCURRENCY"] ?? 1,
 );
 
 function spyLogger(shouldLog = false) {
@@ -69,7 +74,7 @@ function each(table: EachTable) {
 function wrappedIt(
   suite: string,
   fn: (
-    t: Deno.TestContext,
+    t: unknown,
     onFinish: (cb: (error?: unknown) => void | Promise<void>) => void,
   ) => void | Promise<void>,
 ) {
@@ -85,7 +90,7 @@ function wrappedIt(
     }
   };
 
-  const wrappedFn = (t: Deno.TestContext) => {
+  const wrappedFn = (t: unknown) => {
     let result: ReturnType<typeof fn>;
     try {
       result = fn(t, onFinish);
@@ -111,36 +116,23 @@ function wrappedIt(
     );
   };
 
-  _it(suite, wrappedFn);
+  // Bun treats callback parameters as done callbacks; retain project context separately.
+  _it(suite, () => wrappedFn(undefined));
 }
 
 const it = wrappedIt as typeof wrappedIt & { each: typeof each };
 Object.assign(it, { each });
 
-interface ExtendedExpected<IsAsync = false> extends Expected<IsAsync> {
-  toBeType: (type: ReturnType<typeof getType>) => unknown;
-  not: IsAsync extends true ? Async<ExtendedExpected<true>>
-    : ExtendedExpected<false>;
-  resolves: Async<ExtendedExpected<true>>;
-  rejects: Async<ExtendedExpected<true>>;
-}
-
 _expect.extend({
-  toBeType(
-    context,
-    expected: ReturnType<typeof getType>,
-  ) {
-    const type = getType(context.value);
-    const pass = type === expected;
-    const toBe = context.isNot ? "to NOT be" : "to be";
+  toBeType(value: unknown, expected: ReturnType<typeof getType>) {
+    const type = getType(value);
     return {
-      pass: context.isNot ? !pass : pass,
-      message: () => `Expected "${type}" ${toBe} "${expected}"`,
+      pass: type === expected,
+      message: () => `Expected "${type}" to be "${expected}"`,
     };
   },
 });
-
-const expect = _expect<ExtendedExpected>;
+const expect = _expect;
 
 const setupCache = fetchCacheSetup;
 

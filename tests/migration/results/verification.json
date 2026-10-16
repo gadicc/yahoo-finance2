@@ -1,0 +1,133 @@
+{
+  "vitest": {
+    "guard": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "replayMissRejected": true,
+        "fallbackCalls": 0,
+        "socketDenied": true,
+        "rawSocketFilterVerified": true,
+        "observedSocketError": "EPERM",
+        "ipv6SocketDenied": true,
+        "childSocketDenied": true,
+        "fixtureWriteDenied": true
+      }
+    },
+    "optionsOverloadNegative": {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "output": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors\n"
+    }
+  },
+  "node": {
+    "guard": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "replayMissRejected": true,
+        "fallbackCalls": 0,
+        "socketDenied": true,
+        "rawSocketFilterVerified": true,
+        "observedSocketError": "EPERM",
+        "ipv6SocketDenied": true,
+        "childSocketDenied": true,
+        "fixtureWriteDenied": true
+      }
+    },
+    "optionsOverloadNegative": {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "output": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors\n"
+    }
+  },
+  "bun": {
+    "guard": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "replayMissRejected": true,
+        "fallbackCalls": 0,
+        "socketDenied": true,
+        "rawSocketFilterVerified": true,
+        "observedSocketError": "EPERM",
+        "ipv6SocketDenied": true,
+        "childSocketDenied": true,
+        "fixtureWriteDenied": true
+      }
+    },
+    "optionsOverloadNegative": {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "output": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors\n"
+    },
+    "nativeRuntimeGuard": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "output": {
+        "replayMissRejected": true,
+        "fallbackCalls": 0,
+        "socketDenied": true,
+        "rawSocketFilterVerified": true,
+        "observedSocketError": "ECONNREFUSED",
+        "ipv6SocketDenied": true,
+        "childSocketDenied": true,
+        "fixtureWriteDenied": true
+      },
+      "syscallEvidence": "bun-socket-denial.trace"
+    },
+    "unguardedProbeNegative": {
+      "exitCode": 1,
+      "expected": "raw child socket check rejects an absent filter before connection attempts"
+    },
+    "nativeAmbientTypecheck": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.bun-native.json"
+      ],
+      "exitCode": 2,
+      "expectedFailure": "Bun native typeof fetch requires preconnect; standard-fetch mocks omit this extension.",
+      "representativeErrors": [
+        "scripts/openai-wif-proxy.test.ts(63,5): error TS2345: Argument of type '(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>' is not assignable to parameter of type 'typeof fetch'.",
+        "  Property 'preconnect' is missing in type '(input: RequestInfo | URL, init?: RequestInit) => Promise<Response>' but required in type 'typeof fetch'.",
+        "scripts/openai-wif-proxy.test.ts(101,5): error TS2345: Argument of type '(input: RequestInfo | URL) => Promise<Response>' is not assignable to parameter of type 'typeof fetch'.",
+        "  Property 'preconnect' is missing in type '(input: RequestInfo | URL) => Promise<Response>' but required in type 'typeof fetch'.",
+        "scripts/openai-wif-proxy.test.ts(173,6): error TS2345: Argument of type '(url: RequestInfo | URL, init?: RequestInit) => Promise<Response>' is not assignable to parameter of type 'typeof fetch'.",
+        "  Property 'preconnect' is missing in type '(url: RequestInfo | URL, init?: RequestInit) => Promise<Response>' but required in type 'typeof fetch'."
+      ]
+    }
+  }
+}

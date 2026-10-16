@@ -1,5 +1,5 @@
-import { afterAll } from "@std/testing/bdd";
-import { FakeTime } from "@std/testing/time";
+import { afterAll } from "../../tests/migration/runner.ts";
+import { FakeTime } from "../../tests/migration/time.ts";
 import {
   createTestYahooFinance,
   describe,

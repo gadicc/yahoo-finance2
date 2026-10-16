@@ -1,0 +1,86 @@
+{
+  "deno": {
+    "seconds": [
+      0.41751831403234974,
+      0.4197793800267391,
+      0.4215199290192686
+    ],
+    "medianSeconds": 0.4197793800267391,
+    "status": "passed",
+    "trigger": "whitespace-only content change",
+    "command": [
+      "/usr/bin/python3",
+      "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+      "deno",
+      "test",
+      "--no-prompt",
+      "--cached-only",
+      "--no-check",
+      "-P=test",
+      "--deny-net",
+      "--deny-write",
+      "--watch",
+      "--no-clear-screen",
+      "src/lib/queue.test.ts"
+    ]
+  },
+  "vitest": {
+    "seconds": [
+      0.36488002102123573,
+      0.36897372698877007,
+      0.3790857860003598
+    ],
+    "medianSeconds": 0.36897372698877007,
+    "status": "passed",
+    "trigger": "whitespace-only content change",
+    "command": [
+      "/usr/bin/python3",
+      "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "node_modules/vitest/vitest.mjs",
+      "watch",
+      "src/lib/queue.test.ts",
+      "--reporter=default",
+      "--no-clearScreen"
+    ]
+  },
+  "node": {
+    "seconds": [
+      0.5179699859581888,
+      0.5119447340257466,
+      0.5170873409952037
+    ],
+    "medianSeconds": 0.5170873409952037,
+    "status": "passed",
+    "trigger": "whitespace-only content change",
+    "command": [
+      "/usr/bin/python3",
+      "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "--import",
+      "tsx",
+      "--test",
+      "--watch",
+      "--test-reporter=tap",
+      "src/lib/queue.test.ts"
+    ]
+  },
+  "bun": {
+    "seconds": [
+      0.14401669101789594,
+      0.14399394497741014,
+      0.14601891400525346
+    ],
+    "medianSeconds": 0.14401669101789594,
+    "status": "passed",
+    "trigger": "whitespace-only content change",
+    "command": [
+      "/usr/bin/python3",
+      "/home/dragon/.codex/worktrees/test-runner-experiments/yahoo-finance2/tests/migration/offline.py",
+      "bun",
+      "test",
+      "--watch",
+      "src/lib/queue.test.ts"
+    ]
+  }
+}

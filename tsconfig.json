@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.migration.json",
+  "compilerOptions": {
+    "paths": {
+      "@std/fs/walk": [
+        "./tests/migration/std-tooling.ts"
+      ],
+      "@std/cli/parse-args": [
+        "./tests/migration/std-tooling.ts"
+      ]
+    }
+  }
+}
