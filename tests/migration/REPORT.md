@@ -122,7 +122,7 @@ all items; the benchmark results above retain their historical meaning.
 | Area                                                             | Status          | Done/total |
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
-| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        3/6 |
+| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
 | [C. Test runner and harness](#migration-c)                       | In progress     |        6/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        3/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
@@ -133,7 +133,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **22/71** |
+| **Overall**                                                      | **In progress** |  **23/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -225,6 +225,21 @@ release tool closure, with retained runtime/test package versions preserved;
 B06's broader dependency audit remains open. Parent integration separately
 verified the concurrent C03 draft at **1,338 passing tests / 44 files** and a
 passing typecheck; that draft is outside this milestone's isolated evidence.
+
+## Dependency audit (B06, 2026-10-16)
+
+A clean normal-hook frozen Linux install passed with the lock unchanged. The
+actual installed graph covers 565 unique versions: required peers and declared
+Node 24.21.0 engines agree, license metadata is present, and no dependency
+install hooks or native/platform packages were found. npm's bundled-version
+differences reproduce and match its integrity-pinned official archive.
+
+The [audit](DEPENDENCY-AUDIT.md) records two unpatched development/release-tool
+advisories and their repository-controlled input boundaries. Neither package is
+in the four runtime dependencies' closure. No dependency update, override,
+Deno invocation or publication was performed. Independent Sol xhigh review
+cleared the evidence after a citation correction. B06 is complete; B05's OS
+installation matrix remains open. Progress is **23/71** at this checkpoint.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -603,9 +618,15 @@ cross-platform validation and CI remain separate work.
       legitimate dependency lifecycle hooks enabled under an explicit trust
       policy; record reproducible commands rather than relying on
       `--ignore-scripts`.
-- [ ] B06 — Audit dependency versions, peer constraints, licenses and security
+- [x] B06 — Audit dependency versions, peer constraints, licenses and security
       advisories; validate native/optional dependencies and distinguish runtime
       dependencies from tools that must never enter the shipped package.
+      Evidence: [dated actual-graph audit](DEPENDENCY-AUDIT.md) and
+      [clean-install receipt](results/b06-dependency-audit.json), independently
+      reviewed by Sol xhigh. Two unpatched advisories remain confined to
+      repository-controlled test/release inputs; no production input path was
+      identified. This is audit completion, not a zero-advisory claim; B05
+      operating-system coverage remains open.
 
 <a id="migration-c"></a>
 
