@@ -63,22 +63,40 @@ requires remote `dev` to equal the verified base.
 ## Trusted code and dependencies
 
 Each repair-stage job checks out `github.workflow_sha` for its prompt, scripts,
-and configuration. A separate `candidate` worktree holds the selected repair
-base, with the recorded fixtures preserved. The verifier and publisher invoke
-the script from the trusted checkout, not a script copied from the candidate or
-produced by the agent. This prevents a proposal from replacing the guard that
+and configuration. A separate sibling worktree at `${github.workspace}-schema-repair-candidate`
+holds the selected repair base, with the recorded fixtures preserved. Keeping it
+outside the trusted checkout prevents compiler ancestor searches from entering
+the trusted checkout’s separate dependency graph. The verifier and publisher invoke the AST apply/bundle/restore script from the
+trusted checkout, not an agent-produced script. Test/type tooling in the
+candidate must match the trusted workflow checkout byte for byte and remains
+read-only while executing. This prevents a proposal from replacing the guard that
 judges it.
 
 The repair, verification, and publication actions are pinned to commit SHAs; the
-Codex CLI and Deno runtime have explicit versions. Dependency installation uses
-the lockfile with `--frozen`. These choices make changes to those components
+Codex CLI, Bun development runtime and Node tool host have exact versions.
+Only the trusted workflow graph is installed with `bun install --frozen-lockfile`
+and normal lifecycle hooks; candidate hooks never run. These choices make changes to those components
 reviewable. SHA pins still require review before updates and do not establish
 that a dependency is safe. The existing recache job's local setup remains part
 of the trusted repository code.
 
 Dependency caches from the agent job are not reused in verification or
-publication. Fresh jobs install dependencies themselves. This avoids carrying
-agent-modified tooling or cached executable content into a more privileged job.
+publication. Fresh jobs install the trusted graph themselves. A coordinator-owned real private copy of the frozen graph lives at
+`candidate/node_modules`; bytes, modes and relative internal links are validated
+before verification or restore. No link can leave the graph and copied regular
+files share no writable inode with the trusted installation. This preserves the
+builder/compiler's existing own-input checks; a borrowed SDK alias is refused. There is no candidate installation,
+lifecycle execution, lockfile repair or unlocked fallback.
+
+Before preparing a candidate or starting federation, the selected base must
+contain the exact executable/configuration closure from the workflow checkout:
+all `scripts/` files and adjacent `*.test.*` cases; executable and JSON test-support files outside fixture,
+result and documentation data; root Bun/package/lock/TypeScript/Biome/loader and
+Git configuration inputs. Modes and blob identities must match, and the trusted
+working files must still match their committed blobs. Missing Bun metadata or
+historical Deno-only tooling produces an explicit incompatible-base failure.
+Choose a compatible trusted `dev` repair base with the same recorded fixtures;
+this automation never bootstraps an old dependency graph or runs its scripts.
 
 ## Federated credentials
 
@@ -116,7 +134,20 @@ federation tokens remain in process memory. The startup exchange fails before
 Codex runs if configuration is wrong. Credential-bearing configuration is not
 written to a file or supplied as command-line arguments.
 
-The pinned Codex action uses `drop-sudo` and the `workspace-write` sandbox. OIDC
+The official Codex action stays pinned to
+`bdf19a4a223ec2549a3e2274a0cf61556bc07675`, checked out outside `candidate`.
+That upstream version changes global Linux user-namespace sysctls, including
+Ubuntu's AppArmor default restriction. A maintained local adaptation verifies the
+exact upstream checkout and whole `action.yml` hash, removes only the exact
+“Enable Linux user namespaces for bubblewrap” step, and verifies the complete
+adapted hash. No other upstream bytes change. The reviewed project preflight
+provides its exact-executable AppArmor exception instead, preserving global
+restrictions and requiring canonical distro `/usr/bin/bwrap` on PATH. Any action
+upgrade requires deliberate transformation/hash review; there is no automatic
+patching of future upstream versions. See the
+[migration automation evidence](../../tests/migration/CI-REPAIR.md).
+
+The adapted pinned action retains `drop-sudo` and the `workspace-write` sandbox. OIDC
 request variables are explicitly cleared for that action. Codex receives a
 random temporary local gateway credential, rather than the OIDC request token or
 an OpenAI access token. Running the credential holder under a different,
@@ -175,13 +206,34 @@ arbitrary type expressions or replacing a precise union with `string`.
 This narrow scope keeps automated repairs reviewable and prevents source edits
 from introducing executable behavior or bypassing schema validation.
 
-After the guard accepts the source changes, the verifier regenerates all schemas
-with `--force`, checks formatting, lint and types, runs the full cache-only
-suite, and checks the final diff. It does not trust the agent's generated
-schemas or test-success claims. Forced regeneration accounts for imported shared
-types; cached replay avoids changing Yahoo evidence during verification.
-Installation can fetch locked dependencies, so this is not a network-isolated
-runner; the replay tests deny live Yahoo requests and fixture writes.
+After the AST guard accepts the source changes, trusted tooling regenerates
+**every** schema with `--force` in a private complete-source copy, including the
+non-module `src/lib/options` consumer. It snapshots all source bytes, rejects
+added/deleted paths or non-schema mutations, and refuses any changed schema
+outside `src/modules` as manual repair. Only existing permitted module schemas
+are copied back. The artifact policy remains module-only; regeneration is never
+narrowed to conceal a shared consumer change.
+
+Formatting, lint, full TypeScript checks and the full maintained replay suite
+then run before the trusted bundler sees the result. Each stage uses a Linux
+mount/network/PID namespace plus inherited AF_INET/AF_INET6 and io_uring seccomp
+denial. Host, trusted checkout, candidate Git metadata and fixtures are read-only.
+Only candidate `src/modules` during AST apply/restore, and private operator-owned
+0700 scratch, can be writable; writable source entries reject hardlink/symlink
+aliases. Type/tests use a completely read-only candidate. Guard failures fail
+the job, with no native or unguarded retry.
+
+The new launcher establishes an allowlisted environment, disables Bun dotenv
+loading and carries no model, OIDC, repository, artifact, proxy or loader
+credentials. Git is the fixed system executable with system/global config and
+attributes disabled and fixed hook/fsmonitor/external-diff overrides, also for
+Git subprocesses of the trusted TS CLI. No agent job Git metadata is reused.
+Registry installation is a separate trusted network step. These controls replace
+the removed Deno CLI permissions; they do not make the entire runner isolated.
+Read-only host files and pathname Unix sockets remain visible, and approved
+maintainer base code, tool dependencies and the host remain trusted. Narrow AST
+edits cannot add executable declarations, imports or configuration. A compromised
+maintainer base, dependency or host is outside this boundary.
 
 Only after those checks pass does the verifier bundle source/schema file
 contents, with the exact base SHA and review evidence. The publisher rechecks

@@ -130,11 +130,11 @@ all items; the benchmark results above retain their historical meaning.
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
-| [I. CI, coverage and repair automation](#migration-i)            | In progress     |        3/6 |
+| [I. CI, coverage and repair automation](#migration-i)            | In progress     |        5/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | In progress     |        4/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **50/71** |
+| **Overall**                                                      | **In progress** |  **52/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -791,6 +791,36 @@ fixture bytes/modes and production source/schema bytes stayed unchanged.
 K05 is accepted; progress is **50/71**. GUI opening, native OS opener execution,
 external link requests and documentation publication were not performed. The
 CI documentation gate and contributor-instruction cleanup follow separately.
+
+## Recache and schema-repair CI port accepted (I05–I06, 2026-10-16)
+
+The [ported workflow](CI-REPAIR.md) retains its existing schedule, triggers,
+branch policy and authorization. Recache runs the complete guarded baseline
+before the explicit live broker command; original pacing, 429 stopping,
+private capture staging and protected fixture classes remain enforced. Checked
+NUL-delimited Git inventories refuse deletions, renames, mode/type changes and
+unrelated paths, and bind staging to the inspected path/byte snapshot. Valid
+ordinary additions with unchanged-source duplicate contents remain allowed.
+
+Repair creates a compatible sibling candidate with a physical private copy of
+the trusted frozen graph. Trusted AST validation, private all-consumer schema
+generation, independent verification and fresh artifact-only restore preserve
+the interface/schema-only boundary. The pinned Codex action adaptation removes
+only its global AppArmor relaxation step under exact hashes; the reviewed
+per-executable preflight replaces it. Other action/proxy restrictions remain.
+
+Independent Sol xhigh and Astra xhigh review cleared the implementation after
+compatible-base documentation and staged-rename corrections. The
+[receipt](results/i05-i06-ci-repair.json) preserves the original bypass, actual
+workflow-body regressions and prior full pipeline/kernel/action proofs. Current
+integration passes 68 guarded Python controls, workflow policy and 20 shell
+syntax checks, format and lint. The actual K05-expanded graph copies privately
+without shared writable inodes, and all 13 schemas regenerate with no source or
+schema changes. All 1,201 real fixtures, other workflows and dependency locks
+remain unchanged. I05/I06 are accepted; progress is **52/71**. Actual hosted
+recache, federation/authentication, model execution and publication were not
+performed. The full repair pipeline was not relabeled as a new current-branch
+run; current integration smoke and historical full-pipeline evidence are distinct.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -1473,13 +1503,19 @@ review and publisher-only Deno compatibility proof remain separate gates.
       documented reasons and avoid silently reducing coverage scope. Evidence:
       [actual archive digest, extracted LCOV and OIDC upload](results/ci-2a5ed6d.json).
       Upload was accepted and queued; later service UI processing is not claimed.
-- [ ] I05 — Port the recache workflow's baseline/live/429 checks and artifact
+- [x] I05 — Port the recache workflow's baseline/live/429 checks and artifact
       handling to the new commands; keep its current trigger policy, explicit
-      network access and fixture-review/staging safeguards.
-- [ ] I06 — Port schema-repair generation, verification and trusted restore
+      network access and fixture-review/staging safeguards. Evidence:
+      [ported policy](CI-REPAIR.md) and [reviewed controls](results/i05-i06-ci-repair.json),
+      including actual old-bypass reproduction and staged-path refusal.
+      No live recache or hosted publication run was performed.
+- [x] I06 — Port schema-repair generation, verification and trusted restore
       jobs, including `schema-repair.ts`/git subprocesses and WIF proxy tooling;
       preserve interface/schema-only validation, untrusted candidate isolation,
-      secret/log boundaries and independent artifact verification.
+      secret/log boundaries and independent artifact verification. Evidence:
+      [trusted graph, kernel and action boundaries](CI-REPAIR.md),
+      [full scoped pipeline and current-graph integration](results/i05-i06-ci-repair.json).
+      Actual hosted authentication/model/publication remains unexercised.
 
 <a id="migration-j"></a>
 

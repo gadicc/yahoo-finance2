@@ -103,27 +103,74 @@ workflow does not approve or merge PRs; this setting permits draft PR creation.
 
 ## Check authentication, then test a repair
 
-Open
+After this migration is merged, select a compatible recorded drift and repair
+base before running an authentication smoke test. Use full 40-character
+lowercase hexadecimal commit SHAs; the placeholders below are not commit IDs.
+
+1. In a clean, trusted checkout of the `dev` commit that will supply the workflow
+   (`github.workflow_sha`), select a repair base reachable from `origin/dev`.
+   Its tree must contain `package.json`, `bun.lock`, `.bun-version`, and
+   `scripts/ci_repair.py`, plus every other required input checked by the
+   coordinator. The entire executable/config closure must match that trusted
+   workflow commit exactly, including tracked paths, modes and contents for the
+   Bun lockfile, scripts, adjacent tests, test support and compiler/Biome
+   configuration. Merely containing the four named files is insufficient.
+2. Select a recorded drift commit with exactly one parent and at least one
+   change, all within unprotected flat `tests/fixtures/http/*.json` paths.
+   Static, fake and `getCrumb-geo-*` fixtures are excluded. The drift must be an
+   ancestor of the selected base, and the base's complete HTTP fixture tree must
+   match the recorded drift. Use the positive tracking issue number for that
+   drift. Do not invent a drift SHA or substitute an unrelated old fixture set.
+3. Check ancestry and fixture parity with `git merge-base --is-ancestor` and
+   `git diff --exit-code`, inspect the drift's parent and changed paths, and run
+   the coordinator's read-only compatibility check from that trusted checkout:
+
+   ```sh
+   DRIFT_SHA='<full 40-character fixture-drift SHA>'
+   REPAIR_BASE_SHA='<full 40-character compatible dev SHA>'
+   git merge-base --is-ancestor "$REPAIR_BASE_SHA" origin/dev
+   git merge-base --is-ancestor "$DRIFT_SHA" "$REPAIR_BASE_SHA"
+   git rev-list --parents -n 1 "$DRIFT_SHA"
+   git diff-tree --no-commit-id --name-only -r "$DRIFT_SHA"
+   git diff --exit-code "$DRIFT_SHA" "$REPAIR_BASE_SHA" -- tests/fixtures/http
+   python3 -I -B - "$REPAIR_BASE_SHA" <<'PY_CHECK'
+   import runpy
+   import sys
+   runpy.run_path("scripts/ci_repair.py")["compatible"](sys.argv[1])
+   PY_CHECK
+   ```
+
+   The workflow also enforces all drift/base checks before federation. A local
+   check does not bypass those checks. If no compatible recorded drift/base
+   pair exists, there is no authentication smoke test to run yet; leave
+   automatic repairs disabled until a suitable reviewed pair is available.
+
+The old `c6612bd84dc6af570d1d2eef74b49182f6170e23` smoke example is historical
+and unsupported under this migration: it lacks the required Bun/tooling closure
+and is rejected before federation. It is not a current repair-base example.
+
+Once those checks pass, open
 [the recache workflow](https://github.com/gadicc/yahoo-finance2/actions/workflows/recache-yahoo-fixtures.yaml),
 select **Run workflow** on `dev`, and use:
 
-| Input          | Value                                      |
-| -------------- | ------------------------------------------ |
-| `repair_only`  | `true`                                     |
-| `drift_commit` | `c6612bd84dc6af570d1d2eef74b49182f6170e23` |
-| `issue_number` | `1030`                                     |
-| `dry_run`      | `true`                                     |
-| `auth_only`    | `true`                                     |
+| Input          | Value                                         |
+| -------------- | --------------------------------------------- |
+| `repair_only`  | `true`                                        |
+| `drift_commit` | `<full 40-character fixture-drift SHA>`        |
+| `repair_base`  | `<full 40-character compatible dev SHA>`       |
+| `issue_number` | `<positive tracking issue number>`            |
+| `dry_run`      | `true`                                        |
+| `auth_only`    | `true`                                        |
 
 This validates federation without invoking the model, recaching Yahoo, pushing,
 or opening a PR. The successful federation step reports that the proxy is ready.
 Manual `repair_only` runs work even while automatic repairs are disabled. Repeat
-with `auth_only=false` to test the agent and independent verifier against the
-already-fixed historical drift. Leave `dry_run=true`: historical commits are
-suitable for smoke testing, not publication. Set `SCHEMA_REPAIR_ENABLED=true`
-only after both checks succeed. If the model reports a quota error, resolve API
-billing/credits or the applicable spend/usage limit before retrying; leave
-automatic repair disabled while resolving it.
+with the same compatible inputs and `auth_only=false` to test the agent and
+independent verifier. Leave `dry_run=true` for both smoke checks: neither run
+publishes. Set `SCHEMA_REPAIR_ENABLED=true` only after both checks succeed. If
+the model reports a quota error, resolve API billing/credits or the applicable
+spend/usage limit before retrying; leave automatic repair disabled while
+resolving it.
 
 For a current unresolved fixture-drift commit, use its full SHA and tracking
 issue number. When retrying after an automation update on `dev`, set the
@@ -174,3 +221,24 @@ lasts for an entire agent run. See the
 PRs created with `GITHUB_TOKEN` may require approval to run ordinary PR
 workflows. The independent verification job already runs before PR creation. See
 [GitHub's workflow trigger rules](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow).
+
+## Bun workflow compatibility
+
+The migration workflow uses exact Bun 1.4.3 and Node 24.21.0, a fresh frozen
+trusted dependency installation, and the reviewed Linux guard. It never invokes
+a Deno binary. Repair verification and draft-PR restoration use trusted
+workflow-sha AST code; no candidate lifecycle hooks run.
+
+A manual historical `repair_base` must have the workflow's exact maintained
+Bun/tooling/configuration closure and the recorded fixture tree. A Deno-only or
+otherwise incompatible base fails before candidate installation or federation.
+Select a compatible newer trusted `dev` commit through `repair_base`, preserving
+the drift fixtures; no automatic dependency upgrade or unlocked bootstrap occurs.
+
+Full generation checks every schema consumer. If an imported type changes a
+schema outside the module-only artifact scope, the repair needs manual work;
+the verifier does not omit that consumer. The exact action adaptation, guard
+limits, offline reproduction and pending remote proof are documented in
+[CI repair migration evidence](../tests/migration/CI-REPAIR.md). Workflow triggers,
+the existing daily schedule, `SCHEMA_REPAIR_ENABLED`, `auth_only` and dry-run
+publication controls retain their existing meanings.

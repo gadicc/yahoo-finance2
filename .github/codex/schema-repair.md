@@ -25,9 +25,8 @@ broaden types merely to make tests pass. Required fields come first; optionality
 needs successful fixture evidence of omission, including the recorded drift
 commit's parent fixtures. Explain that evidence using filenames.
 
-Regenerate all affected schemas before replaying tests. Explicit schema file
-arguments or --force are required for shared dependencies. Replay focused tests
-and then the full cached suite with deno task test:replay. No network requests,
+Regenerate all affected schemas before replaying tests. Use `bun run schema --force` to regenerate every shared consumer. Replay focused tests
+and then the full cached suite with bun run test:replay. No network requests,
 recaching, commits, pushes, or package publication are authorized.
 
 Return JSON matching the supplied output schema. For a successful repair, status
