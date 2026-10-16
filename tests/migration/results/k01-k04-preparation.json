@@ -1,0 +1,270 @@
+{
+  "milestone": "K01/K04 bounded configuration/editor preparation; adoption incomplete",
+  "date": "2026-10-16T12:19:41.466152+00:00",
+  "baselineCommit": "8e9f34ee741e1bec73bbfa842e738aadc9ef1c0a",
+  "immutableReviewRoot": "/tmp/yf-biome-k-preparation-review-br8__9of",
+  "scope": [
+    "biome.json",
+    ".vscode/settings.json",
+    ".vscode/tasks.json",
+    ".vscode/extensions.json",
+    "tests/migration/BIOME.md",
+    "tests/migration/results/k01-k04-preparation.json"
+  ],
+  "sourceSha256": {
+    "biome.json": "9ff1d2822f31b394243594d67dcb43737b41371cf7a86caab1d6469b934c755f",
+    ".vscode/settings.json": "9f307587fee32d896909f8fa802719bce2b4e135ebaaf109e22e3b861b728d65",
+    ".vscode/tasks.json": "6e54e2b02a2aa9684bbe884bd8f9823169c25eb504d54bdf5ff7796e4ad0e75a",
+    ".vscode/extensions.json": "8b39eb19181f8cba96e0bc49e30eca8a09d3dca4f0ec83ecd9f52462a3ab2258",
+    "tests/migration/BIOME.md": "4e43a7b4bdee305b729cc4b1e274912c40ba3a17aab791a20e5bc77c79579f80"
+  },
+  "runtime": {
+    "bun": "1.4.3",
+    "node": "24.21.0",
+    "typescript": "6.0.3",
+    "biome": "2.5.15",
+    "biomeBinary": "/tmp/yf-biome-audit-m4waw0zi/node_modules/@biomejs/cli-linux-x64/biome",
+    "denoInvoked": false
+  },
+  "configuration": {
+    "rulesPreset": "recommended",
+    "ruleOverrides": {},
+    "assistEnabled": false,
+    "formatter": "2 spaces, LF, 80 columns, double quotes, semicolons; TS/JS trailing commas; JSON no trailing commas",
+    "manualLanguages": [
+      "Markdown",
+      "YAML"
+    ],
+    "scopePolicy": "BIOME.md; maintains source/scripts/configs/tests/Workers in scope, excludes fixtures/generated outputs/plans/receipts/dependencies/locks"
+  },
+  "baseline": {
+    "lint": {
+      "exitCode": 1,
+      "summary": {
+        "changed": 0,
+        "unchanged": 183,
+        "matches": 0,
+        "duration": 31036810,
+        "errors": 18,
+        "warnings": 227,
+        "infos": 128,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 1288424
+      },
+      "parseErrors": 0
+    },
+    "format": {
+      "exitCode": 1,
+      "summary": {
+        "changed": 0,
+        "unchanged": 183,
+        "matches": 0,
+        "duration": 11929126,
+        "errors": 120,
+        "warnings": 0,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 1479300
+      },
+      "parseErrors": 0
+    },
+    "owned-check": {
+      "exitCode": 0,
+      "summary": {
+        "changed": 0,
+        "unchanged": 4,
+        "matches": 0,
+        "duration": 4024816,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 1447187
+      },
+      "parseErrors": 0
+    }
+  },
+  "lintCategories": [
+    {
+      "severity": "info",
+      "category": "lint/style/useTemplate",
+      "count": 120
+    },
+    {
+      "severity": "warning",
+      "category": "lint/style/noNonNullAssertion",
+      "count": 99
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noExplicitAny",
+      "count": 76
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noTsIgnore",
+      "count": 19
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noTemplateCurlyInString",
+      "count": 15
+    },
+    {
+      "severity": "error",
+      "category": "lint/suspicious/noImplicitAnyLet",
+      "count": 8
+    },
+    {
+      "severity": "info",
+      "category": "lint/complexity/useLiteralKeys",
+      "count": 7
+    },
+    {
+      "severity": "warning",
+      "category": "lint/complexity/useOptionalChain",
+      "count": 7
+    },
+    {
+      "severity": "error",
+      "category": "lint/suspicious/noAssignInExpressions",
+      "count": 4
+    },
+    {
+      "severity": "warning",
+      "category": "lint/complexity/useArrowFunction",
+      "count": 3
+    },
+    {
+      "severity": "error",
+      "category": "lint/suspicious/noDoubleEquals",
+      "count": 3
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noPrototypeBuiltins",
+      "count": 2
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noGlobalIsNan",
+      "count": 2
+    },
+    {
+      "severity": "info",
+      "category": "lint/complexity/noUselessEscapeInRegex",
+      "count": 1
+    },
+    {
+      "severity": "warning",
+      "category": "lint/correctness/noUnusedImports",
+      "count": 1
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/useIsArray",
+      "count": 1
+    },
+    {
+      "severity": "warning",
+      "category": "lint/suspicious/noRedundantUseStrict",
+      "count": 1
+    },
+    {
+      "severity": "warning",
+      "category": "lint/correctness/noUnusedVariables",
+      "count": 1
+    },
+    {
+      "severity": "error",
+      "category": "lint/correctness/noUnsafeFinally",
+      "count": 1
+    },
+    {
+      "severity": "error",
+      "category": "lint/suspicious/noControlCharactersInRegex",
+      "count": 1
+    },
+    {
+      "severity": "error",
+      "category": "lint/suspicious/noThenProperty",
+      "count": 1
+    }
+  ],
+  "headlessProof": {
+    "guard": "scripts/testing/offline.py: read-only host/root, scratch-only writes, separate network namespace and inherited seccomp AF_INET/AF_INET6/io_uring denial; escalation only permits constructing that boundary",
+    "provisionalMirror": "/tmp/yf-biome-k-headless-l17ndtz1/mirror",
+    "typeScript": "Actual pinned TSserver configured-project selection; existing .ts module definition and YahooFinance quickinfo; deliberate TS2322 diagnostic; new-file Quote auto-import completion/code-action emits ./modules/quote.ts with importModuleSpecifierEnding=js",
+    "cli": "Valid source passes; bad formatting fails; warning-sensitive unused import/explicit any fail; unsafe finally/loose equality fail; malformed maintained TS and JSON fail parsing; malformed fixtures/schema/output/plans/agent metadata/receipts are skipped; Markdown/YAML skipped; import order and attached comment preserved under check --write with assist disabled",
+    "biomeLsp": "Actual 2.5.15 server initialize/configuration handshake; formatting edits apply exact configured two-space/double-quote/semicolon policy to nested one-line TypeScript; generated schema and fixture requests produce no formatting edits; protocol shutdown and private daemon stop",
+    "schemaTask": "Actual final command bun run schema --watch in mirror; initial ready and failed-scan ready match background patterns; invalid quote source preserves every schema; repaired source regenerates quote/options; SIGTERM and SIGINT both exit0 and no live process-group descendants remain",
+    "schemaDiagnosticMatcher": "Final diagnostic pattern tested against all12 observed ANSI-stripped TS1005 lines; correct src/modules/quote.ts path, line964, column1, error and code1005. Task command/start/end patterns unchanged from executed task; diagnostic pattern narrowed afterward to remove generator selected-root prefix.",
+    "drivers": "proof/headless.py, proof/lsp.py and proof/watch.py are disposable controls, not maintained project commands. Set YF_K_MIRROR/YF_K_SCRATCH and run under the guard; create independent scratch/mirror before rerun."
+  },
+  "dependencyInspection": {
+    "scope": "Standalone scratch graph only; root package.json/bun.lock never edited by this step",
+    "metadata": "/tmp/yf-biome-k-preparation-review-br8__9of/proof/metadata-audit.json",
+    "packages": 9,
+    "installedPackages": 3,
+    "optionalNativeTargets": 8,
+    "registryLockIntegrityMatches": 9,
+    "downloadedTarballSha512Checks": 3,
+    "license": "MIT OR Apache-2.0",
+    "nodeEngine": ">=14.21.3",
+    "lifecycleScriptsDeclared": 0,
+    "bunPmUntrustedScriptPackages": 0,
+    "bunAuditJson": {},
+    "auditMeaning": "No advisories returned for the scratch Biome-only graph; no new root graph/advisory-clean claim",
+    "proposedDevDependency": {
+      "@biomejs/biome": "2.5.15"
+    },
+    "proposedScripts": {
+      "format": "biome format --write .",
+      "format:check": "biome format .",
+      "lint": "biome lint ."
+    }
+  },
+  "fixtureParity": {
+    "count": 1201,
+    "allBytesMatchHeadAndCandidate": true,
+    "sha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "encoding": "UTF-8 tracked full path + NUL + SHA256(content) + LF in git ls-files order"
+  },
+  "proofSha256": {
+    "proof/baseline-summary.json": "75b3b943365a4da740da5a44c75ffcb61b7e1f31bfcf7352c95d6672c3b34fe1",
+    "proof/candidate-source-sha256.json": "8edb0046442ca53820d9575678b39397f2d98b286ebe73b416c8c1752bf556d3",
+    "proof/controls.json": "3a3707517b875bddcfe1815f36867d7ec4b9255c00e8281050aaac1d86522a97",
+    "proof/format.json": "83bb2c04511197bebcf55f21b8e87fd618690e87f7a5453a770d0ae8e97f84b3",
+    "proof/format.stderr": "e713c996d1cf93ef99c1e368c6bd8cded9b2ea3490769f24cc352eb4f61f3ced",
+    "proof/headless.py": "b72f56cdbc45af6072a2d3cab6e855b213fb42a70f605526273d4e86f39fd51a",
+    "proof/lint.json": "d3e8f7ac16cb0f10c917ce8975cf0fbf426be71c8b76ec0d33c9967786d21da1",
+    "proof/lint.stderr": "35ceb78976cfe5db887d8c36d827da445e043024ebddb22345b826803cee0241",
+    "proof/lsp.json": "4b7fe0a8df553c61a5cdc877396d40b662116f14628ca1fc95ee647c09665314",
+    "proof/lsp.py": "13cde95c7ff7c62dfe5511a50384d7499cf330b5e876cd8ac99e9fb9d7cc9835",
+    "proof/metadata-audit.json": "c49e73cf7cb3290f5dfc6b2eaa0cc36a1c59b8faaf10533a124eeaf4da7b8826",
+    "proof/owned-check.json": "4f37e9ca716018162af77b67464a70004f4eaaad7ce86aa67d43fd97a2cb29e7",
+    "proof/owned-check.stderr": "0913004effb614bc48cd4a3dbeeb8ff43aca0acce8fa7b57a4681b43cfbfca1e",
+    "proof/scratch-tool.bun.lock": "bcf63a7fc82dbe840a781c22db7041f85986624f036a14b28ae797c014a970bc",
+    "proof/source.json": "d71f2674af6abc66ea653cb10dc9cd2d79fd7ff3a8a03f6b25258dfd4574a895",
+    "proof/tsserver.json": "a619ce72c929f8ad0a10a8f98249677b633019a26721a1800a28e2fabe8c05a4",
+    "proof/watch.json": "9b4fb048738f6a0657696934001f87ad1e1a1533207d5271742fb425797522bd",
+    "proof/watch.py": "48cbbf0217cfbaf69d9fb866c8954a2c0d24e7f53b7896a465bd006fc11e16e0"
+  },
+  "limitations": [
+    "No root dependency/script integration or clean frozen installation yet; editor mirror reuses existing installed graph via symlink",
+    "No VSCode GUI save, extension install, user SDK selection, workspace trust or automatic-task approval observed; settings are workspace-only",
+    "Linux x64 proof only; no native other-OS/musl execution",
+    "Lint and formatting baseline intentionally fail; source not formatted or semantically repaired",
+    "K01/K04 acceptance remains open pending integration, clean-checkout proof and independent Sol xhigh/Astra xhigh review; K02 directive/CI work remains separate",
+    "No full tests, Yahoo request, original fixture writes, Deno invocation, root manifest/lock edits, git staging or commit performed by this step"
+  ],
+  "review": {
+    "status": "Frozen preparation candidate awaiting parent integration and independent reviews; no K acceptance tick"
+  }
+}

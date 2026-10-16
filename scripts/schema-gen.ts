@@ -339,6 +339,7 @@ export function schemaMain(
     // Open watchers before initial generation, so startup edits are not lost.
     const scheduler = createSchemaScheduler(
       async () => {
+        log("Schema scan started.");
         const code = runSchemas(flags, options);
         log(
           code

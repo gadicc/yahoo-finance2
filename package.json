@@ -18,9 +18,13 @@
     "test:serial": "bun scripts/test.ts --serial",
     "test:watch": "bun scripts/test.ts --watch",
     "build:npm": "bun scripts/build_npm.ts",
-    "typecheck:negative": "bun scripts/typecheck.ts --negative"
+    "typecheck:negative": "bun scripts/typecheck.ts --negative",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint ."
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.15",
     "@sebbo2002/semantic-release-jsr": "4.0.2",
     "@semantic-release/commit-analyzer": "13.0.1",
     "@semantic-release/exec": "7.1.0",

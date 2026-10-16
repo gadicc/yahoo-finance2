@@ -243,7 +243,7 @@ test(
 );
 
 test(
-  "real watch follows shared type edits and closes cleanly on SIGTERM",
+  "real watch brackets initial, failed and repaired scans and closes on SIGTERM",
   async () => {
     const f = fixture();
     const child = spawn("bun", [
@@ -274,19 +274,38 @@ test(
       }
     };
     try {
-      await waitFor(() => existsSync(f.schema));
+      const scanEvents = () => output.split(/\r?\n/).flatMap((line) => {
+        if (line === "Schema scan started.") return ["start"];
+        if (line === "Schema scan complete; watching.") return ["success"];
+        if (line === "Schema generation failed; still watching.") {
+          return ["failure"];
+        }
+        return [];
+      });
+      await waitFor(() => scanEvents().includes("success"));
+      expect(scanEvents()).toEqual(["start", "success"]);
+      const initialSchema = readFileSync(f.schema, "utf8");
       expect(
-        JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
-          .value.type,
+        JSON.parse(initialSchema).definitions.Shared.properties.value.type,
       ).toBe("string");
+      f.write("shared.ts", "export interface Shared {");
+      await waitFor(() => scanEvents().includes("failure"));
+      expect(scanEvents()).toEqual(["start", "success", "start", "failure"]);
+      expect(readFileSync(f.schema, "utf8")).toBe(initialSchema);
+      expect(output).toContain("src/shared.ts");
+      expect(output).toContain("TS1005");
       f.write(
         "shared.ts",
         "export interface Shared { value: number; final: boolean; }",
       );
-      await waitFor(() =>
+      await waitFor(() => scanEvents().length >= 6);
+      expect(scanEvents()).toEqual([
+        "start", "success", "start", "failure", "start", "success",
+      ]);
+      expect(
         JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
-          .value.type === "number"
-      );
+          .value.type,
+      ).toBe("number");
       expect(
         JSON.parse(readFileSync(f.schema, "utf8")).definitions.Shared.properties
           .final.type,

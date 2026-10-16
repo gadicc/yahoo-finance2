@@ -1,0 +1,429 @@
+{
+  "milestone": "K01/K04 pinned Biome/editor adoption candidate with per-scan watcher repair; awaiting independent reviews",
+  "date": "2026-10-16T12:33:22.580692+00:00",
+  "baselineCommit": "aaf3ef1f4b593b5365cff26aa48cf6a32b2f9325",
+  "immutableReviewRoot": "/tmp/yf-biome-k-adoption-review-7zhrf_7t",
+  "candidateRoot": "/tmp/yf-biome-k-adoption-review-7zhrf_7t/candidate",
+  "scope": [
+    "biome.json",
+    ".vscode/settings.json",
+    ".vscode/tasks.json",
+    ".vscode/extensions.json",
+    "tests/migration/BIOME.md",
+    "tests/migration/results/k01-k04-preparation.json",
+    "package.json",
+    "bun.lock",
+    "scripts/schema-gen.ts",
+    "scripts/schema-gen.test.ts",
+    "tests/migration/results/k01-k04-adoption.json"
+  ],
+  "sourceSha256": {
+    "biome.json": "9ff1d2822f31b394243594d67dcb43737b41371cf7a86caab1d6469b934c755f",
+    ".vscode/settings.json": "9f307587fee32d896909f8fa802719bce2b4e135ebaaf109e22e3b861b728d65",
+    ".vscode/tasks.json": "84f8b4470992f9bdbab240b46530ff7f61faf7b52a8b46bb8ba60c8b5d13d4b9",
+    ".vscode/extensions.json": "8b39eb19181f8cba96e0bc49e30eca8a09d3dca4f0ec83ecd9f52462a3ab2258",
+    "tests/migration/BIOME.md": "97fa38799781932ee6e1be1dabf291dfb0cce0c9ddde2499bd3e996cbf02fda0",
+    "tests/migration/results/k01-k04-preparation.json": "81bf1176e16ce6644821b27043d35f6b1e89a35de7de75c5d8dcac11ec1dcc1d",
+    "package.json": "b10619659f89c1171568d898613ed6d3b0ff821f934399686b22e52db9cae71f",
+    "bun.lock": "9d967881a8482ad4dc31fabcec857b290f15781a91e812e3809414f152f7d99a",
+    "scripts/schema-gen.ts": "080d9050969209f0b03c194a28e09219c82076b4cec6bf31a776c7c523406afa",
+    "scripts/schema-gen.test.ts": "510320b4e09076b7b13ca1cee589500448c0f654eb1608fb4e3262b5b3b121f7"
+  },
+  "exactBasePlusOwnedFilesOnly": true,
+  "excludedParallelDrafts": [
+    "H runtime source/docs/helpers",
+    "CI workflows/helpers"
+  ],
+  "runtime": {
+    "bun": "1.4.3",
+    "node": "24.21.0",
+    "typescript": "6.0.3",
+    "biome": "2.5.15",
+    "denoInvoked": false
+  },
+  "dependencyChange": {
+    "addedLockPackages": [
+      "@biomejs/biome",
+      "@biomejs/cli-darwin-arm64",
+      "@biomejs/cli-darwin-x64",
+      "@biomejs/cli-linux-arm64",
+      "@biomejs/cli-linux-arm64-musl",
+      "@biomejs/cli-linux-x64",
+      "@biomejs/cli-linux-x64-musl",
+      "@biomejs/cli-win32-arm64",
+      "@biomejs/cli-win32-x64"
+    ],
+    "removedLockPackages": [],
+    "changedExistingLockPackages": [],
+    "oldLockPackages": 614,
+    "newLockPackages": 623,
+    "existingDirectPinsAndScriptsUnchanged": true,
+    "addedScripts": {
+      "format": "biome format --write .",
+      "format:check": "biome format .",
+      "lint": "biome lint ."
+    },
+    "allNewLockIntegritiesMatchPriorVerifiedOfficialMetadata": true,
+    "directDevPin": {
+      "@biomejs/biome": "2.5.15"
+    },
+    "normalRootInstall": "3 packages installed; preinstall toolchain hook passed; no ignore-scripts or trustedDependencies override",
+    "freshInstall": {
+      "root": "/tmp/yf-biome-k-adoption-6o41lljh/clean",
+      "command": "PATH=<Bun1.4.3>:<Node24.21.0>:$PATH bun install --frozen-lockfile",
+      "normalPreinstallHookPassed": true,
+      "lockSha256Unchanged": true,
+      "bunReportedPackagesInstalled": 444,
+      "physicalPackageManifestsIncludingBundled": 614,
+      "uniqueNameVersionPairsIncludingBundled": 567,
+      "whyDifferent": "Bun install summary, virtual lock entries, physical manifests and distinct name/version pairs measure different inventories"
+    },
+    "installedBiomePackages": [
+      {
+        "path": "node_modules/@biomejs/cli-linux-x64-musl/package.json",
+        "name": "@biomejs/cli-linux-x64-musl",
+        "version": "2.5.15",
+        "license": "MIT OR Apache-2.0",
+        "engines": {
+          "node": ">=14.21.3"
+        },
+        "scripts": null,
+        "os": [
+          "linux"
+        ],
+        "cpu": [
+          "x64"
+        ],
+        "libc": [
+          "musl"
+        ]
+      },
+      {
+        "path": "node_modules/@biomejs/cli-linux-x64/package.json",
+        "name": "@biomejs/cli-linux-x64",
+        "version": "2.5.15",
+        "license": "MIT OR Apache-2.0",
+        "engines": {
+          "node": ">=14.21.3"
+        },
+        "scripts": null,
+        "os": [
+          "linux"
+        ],
+        "cpu": [
+          "x64"
+        ],
+        "libc": [
+          "glibc"
+        ]
+      },
+      {
+        "path": "node_modules/@biomejs/biome/package.json",
+        "name": "@biomejs/biome",
+        "version": "2.5.15",
+        "license": "MIT OR Apache-2.0",
+        "engines": {
+          "node": ">=14.21.3"
+        },
+        "scripts": null,
+        "os": null,
+        "cpu": null,
+        "libc": null
+      }
+    ],
+    "optionalTargets": 8,
+    "executedTarget": "@biomejs/cli-linux-x64 glibc; confirmed with strace for each actual Bun alias",
+    "installedButNotExecutedTarget": "@biomejs/cli-linux-x64-musl",
+    "newRegistryLockIntegrityMatches": 9,
+    "officialTarballChecks": [
+      {
+        "name": "@biomejs/cli-linux-x64-musl",
+        "tarballSha512MatchesRegistryAndLock": true,
+        "allInstalledRegularArchiveFilesByteEqual": true,
+        "files": [
+          "biome",
+          "package.json",
+          "CHANGELOG.md"
+        ],
+        "tarballBytes": 24693692
+      },
+      {
+        "name": "@biomejs/cli-linux-x64",
+        "tarballSha512MatchesRegistryAndLock": true,
+        "allInstalledRegularArchiveFilesByteEqual": true,
+        "files": [
+          "biome",
+          "package.json",
+          "CHANGELOG.md"
+        ],
+        "tarballBytes": 24652776
+      },
+      {
+        "name": "@biomejs/biome",
+        "tarballSha512MatchesRegistryAndLock": true,
+        "allInstalledRegularArchiveFilesByteEqual": true,
+        "files": [
+          "bin/biome",
+          "LICENSE-APACHE",
+          "LICENSE-MIT",
+          "ROME-LICENSE-MIT",
+          "configuration_schema.json",
+          "package.json",
+          "README.es.md",
+          "README.fr.md",
+          "README.hi.md",
+          "README.ja.md",
+          "README.kr.md",
+          "README.md",
+          "README.pl.md",
+          "README.pt-BR.md",
+          "README.ru.md",
+          "README.uk.md",
+          "README.zh-CN.md",
+          "README.zh-TW.md"
+        ],
+        "tarballBytes": 94301
+      }
+    ],
+    "engineCheck": {
+      "node": "24.21.0",
+      "engineDeclarations": 467,
+      "failures": []
+    },
+    "license": "MIT OR Apache-2.0 for all new packages; existing legacy licenses metadata retained",
+    "dependencyInstallHooks": [],
+    "bunPmUntrustedScriptPackages": 0,
+    "actualGraphAdvisoryPackages": [
+      "braces",
+      "sprintf-js"
+    ],
+    "bunAuditExitCode": 1,
+    "advisoryMeaning": "Existing braces/high and sprintf-js/moderate advisories remain; actual graph bulk-registry audit and Bun virtual graph audit agree. No reported Biome advisory, no clean-root audit claim."
+  },
+  "configuration": {
+    "preset": "recommended",
+    "ruleOverrides": {},
+    "assist": false,
+    "supportedMaintainedFilesScanned": 183,
+    "markdownYaml": "Manual .editorconfig/repository style; no additional formatter dependency",
+    "exclusions": "See biome.json/BIOME.md; maintained source/scripts/configs/test helpers/Workers source remain included"
+  },
+  "commands": {
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "proof": "Actual copied root aliases executed under strict guard; format writes only synthetic disposable source; version2.5.15 and strace demonstrate local native selection; malformed maintained TS/JSON fail, fixture/schema/output/plan bytes remain excluded"
+  },
+  "baseline": {
+    "lint": {
+      "summary": {
+        "changed": 0,
+        "unchanged": 183,
+        "matches": 0,
+        "duration": 37877144,
+        "errors": 18,
+        "warnings": 227,
+        "infos": 128,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 837486
+      },
+      "parseErrors": 0
+    },
+    "format:check": {
+      "summary": {
+        "changed": 0,
+        "unchanged": 183,
+        "matches": 0,
+        "duration": 10854901,
+        "errors": 120,
+        "warnings": 0,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 1318046
+      },
+      "parseErrors": 0
+    }
+  },
+  "watchRepair": {
+    "acceptedFinding": {
+      "reviewer": "Parent inspection",
+      "severity": "P2",
+      "finding": "Preparation beginsPattern matched process startup only; later error/repair batches had end markers without a fresh begin, leaving editor problems/readiness stale.",
+      "reference": "https://code.visualstudio.com/docs/debugtest/tasks#_background-watching-tasks"
+    },
+    "change": "One watch-only Schema scan started. log before every scheduled run; beginsPattern updated; existing success/failure end markers retained; non-watch behavior/schema bytes unchanged",
+    "focusedTest": "Existing real-watch regression now asserts exact initial-success, failed-preserving-output, repaired-success marker sequence and source path/TS1005; retains SIGTERM shutdown",
+    "actualTaskProof": {
+      "command": [
+        "bun",
+        "run",
+        "schema",
+        "--watch"
+      ],
+      "firstRunCycles": [
+        {
+          "begin": "Schema scan started.",
+          "end": "Schema scan complete; watching."
+        },
+        {
+          "begin": "Schema scan started.",
+          "end": "Schema generation failed; still watching."
+        },
+        {
+          "begin": "Schema scan started.",
+          "end": "Schema scan complete; watching."
+        }
+      ],
+      "diagnosticMatches": 12,
+      "correctErrorPath": "src/modules/quote.ts",
+      "signals": [
+        {
+          "signal": "SIGTERM",
+          "exitCode": 0,
+          "activeAfterEnd": null
+        },
+        {
+          "signal": "SIGINT",
+          "exitCode": 0,
+          "activeAfterEnd": null
+        }
+      ],
+      "liveDescendantsAfterSignal": 0,
+      "schemaBytesPreservedOnFailureAndRestoredAfterProof": true
+    },
+    "guiObserved": false
+  },
+  "verification": {
+    "focusedSchemaSuite": {
+      "command": "bun scripts/test.ts --serial --timeout=120000 scripts/schema-gen.test.ts",
+      "guard": "Maintained strict Linux replay launcher",
+      "passes": 9,
+      "fails": 0,
+      "skips": 0,
+      "includesAll13ProductionSchemaByteParity": true
+    },
+    "typecheck": {
+      "command": "bun run typecheck",
+      "guard": "scripts/testing/offline.py; scratch-only writes and inherited network/seccomp denial",
+      "libraryRoots": 58,
+      "toolsRoots": 100,
+      "diagnostics": 0
+    },
+    "rootScriptControls": "proof/offline/script-proof.json; final baseline and selected-native traces",
+    "reusedHeadlessProofs": {
+      "historicalPreparationReceiptSha256": "81bf1176e16ce6644821b27043d35f6b1e89a35de7de75c5d8dcac11ec1dcc1d",
+      "root": "/tmp/yf-biome-k-preparation-review-br8__9of",
+      "reused": "TSserver configured-project/.ts import-definition/typed quickinfo/TS2322/new-file .ts auto-import; Biome LSP initialize/configuration/nested-format/exclusions/shutdown; broad standalone positive/negative scope controls",
+      "justification": "Every src input and relevant tsconfigs, biome.json and editor settings are byte-identical to preparation. TS6 pin unchanged; actual local Biome2.5.15 binaries verified byte-identical to official archives. Changed watcher/task behavior was rerun rather than reused. Exact compared inputs are in proof/reuse-input-sha256.json."
+    }
+  },
+  "fixtureParity": {
+    "count": 1201,
+    "allBytesMatchBaselineRootAndCandidate": true,
+    "aggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "encoding": "UTF-8 tracked full path + NUL + SHA256(content) + LF in sorted path order"
+  },
+  "proofSha256": {
+    "proof/actual-advisories.json": "e1ae868e916089756cc52e7c445d692533db6e7b1ec55bbe3bc48c1f3cfef52f",
+    "proof/actual-inventory.json": "e616b1c60becb0d0f80918f427d86afc7e2197eef69fc3282cfa7ecb56f436b8",
+    "proof/audit-report.json": "dee30bd758cbc1f8f7cb5cc1babc170bcc211bd7c48614f96e7ab7abaa0ee0bd",
+    "proof/audit.py": "689a341a27a8fbbe23d2c0abe0700131ac0748535e42b52486c8042563164957",
+    "proof/bun-audit.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/bun-audit.stdout": "0c6fc46c5f47b2d03e382944d7cb4a9b6b75300114ce60ed64b564e50a502988",
+    "proof/clean-biome-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/clean-biome-version.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+    "proof/clean-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+    "proof/clean-install.stdout": "61623137d0ff8fb42f7720666a26bb5244f6de60e50cf3608711395be233bc7b",
+    "proof/clean-untrusted.stderr": "176b921599cac4d0af94621d71e493188a96676b574a569b26af3f89b5480d97",
+    "proof/clean-untrusted.stdout": "b23c2ab59b5ca070eaffbc8861747065284615cf56bcbcd18b677dfffea24b96",
+    "proof/final-script-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/final-script-controls.stdout": "ca56edbe3bdf299fcfd03e650eef3b0041b9608a363fa3a8764c8a04bf146d73",
+    "proof/final-typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a",
+    "proof/final-typecheck.stdout": "0ecaacb2def52fff573042b123656d76e537cbca3dbeef8f01a0191d2e2c52f3",
+    "proof/focused.stderr": "aa43c83b1df2a5359ee921fbebb4700b2aa40fa779f83f8df2578e8c0992997b",
+    "proof/focused.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+    "proof/install-report.json": "a92c46461e18c03a2593a4f5e8a8615162070e6bb387e051b1f72ac175e4875b",
+    "proof/lock-delta.json": "c9248cd72a82b41b2404a0b440a20abd339411f141341c4ac245e8313cd7cc6e",
+    "proof/node-engine-check.json": "c8229eba4200f20278ca08dc6d705267061573691eb64773f991a6e890d6b3b4",
+    "proof/offline/baseline-format.stderr": "81d2b4d11d686520dce6339dd367f786acd15b374ef5b7c54fd68424dbe09816",
+    "proof/offline/baseline-format.stdout": "bd5c7a8201509d26a339948a4052408d247d1daeafd76bce6b5b479c25f1ff50",
+    "proof/offline/baseline-lint.stderr": "de5c5abf82dbb7ceb454fab2beab9e98aab716fd208189ed1635fc256dd2f63a",
+    "proof/offline/baseline-lint.stdout": "d070805f1f00cbb19fc50021d59fc64dda323a66dab08e539e2f1d67e63a27c1",
+    "proof/offline/format-check-selection.stderr": "ec9c495e944ef1d0d6845160b091186dfa029ca64330348871b825cf8f33d9d7",
+    "proof/offline/format-check-selection.stdout": "d3048509c0f59ee8702d23f409d899f5be1ffcd222a1908cf17719fe18220c6a",
+    "proof/offline/format-check.trace": "36f883a04471243645e946ef9d95bb9e7f0c3276d915179f62c18446ed262f96",
+    "proof/offline/format-selection.stderr": "27e2d917b0f785adcc7f708d9eee9d77858c3f6a4962cdd01e137b430e608027",
+    "proof/offline/format-selection.stdout": "5483b7bf1e7c6f2063bfb114a005c86ad2b3e81356a28e09ba92c055679dcf0b",
+    "proof/offline/format-version.stderr": "764dec0c890f86a595d3296c6b91f0ea1e6f28b3241615c4ec950652d3a16084",
+    "proof/offline/format-version.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/offline/format.trace": "d7ca34caec4313a909c909694497b7ee54eaf7ea919a4fc252326af452184fc3",
+    "proof/offline/lint-selection.stderr": "f6cac368adcfed7d57706305003c94024b207d7ba899f26bcf74f35d3db465f3",
+    "proof/offline/lint-selection.stdout": "94cf74da15f5f347365d8f075e8b8810699bf75fbd5792ea2824107d092a192d",
+    "proof/offline/lint.trace": "556f3e15cd5743e65f4eb5451927e3f4106b6486680e57d352b8174ab9bcb671",
+    "proof/offline/owned-config.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proof/offline/owned-config.stdout": "e197544555d829906f7f503565c939988e07551f61909d24f0e0caf91e7c37c0",
+    "proof/offline/script-proof.json": "a998bcbae56a2e824246795265ad179a6b37a0865042acc36b296e204b89c1cb",
+    "proof/offline/synthetic-format-check.stderr": "ec9c495e944ef1d0d6845160b091186dfa029ca64330348871b825cf8f33d9d7",
+    "proof/offline/synthetic-format-check.stdout": "e7903ddc6d8adf6abf1e9a139c3179552b3653446f7762bc14c0e138187f3b4a",
+    "proof/offline/synthetic-format.stderr": "27e2d917b0f785adcc7f708d9eee9d77858c3f6a4962cdd01e137b430e608027",
+    "proof/offline/synthetic-format.stdout": "304e37ddf41111550edf0635e3672d21309ceb716ff81e17027ead5c4d950c6e",
+    "proof/offline/synthetic-lint-negative.stderr": "578847101b5868f01f035f5ef790a03bc22b44831d4b8421262c05d774de30bb",
+    "proof/offline/synthetic-lint-negative.stdout": "0dbdcbfb00fd0cfb0ea183afd3bd81faa040b9b903053c606006d4ea8d14c8af",
+    "proof/offline/synthetic-lint.stderr": "f6cac368adcfed7d57706305003c94024b207d7ba899f26bcf74f35d3db465f3",
+    "proof/offline/synthetic-lint.stdout": "d0f90b49b86a053f2c9324cfdd89280c947a9a95b94e253cd180de31c882253d",
+    "proof/offline/synthetic-maintained-parse.stderr": "4b76b5fe5184f304adc33b814087489f788e59b2c3ff3777916295ed9702c6c7",
+    "proof/offline/synthetic-maintained-parse.stdout": "417acb401875e36023f9db5e531059cad6a37d5f329c5011556491a3435ae7b8",
+    "proof/offline/watch-proof.json": "227cb415467a884475c4894a189ecf1f8a93085b6af1747da1590c8414cbd6c8",
+    "proof/reuse-input-sha256.json": "cb664779d2ddbeb282b4670597d230b413c1bc208282dc79b68a9d9bf7a2374b",
+    "proof/reused/controls.json": "3a3707517b875bddcfe1815f36867d7ec4b9255c00e8281050aaac1d86522a97",
+    "proof/reused/headless.py": "b72f56cdbc45af6072a2d3cab6e855b213fb42a70f605526273d4e86f39fd51a",
+    "proof/reused/lsp.json": "4b7fe0a8df553c61a5cdc877396d40b662116f14628ca1fc95ee647c09665314",
+    "proof/reused/lsp.py": "13cde95c7ff7c62dfe5511a50384d7499cf330b5e876cd8ac99e9fb9d7cc9835",
+    "proof/reused/metadata-audit.json": "c49e73cf7cb3290f5dfc6b2eaa0cc36a1c59b8faaf10533a124eeaf4da7b8826",
+    "proof/reused/tsserver.json": "a619ce72c929f8ad0a10a8f98249677b633019a26721a1800a28e2fabe8c05a4",
+    "proof/source-sha256.json": "589794fc46b5557a8418f748cedb39402b89939d68c85a002f5af8b1789b35a1",
+    "proof/verify-scripts.py": "675fd56e82ca6faedf271dc06817f26efc55450206d1c5995cc8aa155641d0af",
+    "proof/verify-watch.py": "ae67b82b683956cd988e4bf88455a68905762b12cc9604dd3dc907b59d1d7b48"
+  },
+  "limitations": [
+    "Lint/format baseline intentionally red:18errors/227warnings/128infos and120formatting failures; no maintained source formatting/lint cleanup or unsafe fixes",
+    "No K02 directive cleanup or CI integration claimed; CI/H drafts excluded",
+    "No VSCode GUI save, extension installation, workspace SDK selection or automatic-task consent observed",
+    "Linux x64 only; no other-OS/native-musl execution claim",
+    "Registry install/audit separated from strict offline tests; no Yahoo contact, original fixture writes, Deno invocation or publisher execution",
+    "No report ticks, git staging, commit or push; independent Sol xhigh and Astra xhigh reviews still required"
+  ],
+  "review": {
+    "status": "Accepted K01/K04 after independent Sol xhigh and Astra xhigh review; K02 and CI remain pending",
+    "reviewedReceiptSha256": "c9bbfb4e36303e49560eb5f4ed9fdfd9bf859cfd1840c788da60b6abaff73d3e",
+    "sol": {
+      "verdict": "No actionable findings",
+      "evidence": "/tmp/yf-biome-sol-review-6lmgehf4",
+      "bounds": "Linux headless verification; author registry evidence inspected, not repeated"
+    },
+    "astra": {
+      "verdict": "No actionable findings",
+      "evidence": "/tmp/yf-biome-astra-3ts6ag8k/review.json",
+      "evidenceSha256": "7b387818894e5e9f65bece26d7de298c8a0df7a1b020ca8d0bf2bdf765bab2f4",
+      "bounds": "Linux headless verification; no GUI-save or other-platform claim; author registry evidence inspected, not repeated"
+    },
+    "acceptedParentFindingRepaired": true,
+    "parentAfterReview": "Documentation acceptance wording and this receipt metadata only; reviewed executable/configuration bytes unchanged"
+  },
+  "reviewedSourceSha256": {
+    "biome.json": "9ff1d2822f31b394243594d67dcb43737b41371cf7a86caab1d6469b934c755f",
+    ".vscode/settings.json": "9f307587fee32d896909f8fa802719bce2b4e135ebaaf109e22e3b861b728d65",
+    ".vscode/tasks.json": "84f8b4470992f9bdbab240b46530ff7f61faf7b52a8b46bb8ba60c8b5d13d4b9",
+    ".vscode/extensions.json": "8b39eb19181f8cba96e0bc49e30eca8a09d3dca4f0ec83ecd9f52462a3ab2258",
+    "tests/migration/BIOME.md": "05b52c5035663571c6c8ee20472273b4c69d26418f7245dc52da4bc979740997",
+    "tests/migration/results/k01-k04-preparation.json": "81bf1176e16ce6644821b27043d35f6b1e89a35de7de75c5d8dcac11ec1dcc1d",
+    "package.json": "b10619659f89c1171568d898613ed6d3b0ff821f934399686b22e52db9cae71f",
+    "bun.lock": "9d967881a8482ad4dc31fabcec857b290f15781a91e812e3809414f152f7d99a",
+    "scripts/schema-gen.ts": "080d9050969209f0b03c194a28e09219c82076b4cec6bf31a776c7c523406afa",
+    "scripts/schema-gen.test.ts": "510320b4e09076b7b13ca1cee589500448c0f654eb1608fb4e3262b5b3b121f7"
+  }
+}

@@ -132,9 +132,9 @@ all items; the benchmark results above retain their historical meaning.
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
-| [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
+| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        2/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **40/71** |
+| **Overall**                                                      | **In progress** |  **42/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -453,6 +453,29 @@ mirror for scratch mutation tests after the documentation archive was frozen
 read-only. No historical checker or Deno process was run. The separate H04
 Workers gate remains required. Progress is **40/71**.
 
+## Biome and editor adoption checkpoint (K01/K04, 2026-10-16)
+
+[Biome 2.5.15 and the editor policy](BIOME.md) now own maintained TypeScript,
+JavaScript and JSON formatting/linting. The exact dependency, three root aliases
+and recommended preset are adopted without suppressing the existing debt.
+The [adoption receipt](results/k01-k04-adoption.json) records the normal-hook
+frozen install, unchanged previous lock entries and the honest red baseline:
+18 lint errors, 227 warnings, 128 informational diagnostics and 120 unformatted
+files among 183 supported files. K02 cleanup remains open and formatting churn
+will land separately from behavior changes.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the exact scope, including
+nine schema tests, all thirteen generated schema byte comparisons, actual pinned
+TSserver `.ts` imports and diagnostics, Biome LSP formatting/exclusions, and
+initial/error/repaired schema-watch cycles with SIGINT/SIGTERM cleanup. All
+1,201 fixtures remain unchanged. Editor verification is headless on Linux;
+no GUI save or native macOS/Windows execution is claimed. Progress is **42/71**.
+
+The user has also selected native replay for trusted macOS/Windows development,
+with stronger process-level network and fixture denial retained in Linux CI.
+That implementation and native OS proof remain pending; fetch-mock-cache's
+portable replay behavior is distinct from the Linux kernel guard.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -764,7 +787,7 @@ B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
 **Next small milestones:** finish runtime detection/support-policy checks in H,
-adopt Biome configuration/editor integration and then isolated formatting/lint
+complete native development replay and isolated formatting/lint
 cleanup in K, and port the maintained commands into CI and publication in I/J.
 B04/E03 now cover root import resolution and production/tooling compilation;
 F, G04/G05 and H04 provide bounded installed-package/runtime proofs. Native OS
@@ -1149,7 +1172,7 @@ review and publisher-only Deno compatibility proof remain separate gates.
 
 ### K. Biome, documentation and developer experience
 
-- [ ] K01 — Adopt pinned Biome formatting/lint configuration with reviewed rule
+- [x] K01 — Adopt pinned Biome formatting/lint configuration with reviewed rule
       equivalents and exclusions for fixtures, generated schemas/output and
       plans; separate formatting churn from runtime changes.
 - [ ] K02 — Replace or justify Deno lint/format directives and verify Biome
@@ -1158,7 +1181,7 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [ ] K03 — Update README, CONTRIBUTING, AGENTS, upgrade and executable/skill
       instructions with clean-clone install, full/focused/serial/watch/coverage,
       offline/recache, schema, build and release commands that actually work.
-- [ ] K04 — Replace VSCode Deno extension/settings and automatic schema-watch
+- [x] K04 — Replace VSCode Deno extension/settings and automatic schema-watch
       tasks with TypeScript/Biome tooling; verify language service, imports,
       formatting-on-save and background task lifecycle from a fresh checkout.
 - [ ] K05 — Choose and verify API documentation generation/lint/watch/open

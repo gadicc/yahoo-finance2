@@ -1,15 +1,22 @@
 {
   "files.eol": "\n",
-
-  "deno.enable": true,
-  "deno.lint": true,
-  "deno.enablePaths": ["."],
-  "deno.disablePaths": ["./tests/fixtures/http"],
-
-  "editor.defaultFormatter": "denoland.vscode-deno",
-  "editor.formatOnSave": true,
-
+  "deno.enable": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.disableAutomaticTypeAcquisition": true,
-  "javascript.validate.enable": false,
-  "typescript.validate.enable": false
+  "javascript.validate.enable": true,
+  "typescript.validate.enable": true,
+  "biome.requireConfiguration": true,
+  "biome.suggestInstallingGlobally": false,
+  "[typescript][typescriptreact][javascript][javascriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never",
+      "source.fixAll.biome": "never",
+      "source.organizeImports": "never",
+      "source.organizeImports.biome": "never"
+    }
+  },
+  "typescript.preferences.importModuleSpecifierEnding": "js"
 }
