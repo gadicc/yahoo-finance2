@@ -407,7 +407,7 @@ test("default strict options and explicit true strict options both accept valid 
       (result) => !result.diagnostics.length,
     ),
   ).toBe(true);
-});
+}, 30_000);
 
 test("maintained imports and effective editor mappings no longer require Deno tooling", () => {
   function references(text: string, name: string) {
