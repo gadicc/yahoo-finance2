@@ -589,6 +589,31 @@ The exact reviewed patch is applied; full combined replay, actual runner
 acceptance and final integrated Astra review remain separate. K02 stays open
 until CI alignment is verified; progress remains **43/71**.
 
+## Combined local checkpoint (2026-10-16, `a32cb00`)
+
+The [combined receipt](results/integration-a32cb00.json) binds the committed
+formatting, semantic lint, runtime, native replay and CI-preparation inputs.
+Strict coverage replay and isolated serial replay each pass **1,516 tests /
+61 files**. Explicit native development replay and native serial each pass
+**1,359 tests / 41 files**, with the remaining tooling inventory disclosed.
+Native results here exercise Linux; they do not establish Windows/macOS support.
+
+The strict kernel probe, formatting, zero-error lint, complete normal and
+incremental checks, compiler negative control, thirteen no-write schema checks,
+release-note contract and ten Python CI controls pass. LCOV validates 89 source
+records, 726 functions and 9,831 lines; Bun emits no branch data, and this is
+not an engine-comparison percentage claim. The independent normal frozen npm
+Workers pipeline passes build, own-source types and eight actual workerd tests
+from the installed package. All tracked input bytes and 1,201 HTTP fixtures
+remain unchanged. One parent verification-wrapper invocation used a relative
+Python path where `execv` requires an absolute path; the corrected unit command
+passes, with both attempts retained in the receipt.
+
+No Deno, live Yahoo or fixture capture was used. Remote AppArmor enforcement,
+artifact transfer/Codecov, actual native OS coverage and final reviews remain
+open. This is a correctness checkpoint, not a new benchmark or production-ready
+decision; progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

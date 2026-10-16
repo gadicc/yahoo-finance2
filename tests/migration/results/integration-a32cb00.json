@@ -1,0 +1,301 @@
+{
+  "date": "2026-10-16T13:28:28.190986+00:00",
+  "head": "a32cb00362cb975ed354cfdceb5de075b60d78b2",
+  "scope": "Combined committed formatting, native replay, semantic lint, runtime and CI-preparation inputs; AppArmor and native OS/API-doc candidates are not applied. Not benchmark timing.",
+  "inputFiles": 1547,
+  "inputManifestSha256": "76d88d6656631bf3bbeb20d949a7fc47f7512aba618eeb635bd9d77d2dc1bf36",
+  "commands": [
+    {
+      "name": "guard",
+      "argv": [
+        "python3",
+        "scripts/ci.py",
+        "guard"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 0.214,
+      "log": "/tmp/yf-integration-a32cb00/guard.log",
+      "logSha256": "6a9f7faaaa795278bc5dbba0ae58ff14d8f585c902fc2d45853d1b20f64c1557"
+    },
+    {
+      "name": "format",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "format:check"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 0.136,
+      "log": "/tmp/yf-integration-a32cb00/format.log",
+      "logSha256": "ac6085e4ea49977f372144d16afc31b433bcc0ef9ad580afa6c4a773941e014e"
+    },
+    {
+      "name": "lint",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "lint"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 0.167,
+      "log": "/tmp/yf-integration-a32cb00/lint.log",
+      "logSha256": "d8640239e293ed8796ba14da2b89d845f54badb2282d3c78a3a267f85e6efb62"
+    },
+    {
+      "name": "types",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "typecheck"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 2.511,
+      "log": "/tmp/yf-integration-a32cb00/types.log",
+      "logSha256": "9db209393206195d4c27d9bfbd4db4eaa4d3ca44ad9bad6fa7f629602132f614"
+    },
+    {
+      "name": "types-incremental",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "typecheck:incremental"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 2.594,
+      "log": "/tmp/yf-integration-a32cb00/types-incremental.log",
+      "logSha256": "defd9ef4d421d24ef2485f6ef336a0f180bff63e74c66bb1b1e41a78a754349b"
+    },
+    {
+      "name": "types-negative",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "typecheck:negative"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 5.747,
+      "log": "/tmp/yf-integration-a32cb00/types-negative.log",
+      "logSha256": "7ff9c7f82b89b6a5204c92f87128ed4b01d5d2dbcf12addcd2c5d39e42f57ff8"
+    },
+    {
+      "name": "schema",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "schema:check"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 10.377,
+      "log": "/tmp/yf-integration-a32cb00/schema.log",
+      "logSha256": "6944af546b3cc027f516de6a0dccaac4df9a3a2cbf4a43a79442f8cb71d733d3"
+    },
+    {
+      "name": "release-notes",
+      "argv": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "scripts/check-release-notes.mjs"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 0.264,
+      "log": "/tmp/yf-integration-a32cb00/release-notes.log",
+      "logSha256": "c85ebce9a49ede17fd74d0db1bc183bc728664369f07d33a8947f5968a6409b9"
+    },
+    {
+      "name": "python-ci",
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "ci_test.py"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 2,
+      "seconds": 0.059,
+      "log": "/tmp/yf-integration-a32cb00/python-ci.log",
+      "logSha256": "c279b8df05fd29522f254ea731f6dc423810c00bc844d30e8e81f9f02326178e"
+    },
+    {
+      "name": "python-ci-absolute",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "ci_test.py"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 0.126,
+      "log": "/tmp/yf-integration-a32cb00/python-ci-absolute.log",
+      "logSha256": "8c4b1532288f3c2237a75b4778a19116380135ed2658033225c3d1a1a8446867"
+    },
+    {
+      "name": "replay-coverage",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "test:coverage"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 37.305,
+      "log": "/tmp/yf-integration-a32cb00/replay-coverage.log",
+      "logSha256": "305b31519cce2f518239ce970e021b56326bc3c4278d7a48f6e9cb61393df568",
+      "tests": {
+        "passed": 1516,
+        "failed": 0,
+        "total": 1516,
+        "files": 61
+      }
+    },
+    {
+      "name": "lcov",
+      "argv": [
+        "/usr/bin/python3",
+        "scripts/ci.py",
+        "coverage"
+      ],
+      "strictOuterGuard": true,
+      "exitCode": 0,
+      "seconds": 0.113,
+      "log": "/tmp/yf-integration-a32cb00/lcov.log",
+      "logSha256": "e1f99fae129ea440712b5431505ef96a554859c38ca03c711cad4b97db4ab280",
+      "coverage": {
+        "branches": "not emitted by Bun 1.4.3",
+        "functions": 726,
+        "functionsHit": 609,
+        "lines": 9831,
+        "linesHit": 7713,
+        "sources": 89
+      }
+    },
+    {
+      "name": "replay-serial",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "test:serial"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 114.284,
+      "log": "/tmp/yf-integration-a32cb00/replay-serial.log",
+      "logSha256": "7def725730d92fd07e53f50aa329d384859ce8daa822e17f4544203614fc8e4f",
+      "tests": {
+        "passed": 1516,
+        "failed": 0,
+        "total": 1516,
+        "files": 61
+      }
+    },
+    {
+      "name": "native",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "test:native"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 3.794,
+      "log": "/tmp/yf-integration-a32cb00/native.log",
+      "logSha256": "144e0eacfcadd1960132c3161145cde06a451a0ef5f13560e00e7f6f22a1de1a",
+      "tests": {
+        "passed": 1359,
+        "failed": 0,
+        "total": 1359,
+        "files": 41
+      }
+    },
+    {
+      "name": "native-serial",
+      "argv": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--no-env-file",
+        "run",
+        "test:native",
+        "--serial"
+      ],
+      "strictOuterGuard": false,
+      "exitCode": 0,
+      "seconds": 5.552,
+      "log": "/tmp/yf-integration-a32cb00/native-serial.log",
+      "logSha256": "7a31d71ed1143ed5adc2c834449b753feb08eaa9b94881cd6b2f332e4d91c8c8",
+      "tests": {
+        "passed": 1359,
+        "failed": 0,
+        "total": 1359,
+        "files": 41
+      }
+    }
+  ],
+  "parentHarnessCorrection": "The first Python-unit attempt passed relative python3 through offline.py os.execv, which requires an absolute executable; it failed before unit execution. Retry uses canonical /usr/bin/python3. Repository code unchanged.",
+  "inputBytesUnchanged": true,
+  "fixtures": {
+    "count": 1201,
+    "aggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "recipe": "sorted UTF-8 repository path + NUL + lowercase SHA256 hex ASCII + LF",
+    "unchanged": true
+  },
+  "status": "All intended combined local checks passed after the documented parent-wrapper correction; remote CI, Codecov and actual native OS acceptance pending.",
+  "workers": {
+    "argv": [
+      "python3",
+      "-B",
+      "scripts/ci.py",
+      "workers",
+      "--bun",
+      "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+      "--node",
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "--npm",
+      "/tmp/yf-workers-h04/npm-tool/node_modules/npm/bin/npm-cli.js"
+    ],
+    "exitCode": 0,
+    "tests": 8,
+    "package": "real generated installed copy; independent npm10.9.9 normal frozen install",
+    "log": "/tmp/yf-integration-a32cb00/workers.log",
+    "logSha256": "9e445d4172a7b6849c33b1dc7736c4d011aaa5545c37fe4f212de6185eef7b01",
+    "boundary": "strict build/own-source typecheck, private loopback-only workerd with zero-capability leaf; actual AppArmor not enabled on this local host"
+  },
+  "provenance": {
+    "bun": "1.4.3",
+    "node": "24.21.0",
+    "typescript": "6.0.3",
+    "biome": "2.5.15",
+    "os": "Linux x64",
+    "freshRootInstall": "No new root installation claimed here; committed graph and existing normal-hook install are unchanged by formatter. Independent Workers install was fresh."
+  },
+  "limits": [
+    "No Deno execution, live Yahoo or fixture writes",
+    "Native results are actual trusted Linux mode; native macOS/Windows remain pending",
+    "No benchmark comparison, remote AppArmor enforcement, Codecov/OIDC or artifact transfer claim",
+    "First Python-unit command failed in parent wrapper because offline execv needs an absolute executable; corrected retry passed, source unchanged"
+  ]
+}
