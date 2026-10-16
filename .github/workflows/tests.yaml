@@ -29,7 +29,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      - run: python3 -B -m unittest discover -s scripts -p 'ci_test.py'
+      - run: python3 -B -m unittest discover -s scripts -p 'ci*_test.py'
       - run: bun run format:check
       - run: bun run lint
       - run: bun run typecheck

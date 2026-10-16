@@ -35,5 +35,7 @@ runs:
         test "$RUNNER_OS" = Linux
         sudo apt-get update
         sudo apt-get install --yes --no-install-recommends bubblewrap python3 libseccomp2 iproute2 util-linux
+        python3 -I -B -m unittest discover -s scripts -p ci_apparmor_test.py
+        python3 -I -B scripts/ci_apparmor.py
         python3 scripts/ci.py guard
       shell: bash

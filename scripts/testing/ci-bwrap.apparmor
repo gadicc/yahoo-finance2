@@ -1,0 +1,6 @@
+# Ephemeral GitHub-hosted Ubuntu 24.04 CI only. Not a workload sandbox.
+# Ubuntu's supported exact-executable userns exception permits nested guards.
+abi <abi/4.0>,
+profile yahoo_finance2_ci_bwrap /usr/bin/bwrap flags=(unconfined) {
+  userns,
+}

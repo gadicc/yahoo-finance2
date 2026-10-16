@@ -614,6 +614,33 @@ artifact transfer/Codecov, actual native OS coverage and final reviews remain
 open. This is a correctness checkpoint, not a new benchmark or production-ready
 decision; progress remains **43/71**.
 
+## Ubuntu guard remedy preparation (I01–I04, 2026-10-16)
+
+The [CI-only AppArmor provisioner](CI-APPARMOR.md) is now applied after
+independent Sol xhigh and Astra xhigh clearance. It uses a reviewed executable
+user-namespace exception for disposable hosted Ubuntu 24.04 jobs, with the
+existing Bubblewrap, seccomp, read-only repository and zero-capability Workers
+leaf still providing the test boundaries. System-wide restrictions stay enabled;
+ordinary unrelated-process denial, strict/nested guards and profile lineage must
+pass before tests proceed. This inherited exception is not a workload sandbox.
+
+Both reviewers identified and verified the repair of an attachment collision:
+profile names do not reveal wildcard executable attachments. Before any sudo
+operation and again before loading, the loader now holds the actual Bubblewrap
+executable in argument parsing, verifies its live identity/credentials/namespaces
+and requires its real label to be unconfined. Unknown labels and collisions fail
+closed. Root operations remain fixed system utilities with immutable staged
+policy bytes; no repository code executes as root.
+
+The [receipt](results/i01-apparmor-preparation.json) preserves the original
+finding and frozen inputs. All 37 Python controls, real held-pipe protocol and
+failure/cleanup controls, and strict/nested/Workers kernel checks pass. All
+1,201 fixtures remain unchanged. Local AppArmor is disabled, so local label and
+privileged-effect modeling does not establish enforcement. Actual Ubuntu
+before/after labels, retained default denial and complete CI still require a
+runner retry. No local profile was loaded and no I item is checked from this
+preparation; progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

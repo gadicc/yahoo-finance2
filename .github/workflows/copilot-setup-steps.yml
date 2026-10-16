@@ -14,6 +14,9 @@ on:
       - package.json
       - scripts/check-toolchain.mjs
       - scripts/ci.py
+      - scripts/ci_apparmor.py
+      - scripts/ci_apparmor_test.py
+      - scripts/testing/ci-bwrap.apparmor
       - scripts/testing/offline.py
       - tests/cloudflare/package-lock.json
   pull_request:
@@ -25,6 +28,9 @@ on:
       - package.json
       - scripts/check-toolchain.mjs
       - scripts/ci.py
+      - scripts/ci_apparmor.py
+      - scripts/ci_apparmor_test.py
+      - scripts/testing/ci-bwrap.apparmor
       - scripts/testing/offline.py
       - tests/cloudflare/package-lock.json
 
@@ -84,5 +90,7 @@ jobs:
           test "$RUNNER_OS" = Linux
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends bubblewrap python3 libseccomp2 iproute2 util-linux
+          python3 -I -B -m unittest discover -s scripts -p ci_apparmor_test.py
+          python3 -I -B scripts/ci_apparmor.py
           python3 scripts/ci.py guard
         shell: bash

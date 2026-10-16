@@ -16,9 +16,10 @@ Setup installs Bubblewrap, Python, libseccomp, iproute2 and util-linux, then
 executes `python3 scripts/ci.py guard`. The real kernel preflight verifies a new
 network namespace, AF_INET/AF_INET6 and io_uring denial, child socket denial,
 read-only repository/fixture mounts, writable scratch and cleared capture
-settings. Missing tools or denied namespaces stop the job. No sysctl, AppArmor
-or global security-policy changes are made. The upstream AppArmor
-`bwrap-userns-restrict` profile strips child capabilities, which can conflict
+settings. Missing tools or denied namespaces stop the job. No sysctl or global
+security-policy changes are made. The targeted ephemeral CI exception and its
+required before/after controls are documented in [CI AppArmor](CI-APPARMOR.md).
+The upstream AppArmor `bwrap-userns-restrict` profile strips child capabilities, which can conflict
 with Workers' namespace-local loopback setup; it must not be blindly loaded as
 a workaround. Actual GitHub runner behavior remains a required remote proof.
 
