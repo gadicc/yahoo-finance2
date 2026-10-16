@@ -126,15 +126,15 @@ all items; the benchmark results above retain their historical meaning.
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        5/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
-| [E. Type checking and schema generation](#migration-e)           | In progress     |        5/6 |
+| [E. Type checking and schema generation](#migration-e)           | Complete        |        6/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        3/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        3/5 |
-| [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
+| [I. CI, coverage and repair automation](#migration-i)            | In progress     |        3/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
-| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        2/6 |
+| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        3/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **43/71** |
+| **Overall**                                                      | **In progress** |  **48/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -681,6 +681,30 @@ validation retained 89 sources, 726 functions and 9,831 lines. All 1,201 fixture
 and schemas are unchanged. Actual complete CI, artifact/Codecov verification and
 final integrated review remain open; progress remains **43/71**.
 
+## Passing hosted CI and coverage acceptance (2026-10-16)
+
+[Run 38912973045](https://github.com/gadicc/yahoo-finance2/actions/runs/38912973045)
+on `2a5ed6d` passed Tests, Workers and Codecov. The [receipt](results/ci-2a5ed6d.json)
+binds the exact inputs, reviewed implementation lineage, complete logs and
+artifact metadata. Strict coverage passed **1,516 tests / 61 files**; all tooling
+and 39 Python controls passed, as did eight actual Workers tests with a separate
+normal npm installation.
+
+The sole retained artifact contains `lcov.info`. Its archive SHA-256 matches
+GitHub metadata and the actual downstream download, and independently extracted
+bytes pass source/path/counter validation: **89 sources, 726 functions and 9,831
+lines**. The isolated Codecov job acquired OIDC credentials and uploaded exactly
+that explicit report with search, plugins and file fixes disabled. The service
+accepted and queued the upload; later UI processing is not asserted. Earlier
+failed runs demonstrate artifact/Codecov failure routing.
+
+This accepts **E06, I02–I04 and K02** after the scoped independent reviews and
+combined local verification. Progress is **48/71**. I01's cache-free OS matrix,
+I05/I06, publication, native runtime checks and final whole-migration reviews
+remain open. This hosted run used restored download caches; it does not replace
+the pending clean native matrix or establish production readiness. All 1,201
+fixture bytes and modes remain unchanged.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
@@ -1210,12 +1234,13 @@ review and publisher-only Deno compatibility proof remain separate gates.
       watch/shutdown, real shared-import negative controls and preserved output
       timestamps are documented in [schema behavior](SCHEMAS.md) and
       [verification](results/e04-e05-schema.json).
-- [ ] E06 — Restore a stale-schema CI gate, including shared-schema consumers
+- [x] E06 — Restore a stale-schema CI gate, including shared-schema consumers
       such as historical/chart; demonstrate an intentional stale schema fails
       and regeneration repairs it without recaching or loosening validation.
-      Partial evidence: maintained no-write `bun run schema:check` plus real
-      quote/options dependency and repair controls now pass; actual CI routing
-      and verification remain I02/E06.
+      Evidence: reviewed no-write stale/repair and shared-consumer controls in
+      [CI preparation](results/i01-i04-preparation.json), followed by the actual
+      schema gate in [passing CI](results/ci-2a5ed6d.json). No fixture recaching
+      or validation loosening was involved.
 
 <a id="migration-f"></a>
 
@@ -1342,16 +1367,22 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [ ] I01 — Replace the reusable setup action and test workflow's Deno steps
       with pinned Bun/tool installations and frozen dependency caches; prove
       clean CI installs on the supported Node/OS matrix without local caches.
-- [ ] I02 — Gate formatting, lint, complete typecheck, stale schemas, release
+- [x] I02 — Gate formatting, lint, complete typecheck, stale schemas, release
       notes, offline tests and packed Workers compatibility using maintained
-      commands; verify failed gates stop dependent release work.
-- [ ] I03 — Audit coverage include/exclude rules and Deno/Istanbul ignore
+      commands; verify failed gates stop dependent release work. Evidence:
+      [passing hosted run and earlier failure routing](results/ci-2a5ed6d.json);
+      release retains its dependency on the reusable Tests workflow.
+- [x] I03 — Audit coverage include/exclude rules and Deno/Istanbul ignore
       directives, source maps and branch/function accounting; establish
       comparable reports and intentional thresholds without claiming the
-      benchmark engines produced equivalent coverage percentages.
-- [ ] I04 — Verify LCOV/report artifacts and Codecov OIDC upload paths,
+      benchmark engines produced equivalent coverage percentages. Evidence:
+      [native accounting contract](CI.md#native-coverage-contract), reviewed
+      controls and the [validated hosted LCOV](results/ci-2a5ed6d.json).
+- [x] I04 — Verify LCOV/report artifacts and Codecov OIDC upload paths,
       permissions and failure handling; exclude generated/experiment files for
-      documented reasons and avoid silently reducing coverage scope.
+      documented reasons and avoid silently reducing coverage scope. Evidence:
+      [actual archive digest, extracted LCOV and OIDC upload](results/ci-2a5ed6d.json).
+      Upload was accepted and queued; later service UI processing is not claimed.
 - [ ] I05 — Port the recache workflow's baseline/live/429 checks and artifact
       handling to the new commands; keep its current trigger policy, explicit
       network access and fixture-review/staging safeguards.
@@ -1391,9 +1422,12 @@ review and publisher-only Deno compatibility proof remain separate gates.
 - [x] K01 — Adopt pinned Biome formatting/lint configuration with reviewed rule
       equivalents and exclusions for fixtures, generated schemas/output and
       plans; separate formatting churn from runtime changes.
-- [ ] K02 — Replace or justify Deno lint/format directives and verify Biome
+- [x] K02 — Replace or justify Deno lint/format directives and verify Biome
       detects representative mistakes; align local commands and CI without broad
-      suppressions masking substantive migration failures.
+      suppressions masking substantive migration failures. Evidence: independent
+      semantic/format reviews, the [combined local run](results/integration-a32cb00.json)
+      and [passing hosted format/lint/replay gates](results/ci-2a5ed6d.json).
+      Existing 150 warning/127 information diagnostics remain explicit.
 - [ ] K03 — Update README, CONTRIBUTING, AGENTS, upgrade and executable/skill
       instructions with clean-clone install, full/focused/serial/watch/coverage,
       offline/recache, schema, build and release commands that actually work.
