@@ -1,9 +1,18 @@
 name: Tests
 on:
+  push:
+    branches: [dev]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
   workflow_call:
   workflow_dispatch:
+
+# The caller's workflow name is used for reusable runs. Keep this namespace
+# distinct from release-* so a nested Tests call cannot cancel its publisher.
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/dev') }}
+
 jobs:
   tests:
     name: Tests
@@ -25,7 +34,7 @@ jobs:
       - run: deno task release:check-notes
 
       - name: Run tests, produce coverage
-        run: deno task test --coverage
+        run: deno task test:replay --coverage
 
       - name: Codecov
         uses: codecov/codecov-action@v7

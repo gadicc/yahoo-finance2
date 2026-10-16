@@ -77,6 +77,9 @@ as historical when chart's schema changes.
 
 ### Testing
 
+See the [workflow policy](./docs/workflow-policy.md) for CI triggers, release
+branches, and scheduled fixture maintenance.
+
 `deno task test`
 
 The test task runs with the `test` Deno permission set from `deno.json`, which

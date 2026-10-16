@@ -51,7 +51,7 @@ concurrency:
 # later want the README test badge to turn red immediately after the bot commit,
 # there are two reasonable paths:
 # - push with a GitHub App token or bot PAT, so the push triggers CI normally;
-# - keep GITHUB_TOKEN, add `actions: write`, and dispatch release.yaml on dev
+# - keep GITHUB_TOKEN, add `actions: write`, and dispatch tests.yaml on dev
 #   explicitly after pushing.
 #
 # Direct pushes to dev also require branch protection/settings to allow this
@@ -60,7 +60,21 @@ permissions:
   contents: read
 
 jobs:
+  branch-policy:
+    name: Validate recache branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Require dev before recaching or repairing
+        run: node scripts/workflow-policy.mjs recache
+
   recache:
+    needs: branch-policy
     if: ${{ !inputs.repair_only }}
     name: Re-cache Yahoo fixtures
     runs-on: ubuntu-latest
@@ -425,9 +439,9 @@ jobs:
 
   repair:
     name: Propose schema repair
-    needs: recache
+    needs: [branch-policy, recache]
     if: >-
-      always() && !cancelled() && github.ref == 'refs/heads/dev' &&
+      always() && !cancelled() && needs.branch-policy.result == 'success' && github.ref == 'refs/heads/dev' &&
       ((vars.SCHEMA_REPAIR_ENABLED == 'true' && needs.recache.result == 'success' && needs.recache.outputs.drift_sha != '') ||
        (github.event_name == 'workflow_dispatch' && inputs.repair_only))
     runs-on: ubuntu-latest

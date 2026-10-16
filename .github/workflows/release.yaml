@@ -1,6 +1,17 @@
 name: Release
 on:
   push:
+    # Match release.config.mjs. Actions globs are not semantic-release extglobs.
+    branches:
+      - main
+      - master
+      - next
+      - next-major
+      - alpha
+      - beta
+      - "[0-9]+.x"
+      - "[0-9]+.[0-9]+.x"
+      - "[0-9]+.x.x"
   workflow_dispatch:
 
 permissions:
@@ -11,16 +22,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  branch-policy:
+    name: Validate release branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      allowed: ${{ steps.policy.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Require a configured release branch
+        id: policy
+        run: node scripts/workflow-policy.mjs release
+
   tests:
     name: Tests
+    needs: branch-policy
+    if: needs.branch-policy.outputs.allowed == 'true'
     uses: ./.github/workflows/tests.yaml
     permissions:
       contents: read
       id-token: write # for codecov
 
   release:
-    name: Release (if relevant)
-    needs: ["tests"]
+    name: Publish packages
+    needs: [branch-policy, tests]
+    if: needs.branch-policy.outputs.allowed == 'true'
     runs-on: ubuntu-latest
     permissions:
       # https://github.com/semantic-release/semantic-release/issues/2469

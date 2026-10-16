@@ -5,11 +5,24 @@ name: "Copilot Setup Steps"
 on:
   workflow_dispatch:
   push:
+    branches: [dev]
     paths:
       - .github/workflows/copilot-setup-steps.yml
+      - .github/actions/setup/action.yml
+      - deno.json
+      - deno.lock
+      - release.config.mjs
   pull_request:
     paths:
       - .github/workflows/copilot-setup-steps.yml
+      - .github/actions/setup/action.yml
+      - deno.json
+      - deno.lock
+      - release.config.mjs
+
+concurrency:
+  group: copilot-setup-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
