@@ -1,0 +1,170 @@
+{
+  "milestone": "C06/D05/D08 reviewed Linux recache core; country D07 remains separate",
+  "date": "2026-10-16",
+  "baselineCommit": "501dbaada8fad5260b984f6f25113d67a85903a5",
+  "runtime": {
+    "bun": "1.4.3",
+    "bunBinary": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+    "checkerNode": "24.21.0",
+    "checkerBinary": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+    "denoInvoked": false
+  },
+  "immutableReviewRoot": "/tmp/yf-recache-core-p2-fixed-1s35pk2p",
+  "commands": [
+    {
+      "command": "PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin:$PATH bun scripts/test.ts --serial --timeout=20000 scripts/recache-tests.test.ts scripts/recache-child.test.ts scripts/recache-store.test.ts scripts/recache-staging.test.ts scripts/recache-broker.test.ts scripts/testing.test.ts src/lib/getCrumb.test.ts src/lib/getCrumb.geo.test.ts src/lib/versions.test.ts",
+      "files": 9,
+      "coreFiles": 5,
+      "log": "/tmp/yf-recache-core-fixed-archive-focused.log",
+      "guard": "unchanged scripts/testing/offline.py; parent verification itself guarded; every publication root a disposable temporary tree",
+      "maintainedCommandPasses": 12,
+      "authGeoPasses": 12,
+      "versionPasses": 5,
+      "cwd": "/tmp/yf-recache-core-p2-fixed-1s35pk2p",
+      "status": "passed immutable repaired verification",
+      "exitCode": 0,
+      "passes": 61,
+      "failures": 0,
+      "skips": 0,
+      "corePasses": 32
+    },
+    {
+      "command": "YF_EXPERIMENT_NODE=/home/dragon/.nvm/versions/node/v24.21.0/bin/node PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:$PATH bun run typecheck",
+      "log": "/tmp/yf-recache-core-fixed-archive-types.log",
+      "cwd": "/tmp/yf-recache-core-p2-fixed-1s35pk2p",
+      "status": "passed repaired archive verification",
+      "exitCode": 0
+    },
+    {
+      "command": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node node_modules/typescript/bin/tsc -p /tmp/yf-recache-core-fixed-tsconfig.json",
+      "log": "/tmp/yf-recache-core-fixed-all-types.log",
+      "config": {
+        "extends": "<repository>/tsconfig.migration.json",
+        "compilerOptions": {
+          "typeRoots": [
+            "<repository>/node_modules/@types"
+          ]
+        },
+        "include": "Absolute paths for every .ts sourceSha256 key in this receipt (19files)",
+        "exclude": []
+      },
+      "why": "Transitional migration config otherwise discovers private baseline/preload entrypoints only as strings; this explicitly checks all19owned TypeScript source/test files.",
+      "cwd": "/tmp/yf-recache-core-p2-fixed-1s35pk2p",
+      "status": "passed repaired archive verification",
+      "exitCode": 0
+    }
+  ],
+  "proof": {
+    "C06": "Former skipped Deno subprocess leaf replaced by12active Bun scenarios preserving final snapshot totals, success/drift nonzero outcomes, caught429stop, native FMC missing-cache text/no fallback, baseline gating, generic auth replay and actual quoteCombine FakeTime/YahooFinanceFetch queue behavior with copied fixtures. Five original version leaves activated in priorD06 checkpoint. Full-suite skip inventory awaits stable combined verification. Mixedpass/self-closing/skipped nativeJUnit outcomes now correctlysucceed; empty/unmatched/all-skippedstillfail inmaintainedlauncherandcapturechild.",
+    "D05": "Actual maintained replay baseline before any capture transport; per-file native isolated guarded Bun process;200ms cross-file transport-start spacing; deduplicated final cumulative snapshots; parent-authoritative counters cover interrupted429output; prior valid capture survives later caught429; later file notstarted; deferred onFinish writes drained; transient/protected/local-edit/alias/removal publication refused; timeout124/internalabort1 and actualentrypointSIGTERM143; private stage cleanup.",
+    "D08": "Explicit minimal environment shared baseline/capture: pinned Bun/systemPATH, TMPDIR, C.UTF-8, UTC, NO_COLOR/TERM/NODE_ENV plus optional absolute checkerbinarypath. Actual baseline/capture/grandchild tests exclude credentials, NODE_OPTIONS, BUN_OPTIONS, LD_PRELOAD, PYTHONPATH/PYTHONINSPECT, BunJSCandFETCH/FMC extras. Functioning harmless preload negativecontrol. Internal nocache realfetchDevel bypassesreads/writes; writabletemporarybytes unchanged; static/fakeincludingmisses stayreplay. No publicnocachemode. Fixed --no-env-file in maintained native Bun child, private baseline Bun wrapper and capture Bun child; real cwd.envnegativecontrol confirmsautomaticloading withoutflag, actualbaseline/capture plus explicitlyflaggedgrandchild excludeit. Initialoperatorruntime/anydeliberatelyspawnedunflaggedBunruntime remaintrusted; no parent-processsecretboundaryclaim. Rootpackagealiashelp testedwithoutliveoptin; packageJSONonlyadds test:recache mapping.",
+    "broker": "Private AF_UNIX IPC; guarded child raw IPv4 stillEPERM and originaltempfixturewriteEROFS; exactHTTPSYahoohosts only, no alternate ports/URLcredentials/Hostheaderoverride, authenticatedprivate0600socket; sanitizederrors and endpointfamilies. manual/error/follow redirectsmatchcallerpolicy,20hoplimit, everyhop hostchecks, POST303GET/body/headerrewrite,307POST/bodypreservation, crossoriginCookie/Authorizationremoved.",
+    "publication": "0700dirs/0600stagedfiles; stagedcurrentbytes protectearlierlocaledits; parentvalidatesstatuses/payloads+originalhashbeforeatomicrename; noactualrepositorypublicationrootusedinverification; noGitstaging/commit/push/rollback. Fresh exclusive session/reportpaths resist predictableprior-childsymlinktraps; cleanupremovesprivateartifacts.",
+    "secretLogs": "Arbitrary child output suppressed in baseline/capture; only validated/sanitized counters, fixedstatus and counts; explicit cookie/crumb/body/env sentinels absent; no raw upstreamerrors forwarded.",
+    "reviewFixes": {
+      "pacing": "Parentglobal monotonic actual-start admission configuredfromrecacheinterval; redirects/directfacades/concurrentrequests/nextlogicalstarts paced; queuedabort preserves preceding reservations;429rechecked beforetransport. Physical200/80/120msstart checks use injectedsynthetictransport, notYahoo.",
+      "cancellation": "OutgoingServerResponse prematureclose abortsperrequest upstreamcontroller; listenerremovedaftersettlement. Normalrequestbodyend remainsvalid. Actualcallerabort and killed/timedoutnativechildren assertupstreamabortedbeforebrokercleanup.",
+      "authority": "Freeformreporter/stdout/stderr hasRateLimitLog removedfromchildsupervisor. Realbrokerlatchonly, including child-exitsnapshot. Benign429title+logzeroattemptspasses; realcaught429retainsabortandearliercaptureproof.",
+      "timeout": "ChildBunreceives explicit --timeout=runTimeout. Default3000mspacing threeactualfetchstarts completesunder12000msbudget; interval0control alsoexecutesallthree. Newregression has explicit20000msoutertestbudget."
+    }
+  },
+  "fixtures": {
+    "count": 1201,
+    "currentSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "d06CheckpointSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "unchanged": true
+  },
+  "limitations": [
+    "No live Yahoo calls or actual repository fixture writes",
+    "Country-profile CLI D07 not ported yet",
+    "No public nocache command; deliberate replay-only default policy",
+    "Linux guard only; otherOS D04 open",
+    "Readonly host filesystem/Unix sockets remain visible; trusted-code/operator/host-concurrency assumptions; not generalized hostile-code sandbox or fullDeno permissions G06",
+    "Host SIGKILL/crash cannot guarantee graceful private-stage cleanup",
+    "Compare+rename not hostile-host atomic transaction",
+    "No full-suite new total claimed while parallel tooling drafts exist"
+  ],
+  "review": {
+    "SolXhigh": "Cleared final frozen source: independent 61/61 guarded tests across nine files, both original reproductions repaired, exact hashes and 1,201 fixture bytes unchanged.",
+    "AstraXhigh": "Cleared final frozen source: independent 32/32 focused core tests, both original reproductions and additional pacing, streaming-abort and delayed-429 adversarial probes pass.",
+    "status": "Four confirmed P2 findings repaired; independent GPT-6.1 Sol xhigh and GPT-6 Astra xhigh rechecks cleared with no remaining actionable findings.",
+    "sourceSnapshot": "/tmp/yf-recache-core-p2-fixed-1s35pk2p",
+    "SolAdditionalControls": [
+      "Physical starts with configured 200ms spacing: 200.439ms, 200.470ms and 200.808ms gaps.",
+      "Caller cancellation reaches upstream before broker.close.",
+      "Thirty zero-interval concurrent immediate-429 trials each start exactly one transport, with no post-observation starts.",
+      "Synchronous throws and rejected transports produce zero unhandled rejections; next queued request succeeds."
+    ],
+    "AstraAdditionalControls": [
+      "Benign HTTP 429 and Too Many Requests test titles/logs do not authorize abort.",
+      "Three requests at the default 3000ms interval complete in about 6.1 seconds under a 12000ms run budget.",
+      "Mixed redirects/concurrency/cancelled queue starts remain at least 50ms apart with a 50ms interval.",
+      "Streaming-body caller abort cancels upstream; ordinary completion stays un-aborted.",
+      "Delayed 429 cancels active peers and queued calls without subsequent starts."
+    ],
+    "remainingActionableFindings": 0
+  },
+  "sourceSha256": {
+    "scripts/test.ts": "1e04a0f3121a563623ff77e621eefa7d42cb59f6f2f43e7be66d385f0b5523f3",
+    "scripts/recache-tests.ts": "08508a44bc95f521cffd3a53a4503bd4dd078c05dc9d5be4b94b1bf518749883",
+    "scripts/recache-tests.test.ts": "e7ce827df23223634cd4a9e38304dad71d0e4e1028a74586789b381dcd4907e9",
+    "tests/common.ts": "2ca9e55dfed2ef9a4d94c9decd72c4085e12fed9d1f2aa55f7e07974355b7307",
+    "tests/fetchCache.ts": "24ff169d064edc2a70ff4e5fff073cab0fcaa38098901679f3ba9ead03064dc4",
+    "scripts/recache/baseline.ts": "5b834f978af5716cfa03c4f76f2581686f37151a9dc75df40256e3e4c47afb4a",
+    "scripts/recache/broker.ts": "657228e2f3757bea06df9ed9c1e5e6c34e23dd506e2c1779a45185ef8d974078",
+    "scripts/recache/child.ts": "e335224785ee80c07f75d7e9998ebe711f48870dcacc06d193741ea2fe759bf9",
+    "scripts/recache/environment.ts": "fbcd11bdc14e00f4ec6fa586f0f224fd384ee2580c91a87eaccfcee712df40f3",
+    "scripts/recache/orchestrator.ts": "79a90f484ed23f142d2c3c2f626293a4eff33a975b1aa4acecdbcf5452c4e8ce",
+    "scripts/recache/preload.ts": "8e373d9b9700b1ab015443fe3cbd8124e70e464b58d7c30d99af5b81b4dd35ca",
+    "scripts/recache/session.ts": "8d311019737312bd84f52d518c076c50596dbaa6ded70da9fae18b1c75cc33cd",
+    "scripts/recache/staging.ts": "71481aeb4f28a93c611024139bc54c2670ba405dc2a45ddc7ccc51739dd004dd",
+    "scripts/recache/store.ts": "251db0cd8f659f67443991dfb2325a6ea61db58c1d80e186b8bbc077ed759d81",
+    "scripts/recache-broker.test.ts": "aeb4fa3fe3cc0ca23c94cdd34503f9acd98098a8989bdeff30e0e7dd81f64d51",
+    "scripts/recache-child.test.ts": "b38323c9d744ccaec1fa20146c793a75da255d650a1a2b926347c55ec0a980f3",
+    "scripts/recache-staging.test.ts": "3b3ebe2058b8d50bfb2e401acd0125e2f7cd7fc7f944c55ea28ef84bdd5b5a47",
+    "scripts/recache-store.test.ts": "94266a0a13e3f2f519a432647e42a153dba6782b0172762a4ecd4cdb6f633854",
+    "package.json": "585e67c8b242b38c0638ebc2b4e022a531e1dcbbf7a86c268dae6fcb7341486f",
+    "scripts/testing.test.ts": "51cc666a6f139c3434c3be5abedfcf4985069045d33a60efa5ac9344c079ef74"
+  },
+  "supersededReason": "Independent Sol/Astra found fourP2gaps after initial55passed. Replacement candidate fixes physical pacing, upstream cancellation, rate-limit authority and native timeout budget on committed501dbaa, retaining exact22ownedfiles.",
+  "supersedesReviewRoots": [
+    "/tmp/yf-recache-core-review-o0jg5qb0",
+    "/tmp/yf-recache-core-final-e4k9rd8p",
+    "/tmp/yf-recache-core-reviewed-ei9_kl2f"
+  ],
+  "previousIndependentReview": {
+    "candidateFocusedReceipt": {
+      "command": "PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin:$PATH bun scripts/test.ts --serial --timeout=15000 scripts/recache-tests.test.ts scripts/recache-child.test.ts scripts/recache-store.test.ts scripts/recache-staging.test.ts scripts/recache-broker.test.ts scripts/testing.test.ts src/lib/getCrumb.test.ts src/lib/getCrumb.geo.test.ts src/lib/versions.test.ts",
+      "exitCode": 0,
+      "passes": 55,
+      "failures": 0,
+      "skips": 0,
+      "files": 9,
+      "corePasses": 26,
+      "coreFiles": 5,
+      "log": "/tmp/yf-recache-core-final-focused.log",
+      "guard": "unchanged scripts/testing/offline.py; parent verification itself guarded; every publication root a disposable temporary tree",
+      "maintainedCommandPasses": 12,
+      "authGeoPasses": 12,
+      "versionPasses": 5
+    },
+    "findings": [
+      "P2 unpaced physical redirect hops",
+      "P2 caller abort leaves parent upstream active",
+      "P2 benignHTTP429 reporter prose authorizes abort",
+      "P2 native default5second test timeout conflicts with12000ms process budget"
+    ],
+    "reviewers": "independent Sol xhigh and Astra xhigh; initial55focused passed, four gaps required new regressions"
+  },
+  "workspaceIntegrationAttempt": {
+    "command": "PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin:$PATH bun scripts/test.ts --serial --timeout=20000 scripts/recache-tests.test.ts scripts/recache-child.test.ts scripts/recache-store.test.ts scripts/recache-staging.test.ts scripts/recache-broker.test.ts scripts/testing.test.ts src/lib/getCrumb.test.ts src/lib/getCrumb.geo.test.ts src/lib/versions.test.ts",
+    "log": "/tmp/yf-recache-core-fixed-focused.log",
+    "exitCode": 1,
+    "passes": 59,
+    "failures": 1,
+    "errors": 1,
+    "registeredTests": 60,
+    "reason": "Concurrent uncommitted E02 root tsconfig removed alive @std/cli/parse-args alias; geographic test import failed. All32core checks passed. Replacement verification uses committed501dbaa config plus exactly22owned files; no geo tests dropped.",
+    "followup": "Eowner restored the two alive @std runtime aliases after this attempt. Immutable committed-base proof above includes all geographic leaves; no runtime test exclusion or D07 edit was used."
+  }
+}

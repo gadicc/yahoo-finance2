@@ -72,11 +72,18 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
     if (typeof devel === "string") {
       const id = options.idTransform?.(devel.replace(/\.json$/, "")) ??
         devel.replace(/\.json$/, "");
-      fetchCache.once({ id, ...(options.mode ? { mode: options.mode } : {}) });
+      fetchCache.once({
+        id,
+        ...(/\.(?:static|fake)$/.test(id)
+          ? { mode: "replay" as const }
+          : options.mode ? { mode: options.mode } : {}),
+      });
     } else if (typeof devel === "object" && "id" in devel) {
       const id = options.idTransform?.(devel.id) ?? devel.id;
       const isStatic = !!devel.id.match(/\.(static|fake)$/);
-      if (options.mode) {
+      if (isStatic) {
+        fetchCache.once({ id, mode: "replay" });
+      } else if (options.mode) {
         fetchCache.once({ id, mode: options.mode });
       } else if (FETCH_DEVEL_NOCACHE && !isStatic) {
         fetchCache.once({
@@ -105,10 +112,7 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
           // getCrumb as part of other tests, we don't want to require
           // onFinish to be set.
         } else {
-          console.trace(
-            "FETCH_DEVEL_RECACHE is set but no onFinish callback provided for test:",
-            devel,
-          );
+          console.warn("Capture request has no onFinish callback; scheduling capture");
           setTimeout(() => resolve(true), 0);
         }
 

@@ -10,12 +10,15 @@ import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
 import Store from "fetch-mock-cache/stores/fs.ts";
 import { createRecacheFetch } from "./recacheFetch.ts";
 import { RECACHE_STATS_PREFIX } from "./recacheStats.ts";
+import { captureSession } from "../scripts/recache/session.ts";
+import { captureStore } from "../scripts/recache/store.ts";
 
 const originalFetch = globalThis.fetch;
 const offlineFetch: typeof fetch = () => {
   throw new Error("Offline replay forbids network fetch");
 };
-if (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL) {
+const session = captureSession();
+if (!session && (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL)) {
   throw new Error(
     "Runner experiments require FMC_CACHE_MODE=replay and cleared FETCH_DEVEL",
   );
@@ -24,7 +27,8 @@ if (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL) {
 // fatal rate-limit marker, even if the current test catches the fetch error.
 const recacheLog = console.log.bind(console);
 const recacheError = console.error.bind(console);
-const recaching = process.env["FETCH_DEVEL"] === "recache";
+const recaching = !!session && session.mode !== "geo-replay";
+const storage = session ? captureStore(session) : undefined;
 const recacheFetch = recaching
   ? createRecacheFetch(
     originalFetch,
@@ -45,7 +49,7 @@ function reportRecacheStats() {
 }
 
 const fetchCache = createFetchCache({
-  Store,
+  Store: storage?.Store ?? Store,
   // Wrap the network fetch inside the cache so replay is neither delayed nor
   // aborted, and a live 429 is rejected before fetch-mock-cache can store it.
   fetch: recacheFetch ?? offlineFetch,
@@ -63,9 +67,13 @@ function fetchCacheSetup() {
   beforeAll(() => {
     globalThis.fetch = spy(fetchCache);
   });
-  afterAll(() => {
+  afterAll(async () => {
     globalThis.fetch = originalFetch;
-    reportRecacheStats();
+    try {
+      await storage?.drain();
+    } finally {
+      reportRecacheStats();
+    }
   });
 }
 

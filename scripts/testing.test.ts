@@ -155,6 +155,18 @@ test("empty files, unmatched names and failed leaves never report success", () =
   expect(space.run(["src/pass.test.ts", "--name", "no such leaf"]).code).not
     .toBe(0);
   space.put(
+    "src/mixed.test.ts",
+    "import{test}from'bun:test';test('before',()=>{throw Error('UNSELECTED')});test('selected',()=>{});test('after',()=>{throw Error('UNSELECTED')});",
+  );
+  const mixed = space.run(["src/mixed.test.ts", "--name", "^selected$"]);
+  expect(mixed.code, mixed.output).toBe(0);
+  expect(mixed.output).not.toContain("No tests executed");
+  space.put(
+    "src/skipped.test.ts",
+    "import{test}from'bun:test';test.skip('skipped',()=>{});",
+  );
+  expect(space.run(["src/skipped.test.ts"]).code).not.toBe(0);
+  space.put(
     "src/fail.test.ts",
     "import{test}from'bun:test';test('failure',()=>{throw new Error('INTENTIONAL_FAILURE')});",
   );

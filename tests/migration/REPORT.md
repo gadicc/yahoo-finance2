@@ -10,8 +10,9 @@ The nine migration-only commits were replayed from old experiment
 applied. The one conflict retained both the updated experiment receipt and this
 tracker. Other branch refs/worktrees were not changed.
 
-Current maintained full, serial and coverage commands each pass **1,384 tests
-across 48 files**, with eight reported skips (six leaves and two hooks). The
+At this rebase checkpoint, maintained full, serial and coverage commands each
+passed **1,384 tests across 48 files**, with eight reported skips (six leaves
+and two hooks). The
 count is the updated 1,329-pass baseline + 20 harness + 9 schema + 12 command +
 14 executable tests. The upstream workflow-policy six and schema-repair nine
 callbacks match `dev` byte-for-byte and pass together under the existing
@@ -123,8 +124,8 @@ all items; the benchmark results above retain their historical meaning.
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
-| [C. Test runner and harness](#migration-c)                       | In progress     |        6/7 |
-| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        4/8 |
+| [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
+| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        6/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
@@ -133,7 +134,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **30/71** |
+| **Overall**                                                      | **In progress** |  **33/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -314,6 +315,35 @@ checkouts using assume-unchanged or skip-worktree flags must use an ordinary
 unflagged index for this command. Full production typecheck configurations and
 the CI repair workflow remain E02/E03/I06 work. No checklist item is completed
 by this prerequisite alone; progress remains **30/71**.
+
+## Recache core checkpoint (C06/D05/D08, 2026-10-16)
+
+The [maintained capture contract](RECACHE.md) now uses Bun subprocesses and a
+parent-side HTTPS broker. Live runs require both `FETCH_DEVEL=recache` and
+`--live`, after a successful strict replay baseline. Capture children retain
+kernel network denial, a minimal environment and read-only repository mounts,
+with writable private scratch for staged fixtures and reports. The parent validates every
+request/redirect host, paces physical request starts, stops on HTTP 429, drains
+capture writes and validates fixtures before compare-and-replace publication.
+Earlier validated captures remain available after later failures.
+
+The [exact snapshot receipt](results/c06-d05-d08-recache-core.json) records
+**61 passing focused tests across nine files**, both typechecks and unchanged
+contents for all 1,201 fixtures. The original recache subprocess skip has active
+Bun replacements; the five version leaves were activated in D06. Mixed passing
+and skipped JUnit cases are counted correctly, and empty/all-skipped runs fail.
+Replay, recache and private synthetic nocache behavior have explicit environment
+and no-fallback controls. A public nocache command is deliberately absent.
+
+Independent Sol xhigh and Astra xhigh re-reviews cleared four fixes: physical
+redirect pacing, upstream cancellation, false rate-limit detection from reporter
+prose, and Bun's default test timeout conflicting with capture pacing. Sol reran
+all 61 checks; Astra ran all 32 core checks plus independent adversarial probes.
+These used synthetic transports and disposable publication roots, with no live
+Yahoo requests or actual repository fixture writes. The frozen proof excludes
+parallel checker/Workers drafts; a fresh combined full/serial/coverage inventory
+remains an integration gate. Country-profile CLI D07, other-OS enforcement D04
+and the broader permission audit G06 remain open. Progress is **33/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -503,9 +533,10 @@ its five leaf tests. Bun's JUnit output counts two skipped unnamed hook entries
 in that suite, yielding eight reported skips. No passing tests were omitted for
 speed.
 
-The original Deno recache subprocess test body is retained but skipped, matching
-its baseline permission skip. It still tests Deno orchestration and has not been
-ported. Simulated-fetch recache behavior tests execute under every candidate.
+At the original benchmark checkpoint, the Deno recache subprocess body remained
+skipped, matching its baseline permission skip; simulated-fetch behavior tests
+ran under every candidate. The later C06/D05/D08 checkpoint above replaces that
+body with active Bun subprocess checks. Historical inventory counts stay intact.
 
 All 1,201 fixture contents remained byte-identical. Each candidate's fixtures
 were made read-only. Negative probes demonstrate missing-cache rejection with
@@ -729,9 +760,12 @@ and CI remain separate work.
       leaks. Evidence: isolated subprocess controls, failure restoration, full
       serial/parallel/repeat replay and guarded hard-watch restart probe. Native
       reruns require cleanup; maintained commands remain C07.
-- [ ] C06 — Port and run recache subprocess orchestration checks (D05); decide
+- [x] C06 — Port and run recache subprocess orchestration checks (D05); decide
       and document coverage for the five skipped versions leaves and remove
       experiment-only skip/hook artifacts without concealing intentional skips.
+      Evidence: [reviewed core receipt](results/c06-d05-d08-recache-core.json),
+      61 focused passes and both independent re-reviews; original recache and
+      five version leaves now have active coverage.
 - [x] C07 — Provide maintained full, focused, serial, watch and coverage
       commands with reliable exit codes, filtering and empty-suite behavior;
       verify production test discovery against the inventory, including new test
@@ -767,9 +801,12 @@ and CI remain separate work.
       missing-guard controls pass in
       [C07/D03 evidence](results/c07-d03-linux-guard.json). Other supported
       operating systems remain unverified; item stays open.
-- [ ] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
+- [x] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
       baseline-before-live ordering, sequential pacing, request reuse, counters,
       nonzero failures, 429 aborts and preservation of earlier captures.
+      Evidence: [reviewed core receipt](results/c06-d05-d08-recache-core.json),
+      actual guarded subprocesses and independently reproduced pacing,
+      cancellation, timeout and 429 controls.
 - [x] D06 — Port fixture traversal and rate-limit validators; verify changed,
       added and removed fixture reporting excludes earlier edits, rejects
       transient errors before commit, and keeps logs free of cookies, crumbs and
@@ -778,10 +815,12 @@ and CI remain separate work.
 - [ ] D07 — Execute country-profile capture CLI paths with controlled inputs;
       verify append-only profiles, compaction/replay, expected-host checks and
       `.static`/`.fake`/geographic profile protection from generic recache.
-- [ ] D08 — Verify environment clearing/allowlisting and simulated-fetch
+- [x] D08 — Verify environment clearing/allowlisting and simulated-fetch
       behavior under replay, nocache and recache; keep live Yahoo runs opt-in
       and outside offline verification, with unchanged-fixture hashes for replay
-      gates.
+      gates. Evidence: [reviewed core receipt](results/c06-d05-d08-recache-core.json),
+      real baseline/capture/grandchild environment and dotenv controls; nocache
+      is a private synthetic seam, with no public live nocache command.
 
 <a id="migration-e"></a>
 

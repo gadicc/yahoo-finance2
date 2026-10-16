@@ -224,6 +224,7 @@ async function runOnce(
     const command = [
       process.execPath,
       "test",
+      "--no-env-file",
       "--no-orphans",
       options.serial ? "--isolate" : "--parallel=4",
       `--timeout=${options.timeout}`,
@@ -320,7 +321,7 @@ async function runOnce(
     // JUnit count and at least one executed (not merely skipped) test.
     const xml = readFileSync(report, "utf8");
     const cases = [
-      ...xml.matchAll(/<testcase\b[^>]*(?:\/>|>[\s\S]*?<\/testcase>)/g),
+      ...xml.matchAll(/<testcase\b[^>]*?(?:\/>|>[\s\S]*?<\/testcase>)/g),
     ];
     if (!cases.some((match) => !/<skipped\b/.test(match[0]))) {
       console.error(
