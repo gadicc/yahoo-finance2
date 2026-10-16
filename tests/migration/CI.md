@@ -26,8 +26,13 @@ a workaround. Actual GitHub runner behavior remains a required remote proof.
 The gate order is Python CI unit controls, Biome formatting and lint, complete
 TypeScript checking plus negative controls, no-write stale-schema checking,
 release-note compatibility, full strict replay with coverage, then LCOV
-validation. Jobs use read-only contents and checkout credentials are not
-persisted. No gate has continue-on-error. Release already depends on the entire
+validation. CI invokes `bun run test:coverage -- --run-timeout 300000` to bound
+the complete guarded suite at five minutes under constrained scheduling. Three
+compiler/subprocess integration tests have explicit 30-second outer budgets;
+the timeout-control test retains its inner 20ms per-test and 100ms whole-run
+failures. Ordinary launcher defaults remain 5000ms per test and 120000ms per
+run. These budgets do not alter replay isolation or fixture protections.
+Jobs use read-only contents and checkout credentials are not persisted. No gate has continue-on-error. Release already depends on the entire
 reusable Tests workflow; an unsuccessful gate prevents its publisher job.
 The existing K02 formatting/lint debt remains intentionally failing until its
 separate cleanup lands. CI integration does not weaken the recommended preset.

@@ -73,6 +73,7 @@ test("schema CLI flags and errors have predictable exit codes", () => {
   expect(schemaMain([], { root: "/missing", log: quiet })).toBe(1);
 });
 
+// Multiple schema generations need a bounded integration budget on constrained CI.
 test("schema check is read-only and detects imported changes regardless of timestamps", () => {
   const f = fixture();
   try {
@@ -108,7 +109,7 @@ test("schema check is read-only and detects imported changes regardless of times
   } finally {
     f.cleanup();
   }
-});
+}, 30_000);
 
 test("generation failures preserve every output and create no JSON placeholders", () => {
   const f = fixture();
@@ -166,6 +167,7 @@ test("missing generated JSON imports are virtual, while real JSON is checked", (
   }
 });
 
+// Repeated compiler subprocess startup needs a bounded integration budget on CI.
 test("CLI subprocess reports stale input and repair without network", () => {
   const f = fixture();
   try {
@@ -180,7 +182,7 @@ test("CLI subprocess reports stale input and repair without network", () => {
   } finally {
     f.cleanup();
   }
-});
+}, 30_000);
 
 test("watch scheduling coalesces bursts, preserves in-flight edits and recovers from failures", async () => {
   let calls = 0;

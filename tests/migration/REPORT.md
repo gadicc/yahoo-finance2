@@ -662,6 +662,25 @@ failures and errors following success output still propagate. Fixtures remain
 unchanged. Corrected actual postflight and complete CI acceptance still require
 a runner retry; progress remains **43/71**.
 
+## Corrected Ubuntu setup and bounded CI test budgets (2026-10-16)
+
+[Run 38910778015](https://github.com/gadicc/yahoo-finance2/actions/runs/38910778015)
+on `dde9759` passed the corrected AppArmor postflight, Python controls,
+formatting, lint, typechecks, schema parity and release-note checks. The entire
+Workers job also passed. Strict coverage ran all 1,516 tests, with three compiler
+and subprocess integrations exceeding their outer five-second deadlines;
+1,513 passed. Artifact validation and Codecov were skipped after that failure.
+
+The [bounded scheduling correction](results/i01-ci-integration-deadlines.json)
+gives only those three integrations a 30-second outer budget and the CI coverage
+invocation a five-minute whole-run budget. Test bodies, assertions, ordinary
+defaults, inner 20/100 ms timeout oracles and kernel isolation remain unchanged.
+Independent Sol xhigh review cleared the exact delta and 21 guarded tests on two
+CPUs. The author's two-CPU full coverage run passed **1,516/61 files**, and LCOV
+validation retained 89 sources, 726 functions and 9,831 lines. All 1,201 fixtures
+and schemas are unchanged. Actual complete CI, artifact/Codecov verification and
+final integrated review remain open; progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

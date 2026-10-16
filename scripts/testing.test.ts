@@ -173,6 +173,7 @@ test("empty files, unmatched names and failed leaves never report success", () =
   expect(result.output).toContain("INTENTIONAL_FAILURE");
 });
 
+// Allow guarded subprocess startup while retaining the inner 20ms/100ms probes.
 test("per-test and whole-run timeouts retain failure status", () => {
   using space = workspace();
   space.put(
@@ -185,7 +186,7 @@ test("per-test and whole-run timeouts retain failure status", () => {
   const whole = space.run(["--run-timeout", "100", "--timeout", "10000"]);
   expect(whole.code).toBe(124);
   expect(whole.output).toContain("Test run timed out after 100ms");
-});
+}, 30_000);
 
 test("Linux guard denies all fixture mutation forms and inherited raw sockets/io_uring", () => {
   using space = workspace();

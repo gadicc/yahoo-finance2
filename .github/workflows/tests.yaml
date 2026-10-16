@@ -37,7 +37,8 @@ jobs:
       - run: bun run schema:check
       - run: node scripts/check-release-notes.mjs
       - name: Run strict offline replay and native Bun coverage
-        run: bun run test:coverage
+        # Bound the complete guarded suite separately from ordinary launcher defaults.
+        run: bun run test:coverage -- --run-timeout 300000
       - name: Validate complete LCOV artifact
         run: python3 scripts/ci.py coverage
       - name: Retain only validated LCOV

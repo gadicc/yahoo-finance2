@@ -1,0 +1,158 @@
+{
+  "milestone": "I01 bounded CI integration scheduling budgets",
+  "status": "Accepted bounded scheduling correction after independent Sol xhigh clearance; remote full CI retry pending.",
+  "date": "2026-10-16",
+  "baseCommit": "dde97595a49fe3d888ea23142ca376226ee64147",
+  "sourceEvidence": {
+    "run": "https://github.com/gadicc/yahoo-finance2/actions/runs/38910778015",
+    "logPath": "/tmp/yf-ci-38910778015-failed.log",
+    "logSha256": "6ccca645d0dc85e8c567fd713c2ea91bb152b41ce78f20bfa39b2ad815050328",
+    "proofPath": "/tmp/yf-ci-38910778015-proof.json",
+    "proofSha256": "7576a419f0d3f608ea31a8ac9d36a676634bb0ced7c6f9c95221a1d3ea3e9317",
+    "failure": "1513/1516 passed in98.12s; three compiler/subprocess integration tests exceeded their5000ms outer deadlines after earlier gates and Workers passed."
+  },
+  "changes": {
+    "tests": [
+      {
+        "file": "scripts/schema-gen.test.ts",
+        "name": "schema check is read-only and detects imported changes regardless of timestamps",
+        "callbackBodyAndAssertionsUnchanged": true,
+        "outerBudgetMs": 30000
+      },
+      {
+        "file": "scripts/schema-gen.test.ts",
+        "name": "CLI subprocess reports stale input and repair without network",
+        "callbackBodyAndAssertionsUnchanged": true,
+        "outerBudgetMs": 30000
+      },
+      {
+        "file": "scripts/testing.test.ts",
+        "name": "per-test and whole-run timeouts retain failure status",
+        "callbackBodyAndAssertionsUnchanged": true,
+        "outerBudgetMs": 30000
+      }
+    ],
+    "ciCoverageInvocation": "bun run test:coverage -- --run-timeout 300000",
+    "ciWholeRunBudgetMs": 300000,
+    "ordinaryDefaultPerTestMs": 5000,
+    "ordinaryDefaultWholeRunMs": 120000,
+    "innerTimeoutControlsMs": {
+      "perTest": 20,
+      "wholeRun": 100
+    },
+    "scope": "Scheduling tolerance for three existing integrations and the full CI invocation; no bodies/assertions, production code, ordinary defaults, isolation, fixture protections or dependencies changed."
+  },
+  "verification": {
+    "provenance": {
+      "cpus": [
+        0,
+        1
+      ],
+      "bun": "1.4.3",
+      "bunRevision": "1.4.3+c6da4a4d3",
+      "node": "v24.21.0",
+      "coverageInvocation": "taskset -c 0,1 bun --no-env-file run test:coverage -- --run-timeout 300000",
+      "guard": "scripts/testing/offline.py; inherited network/fixture enforcement unchanged"
+    },
+    "formatCheck": {
+      "exitCode": 0,
+      "files": 192
+    },
+    "lint": {
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 150,
+      "infos": 127
+    },
+    "affectedGuardedTests": {
+      "passed": 21,
+      "failed": 0,
+      "files": 2,
+      "twoCpuAffinity": true
+    },
+    "fullGuardedCoverage": {
+      "exitCode": 0,
+      "passed": 1516,
+      "failed": 0,
+      "tests": 1516,
+      "files": 61,
+      "duration": "62.00s",
+      "twoCpuAffinity": true,
+      "wholeRunBudgetMs": 300000,
+      "logPath": "/tmp/yf-ci-deadlines-f_u7f7pl/coverage.log",
+      "logSha256": "d03f93d93170dbffef78c16c395b54d69f85377454145bc5b748e2b23e3896ff"
+    },
+    "lcovValidation": {
+      "branches": "not emitted by Bun 1.4.3",
+      "functions": 726,
+      "functionsHit": 610,
+      "lines": 9831,
+      "linesHit": 7713,
+      "sources": 89
+    },
+    "lcovSha256": "01545ef0bf7199a4e284a9978cf322c9abd40683cd04999ad97901c3bdf31846",
+    "parsedBodyParity": {
+      "tests": [
+        {
+          "file": "scripts/schema-gen.test.ts",
+          "name": "schema check is read-only and detects imported changes regardless of timestamps",
+          "callbackBodyAndAssertionsUnchanged": true,
+          "outerBudgetMs": 30000
+        },
+        {
+          "file": "scripts/schema-gen.test.ts",
+          "name": "CLI subprocess reports stale input and repair without network",
+          "callbackBodyAndAssertionsUnchanged": true,
+          "outerBudgetMs": 30000
+        },
+        {
+          "file": "scripts/testing.test.ts",
+          "name": "per-test and whole-run timeouts retain failure status",
+          "callbackBodyAndAssertionsUnchanged": true,
+          "outerBudgetMs": 30000
+        }
+      ],
+      "allOtherStatementsUnchanged": true
+    },
+    "parity": {
+      "baseRegularFiles": 1554,
+      "onlyChangedPaths": [
+        ".github/workflows/tests.yaml",
+        "scripts/schema-gen.test.ts",
+        "scripts/testing.test.ts",
+        "tests/migration/CI.md"
+      ],
+      "allOtherFilesMatchBase": true,
+      "symlinksMatchBase": true,
+      "fixtures": {
+        "count": 1201,
+        "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+        "unchanged": true
+      },
+      "defaultLauncherSha256": "2971b58b4f54d82351d1e5e99d769070416c829fa6986c1733c777f445089353",
+      "defaultsUnchanged": true,
+      "schemaAndLockParity": true
+    }
+  },
+  "scopeSha256": {
+    "scripts/schema-gen.test.ts": "6118d0994b637ce19d943d3b509048946e1f02f606ad86f70dc185688876f243",
+    "scripts/testing.test.ts": "2ac95c1e780da4b0023b81064cae2344e13b1e259877475948f30bbd6dab048f",
+    ".github/workflows/tests.yaml": "5530df370ef808056196ef09ed4fcf0d8e6d8e5b276a85fc6a9eb536442e9c72",
+    "tests/migration/CI.md": "8bec7c4d0e45f49adf48a51dba21acc266e615c44f1e30b9fb112cf40f881518"
+  },
+  "bounds": "No benchmark claim, workflow dispatch, Deno, Yahoo, real fixture writes, local policy load, shared changes, staging, commit or push. Coverage generated only in private candidate. Existing root dependency graph linked only as tool harness, not a fresh-install claim.",
+  "reviewAcceptance": {
+    "reviewedReceiptSha256": "757ece295dc67e51ef68630586b2074a51a1082af00eacf877a3cd697facc798",
+    "sol": {
+      "verdict": "clear; no findings",
+      "focusedLog": "/tmp/yf-ci-sol-deadlines-focused.log",
+      "focusedLogSha256": "e3ecc9479e5d2534b47a70c98b77eec7e13d5160a63722bacea4f8468e360ce7",
+      "independentResult": "21 tests across two files passed under guarded two-CPU execution; callback/assertion and inner timeout parity verified."
+    },
+    "application": {
+      "proof": "/tmp/yf-ci-deadlines-applied-proof.json",
+      "sha256": "244de1b57ab471c789d7ab01eb438a757529b6c2088a284a735b87356d73d414"
+    },
+    "limits": "Actual corrected Ubuntu setup and Workers passed on dde9759, but full replay failed at outer integration deadlines. No passing complete CI/artifact/Codecov claim; important final integrated Astra review remains open."
+  }
+}
