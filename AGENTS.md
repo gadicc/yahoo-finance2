@@ -35,6 +35,26 @@ model settings or schedule future work as part of this branch policy.
 
 ## Commands
 
+On `codex/bun-migration`, first follow the
+[branch bootstrap](./CONTRIBUTING.md#bun-migration-branch-bootstrap): select Bun
+1.4.3 on `PATH`, run `bun run check:toolchain`, then
+`bun install --frozen-lockfile`. `bun.lock` owns the root JavaScript graph;
+`deno.lock` still owns unmigrated Deno tooling and the Workers harness keeps its
+independent npm lockfile. Do not reintroduce a competing root lockfile.
+
+For the current Linux offline runner, select Node 24.21.0 via
+`YF_EXPERIMENT_NODE`, have Python 3 and `libseccomp.so.2` available, and run
+`python3 tests/migration/prepare.py` after a fresh checkout to make fixtures
+read-only. Use `bun run test:replay`, `bun run test:focused`,
+`bun run test:coverage`, `bun run typecheck` and
+`bun run typecheck:incremental`; use
+`python3 tests/migration/negative-typecheck.py` for the overload control. Direct
+`bun test` bypasses offline enforcement. Keep tests offline; installation is
+separate. These commands do not complete the production runner/OS migration.
+Upgrade Bun only through a reviewed exact-pin change using the bootstrap policy.
+
+The following Deno commands remain for unmigrated tooling and the `dev` branch:
+
 - Run the full test suite with `deno task test`.
 - Run `deno task test:replay` for a cache-only baseline that fails on missing
   fixtures and denies live network requests and fixture writes.

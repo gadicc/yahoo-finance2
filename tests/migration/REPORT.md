@@ -83,7 +83,7 @@ all items; the benchmark results above retain their historical meaning.
 | Area                                                             | Status          | Done/total |
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
-| [B. Dependencies, configuration and installation](#migration-b)  | Planned         |        0/6 |
+| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        2/6 |
 | [C. Test runner and harness](#migration-c)                       | In progress     |        2/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        2/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        1/6 |
@@ -94,7 +94,60 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **10/71** |
+| **Overall**                                                      | **In progress** |  **12/71** |
+
+## Current branch toolchain (B01–B02, 2026-10-16)
+
+The migration branch now pins **Bun 1.4.3** for development and root package
+management; [its stable release](https://bun.com/blog/bun-v1.4.3) was published
+2026-10-10. `.bun-version` owns the exact version and `packageManager` repeats
+`bun@1.4.3`; a dependency-free `check:toolchain` command and normal `preinstall`
+guard validate the runtime, PATH, pin agreement, package-manager context when
+provided, root `bun.lock` presence and competing root locks. Run the explicit
+check before installing: lifecycle hooks follow resolution, and frozen mode
+alone does not require an existing lockfile. Lifecycle bypasses bypass the
+guard.
+
+Bun's text `bun.lock` is the sole root JavaScript dependency lockfile. The
+obsolete experimental `pnpm-lock.yaml` is removed. `deno.lock` remains the
+transitional lock for still-Deno schema/build/release/tooling; the separate
+`tests/cloudflare/package-lock.json` remains owned by that npm harness. All
+three retained locks are byte-identical to the previous commit. Dependency
+versions/classification and consumer engines are unchanged; B03 remains open.
+
+See
+[current bootstrap and upgrade policy](../../CONTRIBUTING.md#bun-migration-branch-bootstrap)
+for platform requirements, explicit stable-version upgrades and guarded
+commands. [Upstream platform requirements](https://bun.com/docs/installation)
+are distinct from verified support: only Linux x64 was exercised here.
+Python/libseccomp and Node 24.21.0 remain required for the current offline
+harness; D04 and E02 remain open. TypeScript 6.0.3 remains the checker; Bun
+1.4.3's new checker is deferred.
+
+[Milestone evidence](results/b01-b02-toolchain.json) records the exact binary,
+commands, exit codes, lock hashes and controls. A clean disposable installation
+with fresh `node_modules` passed `bun install --frozen-lockfile` with normal
+lifecycle defaults; changing TypeScript's manifest version to 6.0.2 failed
+frozen installation without changing `bun.lock`. No resolutions were
+regenerated. The guard passed offline on 1.4.3 and rejected the unchanged global
+1.4.2, a wrong/missing PATH binary, Node runtime, npm context, inconsistent
+pins, a missing lock and a competing root lock.
+
+Bun's default lifecycle trust policy is retained, with no explicit trust list or
+`--ignore-scripts`. `bun pm untrusted` reported zero untrusted dependencies with
+install scripts. The observed `esbuild@0.28.2` postinstall is on Bun's default
+allowlist; the installed binary passed its version smoke check. An explicit
+`trustedDependencies` list would replace those defaults; see
+[lifecycle documentation](https://bun.com/docs/pm/lifecycle). Other platforms
+and clean-clone lifecycle coverage remain B05, not a completed installation
+matrix.
+
+On selected Bun 1.4.3, the guarded full replay passed **1,319 tests / 43
+files**, with the existing eight reported skips, and the Node/DOM TypeScript
+check, overload negative control and offline socket/cache/write guard passed.
+The new guard also passed an explicit strict JavaScript typecheck. All **1,201
+fixtures** remain byte-identical. These are correctness checks; the historical
+1.4.2 benchmark measurements above were not rerun or relabeled.
 
 ## What was adapted
 
@@ -166,7 +219,15 @@ file, removes its error directives, requires real TypeScript assignment
 failures, and removes that copy in `finally`. This verifies that overload checks
 are not merely transpiled as an empty runtime test.
 
-## Reproduce
+## Reproduce the historical experiment
+
+For current `codex/bun-migration` commands, use the
+[branch bootstrap](../../CONTRIBUTING.md#bun-migration-branch-bootstrap) with
+`bun install --frozen-lockfile` and `bun run` scripts. The pnpm procedure below
+belongs to the immutable experiment snapshots, including the
+[Bun snapshot at c1479eb](https://github.com/gadicc/yahoo-finance2/tree/c1479eb2191a71ee162945cb811b6b064d572ca3).
+It is not an installation procedure for the migration branch, which no longer
+has a pnpm lockfile.
 
 Use the corresponding `codex/test-runner-vitest`, `codex/test-runner-node` or
 `codex/test-runner-bun` checkout. These experiment manifests deliberately retain
@@ -258,10 +319,11 @@ K's Biome and documentation work can proceed in small independent commits after
 B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
-**Next small milestone:** decide and document the supported Bun version, package
-manager and authoritative lockfile (B01–B02), then propose the minimal
-production dependency/configuration shape (B03). No source, dependency or CI
-migration is part of this tracker setup commit.
+**Next small milestone:** propose the minimal production dependency and
+configuration shape (B03), including owners for runtime, build, test and release
+dependencies and unmigrated Deno metadata. B01–B02 now establish the pinned
+toolchain and lockfile boundary; dependency pruning, runner redesign, new
+typecheckers, CLI/build/schema ports and CI changes remain separate work.
 
 <a id="migration-a"></a>
 
@@ -292,13 +354,19 @@ migration is part of this tracker setup commit.
 
 ### B. Dependencies, configuration and installation
 
-- [ ] B01 — Select and pin the supported Bun development version and version
+- [x] B01 — Select and pin the supported Bun development version and version
       upgrade policy; document platform prerequisites and verify version
-      detection.
-- [ ] B02 — Choose Bun or another package manager and one authoritative root
+      detection. Evidence: exact Bun 1.4.3 pins, bootstrap/upgrade policy and
+      positive/negative detection controls in
+      [milestone evidence](results/b01-b02-toolchain.json).
+- [x] B02 — Choose Bun or another package manager and one authoritative root
       lockfile; define the relationship with the separate Cloudflare npm
       lockfile, remove obsolete experimental locks, and verify frozen installs
-      reject drift.
+      reject drift. Evidence: Bun root package manager, authoritative unchanged
+      `bun.lock`, removed root pnpm lock, explicit retained Deno/Workers scopes,
+      clean default-lifecycle frozen install and manifest-drift failure with
+      unchanged lock hashes in
+      [milestone evidence](results/b01-b02-toolchain.json).
 - [ ] B03 — Separate runtime, build, test and release dependencies in the
       production manifest; remove inherited unused runner dependencies and map
       the `deno.json` imports/exports/tasks/permissions/publish metadata to

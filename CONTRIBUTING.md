@@ -3,6 +3,94 @@
 Interesting in helping out? You're the best! This guide will help you get all
 set up with the correct tools and important things to know for the project.
 
+## Bun migration branch bootstrap
+
+On `codex/bun-migration`, use **Bun 1.4.3** as the root package manager and
+experimental test runtime. The [migration tracker](tests/migration/REPORT.md)
+records what has been verified and what remains open. The Deno instructions
+below still apply to schema generation, builds, release tooling, live recaching
+and other commands that have not been migrated.
+
+Obtain the exact [Bun 1.4.3 release](https://bun.com/blog/bun-v1.4.3) using the
+[versioned installation instructions](https://bun.com/docs/installation#installing-older-versions)
+or its
+[platform binaries](https://github.com/oven-sh/bun/releases/tag/bun-v1.4.3), and
+put that binary's directory first on `PATH`. A project-local installation can
+live under the ignored `.migration-results/` directory. Do not upgrade an
+unrelated global installation to work on this branch. Check the binary actually
+selected before installing dependencies:
+
+```sh
+bun --version # must print 1.4.3
+bun run check:toolchain
+bun install --frozen-lockfile
+```
+
+`.bun-version` owns the exact development version; `package.json` repeats it as
+`packageManager: bun@1.4.3`. `check:toolchain` checks both pins, the running
+Bun, the Bun selected by `PATH`, the root lockfile and package-manager context
+when provided. The same check runs during normal installation via `preinstall`.
+`packageManager` alone does not select or enforce a binary. Run the explicit
+check before installation: lifecycle hooks run after dependency resolution, and
+Bun's frozen flag alone does not reject a missing lockfile. Skipping lifecycle
+scripts bypasses the installation guard.
+
+`bun.lock` is authoritative for root JavaScript dependencies. Do not create a
+root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` for the
+remaining Deno schema/build/release/tooling graph until its owners migrate;
+retain `tests/cloudflare/package-lock.json` for the independently npm-managed
+Workers harness. Do not install that harness with Bun. Root dependencies remain
+the experimental shared graph until B03; this step changes no consumer engine
+policy.
+
+Normal installation uses Bun 1.4.3's default trusted dependency allowlist, with
+no `trustedDependencies` override and no `--ignore-scripts`. The Linux install
+reported zero untrusted packages with install scripts; its `esbuild@0.28.2`
+postinstall is default trusted and its binary was smoke-tested. Consult
+[Bun's lifecycle policy](https://bun.com/docs/pm/lifecycle) and inspect
+`bun pm untrusted` when changing dependencies. Review any required package trust
+individually; an explicit trust list replaces the defaults. Cross-platform
+lifecycle validation remains open in B05.
+
+[Bun's platform prerequisites](https://bun.com/docs/installation) include glibc
+2.17+ for Linux glibc binaries (musl builds also exist), SSE4.2 on x64, macOS
+13+ and Windows 10 1809+. Native arm64 binaries are available. Linux kernel 5.6+
+is recommended, with 3.10 the minimum. Use the correct binary for your platform;
+these are upstream requirements, not a claim that this branch passed its OS
+matrix.
+
+The current offline test launcher additionally requires Linux, Python 3,
+`libseccomp.so.2`, and Node 24.21.0 for the existing TypeScript 6 checker.
+Select Node explicitly; Bun's new checker is not adopted by this milestone.
+After a fresh checkout, prepare fixtures read-only before running the guarded
+commands:
+
+```sh
+export YF_EXPERIMENT_NODE=/absolute/path/to/node-24.21.0
+python3 tests/migration/prepare.py > /tmp/yf-fixture-hashes.json
+python3 tests/migration/offline.py bun tests/migration/guard-probe.mjs
+bun run test:replay
+bun run test:focused
+bun run test:coverage
+bun run typecheck
+bun run typecheck:incremental
+python3 tests/migration/negative-typecheck.py
+```
+
+Use these `bun run` commands: the launcher selects the 43-file inventory and
+fails closed without its network guard. Direct `bun test` bypasses that
+boundary. Fixture read-only modes are not stored by Git. Cross-platform offline
+support is still D04, and production runner commands remain C07.
+
+Bun upgrades are deliberate changes, including patch releases. Review release
+notes, update `.bun-version` and `packageManager` together to one exact stable
+version, run the guard, and verify clean frozen installation, intentional
+manifest-drift rejection, normal lifecycle behavior, guarded replay, existing
+typechecks/negative controls and unchanged fixtures. Inspect any lockfile change
+and record evidence in the tracker before independent review and commit. Minor
+or major changes also need an explicit compatibility decision. Do not use a
+floating `latest`, version range or canary, or silently adopt a new typechecker.
+
 1. [Setup](#setup)
    1. [Cloning](#cloning)
    1. [Required Tools](#tools)

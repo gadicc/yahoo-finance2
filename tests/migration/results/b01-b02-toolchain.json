@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "13f6f294cdc59dbd738d0a2a7412f685afbb775b",
+  "bunPath": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+  "bunVersion": "1.4.3",
+  "bunRevision": "1.4.3+c6da4a4d3",
+  "globalBunVersion": "1.4.2",
+  "nodeVersion": "v24.21.0",
+  "checks": {
+    "cleanFrozenInstall": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 0,
+      "output": "bun install v1.4.3 (c6da4a4d3)\n\n$ bun scripts/check-toolchain.mjs\nToolchain OK: Bun 1.4.3; root package manager bun; lockfile bun.lock.\n\n+ @modelcontextprotocol/sdk@1.32.0\n+ @sinonjs/fake-timers@15.0.0\n+ @types/bun@1.3.8\n+ @types/deno@2.5.0\n+ @types/node@24.10.1\n+ @types/sinonjs__fake-timers@15.0.1\n+ @types/sprintf-js@1.1.4\n+ @vitest/coverage-v8@4.0.18\n+ expect@30.4.1\n+ fetch-mock-cache@3.1.0\n+ jest-get-type@29.6.3\n+ sprintf-js@1.1.3\n+ tough-cookie@6.0.2\n+ tough-cookie-file-store@3.3.0\n+ ts-json-schema-generator@2.9.0\n+ tsx@4.23.0\n+ typescript@6.0.3\n+ vitest@4.0.18\n+ zod@4.6.5\n\n227 packages installed [118.00ms]\n",
+      "setup": "New /tmp/yf-b01-b02-controls directory containing only package.json, bun.lock, .bun-version and scripts/check-toolchain.mjs; no node_modules or competing lockfiles."
+    },
+    "untrusted": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "pm",
+        "untrusted"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 0,
+      "output": "bun pm untrusted v1.4.3 (c6da4a4d3)\n\nFound 0 untrusted dependencies with scripts.\n\nThis means all packages with scripts are in \"trustedDependencies\" or none of your dependencies have scripts.\n\nFor more information, visit https://bun.com/docs/install/lifecycle#trusteddependencies\n"
+    },
+    "esbuildSmoke": {
+      "command": [
+        "/tmp/yf-b01-b02-controls/node_modules/.bin/esbuild",
+        "--version"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 0,
+      "output": "0.28.2\n"
+    },
+    "positive": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "check:toolchain"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 0,
+      "output": "$ bun scripts/check-toolchain.mjs\nToolchain OK: Bun 1.4.3; root package manager bun; lockfile bun.lock.\n"
+    },
+    "wrongGlobalBun": {
+      "command": [
+        "/usr/bin/bun",
+        "run",
+        "check:toolchain"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 1,
+      "output": "$ bun scripts/check-toolchain.mjs\nToolchain check failed: Expected Bun 1.4.3; running Bun 1.4.2. Select the pinned Bun binary, then run bun run check:toolchain.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\nerror: script \"check:toolchain\" exited with code 1\n",
+      "environmentOverrides": {
+        "PATH": "/usr/bin:/bin"
+      }
+    },
+    "wrongPathBun": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "scripts/check-toolchain.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 1,
+      "output": "Toolchain check failed: PATH must resolve bun to 1.4.3. Install/select that version and check bun --version before retrying.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\n",
+      "environmentOverrides": {
+        "PATH": "/usr/bin:/bin"
+      }
+    },
+    "nodeRuntime": {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "scripts/check-toolchain.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 1,
+      "output": "Toolchain check failed: Expected Bun 1.4.3; running Node.js. Select the pinned Bun binary, then run bun run check:toolchain.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\n"
+    },
+    "missingPathBun": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "scripts/check-toolchain.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 1,
+      "output": "Toolchain check failed: PATH must resolve bun to 1.4.3. Install/select that version and check bun --version before retrying.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\n",
+      "environmentOverrides": {
+        "PATH": "/nonexistent"
+      }
+    },
+    "wrongPackageManager": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "scripts/check-toolchain.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "exitCode": 1,
+      "output": "Toolchain check failed: Use Bun 1.4.3 for root dependencies and scripts (received npm/11.6.0). Run bun install --frozen-lockfile, then bun run <script>.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\n",
+      "environmentOverrides": {
+        "npm_config_user_agent": "npm/11.6.0 node/v24.21.0"
+      }
+    },
+    "inconsistentPin": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "check:toolchain"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 1,
+      "output": "$ bun scripts/check-toolchain.mjs\nToolchain check failed: Pin mismatch: package.json packageManager must be bun@1.4.2. Update both pins together.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\nerror: script \"check:toolchain\" exited with code 1\n",
+      "setup": "Change scratch .bun-version to 1.4.2; restore afterward."
+    },
+    "missingLock": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "check:toolchain"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 1,
+      "output": "$ bun scripts/check-toolchain.mjs\nToolchain check failed: Missing root bun.lock. Restore the committed lockfile before installing; do not resolve a new graph.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\nerror: script \"check:toolchain\" exited with code 1\n",
+      "setup": "Temporarily rename scratch bun.lock; restore afterward."
+    },
+    "competingLock": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "check:toolchain"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 1,
+      "output": "$ bun scripts/check-toolchain.mjs\nToolchain check failed: Unexpected root pnpm-lock.yaml. bun.lock is authoritative; remove the competing root lockfile.\nSee CONTRIBUTING.md: Bun migration branch bootstrap.\nerror: script \"check:toolchain\" exited with code 1\n",
+      "setup": "Add scratch pnpm-lock.yaml; remove afterward."
+    },
+    "frozenManifestDrift": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "cwd": "/tmp/yf-b01-b02-controls",
+      "exitCode": 1,
+      "output": "bun install v1.4.3 (c6da4a4d3)\nResolving dependencies\nResolved, downloaded and extracted [1]\nerror: lockfile had changes, but lockfile is frozen\nnote: try re-running without --frozen-lockfile and commit the updated lockfile\n",
+      "setup": "Change scratch devDependencies.typescript from 6.0.3 to 6.0.2; verify unchanged bun.lock SHA-256."
+    },
+    "fullReplay": {
+      "command": [
+        "bun",
+        "run",
+        "test:replay"
+      ],
+      "exitCode": 0,
+      "output": "..............................................................................................................................................................................................................\n\n1319 pass\n8 skip\n0 fail\nRan 1327 tests across 43 files. [602.00ms]\n",
+      "outputIsFinalSummaryExcerpt": true
+    },
+    "nodeDomTypecheck": {
+      "command": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "output": "$ python3 tests/migration/run.py --typecheck\n"
+    },
+    "overloadNegativeControl": {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "output": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors\n"
+    },
+    "offlineGuard": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "output": "{\"replayMissRejected\":true,\"fallbackCalls\":0,\"socketDenied\":true,\"rawSocketFilterVerified\":true,\"observedSocketError\":\"ECONNREFUSED\",\"ipv6SocketDenied\":true,\"childSocketDenied\":true,\"fixtureWriteDenied\":true}\n"
+    },
+    "toolchainCheckJs": {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "node_modules/typescript/bin/tsc",
+        "--ignoreConfig",
+        "--noEmit",
+        "--allowJs",
+        "--checkJs",
+        "--strict",
+        "--skipLibCheck",
+        "--types",
+        "node",
+        "--lib",
+        "esnext",
+        "--target",
+        "esnext",
+        "--module",
+        "nodenext",
+        "--moduleResolution",
+        "nodenext",
+        "scripts/check-toolchain.mjs"
+      ],
+      "exitCode": 0,
+      "output": ""
+    }
+  },
+  "lockfiles": {
+    "bun.lock": "3247c1ae53117ed1adfa6d798d1e58f26394474fe00a527f0cd4c244ea1157ed",
+    "deno.lock": "12a39d0ad4dbb36e6f892ce8faeb3499eb61ef9c6728524bd7b1fa1ac90fbf4c",
+    "tests/cloudflare/package-lock.json": "83bf8eb1de065e225ac91c9eeeef89f6c29a3c3dbea8d8394d389621f3b393dd"
+  },
+  "frozenInstallLockUnchanged": true,
+  "driftFailureLockUnchanged": true,
+  "fixtures": {
+    "count": 1201,
+    "allTrackedContentsUnchanged": true,
+    "aggregateSha256": "47756b269c878dc6a9be594d78a68d7ada694f4b00bb5bf8b0fc2fe395111ede"
+  },
+  "lifecyclePolicy": {
+    "trustedDependenciesOverride": false,
+    "defaultTrustedCount": 367,
+    "observedInstallScript": "esbuild@0.28.2 postinstall: node install.js",
+    "esbuildDefaultTrusted": true,
+    "untrustedDependenciesWithScripts": 0,
+    "ignoreScripts": false,
+    "platformVerified": "Linux x64 only"
+  },
+  "binarySource": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.3/bun-linux-x64.zip",
+  "binaryArchiveSha256": "3e730528d89775f03f87f05c06787c4df4099d0a37f3f252e7b829cb23816e18",
+  "environment": {
+    "PATHPrefix": "/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin",
+    "YF_EXPERIMENT_NODE": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+    "offlinePolicy": "Replay, typechecks, overload control and guard probe execute through tests/migration/offline.py; installation and metadata-only negative controls are separate."
+  }
+}
