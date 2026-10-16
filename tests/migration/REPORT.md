@@ -838,6 +838,26 @@ logs, LCOV, fixtures and committed compatibility proof. Progress remains
 **52/71**. The Windows fixture correction, approved Bun-minimum implementation,
 isolated publisher and final clean matrix/reviews continue separately.
 
+## Windows inherited-stdio fixture correction (2026-10-16)
+
+The first native run's Windows failure came from its process fixture: pinned
+Node/libuv kills a non-detached descendant when its parent exits. The
+[corrected fixture](results/native-windows-held-stdio.json) detaches only that
+Windows descendant, requires handshakes from both inherited pipes, releases the
+parent only afterward, and separately checks post-exit liveness and held stdio.
+Production cleanup and the explicit Windows cleanup-uncertainty assertion remain
+unchanged.
+
+Sol xhigh review found a real failure-path leak in the initial correction:
+unreadable PID recovery could bypass teardown. The resolved version always
+attempts tree cleanup and stream disposal, including metadata-write failures.
+Independent Sol xhigh and Astra xhigh controls verify visible failures with no
+surviving parent/descendant and no supervisor rescue. Current-branch guarded
+Linux process checks, 18 helpers, types, format and lint pass; all real fixtures
+and unrelated files remain unchanged. Actual corrected Windows execution is
+still pending, so D04/H05/I01 and progress **52/71** remain unchanged. The next
+matrix will also carry the separately approved Bun >=1.4.3 consumer baseline.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

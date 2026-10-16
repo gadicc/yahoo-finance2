@@ -59,11 +59,27 @@ timeouts and a delayed descendant survivor marker on each real OS. The
 additional process probe runs the real platform cleanup branch. It records
 POSIX group SIGTERM or Windows taskkill results and uses a real exited parent
 whose descendant retains inherited stdio. A Node 24 parent avoids reliance on
-Bun's ordinary orphan policy. POSIX group cleanup must close the pipes; Windows
+Bun's ordinary orphan policy. The Windows fixture descendant is detached because
+Node/libuv otherwise kills it when its parent exits; the POSIX descendant stays
+in its parent's group. The descendant confirms both inherited pipes before the
+observer releases the parent. After parent exit the observer separately verifies
+that the descendant is live and stdio remains open. POSIX group cleanup must close
+the pipes; Windows
 must settle visibly within the bounded deadline and report cleanup uncertainty
 when the original parent has already exited. The probe then explicitly cleans
-its known descendant. That expected operational failure is not a Windows
-process-tree guarantee or a simulated Windows success.
+its known descendant and verifies termination. PID recovery runs inside guaranteed
+parent-tree teardown; metadata write failures cannot bypass stream destruction or
+parent unref. Actual unreadable-PID and metadata-write failure controls verify no
+surviving parent/descendant under a Linux supervisor. These errors stay visible.
+That expected operational failure is not a Windows process-tree
+guarantee or a simulated Windows success.
+
+The first Windows run at `51e1837` passed all 1,359 tests in each of the 41-file
+full, serial and coverage inventories, then failed the separate process fixture:
+its non-detached Node descendant was killed with the exiting parent. The corrected
+fixture has guarded Linux lifecycle and failure-cleanup proof; actual Windows
+execution of the correction remains pending. See the
+[correction receipt](./results/native-windows-held-stdio.json).
 
 Public native cancellation uses the already tested portable AbortSignal
 control. Windows taskkill is forced termination, not console Ctrl-C delivery.
