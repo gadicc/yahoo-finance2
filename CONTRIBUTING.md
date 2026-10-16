@@ -40,8 +40,9 @@ root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` for the
 remaining Deno schema/build/release/tooling graph until its owners migrate;
 retain `tests/cloudflare/package-lock.json` for the independently npm-managed
 Workers harness. Do not install that harness with Bun. The private root manifest
-separates runtime dependencies from test, schema and release tools; see [dependency ownership](tests/migration/DEPENDENCIES.md).
-It does not replace the generated package manifest or change consumer engines.
+separates runtime dependencies from test, schema and release tools; see
+[dependency ownership](tests/migration/DEPENDENCIES.md). It does not replace the
+generated package manifest or change consumer engines.
 
 Normal installation uses Bun 1.4.3's default trusted dependency allowlist, with
 no `trustedDependencies` override and no `--ignore-scripts`. The Linux install
@@ -59,28 +60,36 @@ is recommended, with 3.10 the minimum. Use the correct binary for your platform;
 these are upstream requirements, not a claim that this branch passed its OS
 matrix.
 
-The current offline test launcher additionally requires Linux, Python 3,
-`libseccomp.so.2`, and Node 24.21.0 for the existing TypeScript 6 checker.
-Select Node explicitly; Bun's new checker is not adopted by this milestone.
-After a fresh checkout, prepare fixtures read-only before running the guarded
-commands:
+The maintained test launcher requires Linux with Bubblewrap (`bwrap`), Python 3,
+`libseccomp.so.2`, and host support for user/mount/network/PID namespaces. It
+runs replay-only with network requests and fixture writes denied by inherited
+kernel boundaries. A fresh checkout needs no fixture chmod preparation. Missing
+prerequisites fail closed; other platforms currently receive Linux/WSL guidance.
+The existing TypeScript checker separately still selects Node 24.21.0 through
+`YF_EXPERIMENT_NODE`; Bun's new checker is not adopted here.
 
 ```sh
 export YF_EXPERIMENT_NODE=/absolute/path/to/node-24.21.0
-python3 tests/migration/prepare.py > /tmp/yf-fixture-hashes.json
-python3 tests/migration/offline.py bun tests/migration/guard-probe.mjs
 bun run test:replay
 bun run test:focused
+bun run test:serial -- src/lib/queue.test.ts
+bun run test:watch
 bun run test:coverage
+bun run test -- --filter quote --name 'validates|symbol'
 bun run typecheck
 bun run typecheck:incremental
 python3 tests/migration/negative-typecheck.py
 ```
 
-Use these `bun run` commands: the launcher selects the 43-file inventory and
-fails closed without its network guard. Direct `bun test` bypasses that
-boundary. Fixture read-only modes are not stored by Git. Cross-platform offline
-support is still D04, and production runner commands remain C07.
+The [maintained command and offline policy](tests/migration/TESTING.md)
+documents selection, discovery, exit codes, watch restarts and guard limits.
+Full runs select all discovered repository test files with four isolated
+workers; the separate Workers harness is excluded. Ordinary tests deliberately
+replace Deno's automatic live fixture capture with replay-only behavior. A cache
+miss fails without fallback; explicit recaching remains a separate migration
+step. Direct `bun test` bypasses the boundary. Cross-platform offline support
+remains D04. Deno commands below describe the default branch and unmigrated
+workflows.
 
 Bun upgrades are deliberate changes, including patch releases. Review release
 notes, update `.bun-version` and `packageManager` together to one exact stable

@@ -42,16 +42,23 @@ On `codex/bun-migration`, first follow the
 `deno.lock` still owns unmigrated Deno tooling and the Workers harness keeps its
 independent npm lockfile. Do not reintroduce a competing root lockfile.
 
-For the current Linux offline runner, select Node 24.21.0 via
-`YF_EXPERIMENT_NODE`, have Python 3 and `libseccomp.so.2` available, and run
-`python3 tests/migration/prepare.py` after a fresh checkout to make fixtures
-read-only. Use `bun run test:replay`, `bun run test:focused`,
-`bun run test:coverage`, `bun run typecheck` and
-`bun run typecheck:incremental`; use
-`python3 tests/migration/negative-typecheck.py` for the overload control. Direct
-`bun test` bypasses offline enforcement. Keep tests offline; installation is
-separate. These commands do not complete the production runner/OS migration.
-Upgrade Bun only through a reviewed exact-pin change using the bootstrap policy.
+Use the maintained Linux replay commands: `bun run test:replay`,
+`bun run test:focused`, `bun run test:serial -- path/to/file.test.ts`,
+`bun run test:watch`, and `bun run test:coverage`. The launcher requires
+Bubblewrap (`bwrap`), Python 3, `libseccomp.so.2` and namespace support; missing
+prerequisites fail closed. It clears inherited capture settings, denies network
+and fixture writes for every child, and needs no chmod preparation. Ordinary
+tests are replay-only, replacing automatic live capture; explicit recaching is
+still a separate migration step. Direct `bun test` bypasses enforcement. See
+[maintained command policy](./tests/migration/TESTING.md) for discovery,
+filters, timeouts/signals and watch behavior. Other operating systems remain
+D04.
+
+For existing checker commands, select Node 24.21.0 via `YF_EXPERIMENT_NODE`,
+then use `bun run typecheck` and `bun run typecheck:incremental`;
+`python3 tests/migration/negative-typecheck.py` remains the overload control.
+Installation is separate from offline testing. Upgrade Bun only through a
+reviewed exact-pin change using the bootstrap policy.
 
 The following Deno commands remain for unmigrated tooling and the `dev` branch:
 

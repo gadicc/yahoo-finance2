@@ -5,13 +5,16 @@
   "scripts": {
     "check:toolchain": "bun scripts/check-toolchain.mjs",
     "preinstall": "bun scripts/check-toolchain.mjs",
-    "test:replay": "python3 tests/migration/run.py",
-    "test:focused": "python3 tests/migration/run.py --focus",
-    "test:coverage": "python3 tests/migration/run.py --coverage",
+    "test:replay": "bun scripts/test.ts",
+    "test:focused": "bun scripts/test.ts src/modules/quote.test.ts",
+    "test:coverage": "bun scripts/test.ts --coverage",
     "typecheck": "python3 tests/migration/run.py --typecheck",
     "typecheck:incremental": "python3 tests/migration/run.py --typecheck-incremental",
     "schema": "bun scripts/schema-gen.ts",
-    "schema:check": "bun scripts/schema-gen.ts --check"
+    "schema:check": "bun scripts/schema-gen.ts --check",
+    "test": "bun scripts/test.ts",
+    "test:serial": "bun scripts/test.ts --serial",
+    "test:watch": "bun scripts/test.ts --watch"
   },
   "devDependencies": {
     "@sebbo2002/semantic-release-jsr": "4.0.2",

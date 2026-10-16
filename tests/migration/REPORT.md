@@ -84,8 +84,8 @@ all items; the benchmark results above retain their historical meaning.
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        3/6 |
-| [C. Test runner and harness](#migration-c)                       | In progress     |        5/7 |
-| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        2/8 |
+| [C. Test runner and harness](#migration-c)                       | In progress     |        6/7 |
+| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        3/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | Planned         |        0/6 |
@@ -94,7 +94,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **18/71** |
+| **Overall**                                                      | **In progress** |  **20/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -245,6 +245,42 @@ signal cleanup. A disposable real quote/options shared-type negative control
 rejects stale outputs without writing, then regeneration repairs them; the
 historical/chart consumer tests pass. **E06 stays unchecked** until I02 routes
 and verifies the actual CI gate; its maintained command and controls are ready.
+
+## Maintained replay commands (C07/D03, Linux D04 work, 2026-10-16)
+
+`bun run test`/`test:replay`, `test:focused`, `test:serial`, `test:watch`, and
+`test:coverage` now use `scripts/test.ts`. It discovers sorted recursive test
+files with explicit exclusions, rejects unknown flags and empty execution,
+handles spaced/absolute paths, fixes parallel workers at four, and isolates
+serial files. Name/path filtering, whole-run timeouts, signal forwarding and
+hard watch restarts (including file additions/removals) have focused controls.
+Coverage output is generated in scratch and published atomically; old LCOV is
+removed before a new selection so missing coverage cannot expose stale metrics.
+
+Ordinary tests deliberately replace Deno's automatic live fixture capture with
+**replay-only** behavior. Inherited capture settings are cleared. The maintained
+Linux helper requires Bubblewrap, Python and libseccomp with no fallback. It
+uses read-only host/repository mounts, private devices, fresh network/PID
+namespaces, and independent IPv4/IPv6/io_uring syscall denial inherited by
+children. Writable inherited descriptors above stdio are closed. A fresh
+checkout needs no chmod preparation; synthetic writable fixtures, RAM-backed
+checkouts, write/delete/chmod attempts and missing-guard controls verify this.
+[The command/offline policy](TESTING.md) describes the exact boundary and its
+limits. Explicit live recache remains D05. CI adopts this policy through I02;
+this milestone does not change workflows. Root integration tests follow replay;
+Workers' separate local-emulator/external-network boundary remains H04/I02.
+Future live integration tests require explicit opt-in commands, never replay
+fallback.
+
+[Isolated milestone evidence](results/c07-d03-linux-guard.json) overlays only
+C07's owned files on schema commit `37eaac9`, excluding concurrent CLI drafts.
+Full parallel, serial and coverage each pass **1,359 / 46 files**, with eight
+reported skips (six leaf tests and two hooks). The total is 1,319 original
+passes + 20 harness + 9 schema + 11 command/guard regressions. Focused quote
+passes 47 tests; typecheck passes. All 1,201 fixture hashes remain unchanged,
+including on the archive's ordinary writable checkout modes. D04 stays open:
+Linux is verified; other supported OS choices and CI provisioning remain to be
+implemented and verified. Historical experiment measurements are unchanged.
 
 ## What was adapted
 
@@ -422,7 +458,7 @@ B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
 **Next small milestones:** port recache subprocess checks and resolve skip
-policy (C06), then discovery/commands and offline policy (C07/D03–D04). B04 can
+policy (C06/D05), and finish the portable offline policy (D04). B04 can
 independently port import resolution and real traversal/CLI helpers using B03's
 ownership map; E02–E03 can establish production checker configurations, while
 E06/I02 must adopt the verified schema check in CI. B01–B03 now establish the
@@ -522,10 +558,12 @@ cross-platform validation and CI remain separate work.
 - [ ] C06 — Port and run recache subprocess orchestration checks (D05); decide
       and document coverage for the five skipped versions leaves and remove
       experiment-only skip/hook artifacts without concealing intentional skips.
-- [ ] C07 — Provide maintained full, focused, serial, watch and coverage
+- [x] C07 — Provide maintained full, focused, serial, watch and coverage
       commands with reliable exit codes, filtering and empty-suite behavior;
       verify production test discovery against the inventory, including new test
-      files.
+      files. Evidence: maintained launcher, 11 synthetic command/guard
+      regressions, full/focused/serial/coverage results and watch discovery
+      controls in [C07/D03 evidence](results/c07-d03-linux-guard.json).
 
 <a id="migration-d"></a>
 
@@ -540,14 +578,21 @@ cross-platform validation and CI remain separate work.
       rejection, denied writes, IPv4/IPv6 and child socket denial plus
       compile-time controls. This does not verify production recache subprocess
       parity.
-- [ ] D03 — Define production default network policy for normal tests and CI,
+- [x] D03 — Define production default network policy for normal tests and CI,
       integration tests and explicit live capture/recache; preserve intentional
       auto capture behavior or document its deliberate replacement, without
-      implicit network access in replay.
+      implicit network access in replay. Evidence:
+      [maintained replay policy](TESTING.md), cleared capture environment and
+      cache-miss/no-fallback controls. CI wiring remains I02 and explicit live
+      capture remains D05.
 - [ ] D04 — Replace or explicitly support the Python/libseccomp launcher on each
       supported OS; prove replay denies real network and fixture creation,
       modification and deletion in subprocesses, fails closed without its guard,
-      and handles fresh-checkout permissions and missing-cache failures.
+      and handles fresh-checkout permissions and missing-cache failures. Linux
+      read-only mount, namespace, syscall, inherited-fd, writable-checkout and
+      missing-guard controls pass in
+      [C07/D03 evidence](results/c07-d03-linux-guard.json). Other supported
+      operating systems remain unverified; item stays open.
 - [ ] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
       baseline-before-live ordering, sequential pacing, request reuse, counters,
       nonzero failures, 429 aborts and preservation of earlier captures.

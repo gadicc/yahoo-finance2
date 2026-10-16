@@ -1,0 +1,231 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "37eaac92567f464a1f35f5791014036f184c8445",
+  "platform": "Linux-7.2.9-1-cachyos-x86_64-with-glibc2.44",
+  "bun": "1.4.3",
+  "node": "24.21.0",
+  "python": "3.14.7",
+  "bubblewrap": "bubblewrap 0.13.0",
+  "scope": "C07 maintained launcher, D03 deliberate replay-only default, Linux portion of D04; D04 remains open for other OS and CI provisioning",
+  "isolation": "Git archive of baseCommit plus only ownedScope overlays and a symlink to the verified installed node_modules; excludes concurrent G01 CLI work. Fixture files retain normal archive0644 modes, without prepare.py.",
+  "ownedScope": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "package.json",
+    "scripts/test.ts",
+    "scripts/testing.test.ts",
+    "scripts/testing/inventory.ts",
+    "scripts/testing/offline.py",
+    "tests/migration/TESTING.md",
+    "tests/migration/REPORT.md",
+    "tests/migration/results/c07-d03-linux-guard.json"
+  ],
+  "executionSourceSha256": {
+    "scripts/test.ts": "41bb0bb7b5c654b03d6aa43a7e0c972c40394e0e2ed7116c2b0af44590f986fd",
+    "scripts/testing.test.ts": "0261370065b1ce44ad626ee88659c91bc04ede6a66e6f59bc50ab77f988ccc7c",
+    "scripts/testing/inventory.ts": "ab538e5c316908e44bc7243a18a8f139cef3ca9e51b674e1ef452ae964446a35",
+    "scripts/testing/offline.py": "e61aae8bedddff3dcdd9c95dfbdc35be9d2b8b853a9f965177799711868da682"
+  },
+  "inventoryFiles": [
+    "scripts/capture-get-crumb-fixtures.test.ts",
+    "scripts/check-recache-rate-limits.test.ts",
+    "scripts/openai-wif-proxy.test.ts",
+    "scripts/recache-fixtures.test.ts",
+    "scripts/recache-tests.test.ts",
+    "scripts/schema-gen.test.ts",
+    "scripts/schema-repair.test.ts",
+    "scripts/schema/createGenerator.test.ts",
+    "scripts/testing.test.ts",
+    "src/createYahooFinance.test.ts",
+    "src/index.test.ts",
+    "src/lib/cli.test.ts",
+    "src/lib/cookieJar.test.ts",
+    "src/lib/getCrumb.geo.test.ts",
+    "src/lib/getCrumb.test.ts",
+    "src/lib/moduleExec.test.ts",
+    "src/lib/notices.test.ts",
+    "src/lib/options/options.test.ts",
+    "src/lib/queue.test.ts",
+    "src/lib/validate/index.test.ts",
+    "src/lib/validate/types/undefined.test.ts",
+    "src/lib/validateAndCoerceTypes.test.ts",
+    "src/lib/versions.test.ts",
+    "src/lib/yahooFinanceFetch.test.ts",
+    "src/mcp/http.test.ts",
+    "src/mcp/server.test.ts",
+    "src/modules/autoc.test.ts",
+    "src/modules/chart.test.ts",
+    "src/modules/dailyGainers.test.ts",
+    "src/modules/dailyLosers.test.ts",
+    "src/modules/fundamentalsTimeSeries.test.ts",
+    "src/modules/historical.test.ts",
+    "src/modules/insights.test.ts",
+    "src/modules/options.test.ts",
+    "src/modules/options.type.test.ts",
+    "src/modules/quote.test.ts",
+    "src/modules/quoteSummary.test.ts",
+    "src/modules/recommendationsBySymbol.test.ts",
+    "src/modules/screener.test.ts",
+    "src/modules/search.test.ts",
+    "src/modules/streamer.test.ts",
+    "src/modules/trendingSymbols.test.ts",
+    "src/other/quoteCombine.test.ts",
+    "tests/harness.test.ts",
+    "tests/recacheFetch.test.ts",
+    "tests/recacheStats.test.ts"
+  ],
+  "inventory": {
+    "originalPassingLeaves": 1319,
+    "harnessLeaves": 20,
+    "schemaLeaves": 9,
+    "commandGuardLeaves": 11,
+    "passingLeaves": 1359,
+    "baselineSkippedLeaves": 6,
+    "baselineSkippedHooks": 2,
+    "reportedSkip": 8,
+    "testFiles": 46
+  },
+  "checks": [
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:replay"
+      ],
+      "exitCode": 0,
+      "outputTail": "(skip) versions > (unnamed)\n(skip) recache runner aggregates final snapshots and stops after caught rate limits\n\n 1359 pass\n 8 skip\n 0 fail\nRan 1367 tests across 46 files. [15.45s]",
+      "pass": 1359,
+      "reportedSkip": 8,
+      "fail": 0,
+      "files": 46
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:serial"
+      ],
+      "exitCode": 0,
+      "outputTail": "(skip) versions > should return matched versions\n(skip) versions > (unnamed)\n\n 1359 pass\n 8 skip\n 0 fail\nRan 1367 tests across 46 files. [19.32s]",
+      "pass": 1359,
+      "reportedSkip": 8,
+      "fail": 0,
+      "files": 46
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:coverage"
+      ],
+      "exitCode": 0,
+      "outputTail": "(skip) versions > (unnamed)\n(skip) recache runner aggregates final snapshots and stops after caught rate limits\n\n 1359 pass\n 8 skip\n 0 fail\nRan 1367 tests across 46 files. [18.16s]",
+      "pass": 1359,
+      "reportedSkip": 8,
+      "fail": 0,
+      "files": 46
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:focused"
+      ],
+      "exitCode": 0,
+      "outputTail": "(pass) quote > passes through beta field option [0.41ms]\n(pass) quote > extended market fields > passes through extendedMarket fields [0.55ms]\n(pass) quote > extended market fields > passes through day-level fields [0.48ms]\n\n 47 pass\n 0 fail\nRan 47 tests across 1 file. [97.00ms]",
+      "pass": 47,
+      "reportedSkip": 0,
+      "fail": 0,
+      "files": 1
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "outputTail": "$ python3 tests/migration/run.py --typecheck"
+    },
+    {
+      "command": [
+        "bun",
+        "scripts/test.ts",
+        "--serial",
+        "scripts/testing.test.ts"
+      ],
+      "exitCode": 0,
+      "pass": 11,
+      "fail": 0,
+      "files": 1,
+      "independentReviewAlsoPassed": true
+    },
+    {
+      "command": [
+        "deno",
+        "fmt",
+        "--check",
+        "AGENTS.md",
+        "CONTRIBUTING.md",
+        "package.json",
+        "scripts/test.ts",
+        "scripts/testing.test.ts",
+        "scripts/testing/inventory.ts",
+        "tests/migration/TESTING.md",
+        "tests/migration/REPORT.md",
+        "tests/migration/results/c07-d03-linux-guard.json"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "fixtureIntegrity": {
+    "fixtureCount": 1201,
+    "allSha256Unchanged": true,
+    "fileModes": [
+      "0644"
+    ],
+    "directoryModes": [
+      "0755"
+    ],
+    "preparationRequired": false,
+    "canonicalJsonManifestSha256": "47756b269c878dc6a9be594d78a68d7ada694f4b00bb5bf8b0fc2fe395111ede"
+  },
+  "coverage": {
+    "path": "coverage/lcov.info",
+    "bytes": 62198,
+    "sourceEntries": 70,
+    "artifactGenerated": true,
+    "qualityOrPercentageParityClaimed": false
+  },
+  "regressions": [
+    "Recursive sorted discovery with nested/spaced paths, generated/Workers/node_modules exclusions and base/nested symlink denial",
+    "Unknown/weakening flags, malformed values, empty selections/files, unmatched names and failed leaves return nonzero",
+    "Absolute/spaced paths work outside cwd; all inherited FETCH_DEVEL/FMC capture controls cleared",
+    "Per-test timeout returns1; whole-run timeout returns124; SIGINT/SIGTERM return130/143 and close running descendants",
+    "Watch hard restarts rediscover addition/removal; disappearing content between enumeration/read tolerated; independent reviewer bulk-rename churn stays alive",
+    "Writable synthetic fixtures deny truncate, append, rename, unlink, create, mkdir, chmod and chmod-then-write; child probes inherit boundary",
+    "RAM-backed /dev/shm checkout fixture write denied; reviewer additionally verified ROOT/SCRATCH combinations across /tmp and /dev/shm plus /proc aliases",
+    "Inherited writable fd3 closed in outer helper; ordinary file bytes unchanged",
+    "Raw IPv4/IPv6 sockets and io_uring_setup returnEPERM in parent/child probes",
+    "Replay cache miss rejects before live fallback; fallbackCalls0",
+    "Missing Python/Bubblewrap/libseccomp and overlapping scratch paths fail closed without running the supplied command",
+    "Coverage produces regular output, rejects output-directory symlink, replaces hardlinked file without changing fixture, and removes stale LCOV for no-instrumented-source selection"
+  ],
+  "reviewFixes": [
+    "Skip symlinked base discovery roots",
+    "Replace host device bind with private devices and explicit readonly repository mount",
+    "Remove stale coverage artifact before a new coverage run",
+    "Tolerate ordinary watch ENOENT/ENOTDIR content races",
+    "Close inherited non-stdio descriptors before Bubblewrap",
+    "Accept dash-leading explicitly assigned regex/filter values"
+  ],
+  "remaining": [
+    "D04 native/container policy and verification on other supported OS",
+    "I02 CI wiring and guard package provisioning",
+    "D05/C06 explicit recache subprocess migration and skip policy",
+    "E02 production typecheck command; existing checker still uses historical launcher",
+    "I03/I04 coverage quality/exclusion/threshold validation",
+    "Not a generalized hostile-code sandbox; broad reads, Unix sockets and operator-supplied stdio redirections remain outside fixture protection"
+  ],
+  "review": "Independent GPT-6.1 Sol xhigh final clearance: no unresolved blockers. Guarded command controls11/11, source hashes/inventory verified against immutable archive, and concrete mount/fd/watch/coverage repros retested. D04 remains partialLinux; Workers/otherOS/CI provisioning explicitly unverified."
+}
