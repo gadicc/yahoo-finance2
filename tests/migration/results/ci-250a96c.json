@@ -1,0 +1,4160 @@
+{
+  "validatedCommit": "250a96c61dfac91d68f076a92334cfa2d41f68eb",
+  "runId": 38944357111,
+  "runUrl": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "completedAt": "2026-10-16T18:06:47Z",
+      "conclusion": "success",
+      "databaseId": 117119606449,
+      "name": "Tests",
+      "startedAt": "2026-10-16T18:03:10Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:03:12Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:03:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:14Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-10-16T18:03:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:33Z",
+          "conclusion": "success",
+          "name": "Run ./.github/actions/setup",
+          "number": 3,
+          "startedAt": "2026-10-16T18:03:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:35Z",
+          "conclusion": "success",
+          "name": "Run python3 -B -m unittest discover -s scripts -p 'ci*_test.py'",
+          "number": 4,
+          "startedAt": "2026-10-16T18:03:33Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:35Z",
+          "conclusion": "success",
+          "name": "Run bun run format:check",
+          "number": 5,
+          "startedAt": "2026-10-16T18:03:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:35Z",
+          "conclusion": "success",
+          "name": "Run bun run lint",
+          "number": 6,
+          "startedAt": "2026-10-16T18:03:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:43Z",
+          "conclusion": "success",
+          "name": "Run bun run typecheck",
+          "number": 7,
+          "startedAt": "2026-10-16T18:03:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:58Z",
+          "conclusion": "success",
+          "name": "Run bun run typecheck:negative",
+          "number": 8,
+          "startedAt": "2026-10-16T18:03:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:21Z",
+          "conclusion": "success",
+          "name": "Run bun run schema:check",
+          "number": 9,
+          "startedAt": "2026-10-16T18:03:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:21Z",
+          "conclusion": "success",
+          "name": "Run node scripts/check-release-notes.mjs",
+          "number": 10,
+          "startedAt": "2026-10-16T18:04:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:42Z",
+          "conclusion": "success",
+          "name": "Run strict offline replay and native Bun coverage",
+          "number": 11,
+          "startedAt": "2026-10-16T18:04:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:42Z",
+          "conclusion": "success",
+          "name": "Validate complete LCOV artifact",
+          "number": 12,
+          "startedAt": "2026-10-16T18:06:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:44Z",
+          "conclusion": "success",
+          "name": "Retain only validated LCOV",
+          "number": 13,
+          "startedAt": "2026-10-16T18:06:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:44Z",
+          "conclusion": "success",
+          "name": "Post Run ./.github/actions/setup",
+          "number": 25,
+          "startedAt": "2026-10-16T18:06:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:44Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 26,
+          "startedAt": "2026-10-16T18:06:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:44Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-16T18:06:44Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117119606449"
+    },
+    {
+      "completedAt": "2026-10-16T18:04:05Z",
+      "conclusion": "success",
+      "databaseId": 117119606977,
+      "name": "Cloudflare Workers",
+      "startedAt": "2026-10-16T18:03:10Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:03:12Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:03:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:14Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-10-16T18:03:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:41Z",
+          "conclusion": "success",
+          "name": "Run ./.github/actions/setup",
+          "number": 3,
+          "startedAt": "2026-10-16T18:03:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:45Z",
+          "conclusion": "success",
+          "name": "Install independent npm 10 tool",
+          "number": 4,
+          "startedAt": "2026-10-16T18:03:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:02Z",
+          "conclusion": "success",
+          "name": "Build and check actual Workers package in private scratch",
+          "number": 5,
+          "startedAt": "2026-10-16T18:03:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:02Z",
+          "conclusion": "success",
+          "name": "Post Run ./.github/actions/setup",
+          "number": 9,
+          "startedAt": "2026-10-16T18:04:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:03Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 10,
+          "startedAt": "2026-10-16T18:04:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:03Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 11,
+          "startedAt": "2026-10-16T18:04:03Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117119606977"
+    },
+    {
+      "completedAt": "2026-10-16T18:06:25Z",
+      "conclusion": "success",
+      "databaseId": 117119607013,
+      "name": "Native platforms / Native macos-15-intel",
+      "startedAt": "2026-10-16T18:03:11Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:03:16Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:03:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:22Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-10-16T18:03:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:44Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-10-16T18:03:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:44Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node22 path",
+          "number": 4,
+          "startedAt": "2026-10-16T18:03:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:07Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 5,
+          "startedAt": "2026-10-16T18:03:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:07Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node24 and npm CLI paths",
+          "number": 6,
+          "startedAt": "2026-10-16T18:04:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:09Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 7,
+          "startedAt": "2026-10-16T18:04:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:09Z",
+          "conclusion": "success",
+          "name": "Retain separate minimum consumer binary",
+          "number": 8,
+          "startedAt": "2026-10-16T18:04:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:10Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 9,
+          "startedAt": "2026-10-16T18:04:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:20Z",
+          "conclusion": "success",
+          "name": "Fresh normal-hook frozen installation",
+          "number": 10,
+          "startedAt": "2026-10-16T18:04:10Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:48Z",
+          "conclusion": "success",
+          "name": "Native replay, serial, coverage and actual process controls",
+          "number": 11,
+          "startedAt": "2026-10-16T18:04:20Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:13Z",
+          "conclusion": "success",
+          "name": "Build, install and probe actual package on explicit runtimes",
+          "number": 12,
+          "startedAt": "2026-10-16T18:04:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:15Z",
+          "conclusion": "success",
+          "name": "Retain native evidence, including failure logs",
+          "number": 13,
+          "startedAt": "2026-10-16T18:06:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:15Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 22,
+          "startedAt": "2026-10-16T18:06:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:16Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 23,
+          "startedAt": "2026-10-16T18:06:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 24,
+          "startedAt": "2026-10-16T18:06:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 25,
+          "startedAt": "2026-10-16T18:06:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:18Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 26,
+          "startedAt": "2026-10-16T18:06:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:18Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-16T18:06:18Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117119607013"
+    },
+    {
+      "completedAt": "2026-10-16T18:04:18Z",
+      "conclusion": "success",
+      "databaseId": 117119607035,
+      "name": "Native platforms / Native ubuntu-24.04",
+      "startedAt": "2026-10-16T18:03:10Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:03:12Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:03:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:14Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-10-16T18:03:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:18Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-10-16T18:03:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:18Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node22 path",
+          "number": 4,
+          "startedAt": "2026-10-16T18:03:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:19Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 5,
+          "startedAt": "2026-10-16T18:03:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:19Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node24 and npm CLI paths",
+          "number": 6,
+          "startedAt": "2026-10-16T18:03:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:20Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 7,
+          "startedAt": "2026-10-16T18:03:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:21Z",
+          "conclusion": "success",
+          "name": "Retain separate minimum consumer binary",
+          "number": 8,
+          "startedAt": "2026-10-16T18:03:20Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:21Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 9,
+          "startedAt": "2026-10-16T18:03:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:22Z",
+          "conclusion": "success",
+          "name": "Fresh normal-hook frozen installation",
+          "number": 10,
+          "startedAt": "2026-10-16T18:03:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:39Z",
+          "conclusion": "success",
+          "name": "Native replay, serial, coverage and actual process controls",
+          "number": 11,
+          "startedAt": "2026-10-16T18:03:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:13Z",
+          "conclusion": "success",
+          "name": "Build, install and probe actual package on explicit runtimes",
+          "number": 12,
+          "startedAt": "2026-10-16T18:03:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:14Z",
+          "conclusion": "success",
+          "name": "Retain native evidence, including failure logs",
+          "number": 13,
+          "startedAt": "2026-10-16T18:04:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:14Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 22,
+          "startedAt": "2026-10-16T18:04:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:14Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 23,
+          "startedAt": "2026-10-16T18:04:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:15Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 24,
+          "startedAt": "2026-10-16T18:04:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:15Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 25,
+          "startedAt": "2026-10-16T18:04:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:15Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 26,
+          "startedAt": "2026-10-16T18:04:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:15Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-16T18:04:15Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117119607035"
+    },
+    {
+      "completedAt": "2026-10-16T18:05:01Z",
+      "conclusion": "success",
+      "databaseId": 117119607211,
+      "name": "Native platforms / Native windows-2022",
+      "startedAt": "2026-10-16T18:03:11Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:03:14Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:03:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:22Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-10-16T18:03:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:30Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-10-16T18:03:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:30Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node22 path",
+          "number": 4,
+          "startedAt": "2026-10-16T18:03:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:36Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 5,
+          "startedAt": "2026-10-16T18:03:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:36Z",
+          "conclusion": "success",
+          "name": "Preserve exact Node24 and npm CLI paths",
+          "number": 6,
+          "startedAt": "2026-10-16T18:03:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:39Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 7,
+          "startedAt": "2026-10-16T18:03:36Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:40Z",
+          "conclusion": "success",
+          "name": "Retain separate minimum consumer binary",
+          "number": 8,
+          "startedAt": "2026-10-16T18:03:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:40Z",
+          "conclusion": "success",
+          "name": "Run oven-sh/setup-bun@v2",
+          "number": 9,
+          "startedAt": "2026-10-16T18:03:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:03:45Z",
+          "conclusion": "success",
+          "name": "Fresh normal-hook frozen installation",
+          "number": 10,
+          "startedAt": "2026-10-16T18:03:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:06Z",
+          "conclusion": "success",
+          "name": "Native replay, serial, coverage and actual process controls",
+          "number": 11,
+          "startedAt": "2026-10-16T18:03:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:53Z",
+          "conclusion": "success",
+          "name": "Build, install and probe actual package on explicit runtimes",
+          "number": 12,
+          "startedAt": "2026-10-16T18:04:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:55Z",
+          "conclusion": "success",
+          "name": "Retain native evidence, including failure logs",
+          "number": 13,
+          "startedAt": "2026-10-16T18:04:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:55Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 22,
+          "startedAt": "2026-10-16T18:04:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:55Z",
+          "conclusion": "success",
+          "name": "Post Run oven-sh/setup-bun@v2",
+          "number": 23,
+          "startedAt": "2026-10-16T18:04:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:56Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 24,
+          "startedAt": "2026-10-16T18:04:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:56Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 25,
+          "startedAt": "2026-10-16T18:04:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:58Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 26,
+          "startedAt": "2026-10-16T18:04:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:04:58Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-16T18:04:58Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117119607211"
+    },
+    {
+      "completedAt": "2026-10-16T18:07:01Z",
+      "conclusion": "success",
+      "databaseId": 117121160729,
+      "name": "Codecov",
+      "startedAt": "2026-10-16T18:06:50Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T18:06:53Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T18:06:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:55Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-10-16T18:06:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:56Z",
+          "conclusion": "success",
+          "name": "Run actions/download-artifact@v8",
+          "number": 3,
+          "startedAt": "2026-10-16T18:06:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:59Z",
+          "conclusion": "success",
+          "name": "Run codecov/codecov-action@v7",
+          "number": 4,
+          "startedAt": "2026-10-16T18:06:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:59Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 8,
+          "startedAt": "2026-10-16T18:06:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T18:06:59Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-10-16T18:06:59Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111/job/117121160729"
+    }
+  ],
+  "platforms": {
+    "linux": {
+      "status": "passed",
+      "platform": "linux",
+      "arch": "x64",
+      "osType": "Linux",
+      "osRelease": "6.17.0-1022-azure",
+      "bun": "1.4.3",
+      "github": {
+        "sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb",
+        "runId": "38944357111",
+        "attempt": "1",
+        "runnerOS": "Linux",
+        "runnerArch": "X64",
+        "imageOS": "ubuntu24",
+        "imageVersion": "20261012.334.1"
+      },
+      "phases": {
+        "install": "passed",
+        "replay": "passed",
+        "package": "passed"
+      },
+      "fixtureBefore": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureAfter": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureBytesUnchanged": true,
+      "lockUnchanged": true,
+      "manifestUnchanged": true,
+      "nativeRuns": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "nativeCoverage": {
+        "sources": [
+          "scripts/capture-get-crumb-fixtures.ts",
+          "scripts/check-recache-rate-limits.ts",
+          "scripts/recache-fixtures.ts",
+          "scripts/recache/broker.ts",
+          "scripts/recache/child.ts",
+          "scripts/recache/environment.ts",
+          "scripts/recache/orchestrator.ts",
+          "scripts/recache/session.ts",
+          "scripts/recache/staging.ts",
+          "scripts/recache/store.ts",
+          "scripts/testing/inventory.ts",
+          "scripts/testing/native-preload.ts",
+          "scripts/testing/native.ts",
+          "src/consts.ts",
+          "src/createYahooFinance.ts",
+          "src/index.ts",
+          "src/lib/cli.ts",
+          "src/lib/cookieJar.ts",
+          "src/lib/deepmerge.ts",
+          "src/lib/errors.ts",
+          "src/lib/getCrumb.ts",
+          "src/lib/headers.ts",
+          "src/lib/jsonSafe.ts",
+          "src/lib/moduleExec.ts",
+          "src/lib/notices.ts",
+          "src/lib/options/defaults.ts",
+          "src/lib/options/logger.ts",
+          "src/lib/options/options.ts",
+          "src/lib/queue.ts",
+          "src/lib/runtime-detect.ts",
+          "src/lib/runtimeGlobal.ts",
+          "src/lib/validate/index.ts",
+          "src/lib/validate/types/array.ts",
+          "src/lib/validate/types/boolean.ts",
+          "src/lib/validate/types/index.ts",
+          "src/lib/validate/types/null.ts",
+          "src/lib/validate/types/number.ts",
+          "src/lib/validate/types/object.ts",
+          "src/lib/validate/types/string.ts",
+          "src/lib/validate/types/undefined.ts",
+          "src/lib/validateAndCoerceTypes.ts",
+          "src/lib/versions.ts",
+          "src/lib/yahooFinanceFetch.ts",
+          "src/mcp/http.ts",
+          "src/mcp/server.ts",
+          "src/modules/autoc.ts",
+          "src/modules/chart.ts",
+          "src/modules/dailyGainers.ts",
+          "src/modules/dailyLosers.ts",
+          "src/modules/fundamentalsTimeSeries.ts",
+          "src/modules/historical.ts",
+          "src/modules/index.ts",
+          "src/modules/insights.ts",
+          "src/modules/options.ts",
+          "src/modules/quote.ts",
+          "src/modules/quoteSummary-iface.ts",
+          "src/modules/quoteSummary.ts",
+          "src/modules/recommendationsBySymbol.ts",
+          "src/modules/screener.ts",
+          "src/modules/search.ts",
+          "src/modules/streamer.ts",
+          "src/modules/trendingSymbols.ts",
+          "src/other/index.ts",
+          "src/other/quoteCombine.ts",
+          "tests/common.ts",
+          "tests/fetchCache.ts",
+          "tests/migration/assertions.ts",
+          "tests/migration/mock.ts",
+          "tests/migration/runner.ts",
+          "tests/migration/time.ts",
+          "tests/recacheFetch.ts",
+          "tests/recacheStats.ts",
+          "tests/replayStore.ts",
+          "tests/testSymbols.ts"
+        ],
+        "sha256": "e69389557a327084bb1b8d250ab082981ce327affcf615fd74ba9e4ef2f22ab1",
+        "scope": "Native library/portable inventory only; no strict full-suite equivalence"
+      },
+      "package": {
+        "filename": "yahoo-finance2-0.0.1.tgz",
+        "sha256": "c0c596151b0d998cf6f860c35052bfb736c11ec227b073baf0d88f4c1af7fd33",
+        "entryCount": 252
+      },
+      "minimumRuntime": {
+        "version": "1.4.3",
+        "platforms": "Linux/macOS/Windows upstream-supported combinations",
+        "cliScope": "full"
+      },
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged.",
+      "commands": [
+        {
+          "name": "toolchain-before",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "check:toolchain"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:21.632Z",
+          "finished": "2026-10-16T18:03:21.651Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "frozen-install",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "install",
+            "--frozen-lockfile"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:21.651Z",
+          "finished": "2026-10-16T18:03:22.442Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "local-biome",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "node_modules/@biomejs/biome/bin/biome",
+            "--version"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:22.442Z",
+          "finished": "2026-10-16T18:03:22.462Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-inventory",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--list"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:22.662Z",
+          "finished": "2026-10-16T18:03:22.689Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "portable-helper-controls",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "test",
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "scripts/native-platform.test.ts",
+            "scripts/native-platform-frames.test.ts"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:22.689Z",
+          "finished": "2026-10-16T18:03:22.922Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-full",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:22.922Z",
+          "finished": "2026-10-16T18:03:27.661Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-serial",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--serial",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:27.662Z",
+          "finished": "2026-10-16T18:03:34.264Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-coverage",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--coverage",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:34.265Z",
+          "finished": "2026-10-16T18:03:39.134Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "actual-process-controls",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "scripts/native-platform-process.ts",
+            "/home/runner/work/_temp/yf-native-platform"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:39.151Z",
+          "finished": "2026-10-16T18:03:39.646Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-version",
+          "executable": "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:39.800Z",
+          "finished": "2026-10-16T18:03:39.805Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-version",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:39.805Z",
+          "finished": "2026-10-16T18:03:39.809Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-version",
+          "executable": "/home/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:39.810Z",
+          "finished": "2026-10-16T18:03:39.811Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "build",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "scripts/build_npm.ts",
+            "--out-dir",
+            "/home/runner/work/_temp/yf-native-platform/built-package"
+          ],
+          "cwd": "/home/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:03:39.811Z",
+          "finished": "2026-10-16T18:03:46.056Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "pack",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "pack",
+            "/home/runner/work/_temp/yf-native-platform/built-package",
+            "--offline",
+            "--json",
+            "--pack-destination",
+            "/home/runner/work/_temp/yf-native-platform/packs",
+            "--cache",
+            "/home/runner/work/_temp/yf-native-platform/pack-cache"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform",
+          "started": "2026-10-16T18:03:46.056Z",
+          "finished": "2026-10-16T18:03:46.981Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-registry-install",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "install",
+            "--no-audit",
+            "--no-fund",
+            "--package-lock=false",
+            "--cache",
+            "/home/runner/work/_temp/yf-native-platform/consumer-npm-cache",
+            "/home/runner/work/_temp/yf-native-platform/packs/yahoo-finance2-0.0.1.tgz",
+            "typescript@6.0.3",
+            "@types/node@24.10.1"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:46.981Z",
+          "finished": "2026-10-16T18:03:51.763Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-consumer",
+          "executable": "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:51.764Z",
+          "finished": "2026-10-16T18:03:52.257Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-runtime",
+          "executable": "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:52.257Z",
+          "finished": "2026-10-16T18:03:52.374Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-cli",
+          "executable": "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:52.374Z",
+          "finished": "2026-10-16T18:03:57.299Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-consumer",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:57.299Z",
+          "finished": "2026-10-16T18:03:57.723Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-runtime",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:57.723Z",
+          "finished": "2026-10-16T18:03:57.805Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:03:57.805Z",
+          "finished": "2026-10-16T18:04:01.985Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-consumer",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:01.985Z",
+          "finished": "2026-10-16T18:04:02.352Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-runtime",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:02.352Z",
+          "finished": "2026-10-16T18:04:02.395Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-cli",
+          "executable": "/home/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/home/runner/.bun/bin/bun",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:02.395Z",
+          "finished": "2026-10-16T18:04:05.032Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-consumer",
+          "executable": "/home/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:05.033Z",
+          "finished": "2026-10-16T18:04:05.285Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-runtime",
+          "executable": "/home/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:05.285Z",
+          "finished": "2026-10-16T18:04:05.328Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-cli",
+          "executable": "/home/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/home/runner/work/_temp/yf-consumer-runtime/bun",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:05.328Z",
+          "finished": "2026-10-16T18:04:07.935Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli-fragmented",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "--import",
+            "file:///home/runner/work/_temp/yf-native-platform/consumer%20with%20spaces/native-mcp-fragment.mjs",
+            "package-native-cli.mjs",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/opt/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/home/runner/.bun/bin/bun",
+            "/home/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:07.935Z",
+          "finished": "2026-10-16T18:04:12.582Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-types",
+          "executable": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/home/runner/work/_temp/yf-native-platform/consumer with spaces/node_modules/typescript/bin/tsc",
+            "--noEmit",
+            "--strict",
+            "--skipLibCheck",
+            "--target",
+            "es2022",
+            "--module",
+            "nodenext",
+            "--moduleResolution",
+            "nodenext",
+            "consumer.mts",
+            "consumer.cts"
+          ],
+          "cwd": "/home/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:04:12.583Z",
+          "finished": "2026-10-16T18:04:13.579Z",
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "artifact": {
+        "id": 12065370219,
+        "node_id": "MDg6QXJ0aWZhY3QxMjA2NTM3MDIxOQ==",
+        "name": "native-ubuntu-24.04-1",
+        "size_in_bytes": 125460,
+        "url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065370219",
+        "archive_download_url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065370219/zip",
+        "expired": false,
+        "digest": "sha256:bc991f5374a5fcc2ad9438746b0a2b11382d0d8b4ea5aa3990658e5aebdf5b34",
+        "created_at": "2026-10-16T18:04:14Z",
+        "updated_at": "2026-10-16T18:04:14Z",
+        "expires_at": "2026-10-23T18:04:13Z",
+        "workflow_run": {
+          "id": 38944357111,
+          "repository_id": 332135599,
+          "head_repository_id": 332135599,
+          "head_branch": "codex/bun-migration",
+          "head_sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb"
+        },
+        "independentlyMatched": true
+      },
+      "normalInstalledPackages": 462,
+      "physicalManifestCount": 632,
+      "processControls": {
+        "platform": "linux",
+        "bun": "1.4.3",
+        "cancellation": {
+          "code": 143,
+          "timeout": false,
+          "elapsedMs": 202,
+          "exitCode": null,
+          "signalCode": "SIGTERM",
+          "mechanism": "actual POSIX group SIGTERM"
+        },
+        "heldStdioParentRuntime": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+        "heldStdioSetup": {
+          "descendant": 3766,
+          "detachedDescendant": false,
+          "inheritedStdoutHandshake": true,
+          "inheritedStderrHandshake": true,
+          "parentExitCode": 0,
+          "descendantAliveAfterParentExit": true,
+          "stdioStillOpenAfterParentExit": true
+        },
+        "exitedParentHeldStdio": {
+          "realInheritedPipe": true,
+          "elapsedMs": 204,
+          "ended": {
+            "code": 0,
+            "timeout": true
+          },
+          "cleanup": "Actual POSIX group cleanup closes inherited stdio"
+        },
+        "knownDescendantCleanupVerified": true,
+        "heldStdioObservation": {
+          "descendant": 3766,
+          "parentExitCode": 0,
+          "parentSignalCode": null,
+          "closeObserved": true,
+          "output": "INHERITED_STDOUT_READY\nINHERITED_STDERR_READY\n"
+        }
+      },
+      "installedCli": {
+        "node22": {
+          "runtime": "/opt/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "controllerRuntime": "Node 22.0.0",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 10
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 8
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "node24": {
+          "runtime": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "controllerRuntime": "Node 24.21.0",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 13
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 11
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 10
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "bun": {
+          "runtime": "/home/runner/.bun/bin/bun",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 5
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 6
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "minimum-bun": {
+          "runtime": "/home/runner/work/_temp/yf-consumer-runtime/bun",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "linux",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 4
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 4
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "linux"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        }
+      },
+      "installedConsumers": {
+        "node22": {
+          "runtime": "Node 22.0.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "node24": {
+          "runtime": "Node 24.21.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "minimum-bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        }
+      },
+      "runtime": {
+        "node22": {
+          "runtime": "node",
+          "version": "22.0.0",
+          "terminal": false,
+          "platform": "linux",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "node24": {
+          "runtime": "node",
+          "version": "24.21.0",
+          "terminal": false,
+          "platform": "linux",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "linux",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "minimum-bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "linux",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        }
+      },
+      "fragmentedSessions": 4,
+      "evidenceFileSha256": {
+        "actual-process-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual-process-controls.stdout": "b362ed31228bd1bbf2b884c5df895a17d10acd6feb090ec56d235feb8caefe71",
+        "actual-process-metadata.json": "392bb67637594dc0de8deee82a9eafa41dbe35187173fd140f816a5954b0c1df",
+        "build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build.stdout": "ede5f4282651d733aee775af5320a40c676d834a8bdcf14f5bef1c6198d185d4",
+        "bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-cli.stdout": "5ac5c0a3de048393ecd211752b588a68e3acc4d16ff5e248b39efb65def4b445",
+        "bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-runtime.stdout": "367349cd657d5ad5ef431333a7e8a678599c2bb88dd9b620810abfc440f0eff3",
+        "consumer-registry-install.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-registry-install.stdout": "e5f3804dddece157f0a8e16c275fb98fb4a4059eb99877cba17c4d6a61da60f2",
+        "consumer-types.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-types.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+        "frozen-install.stdout": "eb8639a3a90948572905b64069f9cc5c9baf665b1829aedb16f47f4ed3b3e140",
+        "installed-packages.json": "0bf9bd663441b96edfe64b6d760f58c303b425230cb460f90e14334eed59c8b5",
+        "local-biome.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "local-biome.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+        "minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-cli.stdout": "a173edaceb2d8efe74b5df31909dc59ca2b0b54e9489d3d4c18c17220baba2b8",
+        "minimum-bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "minimum-bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-runtime.stdout": "367349cd657d5ad5ef431333a7e8a678599c2bb88dd9b620810abfc440f0eff3",
+        "minimum-bun-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-version.stdout": "bd31e8d9cf8d14a1e9e3fdf3b9f6a524819aed0d1b14627523c6765767c7d8f1",
+        "native-coverage.stderr": "a11607cfecb97e2422a7c28413d28444293ab3cea49b260e48819df065fcb44a",
+        "native-coverage.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-full.stderr": "9d9118bd59c8e15243a8dd02bc9278b6ba982b258927725fc84858c80f98ffc3",
+        "native-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-inventory.stderr": "269eef4aa7538a60375271a22ac2d101c76fea5b05dcc514c06009144aba8c4e",
+        "native-inventory.stdout": "8d2e771294b200691d3b09a1577fbd48220330b65883b590e852b04bd2da95ac",
+        "native-lcov.info": "e69389557a327084bb1b8d250ab082981ce327affcf615fd74ba9e4ef2f22ab1",
+        "native-serial.stderr": "eb8c2955bd35149d3176c6825e0e50c15c6542023b7b9ff92b6350a091f2660a",
+        "native-serial.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+        "node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-cli.stdout": "dae1f9fd08c098e117bc090dd41499d9d6f04800fde6f92fbdff97753c287a5f",
+        "node22-consumer.stderr": "6ff5dc49e049ca33e64ea1c0305f77e6c25409ee3c382f3627d6e874e34cb0d7",
+        "node22-consumer.stdout": "5ae77d0c7d75244e1e9e280e181c420b5d9160eb547b1ae16adc2691030f0eca",
+        "node22-runtime.stderr": "b6dc96c6ba1a6bdcf4e1441d0feaeef5e2b8405a24bf303d7b9aad21e499f2b5",
+        "node22-runtime.stdout": "6c0b663f93b8d8f7c5f0b04a1047d5e9036734b4072e0dbfb42c83c130cf83de",
+        "node22-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-version.stdout": "8cc3f3bd688f6d2f51479b82dc0e1bcc9f8f240f02b809e67206da750cf13154",
+        "node24-cli-fragmented.stderr": "bad686b6db8e52910e33ce43c57127b560620e44bc16d13b950cc2dce72989f8",
+        "node24-cli-fragmented.stdout": "b2969c3894b9beb173c99de9de7d5558054f0ffec393d51e7b2891b78f2abc72",
+        "node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-cli.stdout": "78749027da3399568684801dc90c0493dc871af86c2b6b57cafa3cea042543c2",
+        "node24-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-consumer.stdout": "b9e4df71b58a662327b65b109f6dfd7eacd96b652155d0b221c4d33ad66857d3",
+        "node24-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-runtime.stdout": "b22cea297d081aa7548fe822e3422f4577b904f54c7519ccc057145c0ef7cb35",
+        "node24-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-version.stdout": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+        "pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pack.stdout": "d7078689a2526fa746dfdd8b3e5f037942402e2286b09e43d4fce835dd2fd830",
+        "portable-helper-controls.stderr": "179e718230ea84841b2b0c30940a2e093e641abb9f514ae8bf57bcfe7b3641eb",
+        "portable-helper-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+        "summary.json": "b35b3eb5f7fd73a5882dcc368eb6684e1431e8156455871e160c47d8e17914ef",
+        "toolchain-before.stderr": "7b06740e83f4fb425fd4bfa3e671cfabfe0ea5d38ecc13908bef1720ea703cc4",
+        "toolchain-before.stdout": "57257402c57850c836e3e1af17541b5b22126ed970b21e11382c3e8539197ccf"
+      }
+    },
+    "macos": {
+      "status": "passed",
+      "platform": "darwin",
+      "arch": "x64",
+      "osType": "Darwin",
+      "osRelease": "24.6.0",
+      "bun": "1.4.3",
+      "github": {
+        "sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb",
+        "runId": "38944357111",
+        "attempt": "1",
+        "runnerOS": "macOS",
+        "runnerArch": "X64",
+        "imageOS": "macos15",
+        "imageVersion": "20260824.0482.1"
+      },
+      "phases": {
+        "install": "passed",
+        "replay": "passed",
+        "package": "passed"
+      },
+      "fixtureBefore": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureAfter": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureBytesUnchanged": true,
+      "lockUnchanged": true,
+      "manifestUnchanged": true,
+      "nativeRuns": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "nativeCoverage": {
+        "sources": [
+          "scripts/capture-get-crumb-fixtures.ts",
+          "scripts/check-recache-rate-limits.ts",
+          "scripts/recache-fixtures.ts",
+          "scripts/recache/broker.ts",
+          "scripts/recache/child.ts",
+          "scripts/recache/environment.ts",
+          "scripts/recache/orchestrator.ts",
+          "scripts/recache/session.ts",
+          "scripts/recache/staging.ts",
+          "scripts/recache/store.ts",
+          "scripts/testing/inventory.ts",
+          "scripts/testing/native-preload.ts",
+          "scripts/testing/native.ts",
+          "src/consts.ts",
+          "src/createYahooFinance.ts",
+          "src/index.ts",
+          "src/lib/cli.ts",
+          "src/lib/cookieJar.ts",
+          "src/lib/deepmerge.ts",
+          "src/lib/errors.ts",
+          "src/lib/getCrumb.ts",
+          "src/lib/headers.ts",
+          "src/lib/jsonSafe.ts",
+          "src/lib/moduleExec.ts",
+          "src/lib/notices.ts",
+          "src/lib/options/defaults.ts",
+          "src/lib/options/logger.ts",
+          "src/lib/options/options.ts",
+          "src/lib/queue.ts",
+          "src/lib/runtime-detect.ts",
+          "src/lib/runtimeGlobal.ts",
+          "src/lib/validate/index.ts",
+          "src/lib/validate/types/array.ts",
+          "src/lib/validate/types/boolean.ts",
+          "src/lib/validate/types/index.ts",
+          "src/lib/validate/types/null.ts",
+          "src/lib/validate/types/number.ts",
+          "src/lib/validate/types/object.ts",
+          "src/lib/validate/types/string.ts",
+          "src/lib/validate/types/undefined.ts",
+          "src/lib/validateAndCoerceTypes.ts",
+          "src/lib/versions.ts",
+          "src/lib/yahooFinanceFetch.ts",
+          "src/mcp/http.ts",
+          "src/mcp/server.ts",
+          "src/modules/autoc.ts",
+          "src/modules/chart.ts",
+          "src/modules/dailyGainers.ts",
+          "src/modules/dailyLosers.ts",
+          "src/modules/fundamentalsTimeSeries.ts",
+          "src/modules/historical.ts",
+          "src/modules/index.ts",
+          "src/modules/insights.ts",
+          "src/modules/options.ts",
+          "src/modules/quote.ts",
+          "src/modules/quoteSummary-iface.ts",
+          "src/modules/quoteSummary.ts",
+          "src/modules/recommendationsBySymbol.ts",
+          "src/modules/screener.ts",
+          "src/modules/search.ts",
+          "src/modules/streamer.ts",
+          "src/modules/trendingSymbols.ts",
+          "src/other/index.ts",
+          "src/other/quoteCombine.ts",
+          "tests/common.ts",
+          "tests/fetchCache.ts",
+          "tests/migration/assertions.ts",
+          "tests/migration/mock.ts",
+          "tests/migration/runner.ts",
+          "tests/migration/time.ts",
+          "tests/recacheFetch.ts",
+          "tests/recacheStats.ts",
+          "tests/replayStore.ts",
+          "tests/testSymbols.ts"
+        ],
+        "sha256": "ece7a2f486bd9516f75356b8a10abdcf0e198c99c1db0a42e5b1f3094160b80e",
+        "scope": "Native library/portable inventory only; no strict full-suite equivalence"
+      },
+      "package": {
+        "filename": "yahoo-finance2-0.0.1.tgz",
+        "sha256": "c0c596151b0d998cf6f860c35052bfb736c11ec227b073baf0d88f4c1af7fd33",
+        "entryCount": 252
+      },
+      "minimumRuntime": {
+        "version": "1.4.3",
+        "platforms": "Linux/macOS/Windows upstream-supported combinations",
+        "cliScope": "full"
+      },
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged.",
+      "commands": [
+        {
+          "name": "toolchain-before",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "check:toolchain"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:10.983Z",
+          "finished": "2026-10-16T18:04:11.069Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "frozen-install",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "install",
+            "--frozen-lockfile"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:11.070Z",
+          "finished": "2026-10-16T18:04:19.517Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "local-biome",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "node_modules/@biomejs/biome/bin/biome",
+            "--version"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:19.518Z",
+          "finished": "2026-10-16T18:04:19.622Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-inventory",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--list"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:20.506Z",
+          "finished": "2026-10-16T18:04:20.579Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "portable-helper-controls",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "test",
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "scripts/native-platform.test.ts",
+            "scripts/native-platform-frames.test.ts"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:20.580Z",
+          "finished": "2026-10-16T18:04:21.350Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-full",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:21.350Z",
+          "finished": "2026-10-16T18:04:27.071Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-serial",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--serial",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:27.072Z",
+          "finished": "2026-10-16T18:04:40.789Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-coverage",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "run",
+            "test:native",
+            "--coverage",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:40.790Z",
+          "finished": "2026-10-16T18:04:47.012Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "actual-process-controls",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "scripts/native-platform-process.ts",
+            "/Users/runner/work/_temp/yf-native-platform"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:47.060Z",
+          "finished": "2026-10-16T18:04:47.768Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-version",
+          "executable": "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:48.361Z",
+          "finished": "2026-10-16T18:04:48.486Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-version",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:48.487Z",
+          "finished": "2026-10-16T18:04:48.556Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-version",
+          "executable": "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--version"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:48.556Z",
+          "finished": "2026-10-16T18:04:48.614Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "build",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "scripts/build_npm.ts",
+            "--out-dir",
+            "/Users/runner/work/_temp/yf-native-platform/built-package"
+          ],
+          "cwd": "/Users/runner/work/yahoo-finance2/yahoo-finance2",
+          "started": "2026-10-16T18:04:48.615Z",
+          "finished": "2026-10-16T18:05:05.684Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "pack",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "pack",
+            "/Users/runner/work/_temp/yf-native-platform/built-package",
+            "--offline",
+            "--json",
+            "--pack-destination",
+            "/Users/runner/work/_temp/yf-native-platform/packs",
+            "--cache",
+            "/Users/runner/work/_temp/yf-native-platform/pack-cache"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform",
+          "started": "2026-10-16T18:05:05.685Z",
+          "finished": "2026-10-16T18:05:07.452Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-registry-install",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "install",
+            "--no-audit",
+            "--no-fund",
+            "--package-lock=false",
+            "--cache",
+            "/Users/runner/work/_temp/yf-native-platform/consumer-npm-cache",
+            "/Users/runner/work/_temp/yf-native-platform/packs/yahoo-finance2-0.0.1.tgz",
+            "typescript@6.0.3",
+            "@types/node@24.10.1"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:07.454Z",
+          "finished": "2026-10-16T18:05:20.817Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-consumer",
+          "executable": "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:20.827Z",
+          "finished": "2026-10-16T18:05:22.201Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-runtime",
+          "executable": "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:22.202Z",
+          "finished": "2026-10-16T18:05:22.505Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-cli",
+          "executable": "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:22.506Z",
+          "finished": "2026-10-16T18:05:35.738Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-consumer",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:35.739Z",
+          "finished": "2026-10-16T18:05:36.643Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-runtime",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:36.643Z",
+          "finished": "2026-10-16T18:05:36.850Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:36.851Z",
+          "finished": "2026-10-16T18:05:46.894Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-consumer",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:46.895Z",
+          "finished": "2026-10-16T18:05:48.338Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-runtime",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:48.339Z",
+          "finished": "2026-10-16T18:05:48.441Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-cli",
+          "executable": "/Users/runner/.bun/bin/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:48.441Z",
+          "finished": "2026-10-16T18:05:54.129Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-consumer",
+          "executable": "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:54.129Z",
+          "finished": "2026-10-16T18:05:54.782Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-runtime",
+          "executable": "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:54.783Z",
+          "finished": "2026-10-16T18:05:54.885Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-cli",
+          "executable": "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+          "args": [
+            "--preload",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:05:54.886Z",
+          "finished": "2026-10-16T18:06:00.506Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli-fragmented",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "--import",
+            "file:///Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "--import",
+            "file:///Users/runner/work/_temp/yf-native-platform/consumer%20with%20spaces/native-mcp-fragment.mjs",
+            "package-native-cli.mjs",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+            "/Users/runner/hostedtoolcache/node/24.21.0/x64/lib/node_modules/npm/bin/npm-cli.js",
+            "/Users/runner/.bun/bin/bun",
+            "/Users/runner/work/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:06:00.507Z",
+          "finished": "2026-10-16T18:06:11.017Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-types",
+          "executable": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "args": [
+            "/Users/runner/work/_temp/yf-native-platform/consumer with spaces/node_modules/typescript/bin/tsc",
+            "--noEmit",
+            "--strict",
+            "--skipLibCheck",
+            "--target",
+            "es2022",
+            "--module",
+            "nodenext",
+            "--moduleResolution",
+            "nodenext",
+            "consumer.mts",
+            "consumer.cts"
+          ],
+          "cwd": "/Users/runner/work/_temp/yf-native-platform/consumer with spaces",
+          "started": "2026-10-16T18:06:11.018Z",
+          "finished": "2026-10-16T18:06:13.001Z",
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "artifact": {
+        "id": 12064976104,
+        "node_id": "MDg6QXJ0aWZhY3QxMjA2NDk3NjEwNA==",
+        "name": "native-macos-15-intel-1",
+        "size_in_bytes": 127203,
+        "url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12064976104",
+        "archive_download_url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12064976104/zip",
+        "expired": false,
+        "digest": "sha256:54147fad381a3b6dcbffc36219f55238b73735fd213a741ab9d38ee44f2b9fdd",
+        "created_at": "2026-10-16T18:06:15Z",
+        "updated_at": "2026-10-16T18:06:15Z",
+        "expires_at": "2026-10-23T18:06:13Z",
+        "workflow_run": {
+          "id": 38944357111,
+          "repository_id": 332135599,
+          "head_repository_id": 332135599,
+          "head_branch": "codex/bun-migration",
+          "head_sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb"
+        },
+        "independentlyMatched": true
+      },
+      "normalInstalledPackages": 461,
+      "physicalManifestCount": 631,
+      "processControls": {
+        "platform": "darwin",
+        "bun": "1.4.3",
+        "cancellation": {
+          "code": 143,
+          "timeout": false,
+          "elapsedMs": 204,
+          "exitCode": null,
+          "signalCode": "SIGTERM",
+          "mechanism": "actual POSIX group SIGTERM"
+        },
+        "heldStdioParentRuntime": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+        "heldStdioSetup": {
+          "descendant": 5746,
+          "detachedDescendant": false,
+          "inheritedStdoutHandshake": true,
+          "inheritedStderrHandshake": true,
+          "parentExitCode": 0,
+          "descendantAliveAfterParentExit": true,
+          "stdioStillOpenAfterParentExit": true
+        },
+        "exitedParentHeldStdio": {
+          "realInheritedPipe": true,
+          "elapsedMs": 206,
+          "ended": {
+            "code": 0,
+            "timeout": true
+          },
+          "cleanup": "Actual POSIX group cleanup closes inherited stdio"
+        },
+        "knownDescendantCleanupVerified": true,
+        "heldStdioObservation": {
+          "descendant": 5746,
+          "parentExitCode": 0,
+          "parentSignalCode": null,
+          "closeObserved": true,
+          "output": "INHERITED_STDOUT_READY\nINHERITED_STDERR_READY\n"
+        }
+      },
+      "installedCli": {
+        "node22": {
+          "runtime": "/Users/runner/hostedtoolcache/node/22.0.0/x64/bin/node",
+          "controllerRuntime": "Node 22.0.0",
+          "platform": "darwin",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 26
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 23
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 17
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "darwin"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "node24": {
+          "runtime": "/Users/runner/hostedtoolcache/node/24.21.0/x64/bin/node",
+          "controllerRuntime": "Node 24.21.0",
+          "platform": "darwin",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 20
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 19
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 16
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "darwin"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "bun": {
+          "runtime": "/Users/runner/.bun/bin/bun",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "darwin",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 12
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "darwin"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "minimum-bun": {
+          "runtime": "/Users/runner/work/_temp/yf-consumer-runtime/bun",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "darwin",
+          "checks": 14,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 10
+            },
+            {
+              "shutdown": "SIGTERM",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 13
+            },
+            {
+              "shutdown": "SIGINT",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 7
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "0600",
+            "platform": "darwin"
+          },
+          "cookieHome": "HOME",
+          "permissions": "0600",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        }
+      },
+      "installedConsumers": {
+        "node22": {
+          "runtime": "Node 22.0.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "node24": {
+          "runtime": "Node 24.21.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "minimum-bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        }
+      },
+      "runtime": {
+        "node22": {
+          "runtime": "node",
+          "version": "22.0.0",
+          "terminal": false,
+          "platform": "darwin",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "node24": {
+          "runtime": "node",
+          "version": "24.21.0",
+          "terminal": false,
+          "platform": "darwin",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "darwin",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "minimum-bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "darwin",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        }
+      },
+      "fragmentedSessions": 4,
+      "evidenceFileSha256": {
+        "actual-process-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual-process-metadata.json": "b8e6ebc1b82e498aa4c9184f53cba5c251542b60a97d81ce42561f20e64502fd",
+        "actual-process-controls.stdout": "a93ee1e39eaf4ee560958cf055140a47ed453bdda6897031eb2e7f30a165d452",
+        "build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build.stdout": "72aa4dd94a5eb4ea53f937ab67a2386eb482d92aa7b5985d793125f9ef93072b",
+        "bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-cli.stdout": "65efb5c1b9e3924a3cc9ad6bdf3e5f181967692f0400bcb68482cfbfd1d32d69",
+        "bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-runtime.stdout": "a6cac19d955be8b0b5546c451da4b923d66ad21a23a9515391fd456f494481f6",
+        "consumer-registry-install.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-registry-install.stdout": "966afac6af158d0797191e1571564a4400461fc0cd8adbb2e21fd22bf95bae8b",
+        "consumer-types.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-types.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+        "frozen-install.stdout": "5eb2eb2415482ae8af8ad7f56e1c8c50661281b6b402f007a0fbd7da53aa1299",
+        "installed-packages.json": "90ba73c4015dfe25ee54bb8dbc1b6befaecb4ae9ccc4a777e73dd709717d2432",
+        "local-biome.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "local-biome.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+        "minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-cli.stdout": "b5a0f235f236f7da2b00b16a90ba193ad1bfd2e113b8987a028b9f637f4965c1",
+        "minimum-bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "minimum-bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-runtime.stdout": "a6cac19d955be8b0b5546c451da4b923d66ad21a23a9515391fd456f494481f6",
+        "minimum-bun-version.stdout": "bd31e8d9cf8d14a1e9e3fdf3b9f6a524819aed0d1b14627523c6765767c7d8f1",
+        "native-coverage.stderr": "48ae911c238dcb02bd2f2fe4810f6d643dcb3ec8031c8ea998fa54fcc24141f2",
+        "native-coverage.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-full.stderr": "0875d9e28892d7eef1dcc89816928fc69cc3d50451547ac0fcc9926b77a36f88",
+        "native-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-inventory.stdout": "8d2e771294b200691d3b09a1577fbd48220330b65883b590e852b04bd2da95ac",
+        "native-inventory.stderr": "269eef4aa7538a60375271a22ac2d101c76fea5b05dcc514c06009144aba8c4e",
+        "native-lcov.info": "ece7a2f486bd9516f75356b8a10abdcf0e198c99c1db0a42e5b1f3094160b80e",
+        "native-serial.stderr": "25a9a2c2cc054489fc1ff8dae9211b81c67f037445468f79ec616d45c38a4a14",
+        "native-serial.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+        "node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-cli.stdout": "15565acf8a5f22c2342d24a82a55358cc2b6a995deb36639abf43baa503a7fcc",
+        "node22-consumer.stderr": "2e19dcf2133a1fa47c8ffb4e589a0af834e9c2b312fc738effec2b408707400f",
+        "node22-consumer.stdout": "5ae77d0c7d75244e1e9e280e181c420b5d9160eb547b1ae16adc2691030f0eca",
+        "node22-runtime.stderr": "73392242664e73b14657c4f899962b241c319a5550ff55a24489ce90fef4f4b9",
+        "node22-runtime.stdout": "6e5f83a7c19fd514ffb0ab9df4954e9b8df80e126dea84dcc709244c100f084f",
+        "node22-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-version.stdout": "8cc3f3bd688f6d2f51479b82dc0e1bcc9f8f240f02b809e67206da750cf13154",
+        "node24-cli-fragmented.stderr": "bad686b6db8e52910e33ce43c57127b560620e44bc16d13b950cc2dce72989f8",
+        "node24-cli-fragmented.stdout": "127ba5533dcd933858291a6861439529961001a5360850378da00f54a899bab7",
+        "node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-cli.stdout": "a690bc7a2a0c8b8ddcc394752b36b5f4e38a792197d2ee075d7f3e1fa5649c6f",
+        "node24-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-consumer.stdout": "b9e4df71b58a662327b65b109f6dfd7eacd96b652155d0b221c4d33ad66857d3",
+        "node24-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-runtime.stdout": "2f69d4e0038c6d48e8f6889e0cc7abd84d1c4cea88309def9c4324bafea882f8",
+        "node24-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-version.stdout": "f2ec568164f99546161909b0189b57bb5be3e80f8e2ccd8a51a4aed8c4055a04",
+        "pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pack.stdout": "d7078689a2526fa746dfdd8b3e5f037942402e2286b09e43d4fce835dd2fd830",
+        "portable-helper-controls.stderr": "41a3064033b5f85e0818833c56fed1b95df7ec466d6d0f8d9180bddecbe26b17",
+        "portable-helper-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+        "summary.json": "a8e7eb30aca902c8654e08a433a373f3f678b0e77dc9a77e13182820f99483db",
+        "toolchain-before.stderr": "7b06740e83f4fb425fd4bfa3e671cfabfe0ea5d38ecc13908bef1720ea703cc4",
+        "toolchain-before.stdout": "57257402c57850c836e3e1af17541b5b22126ed970b21e11382c3e8539197ccf"
+      }
+    },
+    "windows": {
+      "status": "passed",
+      "platform": "win32",
+      "arch": "x64",
+      "osType": "Windows_NT",
+      "osRelease": "10.0.20348",
+      "bun": "1.4.3",
+      "github": {
+        "sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb",
+        "runId": "38944357111",
+        "attempt": "1",
+        "runnerOS": "Windows",
+        "runnerArch": "X64",
+        "imageOS": "win22",
+        "imageVersion": "20261012.333.1"
+      },
+      "phases": {
+        "install": "passed",
+        "replay": "passed",
+        "package": "passed"
+      },
+      "fixtureBefore": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureAfter": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "fixtureBytesUnchanged": true,
+      "lockUnchanged": true,
+      "manifestUnchanged": true,
+      "nativeRuns": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "nativeCoverage": {
+        "sources": [
+          "scripts/capture-get-crumb-fixtures.ts",
+          "scripts/check-recache-rate-limits.ts",
+          "scripts/recache-fixtures.ts",
+          "scripts/recache/broker.ts",
+          "scripts/recache/child.ts",
+          "scripts/recache/environment.ts",
+          "scripts/recache/orchestrator.ts",
+          "scripts/recache/session.ts",
+          "scripts/recache/staging.ts",
+          "scripts/recache/store.ts",
+          "scripts/testing/inventory.ts",
+          "scripts/testing/native-preload.ts",
+          "scripts/testing/native.ts",
+          "src/consts.ts",
+          "src/createYahooFinance.ts",
+          "src/index.ts",
+          "src/lib/cli.ts",
+          "src/lib/cookieJar.ts",
+          "src/lib/deepmerge.ts",
+          "src/lib/errors.ts",
+          "src/lib/getCrumb.ts",
+          "src/lib/headers.ts",
+          "src/lib/jsonSafe.ts",
+          "src/lib/moduleExec.ts",
+          "src/lib/notices.ts",
+          "src/lib/options/defaults.ts",
+          "src/lib/options/logger.ts",
+          "src/lib/options/options.ts",
+          "src/lib/queue.ts",
+          "src/lib/runtime-detect.ts",
+          "src/lib/runtimeGlobal.ts",
+          "src/lib/validate/index.ts",
+          "src/lib/validate/types/array.ts",
+          "src/lib/validate/types/boolean.ts",
+          "src/lib/validate/types/index.ts",
+          "src/lib/validate/types/null.ts",
+          "src/lib/validate/types/number.ts",
+          "src/lib/validate/types/object.ts",
+          "src/lib/validate/types/string.ts",
+          "src/lib/validate/types/undefined.ts",
+          "src/lib/validateAndCoerceTypes.ts",
+          "src/lib/versions.ts",
+          "src/lib/yahooFinanceFetch.ts",
+          "src/mcp/http.ts",
+          "src/mcp/server.ts",
+          "src/modules/autoc.ts",
+          "src/modules/chart.ts",
+          "src/modules/dailyGainers.ts",
+          "src/modules/dailyLosers.ts",
+          "src/modules/fundamentalsTimeSeries.ts",
+          "src/modules/historical.ts",
+          "src/modules/index.ts",
+          "src/modules/insights.ts",
+          "src/modules/options.ts",
+          "src/modules/quote.ts",
+          "src/modules/quoteSummary-iface.ts",
+          "src/modules/quoteSummary.ts",
+          "src/modules/recommendationsBySymbol.ts",
+          "src/modules/screener.ts",
+          "src/modules/search.ts",
+          "src/modules/streamer.ts",
+          "src/modules/trendingSymbols.ts",
+          "src/other/index.ts",
+          "src/other/quoteCombine.ts",
+          "tests/common.ts",
+          "tests/fetchCache.ts",
+          "tests/migration/assertions.ts",
+          "tests/migration/mock.ts",
+          "tests/migration/runner.ts",
+          "tests/migration/time.ts",
+          "tests/recacheFetch.ts",
+          "tests/recacheStats.ts",
+          "tests/replayStore.ts",
+          "tests/testSymbols.ts"
+        ],
+        "sha256": "b511ddae40036e47596c09271854006719e6bb29d347d43ecae4478757343406",
+        "scope": "Native library/portable inventory only; no strict full-suite equivalence"
+      },
+      "package": {
+        "filename": "yahoo-finance2-0.0.1.tgz",
+        "sha256": "708c2f26cebb18543d2069e7a30a93c794fe81e82d092ef7173b0b1ef343c7ca",
+        "entryCount": 252
+      },
+      "minimumRuntime": {
+        "version": "1.4.3",
+        "platforms": "Linux/macOS/Windows upstream-supported combinations",
+        "cliScope": "full"
+      },
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged.",
+      "commands": [
+        {
+          "name": "toolchain-before",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "run",
+            "check:toolchain"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:40.856Z",
+          "finished": "2026-10-16T18:03:40.896Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "frozen-install",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "install",
+            "--frozen-lockfile"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:40.896Z",
+          "finished": "2026-10-16T18:03:44.727Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "local-biome",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "node_modules/@biomejs/biome/bin/biome",
+            "--version"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:44.727Z",
+          "finished": "2026-10-16T18:03:44.830Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-inventory",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "run",
+            "test:native",
+            "--list"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:45.207Z",
+          "finished": "2026-10-16T18:03:45.255Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "portable-helper-controls",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "test",
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "scripts/native-platform.test.ts",
+            "scripts/native-platform-frames.test.ts"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:45.256Z",
+          "finished": "2026-10-16T18:03:45.659Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-full",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "run",
+            "test:native",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:45.659Z",
+          "finished": "2026-10-16T18:03:50.938Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-serial",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "run",
+            "test:native",
+            "--serial",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:50.939Z",
+          "finished": "2026-10-16T18:03:58.883Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "native-coverage",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "run",
+            "test:native",
+            "--coverage",
+            "--timeout=30000",
+            "--run-timeout=300000"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:03:58.884Z",
+          "finished": "2026-10-16T18:04:04.294Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "actual-process-controls",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "scripts/native-platform-process.ts",
+            "D:\\a\\_temp\\yf-native-platform"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:04:04.320Z",
+          "finished": "2026-10-16T18:04:06.574Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-version",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+          "args": [
+            "--version"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:04:06.854Z",
+          "finished": "2026-10-16T18:04:06.872Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-version",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "--version"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:04:06.872Z",
+          "finished": "2026-10-16T18:04:06.892Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-version",
+          "executable": "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+          "args": [
+            "--version"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:04:06.892Z",
+          "finished": "2026-10-16T18:04:06.903Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "build",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "scripts/build_npm.ts",
+            "--out-dir",
+            "D:\\a\\_temp\\yf-native-platform\\built-package"
+          ],
+          "cwd": "D:\\a\\yahoo-finance2\\yahoo-finance2",
+          "started": "2026-10-16T18:04:06.903Z",
+          "finished": "2026-10-16T18:04:14.585Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "pack",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "pack",
+            "D:\\a\\_temp\\yf-native-platform\\built-package",
+            "--offline",
+            "--json",
+            "--pack-destination",
+            "D:\\a\\_temp\\yf-native-platform\\packs",
+            "--cache",
+            "D:\\a\\_temp\\yf-native-platform\\pack-cache"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform",
+          "started": "2026-10-16T18:04:14.585Z",
+          "finished": "2026-10-16T18:04:18.651Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-registry-install",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "install",
+            "--no-audit",
+            "--no-fund",
+            "--package-lock=false",
+            "--cache",
+            "D:\\a\\_temp\\yf-native-platform\\consumer-npm-cache",
+            "D:\\a\\_temp\\yf-native-platform\\packs\\yahoo-finance2-0.0.1.tgz",
+            "typescript@6.0.3",
+            "@types/node@24.10.1"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:18.652Z",
+          "finished": "2026-10-16T18:04:25.535Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-consumer",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:25.538Z",
+          "finished": "2026-10-16T18:04:26.208Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-runtime",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:26.208Z",
+          "finished": "2026-10-16T18:04:26.354Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node22-cli",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:26.354Z",
+          "finished": "2026-10-16T18:04:32.882Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-consumer",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:32.882Z",
+          "finished": "2026-10-16T18:04:33.535Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-runtime",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:33.535Z",
+          "finished": "2026-10-16T18:04:33.647Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:33.647Z",
+          "finished": "2026-10-16T18:04:38.846Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-consumer",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:38.847Z",
+          "finished": "2026-10-16T18:04:40.090Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-runtime",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:40.090Z",
+          "finished": "2026-10-16T18:04:40.149Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "bun-cli",
+          "executable": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:40.149Z",
+          "finished": "2026-10-16T18:04:43.490Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-consumer",
+          "executable": "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-consumer.mjs"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:43.490Z",
+          "finished": "2026-10-16T18:04:43.838Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-runtime",
+          "executable": "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-runtime.mjs",
+            "pipe"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:43.839Z",
+          "finished": "2026-10-16T18:04:43.897Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "minimum-bun-cli",
+          "executable": "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+          "args": [
+            "--preload",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "package-native-cli.mjs",
+            "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "bun",
+            "full"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:43.897Z",
+          "finished": "2026-10-16T18:04:47.035Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "node24-cli-fragmented",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "--import",
+            "file:///D:/a/yahoo-finance2/yahoo-finance2/scripts/testing/native-platform-preload.mjs",
+            "--import",
+            "file:///D:/a/_temp/yf-native-platform/consumer%20with%20spaces/native-mcp-fragment.mjs",
+            "package-native-cli.mjs",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+            "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+            "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+            "D:\\a\\yahoo-finance2\\yahoo-finance2\\scripts\\testing\\native-platform-preload.mjs",
+            "node",
+            "full"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:47.036Z",
+          "finished": "2026-10-16T18:04:52.602Z",
+          "code": 0,
+          "signal": null
+        },
+        {
+          "name": "consumer-types",
+          "executable": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "args": [
+            "D:\\a\\_temp\\yf-native-platform\\consumer with spaces\\node_modules\\typescript\\bin\\tsc",
+            "--noEmit",
+            "--strict",
+            "--skipLibCheck",
+            "--target",
+            "es2022",
+            "--module",
+            "nodenext",
+            "--moduleResolution",
+            "nodenext",
+            "consumer.mts",
+            "consumer.cts"
+          ],
+          "cwd": "D:\\a\\_temp\\yf-native-platform\\consumer with spaces",
+          "started": "2026-10-16T18:04:52.602Z",
+          "finished": "2026-10-16T18:04:53.677Z",
+          "code": 0,
+          "signal": null
+        }
+      ],
+      "artifact": {
+        "id": 12065090649,
+        "node_id": "MDg6QXJ0aWZhY3QxMjA2NTA5MDY0OQ==",
+        "name": "native-windows-2022-1",
+        "size_in_bytes": 126511,
+        "url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065090649",
+        "archive_download_url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065090649/zip",
+        "expired": false,
+        "digest": "sha256:4269e2d129eb7c1a485d11d9ece7b382ac2df2e39e52a742bdb1dfe7dbc2d8e9",
+        "created_at": "2026-10-16T18:04:55Z",
+        "updated_at": "2026-10-16T18:04:55Z",
+        "expires_at": "2026-10-23T18:04:53Z",
+        "workflow_run": {
+          "id": 38944357111,
+          "repository_id": 332135599,
+          "head_repository_id": 332135599,
+          "head_branch": "codex/bun-migration",
+          "head_sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb"
+        },
+        "independentlyMatched": true
+      },
+      "normalInstalledPackages": 461,
+      "physicalManifestCount": 631,
+      "processControls": {
+        "platform": "win32",
+        "bun": "1.4.3",
+        "cancellation": {
+          "code": 1,
+          "timeout": false,
+          "elapsedMs": 253,
+          "exitCode": 1,
+          "signalCode": null,
+          "mechanism": "actual taskkill /PID /T /F; no console Ctrl-C claim"
+        },
+        "heldStdioParentRuntime": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+        "heldStdioSetup": {
+          "descendant": 2804,
+          "detachedDescendant": true,
+          "inheritedStdoutHandshake": true,
+          "inheritedStderrHandshake": true,
+          "parentExitCode": 0,
+          "descendantAliveAfterParentExit": true,
+          "stdioStillOpenAfterParentExit": true
+        },
+        "exitedParentHeldStdio": {
+          "realInheritedPipe": true,
+          "elapsedMs": 1703,
+          "failure": "Error: Native Windows runner exited before tree cleanup; descendant cleanup is unverified",
+          "cleanup": "Expected visible bounded operational failure; known descendant is explicitly cleaned by this probe"
+        },
+        "knownDescendantCleanupVerified": true,
+        "heldStdioObservation": {
+          "descendant": 2804,
+          "parentExitCode": 0,
+          "parentSignalCode": null,
+          "closeObserved": false,
+          "output": "INHERITED_STDOUT_READY\nINHERITED_STDERR_READY\n"
+        }
+      },
+      "installedCli": {
+        "node22": {
+          "runtime": "C:\\hostedtoolcache\\windows\\node\\22.0.0\\x64\\node.exe",
+          "controllerRuntime": "Node 22.0.0",
+          "platform": "win32",
+          "checks": 13,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 12
+            },
+            {
+              "shutdown": "forced",
+              "observed": {
+                "code": null,
+                "signal": "SIGKILL",
+                "closeCode": null,
+                "closeSignal": "SIGKILL"
+              },
+              "elapsedMs": 6
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "regular single-link file; no ACL privacy claim",
+            "platform": "win32"
+          },
+          "cookieHome": "USERPROFILE",
+          "permissions": "regular file; no POSIX mode or ACL privacy claim",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "node24": {
+          "runtime": "C:\\hostedtoolcache\\windows\\node\\24.21.0\\x64\\node.exe",
+          "controllerRuntime": "Node 24.21.0",
+          "platform": "win32",
+          "checks": 13,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 12
+            },
+            {
+              "shutdown": "forced",
+              "observed": {
+                "code": null,
+                "signal": "SIGKILL",
+                "closeCode": null,
+                "closeSignal": "SIGKILL"
+              },
+              "elapsedMs": 6
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "regular single-link file; no ACL privacy claim",
+            "platform": "win32"
+          },
+          "cookieHome": "USERPROFILE",
+          "permissions": "regular file; no POSIX mode or ACL privacy claim",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "bun": {
+          "runtime": "C:\\Users\\runneradmin\\.bun\\bin\\bun.exe",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "win32",
+          "checks": 13,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 8
+            },
+            {
+              "shutdown": "forced",
+              "observed": {
+                "code": null,
+                "signal": "SIGKILL",
+                "closeCode": null,
+                "closeSignal": "SIGKILL"
+              },
+              "elapsedMs": 7
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "regular single-link file; no ACL privacy claim",
+            "platform": "win32"
+          },
+          "cookieHome": "USERPROFILE",
+          "permissions": "regular file; no POSIX mode or ACL privacy claim",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        },
+        "minimum-bun": {
+          "runtime": "D:\\a\\_temp\\yf-consumer-runtime\\bun.exe",
+          "controllerRuntime": "Bun 1.4.3",
+          "platform": "win32",
+          "checks": 13,
+          "aliases": [
+            "yahoo-finance2",
+            "yahoo-finance",
+            "yahoo-finance-mcp"
+          ],
+          "protocolScope": "full",
+          "mcp": [
+            "initialize",
+            "tools/list"
+          ],
+          "lifecycle": [
+            {
+              "shutdown": "EOF",
+              "observed": {
+                "code": 0,
+                "signal": null,
+                "closeCode": 0,
+                "closeSignal": null
+              },
+              "elapsedMs": 9
+            },
+            {
+              "shutdown": "forced",
+              "observed": {
+                "code": null,
+                "signal": "SIGKILL",
+                "closeCode": null,
+                "closeSignal": "SIGKILL"
+              },
+              "elapsedMs": 7
+            }
+          ],
+          "cookiePersistence": {
+            "separateExecutables": [
+              "CLI write",
+              "CLI read",
+              "MCP tools/call write",
+              "CLI read MCP"
+            ],
+            "validatedQuote": "PACKED/123.45/2023-11-14T22:13:20.000Z",
+            "creation": "actual CLI creates missing file before controlled fetch refusal",
+            "preservedCookies": [
+              "crumb",
+              "A1",
+              "CLI",
+              "MCP"
+            ],
+            "requestCount": 5,
+            "hardlinkRefusals": 2,
+            "targetBytesAndModeUnchanged": true,
+            "unknownRequestsRefused": 5,
+            "invalidQuoteResultRefused": true,
+            "permissions": "regular single-link file; no ACL privacy claim",
+            "platform": "win32"
+          },
+          "cookieHome": "USERPROFILE",
+          "permissions": "regular file; no POSIX mode or ACL privacy claim",
+          "http": "not attempted; no native socket denial claim",
+          "signals": "actual POSIX signals or Windows forced termination as recorded; no console Ctrl-C claim"
+        }
+      },
+      "installedConsumers": {
+        "node22": {
+          "runtime": "Node 22.0.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "node24": {
+          "runtime": "Node 24.21.0",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        },
+        "minimum-bun": {
+          "runtime": "Bun 1.4.3",
+          "exports": 28,
+          "formats": [
+            "ESM",
+            "CommonJS"
+          ],
+          "fetchCalls": 2,
+          "version": "0.0.1"
+        }
+      },
+      "runtime": {
+        "node22": {
+          "runtime": "node",
+          "version": "22.0.0",
+          "terminal": false,
+          "platform": "win32",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "node24": {
+          "runtime": "node",
+          "version": "24.21.0",
+          "terminal": false,
+          "platform": "win32",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "win32",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        },
+        "minimum-bun": {
+          "runtime": "bun",
+          "version": "1.4.3",
+          "terminal": false,
+          "platform": "win32",
+          "compatibilityGlobals": "passed, including throwing accessors and proxies",
+          "constructorWarnings": 0
+        }
+      },
+      "fragmentedSessions": 3,
+      "evidenceFileSha256": {
+        "actual-process-controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "actual-process-controls.stdout": "1d561ea511bf378d8bee2cc75d301d948d508e6575f32743e7f9abb04b96d4cb",
+        "actual-process-metadata.json": "0fceeb348294191fc02f6fc6969819406db877ccc6d84fd2ae19555507ec5ee0",
+        "build.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "build.stdout": "6885d27e7b5977f28b116d0f3bd18c341329f2b64a786634face86c066218ba4",
+        "bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-cli.stdout": "4eac2759cc9c116e5aafe2b89a42e21f5e54410e612d5e4be80353c141890f81",
+        "bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bun-runtime.stdout": "698fc60636b17d907e870b42a44dfed8f050e02bffe1508dd847a8518e65a60b",
+        "consumer-registry-install.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-registry-install.stdout": "576c10c5108d7ddfb0b0f0333557dc5e4c97c071a191be3c8fcc43c4e9ab6431",
+        "consumer-types.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "consumer-types.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "frozen-install.stderr": "73236227e822e03902b37776cb354fc9e03e340efcae48a98c0ac5537ebf2f97",
+        "frozen-install.stdout": "754ecd0554416e3adec56dbdaa7c143f36341e6219f194ab6f195d08f56272a2",
+        "installed-packages.json": "2da3a73b6f76a64e1219de81d51d69fa18e52f7d8ea40a71a1d574672f07e63a",
+        "local-biome.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "local-biome.stdout": "1db1dfc3729a07347620f6a6834e01a6663672f880801e30416b1ad433ab89c8",
+        "minimum-bun-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-cli.stdout": "2bc386bcd847f4cfb4f1e3078e717a32d1d9070b6d9227f850e753dbe5e5e054",
+        "minimum-bun-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "minimum-bun-consumer.stdout": "de1de7ec87b04e799f4e24d2a55368ec8be6f1fc52f2ec1869185c0b782a97e0",
+        "minimum-bun-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "native-coverage.stderr": "54efd1133d74166884a70c786ba509a098931c174fde3bf29e119f45648decba",
+        "minimum-bun-runtime.stdout": "698fc60636b17d907e870b42a44dfed8f050e02bffe1508dd847a8518e65a60b",
+        "minimum-bun-version.stdout": "bd31e8d9cf8d14a1e9e3fdf3b9f6a524819aed0d1b14627523c6765767c7d8f1",
+        "minimum-bun-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "native-full.stderr": "d4b4a77f77847dd1116cc21f588e1ca06d593bd2721dd3a22e0ab6ca62475949",
+        "native-coverage.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-inventory.stderr": "269eef4aa7538a60375271a22ac2d101c76fea5b05dcc514c06009144aba8c4e",
+        "native-full.stdout": "5be9c30694356ed439e54e96d2e3e66858605b6248516ea454ac8c7e0f997bee",
+        "native-inventory.stdout": "8d2e771294b200691d3b09a1577fbd48220330b65883b590e852b04bd2da95ac",
+        "native-lcov.info": "b511ddae40036e47596c09271854006719e6bb29d347d43ecae4478757343406",
+        "native-serial.stderr": "e52b51262659a2241f32541fc6521abbec7fb4a68a9d26a043221b44b94982cb",
+        "native-serial.stdout": "f9b1dbdd796ca8003b479ed203856bc74b19c39393f7b97a0545c6e73e6a2fe7",
+        "node22-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-cli.stdout": "ebb78677929c66f4acae75f4a8f17968d57c482bd63f982d50264a0cfb06d845",
+        "node22-consumer.stderr": "c69c75ca862f9fe69301ae82c55c5bb10a4e85b6dbe1005b7cad1d7af65311c4",
+        "node22-consumer.stdout": "5ae77d0c7d75244e1e9e280e181c420b5d9160eb547b1ae16adc2691030f0eca",
+        "node22-runtime.stderr": "21c0a67228729cc46d964f2cc53477566bb02a9be9e35139c7d3c17b31548d7c",
+        "node22-runtime.stdout": "cc11017ab46cb26e99bec148e7eee4f2f3a60b74953a85178b0eb6d1511eace8",
+        "node22-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node22-version.stdout": "baa6f155218a42e82f01590b367cfbc676a1c14412776e8c6b53f49993f402a1",
+        "node24-cli-fragmented.stderr": "dabc7302213cfd9ab9e05d2a1bf3b9d02fb0d00b710732a2860d76cb6a03c341",
+        "node24-cli-fragmented.stdout": "d20ef4a7a44e7e546b77690efc8763caf3b34a6d39408f887ca68e6e78c94d04",
+        "node24-cli.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-cli.stdout": "d20ef4a7a44e7e546b77690efc8763caf3b34a6d39408f887ca68e6e78c94d04",
+        "node24-consumer.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-consumer.stdout": "b9e4df71b58a662327b65b109f6dfd7eacd96b652155d0b221c4d33ad66857d3",
+        "node24-runtime.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-runtime.stdout": "b50a823714451ecd9d06ecb4114029f23ad53fb73878583f9bfa5836d9ba40e4",
+        "node24-version.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "node24-version.stdout": "44ce64f1806e1aa8fa0bdd85b10e0413acd78557c88a8d52e94a0eb70f40b7ee",
+        "pack.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pack.stdout": "45b20e1e00fda573c6441b3c2ee5b385bd889336589c2191a79b0f86b02eaf46",
+        "portable-helper-controls.stderr": "e4db61c9ef21de9bd70fb038531a3894f3791457aacc6492f04a098f1288343a",
+        "portable-helper-controls.stdout": "93e17c6d85569f385aa7b45405c874ee0eea42e855761a831066dd5dcffcdf89",
+        "summary.json": "aed089334cdffe3651f6024c7ff2d68bbfa6405252f0be15d25755a24b6f4e5f",
+        "toolchain-before.stderr": "7b06740e83f4fb425fd4bfa3e671cfabfe0ea5d38ecc13908bef1720ea703cc4",
+        "toolchain-before.stdout": "57257402c57850c836e3e1af17541b5b22126ed970b21e11382c3e8539197ccf"
+      }
+    }
+  },
+  "strictLinux": {
+    "passed": 1544,
+    "failures": 0,
+    "files": 65,
+    "runSeconds": 140.74,
+    "builderTestMs": 57504.34,
+    "builderBudgetMs": 60000,
+    "wholeRunBudgetMs": 300000,
+    "scope": "Current correctness verification after test-only compiler optimization; not a timing benchmark or guarantee of CI timing margin."
+  },
+  "workersTests": 8,
+  "coverage": {
+    "sources": 96,
+    "lines": 11613,
+    "linesHit": 8815,
+    "functions": 828,
+    "functionsHit": 697,
+    "branches": "not emitted by Bun 1.4.3"
+  },
+  "coverageArtifact": {
+    "id": 12065845002,
+    "node_id": "MDg6QXJ0aWZhY3QxMjA2NTg0NTAwMg==",
+    "name": "bun-lcov",
+    "size_in_bytes": 31966,
+    "url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065845002",
+    "archive_download_url": "https://api.github.com/repos/gadicc/yahoo-finance2/actions/artifacts/12065845002/zip",
+    "expired": false,
+    "digest": "sha256:d299cc7dee8a66bff81c9ca31e67bf32489a8b886bc988e128f99d4c3c0cfa27",
+    "created_at": "2026-10-16T18:06:43Z",
+    "updated_at": "2026-10-16T18:06:43Z",
+    "expires_at": "2026-10-23T18:06:42Z",
+    "workflow_run": {
+      "id": 38944357111,
+      "repository_id": 332135599,
+      "head_repository_id": 332135599,
+      "head_branch": "codex/bun-migration",
+      "head_sha": "250a96c61dfac91d68f076a92334cfa2d41f68eb"
+    },
+    "sha256Verified": true,
+    "lcovSha256": "ecce19850f08999321c140d3024ab12740ab80f5e23667d24f0bfff1749f61c9"
+  },
+  "codecOv": "Successful OIDC job and actual upload accepted/queued in log; downstream service UI processing not asserted.",
+  "originalHostedFailure": "38940879639 at8b9d42c retained separately; optimization halved SDK programs with all modes and exact diagnostic controls preserved.",
+  "acceptance": {
+    "overall": "58/71",
+    "newTicks": [],
+    "finalComposedPipeline": "Pending publisher/release/tooling integration underL01; this success covers exact250a96c only.",
+    "limits": [
+      "Native trusted replay has no raw-network/arbitrary-filesystem sandbox.",
+      "Windows forced termination is not console Ctrl-C; no owner-ACL privacy or native HTTP-listen claim.",
+      "JSR/Deno publisher lifecycle and actual publication/auth/provenance services remain separate.",
+      "No framework speed benchmark rerun."
+    ]
+  },
+  "metadataSha256": {
+    "yf-ci-38944357111-artifacts.json": "75b4c295e07a6e9361d4e7ae7fa8e94a745e3ffa2d70f03c5185222e52d3f79b",
+    "yf-ci-38944357111-progress-3.json": "675e51948e7d833801b214972ffa7042eb09c71145005e384d5927b1a5794c7b",
+    "yf-ci-38944357111-complete.log": "169280e0e7be076be4472c891cc5c26f4ab712e6ba12d01298b99b0dac8d4144"
+  },
+  "parentEvidence": {
+    "path": "/tmp/yf-ci-250a96c-parent-proof.json",
+    "sha256": "4febda9b5ca49dec353a221ec9e7e8961caa5931afac4a2f22132be8ca7260c6"
+  },
+  "optimizationReview": {
+    "sol": {
+      "path": "/tmp/yf-sdk-sol-s9fopve2/review.json",
+      "sha256": "26dda1b0a0b9bed56db0882f3ab18034cf68c1faa050dd4a829e3eb192146877"
+    },
+    "astra": {
+      "path": "/tmp/yf-sdk-coverage-astra-bn6ptti0/review.json",
+      "sha256": "908613c7efa2ef65e5a2fc58bcdcae1769835829330c62017617bf0b1833f2bc"
+    },
+    "application": {
+      "path": "/tmp/yf-sdk-coverage-applied-proof.json",
+      "sha256": "a2c3a31e235af398c17f456614804e77d8da8927c356879e514fef31ac174caf"
+    }
+  },
+  "sourceSha256": {
+    "scripts/build_npm.test.ts": "2a35dcabf8652689d5b3de7fe81c9c8e50f377f07df05f8295ef46ece944cc38",
+    "scripts/build_npm.ts": "2bc36f654c62a2293ebae1e7eb6dae9baa76d5dcb1d5e45df21224ece516c96a",
+    "scripts/ci.py": "954f4f46c8d039219b170c533b7857e780f690c15e92c000166b39ba672e0600",
+    "scripts/test.ts": "2971b58b4f54d82351d1e5e99d769070416c829fa6986c1733c777f445089353",
+    ".github/workflows/tests.yaml": "937680351852ff326b06ebf375eed674396a810c1545bf9dace2f9dc88e01b98",
+    ".github/workflows/native-platforms.yaml": "84dff3577af122362663109808c6c3863e7146628d605c1ebd3cba93d17c1cd3",
+    ".github/actions/setup/action.yml": "2b8197ea91abb51bb9aadf70dc85cf31fd8a1149c85d5e85cd5a6234c55f6e7e",
+    ".bun-version": "bd31e8d9cf8d14a1e9e3fdf3b9f6a524819aed0d1b14627523c6765767c7d8f1",
+    "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+    "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+    "deno.json": "1cccbdcd1fe7257c02f9e900c1434aa7f2711ca52668a26e809bc3a28331a760"
+  },
+  "independentReview": {
+    "path": "/tmp/yf-ci-250a-sol-2bpy81uk/review.json",
+    "sha256": "c96e3a44c3dd9fdf6100b82162614b4db55e25669b42510586bc62b504dbf82c",
+    "verdict": "clear",
+    "reviewedReceiptPath": "/tmp/yf-ci-250a-metadata/ci-250a96c.json",
+    "reviewedReceiptSha256": "7ae3dadd79c55803a6abc47cfa6b7b730967df6b0b1ebab9c7a015aa5bd762ca",
+    "scope": "Bounded metadata-only hosted CI observation acceptance; no checklist changes, source changes, full suite rerun or final combined publisher/release/tooling acceptance."
+  }
+}

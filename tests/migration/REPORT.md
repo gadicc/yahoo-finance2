@@ -980,6 +980,36 @@ The same run's Workers job passed, but its full strict coverage job had
 skipped. That failure is under correction and is not accepted as a passing
 strict gate; complete current-pipeline readiness remains open under L01.
 
+## Hosted validation after SDK compiler optimization (2026-10-16)
+
+[Run 38944357111](https://github.com/gadicc/yahoo-finance2/actions/runs/38944357111)
+passed all six jobs at `250a96c61dfac91d68f076a92334cfa2d41f68eb`:
+strict Linux replay/coverage, Linux/macOS/Windows native jobs, Workers and
+Codecov. [Evidence](results/ci-250a96c.json) binds all four downloaded artifact
+digests, logs, source hashes and the reviewed compiler change.
+
+The package-build test shares the SDK declaration closure across independent
+valid and invalid consumer files, reducing compiler programs from eight to
+four. ESM/CommonJS and both `skipLibCheck` modes retain bidirectional SDK
+identity and valid string calls; the only diagnostic must select the invalid
+numeric argument in the negative file. Independent Sol and Astra controls
+reject missing, displaced, wrong-file and additional positive-file errors.
+Production source, dependencies, fixtures and all timeout budgets are unchanged.
+
+Strict coverage passed **1,544 tests / 65 files**, including the previously
+failing builder test at 57.50 seconds within its existing 60-second limit.
+Full-run elapsed time is correctness evidence, not a framework speed benchmark.
+The downloaded LCOV passes the maintained validator: 96 sources, 828 functions
+(697 hit) and 11,613 lines (8,815 hit). Bun 1.4.3 emits no branch records.
+Codecov's actual OIDC upload was accepted and queued; later service UI
+processing is not asserted.
+
+All native rows again pass 1,361 tests in each replay mode, eight helper
+controls and installed Node 22/24/Bun consumers; the fixture/manifest/lock
+checks remain unchanged. Workers passes eight tests. This resolves the prior
+hosted timeout for this exact source. Progress remains **58/71**; final composed
+publisher/release/tooling validation and release rehearsal are separate gates.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
