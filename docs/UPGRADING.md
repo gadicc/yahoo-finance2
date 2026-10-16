@@ -3,9 +3,28 @@
 Please read this guide when upgrading MAJOR VERSIONS of the package, list the
 BREAKING CHANGES and required changes you'll need to make to your code.
 
+- [Next major: Bun development and consumer floor](#next-major-bun-development-and-consumer-floor) (unreleased)
 - [From v3 to v4](#from-v3-to-v4) (2026)
 - [From v2 to v3](#from-v2-to-v3) (2025)
 - [From v1 to v2](#from-v1-to-v2) (2021)
+
+## Next major: Bun development and consumer floor
+
+The next major requires **Bun >=1.4.3** for Bun consumers. Upgrade older Bun
+installations before using it. Node >=22.0.0 and Deno >=2.0.0 remain supported;
+JSR publication and the library's 28 public export keys are retained. Minimums
+apply to operating systems supported by the corresponding upstream runtime.
+
+The constructor retains its warning-only version check; this does not make an
+older runtime supported. Node and explicit Bun CLI/MCP execution remain available.
+Runtime support and actual platform evidence are recorded in the
+[runtime policy](../tests/migration/RUNTIMES.md).
+
+Contributors use pinned Bun 1.4.3 and Node 24.21.0 with the root private
+`package.json` and frozen `bun.lock`. Deno is confined to the isolated publisher;
+do not run the historical Deno development commands on the migration branch.
+See [contributor setup](../CONTRIBUTING.md) and
+[release guidance](./RELEASING.md) for the new build and publisher order.
 
 <a name="from-v3-to-v4"></a>
 

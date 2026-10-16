@@ -120,8 +120,10 @@ The [packaging contract](tests/migration/PACKAGING.md) documents output safety,
 real installed consumer proofs and release handoff. Shipped executables require
 Node >=22.0.0 through their Node shebang; explicit Bun execution is verified.
 `scripts/fix_versions.ts --version VERSION` is a compatibility command that
-delegates to the same complete builder. The legacy release preparation command
-still needs J02/J04 migration before execution.
+delegates to the same complete builder. The [release guide](docs/RELEASING.md)
+explains the initial prebuild, Node publisher controller and isolated JSR prepare
+boundary. Local release controls perform no authentication or publication; the
+publisher overlay and final integration rehearsal have separate review gates.
 
 Bun upgrades are deliberate changes, including patch releases. Review release
 notes, update `.bun-version` and `packageManager` together to one exact stable
@@ -404,8 +406,9 @@ by CI.
 After upgrades, run the full cached suite, type checks, schema checks, lint and
 format checks. Changes to npm build tooling or runtime dependencies also need
 the generated npm build and Cloudflare tests. Release tooling needs
-`deno task release:check-notes`. Keep the conventional-commits preset below v10
-until the writer compatibility issue documented in `renovate.json` is resolved.
+`node scripts/check-release-notes.mjs` on the migration branch. Keep the
+conventional-commits preset below v10 until the writer compatibility issue
+documented in `renovate.json` is resolved.
 Check CI and automatic closure of superseded dependency PRs and alerts after
 pushing; do not dismiss alerts to make the result look clean.
 

@@ -33,6 +33,19 @@ not also start standalone Tests. Keep the Release trigger filters and the guard
 in [scripts/workflow-policy.mjs](../scripts/workflow-policy.mjs) aligned with
 the release configuration whenever this policy changes.
 
+Release uses the pinned Node controller and Bun frozen setup on `ubuntu-24.04`.
+It builds public npm metadata before publisher verification, validates the locked
+publisher inputs and absence of checkout-local/worktree credential keys, including
+conditional includes evaluated against merged configuration before filtering
+NUL-paired scope/key records. Read-only key queries ignore Git redirection environment and
+bind the canonical checkout; they do not audit arbitrary global credentials.
+Then semantic-release prepares the selected version. Publisher checkout explicitly
+disables credential persistence; its final release step receives `GITHUB_TOKEN`.
+`NPM_CONFIG_PROVENANCE=true` explicitly requests npm provenance; registry trust
+settings and successful OIDC exchange remain external release prerequisites.
+The private root manifest is preserved. See [release guidance](./RELEASING.md)
+for the isolated JSR boundary and the limits of local nonpublishing proof.
+
 ## Fixture maintenance and bot runs
 
 The daily recache schedule depends on the repository's current default branch

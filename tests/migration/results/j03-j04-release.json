@@ -1,0 +1,167 @@
+{
+  "milestone": "J03/J04 v4 merged checkout credential configuration correction",
+  "status": "Frozen private candidate; independent review and parent integration pending. No acceptance.",
+  "base": "250a96c61dfac91d68f076a92334cfa2d41f68eb",
+  "recordedAt": "2026-10-16T18:08:18.935669+00:00",
+  "owned": [
+    ".github/workflows/release.yaml",
+    "CONTRIBUTING.md",
+    "docs/RELEASING.md",
+    "docs/UPGRADING.md",
+    "docs/workflow-policy.md",
+    "scripts/release-policy.mjs",
+    "scripts/release-policy.test.ts",
+    "tests/migration/results/j03-j04-release.json"
+  ],
+  "sourceSha256": {
+    ".github/workflows/release.yaml": "549d8baa8708596b8b6be9cf54a63eaeb5e6186cb29a44665b082e1754b236ad",
+    "CONTRIBUTING.md": "9cc0fdc8a0ddbb2b1daf4d82c0ed736385f4fd42d094245903744efa8e0ff290",
+    "docs/RELEASING.md": "f18eed62edbb86a6135e08af26a29d59009e943648245d8698ef298a6f93de96",
+    "docs/UPGRADING.md": "8951bb2ae05f9456a30b111c351a2c3ef8f25381c998ce078b279f6d188695fb",
+    "docs/workflow-policy.md": "4d9132fb75031860b0fd46a9c48c20bdc8447a0f330918befe62be421088f3e9",
+    "scripts/release-policy.mjs": "7d48acf0fe97c91c4de9b71183576a791728f3bdaf346f658271bb6b5307897f",
+    "scripts/release-policy.test.ts": "565a67ce699121e7cb7ec61b09476a57546cb1c6142d434383c79fd186e634d5"
+  },
+  "finding": {
+    "priority": "P2",
+    "report": "/tmp/yf-j03-sol-v3-_xaxg5ds/review.json",
+    "reportSha256": "817b2f796436e9d643cad35e6325538c485cb58f9fbe1ae10f5db7dc43631c27",
+    "originalActualNode24RedProof": "/tmp/yf-j03-sol-v3-_xaxg5ds/scratch/cross-scope-proof.json",
+    "redProofSha256": "129de0dbdd4b0b6ca03a660cee0472dfdd0ae17109fd7e45b7f8c00701e585ab",
+    "cause": "Separate --local/--worktree queries miss hasconfig includes whose remote URL condition is in the other scope; the actual Node24 CLI falsely succeeds in both directions."
+  },
+  "correction": {
+    "retained": "Fixed /usr/bin/git on Ubuntu, canonical root binding, complete child GIT_* stripping, prompt/optional-lock opt-outs, bounded timeout/buffer, key-only generic diagnostics.",
+    "mergedQuery": [
+      "config",
+      "--includes",
+      "--show-scope",
+      "--name-only",
+      "--null",
+      "--get-regexp",
+      "^(http(\\..*)?\\.extraheader|credential(\\..*)?)$"
+    ],
+    "selection": "Evaluate conditional includes in merged effective configuration, then parse exact NUL scope/key pairs. Reject local/worktree credential keys; ignore system/global/command credential keys within the documented scope limit.",
+    "framing": "Require terminal NUL, paired fields, known exact scopes and nonempty keys. Validate all records before returning; no line-based splitting or early success. Empty/odd/unknown/truncated scope records fail closed.",
+    "limits": "No general sandbox or arbitrary global/environment credential audit. Merged condition evaluation uses normal Git configuration semantics. No helper/value output or authentication.",
+    "primaryDocumentation": "https://git-scm.com/docs/git-config"
+  },
+  "verification": {
+    "maintained": "11 tests pass across release-policy and workflow-policy; includes both cross-scope directions under all six redirect/config controls and adversarial NUL parser records. Existing prepare/analyzer/workflow/auth-stub controls retained.",
+    "actualNode24": "72 cases pass on the final helper hash: all prior50 plus both cross-scope directions and redirects, inactive/restored positives, v3 false-success reproductions, malformed local config refusal and global-only credential positive. Real Node24.21 controller and local npm11.21.1 provenance checked.",
+    "readonly": "Seven real Node24 controls with disposable checkout mounted read-only: clean, direct worktree refusal, both v4 cross-scope refusals, both v3 false successes, restored clean. Git metadata byte snapshots unchanged; separate scoped queries miss while merged query observes keys.",
+    "types": "Library58 roots/73 files and tools139 roots/212 files; zero diagnostics.",
+    "style": "Both changed code files pass repository-configured Biome check without fixes/errors.",
+    "notes": "Pinned Node release-note contract passes.",
+    "authInjected": "Exact installed semantic-release Git URL module with only transport dependency replaced by rejecting adapter; zero real auth/network calls.",
+    "workflow": "Parsed actual YAML and source tests preserve triggers/branch policy/native prerequisites/needs/permissions/provenance/final-step-only token. Workflow bytes identical to v3.",
+    "fixtures": {
+      "count": 1201,
+      "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+      "modes": "0644",
+      "realWrites": false
+    },
+    "unownedBaseEntriesCompared": 1594,
+    "fullLibrarySuiteRepeated": false
+  },
+  "publisherReferenceQualification": "Twelve unchanged frozen publisher v2 reference paths for reproducibility only, not accepted current implementation. Parent owns separately reviewed current publisher composition. No publisher lifecycle or Deno executed.",
+  "publisherReferenceSha256": {
+    "release.config.mjs": "cdfc88abf24c9a079440ca6e6a8b452200e0d3d4f6c80fb2f05fa5a90335b7e3",
+    "scripts/publisher.test.ts": "4a2c749520933de6e8a7d347c04b03ac63f9561d1146cdafe0037223171d2db6",
+    "scripts/semantic-release-jsr.mjs": "422395e43fd5ccc42b3ef8b546e6a3befa889ff98352f24656e8b8bfd4109de9",
+    "scripts/publisher/stage.mjs": "5352bfae59f71bb3613e0b756f3d783d818c68c51a4a01268ebcba0e8319d373",
+    "scripts/publisher/runtime.mjs": "3ce5ef8a03809f61976f2176967dc2e0fd2e91d36e2a5d8375b354a9ec4ada64",
+    "scripts/publisher/rehearse.mjs": "37bfc8a3798bc7a23b68ca17f9aa07d432547dc13c1d28638d9ce25f08b1f0ba",
+    "scripts/publisher/observe-runtime.mjs": "c8806b74c73a163b236d5575d5480dd539e48078d9c0307732222130067e68fd",
+    "scripts/publisher/observe-pty.py": "2d6ffb10e758f107840bddd9213abc55ddedecd6da0c3b361d133e155246f10d",
+    "scripts/publisher/jsr-hooks.mjs": "db90bc284d6be6b5faf60f6bffc08cd02e993cf52c4cb64d7ae423c7aa427a71",
+    "scripts/publisher/consumer.mjs": "01b5e7419c419c9cc5b15eb8382c502cfded351bd57a70851c3700c7bcbc967d",
+    "scripts/publisher/check-policy.mjs": "9c0a41bd9d8770d5e83582aef634a00b6c3f5ee1e22a9abf05ba5ab04e543d42",
+    "scripts/publisher/README.md": "71947d853f08a03a39e7259985c00b9e82b50f3d848cba922c6f0425e78820cb"
+  },
+  "predecessor": {
+    "manifest": "/tmp/yf-j03-release-v3-dbafn4vs/manifest.json",
+    "manifestSha256": "9b4d5d705f7b8df23f6d4554ae241981958887affaa926d1f3a82c8a2628232d",
+    "receiptSha256": "dd3eb5a63a18dd22a5b12033f7a42f0ddecaf43d7c6fb82204d2bfc3f532735a",
+    "ownedSha256": {
+      ".github/workflows/release.yaml": "549d8baa8708596b8b6be9cf54a63eaeb5e6186cb29a44665b082e1754b236ad",
+      "CONTRIBUTING.md": "9cc0fdc8a0ddbb2b1daf4d82c0ed736385f4fd42d094245903744efa8e0ff290",
+      "docs/RELEASING.md": "4d517e7472585e659c66d217a6c577d5fb7235492de5d4e56a484cd6b26bc5b9",
+      "docs/UPGRADING.md": "8951bb2ae05f9456a30b111c351a2c3ef8f25381c998ce078b279f6d188695fb",
+      "docs/workflow-policy.md": "c88d7c6bb18c285e9d4c4d888857e4ed53928fe3b211e6e0d682fec926342884",
+      "scripts/release-policy.mjs": "28008ba53fb0009570e2489221f3052b6a69e2a711cf2e5b48a8ec21ea218aaa",
+      "scripts/release-policy.test.ts": "da075e37296ef471a3cf16f005581d02c8429dc0a34cb8a58b069ce935535207",
+      "tests/migration/results/j03-j04-release.json": "dd3eb5a63a18dd22a5b12033f7a42f0ddecaf43d7c6fb82204d2bfc3f532735a"
+    },
+    "allOriginalEvidenceHashesVerified": true,
+    "priorV2HistoryPreservedByReference": true
+  },
+  "KComposition": {
+    "predecessorKManifest": "/tmp/yf-k03-k06-v2-jloxsfkh/manifest.json",
+    "predecessorKManifestSha256": "c79f359750b1fb28ada6bb60a5474636d7bc9d5aa320afb049d23fa8e16c883a",
+    "oldJ03WorkflowPolicySha256": "07392a296adec82ca4319d659f120da29d173a2c3e963d42e77778ac68332e10",
+    "v3WorkflowPolicySha256": "c88d7c6bb18c285e9d4c4d888857e4ed53928fe3b211e6e0d682fec926342884",
+    "unchangedKPatchStillApplies": true,
+    "v3CompositionPatchSha256": "cea90b170fb6a4a0657407bd4fad12d386bda2cc0235cb35fbb0e006adcba965",
+    "v3IntendedWorkflowPolicySha256": "aced3fddd04d81238409867ac336546cad99171de452b2a6379d9a90b09ff6f6",
+    "unchangedKContributingReleaseSemantics": true,
+    "KAndJ03FrozenSourcesUntouched": true,
+    "v4WorkflowPolicySha256": "4d9132fb75031860b0fd46a9c48c20bdc8447a0f330918befe62be421088f3e9",
+    "v4IntendedWorkflowPolicySha256": "1b1b70c2176d329206b1ef76cf300b8a279103ea187dfaf6256cd2b7750b09d4",
+    "v4CompositionPatchSha256": "cea90b170fb6a4a0657407bd4fad12d386bda2cc0235cb35fbb0e006adcba965"
+  },
+  "harnessNotes": [
+    "Initial matrix invocation used overlapping root/scratch and correctly failed before execution; corrected to project root and sibling scratch.",
+    "Initial format command used the wrong config discovery directory; repository-configured formatting and check corrected it before final proof.",
+    "Initial newline fixture used git config key mutation, which Git rejects. Final actual malformed config file control fails closed; adversarial parser framing is separately tested. Git documents subsection names exclude newline/NUL.",
+    "A preliminary72-case run finished before the last equivalent assertion-shape cleanup; final72-case rerun explicitly checks target/source hash equality and is the accepted proof. Earlier attempts are preserved."
+  ],
+  "evidenceSha256": {
+    "/tmp/yf-j03-release-v4-rgjwiju_/context.json": "87d9e4d8f4e53903394694ee54add7bf3ebcd166c229c15f26ba5327d273f475",
+    "/tmp/yf-j03-release-v4-rgjwiju_/setup-source.py": "3f8f70981cbb5f84f69285d05e7e58f5734ab50bfaaf9c0ee27a0f8e1b28d15c",
+    "/tmp/yf-j03-release-v4-rgjwiju_/edit-docs-probes.py": "5be741059281c2d3ba178d7fa3280477f9cfc591db66d0236f07f5f7b8c2bb6c",
+    "/tmp/yf-j03-release-v4-rgjwiju_/tests.log": "3ffe623f562a8fea9709efabdcb2b70d6bf6c758eeefd513b0ef9376bf081078",
+    "/tmp/yf-j03-release-v4-rgjwiju_/typecheck.log": "f77c1962247d503b346e297d2d11ad6ef9a1d0972586a5a28a98c80dff24a1ad",
+    "/tmp/yf-j03-release-v4-rgjwiju_/style.log": "1f8ddb0ba5a73127294d9f048e678d11d3286d5343343031df3f88b9ced2b7b0",
+    "/tmp/yf-j03-release-v4-rgjwiju_/style.initial.log": "4fd2bbc699ad907d6f43b7cf76ff459031ea186280a44900cba14772234c8bc9",
+    "/tmp/yf-j03-release-v4-rgjwiju_/notes.log": "c85ebce9a49ede17fd74d0db1bc183bc728664369f07d33a8947f5968a6409b9",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.mjs": "fd19f0ae52cfd18d0ee868d043e935f59d734fe6ed5b08ecdf8719e92b7cda5a",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.json": "c49a8e4f8d5527272a3d18e8e27b1ee0bc6fc1d5f1d832846488c4912eb9557c",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.log": "7a9fccf37ad3b92505b3c13b5cdaad4da2c60332bfd597f2d62cd2642bf7caa8",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.initial.log": "011683611312506689199c7019e65aca95ee84d3048be63a7968156254379673",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.newline-attempt.mjs": "f46d7e0b1f2a54f8108c9a2a099e2261ec76e507175cf6a57f07084aac93b768",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.newline-attempt.log": "e307a297847bcb02f0ca251e46c0c3497e07a69a9e52e216c14af2fc862e4d4e",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.pre-final.json": "c49a8e4f8d5527272a3d18e8e27b1ee0bc6fc1d5f1d832846488c4912eb9557c",
+    "/tmp/yf-j03-release-v4-rgjwiju_/credential-proof.pre-final.log": "7a9fccf37ad3b92505b3c13b5cdaad4da2c60332bfd597f2d62cd2642bf7caa8",
+    "/tmp/yf-j03-release-v4-rgjwiju_/readonly-proof.py": "d1c609a8782e9b5b84e0ac482f73b35779f2ba2291729a064486c992357ecf93",
+    "/tmp/yf-j03-release-v4-rgjwiju_/readonly-proof.json": "792cc547702909b59b13bca7b7281a37e2d337308bdcf78f66aa18cecd83cb22",
+    "/tmp/yf-j03-release-v4-rgjwiju_/readonly-proof.log": "f9ca26a1ad57dff03e20d66963c7b60ab495196bbf9d248a8ffdce94ce342cf7",
+    "/tmp/yf-j03-release-v4-rgjwiju_/cross-scope-proof.json": "370bcb7610cca5e122006b024fe511d2e1a216e331ae6d130c26a7d5768932fa",
+    "/tmp/yf-j03-release-v4-rgjwiju_/git-auth-control.mjs": "a77688d0c3df18ba551a991981af8984b3867d053f3c83ae7474bbc3dbfe7f76",
+    "/tmp/yf-j03-release-v4-rgjwiju_/git-auth-control.json": "9fbb34242c490deaf338bbca52811f0cc3a9bd9395cb51fb0950eb59e6e8388b",
+    "/tmp/yf-j03-release-v4-rgjwiju_/git-auth-control.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/yf-j03-release-v4-rgjwiju_/workflow-proof.mjs": "8fdf4a11e661e4b193b0781ececc9753b4a7005d62e3637ffc136dee38345fa7",
+    "/tmp/yf-j03-release-v4-rgjwiju_/workflow-proof.json": "8964c9e444f4a1a53df24a28e7aaac6ae6542c30c03701e04a324f1b1d242f7e",
+    "/tmp/yf-j03-release-v4-rgjwiju_/workflow-proof.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/yf-j03-release-v4-rgjwiju_/primary-source-notes.json": "65d56eeb8f0c038835848ce77af76b487c79a035720ada6c60489152252e1402",
+    "/tmp/yf-j03-release-v4-rgjwiju_/k-composition-proof.json": "a59b623cb581132f8e4c98e52591dc6db875fce0e639fdc3075cd8e553f15a07",
+    "/tmp/yf-j03-release-v4-rgjwiju_/k-workflow-policy-intended.md": "1b1b70c2176d329206b1ef76cf300b8a279103ea187dfaf6256cd2b7750b09d4",
+    "/tmp/yf-j03-release-v4-rgjwiju_/k-workflow-policy-composition.patch": "cea90b170fb6a4a0657407bd4fad12d386bda2cc0235cb35fbb0e006adcba965"
+  },
+  "pending": [
+    "Independent Sol/Astra review of frozen eight-owned-file patch and v3-to-v4 delta.",
+    "Parent composition with reviewed K/current publisher and final integration gates.",
+    "Remote trust/OIDC/registry/auth/publication remain unverified locally and require separate authorization.",
+    "J05 guide remains separate future work."
+  ],
+  "boundaries": {
+    "sharedEdits": false,
+    "stageCommitPushDispatch": false,
+    "DenoExecution": false,
+    "publisherLifecycle": false,
+    "realAuthNetworkPublication": false,
+    "globalGitOrSecurityPolicyChanges": false,
+    "realFixtureWrites": false
+  },
+  "acceptance": false
+}
