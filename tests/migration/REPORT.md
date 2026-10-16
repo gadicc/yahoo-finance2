@@ -129,12 +129,12 @@ all items; the benchmark results above retain their historical meaning.
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
-| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        1/5 |
+| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        2/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **33/71** |
+| **Overall**                                                      | **In progress** |  **34/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -344,6 +344,26 @@ Yahoo requests or actual repository fixture writes. The frozen proof excludes
 parallel checker/Workers drafts; a fresh combined full/serial/coverage inventory
 remains an integration gate. Country-profile CLI D07, other-OS enforcement D04
 and the broader permission audit G06 remain open. Progress is **33/71**.
+
+## Workers checkpoint (H04, 2026-10-16)
+
+The [independent npm-managed Workers harness](WORKERS.md) now tests the generated
+package as a real installed copy, including its SDK dependency closure. Eight
+real workerd tests load all 28 exports and cover fetch selection, cookies,
+streaming, validation and MCP. The pinned graph installs normally with npm
+10.9.9 and Node 24.21.0; its dated audit records 191 packages, satisfied engines
+and peers, zero registry advisories, and explicit npm actual-tree diagnostics.
+Strict source checking passes; upstream declaration problems require the stated
+skipLibCheck boundary.
+
+The separate Linux loopback launcher permits workerd's local IP sockets while
+keeping external IP routes unavailable. Independent Sol xhigh and Astra xhigh
+reviews cleared its outside-hardlink fix and verified the documented reachable
+host pathname Unix socket limitation. It requires trusted test code, a trusted
+operator and private scratch; G06 remains open. Ordinary tests retain the strict
+socket-denying launcher. No Yahoo requests or repository fixture writes occurred.
+This completes H04 within Linux/nodejs_compat scope; CI, other platforms and
+runtime policy remain separate gates. Progress is **34/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -944,10 +964,16 @@ and CI remain separate work.
 - [ ] H03 — Verify runtime detection/version enforcement and terminal behavior
       on each supported runtime, without an incidental compatibility global
       selecting the wrong runtime or introducing a Node/Bun API into Workers.
-- [ ] H04 — Run the generated package in `tests/cloudflare` with its independent
+- [x] H04 — Run the generated package in `tests/cloudflare` with its independent
       npm lockfile and Vitest 4 harness and supported overrides; verify
       Worker-safe imports and affected fetch/cookie/streaming behavior after the
-      build replacement.
+      build replacement. Evidence: [WORKERS.md](WORKERS.md) and the
+      [dated receipt](results/h04-workers.json): eight real workerd tests load
+      all 28 exports from a real installed generated package; fetch, cookies,
+      streams and MCP pass. Strict own-source checking and dependency controls
+      pass. Sol xhigh and Astra xhigh cleared the boundary fixes. This is Linux
+      with nodejs_compat; upstream declaration, npm actual-tree diagnostics and
+      reachable host Unix sockets are explicitly bounded, with G06 still open.
 - [ ] H05 — Exercise supported Linux/macOS/Windows paths, process spawning, file
       permissions, watch and offline enforcement with the documented support
       policy; record unsupported behavior explicitly and guard it predictably.

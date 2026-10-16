@@ -4,15 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "yahoo-finance2": "file:../../npm"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@cloudflare/workers-types": "5.20260815.1",
+    "@types/node": "24.10.1",
     "tldts": "^7.4.16",
     "tough-cookie": "^6.0.2",
+    "typescript": "6.0.3",
     "vitest": "^4.1.11"
   },
   "overrides": {
