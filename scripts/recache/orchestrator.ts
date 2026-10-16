@@ -43,7 +43,7 @@ export function parseRecacheArguments(args: string[], interval = "3000"): Recach
   return options;
 }
 
-async function replayBaseline(root: string, files: string[], signal: AbortSignal, timeout: number): Promise<boolean> {
+export async function replayBaseline(root: string, files: string[], signal: AbortSignal, timeout: number): Promise<boolean> {
   const environment = captureEnvironment(await realpath(tmpdir()));
   const child = spawn(process.execPath, ["--no-env-file", baselineEntry, root, ...files], {
     cwd: root, env: environment, stdio: ["ignore", "ignore", "ignore"], detached: true,

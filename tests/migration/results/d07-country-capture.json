@@ -1,0 +1,198 @@
+{
+  "milestone": "D07 repaired country-profile capture CLI candidate, awaiting independent Sol/Astra re-review",
+  "date": "2026-10-16",
+  "baselineCommit": "dd40e58154ca70ed85916c8ac23afff51a5a5d85",
+  "immutableReviewRoot": "/tmp/yf-country-d07-review-pyia_1iu",
+  "runtime": {
+    "bun": "1.4.3",
+    "bunBinary": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+    "checkerNode": "24.21.0",
+    "checkerBinary": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+    "denoInvoked": false
+  },
+  "scope": [
+    "scripts/capture-get-crumb-fixtures.ts",
+    "scripts/capture-get-crumb-fixtures.test.ts",
+    "scripts/capture-get-crumb-cli.test.ts",
+    "scripts/recache/orchestrator.ts",
+    "tests/migration/COUNTRY-CAPTURE.md",
+    "tests/migration/results/d07-country-capture.json"
+  ],
+  "sourceSha256": {
+    "scripts/capture-get-crumb-fixtures.ts": "27870f19492f3893aba25881a9eca99c976a07b7b6b27f5eef3c1527b0d7700b",
+    "scripts/capture-get-crumb-fixtures.test.ts": "27c1ccccc8413e8499aae03c6c0e9e4499f6b9fdeb91af449157916027861aca",
+    "scripts/capture-get-crumb-cli.test.ts": "07115feeb70aa4ab06e5abcdb8ac033832491648726305cf049fd8fd4fcec16a",
+    "scripts/recache/orchestrator.ts": "4f0fac75412fc128467913205d531ece5c9290aa70065e0dd4c08db58dbc2b49"
+  },
+  "commands": [
+    {
+      "cwd": "/tmp/yf-country-d07-review-pyia_1iu",
+      "command": "PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin:$PATH YF_EXPERIMENT_NODE=/home/dragon/.nvm/versions/node/v24.21.0/bin/node bun scripts/test.ts --serial --timeout=20000 scripts/capture-get-crumb-cli.test.ts scripts/capture-get-crumb-fixtures.test.ts scripts/recache-tests.test.ts scripts/recache-child.test.ts scripts/recache-store.test.ts scripts/recache-staging.test.ts scripts/recache-broker.test.ts scripts/testing.test.ts src/lib/getCrumb.test.ts src/lib/getCrumb.geo.test.ts src/lib/versions.test.ts",
+      "exitCode": 0,
+      "passes": 89,
+      "failures": 0,
+      "skips": 0,
+      "files": 11,
+      "newCliLeaves": 20,
+      "helperLeaves": 8,
+      "preservedOriginalHelperLeaves": 7,
+      "authGeoLeaves": 12,
+      "existingCoreCommandVersionLeaves": 49,
+      "log": "/tmp/yf-d07-fixed-archive-focused.log",
+      "guard": "Maintained scripts/test.ts strict Linux helper; synthetic country CLI process children use the same helper with only disposable private roots and injected controlled parent transport"
+    },
+    {
+      "cwd": "/tmp/yf-country-d07-review-pyia_1iu",
+      "command": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node /home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/typescript/bin/tsc --project /tmp/yf-d07-archive-tsconfig.json --pretty false",
+      "exitCode": 0,
+      "log": "/tmp/yf-d07-fixed-archive-types.log",
+      "project": {
+        "extends": "<immutableReviewRoot>/tsconfig.migration.json",
+        "compilerOptions": {
+          "types": [
+            "node"
+          ],
+          "typeRoots": [
+            "<workspace>/node_modules/@types"
+          ]
+        },
+        "include": [
+          "Absolute paths of every .ts sourceSha256 key plus src/lib/getCrumb.geo.test.ts"
+        ],
+        "exclude": []
+      },
+      "why": "Explicitly checks all four owned TypeScript inputs and geographic consumer under Node-only ambient types; excludes no D07 input and does not use pending E configuration drafts"
+    }
+  ],
+  "proof": {
+    "process": "Actual subprocess driver invokes exported main(args,{root,transport}) with only disposable 0700/0600 fixture copies; wrapper modules import real generic/geographic source tests. No public CLI/env root or network bypass. Public help/invalid actual entrypoints also executed without live opt-in.",
+    "appendOnly": "Simple2-request and consent7-request flows record, validate, compact, strictly replay and publish only new profiles; second attempt returns2 with0transports. Existing profile-prefix directory also refused. All earlier local/current/static/fake/old-profile bytes preserved.",
+    "baseline": "Reviewed replayBaseline reused through a one-word export, body unchanged. Generic auth plus committed geo test baseline mandatory before recording; controlled baseline failure returns1 with zero capture requests.",
+    "compactionReplay": "Original pure helpers byte-identical and original7 assertion bodies unchanged. Crumb retained, quote irrelevant body removed, consent HTML only hidden inputs retained, request cookie stripped. Strict geo-replay uses zero broker transport and exact recorded trace; failed/mutating replay and missing/extra/aliased files refuse publication.",
+    "traceHosts": "Parent-authoritative finite method/HTTPS-host/path tuples, actual start trace <=64entries; child exact-key bounded trace must match order. Unknown response redirect rejected, forged unknown-host and plausible reordered traces refused; extra fields/method/path/query/oversize controls covered. URLs/header/body/session values never logged.",
+    "responses": "429/503 discard entire private profile; consentHTML and redirects accepted when valid. Bad consent compaction publishes nothing. Reviewed transient validator reused unchanged.",
+    "protection": "Existing core store/staging regressions rerun, proving generic recache refuses .static/.fake/getCrumb-geo ids and removals/local-edit/aliases. Country prevalidation additionally restricts whole stage to newly namespaced current getCrumb ids and id/request route agreement.",
+    "cleanup": "Actual CLI SIGTERM returns143; configured capture timeout returns1; both cancel hung synthetic transport, remove private scratch and leave disposable original fixture bytes unchanged. All other error/success paths use finally cleanup.",
+    "metadata": "Country comes solely from operator input; no VPN/geolocation verification or automatic COMMITTED_PROFILES registration. Output is sanitized profile/country/date and parent-confirmed trace only.",
+    "coreReuse": "All20prior core execution hashes except orchestrator remain unchanged in immutable snapshot; orchestrator diff is only export insertion",
+    "observedIds": "Parent broker validates raw original getCrumb fixture id, maps to its new profile filename, and retains private canonical URL/method observations per id. Entire staged new filename set must exactly equal observed unique ids; every saved request must match an observation for that id. A known-but-unobserved copyConsent fixture and changed unobserved request query are refused before compaction/publication. Repeated ids intentionally share one file: actual three-request/two-file positive overwrites quote with a second observed URL and passes compacted replay. Country uses actual manual-fetch getCrumb flow; policy applies to each physical broker hop, not inferred filename/request count equality."
+  },
+  "parity": {
+    "fixtureCount": 1201,
+    "fixtureParityHeadAndArchive": true,
+    "fixtureAggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "fixtureAggregateEncoding": "UTF-8 tracked full path + NUL + SHA256(content) + LF in git ls-tree order",
+    "pureHelpersByteIdentical": true,
+    "originalSevenTestAssertionsByteIdentical": true,
+    "geoSourceByteIdenticalToHead": true,
+    "comparisonCommit": "dd40e58154ca70ed85916c8ac23afff51a5a5d85"
+  },
+  "priorCoreUnchangedInputs": [
+    "scripts/test.ts",
+    "scripts/recache-tests.ts",
+    "scripts/recache-tests.test.ts",
+    "tests/common.ts",
+    "tests/fetchCache.ts",
+    "scripts/recache/baseline.ts",
+    "scripts/recache/broker.ts",
+    "scripts/recache/child.ts",
+    "scripts/recache/environment.ts",
+    "scripts/recache/preload.ts",
+    "scripts/recache/session.ts",
+    "scripts/recache/staging.ts",
+    "scripts/recache/store.ts",
+    "scripts/recache-broker.test.ts",
+    "scripts/recache-child.test.ts",
+    "scripts/recache-staging.test.ts",
+    "scripts/recache-store.test.ts",
+    "package.json",
+    "scripts/testing.test.ts"
+  ],
+  "limitations": [
+    "No live Yahoo contact or actual repository fixture capture/publication performed",
+    "Linux-only guard proof; otherOS D04 and general permission parity G06 remain open",
+    "No automatic geolocation/VPN confirmation; operator independently verifies exit country",
+    "Read-only host filesystem and host Unix sockets remain visible; trusted parent/operator/repository code assumptions",
+    "Compare+rename is not a multi-file hostile-host transaction; I/O errors/hostcrash/SIGKILL may prevent atomic publication or cleanup",
+    "No new full-suite inventory claimed during parallel E/H drafts",
+    "Root package alias and E compiler-exclusion/runtime-std-alias removals are parent-owned integration followups"
+  ],
+  "proposedIntegration": {
+    "packageScript": {
+      "fixtures:capture:getcrumb": "bun scripts/capture-get-crumb-fixtures.ts"
+    },
+    "removeToolsExclusions": [
+      "scripts/capture-get-crumb-fixtures.ts",
+      "scripts/capture-get-crumb-fixtures.test.ts",
+      "src/lib/getCrumb.geo.test.ts"
+    ],
+    "runtimeStdAliases": "Remove @std/cli/parse-args and @std/fs/walk only after E owner confirms all remaining imports migrated"
+  },
+  "review": {
+    "status": "Cleared by independent Sol xhigh and Astra xhigh reviews of the exact repaired immutable snapshot. D07 complete; root alias and compiler/dependency cleanup belong to the following B04/E03 integration.",
+    "sol": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh",
+      "focusedTestsPassed": 89,
+      "focusedFiles": 11,
+      "typecheckExitCode": 0,
+      "proofRoot": "/tmp/yf-d07-sol-fixed-probes-k05kv74b",
+      "focusedLog": "/tmp/yf-d07-sol-fixed-focused.log",
+      "typecheckLog": "/tmp/yf-d07-sol-fixed-types.log",
+      "additionalControls": [
+        "original extra-known reproduction now exits1 after2requests with0published",
+        "unobserved query refusal",
+        "repeated-ID3requests2files positive",
+        "recursive consent8requests8files positive"
+      ],
+      "verdict": "no remaining actionable finding"
+    },
+    "astra": {
+      "model": "gpt-6-astra",
+      "reasoningEffort": "xhigh",
+      "focusedTestsPassed": 40,
+      "additionalScenariosPassed": 9,
+      "typecheckExitCode": 0,
+      "proof": "/tmp/yf-d07-astra-j95hfx6i/review.json",
+      "additionalProof": "/tmp/yf-d07-astra-j95hfx6i/edges/edge-receipt.json",
+      "controls": [
+        "original extra-known reproduction refused before publication",
+        "direct consent return",
+        "five consent cycles accepted; sixth cycle refused",
+        "crumb-stage429",
+        "hardlink output",
+        "bad redirect port",
+        "changed request method",
+        "hidden subdirectory",
+        "earlier bytes preserved"
+      ],
+      "verdict": "no new actionable findings; documented Linux trusted-code and nontransactional publication limits retained"
+    }
+  },
+  "acceptedReviewFindings": [
+    {
+      "reviewer": "Independent GPT-6.1 Sol xhigh",
+      "severity": "P2",
+      "finding": "A structurally valid but unobserved namespaced copyConsent fixture could be added by a record after-hook and published even though compacted replay never consumed it.",
+      "reproduction": "/tmp/yf-d07-sol-extra-yflc2uj6/probe.ts",
+      "repair": "Exact observed unique-id set and per-id canonical request correlations, checked before compaction and before publication; explicit repeated-id overwrite semantics preserve actual capture behavior.",
+      "regressions": [
+        "country CLI refuses extra-known staged/trace output before any publication",
+        "country CLI refuses url-correlation staged/trace output before any publication",
+        "country CLI permits repeated observed fixture ids without treating transport count as file count"
+      ]
+    }
+  ],
+  "historicalEvidence": {
+    "firstCandidateArchive": "/tmp/yf-country-d07-review-iugmff2q",
+    "firstCandidateBaseline": "d6107ca5f05fd943345e0b627799e22e941aa769",
+    "firstCandidatePasses": 86,
+    "firstCandidateClaim": "Historical initial passing result; insufficient for the accepted unused-known-step finding. Superseded by this repaired89-check proof.",
+    "firstCandidateSourceSha256": {
+      "scripts/capture-get-crumb-fixtures.ts": "5fa11e4c646f10a249bd3ab84124daa0268e6a30dd733d32407b8a50afed5fde",
+      "scripts/capture-get-crumb-fixtures.test.ts": "27c1ccccc8413e8499aae03c6c0e9e4499f6b9fdeb91af449157916027861aca",
+      "scripts/capture-get-crumb-cli.test.ts": "164f7521af6ff488c7f30c709f226ebadc6014eb6d3e7f12699b9fea04cc8051",
+      "scripts/recache/orchestrator.ts": "4f0fac75412fc128467913205d531ece5c9290aa70065e0dd4c08db58dbc2b49"
+    }
+  }
+}

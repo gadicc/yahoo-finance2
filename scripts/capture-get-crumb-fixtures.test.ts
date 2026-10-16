@@ -6,6 +6,7 @@ import {
   geoFixtureId,
   normalizeCountryCode,
   validateProfileId,
+  validateTrace,
 } from "./capture-get-crumb-fixtures.ts";
 
 function fixture(bodyText: string) {
@@ -140,5 +141,26 @@ describe("getCrumb fixture capture helpers", () => {
       fixture("<html>large and irrelevant</html>"),
     );
     expect(compacted.response.bodyText).toBe("");
+  });
+});
+
+
+describe("country capture trace boundary", () => {
+  it("accepts only the finite getCrumb method, host and path tuples without query data", () => {
+    const valid = [
+      { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+      { method: "GET", host: "query1.finance.yahoo.com", path: "/v1/test/getcrumb" },
+    ];
+    expect(validateTrace(valid)).toEqual(valid);
+    for (const entry of [
+      { ...valid[0], method: "POST" }, { ...valid[0], host: "evil.invalid" },
+      { ...valid[0], host: "finance.yahoo.com:443" },
+      { ...valid[0], path: "/quote/AAPL?session=private" },
+      { ...valid[0], path: "/unknown" }, { ...valid[0], cookie: "private" },
+      { method: 3, host: "finance.yahoo.com", path: "/quote/AAPL" },
+    ]) expect(() => validateTrace([entry, valid[1]])).toThrow();
+    for (const value of [null, [], [valid[0]], Array(65).fill(valid[0])]) {
+      expect(() => validateTrace(value)).toThrow();
+    }
   });
 });

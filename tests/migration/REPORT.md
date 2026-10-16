@@ -125,7 +125,7 @@ all items; the benchmark results above retain their historical meaning.
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
 | [C. Test runner and harness](#migration-c)                       | Complete (Linux proof) |   7/7 |
-| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        6/8 |
+| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        7/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        4/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
@@ -134,7 +134,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **35/71** |
+| **Overall**                                                      | **In progress** |  **36/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -385,6 +385,26 @@ ran ten focused checks plus independent configuration/cache probes. The
 E03 remains partial until country-capture integration removes its temporary
 exclusions; Workers retain the separately completed H04 gate. Progress is
 **35/71**.
+
+## Country capture checkpoint (D07, 2026-10-16)
+
+The [controlled country CLI](COUNTRY-CAPTURE.md) now uses the reviewed Bun
+capture broker, guarded children and mandatory replay baseline. It validates
+new profile output, compacts it privately, proves strict geographic replay and
+only then publishes append-only fixtures. The parent binds the exact new file
+set to observed capture IDs and canonical request metadata; a known but unused
+fixture cannot pass merely because its route is allowed. Legitimate repeated
+cache IDs and bounded recursive consent flows remain supported.
+
+Sol xhigh independently passed all 89 focused checks and the Node-only compiler,
+including the original rejected-publication reproduction and recursive consent.
+Astra xhigh passed 40 focused checks and nine additional guarded scenarios,
+including maximum recursion, 429 and filesystem/request-correlation refusals.
+Both cleared the repaired snapshot. All 1,201 fixture bytes remain unchanged;
+verification used synthetic transports and disposable roots. The
+[receipt](results/d07-country-capture.json) records source hashes and bounds.
+Root alias and compiler/dependency cleanup follow separately in B04/E03.
+Progress is **36/71**.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -853,9 +873,15 @@ and CI remain separate work.
       transient errors before commit, and keeps logs free of cookies, crumbs and
       payloads. Evidence: [D06 receipt](results/d06-fixture-validation.json),
       13 guarded focused checks and independent Sol xhigh review.
-- [ ] D07 — Execute country-profile capture CLI paths with controlled inputs;
+- [x] D07 — Execute country-profile capture CLI paths with controlled inputs;
       verify append-only profiles, compaction/replay, expected-host checks and
       `.static`/`.fake`/geographic profile protection from generic recache.
+      Evidence: [country capture contract](COUNTRY-CAPTURE.md) and
+      [exact snapshot receipt](results/d07-country-capture.json), 89 guarded
+      focused checks and Node-only typecheck. Sol xhigh and Astra xhigh cleared
+      the observed-ID publication fix; independent recursion and rejection
+      probes pass with all 1,201 repository fixtures unchanged. Root command and
+      compiler-exclusion cleanup remain the following B04/E03 integration.
 - [x] D08 — Verify environment clearing/allowlisting and simulated-fetch
       behavior under replay, nocache and recache; keep live Yahoo runs opt-in
       and outside offline verification, with unchanged-fixture hashes for replay
