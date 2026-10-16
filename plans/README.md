@@ -27,9 +27,15 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 | 009  | zod v3-compat subpath → zod@^4                                   | P3       | S–M    | 001                    | DONE   |
 | 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 | 011  | Country-profiled getCrumb fixture capture and replay             | P2       | M      | —                      | IN PROGRESS (VPN capture pending) |
+| 012  | Offline Deno/Bun/Vitest/node:test migration experiments          | P1       | L      | —                      | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
+
+The completed experiment is recorded in [plan 012](012-test-runner-migration-experiments.md).
+On `codex/bun-migration`, ongoing Bun migration work is tracked in
+[the report](../tests/migration/REPORT.md#staged-migration-checklist); plan 012
+retains its historical experiment scope and outcome.
 
 ## Dependency notes
 

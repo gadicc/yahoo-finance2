@@ -15,6 +15,24 @@ are most likely to need during edits.
   it.
 - The default development branch is `dev`.
 
+## Bun migration branch
+
+On `codex/bun-migration`, use
+[tests/migration/REPORT.md](./tests/migration/REPORT.md) as the staged migration
+tracker and source of acceptance counts, evidence, dependencies and next steps.
+The Bun experiment is complete; its adapters and existing Deno contributor
+commands below are transitional, not production readiness. Keep the tracker
+current as work lands. Use GPT-6.1 Sol High for orchestration, planning and
+substantive implementation; Medium (or appropriate Terra/Luna) for bounded
+mechanical work; xhigh implementation only for unusually difficult debugging,
+tangled architecture or when High is demonstrably struggling. As an explicit
+review exception, obtain independent GPT-6.1 Sol xhigh review for each
+meaningful step and GPT-6 Astra xhigh adversarial review for important
+milestones/final readiness, seeking hidden defects, missed requirements, edge
+cases, regressions, security issues and test gaps. Resolve findings and commit
+meaningful isolated steps using the commit policy below. Do not change global
+model settings or schedule future work as part of this branch policy.
+
 ## Commands
 
 - Run the full test suite with `deno task test`.
