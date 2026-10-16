@@ -1,8 +1,9 @@
-import { expect } from "@std/expect";
+import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/migration/assertions.ts";
 import releaseConfig from "../release.config.mjs";
 import { isAllowedWorkflowRef } from "./workflow-policy.mjs";
 
-Deno.test("release policy accepts configured named and maintenance branches", () => {
+test("release policy accepts configured named and maintenance branches", () => {
   for (
     const branch of [
       "main",
@@ -22,7 +23,7 @@ Deno.test("release policy accepts configured named and maintenance branches", ()
   }
 });
 
-Deno.test("release policy rejects tags, nonrelease refs, and maintenance lookalikes", () => {
+test("release policy rejects tags, nonrelease refs, and maintenance lookalikes", () => {
   for (
     const ref of [
       "refs/heads/dev",
@@ -53,7 +54,7 @@ Deno.test("release policy rejects tags, nonrelease refs, and maintenance lookali
   }
 });
 
-Deno.test("release policy follows additions and removals in the configured allowlist", () => {
+test("release policy follows additions and removals in the configured allowlist", () => {
   if (!Array.isArray(releaseConfig.branches)) {
     throw new Error("Expected an array of configured release branches");
   }
@@ -71,7 +72,7 @@ Deno.test("release policy follows additions and removals in the configured allow
     .toBe(false);
 });
 
-Deno.test("unsupported release config entries invalidate the complete allowlist", () => {
+test("unsupported release config entries invalidate the complete allowlist", () => {
   for (
     const entry of [
       "*",
@@ -104,7 +105,7 @@ Deno.test("unsupported release config entries invalidate the complete allowlist"
   }
 });
 
-Deno.test("recache policy permits only the full dev branch ref", () => {
+test("recache policy permits only the full dev branch ref", () => {
   expect(isAllowedWorkflowRef("recache", "refs/heads/dev")).toBe(true);
   for (
     const ref of [
@@ -124,7 +125,7 @@ Deno.test("recache policy permits only the full dev branch ref", () => {
   }
 });
 
-Deno.test("unknown workflow kinds and nonstring refs fail closed", () => {
+test("unknown workflow kinds and nonstring refs fail closed", () => {
   expect(isAllowedWorkflowRef("tests", "refs/heads/main")).toBe(false);
   expect(isAllowedWorkflowRef(undefined, "refs/heads/main")).toBe(false);
   for (const ref of [undefined, null, 1, {}, []]) {

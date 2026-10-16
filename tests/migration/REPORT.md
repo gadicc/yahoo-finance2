@@ -1,5 +1,25 @@
 # Offline test runner experiment
 
+## Rebase validation (2026-10-16)
+
+Rebased onto `dev` at `93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459`. The current
+suite passes **1,329 leaf tests across 44 discovered files**, including six new
+workflow-policy tests and four new schema-repair union tests. The new tests use
+this experiment's existing runner and assertion adapters. Offline replay,
+coverage, type checking, overload negative control, and network and
+fixture-write guard probes pass. All 1,201 fixtures match `dev` and stayed
+byte-identical during validation. Existing skips and runner reporting
+differences remain as described below. See
+[rebase validation](results/rebase-validation.json).
+
+The measurements and inventory below describe the original benchmark commit;
+they have not been rerun or relabeled as new performance measurements. Pushes to
+these experiment branches no longer start Release or standalone Tests. The
+existing reusable CI still uses Deno; validating a future experiment PR in CI
+requires a separate runner migration.
+
+## Original benchmark
+
 Measured on 2026-10-16 from `f3a2c4cd0273ece8693dbd1387fcd06daa8b8bb1`. This
 compares test execution only. Production library files, schemas, fixtures,
 package build/release tools, CI and the default branch implementation are
