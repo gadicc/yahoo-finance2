@@ -314,7 +314,10 @@ export type ScreenerCriteriaFieldsFund =
   | "exchange"
   | "riskratingoverall"
   | "initialinvestment"
-  | "fiftytwowkpercentchange";
+  | "fiftytwowkpercentchange"
+  | "full_day_change"
+  | "full_day_change_percent"
+  | "full_day_price";
 
 export interface ScreenerResultConservativeForeignFunds
   extends ScreenerResultBase {
