@@ -6,8 +6,8 @@ are most likely to need during edits.
 
 ## Project Context
 
-- This is a Deno-first TypeScript library that is published to npm via generated
-  output.
+- Preserve JSR distribution and Deno >=2 consumer compatibility. This migration
+  branch uses Bun/Node development tooling; npm output remains generated.
 - Source code lives under `src/`. Tests usually sit beside the module they cover
   and use fixtures from `tests/fixtures/http`.
 - The `npm/` directory is generated package output. Prefer editing source files
@@ -33,14 +33,20 @@ cases, regressions, security issues and test gaps. Resolve findings and commit
 meaningful isolated steps using the commit policy below. Do not change global
 model settings or schedule future work as part of this branch policy.
 
+The branch retains JSR publication and Deno >=2 consumers. Do not invoke a Deno
+binary for development, tests, builds, formatting or linting. A Deno binary may
+be used only by the isolated publishing step. Unported development tools must
+be migrated before use; historical Deno commands below are reference only.
+
 ## Commands
 
 On `codex/bun-migration`, first follow the
 [branch bootstrap](./CONTRIBUTING.md#bun-migration-branch-bootstrap): select Bun
 1.4.3 on `PATH`, run `bun run check:toolchain`, then
 `bun install --frozen-lockfile`. `bun.lock` owns the root JavaScript graph;
-`deno.lock` still owns unmigrated Deno tooling and the Workers harness keeps its
-independent npm lockfile. Do not reintroduce a competing root lockfile.
+`deno.lock` retains unported tooling/publisher metadata, and the Workers harness
+keeps its independent npm lockfile. Do not reintroduce a competing root lockfile
+or execute unported tooling through a Deno development process.
 
 Use the maintained Linux replay commands: `bun run test:replay`,
 `bun run test:focused`, `bun run test:serial -- path/to/file.test.ts`,
@@ -60,7 +66,14 @@ then use `bun run typecheck` and `bun run typecheck:incremental`;
 Installation is separate from offline testing. Upgrade Bun only through a
 reviewed exact-pin change using the bootstrap policy.
 
-The following Deno commands remain for unmigrated tooling and the `dev` branch:
+Generate `@yf-schema` outputs with `bun run schema`; use `bun run schema:check`
+for the no-write stale gate. Explicit roots and `--watch` are documented in
+[the schema policy](./tests/migration/SCHEMAS.md). Biome adoption remains open;
+use existing Bun/Node checks and manual style review until then.
+
+The following Deno commands are legacy `dev`-branch reference only. Do not run
+them on `codex/bun-migration`, including the formatter/linter and unported build,
+recache or capture commands. Port the relevant command first:
 
 - Run the full test suite with `deno task test`.
 - Run `deno task test:replay` for a cache-only baseline that fails on missing
@@ -79,6 +92,10 @@ The following Deno commands remain for unmigrated tooling and the `dev` branch:
 
 ## Testing And Fixtures
 
+On the migration branch, ordinary Bun tests always replay and clear inherited
+capture controls. The `FETCH_DEVEL` behavior below describes legacy explicit
+capture tooling; it does not enable live requests in the maintained launcher.
+
 - Tests use `fetch-mock-cache` and cached HTTP fixtures for repeatability.
 - New module tests should call `setupCache()` from `tests/common.ts` when they
   touch Yahoo HTTP responses.
@@ -94,7 +111,7 @@ The following Deno commands remain for unmigrated tooling and the `dev` branch:
 - TypeScript interfaces in module files are the source of truth for runtime
   validation schemas.
 - If a module file has `@yf-schema`, keep the generated `.schema.json` file in
-  sync with `deno task schema`.
+  sync with `bun run schema` on the migration branch.
 - Prefer updating typed interfaces and validation schemas together with focused
   tests that cover the Yahoo response shape involved.
 - When Yahoo adds a response field, model it as required first. Make it optional
@@ -114,8 +131,8 @@ The following Deno commands remain for unmigrated tooling and the `dev` branch:
 - Edit TypeScript interfaces, then regenerate every affected schema **before**
   retrying tests. The generator's timestamp check does not track imported type
   dependencies. Explicit file arguments force regeneration, e.g.
-  `deno task schema src/modules/quote.ts src/modules/options.ts`; alternatively
-  run `deno task schema --force` to regenerate all schemas. Also test consumers
+  `bun run schema src/modules/quote.ts src/modules/options.ts`; alternatively
+  run `bun run schema --force` to regenerate all schemas. Also test consumers
   of shared schemas, such as historical after chart changes.
 - Automated fixture repair is limited to interfaces, additions of observed
   strings to existing nongeneric string-literal-union aliases, and generated
@@ -133,8 +150,8 @@ The following Deno commands remain for unmigrated tooling and the `dev` branch:
 
 ## Editing Guidelines
 
-- Preserve existing Deno import style, including `.ts` extensions for local
-  imports.
+- Preserve `.ts` extensions for local imports and the retained consumer runtime
+  contracts.
 - Avoid editing generated directories, dependency directories, coverage output,
   or docs output unless the task explicitly requires it.
 - Check `git status` before and after changes, and do not overwrite unrelated

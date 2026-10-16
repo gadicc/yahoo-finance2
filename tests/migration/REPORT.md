@@ -1,10 +1,49 @@
 # Bun migration tracker and offline test runner experiment
 
-## Rebase validation (2026-10-16)
+## Migration rebase checkpoint (2026-10-16)
 
-Rebased onto `dev` at `93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459`. The current
-suite passes **1,329 leaf tests across 44 discovered files**, including six new
-workflow-policy tests and four new schema-repair union tests. The new tests use
+The nine migration-only commits were replayed from old experiment
+`c1479eb2191a71ee162945cb811b6b064d572ca3` onto the complete reviewed Bun base
+`bffad3e31b4f8d89bbcab62e27348e143f95eb87`, which includes `dev`
+`93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459`. The validated rebased code head is
+`d757edc2b6f77ecea05ca7904843a34c5aad0c1e`; no duplicate experiment commit was
+applied. The one conflict retained both the updated experiment receipt and this
+tracker. Other branch refs/worktrees were not changed.
+
+Current maintained full, serial and coverage commands each pass **1,384 tests
+across 48 files**, with eight reported skips (six leaves and two hooks). The
+count is the updated 1,329-pass baseline + 20 harness + 9 schema + 12 command +
+14 executable tests. The upstream workflow-policy six and schema-repair nine
+callbacks match `dev` byte-for-byte and pass together under the existing
+adapters; their assertions were not converted again or weakened. Frozen install,
+normal/incremental typechecks, the overload negative control, all 13 schema
+checks, offline release-note generation and guarded Bun/Node probes pass.
+
+All 1,201 fixture hashes match updated `dev`; the six changed screener captures
+are upstream changes, not recaching. All non-test `src` production files and
+workflow/release policy files match `dev`. All 13 schemas differ only in their
+generated `$comment` lines. Reviewed migration helpers, binaries, test commands
+and the schema generator retain their pre-rebase bytes. See the
+[checkpoint evidence](results/migration-rebase-checkpoint.json) for recovery,
+commit mapping, exact commands and parity receipts.
+
+Before this rebase, C07's `a6b4d15` followup and G's `1af6a59` source phase each
+received independent GPT-6.1 Sol xhigh and GPT-6 Astra xhigh clearance. The
+checkpoint preserves those scoped reviews; it is not the final L03/L04 gate.
+The four-file checkpoint integration also passed independent Sol xhigh review
+with no actionable findings. Progress remains **22/71**. JSR distribution and
+Deno >=2 consumers are retained.
+Current policy permits a Deno binary only in the publishing step and prohibits
+Deno development/test/build/format/lint runs. This checkpoint used no Deno
+binary. Earlier milestone counts, commit IDs and benchmark
+receipts below remain dated history, including the original Bun 1.4.2 timings.
+
+## Rebased experiment baseline (2026-10-16)
+
+The reviewed experiment was rebased onto `dev` at
+`93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459`. At that baseline the suite passed
+**1,329 leaf tests across 44 discovered files**, including six new workflow-policy
+tests and four new schema-repair union tests. The new tests use
 this experiment's existing runner and assertion adapters. Offline replay,
 coverage, type checking, overload negative control, and network and
 fixture-write guard probes pass. All 1,201 fixtures match `dev` and stayed

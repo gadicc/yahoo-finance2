@@ -6,10 +6,13 @@ set up with the correct tools and important things to know for the project.
 ## Bun migration branch bootstrap
 
 On `codex/bun-migration`, use **Bun 1.4.3** as the root package manager and
-experimental test runtime. The [migration tracker](tests/migration/REPORT.md)
-records what has been verified and what remains open. The Deno instructions
-below still apply to schema generation, builds, release tooling, live recaching
-and other commands that have not been migrated.
+development/test runtime. The [migration tracker](tests/migration/REPORT.md)
+records what has been verified and what remains open. Preserve JSR distribution
+and Deno >=2 consumer compatibility. A Deno binary is permitted only in the
+isolated publishing step; do not use it for development, tests, builds,
+formatting or linting. The Deno command lists later in this document are legacy
+`dev` reference, not migration-branch execution instructions. Port remaining
+commands before using them here.
 
 Obtain the exact [Bun 1.4.3 release](https://bun.com/blog/bun-v1.4.3) using the
 [versioned installation instructions](https://bun.com/docs/installation#installing-older-versions)
@@ -36,9 +39,10 @@ Bun's frozen flag alone does not reject a missing lockfile. Skipping lifecycle
 scripts bypasses the installation guard.
 
 `bun.lock` is authoritative for root JavaScript dependencies. Do not create a
-root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` for the
-remaining Deno schema/build/release/tooling graph until its owners migrate;
-retain `tests/cloudflare/package-lock.json` for the independently npm-managed
+root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` as metadata for
+unported tooling and the isolated publisher; unported development/build commands
+must be migrated rather than executed through Deno. Retain
+`tests/cloudflare/package-lock.json` for the independently npm-managed
 Workers harness. Do not install that harness with Bun. The private root manifest
 separates runtime dependencies from test, schema and release tools; see
 [dependency ownership](tests/migration/DEPENDENCIES.md). It does not replace the
@@ -88,8 +92,12 @@ workers; the separate Workers harness is excluded. Ordinary tests deliberately
 replace Deno's automatic live fixture capture with replay-only behavior. A cache
 miss fails without fallback; explicit recaching remains a separate migration
 step. Direct `bun test` bypasses the boundary. Cross-platform offline support
-remains D04. Deno commands below describe the default branch and unmigrated
-workflows.
+remains D04. Generate schemas with `bun run schema`, select explicit roots with
+`bun run schema src/modules/quote.ts src/modules/options.ts`, and run
+`bun run schema:check` for the no-write stale gate. See the
+[schema behavior](tests/migration/SCHEMAS.md) for watch and failure semantics.
+Biome remains a later milestone; use the existing Bun/Node checks and manual
+style review meanwhile. Unported build/capture tools need migration before use.
 
 Bun upgrades are deliberate changes, including patch releases. Review release
 notes, update `.bun-version` and `packageManager` together to one exact stable
@@ -99,6 +107,14 @@ typechecks/negative controls and unchanged fixtures. Inspect any lockfile change
 and record evidence in the tracker before independent review and commit. Minor
 or major changes also need an explicit compatibility decision. Do not use a
 floating `latest`, version range or canary, or silently adopt a new typechecker.
+
+## Legacy `dev` contributor reference
+
+The remainder describes the default branch's existing workflow and retained
+historical commands. Do not run its Deno development/test/build/format/lint
+commands on `codex/bun-migration`. Use the maintained Bun/Node commands above;
+if no port exists, complete that migration first. The publishing-only Deno
+exception does not authorize Deno builds, tests or formatter runs.
 
 1. [Setup](#setup)
    1. [Cloning](#cloning)
@@ -130,7 +146,7 @@ All PRs should be submitted against the `dev` branch (github default).
 
 <a name="tools"></a>
 
-### Required Tools: Deno & editor plugins
+### Legacy dev tools: Deno & editor plugins
 
 We use the [deno](https://deno.com/) runtime for development. It can be
 installed with a single command and replaces node, npm, eslint, prettier, tsc,
