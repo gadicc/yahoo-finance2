@@ -1,0 +1,1977 @@
+{
+  "status": "passed",
+  "publisherOnly": true,
+  "noPublication": true,
+  "root": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+  "version": "5.0.0-next.2",
+  "sourceBefore": {
+    "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+    "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+    "deno.json": "304ee029188261ed932bc06485df9c0ef44c3bf2ad4742039924c7e8100c9b04"
+  },
+  "commands": [
+    {
+      "name": "bun-version",
+      "bin": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+      "args": [
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "versioned-build",
+      "bin": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+      "args": [
+        "scripts/fix_versions.ts",
+        "--version",
+        "5.0.0-next.2",
+        "--out-dir",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/npm"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "offline-pack",
+      "bin": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/npm/bin/npm-cli.js",
+        "--userconfig",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/empty-user.npmrc",
+        "--globalconfig",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/empty-global.npmrc",
+        "pack",
+        "--offline",
+        "--json",
+        "--pack-destination",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/npm",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-registry-acquire",
+      "bin": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/npm/bin/npm-cli.js",
+        "--userconfig",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/empty-user.npmrc",
+        "--globalconfig",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/empty-global.npmrc",
+        "install",
+        "--no-audit",
+        "--no-fund",
+        "--package-lock=false",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/yahoo-finance2-5.0.0-next.2.tgz",
+        "@modelcontextprotocol/sdk@1.32.0",
+        "tough-cookie@6.0.2",
+        "tough-cookie-file-store@3.3.0",
+        "zod@4.6.5",
+        "@types/node@24.10.1"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-node24-exports",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "--import",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/package-consumer.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-node24-yahoo-finance2-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "--import",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-node24-yahoo-finance-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "--import",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-node24-yahoo-finance-mcp-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "--import",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance-mcp.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-bun-exports",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--preload",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/package-consumer.mjs"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-bun-yahoo-finance2-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--preload",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-bun-yahoo-finance-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--preload",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-bun-yahoo-finance-mcp-version",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "--preload",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/deny-fetch.mjs",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/node_modules/yahoo-finance2/esm/bin/yahoo-finance-mcp.js",
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "artifact-public-types",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/testing/offline.py",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+        "--",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/typescript/bin/tsc",
+        "--project",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/tsconfig.json"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-runtime-pipe",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-runtime-pipe.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-runtime-pty",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/publisher/observe-pty.py",
+        "--publisher-rehearsal",
+        "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-runtime-pty.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-frozen-lock-negative",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "publish",
+        "--allow-dirty",
+        "--dry-run"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/yf-publisher-stage-TuUblP/jsr",
+      "status": 1,
+      "signal": null
+    },
+    {
+      "name": "publisher-source-acquire-types",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-source-invalid-sdk-types",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-invalid-sdk.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source",
+      "status": 1,
+      "signal": null
+    },
+    {
+      "name": "publisher-source-offline-consumer",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-npm-acquire-types",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "publisher-npm-invalid-sdk-types",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-invalid-sdk.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 1,
+      "signal": null
+    },
+    {
+      "name": "publisher-npm-offline-consumer",
+      "bin": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-deno-version",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "--version"
+      ],
+      "cwd": "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-runtime-pipe",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-runtime-pipe.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-runtime-pty",
+      "bin": "python3",
+      "args": [
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/publisher/observe-pty.py",
+        "--publisher-rehearsal",
+        "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-runtime-pty.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-source-acquire-types",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-source-invalid-sdk-types",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-invalid-sdk.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source",
+      "status": 1,
+      "signal": null
+    },
+    {
+      "name": "minimum-source-offline-consumer",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-npm-acquire-types",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "minimum-npm-invalid-sdk-types",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "check",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-invalid-sdk.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 1,
+      "signal": null
+    },
+    {
+      "name": "minimum-npm-offline-consumer",
+      "bin": "/tmp/yf-publisher-zq18qwg7/scratch/minimum-deno/deno",
+      "args": [
+        "run",
+        "--cached-only",
+        "--deny-net",
+        "--allow-env",
+        "--config",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+        "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-consumer.ts"
+      ],
+      "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer",
+      "status": 0,
+      "signal": null
+    }
+  ],
+  "npm": {
+    "sha256": "63a7c469d7da7a014d7a7b5886b9e2b27cf6a73f196fb693d3134579fc465b5f",
+    "id": "yahoo-finance2@5.0.0-next.2",
+    "name": "yahoo-finance2",
+    "version": "5.0.0-next.2",
+    "size": 208330,
+    "unpackedSize": 2195526,
+    "shasum": "f2885471af81285b3483581d37fb46b482e0de2e",
+    "integrity": "sha512-+Xtjq4vdJn/DFdP2I879F80DMnCZHENVzyqoR++jmtsqGDB9RSFfwhhG/T13iTRK3C/5sOc/vKwbL0n6xm08Aw==",
+    "filename": "yahoo-finance2-5.0.0-next.2.tgz",
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1050,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 8077,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/runtime.d.ts",
+        "size": 1276,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/runtime.js",
+        "size": 5516,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance-mcp.d.ts",
+        "size": 620,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance-mcp.js",
+        "size": 9007,
+        "mode": 493
+      },
+      {
+        "path": "esm/bin/yahoo-finance.d.ts",
+        "size": 301,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance.js",
+        "size": 1081,
+        "mode": 493
+      },
+      {
+        "path": "esm/deno.json",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "esm/package.json",
+        "size": 23,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/consts.d.ts",
+        "size": 78,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/consts.js",
+        "size": 70,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/createYahooFinance.d.ts",
+        "size": 4816,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/createYahooFinance.js",
+        "size": 5170,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/index.d.ts",
+        "size": 1823,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/index.js",
+        "size": 957,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cli.d.ts",
+        "size": 1069,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cli.js",
+        "size": 8816,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/commonTypes.d.ts",
+        "size": 100,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/commonTypes.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cookieJar.d.ts",
+        "size": 1576,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cookieJar.js",
+        "size": 2492,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/deepmerge.d.ts",
+        "size": 1751,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/deepmerge.js",
+        "size": 1383,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/errors.d.ts",
+        "size": 726,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/errors.js",
+        "size": 1339,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/getCrumb.d.ts",
+        "size": 2072,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/getCrumb.js",
+        "size": 15417,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/headers.d.ts",
+        "size": 73,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/headers.js",
+        "size": 193,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/jsonSafe.d.ts",
+        "size": 169,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/jsonSafe.js",
+        "size": 1829,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleCommon.d.ts",
+        "size": 1166,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleCommon.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleExec.d.ts",
+        "size": 3681,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleExec.js",
+        "size": 5226,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/notices.d.ts",
+        "size": 342,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/notices.js",
+        "size": 1997,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/defaults.d.ts",
+        "size": 125,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/defaults.js",
+        "size": 1159,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/logger.d.ts",
+        "size": 897,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/logger.js",
+        "size": 1412,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.d.ts",
+        "size": 3822,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.js",
+        "size": 1955,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.schema.json",
+        "size": 23248,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/queue.d.ts",
+        "size": 677,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/queue.js",
+        "size": 1592,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtime-detect.d.ts",
+        "size": 1421,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtime-detect.js",
+        "size": 7469,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtimeGlobal.d.ts",
+        "size": 197,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtimeGlobal.js",
+        "size": 355,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/timeseries.json",
+        "size": 17374,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/index.d.ts",
+        "size": 1327,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/index.js",
+        "size": 8878,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/array.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/array.js",
+        "size": 643,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/boolean.d.ts",
+        "size": 87,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/boolean.js",
+        "size": 346,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/index.d.ts",
+        "size": 370,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/index.js",
+        "size": 394,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/null.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/null.js",
+        "size": 559,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/number.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/number.js",
+        "size": 1874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/object.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/object.js",
+        "size": 3935,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/string.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/string.js",
+        "size": 3434,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/undefined.d.ts",
+        "size": 90,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/undefined.js",
+        "size": 364,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validateAndCoerceTypes.d.ts",
+        "size": 1013,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validateAndCoerceTypes.js",
+        "size": 9111,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/versions.d.ts",
+        "size": 283,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/versions.js",
+        "size": 927,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/yahooFinanceFetch.d.ts",
+        "size": 1709,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/yahooFinanceFetch.js",
+        "size": 5431,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/http.d.ts",
+        "size": 1093,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/http.js",
+        "size": 7490,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/mod.d.ts",
+        "size": 287,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/mod.js",
+        "size": 185,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/server.d.ts",
+        "size": 732,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/server.js",
+        "size": 10873,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/autoc.d.ts",
+        "size": 1293,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/autoc.js",
+        "size": 1509,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.d.ts",
+        "size": 9908,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.js",
+        "size": 10491,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.schema.json",
+        "size": 15213,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyGainers.d.ts",
+        "size": 2421,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyGainers.js",
+        "size": 2677,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyLosers.d.ts",
+        "size": 2679,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyLosers.js",
+        "size": 2933,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.d.ts",
+        "size": 30757,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.js",
+        "size": 13486,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.schema.json",
+        "size": 84102,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.d.ts",
+        "size": 7413,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.js",
+        "size": 13844,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.schema.json",
+        "size": 6723,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/index.d.ts",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/index.js",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.d.ts",
+        "size": 9336,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.js",
+        "size": 5203,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.schema.json",
+        "size": 12466,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.d.ts",
+        "size": 6669,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.js",
+        "size": 6635,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.schema.json",
+        "size": 105238,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.d.ts",
+        "size": 21995,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.js",
+        "size": 7324,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.schema.json",
+        "size": 116888,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.d.ts",
+        "size": 28642,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.js",
+        "size": 4026,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.schema.json",
+        "size": 73131,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.d.ts",
+        "size": 5817,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.js",
+        "size": 7053,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.schema.json",
+        "size": 74682,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.d.ts",
+        "size": 9225,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.js",
+        "size": 8598,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.schema.json",
+        "size": 1305,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.d.ts",
+        "size": 22232,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.js",
+        "size": 10843,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.schema.json",
+        "size": 82147,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.d.ts",
+        "size": 10197,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.js",
+        "size": 3939,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.schema.json",
+        "size": 20706,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.d.ts",
+        "size": 4768,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.js",
+        "size": 3724,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.schema.json",
+        "size": 1456,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/index.d.ts",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/index.js",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/quoteCombine.d.ts",
+        "size": 3435,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/quoteCombine.js",
+        "size": 6330,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 9614,
+        "mode": 420
+      },
+      {
+        "path": "script/deno.json",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "script/package.json",
+        "size": 25,
+        "mode": 420
+      },
+      {
+        "path": "script/src/consts.d.ts",
+        "size": 78,
+        "mode": 420
+      },
+      {
+        "path": "script/src/consts.js",
+        "size": 171,
+        "mode": 420
+      },
+      {
+        "path": "script/src/createYahooFinance.d.ts",
+        "size": 4816,
+        "mode": 420
+      },
+      {
+        "path": "script/src/createYahooFinance.js",
+        "size": 5714,
+        "mode": 420
+      },
+      {
+        "path": "script/src/index.d.ts",
+        "size": 1823,
+        "mode": 420
+      },
+      {
+        "path": "script/src/index.js",
+        "size": 2608,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/commonTypes.d.ts",
+        "size": 100,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/commonTypes.js",
+        "size": 77,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/cookieJar.d.ts",
+        "size": 1576,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/cookieJar.js",
+        "size": 2703,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/deepmerge.d.ts",
+        "size": 1751,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/deepmerge.js",
+        "size": 1484,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/errors.d.ts",
+        "size": 726,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/errors.js",
+        "size": 1773,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/getCrumb.d.ts",
+        "size": 2072,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/getCrumb.js",
+        "size": 15653,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/headers.d.ts",
+        "size": 73,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/headers.js",
+        "size": 314,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/jsonSafe.d.ts",
+        "size": 169,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/jsonSafe.js",
+        "size": 1972,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleCommon.d.ts",
+        "size": 1166,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleCommon.js",
+        "size": 77,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleExec.d.ts",
+        "size": 3681,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleExec.js",
+        "size": 6728,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/notices.d.ts",
+        "size": 342,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/notices.js",
+        "size": 2086,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/defaults.d.ts",
+        "size": 125,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/defaults.js",
+        "size": 1375,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/logger.d.ts",
+        "size": 897,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/logger.js",
+        "size": 1553,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.d.ts",
+        "size": 3822,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.js",
+        "size": 2350,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.schema.json",
+        "size": 23248,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/queue.d.ts",
+        "size": 677,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/queue.js",
+        "size": 1679,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtime-detect.d.ts",
+        "size": 1421,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtime-detect.js",
+        "size": 8007,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtimeGlobal.d.ts",
+        "size": 197,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtimeGlobal.js",
+        "size": 504,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/timeseries.json",
+        "size": 17374,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/index.d.ts",
+        "size": 1327,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/index.js",
+        "size": 9260,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/array.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/array.js",
+        "size": 920,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/boolean.d.ts",
+        "size": 87,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/boolean.js",
+        "size": 469,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/index.d.ts",
+        "size": 370,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/index.js",
+        "size": 639,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/null.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/null.js",
+        "size": 700,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/number.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/number.js",
+        "size": 2050,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/object.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/object.js",
+        "size": 5445,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/string.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/string.js",
+        "size": 3642,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/undefined.d.ts",
+        "size": 90,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/undefined.js",
+        "size": 496,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validateAndCoerceTypes.d.ts",
+        "size": 1013,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validateAndCoerceTypes.js",
+        "size": 9486,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/versions.d.ts",
+        "size": 283,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/versions.js",
+        "size": 1279,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/yahooFinanceFetch.d.ts",
+        "size": 1709,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/yahooFinanceFetch.js",
+        "size": 5845,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/http.d.ts",
+        "size": 1093,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/http.js",
+        "size": 7756,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/mod.d.ts",
+        "size": 287,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/mod.js",
+        "size": 960,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/server.d.ts",
+        "size": 735,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/server.js",
+        "size": 12475,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/autoc.d.ts",
+        "size": 1293,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/autoc.js",
+        "size": 1596,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.d.ts",
+        "size": 9908,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.js",
+        "size": 10779,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.schema.json",
+        "size": 15213,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyGainers.d.ts",
+        "size": 2421,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyGainers.js",
+        "size": 2771,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyLosers.d.ts",
+        "size": 2679,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyLosers.js",
+        "size": 3026,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.d.ts",
+        "size": 30757,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.js",
+        "size": 13919,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.schema.json",
+        "size": 84102,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.d.ts",
+        "size": 7413,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.js",
+        "size": 14228,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.schema.json",
+        "size": 6723,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/index.d.ts",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/index.js",
+        "size": 2252,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.d.ts",
+        "size": 9336,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.js",
+        "size": 5480,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.schema.json",
+        "size": 12466,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.d.ts",
+        "size": 6669,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.js",
+        "size": 6909,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.schema.json",
+        "size": 105238,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.d.ts",
+        "size": 21995,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.js",
+        "size": 7592,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.schema.json",
+        "size": 116888,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.d.ts",
+        "size": 28642,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.js",
+        "size": 4235,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.schema.json",
+        "size": 73131,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.d.ts",
+        "size": 5817,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.js",
+        "size": 7434,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.schema.json",
+        "size": 74682,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.d.ts",
+        "size": 9225,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.js",
+        "size": 8916,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.schema.json",
+        "size": 1305,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.d.ts",
+        "size": 22232,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.js",
+        "size": 11120,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.schema.json",
+        "size": 82147,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.d.ts",
+        "size": 10197,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.js",
+        "size": 4210,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.schema.json",
+        "size": 20706,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.d.ts",
+        "size": 4768,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.js",
+        "size": 4022,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.schema.json",
+        "size": 1456,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/index.d.ts",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/index.js",
+        "size": 475,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/quoteCombine.d.ts",
+        "size": 3435,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/quoteCombine.js",
+        "size": 6718,
+        "mode": 420
+      },
+      {
+        "path": "skills/yahoo-finance2/SKILL.md",
+        "size": 9940,
+        "mode": 420
+      }
+    ],
+    "entryCount": 252,
+    "bundled": []
+  },
+  "installedArtifact": {
+    "version": "5.0.0-next.2",
+    "exports": 28,
+    "formats": [
+      "ESM",
+      "CommonJS"
+    ],
+    "runtimes": [
+      "Node24",
+      "Bun1.4.3"
+    ],
+    "bins": [
+      "yahoo-finance2",
+      "yahoo-finance",
+      "yahoo-finance-mcp"
+    ],
+    "types": "real ESM/CommonJS consumer declarations",
+    "registryAcquisition": "normal hooks, exact root-derived runtime pins plus authoritative Node ambient pin; distinct from guarded consumers"
+  },
+  "jsr": {
+    "stage": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/yf-publisher-stage-TuUblP/jsr",
+    "head": "d3963b0086a61038f4793feda87bb2d3811f5528",
+    "sourceHashes": {
+      "LICENSE": "9a8330fc2068f04aef0973d04558fa06af9071b677dba309356d51792b52f2a6",
+      "README.md": "726c0315a703c2f998b18d8cd9fe31781829df513988408bcb30596d5318e583",
+      "src/consts.ts": "5d8f62ab7392387737a31a68880270ca7eea340c63a39067c12f02fcd7b89892",
+      "src/createYahooFinance.ts": "a763c0472f77a81be50ec80c83fea387627a08d45ea71791060d872c673dd1e7",
+      "src/index.ts": "b817a9296b83c51434bfe9a3d61da9d21fb657c160ea68d279f29de6781882bb",
+      "src/lib/commonTypes.ts": "63dbe7bc18a38c657ef607cbe17928268593db21a396c4eb8f6da1b3af6534f9",
+      "src/lib/cookieJar.ts": "5b008e1f698c6060adebbc5a3f7ae1f2f48e4fc1523dcb14a2d1ac674ece405f",
+      "src/lib/deepmerge.ts": "8a7200d3459b8e9b56454b14767688d38aa2a61c391776e434c208570afd8d31",
+      "src/lib/errors.ts": "5730d860aeee36d0212e99830ff48cee68acc0f48a22df64859a920fc01e37b0",
+      "src/lib/getCrumb.ts": "673cf9ecc7af5be81780feebf23272b3da9b300d41ae17deae37b361ef432ee5",
+      "src/lib/headers.ts": "ca0f0103585c9956d803f8eab8c4193e88fbc4a56348cbd54e91ae5639be9814",
+      "src/lib/jsonSafe.ts": "437e5a418a26fa70d69cf94f60f34e7bfc3b3880ea543365b7a83aec34595801",
+      "src/lib/moduleCommon.ts": "452836819306616c8ecafb327ae72800661f14ba5563859b6c080618ccb64e55",
+      "src/lib/moduleExec.ts": "313625a909898e514856dbeab93d425da4eacee671521a1a25e6b281050b927f",
+      "src/lib/notices.ts": "6be935f536d057b7538c5e1d9019278b9ef70366273958c5f5a1083a4ad2d73a",
+      "src/lib/options/defaults.ts": "0fa545cb2143c1a1f125cb690c6bcce08733c119d05e850bde7d5717c2a07ffe",
+      "src/lib/options/logger.ts": "406ed85dd22dd97bf780ad870ada1eae38e14839fbdabc100bf25fe4a34e1acf",
+      "src/lib/options/options.schema.json": "f0f77f6c286a7dc6c6bc47c033429b44daa1ca63d8351fa405fa6a28facdcfca",
+      "src/lib/options/options.ts": "58eee284181b00c28b3c2f84aa77e860f7f3014a873b9897cec4507130198bd5",
+      "src/lib/queue.ts": "64bc63749226219f2db7b5ca41b14f71b9206754c3c18e0375fb727b91efda7f",
+      "src/lib/runtime-detect.ts": "a9a6e44dfdd5cc4369a7bf311bcf40da22574485d31afc4a0bc2ed235fac6893",
+      "src/lib/runtimeGlobal.ts": "b019661faa4f37e2f220a26522fcf4306e0d39df4c382011e62404cf4a494d7d",
+      "src/lib/timeseries.json": "3a30605211006b9f9bfb9ab67330648e9ff2cbc8c2bbf9c2ec870e2b3b53058b",
+      "src/lib/validate/index.ts": "a007b026c896ec919a5544fd04a7fdf0a6b2bf602937b9870cd7bdb9053dd0ce",
+      "src/lib/validate/types/array.ts": "856bc0ed390c609dab4694febf79c5e2fe3a927ff6c57a034bca70e905140404",
+      "src/lib/validate/types/boolean.ts": "ae4bf7bdea3dd322e17bbc6766636137cb1fb6b699f8a4f7d500d9add5b93254",
+      "src/lib/validate/types/index.ts": "8e5f06b4e630d6c67fd48658e9b3c1251a3f1770808b17a022110eace61fd238",
+      "src/lib/validate/types/null.ts": "60be940a86f328b1c112b8267a331c4191ccea40d1f8c1a418be9fd325e156a0",
+      "src/lib/validate/types/number.ts": "c7aefd841ac3a3a0d9bd1ed025554668bdaff7634be31c3b27c42031ca9b6085",
+      "src/lib/validate/types/object.ts": "652875558d51681b9cc45ce97952f22ccae04616d1b8147b1d9a9e076b1575fd",
+      "src/lib/validate/types/string.ts": "07877dc6f7d6c9ea49693ee6be2dc6305645073c0a46f22d6f5ead1798fc732f",
+      "src/lib/validate/types/undefined.ts": "b1166a6776e46a13c97c690eb0f2e050474dba38bd1eda49a1c17c88df3b3383",
+      "src/lib/validateAndCoerceTypes.ts": "29c19a176e6c070fddd2ad74a997fb25d2773ccc32409d533d0047fd675a939a",
+      "src/lib/versions.ts": "441d8f2328641463e239320ac6556296f21230cd9578655e014de8e35c51bf61",
+      "src/lib/yahooFinanceFetch.ts": "99a8a3ff8aae9db227428fccc98e900b380fd166e546a323e5a0c7c670b5aaef",
+      "src/mcp/http.ts": "986f646da38f10c8bce813b399fc6999b3335eac909fdd355b498f273bd514e1",
+      "src/mcp/mod.ts": "2376e241efb264f502792e6f503cde9b4c01f4fc7d7e24d2b45de900c8982d42",
+      "src/mcp/server.ts": "5ad7fde98bf67aa98047b45c5428c79a6d815fa7533dbcd8dfdbe4846c380b96",
+      "src/modules/autoc.ts": "2c2f3d3d7dfa1e162017b2b20ed5712d463dc7d7e1070e1bef7b9d71cb8561da",
+      "src/modules/chart.schema.json": "1686bf97bdab24f985ef7e62223d0a4d8c56b60f854d8701091e0bb386dbc2c8",
+      "src/modules/chart.ts": "aa364aa6f190851670c8add344ab10451b2abe38598121b6af4d0e53e82acac3",
+      "src/modules/dailyGainers.ts": "43f8bd401bc4373958b6d898a191e908d53b773e3a1d0cc5c31296dc59526433",
+      "src/modules/dailyLosers.ts": "4b4dfd03c97a97963c1c031d6f3e264f61522b3e6405fd1f7e0b3b10a8a0009f",
+      "src/modules/fundamentalsTimeSeries.schema.json": "3e709070d27633ec9866c663626895c755a5300f05ac9475c0e0d3a3f31dd0d5",
+      "src/modules/fundamentalsTimeSeries.ts": "5a37ac374714e210a0fb307f2fa76ebb8dd43ae1b594ac1da796b67e5fe42cae",
+      "src/modules/historical.schema.json": "6cf2b8095d5f33ec7cec92bb7189a4ea4e11069318a74ddde16f6758c85fef2d",
+      "src/modules/historical.ts": "9c31ff9aa9c0611fd1792aa9f7c4024170306280f6e9e4795553f535ebbdfb54",
+      "src/modules/index.ts": "b9ba9fe31912b7ef9af488a754119c7997354ebd77239fb9ffdaea3e96e23524",
+      "src/modules/insights.schema.json": "67844d2ab08673a10b0b40941f45068606ae1d3d73fae403876b359c64195289",
+      "src/modules/insights.ts": "0db011e2116458f171bc6b37f19e99011faef5f8ffb89127c5e36790b1e8b5bb",
+      "src/modules/options.schema.json": "a57c5316febb67e1b4b5be318a2b31f7ea584f1c6dafb6ff79bb5c9efebdcef3",
+      "src/modules/options.ts": "2d0f4743ba1a0140ef0b92ab77416edff3919d77ae31d5bde4b5e5a5a3d410f1",
+      "src/modules/quote.schema.json": "e6cc671afa2b20a67941e4d410fd2a90b56951b15eb6e02fbd266b7fd4f9188b",
+      "src/modules/quote.ts": "43da0d79dcb2a039262d86ce4e478c4dc52dfbf8fac01a669224fb5522ed5af8",
+      "src/modules/quoteSummary-iface.schema.json": "d6ed7ddbbd8ff035af233e00ffb32ded712f58d4326b60629605b39e339dbb38",
+      "src/modules/quoteSummary-iface.ts": "44db68a0c2ff9ec54937d62d59c02967040effc242c437caf6dacb25863729a1",
+      "src/modules/quoteSummary.schema.json": "c7b8a72e2018709e8dfcbc193ccbea9368028ad791f731839f46f4624c2f7b9d",
+      "src/modules/quoteSummary.ts": "9b543596282e983d2fea0ad7d3f24593826d39a254af2c3fb8929d66562cedad",
+      "src/modules/recommendationsBySymbol.schema.json": "6706903ecba9a4eec7395b872c52faf984e2d4f42834646d5649f788a6905c99",
+      "src/modules/recommendationsBySymbol.ts": "4d87ab275a2197ecf681e8a1ebb0cdb867fe86e1624dc5b959646bce141b47bc",
+      "src/modules/screener.schema.json": "b82d948ae623b443547fffc1dff69da644657e3428b57ce9f184a27bb86bbc59",
+      "src/modules/screener.ts": "89d1ed70f2e180d2234d126b6e521b7ad620981c2a7adfeb3bb7da5c3ff1f434",
+      "src/modules/search.schema.json": "dacbfe1890bfd4e675cca2d1280d6935ba0e431d85ac8bfb46a429aea8717937",
+      "src/modules/search.ts": "a9fdef84deb0b0505d0d5e0fe2b1dc393b0b95a1e654d207582adb6f25635adc",
+      "src/modules/trendingSymbols.schema.json": "465119f7112853a38c93b7ebbdd4212075a68134b205eda72468ad6ad5601e59",
+      "src/modules/trendingSymbols.ts": "6973aacce72decedee46c41aa0637126114e9d2d3e2eabc06b87d9e86913c13d",
+      "src/other/index.ts": "b0a0a3b6fe5088fa0a6a047f4cfff146665581dbfec9deea6d38a83175ee28d8",
+      "src/other/quoteCombine.ts": "2f9bfc7f49afb68d311a6fd8c4395f63166d241e3dad4449a9db0bbc1e2a42cc"
+    },
+    "exportCount": 28
+  },
+  "jsrPlugin": {
+    "cwd": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/yf-publisher-stage-TuUblP/jsr",
+    "pkgJsonPath": null,
+    "publishArgs": [
+      "--allow-dirty"
+    ]
+  },
+  "publisherRuntime": {
+    "binary": "/tmp/semantic-release-jsr-iw8yOV/v2.6.7/linux/deno",
+    "version": "2.6.7",
+    "sha256": "238a8182c2f22d94eba9868be7bd946c4409dd64f8435d11c628543c7cca177d",
+    "lockSha256": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19"
+  },
+  "publisherRuntimeObservations": {
+    "pipe": {
+      "runtime": "deno",
+      "version": "2.6.7",
+      "nodeCompat": "24.2.0",
+      "denoCompat": "2.6.7",
+      "terminal": false,
+      "network": "denied"
+    },
+    "pty": {
+      "runtime": "deno",
+      "version": "2.6.7",
+      "nodeCompat": "24.2.0",
+      "denoCompat": "2.6.7",
+      "terminal": true,
+      "network": "denied"
+    }
+  },
+  "publisherLockBeforeVersion": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19",
+  "frozenLockNegative": "altered direct specifier refused by actual pinned publisher",
+  "jsrDryRun": "passed; upstream verifyConditions always appends --dry-run; no publish lifecycle invoked",
+  "publisherDenosource": {
+    "runtime": "2.6.7",
+    "kind": "source",
+    "config": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/deno.json",
+    "positiveFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-consumer.ts",
+    "negativeFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-invalid-sdk.ts",
+    "positiveTypes": "passed",
+    "negativeSdkTypes": {
+      "code": "TS2345",
+      "file": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/publisher-consumers/source/publisher-invalid-sdk.ts",
+      "line": 53,
+      "column": 21
+    },
+    "stdout": "{\"kind\":\"source\",\"exports\":28,\"deno\":\"2.6.7\",\"version\":\"5.0.0-next.2\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}",
+    "lockSha256": "73246a92b2ac37f116a04359b1981cea36486a5e55c624fe0e707cb4d671dd19",
+    "lockFormat": "5"
+  },
+  "publisherDenonpm": {
+    "runtime": "2.6.7",
+    "kind": "npm",
+    "config": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+    "positiveFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-consumer.ts",
+    "negativeFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-invalid-sdk.ts",
+    "positiveTypes": "passed",
+    "negativeSdkTypes": {
+      "code": "TS2345",
+      "file": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/publisher-invalid-sdk.ts",
+      "line": 53,
+      "column": 21
+    },
+    "stdout": "{\"kind\":\"npm\",\"exports\":28,\"deno\":\"2.6.7\",\"version\":\"5.0.0-next.2\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}"
+  },
+  "minimumDenoBinarySha256": "097ca199e64f5cd67318cdd3750ab3da9374edeaa205032b74c905f8c99901a6",
+  "minimumRuntimeObservations": {
+    "pipe": {
+      "runtime": "deno",
+      "version": "2.0.0",
+      "nodeCompat": "20.11.1",
+      "denoCompat": "2.0.0",
+      "terminal": false,
+      "network": "denied"
+    },
+    "pty": {
+      "runtime": "deno",
+      "version": "2.0.0",
+      "nodeCompat": "20.11.1",
+      "denoCompat": "2.0.0",
+      "terminal": true,
+      "network": "denied"
+    }
+  },
+  "minimumDenosource": {
+    "runtime": "2.0.0",
+    "kind": "source",
+    "config": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/deno.json",
+    "positiveFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-consumer.ts",
+    "negativeFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-invalid-sdk.ts",
+    "positiveTypes": "passed",
+    "negativeSdkTypes": {
+      "code": "TS2345",
+      "file": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/minimum-consumers/source/minimum-invalid-sdk.ts",
+      "line": 53,
+      "column": 21
+    },
+    "stdout": "{\"kind\":\"source\",\"exports\":28,\"deno\":\"2.0.0\",\"version\":\"5.0.0-next.2\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}",
+    "lockSha256": "a860af300fc15daa54a00465152d628d9caa3781376349628298701e2b4c1c82",
+    "lockFormat": "4"
+  },
+  "minimumDenonpm": {
+    "runtime": "2.0.0",
+    "kind": "npm",
+    "config": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/deno.json",
+    "positiveFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-consumer.ts",
+    "negativeFile": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-invalid-sdk.ts",
+    "positiveTypes": "passed",
+    "negativeSdkTypes": {
+      "code": "TS2345",
+      "file": "/tmp/yf-publisher-final-d396-ub6wkrbu/scratch/final source rehearsal/installed-consumer/minimum-invalid-sdk.ts",
+      "line": 53,
+      "column": 21
+    },
+    "stdout": "{\"kind\":\"npm\",\"exports\":28,\"deno\":\"2.0.0\",\"version\":\"5.0.0-next.2\",\"fetches\":1,\"dates\":true,\"validation\":true,\"cookies\":true,\"mcp\":true}"
+  },
+  "minimumDeno": "Exact Deno 2.0 source and installed npm ESM positive/SDK-negative types and controlled runtimes selected",
+  "consumerFailures": [],
+  "sourceAfter": {
+    "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+    "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+    "deno.json": "304ee029188261ed932bc06485df9c0ef44c3bf2ad4742039924c7e8100c9b04"
+  }
+}

@@ -1,5 +1,58 @@
 # Bun migration tracker and offline test runner experiment
 
+## Final migration acceptance (2026-10-16)
+
+**71/71 accepted.** The root decision is that migration implementation and
+validation are complete within the documented policies and limits. Merge and
+new-major publication require separate authorization; neither is performed by
+this evidence record. The exact validated **SOURCE** is
+`5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5`. A subsequent REPORT/result-only
+commit is a metadata successor and must not be represented as an executed source.
+The [acceptance receipt](results/final-acceptance.json) binds the decision,
+verbatim evidence hashes and execution provenance.
+
+[Hosted run 38952222979](https://github.com/gadicc/yahoo-finance2/actions/runs/38952222979)
+passed all six jobs: strict Linux replay/coverage, Linux/macOS Intel/Windows
+native checks, Workers and Codecov. The [qualified CI proof](results/final-ci-5d9.json)
+records fresh normal frozen installs, **1,561 passed / 67 files**, complete
+maintained LCOV validation, eight Workers tests and 1,361 tests in each native
+replay mode on all three OSes. Independent
+[Sol hosted inspection](results/final-sol-hosted-5d9.json) and
+[Astra hosted inspection](results/final-astra-hosted-5d9.json) bind the actual
+logs and four archive digests. Codecov accepted and queued the upload; downstream
+service UI processing is not asserted. These are correctness results, not a
+rerun of the original performance benchmark.
+
+The [local full replay and LCOV](results/final-local-d396.json) and
+[actual isolated publisher rehearsal](results/publisher-final-d396.json)
+executed at `d3963b0086a61038f4793feda87bb2d3811f5528`. The local dependency
+graph was reused from the initial fresh normal `00b9619` installation; other
+local gates retain their recorded lineage. The publisher's
+[31 outcomes](results/publisher-final-d396-summary.json) are independently
+inspected by [Sol](results/final-sol-publisher-proof-d396.json) and
+[Astra](results/final-astra-publisher-proof-d396.json). The sole successor change
+is one unshipped checker-test budget: [Sol](results/final-sol-publisher-binding-5d9.json)
+and [Astra](results/final-astra-publisher-binding-5d9.json) independently verify
+all 1,617 other tracked entries and 68 published source hashes, with a
+[346-entry closure](results/final-publisher-closure-5d9.json). This carries the
+publisher evidence through unchanged inputs; it is not publisher execution at
+5d9. Synthetic rehearsal versions do not choose a release version/tag/channel.
+
+[Whole Sol xhigh review](results/final-sol-whole-5d9.json) and
+[whole Astra xhigh review](results/final-astra-whole-5d9.json), with its
+[evidence index](results/final-astra-evidence-manifest-5d9.json), report no
+unresolved confirmed source defects. The [final inventory](results/final-inventory.json)
+maps all 71 IDs, 25 qualified limits, 24 commands and 28 exports. The
+[correction history](results/final-integration-corrections.json) preserves the
+separate coverage-mapping, hosted timeout and local quota failures. The retained
+limits include trusted native replay, Linux host-read/Unix-socket scope, Windows
+ACL/console/native HTTP and GUI gaps, dependency/documentation warnings and
+unexercised live repair/authentication. No-auth publication rehearsal does not
+establish real registry/OIDC/provenance authorization. Final bounded metadata
+addenda review this evidence-only candidate separately; their own receipts need
+not be embedded recursively. Dated checkpoints below retain their original
+counts, open-item statements, benchmark bytes and evidence scopes.
+
 ## Migration rebase checkpoint (2026-10-16)
 
 The nine migration-only commits were replayed from old experiment
@@ -129,12 +182,12 @@ all items; the benchmark results above retain their historical meaning.
 | [E. Type checking and schema generation](#migration-e)           | Complete        |        6/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | Complete        |        6/6 |
-| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        4/5 |
+| [H. Supported runtime and platform matrix](#migration-h)         | Complete        |        5/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Complete        |        6/6 |
-| [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
-| [K. Biome, documentation and developer experience](#migration-k) | In progress     |        4/6 |
-| [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **58/71** |
+| [J. Major release and publication](#migration-j)                 | Complete        |        5/5 |
+| [K. Biome, documentation and developer experience](#migration-k) | Complete        |        6/6 |
+| [L. Production readiness and review](#migration-l)               | Complete        |        5/5 |
+| **Overall**                                                      | **Complete**    |  **71/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -1284,7 +1337,9 @@ automatic schedule.
 direction: remove Deno development tooling, use Bun, adopt Biome, and ship a new
 major release. The explicit H02 policy retains JSR distribution and Deno
 consumer compatibility (minimum Deno 2.0.0); only the isolated publisher may own
-a Deno binary. Implementation and compatibility verification remain J01/H03/H05.
+a Deno binary. J01/H03/H05 are accepted with the scoped publisher and native
+proofs; final source integration, review and the root decision are recorded
+under L01–L05 and the final acceptance checkpoint above.
 
 Only the numbered checkbox lines below count toward progress. Each has a stable
 ID; do not count headings or explanatory paragraphs as tasks. A checked item
@@ -1320,13 +1375,11 @@ K's Biome and documentation work can proceed in small independent commits after
 B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
-**Next small milestones:** finish runtime detection/support-policy checks in H,
-complete native development replay and isolated formatting/lint
-cleanup in K, and port the maintained commands into CI and publication in I/J.
-B04/E03 now cover root import resolution and production/tooling compilation;
-F, G04/G05 and H04 provide bounded installed-package/runtime proofs. Native OS
-installation/consumer checks, development offline policy, broader permission
-review and publisher-only Deno compatibility proof remain separate gates.
+**Current completion:** A–L acceptance is recorded against the frozen validated
+source and the final evidence receipt above. The retained work/model/review and
+commit rules continue to govern follow-up changes. Merge and new-major
+publication require separate authorization; no release operation follows from
+checking this tracker.
 
 <a id="migration-a"></a>
 
@@ -1661,15 +1714,19 @@ review and publisher-only Deno compatibility proof remain separate gates.
       does not decide either policy. Evidence: explicit user decision to retain
       JSR and Deno consumers at the existing 2.0.0 minimum, with Deno binary use
       restricted to the isolated publisher. J01 implementation and H03/H05
-      compatibility proof remain open; this item records policy only.
-- [ ] H03 — Verify runtime detection/version enforcement and terminal behavior
+      compatibility proofs are accepted separately; this item records policy only.
+- [x] H03 — Verify runtime detection/version enforcement and terminal behavior
       on each supported runtime, without an incidental compatibility global
       selecting the wrong runtime or introducing a Node/Bun API into Workers.
-      Partial accepted evidence: exact Node 22/24 and Bun 1.0/1.4 package,
-      real pipe/PTY and actual workerd checks in the [runtime receipt](results/h01-h03-runtime.json).
-      Sol xhigh and Astra xhigh cleared detection, warning-only construction,
-      strict versions and unavailable getter/proxy/terminal handling. Actual
-      Deno proof remains publisher-owned; this item stays open.
+      Evidence: Node 22/24 and the approved Bun >=1.4.3 policy, real pipe/PTY
+      and actual workerd checks build on the [dated runtime receipt](results/h01-h03-runtime.json)
+      and [approved minimum](results/bun-consumer-minimum.json). Historical
+      Bun 1.0 observations do not define current support. Sol xhigh and Astra
+      xhigh cleared detection, warning-only construction, strict versions and
+      unavailable getter/proxy/terminal handling. The [actual current publisher
+      proof](results/publisher-final-d396.json) supplies Deno 2.0.0/2.6.7
+      runtime/terminal and consumer checks; [native proof](results/native-ci-8b9d42c.json)
+      supplies supported OS observations. Scope limits remain explicit.
 - [x] H04 — Run the generated package in `tests/cloudflare` with its independent
       npm lockfile and Vitest 4 harness and supported overrides; verify
       Worker-safe imports and affected fetch/cookie/streaming behavior after the
@@ -1679,7 +1736,8 @@ review and publisher-only Deno compatibility proof remain separate gates.
       streams and MCP pass. Strict own-source checking and dependency controls
       pass. Sol xhigh and Astra xhigh cleared the boundary fixes. This is Linux
       with nodejs_compat; upstream declaration, npm actual-tree diagnostics and
-      reachable host Unix sockets are explicitly bounded, with G06 still open.
+      reachable host Unix sockets are explicitly bounded by the accepted G06
+      [trust policy](TRUST-BOUNDARIES.md).
 - [x] H05 — Exercise supported Linux/macOS/Windows paths, process spawning, file
       permissions, watch and offline enforcement with the documented support
       policy; record unsupported behavior explicitly and guard it predictably.
@@ -1697,8 +1755,12 @@ review and publisher-only Deno compatibility proof remain separate gates.
       clean CI installs on the supported Node/OS matrix without local caches.
       Evidence: [actual three-OS normal frozen installations and installed
       consumer rows](results/native-ci-8b9d42c.json); root lock/manifest and
-      fixtures remain unchanged. The independent full strict-coverage timeout
-      is recorded and remains a final integration gate.
+      fixtures remain unchanged. This accepts platform setup, not every later
+      integration run: the native checkpoint's SDK compiler timeout and the later
+      00b builder timeout both failed strict coverage. The [green 250a run](results/ci-250a96c.json)
+      and [subsequent correction history](results/final-integration-corrections.json)
+      retain those distinct outcomes; exact final-source hosted proof is accepted
+      under L01 below.
 - [x] I02 — Gate formatting, lint, complete typecheck, stale schemas, release
       notes, offline tests and packed Workers compatibility using maintained
       commands; verify failed gates stop dependent release work. Evidence:
@@ -1733,25 +1795,42 @@ review and publisher-only Deno compatibility proof remain separate gates.
 
 ### J. Major release and publication
 
-- [ ] J01 — Record the JSR publication decision while recognizing JSR remains
+- [x] J01 — Record the JSR publication decision while recognizing JSR remains
       supported; implement retained publication without a Deno development
       runtime, or explicitly document a chosen distribution change with H02's
       consumer policy.
-- [ ] J02 — Port `release.config.mjs`, version injection/`fix_versions.ts`,
+      Evidence: the isolated publisher retains JSR/Deno without a contributor
+      Deno runtime; [current actual rehearsal](results/publisher-final-d396.json).
+
+- [x] J02 — Port `release.config.mjs`, version injection/`fix_versions.ts`,
       semantic-release plugins and generated package version sources; validate
       release notes with the conventionalcommits/writer compatibility
       constraints.
-- [ ] J03 — Prepare the required new major release: explicit breaking-change
+      Evidence: [release policy and version controls](results/j03-j04-release.json)
+      and the [current actual rehearsal](results/publisher-final-d396.json).
+
+- [x] J03 — Prepare the required new major release: explicit breaking-change
       scope, migration/upgrade guidance, runtime minimums, prerelease/channel
       policy and release-note examples that yield the intended semantic version.
-- [ ] J04 — Verify release workflow build/test ordering, artifact provenance,
+      Evidence: [reviewed major-release policy and notes controls](results/j03-j04-release.json);
+      an actual publication version/channel remains separately authorized.
+
+- [x] J04 — Verify release workflow build/test ordering, artifact provenance,
       npm/JSR OIDC and least-privilege tokens; remove the temporary root
       manifest overwrite only after validating plugin behavior and version
       propagation.
-- [ ] J05 — Run a non-publishing release rehearsal against packed artifacts;
+      Evidence: [reviewed ordering, provenance and token policy](results/j03-j04-release.json)
+      and [no-auth publisher proof](results/publisher-final-d396.json); actual
+      publication authentication and provenance authorization are not claimed.
+
+- [x] J05 — Run a non-publishing release rehearsal against packed artifacts;
       inspect versions, exports, executable behavior and generated notes, and
       record rollback/recovery steps before any separately authorized
       publication.
+      Evidence: [current actual rehearsal](results/publisher-final-d396.json),
+      [outcomes](results/publisher-final-d396-summary.json) and
+      [partial-publication recovery guidance](results/j05-recovery.json).
+
 
 <a id="migration-k"></a>
 
@@ -1766,9 +1845,13 @@ review and publisher-only Deno compatibility proof remain separate gates.
       semantic/format reviews, the [combined local run](results/integration-a32cb00.json)
       and [passing hosted format/lint/replay gates](results/ci-2a5ed6d.json).
       Existing 150 warning/127 information diagnostics remain explicit.
-- [ ] K03 — Update README, CONTRIBUTING, AGENTS, upgrade and executable/skill
+- [x] K03 — Update README, CONTRIBUTING, AGENTS, upgrade and executable/skill
       instructions with clean-clone install, full/focused/serial/watch/coverage,
       offline/recache, schema, build and release commands that actually work.
+      Evidence: [reviewed contributor/tooling integration](results/k03-k06-contributor-tooling.json),
+      [active-guidance review bindings](results/final-integration-corrections.json)
+      and [local full replay and LCOV](results/final-local-d396.json).
+
 - [x] K04 — Replace VSCode Deno extension/settings and automatic schema-watch
       tasks with TypeScript/Biome tooling; verify language service, imports,
       formatting-on-save and background task lifecycle from a fresh checkout.
@@ -1779,28 +1862,59 @@ review and publisher-only Deno compatibility proof remain separate gates.
       [reviewed implementation and integrated proof](results/k05-api-docs.json);
       28 exports, actionable diagnostics, last-good output and watch recovery.
       Actual GUI/native opener and publication are not claimed.
-- [ ] K06 — Audit repository automation/docs for stale Deno references,
+- [x] K06 — Audit repository automation/docs for stale Deno references,
       including `renovate.json`, `.github/copilot-instructions.md`, the separate
       `copilot-setup-steps.yml` workflow, install snippets and runtime policy;
       distinguish retained consumer support and historical experiment
       instructions from obsolete contributor requirements.
+      Evidence: [reviewed automation/docs audit](results/k03-k06-contributor-tooling.json)
+      and [current guidance correction](results/final-integration-corrections.json).
+
 
 <a id="migration-l"></a>
 
 ### L. Production readiness and review
 
-- [ ] L01 — Run the complete new validation pipeline in clean clones on the
+- [x] L01 — Run the complete new validation pipeline in clean clones on the
       agreed matrix, preserve fixture hashes and inspect generated/packed diffs;
       record actual results with tool versions and remaining intentional skips.
-- [ ] L02 — Reconcile the final inventory and acceptance evidence with A–K;
+      Evidence: [qualified exact-source hosted proof](results/final-ci-5d9.json),
+      [independent hosted inspections](results/final-sol-hosted-5d9.json) and
+      [Astra corroboration](results/final-astra-hosted-5d9.json) establish fresh
+      normal installs, strict replay/default LCOV, three native OS consumer
+      matrices and Workers. Actual publisher execution remains d396, explicitly
+      [content-bound to 5d9](results/final-astra-publisher-binding-5d9.json).
+
+- [x] L02 — Reconcile the final inventory and acceptance evidence with A–K;
       leave no throwing aliases, unverified shim behavior or experimental-only
       commands on production paths, and explain every remaining limitation.
-- [ ] L03 — Obtain independent GPT-6.1 Sol xhigh review of the final migration
+      Evidence: [71-item final inventory](results/final-inventory.json) maps
+      current owners/evidence and 25 qualified limits. No throwing historical
+      alias reaches maintained/public paths; maintained migration test adapters
+      remain intentional infrastructure. Root reconciliation is recorded in the
+      [acceptance decision](results/final-acceptance.json).
+
+- [x] L03 — Obtain independent GPT-6.1 Sol xhigh review of the final migration
       and resolve findings with affected regression checks and recorded
       evidence.
-- [ ] L04 — Obtain GPT-6 Astra xhigh final adversarial review explicitly seeking
+      Evidence: [formal whole-source Sol xhigh review](results/final-sol-whole-5d9.json)
+      reports zero unresolved actionable findings, binds the corrected controls
+      and successful exact-source hosted validation. Evidence-only metadata
+      review is a separate bounded addendum.
+
+- [x] L04 — Obtain GPT-6 Astra xhigh final adversarial review explicitly seeking
       hidden defects, missed requirements, edge cases, regressions, security
       issues and test gaps; resolve findings and document residual risks.
-- [ ] L05 — Record the production-ready decision, next merge/release action and
+      Evidence: [formal whole-source Astra xhigh review](results/final-astra-whole-5d9.json)
+      and [frozen evidence index](results/final-astra-evidence-manifest-5d9.json)
+      record independent adversarial controls, resolved findings and explicit
+      residual limits. Evidence-only metadata review is a separate bounded addendum.
+
+- [x] L05 — Record the production-ready decision, next merge/release action and
       exact validated commit; ensure summary counts, contributor commands and
       major-release readiness agree before considering the migration complete.
+      Decision: implementation and validation are complete within the documented
+      policies/limits at validated source 5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5.
+      The [root acceptance record](results/final-acceptance.json) preserves the
+      execution/metadata distinction; merge and new-major publication require
+      separate authorization and have not been performed.

@@ -1,0 +1,74 @@
+{
+  "status": "Applied exact independently cleared one-line patch and committed; no push",
+  "baseCommit": "d3963b0086a61038f4793feda87bb2d3811f5528",
+  "commit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+  "changedPaths": [
+    "scripts/typecheck.test.ts"
+  ],
+  "sourceBefore": {
+    "sha256": "80259e9e42a0ee5c698b98889285b1074ad6f90b4503a6fee39b66dc3eb41aae",
+    "mode": "0o644"
+  },
+  "sourceAfter": {
+    "sha256": "ed0392865fd1f029364cc1e13b5a37b05eeb9820c01e0be4d89862e5e7cf1cfb",
+    "mode": "0o644"
+  },
+  "packetManifest": {
+    "path": "/tmp/yf-checker-budget-uel4f94k/manifest.json",
+    "sha256": "dd52c2dbd6063659f95260e53f8fa4bbcca56cb2380dd760a3497116448efa73"
+  },
+  "patch": {
+    "path": "/tmp/yf-checker-budget-uel4f94k/candidate.patch",
+    "sha256": "de87d67df29389c619f4aaceba2b86977d80924ed52472bc82bbfbf9e53708bf"
+  },
+  "originalReceipt": {
+    "path": "/tmp/yf-checker-budget-uel4f94k/receipt.json",
+    "sha256": "8c3c6ff771fd265c73f0e08ab17e8950b3522fd08c441f7c3a2ee885a4f33da7"
+  },
+  "independentReviews": {
+    "sol": {
+      "path": "/tmp/yf-final-whole-sol-6ususaqz/checker-budget-review.json",
+      "sha256": "794469b884d661bc86f5a36e68dae209dffdd64f1a41eeb9fdfbf2661241314d"
+    },
+    "astra": {
+      "path": "/tmp/yf-final-astra-sbvjdj87/checker-budget-review.json",
+      "sha256": "18c11f22cdc25db2aa018bce5d0e10ffcef02e358c7700f05a93f42b5a5b0377"
+    }
+  },
+  "commitMessage": "test(types): allow compiler positive control integration time\n\nThe hosted strict run at d3963b0 took 5.19 seconds for the positive control\nthat checks three valid compiler programs, exceeding its default 5-second\nbudget. Give that registration the same bounded 30 seconds as neighboring\ncompiler controls. Preserve every assertion, program mode, other test\nbudget, launcher default and whole-run deadline.\n\nCo-authored-by: Codex (gpt-6.1-sol, reasoning: high)\n\n",
+  "checks": {
+    "patchCheck": "passed",
+    "diffCheck": "passed",
+    "exactReviewedSource": true,
+    "allUnownedTrackedBytesModesUnchanged": true,
+    "allRootPinsLockRuntimePublisherInputsUnchanged": true,
+    "allFrozenBudgetAndMetadataPacketBytesUnchanged": true,
+    "indexEmptyAfterCommit": true,
+    "sharedStatus": "clean",
+    "noTestsPushDispatchDenoAuthPublicationOrExtraEdits": true
+  },
+  "fixtures": {
+    "count": 1201,
+    "workingModes": "0644",
+    "canonical": {
+      "algorithm": "sorted UTF8 repository path + NUL + SHA256 hex ASCII + LF",
+      "sha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e"
+    },
+    "alternate": {
+      "algorithm": "sorted UTF8 repository path + NUL + raw32-byte SHA256 + NUL",
+      "sha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77"
+    }
+  },
+  "commands": [
+    "git status --porcelain",
+    "git rev-parse HEAD",
+    "git apply --check candidate.patch",
+    "git apply candidate.patch",
+    "git diff --check",
+    "git add -- scripts/typecheck.test.ts",
+    "git diff --cached --check",
+    "git commit -F /tmp/yf-checker-budget-commit-message.txt",
+    "git diff-tree --no-commit-id --name-only -r HEAD"
+  ],
+  "actualRehearsalScope": "Existing actual publisher rehearsal executed at d396; unchanged-input parity is recorded here, not another execution claim."
+}

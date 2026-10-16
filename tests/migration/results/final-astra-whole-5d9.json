@@ -1,0 +1,262 @@
+{
+  "reviewType": "Final adversarial whole Bun migration review, read-only",
+  "reviewer": "Astra xhigh",
+  "status": "Complete: final source and completed hosted/publisher evidence cleared. Subsequent acceptance metadata is a separate bounded addendum.",
+  "base": "93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459",
+  "initialHead": "00b961915b351c6423bc33bc8e56f5b8868cc34a",
+  "finalHead": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+  "openConfirmedCodeFindings": [],
+  "scope": [
+    "Whole origin/dev...HEAD changed-file inventory and AGENTS/CONTRIBUTING plus current migration report/policies; dated historical receipts distinguished from active instructions",
+    "55 changed existing production TS files triaged by compiler runtime-AST comparison; six runtime-differing files manually traced; type-only and import-hint changes assessed separately",
+    "Runtime detection Deno/Bun/Node priority, terminal receiver semantics, supported floors and warning-only constructor policy",
+    "CLI runtime adapter, Node shebang output, source/packed aliases, process exits, stdin/TTY, version/usage/error flows",
+    "MCP SDK identity declarations, server and Node/Web HTTP handler imports, lifecycle cleanup, request/header/body/abort behavior",
+    "Native Bun runner adapters, assertion/mock/time port, inventory coverage, same cached library tests and fixture immutability",
+    "Strict Linux test launch, bubblewrap/seccomp denial, child cleanup/deadlines, fixture mounts and fail-closed guard; disclosed broader host-read/pathname-Unix-socket scope",
+    "Trusted Linux/macOS/Windows replay paths, environmental sanitation, Windows taskkill and exited-parent descendant uncertainty",
+    "Native platform workflow, real runtime selection/bootstrap, installed npm exports/types/bin/cookie/process controls and native LCOV scope",
+    "Recache baseline/broker/child/environment/preload/session/staging/store, paced boundary and partial-capture/error policy; no live recache performed",
+    "Schema generator, TS6 checker graphs/roots/output transaction, schema-repair AST/data-only verifier and filesystem/index controls",
+    "Deterministic npm builder closure, rewritten imports, dual ESM/CommonJS declarations, 28 exports, schema/data copy, versions and modes",
+    "Root private manifest and sole Bun lock ownership, optional/native install graph and pinned exact toolchain policy",
+    "API documentation graph, worker process, diagnostics baseline and output/provenance transaction",
+    "CI coverage validator and fail-closed source mapping, AppArmor host preparation helpers and tests, fixture/schema repair workflow trusted-base boundaries",
+    "Cloudflare Workers installed export matrix, native fetch/cookie/date/stream and MCP web controls; locked npm graph remains a separate consumer boundary",
+    "Release triggers/branches/channels/concurrency, whole reusable Tests dependency, checkout credential persistence and token/provenance configuration",
+    "Release prebuild verifyConditions ordering, pure local analyzer/notes/writer/version policy, Git merged config credential-key checks",
+    "JSR no-hardlink staging, raw original HEAD source binding, Git environment/replacement isolation, exact minimal publish closure, import-hint/reference checks, private auxiliary frozen lock",
+    "Actual composed publisher proof manifest, source/npm ESM Deno2.0/2.6.7 positive and sole-TS2345 negative consumers, deny-net runtime observations and actual pipe/PTy runtime priority",
+    "No-auth publisher npm installation/tar contents and Node24/Bun28 export dual-mode consumers/real declarations/three bins",
+    "Partial release failure ordering, read-only remote inventory recipes, immutable artifact and separately authorized recovery guidance"
+  ],
+  "independentControls": [
+    {
+      "name": "Runtime/CLI/MCP strict focused controls",
+      "passed": 52,
+      "failed": 0,
+      "files": 4,
+      "evidence": "final-focused.json"
+    },
+    {
+      "name": "Publisher non-clone strict controls",
+      "passed": 8,
+      "failed": 0,
+      "filtered": 4,
+      "evidence": "final-focused.json"
+    },
+    {
+      "name": "Python CI/AppArmor/repair helper tests",
+      "passed": 68,
+      "failed": 0,
+      "evidence": "python-controls.json"
+    },
+    {
+      "name": "Fixture/export/schema parity",
+      "fixturesUnchanged": 1201,
+      "publicExports": 28,
+      "schemasStructuralParity": 13,
+      "evidence": "parity.json"
+    },
+    {
+      "name": "Composed publisher retained proof integrity",
+      "verifiedManifestEntries": 435,
+      "commands": 31,
+      "expectedSuccess": 26,
+      "expectedNegativeExit1": 5,
+      "tarEntries": 252,
+      "evidence": "composed-proof-check.json"
+    },
+    {
+      "name": "Coverage fix bounded review",
+      "verdict": "clear",
+      "evidence": "coverage-fix-review.json",
+      "scope": "Independent raw red rejection and green acceptance through unchanged maintained LCOV validator; focused requirement scope is not full default gate"
+    },
+    {
+      "name": "Builder timeout bounded review",
+      "verdict": "clear",
+      "evidence": "builder-budget-review.json",
+      "scope": "One literal only60000to90000; actual failed hosted61927.10ms and previous57504.34ms pass bound by log SHA256"
+    },
+    {
+      "name": "Ten active guidance documents",
+      "evidence": "active-guidance-review.json",
+      "result": "clear; independent hashes,patchroundtrip,91links,13shellsyntax"
+    },
+    {
+      "name": "Final source binding",
+      "evidence": "final-source-binding.json",
+      "result": "clean d396 source; exact14file diff from00b, only2testfixes+10docs+2immutable publisher records"
+    },
+    {
+      "name": "Final local full/default coverage",
+      "evidence": "final-local-proof-review.json",
+      "result": "1561pass0fail67files, default103sourceLCOV validates with no scope override; unchanged reused install separately qualified"
+    },
+    {
+      "name": "Fresh actual d396 publisher proof",
+      "evidence": "final-publisher-proof-review.json",
+      "result": "All436manifest entries,31expected statuses,4precise SDK negatives/runtime consumers,actualDeno2versionspipePTY,frozenlock refusal,tar252and68sourceclosurehashes verified"
+    },
+    {
+      "name": "Compiler positive-control timeout bounded review",
+      "evidence": "checker-budget-review.json",
+      "result": "Exact registration-only implicit5s to30s; threecompiler calls/assertions and default/wholebudgets unchanged"
+    },
+    {
+      "name": "Publisher5d9successor equivalence",
+      "evidence": "publisher-successor-binding-review.json",
+      "result": "Allother1617tracked blob/modeentries identical to actuald396; explicit346entryclosure and68published sourcehashes match; no relabeled execution"
+    },
+    {
+      "name": "Intermediate metadata/inventory reconciliation",
+      "evidence": "intermediate-metadata-review.json",
+      "result": "71stableIDs66accepted/all5Lopen,25limits/24commands/28exports;3currentmetadatadefects resolved, history preserved"
+    },
+    {
+      "name": "Final exact-source hosted validation and raw artifacts",
+      "evidence": "final-hosted-proof-review.json",
+      "result": "All six jobs passed at 5d9; strict 1561/0/67; unchanged default validator independently accepted 103 source records, 13139 lines/9666 hit and 885 functions/749 hit. Four API ZIP digests/sizes and all 187 member hashes verified; each native OS passed all three 1361-test replay modes, helpers and installed consumers after fresh normal frozen installation. Workers 8 passed; actual Codecov upload accepted/queued."
+    },
+    {
+      "name": "Publisher qualification correction in parent CI receipt",
+      "evidence": "qualified-parent-proof-review.json",
+      "result": "Only ambiguous publisher language and explicit execution/equivalence object changed; all actual hosted measurements retained."
+    }
+  ],
+  "knownFailuresPreserved": [
+    {
+      "kind": "Confirmed fixed candidate defect",
+      "head": "00b961915b351c6423bc33bc8e56f5b8868cc34a",
+      "detail": "Local full1561pass67files followed by default LCOV refusal of copied scratch builder/runtime noncanonical SF paths. Subprocess builder fix independently cleared; not a hosted validator failure.",
+      "resolution": "The copied builder now runs as an actual pinned child CLI. Final exact-source raw coverage passed the unchanged default validator without filtering, normalization, exclusions or required-scope override."
+    },
+    {
+      "kind": "Separate hosted timeout",
+      "run": 38949096944,
+      "detail": "Strict1560pass1fail67files: heavy deterministic builder test61927.10ms exceeded60000. Hosted coverage validator was never reached. Literal90000 candidate independently cleared.",
+      "resolution": "Named builder budget changed only from 60000 to 90000ms; final exact-source hosted control passed at 31655.51ms. Assertions and all compiler modes retained."
+    },
+    {
+      "kind": "Reviewer setup restriction",
+      "evidence": "focused.log",
+      "detail": "First strict launch denied NETLINK_ROUTE by outer sandbox before test execution; authorized guarded execution outside outer restriction followed."
+    },
+    {
+      "kind": "Reviewer incomplete scratch setup",
+      "evidence": "focused-guarded.log",
+      "detail": "Archive copy60passes4publisher failures because archive lacks Git metadata; not claimed as full pass."
+    },
+    {
+      "kind": "Actual host quota exhaustion",
+      "evidence": "focused-clone.log",
+      "detail": "Real no-hardlink clone60passes4publisher failures during copied Gitpack creation with Disk quota exceeded. No source finding from this environment failure; own redundant archive and Gitpack deleted only. Four expensive clone tests not duplicated after quota failure."
+    },
+    {
+      "kind": "Separate second hosted timeout",
+      "run": 38951048708,
+      "source": "d3963b0086a61038f4793feda87bb2d3811f5528",
+      "detail": "Strict 1560 passes/1 failure/67 files: compiler positive control took 5192.34ms and exceeded the default 5000ms. Heavy builder passed at 63464.48ms under its reviewed 90000ms budget. Hosted LCOV was never reached. The sole registration change to 30000ms was independently cleared and committed at final 5d9; final exact-source hosted run passed this control at 3132.92ms."
+    },
+    {
+      "kind": "Private current metadata defects resolved before integration",
+      "evidence": "intermediate-metadata-prereview.json",
+      "correctedEvidence": "intermediate-metadata-review.json",
+      "detail": "Current schema timestamp/force policy, absent native coverage source path and absent historical tsconfig.node present-claim corrected in exactly3currentJSONleaves; embedded history preserved."
+    },
+    {
+      "kind": "Parent local actual quota failure",
+      "source": "9850506bc1e09e49f2473935c3f53690d346dbf2",
+      "detail": "1559 passes and two temporary Git-clone failures due to Disk quota exceeded. Coverage validation alone passed and was not presented as a full-suite pass. After removal of old ignored dependency copies, the retained d396 local full run passed; final fresh hosted 5d9 also passed."
+    }
+  ],
+  "limitsAndResidualRisks": [
+    "Review provides evidence-backed defect assessment, not proof of absence of all defects.",
+    "Reviewer executed targeted Linux controls and inspected hashed retained complete publisher proof; did not independently reacquire Deno/dependency graphs or duplicate all host/registry runs.",
+    "Reviewer performed no live Yahoo requests, fixture recache, registry publication, authentication/OIDC exchange, remote writes or global policy modifications. The separately inspected hosted Codecov job performed its actual OIDC upload; this is not registry release authorization or provenance proof.",
+    "Consumer runtime floors are supported-runtime claims; platform minimums apply only to upstream-supported OS combinations.",
+    "Native replay is trusted developer execution, not arbitrary malicious-code network/filesystem isolation; Windows taskkill is not console Ctrl-C, and no ACL/privacy/native HTTP claim is inferred.",
+    "Strict Linux guard denies IP socket/io_uring routes and fixture writes; disclosed host reads/pathname Unix sockets remain outside its guarantee.",
+    "JSR exact direct pins and npm public caret ranges intentionally differ; selected SDK identity/type controls do not promise nominal compatibility with other installed SDK versions.",
+    "No Deno CommonJS claim follows from Deno source/npm ESM verification.",
+    "Elapsed hosted test time varies. Only the heavy builder and triple-compiler positive control have reviewed 90s and 30s named budgets; the default 5s and whole CI 300s budgets, assertions and compiler modes remain unchanged.",
+    "Actual npm/JSR trusted publisher configuration, GitHub remote permissions, OIDC/provenance acceptance and partial-publication recovery remain separately authorized release operations.",
+    "Dated dependency audit records bounded release/test-tool advisories for repository-owned pattern/format inputs. This review is not a new registry advisory scan or a claim of zero dependency vulnerabilities.",
+    "Actual final complete publisher execution is d396; final source5d9 differs only one unshipped compiler-test timeout. Independently verified allother1617tracked blob/modeentries plus346explicit closure inputs and68published sourcehashes establish content equivalence, not a second publisher execution.",
+    "TypeDoc baseline warnings and existing Biome warning/information debt are disclosed; a successful maintained gate is not a claim that all diagnostics vanished.",
+    "Headless CLI checks do not demonstrate a real GUI opener; controlled cache/fetch probes do not demonstrate current live Yahoo behavior.",
+    "No framework performance benchmark was rerun; test wall times above establish bounded correctness execution only.",
+    "Historical proof receipts remain historical; immutable subordinate review notes may describe then-pending checks. This final review supersedes their pending-source conclusions only with the explicitly bound completed evidence.",
+    "Later REPORT and result-file acceptance changes are not part of this frozen source tree. A separate bounded metadata addendum must verify their exact reviewed contents and evidence-only lineage before final tracker acceptance."
+  ],
+  "readOnlyAttestation": {
+    "sourceEdits": false,
+    "commits": false,
+    "remoteWrites": false,
+    "fixturesChanged": false,
+    "liveYahoo": false,
+    "denoExecution": false,
+    "authOrPublish": false
+  },
+  "publisherActualExecutionHead": "d3963b0086a61038f4793feda87bb2d3811f5528",
+  "localFullActualExecutionHead": "d3963b0086a61038f4793feda87bb2d3811f5528",
+  "verdict": "No unresolved confirmed defect blocks the reviewed Bun migration source. Final exact-source hosted validation passed, and the actual no-auth publisher rehearsal is bound through explicitly verified unchanged publication inputs.",
+  "reviewCompletedUtc": "2026-10-16T19:14:49.755949+00:00",
+  "finalTree": "795190af6cb61181a93fb86e320ebbe8fec0a174",
+  "cleanAtFreeze": true,
+  "evidenceManifest": {
+    "path": "/tmp/yf-final-astra-sbvjdj87/evidence-manifest.json",
+    "sha256": "1ee73250d6e40f6dbe6689304119893f86899e64507006374d6d36a4caf661d7"
+  },
+  "executionBindings": {
+    "finalHosted": {
+      "sourceCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+      "runId": 38952222979,
+      "runUrl": "https://github.com/gadicc/yahoo-finance2/actions/runs/38952222979",
+      "jobs": 6,
+      "conclusion": "success",
+      "freshNormalFrozenInstall": true,
+      "review": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/final-hosted-proof-review.json",
+        "sha256": "5da4bc2963139f6bc42dd3d987db76d961b95d4a500400953632aca2896d2483"
+      }
+    },
+    "actualPublisher": {
+      "sourceCommit": "d3963b0086a61038f4793feda87bb2d3811f5528",
+      "executedOnFinal5d9": false,
+      "receiptSha256": "627d8adb533dbc2fcb489eec9c89818fbbbf995529f81514f074fccd4384505b",
+      "reviewSha256": "5a89970a6cb1c9dfb116df88770e28b42fecf843f1a48429d9462c103b4bd44a"
+    },
+    "publisherContentEquivalence": {
+      "successorCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+      "allOtherTrackedBlobAndModeEntriesIdentical": 1617,
+      "explicitInputs": 346,
+      "publishedSourceHashEntries": 68,
+      "reviewSha256": "5c0d3d4b589fae8a24a7799ac69cab3e14ccd19119de3581e5c96eadf8e97bf9",
+      "manifestSha256": "2a4bda37ed57a5da49b63ffe1e62e218bcc3247e4bdefc519dfc4a038d8e186f"
+    },
+    "actualLocalFull": {
+      "sourceCommit": "d3963b0086a61038f4793feda87bb2d3811f5528",
+      "qualification": "1561 passes and unchanged default coverage gate; reused the unchanged normal dependency graph originally installed at 00b. Fresh installs are separately proven by final hosted 5d9."
+    },
+    "reviewerTargetedExecution": {
+      "sourceCommit": "00b961915b351c6423bc33bc8e56f5b8868cc34a",
+      "qualification": "128 passing focused/helper controls; subsequent production, runtime, CLI, builder, publisher, CI implementation and dependency graphs are unchanged. Three reviewed test corrections and active guidance/evidence updates were assessed separately, then exact final hosted validation passed."
+    }
+  },
+  "resolvedReviewFindings": [
+    "Noncanonical instrumented scratch coverage source records fixed through a child CLI boundary.",
+    "Actual hosted heavy-builder deadline failure fixed through its named 90-second registration only.",
+    "Actual hosted compiler positive-control deadline failure fixed through its named 30-second registration only.",
+    "Active contributor/runtime/CI/package/testing guidance reconciled with implemented behavior; dated historical records preserved.",
+    "Three current intermediate inventory statements corrected without changing their embedded historical provenance.",
+    "Ambiguous publisher execution wording in parent CI proof replaced by explicit d396 execution and 5d9 input-equivalence qualification."
+  ],
+  "acceptanceBoundary": {
+    "sourceReview": "complete and clear at final source 5d9",
+    "trackerMutationByReviewer": false,
+    "final71Metadata": "awaiting separate exact-candidate bounded addendum; this is not a remaining source defect or a request to repeat runtime/publisher runs",
+    "recursiveBinding": "No claim that a receipt contains or validates its own later commit hash."
+  }
+}

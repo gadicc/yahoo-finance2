@@ -1,0 +1,173 @@
+{
+  "schema": 1,
+  "reviewer": "GPT-6.1 Sol xhigh",
+  "sourceCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+  "runId": 38952222979,
+  "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38952222979",
+  "verdict": "downloaded exact-source full hosted evidence independently verified",
+  "jobs": {
+    "Cloudflare Workers": "success",
+    "Native platforms / Native ubuntu-24.04": "success",
+    "Tests": "success",
+    "Native platforms / Native macos-15-intel": "success",
+    "Native platforms / Native windows-2022": "success",
+    "Codecov": "success"
+  },
+  "strict": {
+    "passes": 1561,
+    "failures": 0,
+    "files": 67,
+    "seconds": 96.51,
+    "builderMs": 31655.51,
+    "builderBudgetMs": 90000,
+    "checkerMs": 3132.92,
+    "checkerBudgetMs": 30000
+  },
+  "coverage": {
+    "sources": 103,
+    "lines": 13139,
+    "linesHit": 9666,
+    "functions": 885,
+    "functionsHit": 749,
+    "branches": "not emitted by Bun 1.4.3"
+  },
+  "lcov": {
+    "path": "/tmp/yf-final-whole-sol-6ususaqz/final-hosted-lcov.info",
+    "sha256": "f086b9b9c5799209ed908f8b0cfadb7df06a77001619612c92477cbee498e1b4",
+    "unchangedDefaultValidatorExecutedByReviewer": true
+  },
+  "workersPassed": 8,
+  "platforms": {
+    "linux": {
+      "platform": "linux",
+      "freshNormalHookInstallPackages": 462,
+      "nativeModes": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "commands": 29,
+      "membersHashed": 62,
+      "summarySha256": "cb545d53185c6c70771fefd1545a67526f53537f7498fd9ab6005d0100d3c0e5",
+      "fixtureTopologyDigest": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "nativeCoverageSources": 74,
+      "installedRuntimeConsumers": "Node22.0.0,Node24.21.0,Bun1.4.3;28exportsESM+CJS;types/fullCLI/MCP/cookie/lifecycle",
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged."
+    },
+    "macos": {
+      "platform": "darwin",
+      "freshNormalHookInstallPackages": 461,
+      "nativeModes": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "commands": 29,
+      "membersHashed": 62,
+      "summarySha256": "7c5c41789c3cf193b621331eee82dc539721e2384a2f1f5c60b5405349ba8789",
+      "fixtureTopologyDigest": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "nativeCoverageSources": 74,
+      "installedRuntimeConsumers": "Node22.0.0,Node24.21.0,Bun1.4.3;28exportsESM+CJS;types/fullCLI/MCP/cookie/lifecycle",
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged."
+    },
+    "windows": {
+      "platform": "win32",
+      "freshNormalHookInstallPackages": 461,
+      "nativeModes": {
+        "native-full": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-serial": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        },
+        "native-coverage": {
+          "passes": 1361,
+          "failures": 0,
+          "skips": 0,
+          "files": 41
+        }
+      },
+      "commands": 29,
+      "membersHashed": 62,
+      "summarySha256": "f0b8feba4c6b5b1413ca04ae034f2fa2e39c1989e69c467ea1cae016593d7a66",
+      "fixtureTopologyDigest": "8dd59dc03402da9a4a9d96eb84c8c5b42a5e34c45214e0d4ada255d84878456c",
+      "nativeCoverageSources": 74,
+      "installedRuntimeConsumers": "Node22.0.0,Node24.21.0,Bun1.4.3;28exportsESM+CJS;types/fullCLI/MCP/cookie/lifecycle",
+      "policy": "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged."
+    }
+  },
+  "archiveBindings": {
+    "linux": {
+      "path": "/tmp/yf-ci-38952222979-linux.zip",
+      "sha256": "c79405443eed4b160ea6b7bf50af06dd33e6ea10750574cb8e5416b2e9a56028",
+      "size": 124688,
+      "serverDigestMatched": true
+    },
+    "macos": {
+      "path": "/tmp/yf-ci-38952222979-macos.zip",
+      "sha256": "31d15e3413dc671dbb7a56bcba202371056972339830f982bd92d0ec34020f67",
+      "size": 126805,
+      "serverDigestMatched": true
+    },
+    "windows": {
+      "path": "/tmp/yf-ci-38952222979-windows.zip",
+      "sha256": "2536d3c2bab1b2bf032cfe151b14ecc7bbf111b1eea45370747feb3f027e4ba4",
+      "size": 126319,
+      "serverDigestMatched": true
+    },
+    "lcov": {
+      "path": "/tmp/yf-ci-38952222979-lcov.zip",
+      "sha256": "b813e91bfbc6aebcd743090acd91cfdb276ae48d91e404c9bbc8796a6cd43311",
+      "size": 34537,
+      "serverDigestMatched": true
+    }
+  },
+  "nativeEvidenceMembersIndependentlyHashed": 186,
+  "sourceMetadataBindings": {
+    "/tmp/yf-ci-38952222979-complete.json": "279a74fa82e7607906f562294b2bd26f9a0d91fae120715570ba46bc6034179e",
+    "/tmp/yf-ci-38952222979-artifacts.json": "da625082659d863ccb247ccac7f5bb5c4e8225094c237adcc60cb12c21e1e8f5",
+    "/tmp/yf-ci-38952222979-complete.log": "affbdbf0d1e0a09b8185bb40c25aac0e602bb736210cfeb805f8a2a2fb420b7a"
+  },
+  "parentProofAtInspection": {
+    "path": "/tmp/yf-ci-final-parent-proof.json",
+    "sha256": "6dfd2002cf0ce0b4611d01ed0a876191856eaedb9d9bf1d57cc73c5608fefdb9",
+    "scope": "Evidence inspected and all member hashes matched; actual d396 publisher execution/5d9 closure-binding qualification remains separate, regardless of parent receipt shorthand"
+  },
+  "executionLimit": "Reviewer inspected already downloaded CI metadata/logs/archives and ran maintained Python LCOV validator only. No new runtime tests, Deno, registry acquisition, auth, publication, Git refs, fixture or shared source writes. Native trusted replay and platform limits remain as documented; Codecov accepted/queued does not establish downstream UI processing."
+}

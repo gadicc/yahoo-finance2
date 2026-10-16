@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "decision": "Implementation and validation complete within documented policies and limits",
+  "decisionAuthority": "Authorized root final readiness decision",
+  "validatedSourceCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+  "actualPublisherExecutionCommit": "d3963b0086a61038f4793feda87bb2d3811f5528",
+  "publisherExecutedOnValidatedSuccessor": false,
+  "publisherEvidenceMethod": "Actuald396 execution with independent complete-input/content equivalence to5d9;1617other tracked entries/68published source hashes/346explicit closure entries",
+  "futureCommitScope": "Evidence-only REPORT/results metadata successor; not represented as executed source",
+  "tracker": {
+    "stableIds": 71,
+    "accepted": 71,
+    "AtoK": 66,
+    "L": 5
+  },
+  "hosted": {
+    "runId": 38952222979,
+    "url": "https://github.com/gadicc/yahoo-finance2/actions/runs/38952222979",
+    "sourceCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+    "status": "all six jobs success",
+    "freshNormalFrozenInstall": "passed on hosted matrix",
+    "qualifiedProof": {
+      "path": "tests/migration/results/final-ci-5d9.json",
+      "sha256": "63a499304829cff399c3f58b56f8a661b3fc246c74eee101ccfbdee2d3ef0254"
+    }
+  },
+  "localProofExecution": "d396 full replay and default LCOV using initial00b fresh normal installed graph; not all local gates freshly repeated",
+  "actualPublisherReceipt": {
+    "path": "tests/migration/results/publisher-final-d396.json",
+    "sha256": "627d8adb533dbc2fcb489eec9c89818fbbbf995529f81514f074fccd4384505b"
+  },
+  "actualPublisherSummary": {
+    "path": "tests/migration/results/publisher-final-d396-summary.json",
+    "sha256": "f6fcfa99ae0e69014ef0c8a9320f3b8289728a7e3e3088223c3daf539f0a5b1e"
+  },
+  "verbatimFormalProofCopies": {
+    "final-ci-5d9.json": {
+      "path": "tests/migration/results/final-ci-5d9.json",
+      "sha256": "63a499304829cff399c3f58b56f8a661b3fc246c74eee101ccfbdee2d3ef0254",
+      "original": {
+        "path": "/tmp/yf-ci-final-qualified-parent-proof.json",
+        "sha256": "63a499304829cff399c3f58b56f8a661b3fc246c74eee101ccfbdee2d3ef0254"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-sol-whole-5d9.json": {
+      "path": "tests/migration/results/final-sol-whole-5d9.json",
+      "sha256": "a84ef183a822caac68d3d482d7e00c2bdef7a7f7cca436c950f75aefef95470c",
+      "original": {
+        "path": "/tmp/yf-final-whole-sol-6ususaqz/whole-final-review-v2.json",
+        "sha256": "a84ef183a822caac68d3d482d7e00c2bdef7a7f7cca436c950f75aefef95470c"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-astra-whole-5d9.json": {
+      "path": "tests/migration/results/final-astra-whole-5d9.json",
+      "sha256": "3706f583fddfa28588d321a8baec086d6eb173acb042275541868dea4dd64644",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/review.json",
+        "sha256": "3706f583fddfa28588d321a8baec086d6eb173acb042275541868dea4dd64644"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-astra-evidence-manifest-5d9.json": {
+      "path": "tests/migration/results/final-astra-evidence-manifest-5d9.json",
+      "sha256": "1ee73250d6e40f6dbe6689304119893f86899e64507006374d6d36a4caf661d7",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/evidence-manifest.json",
+        "sha256": "1ee73250d6e40f6dbe6689304119893f86899e64507006374d6d36a4caf661d7"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-sol-hosted-5d9.json": {
+      "path": "tests/migration/results/final-sol-hosted-5d9.json",
+      "sha256": "ffb55329aedf48d6b5d06ad9b5f879fb33cd56282f5b39501fa35623c2dc25e0",
+      "original": {
+        "path": "/tmp/yf-final-whole-sol-6ususaqz/final-hosted-proof-review.json",
+        "sha256": "ffb55329aedf48d6b5d06ad9b5f879fb33cd56282f5b39501fa35623c2dc25e0"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-astra-hosted-5d9.json": {
+      "path": "tests/migration/results/final-astra-hosted-5d9.json",
+      "sha256": "5da4bc2963139f6bc42dd3d987db76d961b95d4a500400953632aca2896d2483",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/final-hosted-proof-review.json",
+        "sha256": "5da4bc2963139f6bc42dd3d987db76d961b95d4a500400953632aca2896d2483"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-sol-publisher-binding-5d9.json": {
+      "path": "tests/migration/results/final-sol-publisher-binding-5d9.json",
+      "sha256": "e1db183ccf44eb593c6c02a027e4816f28a5d1a25bf5ec5657096ecec11c062a",
+      "original": {
+        "path": "/tmp/yf-final-whole-sol-6ususaqz/publisher-successor-binding.json",
+        "sha256": "e1db183ccf44eb593c6c02a027e4816f28a5d1a25bf5ec5657096ecec11c062a"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-astra-publisher-binding-5d9.json": {
+      "path": "tests/migration/results/final-astra-publisher-binding-5d9.json",
+      "sha256": "5c0d3d4b589fae8a24a7799ac69cab3e14ccd19119de3581e5c96eadf8e97bf9",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/publisher-successor-binding-review.json",
+        "sha256": "5c0d3d4b589fae8a24a7799ac69cab3e14ccd19119de3581e5c96eadf8e97bf9"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-publisher-closure-5d9.json": {
+      "path": "tests/migration/results/final-publisher-closure-5d9.json",
+      "sha256": "2a4bda37ed57a5da49b63ffe1e62e218bcc3247e4bdefc519dfc4a038d8e186f",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/publisher-successor-closure.json",
+        "sha256": "2a4bda37ed57a5da49b63ffe1e62e218bcc3247e4bdefc519dfc4a038d8e186f"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-sol-publisher-proof-d396.json": {
+      "path": "tests/migration/results/final-sol-publisher-proof-d396.json",
+      "sha256": "8bd1940540d62a4f55f9856f8174c4d54b14689d0c6b69836459c1cf029b69dd",
+      "original": {
+        "path": "/tmp/yf-final-whole-sol-6ususaqz/final-publisher-proof-review.json",
+        "sha256": "8bd1940540d62a4f55f9856f8174c4d54b14689d0c6b69836459c1cf029b69dd"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-astra-publisher-proof-d396.json": {
+      "path": "tests/migration/results/final-astra-publisher-proof-d396.json",
+      "sha256": "5a89970a6cb1c9dfb116df88770e28b42fecf843f1a48429d9462c103b4bd44a",
+      "original": {
+        "path": "/tmp/yf-final-astra-sbvjdj87/final-publisher-proof-review.json",
+        "sha256": "5a89970a6cb1c9dfb116df88770e28b42fecf843f1a48429d9462c103b4bd44a"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    },
+    "final-checker-budget-applied.json": {
+      "path": "tests/migration/results/final-checker-budget-applied.json",
+      "sha256": "c3bf8ec6fb8d5a2e933b2e379d1c8f7ef421776f2884b028729b258dbc2f32f4",
+      "original": {
+        "path": "/tmp/yf-checker-budget-applied-proof.json",
+        "sha256": "c3bf8ec6fb8d5a2e933b2e379d1c8f7ef421776f2884b028729b258dbc2f32f4"
+      },
+      "copy": "verbatim bytes; original scope/qualifications retained"
+    }
+  },
+  "inventory": {
+    "path": "tests/migration/results/final-inventory.json",
+    "sha256": "5b048078571e88f9219b6ff8ce1d4ee6f535dd902badd3482809abfb63471b23",
+    "71StableIds": 71,
+    "qualifiedLimits": 25,
+    "rootCommands": 24,
+    "publicExports": 28,
+    "staticRebindOnly": true
+  },
+  "corrections": {
+    "path": "tests/migration/results/final-integration-corrections.json",
+    "sha256": "ef6de41b22862286746a93e2778246d5002d69f891904b67c026d9539e2edc94"
+  },
+  "fixtures": {
+    "count": 1201,
+    "workingModes": "0644",
+    "canonical": {
+      "algorithm": "sorted repo-relative UTF-8 path + NUL + SHA256 hex ASCII + LF",
+      "sha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e"
+    },
+    "alternate": {
+      "algorithm": "sorted repo-relative UTF-8 path + NUL + raw 32-byte SHA256 + NUL",
+      "sha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77"
+    },
+    "nativeTopologyDigest": "Separate scope; not interchangeable with these fixture content digests."
+  },
+  "limits": "All25inventory limitations and verbatim whole-review residual risk statements retained; actual no-auth rehearsal does not prove registry/OIDC/provenance authorization. Codecov accepted/queued is not downstream UI processing. Native trusted replay is not arbitrary-code isolation. No framework benchmark rerun.",
+  "separateAuthorizationRequired": [
+    "merge",
+    "new-major version/channel/tag selection and publication",
+    "real registry/OIDC/provenance authorization and recovery operations"
+  ],
+  "performedByThisCandidate": {
+    "sharedMutation": false,
+    "testsRuntimeDenoOrPublisherExecution": false,
+    "authPublicationMergePushDispatch": false
+  },
+  "boundedMetadataAddenda": "Separate reviewer addenda required before application; they are not recursively embedded in their own reviewed candidate."
+}

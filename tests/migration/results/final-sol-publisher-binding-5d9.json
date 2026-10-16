@@ -1,0 +1,29 @@
+{
+  "reviewer": "GPT-6.1 Sol xhigh independent whole-review agent",
+  "reviewedAtUtc": "2026-10-16T19:04:46.636628+00:00",
+  "actualPublisherExecutionCommit": "d3963b0086a61038f4793feda87bb2d3811f5528",
+  "reviewedSuccessorCommit": "5d9ba7032ecd19d49af0655e2cd4b3bb37fb0aa5",
+  "actualPublisherReceiptSha256": "627d8adb533dbc2fcb489eec9c89818fbbbf995529f81514f074fccd4384505b",
+  "actualPublisherSummarySha256": "f6fcfa99ae0e69014ef0c8a9320f3b8289728a7e3e3088223c3daf539f0a5b1e",
+  "bindingMethod": "Compared complete raw Git tree inventories and independently hashed current worktree bytes/symlink texts/modes against successor objects; only exact approved checker test registration differs from actual publisher execution commit. This is stronger than selecting only publisher import files.",
+  "trackedEntriesVerified": 1618,
+  "allOtherEntriesExact": 1617,
+  "soleDelta": [
+    "scripts/typecheck.test.ts"
+  ],
+  "soleDeltaSha256": "ed0392865fd1f029364cc1e13b5a37b05eeb9820c01e0be4d89862e5e7cf1cfb",
+  "publishedSourceClosureFilesMatchedActualExecution": 68,
+  "rootPackageBunLockDenoMetadataUnchanged": true,
+  "selectedNode24BunBinariesStillMatchActualRehearsalHashes": true,
+  "unchangedScope": [
+    "All production src and schemas/imported JSON",
+    "All bin source/runtime helpers",
+    "Complete builder/version/publisher/controller/consumer/observation/probe code",
+    "All package/version/lock/config/CI/workflow/release policies",
+    "All README/LICENSE/skills/assets, active guides and source/declaration tests other than exact checker registration"
+  ],
+  "verdict": "actual_d396_publisher_proof_applies_to_unchanged_successor_publish_runtime_closure",
+  "qualification": "Publisher was actually executed on d396, never relabeled as execution on5d9ba70. The sole successor change is a test registration timeout with every assertion/compiler mode unchanged. Exact5d9ba70 fresh hosted full Tests/defaultLCOV/fresh install still required; no no-auth proof establishes real registry/OIDC/provenance acceptance.",
+  "sourceStatus": "clean",
+  "noDenoPublisherOrAcquisitionExecutedByReviewer": true
+}
