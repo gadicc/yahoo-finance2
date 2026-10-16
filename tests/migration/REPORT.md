@@ -500,6 +500,28 @@ H01 policy is accepted. H03 stays open for actual publisher-owned Deno proof;
 H05 native OS and the separately selected native development replay remain
 pending. Progress is **43/71**.
 
+## CI preparation checkpoint (I01–I04, 2026-10-16)
+
+The [maintained CI core](CI.md) now provisions the pinned Bun/Node toolchain,
+normal-hook frozen dependency graph and Linux guard, then gates formatting,
+lint, types, stale schemas, release notes, replay coverage and LCOV validation.
+Workers retain their independent npm graph and isolated-loopback runtime job.
+Codecov receives only validated LCOV through a separate OIDC job; fork and
+Dependabot PRs retain artifacts without requiring that upload.
+
+Independent Sol xhigh and Astra xhigh reviews cleared the scoped preparation
+and repaired one coverage gap: `quoteSummary-iface.ts` exports four runtime
+enums, so its coverage is required. Ten Python controls, real enum coverage,
+malformed-report negatives, fresh installation, the complete Workers pipeline
+and failure-stage cleanup controls pass. The [receipt](results/i01-i04-preparation.json)
+retains the original finding and exact reviewed evidence.
+
+No I acceptance item is checked from preparation alone. K02 formatting/lint
+cleanup, final combined validation, actual Ubuntu runner prerequisites, artifact
+transfer, Codecov OIDC and the native OS matrix remain pending. No publication,
+live Yahoo request or fixture write was part of this work. Progress remains
+**43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

@@ -13,51 +13,83 @@ concurrency:
   group: tests-${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/dev') }}
 
+permissions:
+  contents: read
+
 jobs:
   tests:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     permissions:
       contents: read
-      id-token: write # for codecov
-
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
+        with:
+          persist-credentials: false
       - uses: ./.github/actions/setup
+      - run: python3 -B -m unittest discover -s scripts -p 'ci_test.py'
+      - run: bun run format:check
+      - run: bun run lint
+      - run: bun run typecheck
+      - run: bun run typecheck:negative
+      - run: bun run schema:check
+      - run: node scripts/check-release-notes.mjs
+      - name: Run strict offline replay and native Bun coverage
+        run: bun run test:coverage
+      - name: Validate complete LCOV artifact
+        run: python3 scripts/ci.py coverage
+      - name: Retain only validated LCOV
+        uses: actions/upload-artifact@v7
+        with:
+          name: bun-lcov
+          path: coverage/lcov.info
+          if-no-files-found: error
+          retention-days: 7
 
-      - run: deno fmt --check
-      - run: deno lint
-      - run: deno task check
-      - run: deno task schema:check
-      - run: deno task release:check-notes
-
-      - name: Run tests, produce coverage
-        run: deno task test:replay --coverage
-
-      - name: Codecov
-        uses: codecov/codecov-action@v7
+  codecov:
+    name: Codecov
+    needs: tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    # Fork/Dependabot PRs retain the artifact but never require an OIDC upload.
+    if: github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && github.actor != 'dependabot[bot]')
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      # No repository dependency install or repository code executes in this job.
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: bun-lcov
+          path: coverage
+      - uses: codecov/codecov-action@v7
         with:
           use_oidc: true
+          files: coverage/lcov.info
+          disable_search: true
+          plugins: noop
+          disable_file_fixes: true
+          fail_ci_if_error: true
+          handle_no_reports_found: false
 
   cloudflare-workers:
     name: Cloudflare Workers
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     permissions:
       contents: read
-
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-
+        with:
+          persist-credentials: false
       - uses: ./.github/actions/setup
-
-      - name: Build npm package
-        run: deno task build:npm
-
-      - name: Install Cloudflare test harness dependencies
-        run: npm ci --prefix tests/cloudflare
-
-      - name: Run Cloudflare Workers tests
-        run: npm test --prefix tests/cloudflare
+      - name: Install independent npm 10 tool
+        run: npm install --prefix "$RUNNER_TEMP/yf-npm10" --no-save --package-lock=false npm@10.9.9
+      - name: Build and check actual Workers package in private scratch
+        run: python3 scripts/ci.py workers --bun "$(command -v bun)" --node "$(command -v node)" --npm "$RUNNER_TEMP/yf-npm10/node_modules/npm/bin/npm-cli.js"

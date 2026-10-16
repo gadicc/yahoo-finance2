@@ -1,0 +1,226 @@
+{
+  "milestones": [
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "E06 routing"
+  ],
+  "status": "Independently reviewed CI preparation and enum coverage fix; final combined and remote acceptance remain pending.",
+  "date": "2026-10-16T12:50:54.608971+00:00",
+  "baseCommit": "0e10be3a350fe5bcdbc6874f25333bc62bff2978",
+  "scopeSha256": {
+    ".github/actions/setup/action.yml": "0b81f203af2cff81f6c295af3755e9a7603547a645bf4d3334a1499465468f59",
+    ".github/workflows/tests.yaml": "5c37cc72fd6808425717f496cd41af3c08b128aa8f230294eace0eb9c6aab6d3",
+    ".github/workflows/copilot-setup-steps.yml": "18610961ffef936a3c12dc6aee818a63d6d55285ed7f575b9a74b2e834cbf2a5",
+    "scripts/ci.py": "954f4f46c8d039219b170c533b7857e780f690c15e92c000166b39ba672e0600",
+    "scripts/ci_test.py": "dd0c31bbc096de3d9d815395a17a144755ae5a257d96875388c2ed6fa4667815",
+    "src/modules/quoteSummary-iface.test.ts": "be10c2f4e90b0101f7419212047668d2ae652df5445c084e0bb5f1208b0a355f",
+    "tests/migration/CI.md": "6353f3459880bd77327b5fdae26bc3a10054d4b404ee05005b46b4c517ab4e4d"
+  },
+  "scopeHashContract": "Exact seven implementation/test/document files. The receipt is the eighth overlay file; its hash is stored in the external candidate manifest to avoid recursive hashing.",
+  "candidate": {
+    "project": "/tmp/yf-ci-enum-fix-review-8dk5i6h2/project",
+    "manifest": "/tmp/yf-ci-enum-fix-review-8dk5i6h2/manifest.json",
+    "construction": "Immutable tracked base plus exactly eight scoped files; no concurrent runtime, native replay, or other uncommitted source overlay. Shared node_modules supplies the installed pinned graph."
+  },
+  "previousPreparation": {
+    "archive": "/tmp/yf-ci-core-review-mtyxrhcq",
+    "baseCommit": "aaf3ef1f4b593b5365cff26aa48cf6a32b2f9325",
+    "receiptSha256": "8965139e30a6fcbe64a293ae16d86e108f632c04eb5a8006e156223318b77bb1",
+    "preservedUnmodified": true,
+    "qualification": "The original validator incorrectly exempted the quoteSummary public enum module. Its earlier 86-source report validation is superseded by the accepted finding and must not be treated as complete coverage."
+  },
+  "acceptedFindingFix": {
+    "priority": "P2",
+    "problem": "quoteSummary-iface.ts exports four runtime enums and was incorrectly exempted as pure type code. A report omitting it could pass the default CI inventory.",
+    "changes": [
+      "Removed that exemption; moduleCommon.ts remains the sole pure type export exemption.",
+      "Added a default export-derived inventory negative control and a positive control that does not require moduleCommon.ts.",
+      "Added consumer enum tests for serialized Yahoo wire values, empty values, direct/indirect ownership, and distinct upstream grade spellings.",
+      "Corrected CI documentation and native trusted development replay policy."
+    ],
+    "sameReportBeforeAfter": {
+      "oldArchive": "/tmp/yf-ci-core-review-mtyxrhcq",
+      "oldArchiveManifestSha256": "b205d7b0bd691fa540e05631377c5d73bbedfdf1efa7e17d34699333df2224bb",
+      "originalReceiptSha256": "8965139e30a6fcbe64a293ae16d86e108f632c04eb5a8006e156223318b77bb1",
+      "sameOmittedModuleReport": "/tmp/yf-ci-sol-inventory-l9gpjzgc/missing-enums.lcov",
+      "reportSha256": "38d1db86279aeb98a071d2e6c92c3eb37c5ebb08a9476477d6e0ed768fa2823d",
+      "oldValidatorResult": {
+        "sources": 34,
+        "lines": 34,
+        "linesHit": 34,
+        "functions": 34,
+        "functionsHit": 34,
+        "branches": "not emitted by Bun 1.4.3"
+      },
+      "newValidatorRejection": "Incomplete full-suite coverage, missing: ['src/modules/quoteSummary-iface.ts']"
+    }
+  },
+  "verification": [
+    {
+      "command": "python3 -B -m unittest discover -s scripts -p ci_test.py",
+      "where": "Working copy and isolated candidate",
+      "result": "10 tests passed in each location."
+    },
+    {
+      "command": "New default-inventory regression against the frozen old validator",
+      "result": "Fails as expected because the old validator accepts the missing enum source; the corrected validator passes this regression."
+    },
+    {
+      "command": "bun scripts/test.ts --coverage --serial src/modules/quoteSummary-iface.test.ts",
+      "where": "/tmp/yf-ci-enum-fix-review-8dk5i6h2/project",
+      "boundary": "Maintained strict offline launcher; no live Yahoo or fixture writes.",
+      "result": "2 tests passed; all four enum initializers and 83 original mapped lines are covered. Focused coverage is not represented as full-suite coverage."
+    },
+    {
+      "command": "Focused native LCOV validation and omitted-module report repair control",
+      "proof": {
+        "oldDefaultInventoryRegression": "The new negative control fails against the frozen old validator, as expected.",
+        "oldRegressionLog": "/tmp/yf-ci-enum-old-regression.log",
+        "focusedReport": "/tmp/yf-ci-enum-fix-review-8dk5i6h2/project/coverage/lcov.info",
+        "focusedValidatedTotals": {
+          "sources": 3,
+          "lines": 179,
+          "linesHit": 103,
+          "functions": 9,
+          "functionsHit": 5,
+          "branches": "not emitted by Bun 1.4.3"
+        },
+        "enum": {
+          "functions": 4,
+          "functionsHit": 4,
+          "mappedLines": 83,
+          "lineHits": 83
+        },
+        "nativeEnumRecordRepairsDefaultInventory": {
+          "sources": 35,
+          "lines": 117,
+          "linesHit": 117,
+          "functions": 38,
+          "functionsHit": 38,
+          "branches": "not emitted by Bun 1.4.3"
+        },
+        "combinedInventoryReport": "/tmp/yf-ci-enum-fix-review-8dk5i6h2/with-enum.lcov",
+        "routing": [
+          {
+            "failedStage": 2,
+            "stagesRun": 2,
+            "failurePropagated": true,
+            "laterStageRan": false,
+            "scratchRemoved": true
+          },
+          {
+            "failedStage": 3,
+            "stagesRun": 3,
+            "failurePropagated": true,
+            "laterStageRan": false,
+            "scratchRemoved": true
+          },
+          {
+            "failedStage": 4,
+            "stagesRun": 4,
+            "failurePropagated": true,
+            "laterStageRan": false,
+            "scratchRemoved": true
+          },
+          {
+            "failedStage": 5,
+            "stagesRun": 5,
+            "failurePropagated": true,
+            "laterStageRan": false,
+            "scratchRemoved": true
+          }
+        ]
+      },
+      "qualification": "The 35-source combined report is a synthetic inventory control with the real native enum record appended, not a full-suite coverage artifact."
+    },
+    {
+      "command": "biome format --write, then biome lint src/modules/quoteSummary-iface.test.ts",
+      "result": "Only the new owned test was formatted; focused lint passed."
+    },
+    {
+      "command": "git diff --check",
+      "result": "Passed."
+    }
+  ],
+  "historicalVerification": {
+    "reference": "/tmp/yf-ci-core-review-mtyxrhcq/project/tests/migration/results/i01-i04-preparation.json",
+    "retainedEvidence": [
+      "Cold-cache normal frozen Bun install passed with 444 packages and zero untrusted lifecycle dependencies.",
+      "Actual strict host kernel controls passed.",
+      "Scratch Workers build, strict source typecheck, kernel controls, and eight actual workerd tests passed.",
+      "Shared QuoteBase stale gate failed without schema writes; regeneration cleared it; restored chart/historical consumers passed 53 tests.",
+      "Earlier combined run had 1,493 passing tests and one concurrent runtime-draft checker failure; it was not an accepted complete run.",
+      "Earlier formatting and lint gates retained 120 formatting errors and 18 lint errors; K02 cleanup is separate."
+    ],
+    "currentFullSuiteClaim": false
+  },
+  "fixtures": {
+    "files": 1201,
+    "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+    "algorithm": "Sorted repository-relative path UTF-8, NUL, raw SHA-256 bytes, NUL.",
+    "workingCopyGitStatus": "",
+    "writes": "No real fixture writes; the focused run used the guarded read-only candidate fixture mount."
+  },
+  "policy": {
+    "maintainedDevelopmentReplay": "User chose native macOS/Windows replay for trusted development tests. Native implementation is a separate milestone; actual native OS verification is still required.",
+    "ciReplay": "Strict guarded Linux CI remains unchanged and must pass actual Bubblewrap, namespace, libseccomp and mount prerequisites.",
+    "consumers": "Native macOS/Windows consumer support remains retained; real consumer OS verification is H05.",
+    "deno": "No Deno binary invoked; future isolated publisher exception only.",
+    "systemPolicy": "No AppArmor or sysctl mutation.",
+    "security": "Existing trigger/concurrency/release policy and separate artifact-only Codecov OIDC boundary are unchanged."
+  },
+  "logsSha256": {
+    "/tmp/yf-ci-enum-unit.log": "8c4b1532288f3c2237a75b4778a19116380135ed2658033225c3d1a1a8446867",
+    "/tmp/yf-ci-enum-candidate-unit.log": "8c4b1532288f3c2237a75b4778a19116380135ed2658033225c3d1a1a8446867",
+    "/tmp/yf-ci-enum-coverage.log": "cd4655840dda05615745a0591bdebf6e274fd4e5f6513d4d7ec22ad6ed32f0f2",
+    "/tmp/yf-ci-enum-old-regression.log": "9e8ee77e59e0c46d7f28176341d8516d734412b2adf9b4dda39813a97bf4398f",
+    "/tmp/yf-ci-enum-omission-proof.json": "0cdab8bc3b42cae594d54fd3e1694027709cb70d69f79d51e740da0960bf9fec",
+    "/tmp/yf-ci-enum-extra-proof.json": "728730b657dc6094e8ee660ecc5677d0c957d6390a41d2fcc16ada116ab335c6",
+    "/tmp/yf-ci-enum-fix-review-8dk5i6h2/project/coverage/lcov.info": "6acc4f124a72e330d3cf5780fdce859ff4e1ded3f1e47565454aef7646a63b68",
+    "/tmp/yf-ci-enum-fix-review-8dk5i6h2/with-enum.lcov": "a5cd3fc6cf2a42bfe57ddd4d8a87310c236cec73673dd3050369e837ed0c19fb"
+  },
+  "pending": [
+    "K02 cleanup and stable H/native integration, followed by the final combined immutable typecheck/replay/coverage gates.",
+    "Parent-owned authorized remote manual Tests smoke for Ubuntu prerequisites, artifact transfer, Codecov OIDC and failure routing.",
+    "Native macOS/Windows development and consumer OS verification.",
+    "Separate I05/I06 recache/schema-repair automation and J isolated publisher migration."
+  ],
+  "acceptance": false,
+  "reviewedScopeSha256": {
+    ".github/actions/setup/action.yml": "0b81f203af2cff81f6c295af3755e9a7603547a645bf4d3334a1499465468f59",
+    ".github/workflows/tests.yaml": "5c37cc72fd6808425717f496cd41af3c08b128aa8f230294eace0eb9c6aab6d3",
+    ".github/workflows/copilot-setup-steps.yml": "18610961ffef936a3c12dc6aee818a63d6d55285ed7f575b9a74b2e834cbf2a5",
+    "scripts/ci.py": "954f4f46c8d039219b170c533b7857e780f690c15e92c000166b39ba672e0600",
+    "scripts/ci_test.py": "dd0c31bbc096de3d9d815395a17a144755ae5a257d96875388c2ed6fa4667815",
+    "src/modules/quoteSummary-iface.test.ts": "be10c2f4e90b0101f7419212047668d2ae652df5445c084e0bb5f1208b0a355f",
+    "tests/migration/CI.md": "57f479d1a89a6b83137c60781d1de3c1e360aee1f2a6353a2b0cef0085b79cd5"
+  },
+  "review": {
+    "implementationPreparationAccepted": true,
+    "checklistAcceptance": false,
+    "reviewedReceiptSha256": "743bf2586da2979a3f0791c7da912fdded23adaea26d373b4ebb51f527305721",
+    "sol": {
+      "verdict": "Clear; missing-runtime-source P2 fixed, no new findings",
+      "evidence": [
+        "/tmp/yf-ci-sol-enum-fixed-proof.log",
+        "/tmp/yf-ci-sol-enum-fixed-focused.log"
+      ],
+      "evidenceSha256": {
+        "/tmp/yf-ci-sol-enum-fixed-proof.log": "66487d46a82f9c5ed30def1c3204370042c60abb9f2e40d28e129bdc3e49495c",
+        "/tmp/yf-ci-sol-enum-fixed-focused.log": "40098aa4d3b3e941bdc226c49f8cc75a32f8dbb96979b13d0be198eb734a908b"
+      }
+    },
+    "astra": {
+      "verdict": "Clear; no actionable findings",
+      "evidence": [
+        "/tmp/yf-ci-astra-27s8gwp6/review.json"
+      ],
+      "evidenceSha256": {
+        "/tmp/yf-ci-astra-27s8gwp6/review.json": "3499e7aba6df2ec455b936699a66f48ce2ac28a9e932b988b7440eaddf00ca1d"
+      }
+    },
+    "parentAfterReview": "Only documentation acceptance wording, receipt metadata and tracker checkpoint; executable/workflow bytes remain exactly reviewed"
+  }
+}
