@@ -1,0 +1,83 @@
+{
+  "milestone": "D06 portable fixture snapshots and transient capture validation",
+  "date": "2026-10-16",
+  "baselineCommit": "98e2d47698a3130a0b40ee5f9b5da0511475f03e",
+  "runtime": {
+    "bun": "1.4.3",
+    "bunBinary": "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+    "checkerNode": "24.21.0",
+    "checkerBinary": "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+    "denoInvoked": false
+  },
+  "commands": [
+    {
+      "command": "PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:/home/dragon/.nvm/versions/node/v24.21.0/bin:$PATH bun scripts/test.ts --serial scripts/recache-fixtures.test.ts scripts/check-recache-rate-limits.test.ts src/lib/versions.test.ts",
+      "exitCode": 0,
+      "passes": 13,
+      "failures": 0,
+      "skips": 0,
+      "files": 3,
+      "log": "/tmp/yf-recache-stage1.log",
+      "guard": "unchanged scripts/testing/offline.py via maintained launcher; no network; repository readonly"
+    },
+    {
+      "command": "YF_EXPERIMENT_NODE=/home/dragon/.nvm/versions/node/v24.21.0/bin/node PATH=/tmp/yf-bun-1.4.3/bun-linux-x64:$PATH bun run typecheck",
+      "exitCode": 0,
+      "log": "/tmp/yf-recache-stage1-types.log"
+    }
+  ],
+  "checks": {
+    "snapshots": "Real temporary tree: added/removed/updated detected, earlier local bytes unchanged/excluded, symlink file/directory entries excluded, root alias rejected; no Git baseline is used for run-change selection.",
+    "captureReads": "Stable regular bytes; leaf/ancestor symlink, nonregular directory and hardlink publication alias rejected. No guarantee of a hostile-host atomic transaction.",
+    "validator": "Real Bun CLI status0/1/2, malformed JSON, symlink/hardlink inputs and rate-limit log without fixture; secret sentinel absent from diagnostics.",
+    "transients": [
+      "429",
+      "408",
+      "5xx",
+      "HTML interstitial",
+      "consent redirect",
+      "malformed JSON body",
+      "rate-limit API error",
+      "timeout API error",
+      "upstream server API error"
+    ],
+    "reviewRegression": "All immediate API envelope.error slots (quoteResponse/timeseries/future envelope), Internal Server Error/InternalServerError/ServiceUnavailable/BadGateway. Data names and nested result error strings remain negative controls.",
+    "negativeControls": [
+      "stable404",
+      "schema shape drift",
+      "legitimate company name Timeout Holdings",
+      "unrelated429number",
+      "nested data fields containing error words"
+    ],
+    "versions": "Five original leaves activated; preserve current/latest/isLatest values and fetch cache-count assertions. Controlled registry URL and2.13.3 response; fetch/cache restored after every leaf; no production source change.",
+    "inventory": "Focused13 only; five previously skipped versions leaves now active, four added regression leaves. No new full-suite count claimed while parallel build drafts exist; skipped recache subprocess remains C06."
+  },
+  "fixtures": {
+    "count": 1201,
+    "worktreeSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "headSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+    "changedCount": 0,
+    "head": "98e2d47698a3130a0b40ee5f9b5da0511475f03e"
+  },
+  "review": {
+    "reviewer": "independent GPT-6.1 Sol xhigh",
+    "status": "cleared after repaired P2 generic-envelope/server-error finding",
+    "independentFocusedPasses": 13,
+    "independentFocusedFailures": 0,
+    "integrationDocs": "Independent Sol xhigh cleared RECACHE documentation, source hashes and D4/8, 24/71 tracker integration; C06/D05/D07/D08 remain open."
+  },
+  "sourceSha256": {
+    "scripts/recache-fixtures.ts": "03f37fce1110acc915c97d8aca3cce44f3c8ba5fe93e8d1e82fed7eb9cc4c050",
+    "scripts/recache-fixtures.test.ts": "2448cd4989a0b570c96995262b5b0f86be0d50a05f4a8ae5a52e6cc746dcf0a2",
+    "scripts/check-recache-rate-limits.ts": "6524756754e78ffe6d49c500a58c705cd4f2602b7b18d1c57a42c409f20830b7",
+    "scripts/check-recache-rate-limits.test.ts": "fa85cffc9dc31095614c4a1f69a8a8a8707e08981cc85616a524ee9b82498e78",
+    "src/lib/versions.test.ts": "857d5130a452bf7cb005c4b2e6c3d6fdc044a92fc7cf4bbf2771316b21a31316"
+  },
+  "remaining": [
+    "C06 recache subprocess",
+    "D05 maintained capture orchestration",
+    "D07 country CLI controlled replay",
+    "D08 mode/environment parity",
+    "D04 other supported operating systems"
+  ]
+}

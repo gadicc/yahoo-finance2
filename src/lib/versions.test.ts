@@ -1,13 +1,20 @@
 import { spy } from "../../tests/migration/mock.ts";
-import { beforeEach } from "../../tests/migration/runner.ts";
-import { describe, expect, it, setupCache } from "../../tests/common.ts";
+import { afterEach, beforeEach } from "../../tests/migration/runner.ts";
+import { describe, expect, it } from "../../tests/common.ts";
 import { _clearCache, getLatestVersion, versionCheck } from "./versions.ts";
 
-describe.skip("versions", () => {
+describe("versions", () => {
   const origFetch = globalThis.fetch;
-  setupCache();
 
   beforeEach(() => {
+    _clearCache();
+    globalThis.fetch = spy((input) => {
+      expect(String(input)).toBe("https://registry.npmjs.org/yahoo-finance2/latest");
+      return Promise.resolve(Response.json({ version: "2.13.3" }));
+    });
+  });
+  afterEach(() => {
+    globalThis.fetch = origFetch;
     _clearCache();
   });
 
@@ -53,8 +60,9 @@ describe.skip("versions", () => {
   });
 
   it("should return matched versions", async () => {
+    const fixtureFetch = globalThis.fetch;
     globalThis.fetch = async (input, init) => {
-      const response = await origFetch(input, init);
+      const response = await fixtureFetch(input, init);
       if (response.ok) {
         const data = await response.json();
         if (data.version) {

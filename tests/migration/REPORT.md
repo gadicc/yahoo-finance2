@@ -124,7 +124,7 @@ all items; the benchmark results above retain their historical meaning.
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
 | [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        4/6 |
 | [C. Test runner and harness](#migration-c)                       | In progress     |        6/7 |
-| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        3/8 |
+| [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        4/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
@@ -133,7 +133,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **23/71** |
+| **Overall**                                                      | **In progress** |  **24/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -240,6 +240,24 @@ in the four runtime dependencies' closure. No dependency update, override,
 Deno invocation or publication was performed. Independent Sol xhigh review
 cleared the evidence after a citation correction. B06 is complete; B05's OS
 installation matrix remains open. Progress is **23/71** at this checkpoint.
+
+## Fixture validation checkpoint (D06, 2026-10-16)
+
+The Node filesystem snapshot and validator ports pass **13 focused tests across
+three files** under the unchanged strict replay guard. Real temporary fixture
+changes cover added/removed/updated bytes, earlier local-edit exclusion, symlink
+aliases and unsafe publication inputs. The Bun CLI rejects 429/408/5xx,
+HTML/consent, malformed JSON and transient API error payloads while fixed
+messages omit cookies, crumbs and payloads. The five existing version leaves
+now run with controlled registry fetches and preserve their original assertions;
+their skipped hooks disappear honestly. C06 remains open for the skipped recache
+subprocess leaf. [The staged policy](RECACHE.md) and
+[machine-readable receipt](results/d06-fixture-validation.json) distinguish this
+verified scope from draft capture orchestration. Existing typecheck passes;
+all 1,201 fixture contents match the checkpoint HEAD. Independent Sol xhigh
+review cleared the source after a generic-envelope/server-error correction.
+D06 is complete; D05/D07/D08 remain open. Progress is **24/71**. No full-suite
+receipt is claimed during the parallel package-build draft.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -695,10 +713,11 @@ cross-platform validation and CI remain separate work.
 - [ ] D05 — Port `recache-tests.ts` and run synthetic subprocess checks for
       baseline-before-live ordering, sequential pacing, request reuse, counters,
       nonzero failures, 429 aborts and preservation of earlier captures.
-- [ ] D06 — Port fixture traversal and rate-limit validators; verify changed,
+- [x] D06 — Port fixture traversal and rate-limit validators; verify changed,
       added and removed fixture reporting excludes earlier edits, rejects
       transient errors before commit, and keeps logs free of cookies, crumbs and
-      payloads.
+      payloads. Evidence: [D06 receipt](results/d06-fixture-validation.json),
+      13 guarded focused checks and independent Sol xhigh review.
 - [ ] D07 — Execute country-profile capture CLI paths with controlled inputs;
       verify append-only profiles, compaction/replay, expected-host checks and
       `.static`/`.fake`/geographic profile protection from generic recache.
