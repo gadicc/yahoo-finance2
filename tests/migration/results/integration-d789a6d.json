@@ -1,0 +1,72 @@
+{
+  "validatedCommit": "d789a6d1be4ac6040271bed315bdbb17fcfd70dd",
+  "scope": "Combined committed K05 documentation tooling and I05/I06 recache/schema-repair port. Local maintained strict offline coverage replay on two selected CPUs; not a timing benchmark or actual hosted native run.",
+  "replay": {
+    "commit": "d789a6d1be4ac6040271bed315bdbb17fcfd70dd",
+    "command": [
+      "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+      "--no-env-file",
+      "scripts/test.ts",
+      "--coverage",
+      "--run-timeout=300000"
+    ],
+    "cpuAffinity": [
+      0,
+      1
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 68.006,
+    "log": "/tmp/yf-integration-d789a6d-replay.log",
+    "logSha256": "c5ad36e7e5d567727e7340c91a527c48f5c81daf156296ad263f766f1246846f",
+    "fixturesBefore": {
+      "count": 1201,
+      "sha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+      "modes": [
+        420
+      ]
+    },
+    "fixturesAfter": {
+      "count": 1201,
+      "sha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+      "modes": [
+        420
+      ]
+    },
+    "worktreeClean": true,
+    "scope": "Current committed combined documentation and CI-port guarded coverage replay; local correctness run, not a benchmark. No Deno/live Yahoo/real fixture write.",
+    "passed": 1537,
+    "failed": 0,
+    "files": 64
+  },
+  "coverage": {
+    "validation": {
+      "sources": 96,
+      "lines": 11600,
+      "linesHit": 8792,
+      "functions": 828,
+      "functionsHit": 697,
+      "branches": "not emitted by Bun 1.4.3"
+    },
+    "sha256": "d8f8b094f4a444cb15e0e6ad113e5cb244a583620796683a7ea197506c8bc4cd",
+    "path": "coverage/lcov.info",
+    "scope": "Full maintained source scope and current sentinels validated; no Deno/Vitest percentage equivalence and no Bun branch accounting inferred."
+  },
+  "committedRepairCompatibility": {
+    "proof": {
+      "commit": "d789a6d1be4ac6040271bed315bdbb17fcfd70dd",
+      "compatibleHead": true,
+      "trustedClosureFiles": 182,
+      "sourceSha256": "3ce1ad086c87277d3cb2565f2d63b0b017b93b32f842aa591cffe4cb16abb9d1",
+      "scope": "Actual committed-root compatibility check after reviewed I05/I06 source commit; read-only Git and regular-input checks, no repair/auth/model/live request."
+    },
+    "sha256": "972d000df65f86716a05a5aba001f6fbec2cd0ac46bd9013c2822725c58d9803"
+  },
+  "sourceTreeUnchangedDuringValidation": true,
+  "receiptSha256": "4ec8ed64be0ba84e266c6310e3c342cda78dee3fcbdadfe4db89f3661925f3c2",
+  "limitations": [
+    "Current full replay complements the independently reviewed focused application proofs; it does not relabel earlier repair/auth/hosted/native runs.",
+    "No Deno development command, real Yahoo request, fixture write/chmod, authentication/model request, privileged profile load, package publication or new benchmark.",
+    "Windows fixture correction and new Bun minimum remain separate private reviewed/pending candidates.",
+    "Final whole-migration reviews, publication rehearsal and clean matrix acceptance remain open."
+  ]
+}

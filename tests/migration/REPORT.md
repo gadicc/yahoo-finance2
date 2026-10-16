@@ -822,6 +822,22 @@ recache, federation/authentication, model execution and publication were not
 performed. The full repair pipeline was not relabeled as a new current-branch
 run; current integration smoke and historical full-pipeline evidence are distinct.
 
+## Combined documentation and repair validation (2026-10-16)
+
+At committed `d789a6d1be4ac6040271bed315bdbb17fcfd70dd`, the maintained complete
+guarded coverage command passes **1,537 tests / 64 files** with zero failures
+on two selected local CPUs. All 1,201 fixture hashes and 0644 modes remain
+unchanged, and the worktree stays clean. The actual committed-root repair
+compatibility check accepts all 182 trusted closure files.
+
+The current LCOV validates 96 sources, 828 functions and 11,600 lines; Bun 1.4.3
+emits no branch records. These are current correctness/accounting observations,
+not a benchmark rerun or cross-engine percentage comparison. The
+[combined receipt](results/integration-d789a6d.json) binds command, source commit,
+logs, LCOV, fixtures and committed compatibility proof. Progress remains
+**52/71**. The Windows fixture correction, approved Bun-minimum implementation,
+isolated publisher and final clean matrix/reviews continue separately.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
