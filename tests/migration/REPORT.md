@@ -88,13 +88,13 @@ all items; the benchmark results above retain their historical meaning.
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        3/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
 | [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
-| [G. CLI, MCP and runtime I/O](#migration-g)                      | Planned         |        0/6 |
-| [H. Supported runtime and platform matrix](#migration-h)         | Planned         |        0/5 |
+| [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
+| [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        1/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **20/71** |
+| **Overall**                                                      | **In progress** |  **22/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -282,6 +282,44 @@ including on the archive's ordinary writable checkout modes. D04 stays open:
 Linux is verified; other supported OS choices and CI provisioning remain to be
 implemented and verified. Historical experiment measurements are unchanged.
 
+## Executable source phase (G02 and partial G01/G03, 2026-10-16)
+
+Both source executables now use Node APIs for environment, arguments, paths,
+filesystem operations, UTF-8 stdin, TTY detection and exit status. A shared
+helper provides real-path main guards, exclusive 0600 cookie creation,
+descriptor-based mode enforcement and sanitized cookie loading. Imports and
+help/version paths require no HOME, cookies or network. CLI usage/runtime
+exits, piped JSON, terminal inspection and stderr diagnostics are preserved.
+MCP source controls cover token precedence/non-local binding before cookie
+access, caught HTTP startup errors and real stdio initialize/tools/list with
+EOF/SIGINT/SIGTERM cleanup. Configured token values are redacted from startup
+diagnostics, including rejected token-assignment syntax.
+
+[Source executable behavior](EXECUTABLES.md) and
+[evidence](results/g01-g03-source-cli.json) record fourteen focused cases,
+clean isolated frozen installation, normal/incremental typechecks, an isolated
+**1,362 passing tests / 46 files**, stronger read-only/network guarding and a
+real Linux PTY-versus-pipe control. Source help/version/import probes pass on
+Node 24.21.0 and Node 22.13.0 with the latter's explicit experimental stripping
+flag. These optional source modes do not raise published Node 22.0 minimums.
+All 1,201 fixture contents remain unchanged. G01/G03 retain pending packed/OS
+acceptance; G04–G06 remain open despite useful source controls.
+
+## Retained Deno/JSR consumer policy (H02 decision, 2026-10-16)
+
+The user explicitly chose to **preserve JSR distribution and Deno consumer
+compatibility**, retaining the existing **Deno 2.0.0 minimum**. Development,
+tests and builds use Bun/Node. A Deno binary is allowed only inside the isolated
+publisher, including its publisher-owned compatibility rehearsal. Removing
+Deno development tooling does not remove the Deno consumer target.
+
+H02 records this policy decision. It does not claim publisher implementation,
+JSR packaging or supported-runtime compatibility checks already pass: J01 and
+H03/H05 remain open. Existing `deno.json` metadata and source library semantics
+remain in place while F/J establish the publication artifacts and verify
+compatibility; the publisher's current locked JSR/Deno dependencies are not an
+ordinary development/test/build toolchain.
+
 ## What was adapted
 
 - Test-only imports now use a small runner module; source imports remain `.ts`.
@@ -420,8 +458,9 @@ production migration is deliberately incremental and has no deadline or
 automatic schedule.
 [Issue #1029](https://github.com/gadicc/yahoo-finance2/issues/1029) sets the
 direction: remove Deno development tooling, use Bun, adopt Biome, and ship a new
-major release. JSR remains a supported service; distribution there and continued
-Deno consumer support require explicit decisions in H02 and J01.
+major release. The explicit H02 policy retains JSR distribution and Deno
+consumer compatibility (minimum Deno 2.0.0); only the isolated publisher may own
+a Deno binary. Implementation and compatibility verification remain J01/H03/H05.
 
 Only the numbered checkbox lines below count toward progress. Each has a stable
 ID; do not count headings or explanatory paragraphs as tasks. A checked item
@@ -673,12 +712,22 @@ cross-platform validation and CI remain separate work.
 - [ ] G01 — Port both `bin/` entrypoints' arguments, environment, home-path
       resolution, filesystem errors, permissions and exit codes; cover missing
       HOME and supported OS path behavior through executable invocation.
-- [ ] G02 — Verify CLI stdin/TTY behavior, JSON and terminal output, help,
+      Partial source evidence: portable Node APIs, missing-HOME fast/error paths,
+      real-path/symlink main guards and Node/Bun invocation pass; packed and
+      supported-OS checks remain open. See [source phase](EXECUTABLES.md).
+- [x] G02 — Verify CLI stdin/TTY behavior, JSON and terminal output, help,
       invalid arguments and dispatch errors; keep stdout usable for machine
-      output.
+      output. Evidence: real source child invocations, actual stdin, pipe JSON
+      and separate real Linux PTY control in [source evidence](results/g01-g03-source-cli.json)
+      plus fourteen focused executable regressions. Packed alias and OS proof
+      remain F/G01/H05.
 - [ ] G03 — Preserve cookie-store create-new behavior and restrictive file modes
       where supported; check existing files, concurrent creation and failure
       handling without exposing cookie values in output.
+      Partial Linux source evidence: exclusive initial 0600 creation, preserved
+      contents, descriptor chmod, rejected symlink/nonregular files, concurrent
+      creators and fixed/redacted diagnostics pass. Windows/packed persistence
+      verification remains open. See [source phase](EXECUTABLES.md).
 - [ ] G04 — Verify MCP stdio protocol, HTTP startup, shutdown/signals and error
       paths using the packed executable and production SDK dependencies.
 - [ ] G05 — Preserve MCP host validation, token comparison and non-local bind
@@ -696,9 +745,12 @@ cross-platform validation and CI remain separate work.
 - [ ] H01 — Define the consumer runtime/OS support matrix and minimums
       independently of the development runner: Node 22/24, Bun and Cloudflare
       Workers, with Deno governed by H02 rather than silently dropped.
-- [ ] H02 — Decide and document ongoing Deno consumer compatibility and JSR
+- [x] H02 — Decide and document ongoing Deno consumer compatibility and JSR
       distribution with J01; removing Deno as a development dependency alone
-      does not decide either policy.
+      does not decide either policy. Evidence: explicit user decision to retain
+      JSR and Deno consumers at the existing 2.0.0 minimum, with Deno binary use
+      restricted to the isolated publisher. J01 implementation and H03/H05
+      compatibility proof remain open; this item records policy only.
 - [ ] H03 — Verify runtime detection/version enforcement and terminal behavior
       on each supported runtime, without an incidental compatibility global
       selecting the wrong runtime or introducing a Node/Bun API into Workers.

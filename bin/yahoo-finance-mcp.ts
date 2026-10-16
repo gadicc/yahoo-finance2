@@ -1,10 +1,8 @@
+#!/usr/bin/env node
 import { createServer } from "node:http";
-import * as path from "@std/path";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import FileCookieStore from "tough-cookie-file-store";
 
 import YahooFinance from "../src/index.ts";
-import { ExtendedCookieJar } from "../src/lib/cookieJar.ts";
 import type { Logger } from "../src/lib/options/options.ts";
 import {
   createYahooFinanceMcpNodeHandler,
@@ -13,10 +11,11 @@ import {
   type YahooFinanceMcpClient,
 } from "../src/mcp/mod.ts";
 import pkg from "../deno.json" with { type: "json" };
+import { closeOnSignals, createCookieJar, isMainModule } from "./runtime.ts";
 
 type TransportName = "stdio" | "http";
 
-interface McpCliOptions {
+export interface McpCliOptions {
   transport: TransportName;
   host: string;
   port: number;
@@ -28,12 +27,6 @@ interface McpCliOptions {
 
 class UsageError extends Error {
   override name = "UsageError";
-}
-
-function getCookiePath() {
-  const home = Deno.env.get("HOME");
-  if (!home) throw new Error("HOME environment variable is not set");
-  return path.join(home, ".yf2-cookies.json");
 }
 
 function formatForLog(value: unknown) {
@@ -56,23 +49,8 @@ function createStderrLogger(): Logger {
   };
 }
 
-function ensurePrivateFile(filePath: string) {
-  try {
-    Deno.writeTextFileSync(filePath, "", { createNew: true });
-  } catch (error) {
-    if (!(error instanceof Deno.errors.AlreadyExists)) throw error;
-  }
-  try {
-    Deno.chmodSync(filePath, 0o600);
-  } catch {
-    // chmod is unsupported on Windows; best-effort only.
-  }
-}
-
 function createClient(logger: Logger): YahooFinanceMcpClient {
-  const cookiePath = getCookiePath();
-  ensurePrivateFile(cookiePath);
-  const cookieJar = new ExtendedCookieJar(new FileCookieStore(cookiePath));
+  const cookieJar = createCookieJar();
   return new YahooFinance({
     cookieJar,
     logger,
@@ -115,13 +93,16 @@ function readValue(args: string[], index: number, flag: string) {
   return value;
 }
 
-function parseArgs(args: string[]): McpCliOptions | "help" | "version" {
+export function parseMcpArgs(
+  args: string[],
+  env: NodeJS.ProcessEnv = process.env,
+): McpCliOptions | "help" | "version" {
   const options: McpCliOptions = {
     transport: "stdio",
     host: "127.0.0.1",
     port: 3000,
     path: "/mcp",
-    token: Deno.env.get("YAHOO_FINANCE_MCP_TOKEN") || undefined,
+    token: env.YAHOO_FINANCE_MCP_TOKEN || undefined,
     unsafeNoToken: false,
   };
 
@@ -186,14 +167,16 @@ function parseArgs(args: string[]): McpCliOptions | "help" | "version" {
         options.unsafeNoToken = true;
         break;
       default:
-        throw new UsageError(`Unknown option: ${arg}`);
+        throw new UsageError(
+          "Unknown option. Use --help for supported options.",
+        );
     }
   }
 
   return options;
 }
 
-function isLocalHost(host: string) {
+export function isLocalHost(host: string) {
   return host === "127.0.0.1" ||
     host === "localhost" ||
     host === "::1" ||
@@ -208,10 +191,16 @@ async function runStdio(options: McpCliOptions) {
     enabledTools: options.tools,
   });
   const transport = new StdioServerTransport();
-  await server.connect(transport);
+  const lifecycle = closeOnSignals(() => server.close(), process.stdin);
+  try {
+    await server.connect(transport);
+  } catch (error) {
+    await lifecycle.shutdown();
+    throw error;
+  }
 }
 
-function runHttp(options: McpCliOptions) {
+export function validateHttpOptions(options: McpCliOptions) {
   if (
     !isLocalHost(options.host) &&
     !options.token &&
@@ -222,7 +211,10 @@ function runHttp(options: McpCliOptions) {
         "Use --token or --unsafe-no-token.",
     );
   }
+}
 
+async function runHttp(options: McpCliOptions) {
+  validateHttpOptions(options);
   const client = createClient(createStderrLogger());
   const handler = createYahooFinanceMcpNodeHandler({
     client,
@@ -232,48 +224,78 @@ function runHttp(options: McpCliOptions) {
     enabledTools: options.tools,
     allowedHosts: isLocalHost(options.host) ? undefined : [],
   });
-  const server = createServer(handler);
-
-  server.listen(options.port, options.host, () => {
-    const address = server.address();
-    const resolvedPort = typeof address === "object" && address
-      ? address.port
-      : options.port;
-    const auth = options.token ? " with bearer token auth" : "";
-    console.error(
-      `yahoo-finance2 MCP HTTP listening on http://${options.host}:${resolvedPort}${options.path}${auth}`,
-    );
+  const server = createServer((req, res) => {
+    void handler(req, res).catch(() => {
+      if (!res.headersSent) res.writeHead(500);
+      res.end();
+    });
   });
+  const lifecycle = closeOnSignals(() =>
+    new Promise<void>((resolve) => {
+      server.close(() => resolve());
+      server.closeAllConnections?.();
+    })
+  );
+  try {
+    await new Promise<void>((resolve, reject) => {
+      server.once("error", reject);
+      server.listen(options.port, options.host, () => {
+        server.off("error", reject);
+        resolve();
+      });
+    });
+  } catch {
+    await lifecycle.shutdown();
+    throw new Error("Unable to start the MCP HTTP server.");
+  }
+  server.on("error", () => {
+    console.error("Error: MCP HTTP server failed.");
+    process.exitCode = 1;
+    void lifecycle.shutdown();
+  });
+  const address = server.address();
+  const resolvedPort = typeof address === "object" && address
+    ? address.port
+    : options.port;
+  const auth = options.token ? " with bearer token auth" : "";
+  console.error(
+    `yahoo-finance2 MCP HTTP listening on http://${options.host}:${resolvedPort}${options.path}${auth}`,
+  );
 }
 
-async function main() {
+export async function mainMcp(args = process.argv.slice(2)): Promise<number> {
+  let token = process.env.YAHOO_FINANCE_MCP_TOKEN;
   try {
-    const options = parseArgs(Deno.args);
-
+    const options = parseMcpArgs(args);
     if (options === "help") {
       console.log(formatHelp());
-      Deno.exit(0);
+      return 0;
     }
-
     if (options === "version") {
       console.log(pkg.version);
-      Deno.exit(0);
+      return 0;
     }
-
-    if (options.transport === "http") {
-      runHttp(options);
-    } else {
-      await runStdio(options);
-    }
+    token = options.token;
+    if (options.transport === "http") await runHttp(options);
+    else await runStdio(options);
+    return 0;
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+    const detail = error instanceof Error
+      ? error.message
+      : "MCP startup failed.";
+    const message = token ? detail.split(token).join("[redacted]") : detail;
     console.error(
       `${error instanceof UsageError ? error.name : "Error"}: ${message}`,
     );
-    Deno.exit(error instanceof UsageError ? 2 : 1);
+    return error instanceof UsageError ? 2 : 1;
   }
 }
 
-if (import.meta.main) {
-  main();
+if (isMainModule(import.meta.url)) {
+  void mainMcp().then((code) => {
+    process.exitCode = code || process.exitCode || 0;
+  }).catch(() => {
+    console.error("Error: Unable to run the Yahoo Finance MCP server.");
+    process.exitCode = 1;
+  });
 }
