@@ -73,6 +73,7 @@ export function ensurePrivateFile(
   const fs = options.fs ?? fileSystem;
   const platform = options.platform ?? process.platform;
   let fd: number | undefined;
+  let failure: Error | undefined;
   try {
     try {
       fd = fs.open(
@@ -113,7 +114,7 @@ export function ensurePrivateFile(
     }
   } catch {
     // Do not surface file contents or upstream parser diagnostics on stderr.
-    throw new Error(
+    failure = new Error(
       "Unable to prepare the private cookie store; use a regular file with owner-only access.",
     );
   } finally {
@@ -121,10 +122,11 @@ export function ensurePrivateFile(
       try {
         fs.close(fd);
       } catch {
-        throw new Error("Unable to close the private cookie store.");
+        failure = new Error("Unable to close the private cookie store.");
       }
     }
   }
+  if (failure) throw failure;
 }
 
 export function createCookieJar(

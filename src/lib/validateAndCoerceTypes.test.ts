@@ -86,10 +86,10 @@ const defLogParams: ValidateParams = {
   },
   logger,
   logObj: process.stdout.isTTY
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Validation logging deliberately accepts the unvalidated test payload.
     ? (obj: any, opts?: { depth?: number }) =>
       logger.dir(obj, { depth: opts?.depth ?? 4, colors: true })
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Validation logging deliberately accepts the unvalidated test payload.
     : (obj: any) => logger.info(JSON.stringify(obj, null, 2)),
   versionCheck: false,
 };
@@ -521,9 +521,7 @@ describe("validateAndCoerceTypes", () => {
         expect(error).toBeDefined();
         expect(error!.message).toMatch(/Failed Yahoo/);
 
-        let e;
-
-        e = error!.errors![0];
+        let e = error!.errors![0];
         expect(e.params).toMatchObject({
           // data: "str",
           schema: { type: "number" },

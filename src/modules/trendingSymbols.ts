@@ -189,7 +189,7 @@ export default function trendingSymbols(
     result: {
       definitions,
       schemaKey: "#/definitions/TrendingSymbolsResult",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         if (!result.finance) {
           throw new Error("Unexpected result: " + JSON.stringify(result));

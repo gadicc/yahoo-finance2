@@ -100,6 +100,7 @@ test("thenables complete before cleanup and thrown undefined still fails", async
       order.push("finish");
     });
     return {
+      // biome-ignore lint/suspicious/noThenProperty: This fixture deliberately tests PromiseLike assimilation before cleanup.
       then(resolve: () => void) {
         order.push("body");
         resolve();

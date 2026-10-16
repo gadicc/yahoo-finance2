@@ -1,6 +1,6 @@
-// deno-lint-ignore-file no-explicit-any
 // This deliberately small compatibility surface preserves the suite's Deno
 // .calls[].args contract independently of Bun/Jest mock state and resets.
+// biome-ignore lint/suspicious/noExplicitAny: The wrapper preserves each callback's own parameter and return types.
 export function spy<T extends (...args: any[]) => any>(
   fn: T = (() => undefined) as T,
 ) {
@@ -17,7 +17,9 @@ export function spy<T extends (...args: any[]) => any>(
     const call: typeof calls[number] = { args, self: this };
     calls.push(call);
     try {
-      return call.returned = fn.apply(this, args);
+      const returned: ReturnType<T> = fn.apply(this, args);
+      call.returned = returned;
+      return returned;
     } catch (error) {
       call.error = error;
       throw error;
@@ -35,6 +37,7 @@ export function stub<T extends object, K extends keyof T>(
     throw new TypeError("A stub replacement must be a function");
   }
   const original = Object.getOwnPropertyDescriptor(object, key);
+  // biome-ignore lint/suspicious/noExplicitAny: The callable replacement retains the property's existing runtime signature.
   const wrapped = spy(replacement as (...args: any[]) => any);
   Object.defineProperty(
     object,

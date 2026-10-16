@@ -21,17 +21,17 @@ const FETCH_DEVEL_RECACHE_CONCURRENCY = Number(
 
 function spyLogger(shouldLog = false) {
   return {
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     info: spy((...args: any[]) => shouldLog && console.log(...args)),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     warn: spy((...args: any[]) =>
       shouldLog && console.warn(555, shouldLog, ...args)
     ),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     error: spy((...args: any[]) => shouldLog && console.error(...args)),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     dir: spy((...args: any[]) => shouldLog && console.dir(...args)),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     debug: spy((..._args: any[]) => shouldLog && console.debug(..._args)),
     // _setShouldLog: (value: boolean) => shouldLog = value,
   };

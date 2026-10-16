@@ -41,7 +41,7 @@ describe("moduleExec", () => {
     });
 
     it("throws otherwise", async () => {
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
       const yfc = (symbol: any) => yf.chart(symbol, periodOpts);
       await expect(yfc(["AAPL"])).rejects.toThrow(/string symbol/);
     });
@@ -49,7 +49,7 @@ describe("moduleExec", () => {
 
   describe("options validation", () => {
     it("throws InvalidOptions on invalid options", async () => {
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
       const rwo = (options: any) => yf.search("symbol", options);
       await expect(rwo({ invalid: true })).rejects.toThrow(InvalidOptionsError);
     });
@@ -57,7 +57,7 @@ describe("moduleExec", () => {
     it(
       "does not throw InvalidOptions on invalid options with validateOptions = false",
       async (t, onFinish) => {
-        // deno-lint-ignore no-explicit-any
+        // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
         const rwo = (options: any) =>
           yf.search("symbol", options, {
             validateOptions: false,
@@ -80,7 +80,7 @@ describe("moduleExec", () => {
         logger,
         validation: { logOptionsErrors: true },
       });
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
       const rwo = (options: any) => yf.search("symbol", options);
       await expect(rwo({ invalid: true })).rejects.toThrow(InvalidOptionsError);
       expect(
@@ -96,7 +96,7 @@ describe("moduleExec", () => {
         logger,
         validation: { logOptionsErrors: false },
       });
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: This negative test deliberately passes input outside the public typed contract.
       const rwo = (options: any) => yf.search("symbol", options);
       await expect(rwo({ invalid: true })).rejects.toThrow(InvalidOptionsError);
       expect(

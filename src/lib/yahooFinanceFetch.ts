@@ -10,7 +10,7 @@ import { getSetCookieHeaders } from "./headers.ts";
 type Fetch = typeof fetch;
 
 interface YahooFinanceFetchThisEnv {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Module instances may carry additional runtime-specific environment fields.
   [key: string]: any;
   fetch: Fetch | null;
   fetchDevel?: () => (
@@ -20,7 +20,7 @@ interface YahooFinanceFetchThisEnv {
 }
 
 interface YahooFinanceFetchThis {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Fetch contexts retain the existing module-specific instance extension contract.
   [key: string]: any;
   _env: YahooFinanceFetchThisEnv;
   _opts: YahooFinanceOptions;
@@ -63,7 +63,7 @@ function instanceQueue(instance: object): Queue {
   return queue;
 }
 
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: Queue overrides preserve the existing dynamically validated option contract.
 function assertQueueOptions(queue: any, opts: any) {
   opts; //?
   if (

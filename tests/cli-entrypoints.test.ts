@@ -295,6 +295,36 @@ test("cookie setup rejects symlinks/directories and sanitizes failures while clo
   expect(closes).toBe(2);
 });
 
+test("cookie setup keeps sanitized close failures ahead of preparation failures", () => {
+  using space = workspace();
+  for (const failPreparation of [false, true]) {
+    let closes = 0;
+    let failure: unknown;
+    try {
+      ensurePrivateFile(path.join(space.root, `close-${failPreparation}`), {
+        fs: {
+          open: fs.openSync,
+          lstat: fs.lstatSync,
+          fstat: fs.fstatSync,
+          chmod: () => {
+            if (failPreparation) throw new Error("private preparation marker");
+          },
+          close: (fd) => {
+            closes++;
+            fs.closeSync(fd);
+            throw new Error("private close marker");
+          },
+        },
+      });
+    } catch (error) {
+      failure = error;
+    }
+    expect(failure).toBeInstanceOf(Error);
+    expect((failure as Error).message).toBe("Unable to close the private cookie store.");
+    expect(closes).toBe(1);
+  }
+});
+
 test(
   "concurrent cookie creators preserve one private file without truncating it",
   async () => {

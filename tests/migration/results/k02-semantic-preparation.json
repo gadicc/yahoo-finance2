@@ -1,0 +1,959 @@
+{
+  "milestone": "K02 semantic/directive preparation",
+  "status": "Accepted and applied semantic phase after independent Sol xhigh and Astra xhigh reviews and narrow P3 correction checks; formatting and final K02/CI acceptance remain open",
+  "recordedAt": "2026-10-16T13:03:05.342506+00:00",
+  "baseCommit": "0e10be3a350fe5bcdbc6874f25333bc62bff2978",
+  "mirror": "/tmp/yf-k02-semantic-v2-0e10be3",
+  "toolchain": {
+    "bun": "1.4.3",
+    "biome": "2.5.15",
+    "typescript": "6.0.3",
+    "frozenInstalledPackages": 444
+  },
+  "ownedFiles": [
+    {
+      "path": "bin/runtime.ts",
+      "baseSha256": "218eea603a83ffdc6cf1a14100a3609f83678f668660541fbe1b89578a835f97",
+      "candidateSha256": "1a53f5430935d577d0f49ddab5c5f7d49af71e815126a197e2694fdd3bfb9971",
+      "edit": "Move sanitized failure throw after finally; preserve close-error priority",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "scripts/build_npm.ts",
+      "baseSha256": "6748ad988860527c2bcc35f63f05135c513eb6bbe5b144506011278b384c6ff1",
+      "candidateSha256": "9ce95ba3da88fba9d639f7d5f01ec51f62f44d3b3f28aac4ffea4a67bcf5b29c",
+      "edit": "Type filesystem status local",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "scripts/check-recache-rate-limits.ts",
+      "baseSha256": "6524756754e78ffe6d49c500a58c705cd4f2602b7b18d1c57a42c409f20830b7",
+      "candidateSha256": "67fe6c4d0df094f0a05736a0f3a15dee522a5e3001c8c5e0dbad5be3fcc66105",
+      "edit": "Precise documented ANSI regex suppression",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "scripts/schema-repair.ts",
+      "baseSha256": "d4cf12855051e800f66fbf60e208572360d55383128b9b210766330a5767b9d3",
+      "candidateSha256": "4458c95898b2bc7c582461a6e923dfdddcda3246846fb8918c313acef9d31037",
+      "edit": "Type optional previous-file status",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/createYahooFinance.ts",
+      "baseSha256": "dcf1c36a8b0724fc1bbf5603979985ab61c4a133785b5f94371e3c026f572b04",
+      "candidateSha256": "b2b58e758050d27bced94ff2c3a3e622974aac49002064e8170963204d312e5c",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/cookieJar.ts",
+      "baseSha256": "795d578e2160c681595c748a8a7264aa6343d6c4b87bda8a5288f6e7cf3770e2",
+      "candidateSha256": "5b008e1f698c6060adebbc5a3f7ae1f2f48e4fc1523dcb14a2d1ac674ece405f",
+      "edit": "Type optional parsed-cookie array",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/errors.ts",
+      "baseSha256": "9e70a472243dca012191f263283fd26b01ab012641c302efc598989448b33a73",
+      "candidateSha256": "5730d860aeee36d0212e99830ff48cee68acc0f48a22df64859a920fc01e37b0",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleCommon.ts",
+      "baseSha256": "a577e9169bcdf44365e97197350c6c3fd32a36cd7e5feb1d0cd1ec1fc874f398",
+      "candidateSha256": "452836819306616c8ecafb327ae72800661f14ba5563859b6c080618ccb64e55",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleExec.test.ts",
+      "baseSha256": "c5af4216b9bcfbc64a08d573c1afcbc25e2c07ed11145c38370e6e20eb0c46b6",
+      "candidateSha256": "1e84f769107710d5a50bdd3e53918443bb80a1624c89b1159b7d442515767707",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleExec.ts",
+      "baseSha256": "255cbe3e4f1762a07534c9a812a586db349498e1754c91c80a647f3445f83407",
+      "candidateSha256": "86bb727e3c81695dd14041891f101da088491e5c49efd0c2d9a79e131cb833bf",
+      "edit": "Document module-specific defaults/runtime shapes without claiming schema validation; preserve existing validated overrides and transform boundaries",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/options/logger.ts",
+      "baseSha256": "8a6f04b5c10dd659a906b036d56d7ab9c034577c710174a629292f89086c2d71",
+      "candidateSha256": "406ed85dd22dd97bf780ad870ada1eae38e14839fbdabc100bf25fe4a34e1acf",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/queue.ts",
+      "baseSha256": "d93225cf161925d339ee1c5679d158095b74e62fcfc7bfa005cbe2f8252b84b3",
+      "candidateSha256": "36a0720e1bf1a4d88bf42537e5310e7bbd2deb86022925c855e0240cdf0339f5",
+      "edit": "Remove redundant callback annotations; document stored callbacks",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/validateAndCoerceTypes.test.ts",
+      "baseSha256": "8f73779b2c4af9627c2eb00b338a54075fc333901aa33292bac5086d7adacf8d",
+      "candidateSha256": "ab20dabf548e7751d3e667623268493cf3a14aeed80ecbf01c290e4fa409a7e3",
+      "edit": "Initialize typed error local; document negative/logging boundaries",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/versions.test.ts",
+      "baseSha256": "857d5130a452bf7cb005c4b2e6c3d6fdc044a92fc7cf4bbf2771316b21a31316",
+      "candidateSha256": "8ea71a1ddd8b772c1c0fa914504ca946118e8953d241af74ab0cf20d9c15b152",
+      "edit": "Split fetch assignments",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/versions.ts",
+      "baseSha256": "d9047b2cdfe9179e04efea3279228ab84f84975f5232f7dfa9db24e934b0d78e",
+      "candidateSha256": "441d8f2328641463e239320ac6556296f21230cd9578655e014de8e35c51bf61",
+      "edit": "Split cache assignment/return",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/yahooFinanceFetch.ts",
+      "baseSha256": "e401e95755eae987c11fad3d4612d9c796b3cc5428a732220c56f33ab9e77fd7",
+      "candidateSha256": "182c7e1cd84821b3cacc1248c5d05f84db98615b08e852eccdc1d3458da29f6f",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/chart.ts",
+      "baseSha256": "6eef49e214ae3a3562231c2f3f59c4a86e12c3b9dbb114667564214d9420ea92",
+      "candidateSha256": "aa364aa6f190851670c8add344ab10451b2abe38598121b6af4d0e53e82acac3",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/fundamentalsTimeSeries.ts",
+      "baseSha256": "9391b3082db204af1cdf28c70bd068e8682497c6dbadb17749842523f7b1c6e3",
+      "candidateSha256": "60d12d414c27e760da7b5951f86808b33da655f423ee35972c684345146cf86e",
+      "edit": "Strict equality for three string comparisons; migrate any directives",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/modules/historical.ts",
+      "baseSha256": "36b1710d01f466afb070c67f95313c43e23419c7f73798f6666920672f50c9fe",
+      "candidateSha256": "0644dca7a5bf72d103cabd8d04a61a4bf245067d911a15980bb92d7dd95c1347",
+      "edit": "Type implementation locals; migrate any directives",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/modules/options.ts",
+      "baseSha256": "b27f8f14308a5c7a998af3b228f14b12be1ee87089525ec761d8b85a8b210d2a",
+      "candidateSha256": "2d0f4743ba1a0140ef0b92ab77416edff3919d77ae31d5bde4b5e5a5a3d410f1",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/quote.ts",
+      "baseSha256": "a735895c1158cdb6e695cf35098e2290edae94e4697a0368d6d6e41bcc8a44fb",
+      "candidateSha256": "43da0d79dcb2a039262d86ce4e478c4dc52dfbf8fac01a669224fb5522ed5af8",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/quoteSummary.ts",
+      "baseSha256": "8ec84c728766081749bc9242c4b4410c780b2d94e7a4e8ea8c36a28375de7ba8",
+      "candidateSha256": "6f32fc3a2c6229234573ec54f9ffd3e018c1678869a0b8447a91a92b576711ef",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/recommendationsBySymbol.ts",
+      "baseSha256": "4354ce6636d93f537af34e56aa1d65567bcec94a91692e58c8a04d092f30dfff",
+      "candidateSha256": "e9e3fb5e37e0a59b7f9a77070b9d236da02a943ce3443bdcb69235b39a9930cc",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/screener.ts",
+      "baseSha256": "6c1aab4ad8fb0f2555db432ea8282abf2fd99695276f8b51c1c33e3738511d69",
+      "candidateSha256": "725059fe0eca74fa4337060c44d9e2f14d1075d90187253598317ff4559adc87",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/trendingSymbols.ts",
+      "baseSha256": "c7553ca61f7848eb3f9d273b9070d72570893bf604d78da30780e8770d8ffb94",
+      "candidateSha256": "6973aacce72decedee46c41aa0637126114e9d2d3e2eabc06b87d9e86913c13d",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/other/quoteCombine.ts",
+      "baseSha256": "f7f34e361be793d15134db1fa1aca895ca0103439f150a62b76701995179d9ed",
+      "candidateSha256": "1e448bebdaa8c2ce38384c4b42ddd264f2a017e99e40491be0527910dfe64ccd",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/cli-entrypoints.test.ts",
+      "baseSha256": "231e875b5eac23d24b03baef233a0bed89fed94624f6358405675ab098965d00",
+      "candidateSha256": "5652c1280910bd921d08b7c1b51c6b28bb86558aec6653c0d4e1122c3253c2fa",
+      "edit": "Add sanitized cleanup-error precedence regression",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "tests/common.ts",
+      "baseSha256": "2ca9e55dfed2ef9a4d94c9decd72c4085e12fed9d1f2aa55f7e07974355b7307",
+      "candidateSha256": "6eaf441759912ad9f86281174b0c12341f4dafaf11db721efd88f73c50a4d058",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/harness.test.ts",
+      "baseSha256": "2acbf2da5ffa082dc247a58bcfafc33438e5ed836820d510c7878305d27f16c3",
+      "candidateSha256": "3e9a2b75f01277b5044ed09be7d2bc654e87257c23233c69aabc114d19105bbe",
+      "edit": "Precise documented thenable fixture suppression",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/migration/mock.ts",
+      "baseSha256": "99233f8a680883511d2d2f80e7fddbe2b3eaf135ab4ea4bdaa204a13c9e1d1bf",
+      "candidateSha256": "253fecbcd2139662f0a52f55a7724dc7a526083d57a3e0afbbe556148581a587",
+      "edit": "Preserve typed spy return local; replace file-wide directive",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "tests/migration/runner.ts",
+      "baseSha256": "bdc17f1de4afe5602384614f1159831fdab256941c03d0204e6603b6282ad32b",
+      "candidateSha256": "5aad52e693e6b12e726d9bd3018dfb3e7efc3f5464110559894cffbdeddc2620",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/migration/K02-SEMANTIC.md",
+      "baseSha256": null,
+      "candidateSha256": "52397a6037398a84145767986d7889d9e63d3ee48c814b8e22dc0c741b000a5f",
+      "edit": "Preparation policy and proposed per-file application list"
+    }
+  ],
+  "excludedOwnership": [
+    "scripts/test.ts",
+    "scripts/testing/inventory.ts",
+    "tests/fetchCache.ts",
+    "package.json",
+    "new native replay/store/control files",
+    "CI files and enum-test draft"
+  ],
+  "unchangedConfiguration": {
+    "biome.json": "9ff1d2822f31b394243594d67dcb43737b41371cf7a86caab1d6469b934c755f",
+    "package.json": "b10619659f89c1171568d898613ed6d3b0ff821f934399686b22e52db9cae71f",
+    "bun.lock": "9d967881a8482ad4dc31fabcec857b290f15781a91e812e3809414f152f7d99a"
+  },
+  "lint": {
+    "baseline": {
+      "changed": 0,
+      "unchanged": 186,
+      "matches": 0,
+      "duration": 31218819,
+      "errors": 18,
+      "warnings": 221,
+      "infos": 128,
+      "skipped": 0,
+      "suggestedFixesSkipped": 0,
+      "diagnosticsNotPrinted": 0,
+      "scannerDuration": 933383
+    },
+    "preparedMirror": {
+      "changed": 0,
+      "unchanged": 186,
+      "matches": 0,
+      "duration": 32155876,
+      "errors": 2,
+      "warnings": 150,
+      "infos": 128,
+      "skipped": 0,
+      "suggestedFixesSkipped": 0,
+      "diagnosticsNotPrinted": 0,
+      "scannerDuration": 1694051
+    },
+    "ownedSource": {
+      "changed": 0,
+      "unchanged": 31,
+      "matches": 0,
+      "duration": 14500438,
+      "errors": 0,
+      "warnings": 54,
+      "infos": 29,
+      "skipped": 0,
+      "suggestedFixesSkipped": 0,
+      "diagnosticsNotPrinted": 0,
+      "scannerDuration": 1329986
+    },
+    "remainingErrors": [
+      {
+        "severity": "error",
+        "message": "This variable implicitly has the any type.",
+        "category": "lint/suspicious/noImplicitAnyLet",
+        "location": {
+          "path": "scripts/test.ts",
+          "start": {
+            "line": 144,
+            "column": 9
+          },
+          "end": {
+            "line": 144,
+            "column": 16
+          }
+        },
+        "advices": []
+      },
+      {
+        "severity": "error",
+        "message": "This variable implicitly has the any type.",
+        "category": "lint/suspicious/noImplicitAnyLet",
+        "location": {
+          "path": "scripts/testing/inventory.ts",
+          "start": {
+            "line": 19,
+            "column": 9
+          },
+          "end": {
+            "line": 19,
+            "column": 16
+          }
+        },
+        "advices": []
+      }
+    ],
+    "warningCounts": {
+      "lint/suspicious/noTemplateCurlyInString": 15,
+      "lint/style/noNonNullAssertion": 99,
+      "lint/correctness/noUnusedImports": 1,
+      "lint/complexity/useArrowFunction": 3,
+      "lint/suspicious/noTsIgnore": 19,
+      "lint/suspicious/noPrototypeBuiltins": 2,
+      "lint/suspicious/useIsArray": 1,
+      "lint/complexity/useOptionalChain": 6,
+      "lint/suspicious/noGlobalIsNan": 2,
+      "lint/suspicious/noRedundantUseStrict": 1,
+      "lint/correctness/noUnusedVariables": 1
+    },
+    "informationCounts": {
+      "lint/style/useTemplate": 120,
+      "lint/complexity/noUselessEscapeInRegex": 1,
+      "lint/complexity/useLiteralKeys": 7
+    },
+    "unusedOrInvalidSuppressions": [],
+    "negativeControl": {
+      "summary": {
+        "changed": 0,
+        "unchanged": 1,
+        "matches": 0,
+        "duration": 4707029,
+        "errors": 1,
+        "warnings": 1,
+        "infos": 0,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 745548
+      },
+      "diagnostics": [
+        {
+          "severity": "warning",
+          "message": "Unexpected any. Specify a different type.",
+          "category": "lint/suspicious/noExplicitAny",
+          "location": {
+            "path": "scripts/k02-directive-control.ts",
+            "start": {
+              "line": 3,
+              "column": 28
+            },
+            "end": {
+              "line": 3,
+              "column": 31
+            }
+          },
+          "advices": []
+        },
+        {
+          "severity": "error",
+          "message": "Using == may be unsafe if you are relying on type coercion.",
+          "category": "lint/suspicious/noDoubleEquals",
+          "location": {
+            "path": "scripts/k02-directive-control.ts",
+            "start": {
+              "line": 4,
+              "column": 27
+            },
+            "end": {
+              "line": 4,
+              "column": 29
+            }
+          },
+          "advices": []
+        }
+      ],
+      "command": "lint"
+    },
+    "logs": {
+      "baseline": "/tmp/yf-k02-isolated-baseline-lint.json",
+      "candidate": "/tmp/yf-k02-prepared-lint.json",
+      "owned": "/tmp/yf-k02-owned-lint.json"
+    }
+  },
+  "directives": {
+    "obsoleteDenoDirectivesBefore": 66,
+    "obsoleteDenoDirectivesAfter": 0,
+    "legacyFileWideAnySuppressionRemoved": true,
+    "redundantQueueCallbackAnnotationsRemoved": 2,
+    "newRuleSpecificComments": {
+      "lint/suspicious/noControlCharactersInRegex": 1,
+      "lint/suspicious/noExplicitAny": 64,
+      "lint/suspicious/noThenProperty": 1
+    },
+    "tsIgnorePolicy": "Keep existing 19 warnings visible, including generator-specific boundaries; no mechanical expect-error conversion or broad suppression",
+    "noFileRangeCategoryOrAllSuppressions": true
+  },
+  "verification": {
+    "strictTypecheck": {
+      "libraryRoots": 58,
+      "libraryFiles": 73,
+      "publicExports": 28,
+      "toolsRoots": 103,
+      "toolsFiles": 175,
+      "diagnostics": 0
+    },
+    "affectedCachedTests": {
+      "files": 13,
+      "tests": 193,
+      "pass": 193,
+      "fail": 0,
+      "seconds": 23.74,
+      "log": "/tmp/yf-k02-focused.log"
+    },
+    "schemaNoWriteGate": {
+      "exitCode": 0,
+      "log": "/tmp/yf-k02-schema-check.log"
+    },
+    "buildComparison": {
+      "runtimeAstChanged": [
+        "esm/bin/runtime.js",
+        "esm/src/lib/versions.js",
+        "esm/src/modules/fundamentalsTimeSeries.js",
+        "script/src/lib/versions.js",
+        "script/src/modules/fundamentalsTimeSeries.js"
+      ],
+      "changed": [
+        "bin/runtime.ts",
+        "scripts/build_npm.ts",
+        "scripts/check-recache-rate-limits.ts",
+        "scripts/schema-repair.ts",
+        "src/createYahooFinance.ts",
+        "src/lib/cookieJar.ts",
+        "src/lib/errors.ts",
+        "src/lib/moduleCommon.ts",
+        "src/lib/moduleExec.test.ts",
+        "src/lib/moduleExec.ts",
+        "src/lib/options/logger.ts",
+        "src/lib/queue.ts",
+        "src/lib/validateAndCoerceTypes.test.ts",
+        "src/lib/versions.test.ts",
+        "src/lib/versions.ts",
+        "src/lib/yahooFinanceFetch.ts",
+        "src/modules/chart.ts",
+        "src/modules/fundamentalsTimeSeries.ts",
+        "src/modules/historical.ts",
+        "src/modules/options.ts",
+        "src/modules/quote.ts",
+        "src/modules/quoteSummary.ts",
+        "src/modules/recommendationsBySymbol.ts",
+        "src/modules/screener.ts",
+        "src/modules/trendingSymbols.ts",
+        "src/other/quoteCombine.ts",
+        "tests/cli-entrypoints.test.ts",
+        "tests/common.ts",
+        "tests/harness.test.ts",
+        "tests/migration/mock.ts",
+        "tests/migration/runner.ts"
+      ],
+      "commentOnlyAstEqual": [
+        "scripts/check-recache-rate-limits.ts",
+        "src/createYahooFinance.ts",
+        "src/lib/errors.ts",
+        "src/lib/moduleCommon.ts",
+        "src/lib/moduleExec.test.ts",
+        "src/lib/moduleExec.ts",
+        "src/lib/options/logger.ts",
+        "src/lib/yahooFinanceFetch.ts",
+        "src/modules/chart.ts",
+        "src/modules/options.ts",
+        "src/modules/quote.ts",
+        "src/modules/quoteSummary.ts",
+        "src/modules/recommendationsBySymbol.ts",
+        "src/modules/screener.ts",
+        "src/modules/trendingSymbols.ts",
+        "src/other/quoteCombine.ts",
+        "tests/common.ts",
+        "tests/harness.test.ts",
+        "tests/migration/runner.ts"
+      ],
+      "semanticOrTypeChanged": [
+        "bin/runtime.ts",
+        "scripts/build_npm.ts",
+        "scripts/schema-repair.ts",
+        "src/lib/cookieJar.ts",
+        "src/lib/queue.ts",
+        "src/lib/validateAndCoerceTypes.test.ts",
+        "src/lib/versions.test.ts",
+        "src/lib/versions.ts",
+        "src/modules/fundamentalsTimeSeries.ts",
+        "src/modules/historical.ts",
+        "tests/cli-entrypoints.test.ts",
+        "tests/migration/mock.ts"
+      ],
+      "declarationFiles": 108,
+      "declarationsChanged": [],
+      "schemaFiles": 26,
+      "schemasChanged": [],
+      "outputChanged": [
+        "esm/bin/runtime.js",
+        "esm/src/createYahooFinance.js",
+        "esm/src/lib/errors.js",
+        "esm/src/lib/options/logger.js",
+        "esm/src/lib/queue.js",
+        "esm/src/lib/versions.js",
+        "esm/src/lib/yahooFinanceFetch.js",
+        "esm/src/modules/chart.js",
+        "esm/src/modules/fundamentalsTimeSeries.js",
+        "esm/src/modules/options.js",
+        "esm/src/modules/quote.js",
+        "esm/src/modules/quoteSummary.js",
+        "esm/src/modules/recommendationsBySymbol.js",
+        "esm/src/modules/screener.js",
+        "esm/src/modules/trendingSymbols.js",
+        "esm/src/other/quoteCombine.js",
+        "script/src/createYahooFinance.js",
+        "script/src/lib/errors.js",
+        "script/src/lib/options/logger.js",
+        "script/src/lib/queue.js",
+        "script/src/lib/versions.js",
+        "script/src/lib/yahooFinanceFetch.js",
+        "script/src/modules/chart.js",
+        "script/src/modules/fundamentalsTimeSeries.js",
+        "script/src/modules/options.js",
+        "script/src/modules/quote.js",
+        "script/src/modules/quoteSummary.js",
+        "script/src/modules/recommendationsBySymbol.js",
+        "script/src/modules/screener.js",
+        "script/src/modules/trendingSymbols.js",
+        "script/src/other/quoteCombine.js"
+      ]
+    },
+    "buildGraphNote": "Exact-base build reuses only the isolated mirrors frozen node_modules graph; both public-source trees and output directories are separate, and both builds run under strict offline guard",
+    "fixtures": {
+      "count": 1201,
+      "sha256": "ee0a7823e9078db84f3366c2d6d1f37eac794da8f9cf00de2530baef6710e790",
+      "unchanged": true
+    },
+    "sharedOwnedPathsUnchangedAgainstBase": true
+  },
+  "limitations": [
+    "Two exact-base lint errors remain only in native-owned entries declarations; native author reports them typed separately, not copied into this candidate.",
+    "150 warnings and128 information diagnostics remain intentionally visible; formatting debt is a separate step.",
+    "The independent Biome external-file negative-control invocation hit an upstream VCS-root panic; the final control ran inside disposable source scope and was removed afterward.",
+    "No Deno execution, Yahoo traffic, fixture writes, generated-output edits, global changes, shared-source application, commit or REPORT edits.",
+    "This receipt retains historical isolated limitations; the later applied/combined status is recorded separately and does not claim final replay, formatting or remote acceptance."
+  ],
+  "reviewCorrection": {
+    "finding": {
+      "reviewer": "Independent Sol",
+      "priority": "P3",
+      "path": "src/lib/moduleExec.ts",
+      "summary": "Two new suppression explanations incorrectly claimed defaults and runtime query values were checked by the selected schema; only overrides are validated before merging."
+    },
+    "resolution": {
+      "changedExplanations": [
+        "Preserve module-specific query default shapes in the shared execution contract.",
+        "Preserve module-specific runtime query shapes in the shared execution contract."
+      ],
+      "unchangedOverridesExplanation": "User query overrides are checked by the selected runtime schema.",
+      "runtimeTypeAndValidationChanges": false
+    },
+    "previousArtifacts": {
+      "patch": "/tmp/yf-k02-semantic-0e10be3.patch",
+      "patchSha256": "6805931efceb0e5736cd484eb0373d4f752f97be2c6b62052c0afb3896d9d354",
+      "archive": "/tmp/yf-k02-semantic-review-0e10be3.tar",
+      "archiveSha256": "df87bbcd34edda42ed0edad13fbe2acdf29b3801531c8e6661b4d0dd854db452",
+      "manifest": "/tmp/yf-k02-semantic-review.json",
+      "preservedUnchanged": true
+    },
+    "verification": {
+      "sourceChangesBeforeReceiptUpdate": [
+        "src/lib/moduleExec.ts",
+        "tests/migration/K02-SEMANTIC.md"
+      ],
+      "emittedFiles": 253,
+      "javascriptFiles": 108,
+      "declarationFiles": 108,
+      "allEmittedFilesByteIdentical": true,
+      "changedEmittedFiles": [],
+      "focusedLintSummary": {
+        "changed": 0,
+        "unchanged": 1,
+        "matches": 0,
+        "duration": 4407156,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 2,
+        "skipped": 0,
+        "suggestedFixesSkipped": 0,
+        "diagnosticsNotPrinted": 0,
+        "scannerDuration": 610884
+      },
+      "focusedLintDiagnostics": [
+        {
+          "severity": "info",
+          "message": "Template literals are preferred over string concatenation.",
+          "category": "lint/style/useTemplate",
+          "location": {
+            "path": "src/lib/moduleExec.ts",
+            "start": {
+              "line": 133,
+              "column": 7
+            },
+            "end": {
+              "line": 133,
+              "column": 66
+            }
+          },
+          "advices": []
+        },
+        {
+          "severity": "info",
+          "message": "Template literals are preferred over string concatenation.",
+          "category": "lint/style/useTemplate",
+          "location": {
+            "path": "src/lib/moduleExec.ts",
+            "start": {
+              "line": 138,
+              "column": 7
+            },
+            "end": {
+              "line": 138,
+              "column": 68
+            }
+          },
+          "advices": []
+        }
+      ]
+    },
+    "reusedEvidence": "The prior strict typecheck, 193 affected tests, schema and declaration parity remain implementation evidence. Parent also reports independent old/new cookie 10-case, fundamentals 10-case, spy and version-identity controls. No broad rerun for two comments.",
+    "fullAstraReview": "Original immutable candidate review is ongoing with the P3 correction acknowledged; no final Astra clearance claimed here."
+  },
+  "reviewedOwnedFiles": [
+    {
+      "path": "bin/runtime.ts",
+      "baseSha256": "218eea603a83ffdc6cf1a14100a3609f83678f668660541fbe1b89578a835f97",
+      "candidateSha256": "1a53f5430935d577d0f49ddab5c5f7d49af71e815126a197e2694fdd3bfb9971",
+      "edit": "Move sanitized failure throw after finally; preserve close-error priority",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "scripts/build_npm.ts",
+      "baseSha256": "6748ad988860527c2bcc35f63f05135c513eb6bbe5b144506011278b384c6ff1",
+      "candidateSha256": "9ce95ba3da88fba9d639f7d5f01ec51f62f44d3b3f28aac4ffea4a67bcf5b29c",
+      "edit": "Type filesystem status local",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "scripts/check-recache-rate-limits.ts",
+      "baseSha256": "6524756754e78ffe6d49c500a58c705cd4f2602b7b18d1c57a42c409f20830b7",
+      "candidateSha256": "67fe6c4d0df094f0a05736a0f3a15dee522a5e3001c8c5e0dbad5be3fcc66105",
+      "edit": "Precise documented ANSI regex suppression",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "scripts/schema-repair.ts",
+      "baseSha256": "d4cf12855051e800f66fbf60e208572360d55383128b9b210766330a5767b9d3",
+      "candidateSha256": "4458c95898b2bc7c582461a6e923dfdddcda3246846fb8918c313acef9d31037",
+      "edit": "Type optional previous-file status",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/createYahooFinance.ts",
+      "baseSha256": "dcf1c36a8b0724fc1bbf5603979985ab61c4a133785b5f94371e3c026f572b04",
+      "candidateSha256": "b2b58e758050d27bced94ff2c3a3e622974aac49002064e8170963204d312e5c",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/cookieJar.ts",
+      "baseSha256": "795d578e2160c681595c748a8a7264aa6343d6c4b87bda8a5288f6e7cf3770e2",
+      "candidateSha256": "5b008e1f698c6060adebbc5a3f7ae1f2f48e4fc1523dcb14a2d1ac674ece405f",
+      "edit": "Type optional parsed-cookie array",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/errors.ts",
+      "baseSha256": "9e70a472243dca012191f263283fd26b01ab012641c302efc598989448b33a73",
+      "candidateSha256": "5730d860aeee36d0212e99830ff48cee68acc0f48a22df64859a920fc01e37b0",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleCommon.ts",
+      "baseSha256": "a577e9169bcdf44365e97197350c6c3fd32a36cd7e5feb1d0cd1ec1fc874f398",
+      "candidateSha256": "452836819306616c8ecafb327ae72800661f14ba5563859b6c080618ccb64e55",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleExec.test.ts",
+      "baseSha256": "c5af4216b9bcfbc64a08d573c1afcbc25e2c07ed11145c38370e6e20eb0c46b6",
+      "candidateSha256": "1e84f769107710d5a50bdd3e53918443bb80a1624c89b1159b7d442515767707",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/moduleExec.ts",
+      "baseSha256": "255cbe3e4f1762a07534c9a812a586db349498e1754c91c80a647f3445f83407",
+      "candidateSha256": "86bb727e3c81695dd14041891f101da088491e5c49efd0c2d9a79e131cb833bf",
+      "edit": "Document module-specific defaults/runtime shapes without claiming schema validation; preserve existing validated overrides and transform boundaries",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/options/logger.ts",
+      "baseSha256": "8a6f04b5c10dd659a906b036d56d7ab9c034577c710174a629292f89086c2d71",
+      "candidateSha256": "406ed85dd22dd97bf780ad870ada1eae38e14839fbdabc100bf25fe4a34e1acf",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/lib/queue.ts",
+      "baseSha256": "d93225cf161925d339ee1c5679d158095b74e62fcfc7bfa005cbe2f8252b84b3",
+      "candidateSha256": "36a0720e1bf1a4d88bf42537e5310e7bbd2deb86022925c855e0240cdf0339f5",
+      "edit": "Remove redundant callback annotations; document stored callbacks",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/validateAndCoerceTypes.test.ts",
+      "baseSha256": "8f73779b2c4af9627c2eb00b338a54075fc333901aa33292bac5086d7adacf8d",
+      "candidateSha256": "ab20dabf548e7751d3e667623268493cf3a14aeed80ecbf01c290e4fa409a7e3",
+      "edit": "Initialize typed error local; document negative/logging boundaries",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/versions.test.ts",
+      "baseSha256": "857d5130a452bf7cb005c4b2e6c3d6fdc044a92fc7cf4bbf2771316b21a31316",
+      "candidateSha256": "8ea71a1ddd8b772c1c0fa914504ca946118e8953d241af74ab0cf20d9c15b152",
+      "edit": "Split fetch assignments",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/versions.ts",
+      "baseSha256": "d9047b2cdfe9179e04efea3279228ab84f84975f5232f7dfa9db24e934b0d78e",
+      "candidateSha256": "441d8f2328641463e239320ac6556296f21230cd9578655e014de8e35c51bf61",
+      "edit": "Split cache assignment/return",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/lib/yahooFinanceFetch.ts",
+      "baseSha256": "e401e95755eae987c11fad3d4612d9c796b3cc5428a732220c56f33ab9e77fd7",
+      "candidateSha256": "182c7e1cd84821b3cacc1248c5d05f84db98615b08e852eccdc1d3458da29f6f",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/chart.ts",
+      "baseSha256": "6eef49e214ae3a3562231c2f3f59c4a86e12c3b9dbb114667564214d9420ea92",
+      "candidateSha256": "aa364aa6f190851670c8add344ab10451b2abe38598121b6af4d0e53e82acac3",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/fundamentalsTimeSeries.ts",
+      "baseSha256": "9391b3082db204af1cdf28c70bd068e8682497c6dbadb17749842523f7b1c6e3",
+      "candidateSha256": "60d12d414c27e760da7b5951f86808b33da655f423ee35972c684345146cf86e",
+      "edit": "Strict equality for three string comparisons; migrate any directives",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/modules/historical.ts",
+      "baseSha256": "36b1710d01f466afb070c67f95313c43e23419c7f73798f6666920672f50c9fe",
+      "candidateSha256": "0644dca7a5bf72d103cabd8d04a61a4bf245067d911a15980bb92d7dd95c1347",
+      "edit": "Type implementation locals; migrate any directives",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "src/modules/options.ts",
+      "baseSha256": "b27f8f14308a5c7a998af3b228f14b12be1ee87089525ec761d8b85a8b210d2a",
+      "candidateSha256": "2d0f4743ba1a0140ef0b92ab77416edff3919d77ae31d5bde4b5e5a5a3d410f1",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/quote.ts",
+      "baseSha256": "a735895c1158cdb6e695cf35098e2290edae94e4697a0368d6d6e41bcc8a44fb",
+      "candidateSha256": "43da0d79dcb2a039262d86ce4e478c4dc52dfbf8fac01a669224fb5522ed5af8",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/quoteSummary.ts",
+      "baseSha256": "8ec84c728766081749bc9242c4b4410c780b2d94e7a4e8ea8c36a28375de7ba8",
+      "candidateSha256": "6f32fc3a2c6229234573ec54f9ffd3e018c1678869a0b8447a91a92b576711ef",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/recommendationsBySymbol.ts",
+      "baseSha256": "4354ce6636d93f537af34e56aa1d65567bcec94a91692e58c8a04d092f30dfff",
+      "candidateSha256": "e9e3fb5e37e0a59b7f9a77070b9d236da02a943ce3443bdcb69235b39a9930cc",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/screener.ts",
+      "baseSha256": "6c1aab4ad8fb0f2555db432ea8282abf2fd99695276f8b51c1c33e3738511d69",
+      "candidateSha256": "725059fe0eca74fa4337060c44d9e2f14d1075d90187253598317ff4559adc87",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/modules/trendingSymbols.ts",
+      "baseSha256": "c7553ca61f7848eb3f9d273b9070d72570893bf604d78da30780e8770d8ffb94",
+      "candidateSha256": "6973aacce72decedee46c41aa0637126114e9d2d3e2eabc06b87d9e86913c13d",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "src/other/quoteCombine.ts",
+      "baseSha256": "f7f34e361be793d15134db1fa1aca895ca0103439f150a62b76701995179d9ed",
+      "candidateSha256": "1e448bebdaa8c2ce38384c4b42ddd264f2a017e99e40491be0527910dfe64ccd",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/cli-entrypoints.test.ts",
+      "baseSha256": "231e875b5eac23d24b03baef233a0bed89fed94624f6358405675ab098965d00",
+      "candidateSha256": "5652c1280910bd921d08b7c1b51c6b28bb86558aec6653c0d4e1122c3253c2fa",
+      "edit": "Add sanitized cleanup-error precedence regression",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "tests/common.ts",
+      "baseSha256": "2ca9e55dfed2ef9a4d94c9decd72c4085e12fed9d1f2aa55f7e07974355b7307",
+      "candidateSha256": "6eaf441759912ad9f86281174b0c12341f4dafaf11db721efd88f73c50a4d058",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/harness.test.ts",
+      "baseSha256": "2acbf2da5ffa082dc247a58bcfafc33438e5ed836820d510c7878305d27f16c3",
+      "candidateSha256": "3e9a2b75f01277b5044ed09be7d2bc654e87257c23233c69aabc114d19105bbe",
+      "edit": "Precise documented thenable fixture suppression",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/migration/mock.ts",
+      "baseSha256": "99233f8a680883511d2d2f80e7fddbe2b3eaf135ab4ea4bdaa204a13c9e1d1bf",
+      "candidateSha256": "253fecbcd2139662f0a52f55a7724dc7a526083d57a3e0afbbe556148581a587",
+      "edit": "Preserve typed spy return local; replace file-wide directive",
+      "commentFreeAstUnchanged": false
+    },
+    {
+      "path": "tests/migration/runner.ts",
+      "baseSha256": "bdc17f1de4afe5602384614f1159831fdab256941c03d0204e6603b6282ad32b",
+      "candidateSha256": "5aad52e693e6b12e726d9bd3018dfb3e7efc3f5464110559894cffbdeddc2620",
+      "edit": "Replace obsolete Deno explicit-any directives with local contract explanations",
+      "commentFreeAstUnchanged": true
+    },
+    {
+      "path": "tests/migration/K02-SEMANTIC.md",
+      "baseSha256": null,
+      "candidateSha256": "52397a6037398a84145767986d7889d9e63d3ee48c814b8e22dc0c741b000a5f",
+      "edit": "Preparation policy and proposed per-file application list"
+    }
+  ],
+  "review": {
+    "reviewedReceiptSha256": "211f7fd89907e973fcc250e50716f11224397a337aec4dbc491076c597c86b51",
+    "archiveSha256": "f091a6d67289128c77a773f7763c05a76bdff4a4c8a1b3203caa126277627c98",
+    "patchSha256": "46a7fef1084d8d4a7ad868af02778260c1453d00b845f34f199bcdaf8f6a66a3",
+    "sol": {
+      "initialEvidence": "/tmp/yf-k02-sol-review-db1r3ie2/review.json",
+      "correctionVerdict": "Clear; exactly two comments corrected, source/type/suppression scope unchanged; no remaining findings",
+      "correctedModuleExecSha256": "86bb727e3c81695dd14041891f101da088491e5c49efd0c2d9a79e131cb833bf"
+    },
+    "astra": {
+      "initialEvidence": "/tmp/yf-k02-astra-oeg4diml/review.json",
+      "correctionVerdict": "Clear; exact two-comment and policy/receipt delta verified; prior semantic verdict stands"
+    },
+    "correctionProof": "/tmp/yf-k02-v2-correction-proof.json",
+    "parentAfterReview": "Documentation application/acceptance wording and receipt metadata only; all 31 reviewed source bytes unchanged"
+  },
+  "combinedWorkingTreeCheck": {
+    "status": "Exact reviewed33-file K02 v2 patch applied; combined root lint and strict typecheck pass without changing original isolated evidence",
+    "recordedAt": "2026-10-16T13:09:07.855487+00:00",
+    "head": "eabb702609adaf133657a159d497ee828d5ed3b6",
+    "reviewManifest": "/tmp/yf-k02-semantic-review-v2.json",
+    "reviewManifestSha256": "c4c75b8ac0a5df50b6f21fc29ac4fddbfbc15d2da4af0a06f8220d7f16f6ad7d",
+    "patchSha256": "46a7fef1084d8d4a7ad868af02778260c1453d00b845f34f199bcdaf8f6a66a3",
+    "all33ReviewedHashesMatch": true,
+    "existingNativePathsUnchanged": true,
+    "originalIsolatedReceiptUnchanged": true,
+    "inputManifest": "/tmp/yf-k02-integration-eabb702/source-manifest-before.json",
+    "inputManifestSha256": "9d27142d522d05d54ba6e7d30a254afa4364531da2584230035aeb07aeaba2b5",
+    "postInputManifestSha256": "9d27142d522d05d54ba6e7d30a254afa4364531da2584230035aeb07aeaba2b5",
+    "inputFileCount": 1547,
+    "inputFilesStableDuringChecks": true,
+    "checks": {
+      "lint": {
+        "exitCode": 0,
+        "summary": {
+          "changed": 0,
+          "unchanged": 192,
+          "matches": 0,
+          "duration": 30932557,
+          "errors": 0,
+          "warnings": 150,
+          "infos": 128,
+          "skipped": 0,
+          "suggestedFixesSkipped": 0,
+          "diagnosticsNotPrinted": 0,
+          "scannerDuration": 1226922
+        },
+        "suppressionDiagnostics": 0
+      },
+      "typecheck": {
+        "exitCode": 0,
+        "stdout": "Selected compiler projects: library, tools; Workers uses its independent gate.\nPolicy: historical experiment drivers/configs and fixture/result data are separate; --list shows exact roots and exclusions.\nlibrary: 58 roots, 73 project files, 28 consumer exports; 0 diagnostics\ntools: 109 roots, 181 project files, 0 consumer exports; 0 diagnostics\n"
+      }
+    },
+    "logSha256": {
+      "lint.json": "0673ad4ce827582180d1ce09ae625e1338455bbb5174dcc07a575b6db95bffe1",
+      "lint.stderr": "a9ae91ed2d245817cda4087ec77e6b6ff2e3e5ba567b4ec3718835495fd9435d",
+      "typecheck.stdout": "699943bba3bab85cec23b4b95d1e0b41db6152b5ecbfeb88e87f452eea2dc184",
+      "typecheck.stderr": "878aef579c97e2ae78ebc2d84d8683b38ccfe6e1940abe167b4122b3fed1414a"
+    },
+    "commands": {
+      "guard": "python3 scripts/testing/offline.py ROOT SCRATCH -- COMMAND",
+      "lint": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "lint",
+        "--reporter=json",
+        "--max-diagnostics=10000"
+      ],
+      "typecheck": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "run",
+        "typecheck"
+      ]
+    },
+    "scope": "Combined working tree at committed CI eabb702 plus exact reviewed K02 patch and unchanged native replay draft, including committed CI enum test. This is separate from the original isolated base0e10be3 evidence.",
+    "noBroadReplayRerun": true,
+    "noFormattingStagingCommitReportOrFixtureEdits": true,
+    "receiptSha256": "547a1760d2bbe66011e3b49d35e18dcf6aa6de5811684d6f0dbe5a52f9192d2a",
+    "subsequentNativeChanges": "Native filename correction continued afterward; this check anchors its exact recorded working-tree snapshot."
+  }
+}

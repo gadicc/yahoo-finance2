@@ -859,7 +859,7 @@ export default function fundamentalsTimeSeries(
   symbol: string,
   queryOptionsOverrides: FundamentalsTimeSeriesOptions,
   moduleOptions?: ModuleOptionsWithValidateFalse,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Disabling result validation preserves the existing unvalidated return contract.
 ): Promise<any>;
 
 export default function fundamentalsTimeSeries(
@@ -867,7 +867,7 @@ export default function fundamentalsTimeSeries(
   symbol: string,
   queryOptionsOverrides: FundamentalsTimeSeriesOptions,
   moduleOptions?: ModuleOptions,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The implementation unifies the existing validated and unvalidated overloads.
 ): Promise<any> {
   return this._moduleExec({
     moduleName: "options",
@@ -887,7 +887,7 @@ export default function fundamentalsTimeSeries(
     result: {
       definitions,
       schemaKey: "#/definitions/FundamentalsTimeSeriesResults",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(response: any) {
         if (!response || !response.timeseries) {
           throw new Error(`Unexpected result: ${JSON.stringify(response)}`);
@@ -961,9 +961,9 @@ const processQuery = function (
   // Join the keys for the module into query types.
   const keys = Object.entries(Timeseries_Keys).reduce(
     (previous: Array<string>, [module, keys]) => {
-      if (queryOptions.module == "all") {
+      if (queryOptions.module === "all") {
         return previous.concat(keys);
-      } else if (module == queryOptions.module) {
+      } else if (module === queryOptions.module) {
         return previous.concat(keys);
       } else return previous;
     },
@@ -991,12 +991,12 @@ type TYPES = "BALANCE_SHEET" | "CASH_FLOW" | "FINANCIALS" | "ALL" | "UNKNOWN";
  * @returns Formatted response.
  */
 const processResponse = function (
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Yahoo financial statement keys are normalized before result schema validation.
   response: any,
   requestModule: string,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The transformed statement shape is checked by the selected result schema.
 ): any {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Statement data has dynamic Yahoo keys until result schema validation.
   const keyedByTimestamp: Record<string, any> = {};
   const replace = new RegExp(FundamentalsTimeSeries_Types.join("|"));
 
@@ -1022,7 +1022,7 @@ const processResponse = function (
       }
 
       const short = dataKey.replace(replace, "");
-      const key = short == short.toUpperCase()
+      const key = short === short.toUpperCase()
         ? short
         : short[0].toLowerCase() + short.slice(1);
       keyedByTimestamp[timestamp][key] = result[dataKey][ct].reportedValue.raw;

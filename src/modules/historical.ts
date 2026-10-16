@@ -273,7 +273,7 @@ export default function historical(
   symbol: string,
   queryOptionsOverrides: HistoricalOptions,
   moduleOptions?: ModuleOptionsWithValidateFalse,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Disabling result validation preserves the existing unvalidated return contract.
 ): Promise<any>;
 
 /**
@@ -373,9 +373,9 @@ export default async function historical(
   symbol: string,
   queryOptionsOverrides: HistoricalOptions,
   moduleOptions?: ModuleOptions,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The implementation unifies the existing validated and unvalidated overloads.
 ): Promise<any> {
-  let _schemaKey;
+  let _schemaKey: string;
   this._notices.show("ripHistorical");
 
   if (
@@ -438,7 +438,7 @@ export default async function historical(
     validateResult: true,
   });
 
-  let out;
+  let out: unknown[];
   if (queryOpts.events === "dividends") {
     out = (result.events?.dividends ?? []).map((d) => ({
       date: d.date,

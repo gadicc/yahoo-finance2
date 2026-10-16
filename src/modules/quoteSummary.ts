@@ -292,7 +292,7 @@ export default function quoteSummary(
     result: {
       definitions: resultsDefinitions,
       schemaKey: "#/definitions/QuoteSummaryResult",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         if (!result.quoteSummary) {
           throw new Error("Unexpected result: " + JSON.stringify(result));

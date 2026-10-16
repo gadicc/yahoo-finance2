@@ -58,7 +58,7 @@ import validateAndCoerceTypes from "../lib/validateAndCoerceTypes.ts";
 import schema from "../modules/quote.schema.json" with { type: "json" };
 const definitions = getTypedDefinitions(schema);
 
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: The cache preserves the existing heterogeneous quote-combination result contract.
 const slugMaps = new WeakMap<object, Map<string, any>>();
 
 /**

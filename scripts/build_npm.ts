@@ -95,7 +95,7 @@ function ownedInput(file: string, allowDirectory = false, allowMissing = false) 
   let current = repository;
   for (let index = 0; index < components.length; index++) {
     current = path.join(current, components[index]);
-    let status;
+    let status: ReturnType<typeof lstatSync>;
     try {
       status = lstatSync(current);
     } catch (error) {

@@ -4,7 +4,7 @@ import { readFixtureBytes } from "./recache-fixtures.ts";
 /** Reject rate-limited recache runs before any fixtures are staged or pushed. */
 export function hasRateLimitLog(log: string): boolean {
   // ANSI color codes can appear between "status" and its numeric value.
-  // deno-lint-ignore no-control-regex
+  // biome-ignore lint/suspicious/noControlCharactersInRegex: Strip intentional ANSI escape codes before checking rate-limit diagnostics.
   const plain = log.replace(/\x1b\[[0-9;]*m/g, "");
   return /\b(?:status(?:Code)?[\s":=]*429|HTTP(?:\/\S+)?\s+429|Too Many Requests)\b/i
     .test(plain);

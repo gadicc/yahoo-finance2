@@ -448,7 +448,7 @@ function writeRegularFile(file: string, content: string, create = false) {
     "File parents must not contain symlinks",
   );
   // lstat also sees a dangling symlink, whereas existsSync follows it.
-  let previous;
+  let previous: ReturnType<typeof regularFile> | undefined;
   try {
     previous = regularFile(absolute);
   } catch (error) {

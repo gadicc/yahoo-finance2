@@ -24,7 +24,8 @@ describe("versions", () => {
   });
 
   it("should return the current version and use cache for subsequent calls", async () => {
-    const fetch = globalThis.fetch = spy(globalThis.fetch);
+    const fetch = spy(globalThis.fetch);
+    globalThis.fetch = fetch;
 
     expect(await getLatestVersion()).toBe("2.13.3"); // fresh
     expect(fetch.calls.length).toBe(1);
@@ -42,7 +43,8 @@ describe("versions", () => {
   });
 
   it("should return unmatched versions and use cache for subsequent calls", async () => {
-    const fetch = globalThis.fetch = spy(globalThis.fetch);
+    const fetch = spy(globalThis.fetch);
+    globalThis.fetch = fetch;
 
     expect(await versionCheck()).toMatchObject({
       current: "0.0.1",

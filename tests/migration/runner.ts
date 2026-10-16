@@ -59,7 +59,7 @@ export async function runTest(body: TestBody, context?: TestContext) {
 
 type EachTable = ReadonlyArray<unknown | ReadonlyArray<unknown>>;
 // Table rows determine the callback arguments at runtime.
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: Each table supplies heterogeneous callback arguments at runtime.
 type EachTestBody = (...args: any[]) => void | PromiseLike<void>;
 
 function each(table: EachTable) {

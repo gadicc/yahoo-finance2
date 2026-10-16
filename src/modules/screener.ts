@@ -746,7 +746,7 @@ export default function screener(
     result: {
       definitions,
       schemaKey: "#/definitions/ScreenerResult",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         // console.log(result);
         if (!result.finance) {

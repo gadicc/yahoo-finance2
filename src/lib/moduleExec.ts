@@ -8,7 +8,7 @@ import type { JSONSchema } from "./validate/index.ts";
 import type { ModuleOptions } from "./moduleCommon.ts";
 
 // The consuming module itself will have a stricter return type.
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: Each consuming module provides its stricter transform argument and return types.
 type TransformFunc = (arg: any) => any;
 /*
 interface TransformFunc {
@@ -46,20 +46,20 @@ interface ModuleExecOptions {
      * Defaults for this query, e.g. { period: '1d' } in history,
      * and other required options that aren't often changed { locale: 'en' }.
      */
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Preserve module-specific query default shapes in the shared execution contract.
     defaults: any;
     /**
      * Query parameters generated inside the module, most commonly something
      * like { q: query } to take e.g. yf.search(query) and pass it how Yahoo
      * expects it.
      */
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Preserve module-specific runtime query shapes in the shared execution contract.
     runtime?: any;
     /**
      * Query options passed by the user that will override the default and
      * runtime params.  Will be validated with schemaKey.
      */
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: User query overrides are checked by the selected runtime schema.
     overrides: any;
     /**
      * Called with the merged (defaults,runtime,overrides) before running
@@ -96,7 +96,7 @@ interface ModuleExecOptions {
   moduleOptions?: ModuleOptions;
 }
 
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: Module execution retains the existing module-specific instance extension contract.
 type ThisWithModExec = { [key: string]: any; _moduleExec: typeof moduleExec };
 
 /**

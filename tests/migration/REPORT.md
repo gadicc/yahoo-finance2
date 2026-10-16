@@ -522,6 +522,25 @@ transfer, Codecov OIDC and the native OS matrix remain pending. No publication,
 live Yahoo request or fixture write was part of this work. Progress remains
 **43/71**.
 
+## Semantic lint checkpoint (partial K02, 2026-10-16)
+
+The [reviewed semantic lint phase](K02-SEMANTIC.md) fixes sixteen owned error
+diagnostics and migrates all 66 obsolete Deno lint directives to precise local
+Biome explanations or redundant-annotation removal. The recommended rule set
+and severities remain intact; formatting churn is separate. Cookie cleanup
+retains sanitized error precedence, spies/version caches preserve return
+identity, and public declarations and schemas remain unchanged.
+
+Independent Sol xhigh and Astra xhigh reviews cleared 193 affected cached tests,
+strict types, schema parity and behavior controls after two inaccurate schema
+validation explanations were corrected. A separate exact working-tree check
+including CI and the then-current native draft reports zero lint errors,
+150 existing warnings, 128 information diagnostics and zero type diagnostics;
+the [receipt](results/k02-semantic-preparation.json) records its exact inputs.
+The native filename fix continued afterward, so this is not final combined
+replay proof. Formatting and final CI alignment remain open; K02 is not checked
+complete and progress remains **43/71**.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream

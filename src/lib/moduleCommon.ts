@@ -30,11 +30,11 @@ export interface ModuleOptionsWithValidateTrue extends ModuleOptions {
 }
 
 export interface ModuleThis {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Modules attach their own methods and options to this existing shared instance contract.
   [key: string]: any;
   // TODO: should be ModuleExec function but requiring functions breaks
   // schema generation because json-schema does not support functions.
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Schema generation cannot represent a function-valued module executor in this shared contract.
   _moduleExec: any;
   // _moduleExec: typeof ModuleExec;
   // _notices: Notices;
