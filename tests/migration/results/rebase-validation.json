@@ -1,0 +1,57 @@
+{
+  "validatedOn": "2026-10-16",
+  "branch": "codex/test-runner-bun",
+  "rebasedOnto": "93bb36d93ee1dbf013b6c9baf5c4a730f7ad8459",
+  "originalExperimentCommit": "c1479eb2191a71ee162945cb811b6b064d572ca3",
+  "discoveredTestFiles": 44,
+  "passingLeafTests": 1329,
+  "fixtures": {
+    "count": 1201,
+    "unchangedDuringValidation": true,
+    "matchesDev": true
+  },
+  "checks": {
+    "guard-node": {
+      "passed": true
+    },
+    "guard-bun": {
+      "passed": true
+    },
+    "replay": {
+      "passed": true
+    },
+    "coverage": {
+      "passed": true
+    },
+    "typecheck": {
+      "passed": true
+    },
+    "negative-typecheck": {
+      "passed": true
+    }
+  },
+  "commands": {
+    "prepare": "python3 tests/migration/prepare.py",
+    "guard": "python3 tests/migration/offline.py \"$YF_EXPERIMENT_NODE\" tests/migration/guard-probe.mjs",
+    "replay": "python3 tests/migration/run.py",
+    "coverage": "python3 tests/migration/run.py --coverage",
+    "typecheck": "python3 tests/migration/run.py --typecheck",
+    "negativeTypecheck": "python3 tests/migration/negative-typecheck.py",
+    "guardBun": "python3 tests/migration/offline.py bun tests/migration/guard-probe.mjs"
+  },
+  "versions": {
+    "node": "24.21.0",
+    "bun": "1.4.2",
+    "typescript": "6.0.3"
+  },
+  "newTests": {
+    "workflowPolicy": 6,
+    "schemaRepairStringUnion": 4
+  },
+  "notes": [
+    "Validation only; original benchmark measurements and inventory remain historical.",
+    "No live Yahoo access or fixture writes; seccomp and read-only fixture guards passed.",
+    "Existing runner-specific skip reporting is unchanged: Bun includes two unnamed hooks; Node reports the skipped suite without its five leaves.",
+    "No GitHub Actions run is expected for experiment-branch pushes under the new workflow policy."
+  ]
+}

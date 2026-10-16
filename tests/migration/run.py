@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Explicit 43-file inventory; shell glob expansion never selects the workload."""
+"""Discover the complete test inventory; shell globs never select the workload."""
 import argparse, os, pathlib, subprocess, sys
 parser = argparse.ArgumentParser()
 parser.add_argument("--focus", action="store_true")
