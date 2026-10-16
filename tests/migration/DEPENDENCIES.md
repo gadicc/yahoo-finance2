@@ -1,4 +1,7 @@
-# B03 dependency and configuration ownership
+# B03 dependency and configuration ownership (historical snapshot)
+
+This B03 snapshot preserves its original ownership and version receipts. See
+the dated F01–F06 delta below for current package-build ownership.
 
 The root `package.json` remains a **private migration workspace**, with exact
 versions and `bun.lock` owning its JavaScript graph. It is not the published
@@ -118,3 +121,31 @@ support remains H01–H05. `deno.lock` continues to own remaining JSR and
 Deno tooling resolution; removing development Deno does not decide JSR or
 Deno consumer compatibility. B06 still owns licenses, advisories, peers and
 native/optional dependency auditing. B05 still owns cross-platform installs.
+
+
+## Package-build ownership delta (F01–F06, 2026-10-16)
+
+The [reviewed package build](PACKAGING.md) now uses root TypeScript 6.0.3
+through `bun run build:npm`, with no Deno binary, dnt invocation or runtime
+shims. Retained generated `deno.json` files are package identity/version data.
+The obsolete `@deno/dnt` import-map alias remains unused pending B04; the B03
+tables above describe the earlier snapshot rather than current execution.
+
+The root manifest remains private with exact development pins. The generated
+public manifest preserves all 28 export keys, Node >=22.0.0 and the existing
+public dependency ranges from the retained import map. It ships four runtime
+packages (`tough-cookie`, `tough-cookie-file-store`,
+`@modelcontextprotocol/sdk`, `zod`) plus `@types/json-schema`, needed by exported
+declarations. `fetch-mock-cache` remains private test tooling and is absent
+from the packed runtime graph. The real fresh consumer resolved SDK 1.32.1
+and zod 4.6.7 under those public ranges; these are consumer receipts, not root
+pin changes. The explicit package allowlist excludes development dependencies,
+fixtures and original source. Linux installed ESM/CJS/strict TypeScript proofs
+cover every export on Node 22.0.0, Node 24.21.0 and Bun 1.4.3; see the
+[F receipt](results/f01-f06-packaging.json) for exact commands and limits.
+
+`scripts/fix_versions.ts` and release `prepareCmd` remain unported J02/J04
+owners: their old dnt `deno.js` targets must not be used with the new output.
+Version injection is now `bun run build:npm --version VERSION`; publication,
+JSR/Deno 2 consumer execution, Workers integration and cross-platform validation
+remain separate open work. The publishing-only Deno policy is unchanged.

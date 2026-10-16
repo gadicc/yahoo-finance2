@@ -1,0 +1,1643 @@
+{
+  "milestone": "F01-F06 Linux package build and real installed consumers",
+  "recordedAtUtc": "2026-10-16T11:04:50.826133+00:00",
+  "baseCommit": "98e2d47698a3130a0b40ee5f9b5da0511475f03e",
+  "platform": {
+    "system": "Linux",
+    "machine": "x86_64"
+  },
+  "tools": {
+    "bun": "1.4.3",
+    "typescript": "6.0.3",
+    "nodeToolHost": "24.21.0",
+    "nodeMinimumConsumer": "22.0.0",
+    "nodeAdditionalConsumer": "24.21.0",
+    "npm": "11.19.0"
+  },
+  "guard": {
+    "launcher": "scripts/testing/offline.py",
+    "readOnlyRepository": true,
+    "newNetworkNamespace": true,
+    "newPidNamespace": true,
+    "seccompInetInet6AndIoUringDenial": true,
+    "scratchOnlyWrites": true,
+    "installationSeparate": true,
+    "directBunTestUsed": false,
+    "denoBinaryInvoked": false,
+    "liveYahooRequests": 0
+  },
+  "sourceSha256": {
+    "scripts/build_npm.ts": "6748ad988860527c2bcc35f63f05135c513eb6bbe5b144506011278b384c6ff1",
+    "scripts/build_npm.test.ts": "f4252ead287c67211e51b4ff21d3efe9c1d7b479482f552d6f7d2a6d393926bd",
+    "tests/migration/package-pack.mjs": "68e3bf4ca5f9ec924c0265e4ac4c8770bbf3619ce18cce657a4130021dccccd8",
+    "tests/migration/package-consumer.mjs": "58077290e679d55d5d2602ad125851a35f2a68a2a5fe3e411abd1c6c2c78af25",
+    "tests/migration/package-bins.mjs": "94afc1b1fc7b74f7bd67b25f342f79b9b6559937da2da011a459c0e6bf824739",
+    "tests/migration/PACKAGING.md": "c29a7c98a084220652d0bbc5545861468504b6a36d454dbf92614a99d8832281"
+  },
+  "build": [
+    {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "scripts/build_npm.ts",
+        "--out-dir",
+        "/tmp/yf-package-proof/final-validation-package",
+        "--version",
+        "9.8.7-test.1"
+      ],
+      "exitCode": 0,
+      "stdout": "Built npm package at /tmp/yf-package-proof/final-validation-package\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "tests/migration/package-pack.mjs",
+        "/tmp/yf-package-proof/final-validation-package",
+        "/tmp/yf-package-proof/final-validation-pack",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"filename\":\"yahoo-finance2-9.8.7-test.1.tgz\",\"entryCount\":252,\"unpackedSize\":2183546,\"sha256\":\"52bcb3d3705ccfff69a62808b7eed72a4acb7eb2fa39ef42ccad3fe1b257a2e0\",\"schemas\":26,\"bundled\":[]}\n",
+      "stderr": ""
+    }
+  ],
+  "tarball": {
+    "filename": "yahoo-finance2-9.8.7-test.1.tgz",
+    "sha256": "52bcb3d3705ccfff69a62808b7eed72a4acb7eb2fa39ef42ccad3fe1b257a2e0",
+    "secondIndependentBuildSha256": "52bcb3d3705ccfff69a62808b7eed72a4acb7eb2fa39ef42ccad3fe1b257a2e0",
+    "byteIdentical": true,
+    "entryCount": 252,
+    "size": 205407,
+    "unpackedSize": 2183546,
+    "schemasPerFormat": 13,
+    "exportCount": 28,
+    "aliasCount": 3,
+    "bundled": [],
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1050,
+        "mode": 420
+      },
+      {
+        "path": "README.md",
+        "size": 7838,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/runtime.d.ts",
+        "size": 1276,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/runtime.js",
+        "size": 5055,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance-mcp.d.ts",
+        "size": 620,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance-mcp.js",
+        "size": 9043,
+        "mode": 493
+      },
+      {
+        "path": "esm/bin/yahoo-finance.d.ts",
+        "size": 301,
+        "mode": 420
+      },
+      {
+        "path": "esm/bin/yahoo-finance.js",
+        "size": 1063,
+        "mode": 493
+      },
+      {
+        "path": "esm/deno.json",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "esm/package.json",
+        "size": 23,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/consts.d.ts",
+        "size": 78,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/consts.js",
+        "size": 70,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/createYahooFinance.d.ts",
+        "size": 4816,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/createYahooFinance.js",
+        "size": 5398,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/index.d.ts",
+        "size": 1823,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/index.js",
+        "size": 957,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cli.d.ts",
+        "size": 1069,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cli.js",
+        "size": 8825,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/commonTypes.d.ts",
+        "size": 100,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/commonTypes.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cookieJar.d.ts",
+        "size": 1576,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/cookieJar.js",
+        "size": 2492,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/deepmerge.d.ts",
+        "size": 1741,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/deepmerge.js",
+        "size": 1383,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/errors.d.ts",
+        "size": 726,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/errors.js",
+        "size": 1135,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/getCrumb.d.ts",
+        "size": 2072,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/getCrumb.js",
+        "size": 15312,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/headers.d.ts",
+        "size": 73,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/headers.js",
+        "size": 193,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/jsonSafe.d.ts",
+        "size": 169,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/jsonSafe.js",
+        "size": 1829,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleCommon.d.ts",
+        "size": 1166,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleCommon.js",
+        "size": 11,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleExec.d.ts",
+        "size": 3681,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/moduleExec.js",
+        "size": 5226,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/notices.d.ts",
+        "size": 342,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/notices.js",
+        "size": 1997,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/defaults.d.ts",
+        "size": 125,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/defaults.js",
+        "size": 1159,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/logger.d.ts",
+        "size": 897,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/logger.js",
+        "size": 1007,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.d.ts",
+        "size": 3822,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.js",
+        "size": 1955,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/options/options.schema.json",
+        "size": 23248,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/queue.d.ts",
+        "size": 677,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/queue.js",
+        "size": 1688,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtime-detect.d.ts",
+        "size": 1000,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtime-detect.js",
+        "size": 6835,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtimeGlobal.d.ts",
+        "size": 132,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/runtimeGlobal.js",
+        "size": 254,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/timeseries.json",
+        "size": 17374,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/index.d.ts",
+        "size": 1327,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/index.js",
+        "size": 8854,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/array.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/array.js",
+        "size": 643,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/boolean.d.ts",
+        "size": 87,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/boolean.js",
+        "size": 346,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/index.d.ts",
+        "size": 370,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/index.js",
+        "size": 394,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/null.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/null.js",
+        "size": 551,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/number.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/number.js",
+        "size": 1874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/object.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/object.js",
+        "size": 3935,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/string.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/string.js",
+        "size": 3434,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/undefined.d.ts",
+        "size": 90,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validate/types/undefined.js",
+        "size": 364,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validateAndCoerceTypes.d.ts",
+        "size": 1013,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/validateAndCoerceTypes.js",
+        "size": 9067,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/versions.d.ts",
+        "size": 283,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/versions.js",
+        "size": 905,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/yahooFinanceFetch.d.ts",
+        "size": 1709,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/lib/yahooFinanceFetch.js",
+        "size": 5375,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/http.d.ts",
+        "size": 1093,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/http.js",
+        "size": 6267,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/mod.d.ts",
+        "size": 287,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/mod.js",
+        "size": 185,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/server.d.ts",
+        "size": 709,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/mcp/server.js",
+        "size": 10434,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/autoc.d.ts",
+        "size": 1293,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/autoc.js",
+        "size": 1509,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.d.ts",
+        "size": 9908,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.js",
+        "size": 10410,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/chart.schema.json",
+        "size": 15213,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyGainers.d.ts",
+        "size": 2421,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyGainers.js",
+        "size": 2677,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyLosers.d.ts",
+        "size": 2679,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/dailyLosers.js",
+        "size": 2933,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.d.ts",
+        "size": 30757,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.js",
+        "size": 13165,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/fundamentalsTimeSeries.schema.json",
+        "size": 84102,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.d.ts",
+        "size": 7413,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.js",
+        "size": 13844,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/historical.schema.json",
+        "size": 6723,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/index.d.ts",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/index.js",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.d.ts",
+        "size": 9336,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.js",
+        "size": 5203,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/insights.schema.json",
+        "size": 12466,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.d.ts",
+        "size": 6669,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.js",
+        "size": 6554,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/options.schema.json",
+        "size": 105238,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.d.ts",
+        "size": 21995,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.js",
+        "size": 7076,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quote.schema.json",
+        "size": 116888,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.d.ts",
+        "size": 28971,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.js",
+        "size": 4026,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary-iface.schema.json",
+        "size": 73131,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.d.ts",
+        "size": 5817,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.js",
+        "size": 6972,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/quoteSummary.schema.json",
+        "size": 74682,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.d.ts",
+        "size": 9225,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.js",
+        "size": 8517,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/recommendationsBySymbol.schema.json",
+        "size": 1305,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.d.ts",
+        "size": 22232,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.js",
+        "size": 10746,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/screener.schema.json",
+        "size": 82147,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.d.ts",
+        "size": 10197,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.js",
+        "size": 3939,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/search.schema.json",
+        "size": 20706,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.d.ts",
+        "size": 4768,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.js",
+        "size": 3643,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/modules/trendingSymbols.schema.json",
+        "size": 1456,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/index.d.ts",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/index.js",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/quoteCombine.d.ts",
+        "size": 3435,
+        "mode": 420
+      },
+      {
+        "path": "esm/src/other/quoteCombine.js",
+        "size": 6187,
+        "mode": 420
+      },
+      {
+        "path": "package.json",
+        "size": 9592,
+        "mode": 420
+      },
+      {
+        "path": "script/deno.json",
+        "size": 68,
+        "mode": 420
+      },
+      {
+        "path": "script/package.json",
+        "size": 25,
+        "mode": 420
+      },
+      {
+        "path": "script/src/consts.d.ts",
+        "size": 78,
+        "mode": 420
+      },
+      {
+        "path": "script/src/consts.js",
+        "size": 171,
+        "mode": 420
+      },
+      {
+        "path": "script/src/createYahooFinance.d.ts",
+        "size": 4816,
+        "mode": 420
+      },
+      {
+        "path": "script/src/createYahooFinance.js",
+        "size": 5993,
+        "mode": 420
+      },
+      {
+        "path": "script/src/index.d.ts",
+        "size": 1823,
+        "mode": 420
+      },
+      {
+        "path": "script/src/index.js",
+        "size": 2608,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/commonTypes.d.ts",
+        "size": 100,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/commonTypes.js",
+        "size": 77,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/cookieJar.d.ts",
+        "size": 1576,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/cookieJar.js",
+        "size": 2703,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/deepmerge.d.ts",
+        "size": 1741,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/deepmerge.js",
+        "size": 1484,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/errors.d.ts",
+        "size": 726,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/errors.js",
+        "size": 1569,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/getCrumb.d.ts",
+        "size": 2072,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/getCrumb.js",
+        "size": 15548,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/headers.d.ts",
+        "size": 73,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/headers.js",
+        "size": 314,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/jsonSafe.d.ts",
+        "size": 169,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/jsonSafe.js",
+        "size": 1972,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleCommon.d.ts",
+        "size": 1166,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleCommon.js",
+        "size": 77,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleExec.d.ts",
+        "size": 3681,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/moduleExec.js",
+        "size": 6728,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/notices.d.ts",
+        "size": 342,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/notices.js",
+        "size": 2086,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/defaults.d.ts",
+        "size": 125,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/defaults.js",
+        "size": 1375,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/logger.d.ts",
+        "size": 897,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/logger.js",
+        "size": 1148,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.d.ts",
+        "size": 3822,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.js",
+        "size": 2350,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/options/options.schema.json",
+        "size": 23248,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/queue.d.ts",
+        "size": 677,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/queue.js",
+        "size": 1775,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtime-detect.d.ts",
+        "size": 1000,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtime-detect.js",
+        "size": 7347,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtimeGlobal.d.ts",
+        "size": 132,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/runtimeGlobal.js",
+        "size": 403,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/timeseries.json",
+        "size": 17374,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/index.d.ts",
+        "size": 1327,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/index.js",
+        "size": 9236,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/array.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/array.js",
+        "size": 920,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/boolean.d.ts",
+        "size": 87,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/boolean.js",
+        "size": 469,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/index.d.ts",
+        "size": 370,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/index.js",
+        "size": 639,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/null.d.ts",
+        "size": 85,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/null.js",
+        "size": 692,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/number.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/number.js",
+        "size": 2050,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/object.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/object.js",
+        "size": 5445,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/string.d.ts",
+        "size": 86,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/string.js",
+        "size": 3642,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/undefined.d.ts",
+        "size": 90,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validate/types/undefined.js",
+        "size": 496,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validateAndCoerceTypes.d.ts",
+        "size": 1013,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/validateAndCoerceTypes.js",
+        "size": 9442,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/versions.d.ts",
+        "size": 283,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/versions.js",
+        "size": 1257,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/yahooFinanceFetch.d.ts",
+        "size": 1709,
+        "mode": 420
+      },
+      {
+        "path": "script/src/lib/yahooFinanceFetch.js",
+        "size": 5789,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/http.d.ts",
+        "size": 1093,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/http.js",
+        "size": 6533,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/mod.d.ts",
+        "size": 287,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/mod.js",
+        "size": 960,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/server.d.ts",
+        "size": 709,
+        "mode": 420
+      },
+      {
+        "path": "script/src/mcp/server.js",
+        "size": 12036,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/autoc.d.ts",
+        "size": 1293,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/autoc.js",
+        "size": 1596,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.d.ts",
+        "size": 9908,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.js",
+        "size": 10698,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/chart.schema.json",
+        "size": 15213,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyGainers.d.ts",
+        "size": 2421,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyGainers.js",
+        "size": 2771,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyLosers.d.ts",
+        "size": 2679,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/dailyLosers.js",
+        "size": 3026,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.d.ts",
+        "size": 30757,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.js",
+        "size": 13598,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/fundamentalsTimeSeries.schema.json",
+        "size": 84102,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.d.ts",
+        "size": 7413,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.js",
+        "size": 14228,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/historical.schema.json",
+        "size": 6723,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/index.d.ts",
+        "size": 874,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/index.js",
+        "size": 2252,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.d.ts",
+        "size": 9336,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.js",
+        "size": 5480,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/insights.schema.json",
+        "size": 12466,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.d.ts",
+        "size": 6669,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.js",
+        "size": 6828,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/options.schema.json",
+        "size": 105238,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.d.ts",
+        "size": 21995,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.js",
+        "size": 7344,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quote.schema.json",
+        "size": 116888,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.d.ts",
+        "size": 28971,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.js",
+        "size": 4235,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary-iface.schema.json",
+        "size": 73131,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.d.ts",
+        "size": 5817,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.js",
+        "size": 7353,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/quoteSummary.schema.json",
+        "size": 74682,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.d.ts",
+        "size": 9225,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.js",
+        "size": 8835,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/recommendationsBySymbol.schema.json",
+        "size": 1305,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.d.ts",
+        "size": 22232,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.js",
+        "size": 11023,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/screener.schema.json",
+        "size": 82147,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.d.ts",
+        "size": 10197,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.js",
+        "size": 4210,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/search.schema.json",
+        "size": 20706,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.d.ts",
+        "size": 4768,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.js",
+        "size": 3941,
+        "mode": 420
+      },
+      {
+        "path": "script/src/modules/trendingSymbols.schema.json",
+        "size": 1456,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/index.d.ts",
+        "size": 176,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/index.js",
+        "size": 475,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/quoteCombine.d.ts",
+        "size": 3435,
+        "mode": 420
+      },
+      {
+        "path": "script/src/other/quoteCombine.js",
+        "size": 6575,
+        "mode": 420
+      },
+      {
+        "path": "skills/yahoo-finance2/SKILL.md",
+        "size": 7323,
+        "mode": 420
+      }
+    ]
+  },
+  "freshInstall": {
+    "command": [
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js",
+      "install",
+      "--prefix",
+      "/tmp/yf-package-proof/final-consumer",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+      "--package-lock=false",
+      "--cache",
+      "/tmp/yf-package-proof/npm-cache",
+      "/tmp/yf-package-proof/final-pack/yahoo-finance2-9.8.7-test.1.tgz",
+      "@types/node@24.10.1"
+    ],
+    "exitCode": 0,
+    "addedPackages": 103,
+    "realInstall": true,
+    "repositoryNodeModulesSymlink": false,
+    "publishedRanges": {
+      "tough-cookie": "^6.0.2",
+      "tough-cookie-file-store": "^3.3.0",
+      "@modelcontextprotocol/sdk": "^1.32.0",
+      "zod": "^4.6.5",
+      "@types/json-schema": "^7.0.15"
+    },
+    "resolvedVersions": {
+      "tough-cookie": "6.0.2",
+      "tough-cookie-file-store": "3.3.0",
+      "@modelcontextprotocol/sdk": "1.32.1",
+      "zod": "4.6.7",
+      "@types/json-schema": "7.0.15",
+      "@types/node": "24.10.1"
+    },
+    "lockReceiptSha256": "c2e5f94e784ad9393b922c7846454003c4697a2414a6bb35f2a931ebc2640172",
+    "note": "Public semver ranges resolve SDK 1.32.1; the root tool graph remains pinned to SDK 1.32.0. @types/node is an explicit consumer type environment dependency."
+  },
+  "runtimeAndStrictTypes": [
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/probe.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"Node 24.21.0\",\"exports\":28,\"formats\":[\"ESM\",\"CommonJS\"],\"fetchCalls\":2,\"version\":\"9.8.7-test.1\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/bins.mjs",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"/home/dragon/.nvm/versions/node/v24.21.0/bin/node\",\"npmRuntime\":\"/home/dragon/.nvm/versions/node/v24.21.0/bin/node\",\"checks\":16,\"aliases\":[\"yahoo-finance2\",\"yahoo-finance\",\"yahoo-finance-mcp\"],\"outsideCwd\":true,\"importSafe\":true,\"npmExec\":true,\"bunExec\":true,\"mcpStdio\":[\"initialize\",\"tools/list\",\"EOF\",\"SIGTERM\",\"SIGINT\"],\"httpSocketDenied\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node",
+        "/tmp/yf-package-proof/final-consumer/probe.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"Node 22.0.0\",\"exports\":28,\"formats\":[\"ESM\",\"CommonJS\"],\"fetchCalls\":2,\"version\":\"9.8.7-test.1\"}\n",
+      "stderr": "(node:2) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/bins.mjs",
+        "/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node",
+        "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node\",\"npmRuntime\":\"/home/dragon/.nvm/versions/node/v24.21.0/bin/node\",\"checks\":16,\"aliases\":[\"yahoo-finance2\",\"yahoo-finance\",\"yahoo-finance-mcp\"],\"outsideCwd\":true,\"importSafe\":true,\"npmExec\":true,\"bunExec\":true,\"mcpStdio\":[\"initialize\",\"tools/list\",\"EOF\",\"SIGTERM\",\"SIGINT\"],\"httpSocketDenied\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/tmp/yf-package-proof/final-consumer/probe.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"Bun 1.4.3\",\"exports\":28,\"formats\":[\"ESM\",\"CommonJS\"],\"fetchCalls\":2,\"version\":\"9.8.7-test.1\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/bins.mjs",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js",
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"runtime\":\"/tmp/yf-bun-1.4.3/bun-linux-x64/bun\",\"npmRuntime\":\"/home/dragon/.nvm/versions/node/v24.21.0/bin/node\",\"checks\":16,\"aliases\":[\"yahoo-finance2\",\"yahoo-finance\",\"yahoo-finance-mcp\"],\"outsideCwd\":true,\"importSafe\":true,\"npmExec\":true,\"bunExec\":true,\"mcpStdio\":[\"initialize\",\"tools/list\",\"EOF\",\"SIGTERM\",\"SIGINT\"],\"httpSocketDenied\":true}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/node_modules/typescript/bin/tsc",
+        "--strict",
+        "--noEmit",
+        "--skipLibCheck",
+        "false",
+        "--module",
+        "NodeNext",
+        "--moduleResolution",
+        "NodeNext",
+        "--target",
+        "ES2022",
+        "--lib",
+        "ESNext,DOM,DOM.Iterable,DOM.AsyncIterable",
+        "--types",
+        "node",
+        "--typeRoots",
+        "/tmp/yf-package-proof/final-consumer/node_modules/@types",
+        "--ignoreConfig",
+        "/tmp/yf-package-proof/final-consumer/consumer.mts",
+        "/tmp/yf-package-proof/final-consumer/consumer.cts"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "emittedTypeScriptConsumerRuntime": [
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.cjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "(node:2) ExperimentalWarning: Importing JSON modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    },
+    {
+      "command": [
+        "/tmp/yf-node-22.0.0/node-v22.0.0-linux-x64/bin/node",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.cjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/tmp/yf-package-proof/final-consumer/compiled/consumer.cjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "regressions": {
+    "command": "PATH=<Bun1.4.3>:<Node24.21.0>:/usr/bin:/bin bun run test -- scripts/build_npm.test.ts",
+    "exitCode": 0,
+    "pass": 4,
+    "fail": 0,
+    "durationMs": 9110,
+    "coverage": [
+      "unsafe repository/fixture/default/custom outputs",
+      "ownership marker and user file preservation",
+      "symlinks, aliases, dangling links",
+      "CLI errors and invalid SemVer",
+      "AST import/export/importtype/typeofimport/dynamicimport references",
+      "two identical artifact trees under umask077 and002",
+      "all28exports and26schemas",
+      "version metadata, dependencies, binary aliases and0755modes",
+      "forbidden source/test/development imports",
+      "actual imported JSON symlink and linked parent rejection",
+      "relative JSON and exported source escape rejection",
+      "unimported schema symlink and root TS/metadata symlink rejection",
+      "FIFO metadata rejection before read",
+      "all8input failures preserve prior output digest and remove staging",
+      "absolute outside-working-directory build",
+      "legitimate linked development dependency graph accepted"
+    ]
+  },
+  "repositoryTypecheck": {
+    "command": "YF_EXPERIMENT_NODE=<Node24.21.0> bun run typecheck",
+    "exitCode": 0
+  },
+  "fixtures": {
+    "baseline": "origin/dev",
+    "count": 1201,
+    "changed": [],
+    "manifestSha256": "3b29b883ae4ac20f9c4539522f9c5ef06f516bb9e4f07988e309727b1c9aa1dc"
+  },
+  "releaseHandoff": {
+    "versionInjection": "bun run build:npm --version VERSION",
+    "metadata": [
+      "npm/package.json",
+      "npm/esm/deno.json",
+      "npm/script/deno.json"
+    ],
+    "oldFixVersionsAndPrepareCommand": "Unported; still targets obsolete dnt deno.js files; J02/J04 must replace before release."
+  },
+  "limitations": [
+    "Linux x64 only; Windows/macOS package execution, filesystem/modes and links are unverified.",
+    "No Deno binary used; retained JSR/Deno2 consumer compatibility and isolated publisher checks are not claimed.",
+    "HTTP socket creation is denied by the guard; listener failure is checked, not real HTTP transport or Workers integration.",
+    "Release preparation, npm/JSR publication and provenance workflow remain unported.",
+    "The root full suite was not run while another agent was actively editing disjoint recache tooling; parent integration owns final full verification."
+  ],
+  "reviewFix": {
+    "finding": "Astra P2: TypeScript resolveJsonModule copied repository-owned JSON symlink targets without passing copyTree validation; schema traversal skipped links.",
+    "previousSourceSha256": {
+      "scripts/build_npm.ts": "de48abf6ce0500ab90db28ad696911eb34ed6924ff85e8b40f9bcd40e569f390",
+      "scripts/build_npm.test.ts": "59d565266337c37bbab4174568771eab2838d8be62da096c6fd3814e4254f2ff",
+      "tests/migration/package-pack.mjs": "68e3bf4ca5f9ec924c0265e4ac4c8770bbf3619ce18cce657a4130021dccccd8",
+      "tests/migration/package-consumer.mjs": "58077290e679d55d5d2602ad125851a35f2a68a2a5fe3e411abd1c6c2c78af25",
+      "tests/migration/package-bins.mjs": "94afc1b1fc7b74f7bd67b25f342f79b9b6559937da2da011a459c0e6bf824739",
+      "tests/migration/PACKAGING.md": "cb19114d8747724144afa6fefa9b3537e922764514e48ae04a585fe115d24555"
+    },
+    "implementation": "CompilerHost validates repository input readFile and realpath paths plus each parent before read/canonicalization. Root metadata/entrypoints and copied/schema assets use the same owned-input validation. External paths are denied except the dependency graph; package-manager dependency links remain supported. Compiler cwd and absolute typeRoots anchor resolution to the source checkout without changing process cwd.",
+    "regression": "Guarded actual build in a fixture-free disposable minimal project: initial outside-cwd build with linked tools succeeds; imported JSON symlink, linked input parent, relative JSON escape, unimported schema link, root TS link, public export escape, metadata link and FIFO metadata each fail, preserve previous package digest and leave no staging directories.",
+    "outsideCwdBuild": {
+      "command": [
+        "/tmp/yf-bun-1.4.3/bun-linux-x64/bun",
+        "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2/scripts/build_npm.ts",
+        "--out-dir",
+        "/tmp/yf-package-proof/input-guard-package",
+        "--version",
+        "9.8.7-test.1"
+      ],
+      "cwd": "/tmp/yf-package-proof",
+      "exitCode": 0,
+      "stdout": "Built npm package at /tmp/yf-package-proof/input-guard-package\n",
+      "stderr": ""
+    },
+    "postFixPack": {
+      "filename": "yahoo-finance2-9.8.7-test.1.tgz",
+      "sha256": "52bcb3d3705ccfff69a62808b7eed72a4acb7eb2fa39ef42ccad3fe1b257a2e0",
+      "entryCount": 252,
+      "unpackedSize": 2183546
+    },
+    "postFixPackCommand": [
+      "python3",
+      "scripts/testing/offline.py",
+      "/home/dragon/.codex/worktrees/bun-migration/yahoo-finance2",
+      "/tmp/yf-package-proof",
+      "--",
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "tests/migration/package-pack.mjs",
+      "/tmp/yf-package-proof/input-guard-package",
+      "/tmp/yf-package-proof/input-guard-pack",
+      "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+      "/home/dragon/.nvm/versions/node/v24.21.0/lib/node_modules/npm/bin/npm-cli.js"
+    ],
+    "artifactBytesUnchanged": true,
+    "consumerMatrixRerun": false,
+    "consumerMatrixReason": "The final fixed-source outside-cwd build and real npm pack reproduce the exact already-installed/verified tarball SHA-256; no emitted runtime or declaration bytes changed.",
+    "focusedTests": {
+      "command": "bun run test -- scripts/build_npm.test.ts",
+      "pass": 4,
+      "fail": 0,
+      "exitCode": 0,
+      "durationMs": 9110
+    },
+    "repositoryTypecheck": {
+      "command": "YF_EXPERIMENT_NODE=<Node24.21.0> bun run typecheck",
+      "exitCode": 0
+    },
+    "fixturesUnchangedCount": 1201,
+    "independentReReview": "Cleared: independent GPT-6.1 Sol xhigh and GPT-6 Astra xhigh fix re-reviews verified all six final source hashes with no remaining findings. Sol reproduced 4/4 focused tests, rejection of the original imported-JSON symlink case and the package hash. Astra verified original JSON symlinks for existing/new destinations, linked parents, internal JSON, dangling schema and FIFO refusals with output preservation/staging cleanup, plus outside-cwd build/rebuild and identical pack hash. The earlier full installed-consumer matrix was not rerun after the fix because the emitted tarball is byte-identical; no post-F full-suite or broader platform/publisher/HTTP/Workers completion is claimed."
+  }
+}

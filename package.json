@@ -14,7 +14,8 @@
     "schema:check": "bun scripts/schema-gen.ts --check",
     "test": "bun scripts/test.ts",
     "test:serial": "bun scripts/test.ts --serial",
-    "test:watch": "bun scripts/test.ts --watch"
+    "test:watch": "bun scripts/test.ts --watch",
+    "build:npm": "bun scripts/build_npm.ts"
   },
   "devDependencies": {
     "@sebbo2002/semantic-release-jsr": "4.0.2",

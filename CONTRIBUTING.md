@@ -97,7 +97,18 @@ remains D04. Generate schemas with `bun run schema`, select explicit roots with
 `bun run schema:check` for the no-write stale gate. See the
 [schema behavior](tests/migration/SCHEMAS.md) for watch and failure semantics.
 Biome remains a later milestone; use the existing Bun/Node checks and manual
-style review meanwhile. Unported build/capture tools need migration before use.
+style review meanwhile. Unported capture tools need migration before use.
+
+Build npm artifacts with `bun run build:npm`. Optional
+`--out-dir /absolute/new-or-empty-directory` selects an external destination
+whose parent already exists; `--version VERSION` sets package and runtime
+metadata together. Nonempty default `npm/` output must carry this builder's
+ownership marker; explicitly move unmarked old dnt output aside before building.
+The [packaging contract](tests/migration/PACKAGING.md) documents output safety,
+real installed consumer proofs and release handoff. Shipped executables require
+Node >=22.0.0 through their Node shebang; explicit Bun execution is verified.
+The old `fix_versions.ts`/release preparation still targets dnt output and must
+not run against these artifacts; J02/J04 remain open.
 
 Bun upgrades are deliberate changes, including patch releases. Review release
 notes, update `.bun-version` and `packageManager` together to one exact stable

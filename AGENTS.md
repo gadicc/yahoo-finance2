@@ -71,8 +71,18 @@ for the no-write stale gate. Explicit roots and `--watch` are documented in
 [the schema policy](./tests/migration/SCHEMAS.md). Biome adoption remains open;
 use existing Bun/Node checks and manual style review until then.
 
+Build generated npm artifacts with `bun run build:npm`; optionally pass
+`--out-dir /absolute/new-or-empty-directory` outside the checkout and
+`--version VERSION`. The parent directory must exist. The default `npm/`
+output requires this builder's ownership marker before replacing nonempty
+output; move unmarked old dnt output aside explicitly. See the
+[package build contract](./tests/migration/PACKAGING.md) for guarded proofs and
+release handoff. Shipped executables require Node >=22.0.0 via their Node
+shebang; explicit Bun execution is also verified. Release preparation remains
+unported (J02/J04); do not run the old preparation against this output.
+
 The following Deno commands are legacy `dev`-branch reference only. Do not run
-them on `codex/bun-migration`, including the formatter/linter and unported build,
+them on `codex/bun-migration`, including the formatter/linter and old build,
 recache or capture commands. Port the relevant command first:
 
 - Run the full test suite with `deno task test`.

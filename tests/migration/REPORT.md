@@ -126,14 +126,14 @@ all items; the benchmark results above retain their historical meaning.
 | [C. Test runner and harness](#migration-c)                       | In progress     |        6/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        4/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        3/6 |
-| [F. Package build and consumer artifacts](#migration-f)          | Planned         |        0/6 |
+| [F. Package build and consumer artifacts](#migration-f)          | Complete (Linux proof) |   6/6 |
 | [G. CLI, MCP and runtime I/O](#migration-g)                      | In progress     |        1/6 |
 | [H. Supported runtime and platform matrix](#migration-h)         | In progress     |        1/5 |
 | [I. CI, coverage and repair automation](#migration-i)            | Planned         |        0/6 |
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **24/71** |
+| **Overall**                                                      | **In progress** |  **30/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -258,6 +258,42 @@ all 1,201 fixture contents match the checkpoint HEAD. Independent Sol xhigh
 review cleared the source after a generic-envelope/server-error correction.
 D06 is complete; D05/D07/D08 remain open. Progress is **24/71**. No full-suite
 receipt is claimed during the parallel package-build draft.
+
+## Package-build checkpoint (F01–F06, 2026-10-16)
+
+F01–F06 are complete within the bounded Linux x64 package proof. The
+[build contract](PACKAGING.md) and [machine receipt](results/f01-f06-packaging.json)
+record a Bun/TypeScript build with no Deno binary or runtime shims, all 28
+public export keys, ESM/CJS declarations, 13 schemas per format, and an explicit
+252-file tarball allowlist. Four runtime dependencies plus
+`@types/json-schema` ship; `fetch-mock-cache` stays private test tooling. Exact
+root pins remain distinct from public ranges (the fresh consumer resolved SDK
+1.32.1 and zod 4.6.7). Consumer Node support remains >=22.0.0; executable
+shebangs select Node, with explicit Bun execution also verified.
+
+Real fresh installed ESM, CJS and strict TypeScript consumers cover all exports
+on Node 22.0.0, Node 24.21.0 and Bun 1.4.3 outside the checkout. Installed bin
+aliases, modes, version/help, npm exec and the selected Bun invocation pass.
+Packed MCP stdio initialization/tools, EOF/SIGTERM/SIGINT cleanup and cookie
+mode 0600 pass. HTTP socket denial is verified under the guard; a real HTTP
+listener, Workers, other operating systems and publisher/JSR/Deno consumer
+execution remain open G/H/I/J work.
+
+Independent Sol xhigh and Astra xhigh fix re-reviews cleared the final six
+source hashes with no remaining findings. Astra's imported-JSON symlink bypass
+was fixed in the CompilerHost path guard. Four focused build tests pass,
+including eight meaningful input refusals preserving prior output and cleaning
+staging. Sol independently reproduced the original failure's rejection and
+pack hash; Astra independently checked existing/new destinations, linked
+parents, internal JSON, dangling schemas and FIFO inputs, plus outside-cwd
+build/rebuild. Both final tarballs reproduce SHA-256
+`52bcb3d3705ccfff69a62808b7eed72a4acb7eb2fa39ef42ccad3fe1b257a2e0`.
+The earlier installed consumer matrix was not rerun after the guard fix because
+the emitted tarball is byte-identical. No post-F full-suite run is claimed
+while disjoint drafts are active. No Yahoo requests, fixture writes or
+publication occurred. Progress is **30/71**; L03/L04 final migration reviews
+remain unchecked. Old release preparation targets dnt output and must be
+replaced in J02/J04 before use.
 
 ## Harness behavior (C03–C05, 2026-10-16)
 
@@ -573,8 +609,9 @@ policy (C06/D05), and finish the portable offline policy (D04). B04 can
 independently port import resolution and real traversal/CLI helpers using B03's
 ownership map; E02–E03 can establish production checker configurations, while
 E06/I02 must adopt the verified schema check in CI. B01–B03 now establish the
-pinned toolchain, lockfile and dependency boundaries; CLI/build ports,
-cross-platform validation and CI remain separate work.
+pinned toolchain, lockfile and dependency boundaries; F packaging now has its
+bounded Linux proof. Remaining CLI/runtime checks, cross-platform validation
+and CI remain separate work.
 
 <a id="migration-a"></a>
 
@@ -764,25 +801,40 @@ cross-platform validation and CI remain separate work.
 
 ### F. Package build and consumer artifacts
 
-- [ ] F01 — Replace the Deno/dnt build with a documented reproducible build;
+- [x] F01 — Replace the Deno/dnt build with a documented reproducible build;
       preserve intended source-to-output mapping without treating test
       transpilation as a package build or hand-editing generated `npm/` output.
-- [ ] F02 — Verify ESM and CommonJS builds, JSON/schema imports, declarations,
+      Evidence: [Bun/TypeScript build contract](PACKAGING.md), guarded four-test
+      regression proof and identical tarball hashes in the [F receipt](results/f01-f06-packaging.json).
+- [x] F02 — Verify ESM and CommonJS builds, JSON/schema imports, declarations,
       public/subpath exports and resolution from clean installed tarballs.
-- [ ] F03 — Verify shipped runtime dependencies, engines, versions and package
+      Evidence: all 28 installed ESM/CJS exports, strict declarations and 13
+      schemas per format in the [F receipt](results/f01-f06-packaging.json).
+- [x] F03 — Verify shipped runtime dependencies, engines, versions and package
       metadata without Deno shims/import specifiers or accidental Bun-only
       library APIs; keep build/test/release dependencies out of the tarball.
-- [ ] F04 — Inspect `npm pack` contents for schemas, LICENSE, README, `skills/`
+      Evidence: preserved Node >=22.0.0/public ranges, version injection, four
+      runtime dependencies plus declaration types and no fetch-mock-cache or
+      Deno shims in the [packed audit](results/f01-f06-packaging.json).
+- [x] F04 — Inspect `npm pack` contents for schemas, LICENSE, README, `skills/`
       assets and intended binaries; exclude fixtures, secrets, experiment
       results, coverage, caches and unnecessary sources using an explicit
       package allowlist.
-- [ ] F05 — Smoke-test the packed package as real ESM, CJS and TypeScript
+      Evidence: real offline npm pack audits all 252 entries, 26 schema copies,
+      assets, modes and forbidden paths in the [F receipt](results/f01-f06-packaging.json).
+- [x] F05 — Smoke-test the packed package as real ESM, CJS and TypeScript
       consumers on supported Node versions and Bun; verify declarations resolve
       without development config aliases or repository-relative files.
-- [ ] F06 — Verify bin aliases, executable modes and portable shebangs; declare
+      Evidence: fresh installed consumers and strict NodeNext checks on Linux
+      Node 22.0.0/24.21.0 and Bun 1.4.3 in the [F receipt](results/f01-f06-packaging.json);
+      the post-fix tarball is identical, so this earlier matrix was not rerun.
+- [x] F06 — Verify bin aliases, executable modes and portable shebangs; declare
       each shipped CLI's runtime requirement and exercise installation through
       npm exec/npx and the selected Bun command from outside the checkout
       (G01–G06).
+      Evidence: installed aliases, 0755 Node shebangs, npm exec and explicit Bun
+      invocation outside checkout in the [F receipt](results/f01-f06-packaging.json).
+      Node >=22.0.0 is required; broader G/OS/HTTP checks remain open.
 
 <a id="migration-g"></a>
 
