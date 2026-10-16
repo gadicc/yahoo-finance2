@@ -39,14 +39,14 @@ scripts bypasses the installation guard.
 root pnpm, npm, Yarn or binary Bun lockfile. Retain `deno.lock` for the
 remaining Deno schema/build/release/tooling graph until its owners migrate;
 retain `tests/cloudflare/package-lock.json` for the independently npm-managed
-Workers harness. Do not install that harness with Bun. Root dependencies remain
-the experimental shared graph until B03; this step changes no consumer engine
-policy.
+Workers harness. Do not install that harness with Bun. The private root manifest
+separates runtime dependencies from test, schema and release tools; see [dependency ownership](tests/migration/DEPENDENCIES.md).
+It does not replace the generated package manifest or change consumer engines.
 
 Normal installation uses Bun 1.4.3's default trusted dependency allowlist, with
 no `trustedDependencies` override and no `--ignore-scripts`. The Linux install
-reported zero untrusted packages with install scripts; its `esbuild@0.28.2`
-postinstall is default trusted and its binary was smoke-tested. Consult
+reported zero untrusted packages with install scripts after B03 removed the
+comparison runners and their esbuild dependency. Consult
 [Bun's lifecycle policy](https://bun.com/docs/pm/lifecycle) and inspect
 `bun pm untrusted` when changing dependencies. Review any required package trust
 individually; an explicit trust list replaces the defaults. Cross-platform

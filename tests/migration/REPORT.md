@@ -83,7 +83,7 @@ all items; the benchmark results above retain their historical meaning.
 | Area                                                             | Status          | Done/total |
 | ---------------------------------------------------------------- | --------------- | ---------: |
 | [A. Baseline and decision](#migration-a)                         | Complete        |        5/5 |
-| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        2/6 |
+| [B. Dependencies, configuration and installation](#migration-b)  | In progress     |        3/6 |
 | [C. Test runner and harness](#migration-c)                       | In progress     |        2/7 |
 | [D. Offline fixtures, recache and capture](#migration-d)         | In progress     |        2/8 |
 | [E. Type checking and schema generation](#migration-e)           | In progress     |        1/6 |
@@ -94,7 +94,7 @@ all items; the benchmark results above retain their historical meaning.
 | [J. Major release and publication](#migration-j)                 | Planned         |        0/5 |
 | [K. Biome, documentation and developer experience](#migration-k) | Planned         |        0/6 |
 | [L. Production readiness and review](#migration-l)               | Planned         |        0/5 |
-| **Overall**                                                      | **In progress** |  **12/71** |
+| **Overall**                                                      | **In progress** |  **13/71** |
 
 ## Current branch toolchain (B01–B02, 2026-10-16)
 
@@ -149,6 +149,44 @@ The new guard also passed an explicit strict JavaScript typecheck. All **1,201
 fixtures** remain byte-identical. These are correctness checks; the historical
 1.4.2 benchmark measurements above were not rerun or relabeled.
 
+## Dependency ownership (B03, 2026-10-16)
+
+The private root manifest now separates **four runtime dependencies** (cookies,
+CLI cookie persistence, MCP SDK and Zod) from **20 development dependencies**
+for tests, schemas, compile-time checks and release tools. Existing retained
+direct versions are unchanged. Release tools and configured plugins use exact
+versions from `deno.lock`; `@types/json-schema` is an explicit development
+dependency for the source's type-only schema import. The preset stays at 9.3.1
+with writer 8.4.0, and the existing release-note contract passes.
+
+Unused root Vitest, its V8 coverage plugin, tsx and Bun ambient types are
+removed. Historical comparison reproduction uses its original candidate graphs;
+the separate Workers Vitest 4/npm harness is unchanged. Current source uses
+fetch-mock-cache only for tests; the old generated package declaration still
+ships it and F03 owns reconciling that declaration against packed artifacts.
+No public package exports, binaries, engines or publication metadata changed.
+
+[Dependency/configuration ownership](DEPENDENCIES.md) accounts for every root
+dependency, all 29 Deno import keys, 20 tasks, 28 exports and the remaining
+permissions, compiler, formatter and publish metadata. Deno/dnt/JSR/std tooling
+and release preparation remain transitional, with explicit successor items.
+The root manifest stays private; full Deno removal and production packaging are
+not completed by B03. This classification supersedes the B01–B02 snapshot.
+
+[Evidence](results/b03-dependencies.json) comes from an isolated archive of
+`704d1a5c005b699596a1ae363c652f693a821c74` with only B03's manifest/lock
+overlaid, excluding concurrent C03 harness edits. A clean frozen install with
+normal lifecycle defaults passed; manifest drift failed without changing the
+lock. Guarded replay passed **1,319 tests / 43 files**, with eight existing
+reported skips; normal/incremental typechecks, overload negative control,
+release-note generation and socket/cache/write guards passed. All **1,201
+fixtures**, **13 source schemas**, Deno metadata and Workers manifests/lock stayed
+byte-identical. The lock changes are removed comparison tools and added release
+tool closure, with retained runtime/test package versions preserved; B06's
+broader dependency audit remains open. Parent integration separately verified
+the concurrent C03 draft at **1,338 passing tests / 44 files** and a passing
+typecheck; that draft is outside this milestone's isolated evidence.
+
 ## What was adapted
 
 - Test-only imports now use a small runner module; source imports remain `.ts`.
@@ -180,14 +218,19 @@ fixtures** remain byte-identical. These are correctness checks; the historical
 Bun's native ambient types additionally require `fetch.preconnect`, rejecting
 many valid standard-fetch mocks. The passing Bun typecheck uses Node/DOM library
 types and a narrow local declaration of the runner surface. This is an explicit
-limit, not a native-Bun typecheck pass. Reproduce the additional failure with:
+limit, not a native-Bun typecheck pass. The following historical reproducer
+requires the original Bun experiment dependency graph (including
+`@types/bun` 1.3.8), rather than the pruned B03 bootstrap:
 
 ```sh
 python3 tests/migration/offline.py "$YF_EXPERIMENT_NODE" node_modules/typescript/bin/tsc -p tsconfig.bun-native.json
 ```
 
-`tsconfig.bun-native.json` exists only on the Bun branch. Production/API changes
-to resolve that typing difference are outside this experiment.
+`tsconfig.bun-native.json` exists only on the Bun branch. B03 removes the unused
+`@types/bun` dependency because the supported checker selects Node/Deno types;
+running this historical config on a fresh B03 install reports missing Bun
+types. E02 owns resolving or isolating native Bun typing without widening the
+public fetch contract.
 
 ## Inventory and safety
 
@@ -319,11 +362,12 @@ K's Biome and documentation work can proceed in small independent commits after
 B's configuration decisions, with a final command audit after I/J. Follow
 explicit cross-references when work crosses these areas.
 
-**Next small milestone:** propose the minimal production dependency and
-configuration shape (B03), including owners for runtime, build, test and release
-dependencies and unmigrated Deno metadata. B01–B02 now establish the pinned
-toolchain and lockfile boundary; dependency pruning, runner redesign, new
-typecheckers, CLI/build/schema ports and CI changes remain separate work.
+**Next small milestones:** complete the production harness design (C03–C05),
+then discovery/commands and offline policy (C07/D03–D04). B04 can independently
+port import resolution and real traversal/CLI helpers using B03's ownership
+map; E02–E04 can establish production checker and schema configurations. B01–B03
+now establish the pinned toolchain, lockfile and dependency boundaries;
+CLI/build/schema ports, cross-platform validation and CI remain separate work.
 
 <a id="migration-a"></a>
 
@@ -367,10 +411,16 @@ typecheckers, CLI/build/schema ports and CI changes remain separate work.
       clean default-lifecycle frozen install and manifest-drift failure with
       unchanged lock hashes in
       [milestone evidence](results/b01-b02-toolchain.json).
-- [ ] B03 — Separate runtime, build, test and release dependencies in the
-      production manifest; remove inherited unused runner dependencies and map
+- [x] B03 — Separate runtime, build, test and release dependencies in the
+      private root manifest, with generated package owners explicit; remove
+      inherited unused runner dependencies and map
       the `deno.json` imports/exports/tasks/permissions/publish metadata to
-      their owners.
+      their owners. Evidence: private root runtime/development classification,
+      exact release pins sourced from the existing Deno graph, runner pruning,
+      [complete ownership map](DEPENDENCIES.md) and
+      [isolated frozen-install/offline/typecheck controls](results/b03-dependencies.json).
+      Generated package metadata and unmigrated Deno commands remain owned by
+      F/J/B04 rather than being claimed migrated.
 - [ ] B04 — Resolve source/tool imports without Deno import maps or `npm:` /
       `jsr:` specifiers; replace needed `@std` functions and remove the two
       throwing `walk`/`parseArgs` aliases only after real CLI/traversal paths

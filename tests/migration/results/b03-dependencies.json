@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "704d1a5c005b699596a1ae363c652f693a821c74",
+  "bun": "1.4.3",
+  "node": "24.21.0",
+  "scope": "Isolated git archive at base commit with only B03 package.json/bun.lock overlaid; no concurrent C03 harness edits",
+  "checks": [
+    {
+      "command": [
+        "bun",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exitCode": 0,
+      "seconds": 0.17,
+      "summary": "+ typescript@6.0.3\n+ @modelcontextprotocol/sdk@1.32.0\n+ tough-cookie@6.0.2\n+ tough-cookie-file-store@3.3.0\n+ zod@4.6.5\n\n442 packages installed [166.00ms]"
+    },
+    {
+      "command": [
+        "bun",
+        "pm",
+        "untrusted"
+      ],
+      "exitCode": 0,
+      "seconds": 0.012,
+      "summary": "bun pm untrusted v1.4.3 (c6da4a4d3)\n\nFound 0 untrusted dependencies with scripts.\n\nThis means all packages with scripts are in \"trustedDependencies\" or none of your dependencies have scripts.\n\nFor more information, visit https://bun.com/docs/install/lifecycle#trusteddependencies"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/prepare.py"
+      ],
+      "exitCode": 0,
+      "seconds": 0.056,
+      "summary": "Read-only fixture preparation completed"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "bun",
+        "tests/migration/guard-probe.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 0.102,
+      "summary": "{\"replayMissRejected\":true,\"fallbackCalls\":0,\"socketDenied\":true,\"rawSocketFilterVerified\":true,\"observedSocketError\":\"ECONNREFUSED\",\"ipv6SocketDenied\":true,\"childSocketDenied\":true,\"fixtureWriteDenied\":true}"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "test:replay"
+      ],
+      "exitCode": 0,
+      "seconds": 0.494,
+      "summary": "QuoteSummary financial statements submodules like balanceSheetHistory, balanceSheetHistoryQuarterly, cashflowStatementHistory, cashflowStatementHistoryQuarterly, incomeStatementHistory, incomeStatementHistoryQuarterly have provided almost no data since Nov 2024. Use `fundamentalsTimeSeries` instead.\n...............................................................................................................................................................................................................................................\n\n1319 pass\n8 skip\n0 fail\nRan 1327 tests across 43 files. [417.00ms]"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      "exitCode": 0,
+      "seconds": 1.565,
+      "summary": "$ python3 tests/migration/run.py --typecheck"
+    },
+    {
+      "command": [
+        "bun",
+        "run",
+        "typecheck:incremental"
+      ],
+      "exitCode": 0,
+      "seconds": 1.574,
+      "summary": "$ python3 tests/migration/run.py --typecheck-incremental"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/negative-typecheck.py"
+      ],
+      "exitCode": 0,
+      "seconds": 1.434,
+      "summary": "src/modules/options.migration-negative.type.test.ts(15,9): error TS2322: Type 'Promise<unknown>' is not assignable to type 'Promise<OptionsResult>'.\n  Type 'unknown' is not assignable to type 'OptionsResult'.\n\nPASS: removing options overload error directives produces TypeScript assignment errors"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/migration/offline.py",
+        "/home/dragon/.nvm/versions/node/v24.21.0/bin/node",
+        "scripts/check-release-notes.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 0.196,
+      "summary": "semantic-release generated feature and bug-fix notes"
+    }
+  ],
+  "cleanInstall": {
+    "newNodeModules": true,
+    "normalLifecycle": true,
+    "lockUnchanged": true,
+    "exitCode": 0,
+    "removedRootPackagesAbsent": {
+      "vitest": true,
+      "@vitest/coverage-v8": true,
+      "tsx": true,
+      "@types/bun": true,
+      "bun-types": true,
+      "esbuild": true
+    }
+  },
+  "driftControl": {
+    "exitCode": 1,
+    "lockUnchanged": true,
+    "summary": "bun install v1.4.3 (c6da4a4d3)\nerror: lockfile had changes, but lockfile is frozen\nnote: try re-running without --frozen-lockfile and commit the updated lockfile"
+  },
+  "protectedFiles": {
+    "fixtures": 1201,
+    "schemas": 13,
+    "unchanged": true,
+    "combinedSha256": "02eede58259ff114cb981780c10cb4a18d213e25939edcd19777632ba27ce5fe",
+    "denoAndWorkersMetadataUnchanged": true
+  },
+  "graph": {
+    "beforeEntries": 279,
+    "afterEntries": 615,
+    "changedKeys": [
+      {
+        "key": "escape-string-regexp",
+        "before": "escape-string-regexp@2.0.0",
+        "after": "escape-string-regexp@5.0.0",
+        "oldIdentityRetained": true
+      },
+      {
+        "key": "js-tokens",
+        "before": "js-tokens@10.0.0",
+        "after": "js-tokens@4.0.0",
+        "oldIdentityRetained": false
+      },
+      {
+        "key": "normalize-url",
+        "before": "normalize-url@7.2.0",
+        "after": "normalize-url@9.0.1",
+        "oldIdentityRetained": true
+      },
+      {
+        "key": "picomatch",
+        "before": "picomatch@4.0.7",
+        "after": "picomatch@2.3.2",
+        "oldIdentityRetained": true
+      },
+      {
+        "key": "supports-color",
+        "before": "supports-color@7.2.0",
+        "after": "supports-color@10.2.2",
+        "oldIdentityRetained": false
+      }
+    ],
+    "removedIdentityCount": 106,
+    "addedIdentityCount": 386,
+    "note": "Additions are release-tool closure including npm bundled dependencies. Three hoist key changes retain previous version identities; js-tokens10/supports-color7 disappear with comparison runner closure. Other removals are comparison runner closure and unused Bun ambient types."
+  },
+  "manifest": {
+    "private": true,
+    "runtimeDependencies": 4,
+    "devDependencies": 20,
+    "removed": [
+      "vitest",
+      "@vitest/coverage-v8",
+      "tsx",
+      "@types/bun"
+    ],
+    "addedVersionSource": "Exact npm versions in committed deno.lock; @types/json-schema already in bun.lock",
+    "retainedDirectVersionsUnchanged": true,
+    "retainedRuntimeVersionsUnchanged": true
+  },
+  "limitations": [
+    "Linux only; B05 cross-platform installs remain open",
+    "Experiment typecheck inventory; E03 production entrypoints remain open",
+    "Deno JSR/dnt/std and release preparation remain transitional",
+    "Existing generated fetch-mock-cache runtime declaration deferred to F03",
+    "No build, publication, live Yahoo or recache",
+    "Concurrent C03 harness changes excluded; parent owns combined verification"
+  ]
+}
