@@ -1,5 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
+// @deno-types="@modelcontextprotocol/sdk/server/streamableHttp"
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+// @deno-types="@modelcontextprotocol/sdk/server/webStandardStreamableHttp"
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 
 import {

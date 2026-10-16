@@ -131,6 +131,43 @@ export const text = "./leave.ts";`;
   }
 });
 
+test("SDK declaration adaptation leaves runtime, unrelated imports and arbitrary strings unchanged", () => {
+  const input = `import type { McpServer as Type } from "@modelcontextprotocol/sdk/server/mcp";
+import type { CallToolResult } from "@modelcontextprotocol/sdk/types";
+import { McpServer as Runtime } from "@modelcontextprotocol/sdk/server/mcp";
+import type { Client } from "@modelcontextprotocol/sdk/client/index";
+export const text = "@modelcontextprotocol/sdk/server/mcp";`;
+  for (const commonJS of [false, true])
+    for (const declarations of [false, true]) {
+      const source = ts.createSourceFile(
+        "contract.ts",
+        input,
+        ts.ScriptTarget.Latest,
+        true,
+      );
+      const result = ts.transform(source, [
+        rewriteModules(commonJS, declarations),
+      ]);
+      try {
+        const output = ts.createPrinter().printFile(result.transformed[0]);
+        const imports = ts
+          .preProcessFile(output, true, true)
+          .importedFiles.map((item) => item.fileName);
+        expect(imports).toEqual([
+          `@modelcontextprotocol/sdk/server/mcp${commonJS && declarations ? ".js" : ""}`,
+          `@modelcontextprotocol/sdk/types${commonJS && declarations ? ".js" : ""}`,
+          "@modelcontextprotocol/sdk/server/mcp",
+          "@modelcontextprotocol/sdk/client/index",
+        ]);
+        expect(output).toContain(
+          'text = "@modelcontextprotocol/sdk/server/mcp"',
+        );
+      } finally {
+        result.dispose();
+      }
+    }
+});
+
 test("npm build emits deterministic public artifacts, declarations, schemas and portable bins", () => {
   const scratch = temporary();
   try {
@@ -151,6 +188,56 @@ test("npm build emits deterministic public artifacts, declarations, schemas and 
       process.umask(previousMask);
     }
     expect(digest(first)).toEqual(digest(second));
+    // A real consumer must share the selected SDK class identity in both module modes.
+    symlinkSync(
+      path.join(repository, "node_modules"),
+      path.join(scratch, "node_modules"),
+      "junction",
+    );
+    for (const [extension, format] of [
+      ["mts", "esm"],
+      ["cts", "script"],
+    ]) {
+      const consumer = path.join(scratch, `identity.${extension}`);
+      const positive = `import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { createYahooFinanceMcpServer } from "./first/${format}/src/mcp/server.js";
+const returned = createYahooFinanceMcpServer({ client: {} });
+const expected: McpServer = returned;
+const reverse: ReturnType<typeof createYahooFinanceMcpServer> = new McpServer({name:"identity",version:"1"});
+expected.registerTool("valid", {}, () => ({ content: [] }));
+void reverse;`;
+      for (const skipLibCheck of [false, true]) {
+        const diagnostics = (text: string) => {
+          writeFileSync(consumer, text);
+          const program = ts.createProgram([consumer], {
+            target: ts.ScriptTarget.ES2022,
+            module: ts.ModuleKind.NodeNext,
+            moduleResolution: ts.ModuleResolutionKind.NodeNext,
+            strict: true,
+            noEmit: true,
+            skipLibCheck,
+            types: ["node"],
+            typeRoots: [path.join(scratch, "node_modules/@types")],
+          });
+          return ts.getPreEmitDiagnostics(program);
+        };
+        expect(
+          diagnostics(positive).map((item) =>
+            ts.flattenDiagnosticMessageText(item.messageText, "\n"),
+          ),
+        ).toEqual([]);
+        const negative = diagnostics(
+          positive +
+            "\nexpected.registerTool(123, {}, () => ({ content: [] }));",
+        );
+        expect(negative).toHaveLength(1);
+        expect(negative[0].code).toBe(2345);
+        expect(
+          ts.flattenDiagnosticMessageText(negative[0].messageText, "\n"),
+        ).toContain("number");
+      }
+    }
+
     const ownedRoot = path.join(scratch, "owned-repository");
     const ownedOutput = path.join(ownedRoot, "npm");
     mkdirSync(ownedOutput, { recursive: true });

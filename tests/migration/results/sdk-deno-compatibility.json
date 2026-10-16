@@ -1,0 +1,188 @@
+{
+  "schema": 2,
+  "date": "2026-10-16",
+  "base": "e48a7aff2c860f9743214e41c3858750d783af38",
+  "candidate": "/tmp/yf-sdk-compat-v2-fs2ygqzn/candidate",
+  "owned": {
+    "scripts/build_npm.ts": "2bc36f654c62a2293ebae1e7eb6dae9baa76d5dcb1d5e45df21224ece516c96a",
+    "scripts/build_npm.test.ts": "0133ffaf07467927d07069d368cdaff3a25d0a898a70d2bb5f59beeea1a3461c",
+    "src/mcp/server.ts": "5ad7fde98bf67aa98047b45c5428c79a6d815fa7533dbcd8dfdbe4846c380b96",
+    "src/mcp/http.ts": "986f646da38f10c8bce813b399fc6999b3335eac909fdd355b498f273bd514e1"
+  },
+  "patchSha256": "bb75ee3aeb0ba05a9c34c9d89e9e61e7ade5cb0ab8530d365842b22e03733693",
+  "problem": "SDK1.32 wildcard types map resolves .js declaration specifiers incorrectly in Deno. Original v1 bare type alias fixed real Deno types but broke Node/Bun CommonJS class identity by selecting the ESM SDK private brand.",
+  "originalFinding": {
+    "path": "proof/original-sol-review.json",
+    "sha256": "6978086e35e2304338fa1e8a345503da03b737c350b5d87ed94fac1a0a75e704",
+    "frozenV1": "/tmp/yf-deno2-sdk-compat-kcfw610f/receipt.json",
+    "v1ReceiptSha256": "fe6bb7db17251e3311dc4bfc56a4a86975542172ab4f2b0e395023c6a0118ee8",
+    "status": "changes required; preserved unchanged"
+  },
+  "fix": "Precise bare @deno-types runtime hints and explicit genuine extensionless SDK type imports retain Deno/ESM checking. AST declaration-only CommonJS handling maps only the two known type-only SDK imports server/mcp and types to original .js conditional exports. Runtime/unrelated imports and arbitrary strings stay unchanged.",
+  "ordinaryTests": {
+    "guarded": "16 passed / 0 failed across 3 build/MCP files; real emitted ESM/CJS assignments both ways to SDK McpServer, skipLibCheck false/true; each numeric registerTool argument yields sole TS2345. AST scope control preserves runtime/unrelated import/string behavior.",
+    "types": "Library: 58 roots, 73 files, 28 exports. Tools: 126 roots, 199 files. Zero diagnostics.",
+    "docs": "Actual docs:lint passes: 28 exports, 5,022 reflections, 161 links, 2,271 existing diagnostics, zero new.",
+    "biome": "Four files checked; no changes, errors or warnings. Four existing useTemplate information diagnostics in builder retained."
+  },
+  "installedNodeTypes": {
+    "proof": "proof/installed-identity.json",
+    "scope": "real packed package import yahoo-finance2/mcp/server and actual SDK .js import in .mts/.cts, two-way assignment; skipLibCheck false/true pass; both invalid numeric tool arguments fail TS2345 for each setting. No nominal shim, any or suppressed diagnostics."
+  },
+  "actualDenoPublisherOnly": {
+    "source": "Deno 2.0 and 2.6.7 all 28 source export types pass with exact root-derived generated publisher map; wrong numeric SDK argument fails TS2345; controlled runtime passes under cached-only/deny-net/rejecting fetch.",
+    "npm": "Real tarball installed with normal hooks and authoritative @types/node 24.10.1; both Deno versions all 28 npm ESM export types pass; wrong numeric SDK argument fails TS2345; controlled runtime passes under cached-only/deny-net/rejecting fetch. No Deno CommonJS consumer claim.",
+    "modeQualification": "SDK-only original automatic npm specifier fails 2.0 but passes 2.6.7; precise hints pass both. Earlier frozen v1 manual SDK-only failure characterization remains separately scoped.",
+    "binaries": {
+      "2.0.0": "097ca199e64f5cd67318cdd3750ab3da9374edeaa205032b74c905f8c99901a6",
+      "2.6.7": "238a8182c2f22d94eba9868be7bd946c4409dd64f8435d11c628543c7cca177d"
+    },
+    "executionBoundary": "Explicit isolated publisher rehearsal only; ordinary tests/build/types/docs never execute Deno. Registry acquisition precedes denied-network runtime probes."
+  },
+  "failedSuccessorAttempts": {
+    "preserved": "proof/hints-only-attempt",
+    "scope": "Original-return source hints preserve original server declaration b450d773afbcce41133b65617e5229c6d5882b38af37ff8da72ce1670b7abfa7 and CJS identity but Deno npm wrong-tool negatives incorrectly exit 0 in both versions. JSDoc hint on temporary emitted .d.ts also leaves wrong-tool accepted, including fresh caches/reload. These are rejected designs, not successes. Original publisher positive-only npm proof does not establish real SDK argument checking."
+  },
+  "runtimeConsumerProbes": "Actual installed Node 22.0 / Node 24.21 / Bun 1.4.3, all 28 ESM/CommonJS exports, controlled quote/cookies/dates/metadata/MCP pass under strict Linux guard.",
+  "unchanged": {
+    "rootMetadata": {
+      "package.json": "c8a1505e8c0e40313445fc7aa6dcb910333f3dd55fc918aba4f74ce522142f5b",
+      "bun.lock": "bf98a9036ecf4b301a4927968fdb2676a22b472e0c4949def0d9ba12d8616524",
+      "deno.json": "1cccbdcd1fe7257c02f9e900c1434aa7f2711ca52668a26e809bc3a28331a760"
+    },
+    "fixtures": {
+      "count": 1201,
+      "aggregateSha256": "ece9c9e3c8fb276ea074afa28a5b2fade12a2d09324cbe3192001ad04296632e",
+      "recipe": "sorted repo path + NUL + sha256hex + LF",
+      "changes": []
+    },
+    "runtimeJavaScript": {
+      "count": 108,
+      "proof": "proof/runtime-js-parity.json",
+      "scope": "All generated JS bytes equal preserved source-hint-only original-runtime build; declaration adaptation changes no runtime JS bytes."
+    }
+  },
+  "integration": [
+    "Four-file replacement patch is based on accepted Bun floor e48a7af and preserves its builder/test engine assertions. Do not apply the superseded v1 patch first.",
+    "Root clone Deno config still lacks bare SDK hint aliases; actual source proof uses generated exact publisher map. K03 minimal-map cleanup is separate and pending, not included.",
+    "Publisher source is frozen separately against51e1837; final source/version/minimum rehearsal must compose accepted changes. No publisher, K03, workflow, root package/lock, fixtures, REPORT or shared edits here."
+  ],
+  "primary": [
+    "https://github.com/modelcontextprotocol/typescript-sdk/issues/2701",
+    "https://deno.com/blog/v1.27"
+  ],
+  "bounds": [
+    "No real publish/auth/token/tags/dist-tags/GH writes/live Yahoo/real fixture writes",
+    "No shared source edits, stage, commit or push",
+    "Linux observed; actual native OS coverage remains its separate matrix",
+    "No SDK fork, declaration duplication, fake types, any, unchecked cast, suppression or policy minimum change"
+  ],
+  "parentAcceptance": {
+    "status": "Four-file source/builder correction accepted after independent Sol xhigh and adversarial Astra xhigh review and current-branch checks.",
+    "reviewedReceiptSha256": "c88455bbfad69461067626122a93a57008c5d9429308b02dbc87b69ca7cfe2eb",
+    "reviews": {
+      "sol": {
+        "path": "/tmp/yf-sdk-v2-sol-zvm2u14d/review.json",
+        "sha256": "6b0a17ea0ef1b19cef9b0157d6c4f62ea12a9457600d66466833046c01f87809"
+      },
+      "astra": {
+        "path": "/tmp/yf-sdk-v2-astra-7lkfv2o5/review.json",
+        "sha256": "997faa619459277c1f1cb4ad45008109fa68001f5aaa279a8525758a09343779"
+      }
+    },
+    "application": {
+      "path": "/tmp/yf-sdk-v2-applied-proof.json",
+      "sha256": "b9475c088e81ca47f9f3261d58bcb00858045f93ab8f913e1ba3998a7c4ea895",
+      "checks": {
+        "strictFocused": {
+          "passed": 16,
+          "failed": 0,
+          "files": 3
+        },
+        "typecheck": {
+          "libraryRoots": 58,
+          "libraryFiles": 73,
+          "toolsRoots": 126,
+          "toolsFiles": 199,
+          "diagnostics": 0
+        },
+        "format": {
+          "files": 212,
+          "exitCode": 0
+        },
+        "lint": {
+          "errors": 0,
+          "warnings": 150,
+          "infos": 144
+        },
+        "schemaCheck": {
+          "exitCode": 0,
+          "writes": false
+        },
+        "docsLint": {
+          "exitCode": 0,
+          "exports": 28,
+          "reflections": 5022,
+          "compatibleLinks": 161,
+          "existingDiagnostics": 2271
+        },
+        "guardedBuildOfflinePackAndSdkDeclarationPolicy": {
+          "actualCurrentGuardedBuild": {
+            "exitCode": 0,
+            "logSha256": "8f82f14f6b2447384d209c3c9a73876b0042a6b399242f9df0857e9b442dffa1"
+          },
+          "actualCurrentOfflineGuardedPack": {
+            "exitCode": 0,
+            "logSha256": "928d2c9c9a855de0e68a80371e69f4b5fc4ad6ff037dbe5fa48a3185b1453a44"
+          },
+          "engines": {
+            "node": ">=22.0.0",
+            "bun": ">=1.4.3"
+          },
+          "exports": 28,
+          "packedEntryCount": 252,
+          "sdkDeclarationPolicy": {
+            "esm": {
+              "actualPublicMcpServerImportSuffix": "",
+              "serverDeclarationSha256": "e1015979048a7a1e3c79ce0fce4462b8b8aabe7fbe1a5c514c65106875682739",
+              "internalCallToolResultPrunedFromPublicDeclaration": true
+            },
+            "script": {
+              "actualPublicMcpServerImportSuffix": ".js",
+              "serverDeclarationSha256": "2fc9d1753511c33997876db79193d2df8f4a80c31eb277a5890db60ec0b952fe",
+              "internalCallToolResultPrunedFromPublicDeclaration": true
+            }
+          },
+          "tarball": "/tmp/yf-sdk-v2-applied-r5du9lz0/package-scratch/yahoo-finance2-0.0.0-sdk-v2-applied.1.tgz",
+          "tarballSha256": "9ad1a6b2406e7ca7edea3ac10c6bbd939780c808e2a022351eba290767e8270d",
+          "privateProbeCorrection": "Initial assertions wrongly expected HTTP declarations to import SDK types directly and internal CallToolResult to remain emitted. Actual HTTP declaration references own server.js/options and standard node:http; internal CallToolResult is pruned. Corrected inspection verifies the actual public McpServer import in ESM bare/CJS.js; focused AST scope test covers both known rewrite inputs. No source edit or rebuild/pack repeat.",
+          "installedMatrixOrFreshInstallRepeated": false
+        }
+      },
+      "fixtures": {
+        "count": 1201,
+        "aggregateSha256": "04283377104fcba723b2a7e9672c94bd5d1af44bcb5721e5ef993eba71f85f77",
+        "bytesAndModesUnchanged": true
+      },
+      "allUnownedTrackedBytesAndExistingModesUnchanged": true,
+      "approvedBunFloorAndRootGraphPreserved": true,
+      "directorySymlinkPreserved": {
+        "path": ".claude/skills",
+        "target": "../.agents/skills"
+      }
+    },
+    "resolvedFinding": {
+      "path": "/tmp/yf-sdk-compat-sol-fb3ushb6/review.json",
+      "sha256": "6978086e35e2304338fa1e8a345503da03b737c350b5d87ed94fac1a0a75e704",
+      "finding": "Original shared ESM SDK type alias in CommonJS declaration broke actual SDK private-class identity; v1 never applied.",
+      "correction": "Keep real bare SDK types for source/ESM; rewrite only two known type-only SDK imports to original .js conditional paths in CommonJS declarations. Runtime semantics unchanged.",
+      "falseGreenControls": "Source-hint-only and declaration-comment-only npm Deno positives accepted invalid SDK arguments; rejected approaches and original failures retained."
+    },
+    "counts": "No new checklist tick;52/71. H03/publisher/root-map/native final integration remain separate.",
+    "limits": [
+      "Actual Deno source/npm ESM positives and intended TS2345 negatives belong to explicit isolated publisher-owned proof; no ordinary Deno invocation.",
+      "Current application does not repeat unchanged-graph installed matrix; independent reviewed source/installed SDK identity and runtime proof retain their original exact graph/version qualifications.",
+      "Root Deno type-alias map cleanup, maintained publisher negative control integration and current accepted-head publisher rehearsal remain pending."
+    ]
+  }
+}

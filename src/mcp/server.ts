@@ -1,5 +1,8 @@
+// @deno-types="@modelcontextprotocol/sdk/server/mcp"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import type { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
+// Explicit type paths match the SDK's wildcard .d.ts export on Deno 2.0.
+import type { McpServer as McpServerType } from "@modelcontextprotocol/sdk/server/mcp";
+import type { CallToolResult } from "@modelcontextprotocol/sdk/types";
 import * as z from "zod";
 
 import { stringifyJsonSafe, toJsonSafe } from "../lib/jsonSafe.ts";
@@ -335,7 +338,7 @@ export function getYahooFinanceMcpToolNames(): string[] {
 
 export function createYahooFinanceMcpServer(
   options: CreateYahooFinanceMcpServerOptions,
-): McpServer {
+): McpServerType {
   const enabledTools = options.enabledTools ?? getYahooFinanceMcpToolNames();
   const knownToolNames = new Set(getYahooFinanceMcpToolNames());
   const unknownTools = enabledTools.filter((name) => !knownToolNames.has(name));

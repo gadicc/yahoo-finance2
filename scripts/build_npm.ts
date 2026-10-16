@@ -227,15 +227,30 @@ function moduleSpecifier(value: ts.Expression): ts.Expression {
 /** Shared by JS and declarations; change module references, never arbitrary strings. */
 export function rewriteModules(
   commonJS: boolean,
+  declarations = false,
 ): ts.TransformerFactory<ts.SourceFile> {
   return (context) => {
     const visit: ts.Visitor = (node) => {
       if (ts.isImportDeclaration(node)) {
+        // SDK 1.32's extensionless types map selects ESM even for require.
+        // Preserve its genuine CJS class identity only in CJS declarations;
+        // ESM/Deno declarations retain the checked extensionless type export.
+        const sdkType =
+          commonJS &&
+          declarations &&
+          node.importClause?.isTypeOnly &&
+          ts.isStringLiteral(node.moduleSpecifier) &&
+          [
+            "@modelcontextprotocol/sdk/server/mcp",
+            "@modelcontextprotocol/sdk/types",
+          ].includes(node.moduleSpecifier.text)
+            ? ts.factory.createStringLiteral(`${node.moduleSpecifier.text}.js`)
+            : node.moduleSpecifier;
         return ts.factory.updateImportDeclaration(
           node,
           node.modifiers,
           node.importClause,
-          moduleSpecifier(node.moduleSpecifier),
+          moduleSpecifier(sdkType),
           commonJS ? undefined : node.attributes,
         );
       }
@@ -417,7 +432,7 @@ export function buildNpm(options: BuildOptions = {}): string {
       const result = instance.emit(undefined, undefined, undefined, undefined, {
         before: [rewriteModules(commonJS)],
         afterDeclarations: [
-          rewriteModules(commonJS) as ts.TransformerFactory<
+          rewriteModules(commonJS, true) as ts.TransformerFactory<
             ts.SourceFile | ts.Bundle
           >,
         ],

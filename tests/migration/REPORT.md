@@ -881,6 +881,31 @@ H01 was already accepted; progress stays **52/71**. Actual updated native OS
 results and the final composed publisher/Deno rehearsal remain pending. This
 breaking policy change is committed with a breaking-change release marker.
 
+## SDK declaration compatibility correction (2026-10-16)
+
+The [accepted correction](results/sdk-deno-compatibility.json) preserves genuine
+SDK types for Deno source/npm ESM consumers and Node/Bun ESM/CommonJS consumers.
+Sol review caught a real CJS regression in the initial candidate: its bare SDK
+type import selected the ESM class, whose private members made it incompatible
+with the actual CJS SDK class. That candidate was never applied. The revised
+builder adapts only the two known SDK type-only imports in CJS declarations;
+runtime JavaScript semantics remain unchanged.
+
+Positive compilation alone was insufficient: source-only and declaration-comment
+hints let invalid SDK calls pass in the tested Deno npm modes. The retained
+publisher-owned proof now verifies all 28 source/npm ESM exports on Deno 2.0 and
+2.6.7 and requires the intended invalid SDK argument to fail with TS2345. Real
+Node ESM/CJS consumers assign the returned server to and from the SDK class and
+reject invalid calls, with both settings of `skipLibCheck`.
+
+Independent Sol xhigh and adversarial Astra xhigh reviews cleared the four-file
+revision. Current application passed 16 guarded tests, full types, format/lint,
+no-write schemas and docs checks, plus a guarded build/offline pack with 28
+exports, 252 entries and the approved Node/Bun engines. All 1,201 fixtures,
+root dependency pins/lockfile and unrelated files remain unchanged. Progress
+stays **52/71**: root import-map cleanup, maintained publisher controls and the
+final accepted-head publisher/platform rehearsal are separate gates.
+
 ## Harness behavior (C03–C05, 2026-10-16)
 
 The maintained harness decision retains native Bun registration/hooks, upstream
