@@ -292,10 +292,19 @@ test("release prebuild precedes pure npm metadata verification and real local pr
     const check = () =>
       checkReleasePolicy({ root: scratch, env, nodeVersion: "v24.21.0" });
     assert.throws(check, /ENOENT/);
-    const { buildNpm } = await import(
-      pathToFileURL(join(scratch, "scripts/build_npm.ts")).href
+    // Keep scratch sources outside the covered parent while exercising the real CLI.
+    const build = spawnSync(
+      process.execPath,
+      ["--no-env-file", "scripts/build_npm.ts"],
+      { cwd: scratch, env, encoding: "utf8", timeout: 30000 },
     );
-    buildNpm({});
+    assert.ifError(build.error);
+    assert.equal(build.signal, null);
+    assert.equal(build.status, 0, build.stderr);
+    assert.equal(
+      build.stdout.trim(),
+      `Built npm package at ${join(scratch, "npm")}`,
+    );
     assert.throws(check, /Unable to inspect checkout credential configuration/);
     const git = (args: string[]) => {
       const result = spawnSync("git", ["-C", scratch, ...args], {
