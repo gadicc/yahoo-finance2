@@ -142,6 +142,7 @@ export function signalNativeGroup(pid: number, signal: NodeJS.Signals): void {
 interface NativeWaitControls {
   platform?: NodeJS.Platform;
   closeTimeout?: number;
+  killTimeout?: number;
   terminateWindows?: (child: ChildProcess) => void;
   signalGroup?: (pid: number, signal: NodeJS.Signals) => void;
 }
@@ -160,6 +161,7 @@ export async function waitNativeChild(
   let cleanupError: unknown;
   let terminating = false;
   let closing: ReturnType<typeof setTimeout> | undefined;
+  let killing: ReturnType<typeof setTimeout> | undefined;
   let settle: (code: number) => void = () => {};
   const terminate = () => {
     // The supervisor abort and local deadline can arrive together. Attempt tree
@@ -175,7 +177,18 @@ export async function waitNativeChild(
     }, controls.closeTimeout ?? 1500);
     try {
       if (platform === "win32") windows(child);
-      else if (child.pid) group(child.pid, "SIGTERM");
+      else if (child.pid) {
+        const pid = child.pid;
+        group(pid, "SIGTERM");
+        // Restore forceful POSIX escalation before declaring close unverified.
+        killing = setTimeout(() => {
+          try {
+            group(pid, "SIGKILL");
+          } catch (error) {
+            cleanupError ??= error;
+          }
+        }, controls.killTimeout ?? 1000);
+      }
     } catch (error) {
       cleanupError ??= error;
       if (child.exitCode === null && child.signalCode === null)
@@ -186,8 +199,9 @@ export async function waitNativeChild(
     timeout = true;
     terminate();
   }, runTimeout);
+  let code = 2;
   try {
-    const code = await new Promise<number>((resolve, reject) => {
+    code = await new Promise<number>((resolve, reject) => {
       settle = resolve;
       child.once("error", reject);
       child.once("close", (code, signal) =>
@@ -205,15 +219,24 @@ export async function waitNativeChild(
       abort.addEventListener("abort", terminate, { once: true });
       if (abort.aborted) terminate();
     });
-    if (cleanupError) throw cleanupError;
-    return { code, timeout };
+  } catch (error) {
+    cleanupError ??= error;
   } finally {
     clearTimeout(timer);
     if (closing) clearTimeout(closing);
+    if (killing) clearTimeout(killing);
     abort.removeEventListener("abort", terminate);
     // POSIX group cleanup also covers a parent that closed before a descendant.
     // Windows relies on Bun's --no-orphans normally and taskkill while PID exists;
     // an exited-parent failure is bounded/reported, never called a tree guarantee.
-    if (platform !== "win32" && child.pid) group(child.pid, "SIGKILL");
+    if (platform !== "win32" && child.pid) {
+      try {
+        group(child.pid, "SIGKILL");
+      } catch (error) {
+        cleanupError ??= error;
+      }
+    }
   }
+  if (cleanupError) throw cleanupError;
+  return { code, timeout };
 }

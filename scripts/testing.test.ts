@@ -285,10 +285,10 @@ test("per-test and whole-run timeouts retain failure status", () => {
     "import{test}from'bun:test';test('pending',()=>new Promise(()=>{}));",
   );
   const perTest = space.run(["--timeout", "20"]);
-  expect(perTest.code).toBe(1);
+  expect(perTest.code, perTest.output).toBe(1);
   expect(perTest.output).toContain("timed out after 20ms");
   const whole = space.run(["--run-timeout", "100", "--timeout", "10000"]);
-  expect(whole.code).toBe(124);
+  expect(whole.code, whole.output).toBe(124);
   expect(whole.output).toContain("Test run timed out after 100ms");
 }, 30_000);
 

@@ -363,3 +363,60 @@ test("Windows abort and local deadline attempt tree cleanup once and preserve it
     }
   }
 });
+
+test("POSIX cancellation force-kills TERM-ignoring groups before the close watchdog and retains failures", async () => {
+  for (const scenario of [
+    "term-closed",
+    "killed",
+    "kill-failed",
+    "never-closes",
+  ] as const) {
+    const child = new ChildProcess();
+    Object.defineProperty(child, "pid", { value: 123 });
+    child.kill = () => true;
+    let unref = false;
+    child.unref = () => {
+      unref = true;
+    };
+    const original = new Error("FIRST_GROUP_KILL_FAILED");
+    const signals: NodeJS.Signals[] = [];
+    const result = waitNativeChild(child, new AbortController().signal, 10, {
+      platform: "linux",
+      killTimeout: 10,
+      closeTimeout: 60,
+      signalGroup: (pid, signal) => {
+        expect(pid).toBe(123);
+        signals.push(signal);
+        if (signal === "SIGTERM" && scenario === "term-closed")
+          child.emit("close", null, "SIGTERM");
+        if (signal !== "SIGKILL") return; // The other owned groups ignore TERM.
+        if (scenario === "kill-failed") {
+          if (signals.length === 2) throw original;
+          throw new Error("SECOND_GROUP_KILL_FAILED");
+        }
+        if (scenario === "killed") child.emit("close", null, "SIGKILL");
+      },
+    });
+    if (scenario === "term-closed" || scenario === "killed")
+      await expect(result).resolves.toEqual({
+        code: scenario === "killed" ? 137 : 143,
+        timeout: true,
+      });
+    else if (scenario === "kill-failed")
+      await expect(result).rejects.toBe(original);
+    else
+      await expect(result).rejects.toThrow("did not close after cancellation");
+    expect(signals).toEqual(
+      scenario === "term-closed"
+        ? ["SIGTERM", "SIGKILL"]
+        : ["SIGTERM", "SIGKILL", "SIGKILL"],
+    );
+    const failed = scenario === "kill-failed" || scenario === "never-closes";
+    expect(unref).toBe(failed);
+    // A cleared escalation/watchdog must not signal a later reused PID.
+    const completed = signals.length;
+    await new Promise((resolve) => setTimeout(resolve, 70));
+    expect(signals).toHaveLength(completed);
+    expect(unref).toBe(failed);
+  }
+});
