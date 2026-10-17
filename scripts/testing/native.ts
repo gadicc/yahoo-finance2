@@ -172,6 +172,28 @@ export async function waitNativeChild(
       cleanupError ??= new Error(
         "Native process did not close after cancellation; descendant cleanup is unverified",
       );
+      // Piped output can retain the controller after child.unref(). Close only
+      // this child's owned streams, without injecting stream error events.
+      const streams = new Set<object>();
+      for (const name of ["stdin", "stdout", "stderr"] as const) {
+        try {
+          const stream = child[name];
+          if (
+            !stream ||
+            stream === process.stdin ||
+            stream === process.stdout ||
+            stream === process.stderr ||
+            streams.has(stream)
+          )
+            continue;
+          streams.add(stream);
+          stream.destroy();
+          if ("unref" in stream && typeof stream.unref === "function")
+            stream.unref();
+        } catch (error) {
+          cleanupError ??= error;
+        }
+      }
       child.unref();
       settle(2);
     }, controls.closeTimeout ?? 1500);

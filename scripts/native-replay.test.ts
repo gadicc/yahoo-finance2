@@ -10,6 +10,7 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
+import { PassThrough } from "node:stream";
 import { test } from "../tests/helpers/runner.ts";
 import { expect } from "../tests/helpers/assertions.ts";
 import {
@@ -23,6 +24,16 @@ import { inventory, nativeInventory } from "./testing/inventory.ts";
 const launcher = new URL("./test.ts", import.meta.url).href;
 const pass =
   "import{test}from'bun:test';test('selected leaf',()=>console.log('SELECTED_LEAF'));";
+function fakeChild() {
+  const child = new ChildProcess();
+  Object.defineProperties(child, {
+    pid: { value: 123 },
+    stdin: { value: null, configurable: true },
+    stdout: { value: null, configurable: true },
+    stderr: { value: null, configurable: true },
+  });
+  return child;
+}
 function workspace() {
   const root = realpathSync(mkdtempSync(join(tmpdir(), "yf-native-command-")));
   const put = (file: string, text: string) => {
@@ -294,8 +305,7 @@ await expect(cache._store.storeContent({request:{url:'https://example.invalid'},
 
 test("Windows cleanup failures and exited-parent held-stdio cannot leave completion unbounded", async () => {
   for (const scenario of ["exited", "taskkill-failed", "close-race"] as const) {
-    const child = new ChildProcess();
-    Object.defineProperty(child, "pid", { value: 123 });
+    const child = fakeChild();
     Object.defineProperty(child, "exitCode", {
       value: scenario === "exited" ? 0 : null,
     });
@@ -334,8 +344,7 @@ test("Windows cleanup failures and exited-parent held-stdio cannot leave complet
 
 test("Windows abort and local deadline attempt tree cleanup once and preserve its first error", async () => {
   for (const fails of [false, true]) {
-    const child = new ChildProcess();
-    Object.defineProperty(child, "pid", { value: 123 });
+    const child = fakeChild();
     child.kill = () => true;
     child.unref = () => {};
     const controller = new AbortController();
@@ -371,8 +380,7 @@ test("POSIX cancellation force-kills TERM-ignoring groups before the close watch
     "kill-failed",
     "never-closes",
   ] as const) {
-    const child = new ChildProcess();
-    Object.defineProperty(child, "pid", { value: 123 });
+    const child = fakeChild();
     child.kill = () => true;
     let unref = false;
     child.unref = () => {
@@ -419,4 +427,66 @@ test("POSIX cancellation force-kills TERM-ignoring groups before the close watch
     expect(signals).toHaveLength(completed);
     expect(unref).toBe(failed);
   }
+});
+
+test("unverified close destroys only owned pipes and bounds a held-stderr controller", async () => {
+  for (const throwingGetter of [false, true]) {
+    const child = fakeChild();
+    child.kill = () => true;
+    child.unref = () => {};
+    const streams = [new PassThrough(), new PassThrough(), new PassThrough()];
+    Object.defineProperties(child, {
+      stdin: throwingGetter
+        ? {
+            get: () => {
+              throw new Error("OWNED_STREAM_GETTER_FAILURE");
+            },
+          }
+        : { value: streams[0] },
+      stdout: { value: streams[1] },
+      stderr: { value: streams[2] },
+    });
+    const original = new Error("ORIGINAL_TREE_CLEANUP_FAILURE");
+    await expect(
+      waitNativeChild(child, new AbortController().signal, 10, {
+        platform: "win32",
+        closeTimeout: 20,
+        terminateWindows: () => {
+          throw original;
+        },
+      }),
+    ).rejects.toBe(original);
+    expect(streams.map((stream) => stream.destroyed)).toEqual([
+      !throwingGetter,
+      true,
+      true,
+    ]);
+  }
+  expect(process.stdout.destroyed).toBe(false);
+  expect(process.stderr.destroyed).toBe(false);
+
+  using space = workspace();
+  const helper = new URL("./testing/native.ts", import.meta.url).href;
+  const parent =
+    "import{spawn}from'node:child_process';spawn(process.execPath,['--no-env-file','--eval','setTimeout(()=>{},4000)'],{stdio:['ignore','ignore','inherit']});process.exit(0);";
+  const driver = space.put(
+    "held-stderr.mjs",
+    `import{spawn}from'node:child_process';import{waitNativeChild}from${JSON.stringify(helper)};
+const child=spawn(process.execPath,['--no-env-file','--eval',${JSON.stringify(parent)}],{stdio:['ignore','ignore','pipe']});
+child.stderr.on('data',()=>{});await new Promise(resolve=>child.once('exit',resolve));
+const original=new Error('OWNED_TREE_UNVERIFIED');
+try{await waitNativeChild(child,new AbortController().signal,10,{platform:'win32',closeTimeout:60,terminateWindows:()=>{throw original}});throw Error('unexpected success')}
+catch(error){console.log(JSON.stringify({original:error===original,stderrDestroyed:child.stderr.destroyed}));process.exitCode=2}`,
+  );
+  const held = spawnSync(process.execPath, ["--no-env-file", driver], {
+    encoding: "utf8",
+    timeout: 2000, // The owned writer self-exits at 4s; the controller must not wait.
+  });
+  const output = held.stdout + held.stderr;
+  expect(held.error, output).toBeUndefined();
+  expect(held.status, output).toBe(2);
+  expect(JSON.parse(held.stdout.trim())).toEqual({
+    original: true,
+    stderrDestroyed: true,
+  });
 });
