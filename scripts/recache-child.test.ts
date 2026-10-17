@@ -3,8 +3,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeFile } from "node:fs/promises";
-import { expect } from "../tests/migration/assertions.ts";
-import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
 import { createCaptureBroker } from "./recache/broker.ts";
 import { runCaptureChild } from "./recache/child.ts";
 

@@ -16,7 +16,7 @@ import { delimiter, dirname, join } from "node:path";
 import { createRequire } from "node:module";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { PassThrough } from "node:stream";
-import { projectIt as test } from "../tests/migration/runner.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
 import config from "../release.config.mjs";
 import {
   checkReleasePolicy,

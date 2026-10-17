@@ -313,7 +313,7 @@ export async function rehearse(options) {
       'globalThis.fetch=()=>Promise.reject(new Error("Publisher artifact ordinary fetch forbidden"));\n',
     );
     const probe = join(artifact, "package-consumer.mjs");
-    copyFileSync(join(root, "tests/migration/package-consumer.mjs"), probe);
+    copyFileSync(join(root, "tests/package/package-consumer.mjs"), probe);
     /** @type {Array<[string,string,string[]]>} */
     const runtimeRows = [
       ["node24", process.execPath, ["--import", preload]],

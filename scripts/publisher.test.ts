@@ -18,8 +18,8 @@ import type {
   PublishContext,
   VerifyConditionsContext,
 } from "semantic-release";
-import { projectIt as test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   createJsrStage,
   hashFile,

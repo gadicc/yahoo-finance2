@@ -4,7 +4,7 @@
     "allowJs": true,
     "checkJs": true,
     "paths": {
-      "bun:test": ["./tests/migration/bun-test-types.d.ts"]
+      "bun:test": ["./tests/helpers/bun-test-types.d.ts"]
     },
     "lib": [
       "ES2024",
@@ -19,7 +19,7 @@
     "scripts/**/*.ts",
     "scripts/**/*.mjs",
     "tests/**/*.ts",
-    "tests/migration/*.mjs",
+    "tests/package/*.mjs",
     "release.config.mjs"
   ],
   "exclude": [

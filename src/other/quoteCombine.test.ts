@@ -1,5 +1,5 @@
-import { afterAll } from "../../tests/migration/runner.ts";
-import { FakeTime } from "../../tests/migration/time.ts";
+import { afterAll } from "../../tests/helpers/runner.ts";
+import { FakeTime } from "../../tests/helpers/time.ts";
 import {
   createTestYahooFinance,
   describe,

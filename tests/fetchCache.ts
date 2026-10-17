@@ -1,7 +1,7 @@
 "use strict";
 
-import { spy } from "./migration/mock.ts";
-import { afterAll, beforeAll } from "./migration/runner.ts";
+import { spy } from "./helpers/mock.ts";
+import { afterAll, beforeAll } from "./helpers/runner.ts";
 
 import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
 import ReplayStore from "./replayStore.ts";

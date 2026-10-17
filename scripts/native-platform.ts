@@ -585,7 +585,7 @@ export async function main(options: Options): Promise<void> {
         "native-mcp-fragment.mjs",
       ])
         copyFileSync(
-          join(repository, "tests/migration", name),
+          join(repository, "tests/package", name),
           join(consumer, name),
         );
       const preload = join(

@@ -16,8 +16,8 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { projectIt as test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 
 const cli = fileURLToPath(new URL("./schema-repair.ts", import.meta.url));
 const sourcePath = "src/modules/example.ts";

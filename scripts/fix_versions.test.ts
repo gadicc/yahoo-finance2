@@ -2,8 +2,8 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
-import { projectIt as test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import { fixVersions } from "./fix_versions.ts";
 import { repository } from "./build_npm.ts";
 

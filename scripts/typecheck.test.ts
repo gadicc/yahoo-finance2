@@ -18,8 +18,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { it as nativeIt } from "bun:test";
 import * as ts from "typescript";
-import { projectIt as test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   checkProjects,
   negativeControls,
@@ -67,11 +67,8 @@ function workspace() {
     put(name, readFileSync(join(repository, name), "utf8"));
   }
   put(
-    "tests/migration/bun-test-types.d.ts",
-    readFileSync(
-      join(repository, "tests/migration/bun-test-types.d.ts"),
-      "utf8",
-    ),
+    "tests/helpers/bun-test-types.d.ts",
+    readFileSync(join(repository, "tests/helpers/bun-test-types.d.ts"), "utf8"),
   );
   put("deno.json", JSON.stringify({ exports: { ".": "./src/index.ts" } }));
   put("src/index.ts", "export const value: number = 1;\n");

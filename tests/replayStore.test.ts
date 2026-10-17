@@ -12,8 +12,8 @@ import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
 import { runtime } from "fetch-mock-cache/runtimes/node.ts";
 import type { FMCCacheContent } from "fetch-mock-cache/store";
 import ReplayStore from "./replayStore.ts";
-import { test } from "./migration/runner.ts";
-import { expect } from "./migration/assertions.ts";
+import { test } from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
 
 const content: FMCCacheContent = {
   request: { url: "https://example.invalid/cached", method: "GET" },

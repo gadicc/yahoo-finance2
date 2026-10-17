@@ -3,8 +3,8 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
-import { test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   fixtureRejectionReason,
   hasRateLimitLog,

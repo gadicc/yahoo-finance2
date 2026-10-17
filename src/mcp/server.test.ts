@@ -1,4 +1,4 @@
-import { test } from "../../tests/migration/runner.ts";
+import { test } from "../../tests/helpers/runner.ts";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
 

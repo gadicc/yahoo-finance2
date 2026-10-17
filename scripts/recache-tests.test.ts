@@ -10,8 +10,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn, spawnSync } from "node:child_process";
-import { expect } from "../tests/migration/assertions.ts";
-import { projectIt as test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
 import { parseRecacheArguments, runRecache } from "./recache-tests.ts";
 import { runBaseline } from "./recache/baseline.ts";
 import {

@@ -1,8 +1,8 @@
-import { test } from "./migration/runner.ts";
-import { expect } from "./migration/assertions.ts";
+import { test } from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
 import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
 import MemoryStore from "fetch-mock-cache/stores/memory.ts";
-import { FakeTime } from "./migration/time.ts";
+import { FakeTime } from "./helpers/time.ts";
 import { createRecacheFetch } from "./recacheFetch.ts";
 
 function fakeClock() {

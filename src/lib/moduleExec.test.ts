@@ -5,7 +5,7 @@ import {
   it,
   setupCache,
 } from "../../tests/common.ts";
-import { spy } from "../../tests/migration/mock.ts";
+import { spy } from "../../tests/helpers/mock.ts";
 
 import search from "../modules/search.ts";
 import chart from "../modules/chart.ts";

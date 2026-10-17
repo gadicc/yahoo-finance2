@@ -1,6 +1,6 @@
-import { test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
-import { McpFrames } from "../tests/migration/native-mcp-frames.mjs";
+import { test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { McpFrames } from "../tests/package/native-mcp-frames.mjs";
 
 const encoder = new TextEncoder();
 

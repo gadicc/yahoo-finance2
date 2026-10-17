@@ -18,8 +18,8 @@ import {
 import { tmpdir } from "node:os";
 import * as path from "node:path";
 import * as ts from "typescript";
-import { projectIt as test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   buildNpm,
   compilerHost,

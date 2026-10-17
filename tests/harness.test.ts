@@ -12,10 +12,10 @@ import {
   projectIt,
   runTest,
   test,
-} from "./migration/runner.ts";
-import { expect } from "./migration/assertions.ts";
-import { spy, stub } from "./migration/mock.ts";
-import { FakeTime } from "./migration/time.ts";
+} from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
+import { spy, stub } from "./helpers/mock.ts";
+import { FakeTime } from "./helpers/time.ts";
 
 for (const asynchronous of [false, true]) {
   test(`finish awaits cleanup after ${asynchronous ? "async rejection" : "sync throw"}`, async () => {
@@ -367,10 +367,9 @@ function childTests(sources: string[], flags: string[] = []) {
     rmSync(directory, { recursive: true, force: true });
   }
 }
-const runnerUrl = new URL("./migration/runner.ts", import.meta.url).href;
-const assertionsUrl = new URL("./migration/assertions.ts", import.meta.url)
-  .href;
-const mockUrl = new URL("./migration/mock.ts", import.meta.url).href;
+const runnerUrl = new URL("./helpers/runner.ts", import.meta.url).href;
+const assertionsUrl = new URL("./helpers/assertions.ts", import.meta.url).href;
+const mockUrl = new URL("./helpers/mock.ts", import.meta.url).href;
 
 test("native runner fails async cleanup, runs afterEach, and restores globals after failure", () => {
   const child = childTests([

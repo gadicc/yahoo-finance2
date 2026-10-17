@@ -1,5 +1,5 @@
-import { spy } from "../../tests/migration/mock.ts";
-import { afterEach, beforeEach } from "../../tests/migration/runner.ts";
+import { spy } from "../../tests/helpers/mock.ts";
+import { afterEach, beforeEach } from "../../tests/helpers/runner.ts";
 import { describe, expect, it } from "../../tests/common.ts";
 import { _clearCache, getLatestVersion, versionCheck } from "./versions.ts";
 

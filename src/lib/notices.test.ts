@@ -5,7 +5,7 @@ import {
   it,
 } from "../../tests/common.ts";
 
-import { spy } from "../../tests/migration/mock.ts";
+import { spy } from "../../tests/helpers/mock.ts";
 
 describe("notices", () => {
   const createTestYahooFinanceOptions = {

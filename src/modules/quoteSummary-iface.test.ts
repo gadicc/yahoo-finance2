@@ -1,5 +1,5 @@
-import { expect } from "../../tests/migration/assertions.ts";
-import { test } from "../../tests/migration/runner.ts";
+import { expect } from "../../tests/helpers/assertions.ts";
+import { test } from "../../tests/helpers/runner.ts";
 import {
   Action,
   Grade,

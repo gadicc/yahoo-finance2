@@ -2,8 +2,8 @@ import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
 import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import { captureStore } from "./recache/store.ts";
 
 test("capture store drains deferred onFinish writes into private staged files", async () => {

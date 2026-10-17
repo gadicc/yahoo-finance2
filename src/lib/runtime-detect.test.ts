@@ -1,5 +1,5 @@
-import { describe, it } from "../../tests/migration/runner.ts";
-import { expect } from "../../tests/migration/assertions.ts";
+import { describe, it } from "../../tests/helpers/runner.ts";
+import { expect } from "../../tests/helpers/assertions.ts";
 import createYahooFinance from "../createYahooFinance.ts";
 import { readFileSync } from "node:fs";
 import { createContext, runInContext, type Context } from "node:vm";

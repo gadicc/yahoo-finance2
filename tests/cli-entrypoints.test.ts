@@ -5,8 +5,8 @@ import { tmpdir } from "node:os";
 import * as path from "node:path";
 import { pathToFileURL } from "node:url";
 import { Readable } from "node:stream";
-import { projectIt as test } from "./migration/runner.ts";
-import { expect } from "./migration/assertions.ts";
+import { projectIt as test } from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
 import { mainCli } from "../bin/yahoo-finance.ts";
 import {
   isLocalHost,

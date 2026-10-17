@@ -14,7 +14,7 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { projectIt as test } from "../tests/migration/runner.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
 import { buildNpm } from "./build_npm.ts";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -48,7 +48,7 @@ test("native MCP probes reject real EPIPE and stream errors while closing owned 
       "package-cookie-fetch.mjs",
       "native-mcp-frames.mjs",
     ])
-      cpSync(join(root, "tests/migration", name), join(consumer, name));
+      cpSync(join(root, "tests/package", name), join(consumer, name));
     const pkg = JSON.parse(
       readFileSync(join(installed, "package.json"), "utf8"),
     );
@@ -127,7 +127,7 @@ try{
           PROBE_PID: pidFile,
           PROBE_INITIALIZED: initialized,
           PROBE_MODULE: pathToFileURL(
-            join(root, "tests/migration/package-cookie-probe.mjs"),
+            join(root, "tests/package/package-cookie-probe.mjs"),
           ).href,
           PROBE_ROOT: directory,
           PROBE_INSTALLED: installed,

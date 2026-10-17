@@ -13,8 +13,8 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { test } from "../tests/migration/runner.ts";
-import { expect } from "../tests/migration/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   inventory,
   select,

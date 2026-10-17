@@ -1,6 +1,6 @@
 import { describe, expect, it } from "../../tests/common.ts";
 import Queue from "./queue.ts";
-import { FakeTime } from "../../tests/migration/time.ts";
+import { FakeTime } from "../../tests/helpers/time.ts";
 
 describe("Queue", () => {
   it("sequential default: concurrency defaults to 1", async () => {

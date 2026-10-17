@@ -1,5 +1,5 @@
-import { test } from "./migration/runner.ts";
-import { expect } from "./migration/assertions.ts";
+import { test } from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
 import {
   formatRecacheStats,
   mergeRecacheStats,

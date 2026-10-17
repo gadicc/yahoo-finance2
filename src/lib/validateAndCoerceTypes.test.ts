@@ -1,5 +1,5 @@
 import { describe, expect, it, spyLogger } from "../../tests/common.ts";
-import { stub } from "../../tests/migration/mock.ts";
+import { stub } from "../../tests/helpers/mock.ts";
 import pkg from "../../deno.json" with { type: "json" };
 import { _clearCache } from "./versions.ts";
 

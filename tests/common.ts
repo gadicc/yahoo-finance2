@@ -1,14 +1,14 @@
-import { describe, projectIt as it } from "./migration/runner.ts";
+import { describe, projectIt as it } from "./helpers/runner.ts";
 export {
   afterAll,
   afterEach,
   beforeAll,
   beforeEach,
-} from "./migration/runner.ts";
-import { expect as _expect } from "./migration/assertions.ts";
+} from "./helpers/runner.ts";
+import { expect as _expect } from "./helpers/assertions.ts";
 import { getType } from "jest-get-type";
 import fetchCache, { fetchCacheSetup } from "./fetchCache.ts";
-import { spy } from "./migration/mock.ts";
+import { spy } from "./helpers/mock.ts";
 
 import testSymbols from "./testSymbols.ts";
 import createYahooFinance from "../src/createYahooFinance.ts";

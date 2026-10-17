@@ -1,4 +1,4 @@
-import { test } from "../../tests/migration/runner.ts";
+import { test } from "../../tests/helpers/runner.ts";
 import options, { type OptionsResult } from "./options.ts";
 import type { ModuleThis } from "../lib/moduleCommon.ts";
 

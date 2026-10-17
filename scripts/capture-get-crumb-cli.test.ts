@@ -11,8 +11,8 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { expect } from "../tests/migration/assertions.ts";
-import { projectIt as test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { projectIt as test } from "../tests/helpers/runner.ts";
 import { captureEnvironment } from "./recache/environment.ts";
 import { snapshotFixtures } from "./recache-fixtures.ts";
 

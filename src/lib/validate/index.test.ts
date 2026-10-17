@@ -1,5 +1,5 @@
-import { describe, test as it } from "../../../tests/migration/runner.ts";
-import { expect } from "../../../tests/migration/assertions.ts";
+import { describe, test as it } from "../../../tests/helpers/runner.ts";
+import { expect } from "../../../tests/helpers/assertions.ts";
 
 import validateAndCoerce, { type JSONSchema } from "./index.ts";
 const definitions = {};

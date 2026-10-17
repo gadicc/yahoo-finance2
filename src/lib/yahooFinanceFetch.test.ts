@@ -6,9 +6,9 @@ import {
   it,
   setupCache,
 } from "../../tests/common.ts";
-import { spy } from "../../tests/migration/mock.ts";
-import { afterEach, beforeEach } from "../../tests/migration/runner.ts";
-import { FakeTime } from "../../tests/migration/time.ts";
+import { spy } from "../../tests/helpers/mock.ts";
+import { afterEach, beforeEach } from "../../tests/helpers/runner.ts";
+import { FakeTime } from "../../tests/helpers/time.ts";
 
 import Queue from "./queue.ts";
 import _yahooFinanceFetch, {

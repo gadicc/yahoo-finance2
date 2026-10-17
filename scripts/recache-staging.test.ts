@@ -11,8 +11,8 @@ import {
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { expect } from "../tests/migration/assertions.ts";
-import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
 import { publishStage, stageFixtures } from "./recache/staging.ts";
 
 const fixture = (value: unknown, status = 200) =>

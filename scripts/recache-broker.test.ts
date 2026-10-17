@@ -1,8 +1,8 @@
 import { mkdtemp, rm, stat } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { expect } from "../tests/migration/assertions.ts";
-import { test } from "../tests/migration/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { test } from "../tests/helpers/runner.ts";
 import { brokerFetch, createCaptureBroker } from "./recache/broker.ts";
 
 test("capture broker preserves auth flow bytes and separate cookies over private Unix IPC", async () => {
