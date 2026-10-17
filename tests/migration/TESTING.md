@@ -162,7 +162,10 @@ abort/deadline and cleanup checks. Failed, empty or cancelled runs leave no
 coverage artifact. A successful selection without instrumented source leaves
 coverage absent with a diagnostic. Native coverage retains its single-batch,
 no-Python contract. Strict batch merging validates native Bun LCOV, sums safe
-line counts and recomputes line totals. Function inventories must agree and
-function hits use the maximum observed count: a conservative lower bound because
-Bun 1.4.3 emits no function identities. The final full-CI required-source
-validator remains unchanged and rejects missing/incomplete coverage.
+line counts and recomputes line totals. The merged LCOV is line-only: Bun 1.4.3
+reports runtime-dependent function inventories without identities, so aggregate
+function counts and percentages cannot be reconstructed. CI reports them as
+unavailable, never zero. Raw batch reports must still contain valid paired Bun
+function totals; merged reports must contain no function fields. The final
+full-CI required-source inventory remains unchanged and rejects missing or
+incomplete coverage.

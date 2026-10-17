@@ -14,6 +14,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
+MAX_COUNT = 2**53 - 1
 HARNESS = (".npmrc", "package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", "worker.ts", "worker.test.ts")
 REQUIRED_SOURCES = {
     "bin/yahoo-finance.ts", "bin/yahoo-finance-mcp.ts", "scripts/test.ts",
@@ -36,7 +37,7 @@ def regular(path):
     return path
 
 
-def validate_lcov(root, path, required=None):
+def validate_lcov(root, path, required=None, *, merged_lines=False):
     root = root.resolve(strict=True)
     if required is None:
         # Pure type exports do not emit executable coverage. All runtime exports do.
@@ -74,72 +75,70 @@ def validate_lcov(root, path, required=None):
                 if not match:
                     raise ValueError(f"Malformed line coverage: {field}")
                 line, count = map(int, match.groups())
-                if line > len(lines) or line in seen_lines:
+                if line > len(lines) or line in seen_lines or count > MAX_COUNT:
                     raise ValueError(f"Invalid/duplicate mapped line in {name}: {line}")
                 seen_lines.add(line)
                 totals["lines"] += 1
                 totals["linesHit"] += int(count > 0)
             elif field.startswith(("LF:", "LH:")):
                 key, count = field.split(":")
-                if key in line_totals or not count.isdecimal():
+                if key in line_totals or not count.isascii() or not count.isdecimal() or int(count) > MAX_COUNT:
                     raise ValueError("Malformed line totals")
                 line_totals[key] = int(count)
             elif field.startswith(("FNF:", "FNH:")):
+                if merged_lines:
+                    raise ValueError("Merged line coverage must not contain function fields")
                 key, count = field.split(":")
-                if key in functions or not count.isdecimal():
+                if key in functions or not count.isascii() or not count.isdecimal() or int(count) > MAX_COUNT:
                     raise ValueError("Malformed function totals")
                 functions[key] = int(count)
             elif field != "TN:" and field != "SF:" + name:
                 raise ValueError(f"Unexpected native Bun LCOV field: {field}")
-        if set(functions) != {"FNF", "FNH"} or functions["FNH"] > functions["FNF"] or not seen_lines:
-            raise ValueError(f"Incomplete native Bun coverage record: {name}")
+        if not seen_lines or (not merged_lines and
+                (set(functions) != {"FNF", "FNH"} or functions["FNH"] > functions["FNF"])):
+            raise ValueError(f"Incomplete {'merged line' if merged_lines else 'native Bun'} coverage record: {name}")
         hits = sum(int(field.split(",")[1]) > 0 for field in fields if field.startswith("DA:"))
         if line_totals != {"LF": len(seen_lines), "LH": hits}:
             raise ValueError(f"Inconsistent line totals: {name}")
-        totals["functions"] += functions["FNF"]
-        totals["functionsHit"] += functions["FNH"]
+        if not merged_lines:
+            totals["functions"] += functions["FNF"]
+            totals["functionsHit"] += functions["FNH"]
+        if any(count > MAX_COUNT for count in totals.values()):
+            raise ValueError("LCOV total exceeds safe integer range")
         sources.add(name)
     if not sources or not required <= sources:
         raise ValueError(f"Incomplete full-suite coverage, missing: {sorted(required - sources)}")
+    if merged_lines:
+        totals.update(functions=None, functionsHit=None,
+                      functionsUnavailable="Bun batch function identities are unavailable; aggregate function coverage cannot be reconstructed")
     return {"sources": len(sources), **totals, "branches": "not emitted by Bun 1.4.3"}
 
 
 def merge_lcov(root, inputs, output):
-    """Merge validated Bun records. Function hits are a lower bound, not a union."""
-    maximum = 2**53 - 1
+    """Merge validated Bun line records; aggregate function identity is unavailable."""
     merged = {}
     for path in inputs:
         validate_lcov(root, Path(path), set())
         for raw in Path(path).read_text().split("end_of_record")[:-1]:
             fields = raw.strip().splitlines()
             name = next(field[3:] for field in fields if field.startswith("SF:"))
-            values = {field[:3]: int(field[4:]) for field in fields if field.startswith(("FNF:", "FNH:"))}
             lines = {int(field[3:].split(",")[0]): int(field.split(",")[1]) for field in fields if field.startswith("DA:")}
-            if any(value > maximum for value in [*values.values(), *lines.values()]):
-                raise ValueError("LCOV count exceeds safe integer range")
-            previous = merged.get(name)
-            if previous is None:
-                merged[name] = (values["FNF"], values["FNH"], lines)
-                continue
-            functions, hits, totals = previous
-            if functions != values["FNF"]:
-                raise ValueError("Inconsistent function inventory between Bun coverage batches")
+            totals = merged.setdefault(name, {})
             for line, count in lines.items():
                 total = totals.get(line, 0) + count
-                if total > maximum:
+                if total > MAX_COUNT:
                     raise ValueError("Merged LCOV count overflow")
                 totals[line] = total
-            merged[name] = (functions, max(hits, values["FNH"]), totals)
     if not merged:
         raise ValueError("No instrumented source coverage to merge")
     records = []
-    for name, (functions, hits, lines) in sorted(merged.items()):
-        records.extend(["TN:", "SF:" + name, f"FNF:{functions}", f"FNH:{hits}"])
+    for name, lines in sorted(merged.items()):
+        records.extend(["TN:", "SF:" + name])
         records.extend(f"DA:{line},{count}" for line, count in sorted(lines.items()))
         records.extend([f"LF:{len(lines)}", f"LH:{sum(count > 0 for count in lines.values())}", "end_of_record"])
     with Path(output).open("x") as stream:
         stream.write("\n".join(records) + "\n")
-    validate_lcov(root, Path(output), set())
+    validate_lcov(root, Path(output), set(), merged_lines=True)
 
 
 def guard_inside(root, scratch, host_namespace):
@@ -238,7 +237,7 @@ def main():
     elif args.mode == "merge-coverage":
         merge_lcov(args.root, args.inputs, args.output)
     elif args.mode == "coverage":
-        print(json.dumps(validate_lcov(ROOT, ROOT / "coverage/lcov.info"), sort_keys=True))
+        print(json.dumps(validate_lcov(ROOT, ROOT / "coverage/lcov.info", merged_lines=True), sort_keys=True))
     else:
         workers(args.bun, args.node, args.npm)
 

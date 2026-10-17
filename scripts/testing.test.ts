@@ -145,9 +145,12 @@ test("multi-batch filters and coverage publish only after aggregate success", ()
     ];
     const result = space.run(args);
     expect(result.code, result.output).toBe(0);
-    expect(
-      readFileSync(join(space.root, "coverage/lcov.info"), "utf8"),
-    ).toContain("SF:src/value.ts");
+    const coverage = readFileSync(
+      join(space.root, "coverage/lcov.info"),
+      "utf8",
+    );
+    expect(coverage).toContain("SF:src/value.ts");
+    expect(coverage).not.toMatch(/^FN/m);
   }
   space.put(
     "scripts/fatal.test.ts",

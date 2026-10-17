@@ -34,7 +34,12 @@ class CoverageTests(unittest.TestCase):
         for data in ("", report().replace("end_of_record", ""), report() * 2,
                      report().replace("FNH:1", "FNH:2"), report().replace("LH:1", "LH:0"),
                      report(line=2), report().replace("DA:1,1", "DA:1,1\nDA:1,1"),
-                     report().replace("DA:1,1", "DA:0,-1")):
+                     report().replace("DA:1,1", "DA:0,-1"),
+                     report().replace("FNF:1\n", ""), report().replace("FNH:1\n", ""),
+                     report().replace("FNF:1", "FNF:1\nFNF:1"),
+                     report(count=9007199254740992),
+                     report().replace("FNF:1", "FNF:9007199254740992"),
+                     report().replace("LF:1", "LF:9007199254740992")):
             with self.subTest(data=data):
                 self.path.write_text(data)
                 with self.assertRaises(ValueError):
@@ -67,6 +72,11 @@ class CoverageTests(unittest.TestCase):
         # not emit a record for the complete default inventory to pass.
         self.path.write_text(complete + report("src/modules/quoteSummary-iface.ts"))
         self.assertEqual(ci.validate_lcov(self.root, self.path)["sources"], len(names) - 1)
+        self.path.write_text(complete.replace("FNF:1\nFNH:1\n", ""))
+        with self.assertRaisesRegex(ValueError, "quoteSummary-iface\\.ts"):
+            ci.validate_lcov(self.root, self.path, merged_lines=True)
+        self.path.write_text(self.path.read_text() + report("src/modules/quoteSummary-iface.ts").replace("FNF:1\nFNH:1\n", ""))
+        self.assertEqual(ci.validate_lcov(self.root, self.path, merged_lines=True)["sources"], len(names) - 1)
 
     def test_missing_expected_source_and_symlink_alias_fail(self):
         with self.assertRaises(ValueError):
@@ -82,27 +92,49 @@ class CoverageTests(unittest.TestCase):
 
 
 class CoverageMergeTests(unittest.TestCase):
-    def test_union_disjoint_lines_and_conservative_function_hits(self):
+    def test_union_disjoint_lines_without_fabricated_function_totals(self):
         with tempfile.TemporaryDirectory() as value:
             root=Path(value);(root/'src').mkdir();(root/'src/a.ts').write_text('one\ntwo\n')
             (root/'src/b.ts').write_text('three\n')
             first=root/'first';second=root/'second';output=root/'merged'
-            first.write_text(report('src/a.ts',1,2).replace('FNF:1','FNF:2'))
-            second.write_text(report('src/a.ts',1,3).replace('FNF:1','FNF:2') + report('src/b.ts',1,4))
-            ci.merge_lcov(root,[first,second],output)
-            data=output.read_text()
-            self.assertIn('DA:1,5',data)
-            self.assertEqual(data.count('SF:src/a.ts'),1)
-            self.assertIn('FNF:2\nFNH:1',data)  # No function identity records exist to infer a union.
-            self.assertEqual(ci.validate_lcov(root,output,{'src/a.ts','src/b.ts'})['sources'],2)
-            output.unlink()
-            first.write_text(report('src/a.ts',1,0).replace('FNF:1','FNF:2').replace('FNH:1','FNH:0'))
-            second.write_text(report('src/a.ts',2,1).replace('FNF:1','FNF:2'))
+            # Actual Bun batch function pairs differ because identities are not
+            # exported. Neither these totals nor equal-cardinality profiles can
+            # reconstruct the union's function count or percentage.
+            for left,right in (((7,4),(13,12)),((17,11),(8,0)),((2,1),(2,1))):
+                with self.subTest(left=left,right=right):
+                    first.write_text(report('src/a.ts',1,2).replace('FNF:1',f'FNF:{left[0]}').replace('FNH:1',f'FNH:{left[1]}'))
+                    second.write_text(report('src/a.ts',1,3).replace('FNF:1',f'FNF:{right[0]}').replace('FNH:1',f'FNH:{right[1]}') + report('src/b.ts',1,4))
+                    ci.merge_lcov(root,[first,second],output)
+                    data=output.read_text()
+                    self.assertIn('DA:1,5',data)
+                    self.assertEqual(data.count('SF:src/a.ts'),1)
+                    self.assertNotIn('FN',data)
+                    summary=ci.validate_lcov(root,output,{'src/a.ts','src/b.ts'},merged_lines=True)
+                    self.assertEqual(summary['sources'],2)
+                    self.assertIsNone(summary['functions'])
+                    self.assertIsNone(summary['functionsHit'])
+                    self.assertIn('identities',summary['functionsUnavailable'])
+                    with self.assertRaises(ValueError):ci.validate_lcov(root,output,{'src/a.ts'})
+                    output.unlink()
+            first.write_text(report('src/a.ts',1,0).replace('FNH:1','FNH:0'))
+            second.write_text(report('src/a.ts',2,1))
             ci.merge_lcov(root,[first,second],output)
             self.assertIn('DA:1,0\nDA:2,1\nLF:2\nLH:1',output.read_text())
 
+    def test_merged_line_mode_rejects_any_function_fields_and_missing_sources(self):
+        with tempfile.TemporaryDirectory() as value:
+            root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
+            output=root/'merged'
+            lines=report().replace('FNF:1\nFNH:1\n','')
+            for fields in ('FNF:1\n','FNH:1\n','FNF:1\nFNH:1\n','FN:1,fn\n','FNDA:1,fn\n'):
+                output.write_text(lines.replace('DA:',fields+'DA:'))
+                with self.subTest(fields=fields),self.assertRaises(ValueError):
+                    ci.validate_lcov(root,output,{'src/example.ts'},merged_lines=True)
+            output.write_text(lines)
+            with self.assertRaises(ValueError):ci.validate_lcov(root,output,{'src/missing.ts'},merged_lines=True)
+
     def test_invalid_partial_reports_never_produce_merged_output(self):
-        for invalid in (report()*2,report().replace('end_of_record',''),report().replace('FNH:1','FNH:2'),report().replace('DA:1,1','DA:1,1\nDA:1,2'),report('../src/a.ts'),report().replace('DA:1,1','DA:1,9007199254740992')):
+        for invalid in (report()*2,report().replace('end_of_record',''),report().replace('FNH:1','FNH:2'),report().replace('FNF:1\n',''),report().replace('FNH:1\n',''),report().replace('DA:1,1','DA:1,1\nDA:1,2'),report('../src/a.ts'),report().replace('DA:1,1','DA:1,9007199254740992'),report().replace('FNF:1','FNF:9007199254740992')):
             with self.subTest(invalid=invalid),tempfile.TemporaryDirectory() as value:
                 root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
                 first=root/'first';second=root/'second';output=root/'merged'
@@ -110,14 +142,13 @@ class CoverageMergeTests(unittest.TestCase):
                 with self.assertRaises((ValueError,OSError)):ci.merge_lcov(root,[first,second],output)
                 self.assertFalse(output.exists())
 
-    def test_overflow_and_inconsistent_function_inventory_fail(self):
-        for second_report in (report(count=1),report(count=0).replace('FNF:1','FNF:2')):
-            with self.subTest(second_report=second_report),tempfile.TemporaryDirectory() as value:
-                root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
-                first=root/'first';second=root/'second';output=root/'merged'
-                first.write_text(report(count=9007199254740991));second.write_text(second_report)
-                with self.assertRaises(ValueError):ci.merge_lcov(root,[first,second],output)
-                self.assertFalse(output.exists())
+    def test_safe_counts_that_overflow_when_summed_fail(self):
+        with tempfile.TemporaryDirectory() as value:
+            root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
+            first=root/'first';second=root/'second';output=root/'merged'
+            first.write_text(report(count=9007199254740991));second.write_text(report(count=1))
+            with self.assertRaises(ValueError):ci.merge_lcov(root,[first,second],output)
+            self.assertFalse(output.exists())
 
 
 class StagingTests(unittest.TestCase):

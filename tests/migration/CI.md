@@ -109,8 +109,16 @@ change requires review. There is no invented branch coverage percentage.
 
 `python3 scripts/ci.py coverage` requires a regular canonical
 `coverage/lcov.info`, unique existing repository-relative source paths, original
-source line bounds, nonnegative counters, consistent line/function totals,
-terminated records and the full-suite required source inventory. It rejects
+source line bounds, safe nonnegative counters, consistent line totals,
+terminated records and the full-suite required source inventory. It explicitly
+validates merged line-only LCOV and rejects any function fields there. Each raw
+Bun batch is separately validated with genuine paired function totals before
+merging. Bun's function inventories vary by runtime execution and its LCOV
+omits function identities, so a full-suite function union cannot be recovered.
+The CI summary reports aggregate function coverage as unavailable with null
+counts; it does not invent a function percentage or substitute zero. Explicit
+native replay keeps its single-batch genuine Bun function metrics without
+requiring Python. It rejects
 partial, empty, stale-path, symlink, duplicate, generated/test/fixture/result and
 outside-repository reports. Existing launcher regressions prove stale LCOV is
 cleared before invalid/empty selections and output stages atomically from

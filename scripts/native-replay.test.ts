@@ -192,11 +192,14 @@ test("native coverage uses staged metrics and clears stale output on no-match", 
     "src/a.test.ts",
     "import{test,expect}from'bun:test';import{value}from'./value.ts';test('source',()=>expect(value()).toBe(7));",
   );
-  const result = space.run(["--coverage", "--serial"]);
+  const result = space.run(["--coverage", "--serial"], {
+    PATH: join(space.root, "no-tools"),
+  });
   expect(result.code, result.output).toBe(0);
-  expect(
-    readFileSync(join(space.root, "coverage/lcov.info"), "utf8"),
-  ).toContain("TN:");
+  const coverage = readFileSync(join(space.root, "coverage/lcov.info"), "utf8");
+  expect(coverage).toContain("TN:");
+  expect(coverage).toMatch(/^FNF:1$/m);
+  expect(coverage).toMatch(/^FNH:1$/m);
   expect(space.run(["--coverage", "--filter", "missing"]).code).toBe(2);
   expect(existsSync(join(space.root, "coverage/lcov.info"))).toBe(false);
 });
