@@ -25,6 +25,7 @@ export interface RecacheOptions {
   help: boolean;
   interval: number;
   runTimeout: number;
+  baselineTimeout: number;
 }
 
 export function parseRecacheArguments(
@@ -36,21 +37,22 @@ export function parseRecacheArguments(
     live: false,
     help: false,
     interval: Number(interval),
-    runTimeout: 120000,
+    runTimeout: 3600000,
+    baselineTimeout: 300000,
   };
+  let commonTimeout: number | undefined;
+  let baselineTimeout: number | undefined;
   for (let index = 0; index < args.length; index++) {
     const flag = args[index];
     if (flag === "--live") options.live = true;
     else if (flag === "--help") options.help = true;
-    else if (flag === "--run-timeout") {
-      options.runTimeout = Number(args[++index]);
-      if (
-        !Number.isInteger(options.runTimeout) ||
-        options.runTimeout <= 0 ||
-        options.runTimeout > 2147483647
-      ) {
-        throw new Error("--run-timeout must be a positive bounded integer");
+    else if (flag === "--run-timeout" || flag === "--baseline-timeout") {
+      const timeout = Number(args[++index]);
+      if (!Number.isInteger(timeout) || timeout <= 0 || timeout > 2147483647) {
+        throw new Error(`${flag} must be a positive bounded integer`);
       }
+      if (flag === "--run-timeout") commonTimeout = timeout;
+      else baselineTimeout = timeout;
     } else if (flag.startsWith("-")) throw new Error("Unknown recache option");
     else options.paths.push(flag);
   }
@@ -63,6 +65,9 @@ export function parseRecacheArguments(
       "FETCH_DEVEL_RECACHE_INTERVAL must be a bounded nonnegative number",
     );
   }
+  options.runTimeout = commonTimeout ?? options.runTimeout;
+  options.baselineTimeout =
+    baselineTimeout ?? commonTimeout ?? options.baselineTimeout;
   return options;
 }
 
@@ -75,7 +80,7 @@ export async function replayBaseline(
   const environment = captureEnvironment(await realpath(tmpdir()));
   const child = spawn(
     process.execPath,
-    ["--no-env-file", baselineEntry, root, ...files],
+    ["--no-env-file", baselineEntry, root, String(timeout), ...files],
     {
       cwd: root,
       env: environment,
@@ -124,6 +129,26 @@ export interface RecacheDependencies {
   log?: (message: string) => void;
 }
 
+/** Maintained library tier; tooling integrations are never capture targets. */
+export function recacheInventory(root: string): string[] {
+  return inventory(root).filter(
+    (file) => file.startsWith("src/") || /^tests\/[^/]+\.test\.ts$/.test(file),
+  );
+}
+
+export function selectRecacheFiles(root: string, paths: string[]): string[] {
+  const available = recacheInventory(root);
+  // Resolve against the complete inventory first so explicit tooling selections
+  // fail with an actionable reason rather than silently dropping those files.
+  const selected = paths.length ? select(root, inventory(root), paths) : [];
+  if (selected.some((file) => !available.includes(file))) {
+    throw new Error(
+      "Recache accepts only src/**/*.test.ts and tests/*.test.ts; tooling and integration paths are unsupported",
+    );
+  }
+  return select(root, available, paths);
+}
+
 export async function runRecache(
   options: RecacheOptions,
   dependencies: RecacheDependencies = {},
@@ -131,7 +156,7 @@ export async function runRecache(
   const log = dependencies.log ?? console.log;
   if (options.help) {
     log(
-      "Usage: FETCH_DEVEL=recache bun scripts/recache-tests.ts --live [--run-timeout MS] [TEST PATH ...]",
+      "Usage: FETCH_DEVEL=recache bun scripts/recache-tests.ts --live [--run-timeout MS] [--baseline-timeout MS] [TEST PATH ...]",
     );
     return 0;
   }
@@ -141,9 +166,17 @@ export async function runRecache(
   }
   const signal = dependencies.signal ?? new AbortController().signal;
   const root = await realpath(dependencies.root ?? repository);
-  const files = select(root, inventory(root), options.paths);
+  let files: string[];
+  try {
+    files = selectRecacheFiles(root, options.paths);
+  } catch {
+    log(
+      "Recache selection failed: select maintained src/**/*.test.ts or tests/*.test.ts files; tooling, integration, missing and empty selections are unsupported",
+    );
+    return 2;
+  }
   log("### Yahoo recache replay-only baseline");
-  if (!(await replayBaseline(root, files, signal, options.runTimeout))) {
+  if (!(await replayBaseline(root, files, signal, options.baselineTimeout))) {
     log(
       "Recache ABORTED: replay-only baseline failed; live recaching did not start. Exit status: 1.",
     );

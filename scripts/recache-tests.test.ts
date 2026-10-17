@@ -13,6 +13,11 @@ import { spawn, spawnSync } from "node:child_process";
 import { expect } from "../tests/migration/assertions.ts";
 import { projectIt as test } from "../tests/migration/runner.ts";
 import { parseRecacheArguments, runRecache } from "./recache-tests.ts";
+import { runBaseline } from "./recache/baseline.ts";
+import {
+  recacheInventory,
+  selectRecacheFiles,
+} from "./recache/orchestrator.ts";
 import { captureEnvironment } from "./recache/environment.ts";
 import type { CaptureTransport } from "./recache/broker.ts";
 
@@ -71,6 +76,156 @@ const source = (rateLimited: boolean, drift: boolean) => `
     if (${drift}) throw Error("schema drift");
   });
 `;
+
+test("baseline subprocess forwards its selected budget to the strict inner runner", async () => {
+  for (const timeout of [250, 300000]) {
+    let called = false;
+    expect(
+      await runBaseline(
+        [repository, String(timeout), "src/modules/quote.test.ts"],
+        async (options, root) => {
+          called = true;
+          expect(root).toBe(repository);
+          expect(options.runTimeout).toBe(timeout);
+          expect(options.serial).toBe(true);
+          expect(options.native).toBe(false);
+          expect(options.paths).toEqual(["src/modules/quote.test.ts"]);
+          return 17;
+        },
+      ),
+    ).toBe(17);
+    expect(called).toBe(true);
+  }
+  for (const args of [
+    [],
+    [repository, "0", "src/modules/quote.test.ts"],
+    [repository, "300000"],
+  ]) {
+    await expect(runBaseline(args)).rejects.toThrow();
+  }
+});
+
+test("recache budgets cover the maintained paced workload and overrides have order-independent precedence", () => {
+  const defaults = parseRecacheArguments([]);
+  expect(defaults.baselineTimeout).toBe(300000);
+  expect(defaults.runTimeout).toBe(3600000);
+  expect(defaults.runTimeout).toBeGreaterThan(839 * defaults.interval);
+  const common = parseRecacheArguments(["--run-timeout", "456"]);
+  expect(common.runTimeout).toBe(456);
+  expect(common.baselineTimeout).toBe(456);
+  const baseline = parseRecacheArguments(["--baseline-timeout", "123"]);
+  expect(baseline.runTimeout).toBe(defaults.runTimeout);
+  expect(baseline.baselineTimeout).toBe(123);
+  for (const args of [
+    ["--run-timeout", "456", "--baseline-timeout", "123"],
+    ["--baseline-timeout", "123", "--run-timeout", "456"],
+  ]) {
+    const options = parseRecacheArguments(args);
+    expect(options.runTimeout).toBe(456);
+    expect(options.baselineTimeout).toBe(123);
+  }
+  for (const flag of ["--run-timeout", "--baseline-timeout"]) {
+    for (const value of [
+      "0",
+      "-1",
+      "NaN",
+      "Infinity",
+      "1.5",
+      "2147483648",
+      "",
+    ]) {
+      expect(() => parseRecacheArguments([flag, value])).toThrow();
+    }
+    expect(() => parseRecacheArguments([flag])).toThrow();
+  }
+});
+
+test("recache selects the maintained library tier and rejects explicit tooling before any baseline", async () => {
+  const root = await sandbox();
+  try {
+    await mkdir(join(root, "scripts"));
+    await mkdir(join(root, "tests", "nested"));
+    for (const name of [
+      "src/library.test.ts",
+      "tests/fixture.test.ts",
+      "scripts/tooling.test.ts",
+      "tests/nested/integration.test.ts",
+    ]) {
+      await writeFile(
+        join(root, name),
+        'throw Error("inventory must not execute tests");',
+      );
+    }
+    const expected = ["src/library.test.ts", "tests/fixture.test.ts"];
+    expect(recacheInventory(root)).toEqual(expected);
+    expect(selectRecacheFiles(root, [])).toEqual(expected);
+    expect(selectRecacheFiles(root, ["src"])).toEqual(["src/library.test.ts"]);
+    expect(selectRecacheFiles(root, ["tests/fixture.test.ts"])).toEqual([
+      "tests/fixture.test.ts",
+    ]);
+    for (const path of [
+      "scripts",
+      "scripts/tooling.test.ts",
+      "tests",
+      "tests/nested",
+    ]) {
+      expect(() => selectRecacheFiles(root, [path])).toThrow(
+        "tooling and integration paths are unsupported",
+      );
+    }
+    const logs: string[] = [];
+    expect(
+      await runRecache(parseRecacheArguments(["--live", "scripts"]), {
+        root,
+        log: (line) => logs.push(line),
+        transport: async () => {
+          throw Error("must not reach transport");
+        },
+      }),
+    ).toBe(2);
+    expect(logs.join("\n")).toContain("Recache selection failed");
+    expect(logs.join("\n")).not.toContain("replay-only baseline");
+    await rm(join(root, "src"), { recursive: true });
+    await rm(join(root, "tests", "fixture.test.ts"));
+    expect(() => selectRecacheFiles(root, [])).toThrow(
+      "No test files selected",
+    );
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test("a large paced synthetic capture uses the selected capture budget", async () => {
+  const root = await sandbox();
+  try {
+    await writeFile(
+      join(root, "src", "large.test.ts"),
+      `
+      import { test } from "bun:test";
+      test("840 distinct requests", async () => {
+        if (process.env.FMC_CACHE_MODE === "replay") return;
+        for (let i = 0; i < 840; i++) {
+          await (await fetch("https://query2.finance.yahoo.com/v7/finance/quote?symbols=SYNTHETIC" + i)).text();
+        }
+      });
+    `,
+    );
+    let attempts = 0;
+    expect(
+      await runRecache(parseRecacheArguments(["--live"], "1"), {
+        root,
+        log() {},
+        transport: async () => {
+          attempts++;
+          return new Response("synthetic");
+        },
+      }),
+    ).toBe(0);
+    expect(attempts).toBe(840);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+}, 15000);
 
 for (const scenario of ["success", "drift", "limited"]) {
   test(`recache runner aggregates final snapshots and handles ${scenario}`, async () => {
@@ -301,6 +456,10 @@ test("public recache CLI rejects missing opt-in and invalid options before any b
   );
   expect(run().status).toBe(2);
   expect(run("--unknown").status).not.toBe(0);
+  const tooling = run("--live", "scripts");
+  expect(tooling.status).toBe(2);
+  expect(tooling.stdout).toContain("Recache selection failed");
+  expect(tooling.stdout).not.toContain("replay-only baseline");
   const noEnvironment = spawnSync(process.execPath, [command, "--live"], {
     encoding: "utf8",
     timeout: 5000,

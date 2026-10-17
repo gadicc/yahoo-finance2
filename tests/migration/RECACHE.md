@@ -57,11 +57,25 @@ or repository fixture capture was performed.
 The Bun entrypoint is `scripts/recache-tests.ts`. Its only public live mode is
 `FETCH_DEVEL=recache bun scripts/recache-tests.ts --live [TEST PATH ...]`.
 Neither the environment variable nor `--live` alone enables capture. Paths use
-the maintained recursive inventory and exclude Workers/generated/fixture trees;
-unknown options and empty selections fail. `FETCH_DEVEL_RECACHE_INTERVAL`
-defaults to 3000ms; `--run-timeout MS` bounds baseline and individual capture
-processes (120000ms by default). Each capture child's native per-test timeout
-uses this same budget, rather than Bun's unrelated five-second default. The root `test:recache` script maps to this
+the maintained library tier: `src/**/*.test.ts` plus
+`tests/*.test.ts`. This includes library and fixture/harness tests, rather than
+only tests that issue HTTP requests. Scripts, nested integration tests, Workers,
+generated output and fixture trees are excluded; explicit selections containing
+tooling/integration files, unknown options and empty selections fail.
+`FETCH_DEVEL_RECACHE_INTERVAL` defaults to 3000ms. The default whole selected
+replay baseline budget is five minutes (300000ms), and each capture file has a
+one-hour budget (3600000ms). For example, 840 distinct quoteSummary requests
+require at least 2517 seconds of request spacing at the default interval, before
+transport and execution time. Both budgets remain finite; unusually slow runs
+may need an operator-selected override. `--run-timeout MS` overrides both budgets
+for compatibility. `--baseline-timeout MS` overrides only the baseline and takes
+precedence regardless of argument order. Both options accept positive integers
+up to 2147483647ms. The baseline budget reaches the inner strict runner as well
+as its parent deadline; baseline replay retains the ordinary per-test timeout.
+Country capture continues to use its existing common `--run-timeout` budget
+through the same baseline helper. Each capture child's native per-test timeout
+uses its capture-file budget, rather than Bun's unrelated five-second default.
+The root `test:recache` script maps to this
 entrypoint; `bun run test:recache --help` is safe to inspect. Live use still
 requires both `FETCH_DEVEL=recache` and `--live`.
 This is a review candidate, not a recommendation to contact Yahoo during offline

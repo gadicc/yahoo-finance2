@@ -30,7 +30,7 @@ export async function runCaptureChild(
   session: CaptureSession,
   broker: CaptureBroker,
   abort: AbortSignal,
-  runTimeout = 120000,
+  runTimeout = 3600000,
 ): Promise<CaptureChildResult> {
   const identity = randomUUID();
   const configPath = join(scratch, `session-${identity}.json`);
