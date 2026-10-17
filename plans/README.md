@@ -6,11 +6,13 @@ in the order below unless dependencies say otherwise. Each executor: read the
 plan fully before starting, honor its STOP conditions, and update your row when
 done.
 
-Verification commands for this repo: `deno task test` (full suite,
-fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
-(typecheck — added by plan 001), `deno task schema` (regenerate
-`*.schema.json`), `deno task build:npm` + `deno task test:cloudflare`
-(npm/Workers smoke test).
+Plans 001–012 retain their historical Deno-era commands and evidence. On the
+Bun migration branch, use the pinned Bun toolchain and the current commands in
+[CONTRIBUTING.md](../CONTRIBUTING.md): `bun run test` (library),
+`bun run test:full` (complete root inventory), `bun run typecheck`,
+`bun run typecheck:negative`, `bun run format:check`, `bun run lint`,
+`bun run schema:check`, `bun run docs:lint` and `bun run build:npm`.
+Replay remains offline; fixture capture requires its explicit operational flow.
 
 ## Execution order & status
 
@@ -28,14 +30,18 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 | 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 | 011  | Country-profiled getCrumb fixture capture and replay             | P2       | M      | —                      | IN PROGRESS (VPN capture pending) |
 | 012  | Offline Deno/Bun/Vitest/node:test migration experiments          | P1       | L      | —                      | DONE |
+| 013  | Resolve adversarial Bun migration follow-up                    | P1       | M/L    | 012                    | IN PROGRESS |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
 
 The completed experiment is recorded in [plan 012](012-test-runner-migration-experiments.md).
-On `codex/bun-migration`, ongoing Bun migration work is tracked in
-[the report](../tests/migration/REPORT.md#staged-migration-checklist); plan 012
-retains its historical experiment scope and outcome.
+The pre-follow-up migration and benchmark evidence is preserved at
+[commit 701f137](https://github.com/gadicc/yahoo-finance2/tree/701f137d05f861b7a046618ca08321dcbba2ce9e)
+and the `codex/bun-migration-archive` branch. Current adversarial follow-up is
+tracked in [plan 013](013-bun-migration-review-followup.md); plan 012 retains
+its historical experiment scope and outcome. The earlier 71/71 readiness count
+is superseded pending operational fixes and fresh validation.
 
 ## Dependency notes
 

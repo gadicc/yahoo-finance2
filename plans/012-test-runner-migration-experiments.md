@@ -170,8 +170,8 @@ release/build tooling or CI were changed, and nothing was merged or pushed.
 | Deno 2.9.7 baseline | dev at planned SHA | f3a2c4cd0273ece8693dbd1387fcd06daa8b8bb1 | 1.428s |
 
 The full report and reproducible tooling are committed under
-`tests/migration/REPORT.md` on each experiment branch. The active review copy is
-[here](../tests/migration/REPORT.md).
+`tests/migration/REPORT.md` on each experiment branch. The historical review copy
+is [archived here](https://github.com/gadicc/yahoo-finance2/blob/701f137d05f861b7a046618ca08321dcbba2ce9e/tests/migration/REPORT.md).
 Each timing uses one warmup and five measured samples, four isolated workers,
 replay-only execution and separate type checking. Coverage engines differ;
 unchanged-graph and incremental typechecks, watch triggers, native Bun ambient
@@ -188,6 +188,17 @@ earlier no-push statements and selection deferral above describe the historical
 experiment scope and completion point.
 
 Bun is now selected for a slow, staged migration on `codex/bun-migration`,
-starting at the reviewed Bun commit. The [migration report](../tests/migration/REPORT.md)
-is the sole live acceptance tracker; Biome and a new major release are required.
+starting at the reviewed Bun commit. The [migration report](https://github.com/gadicc/yahoo-finance2/blob/701f137d05f861b7a046618ca08321dcbba2ce9e/tests/migration/REPORT.md)
+was the live acceptance tracker at this setup point; Biome and a new major release
+were required.
 Production implementation remains unchanged by this tracking setup.
+
+## Adversarial follow-up (2026-10-17)
+
+The experiment timings and commands above remain historical. The subsequent
+71/71 migration acceptance was superseded by confirmed operational findings;
+[plan 013](013-bun-migration-review-followup.md) tracks their implementation and
+validation. Current contributor commands are in [CONTRIBUTING](../CONTRIBUTING.md),
+and the maintained status/checklists are in [the current guide](../docs/bun-migration.md).
+The immutable archive and `codex/bun-migration-archive` branch preserve original
+receipts and claims. No new full-tooling-suite time is a rerun of this benchmark.
