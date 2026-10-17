@@ -7,7 +7,10 @@ Live recache is a separate maintained explicit capture command, never enabled
 by ordinary replay. Its opt-ins and safety checks are documented in
 [RECACHE](RECACHE.md) and [COUNTRY-CAPTURE](COUNTRY-CAPTURE.md).
 
-CI uses the same guarded root replay command, with installation and guard
+Default `test`, `test:replay`, watch and coverage select `src/**/*.test.ts` plus
+`tests/*.test.ts`. `bun run test:full` / `--full` selects the complete maintained
+library and tooling inventory; explicit focused tooling paths remain supported.
+CI uses `bun run test:coverage -- --full --run-timeout 300000`, with installation and guard
 provisioning performed separately. Root integration tests replay fixtures without
 network. The independent npm-managed Workers suite is excluded from root
 discovery and runs through its separate isolated-loopback launcher and own
@@ -34,7 +37,8 @@ sandbox or private Windows ACL/interactive-console claim. No fixture chmod
 preparation is needed after checkout.
 
 ```sh
-bun run test:replay
+bun run test:replay # library and top-level fixture/harness tests
+bun run test:full -- --run-timeout 300000 # complete maintained inventory
 bun run test:focused
 bun run test:serial -- src/lib/queue.test.ts
 bun run test:watch
@@ -142,3 +146,23 @@ guard or changing its root. The explicit `--native` CLI mode is a separate
 trusted-development policy with a smaller disclosed inventory, read-only cache
 store and fixture parity detection. It makes no raw-socket or arbitrary-write
 denial claim. See [native command details and tests](NATIVE-REPLAY.md).
+
+## Guard batches and complete coverage
+
+Selections are partitioned into strict and an exact five-file trusted Unix-IPC
+control batch. Their disjoint union must equal the selected inventory; new files
+stay strict. One whole-run deadline and abort signal spans both batches. A name
+filter can match only one batch; fresh JUnit and successful status are still
+required, and aggregate zero executed leaves fails. Unfiltered replay rejects
+skipped leaves. Empty filtered batches do not authorize ignoring import failures.
+
+Coverage clears stale output before selection, stages all available current-run
+reports and publishes atomically only after status, JUnit, executed-leaf,
+abort/deadline and cleanup checks. Failed, empty or cancelled runs leave no
+coverage artifact. A successful selection without instrumented source leaves
+coverage absent with a diagnostic. Native coverage retains its single-batch,
+no-Python contract. Strict batch merging validates native Bun LCOV, sums safe
+line counts and recomputes line totals. Function inventories must agree and
+function hits use the maximum observed count: a conservative lower bound because
+Bun 1.4.3 emits no function identities. The final full-CI required-source
+validator remains unchanged and rejects missing/incomplete coverage.

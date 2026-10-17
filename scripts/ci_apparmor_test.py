@@ -407,6 +407,15 @@ class OrchestrationTests(unittest.TestCase):
             self.assertEqual((len(before), len(after)), (2, 4))
             self.assertNotEqual(before[1]["command"][-1], after[1]["command"][-1])
             self.assertIn("offline.py", " ".join(after[2]["command"]))
+            outer = after[2]["command"]
+            position = outer.index("--profile")
+            self.assertEqual(outer[position:position + 2], ["--profile", "ipc"])
+            self.assertIn("--nested-probe", outer)
+            self.assertNotIn("--profile", before[0]["command"])
+            source = (ci.ROOT / "scripts/ci_apparmor.py").read_text()
+            inner = source.split('if mode == "--nested-probe":', 1)[1].split('if mode == "--strict-leaf":', 1)[0]
+            self.assertNotIn('"--profile", "ipc"', inner)
+            self.assertIn('"--strict-leaf"', inner)
             self.assertIn("workers-loopback.py", " ".join(after[3]["command"]))
             for directory in root.iterdir():
                 self.assertEqual(stat.S_IMODE(directory.stat().st_mode), 0o700)

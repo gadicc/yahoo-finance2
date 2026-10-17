@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
-import { inventory, select } from "../testing/inventory.ts";
+import { inventory, libraryInventory, select } from "../testing/inventory.ts";
 import { fixtureChanges, snapshotFixtures } from "../recache-fixtures.ts";
 import { createCaptureBroker, type CaptureTransport } from "./broker.ts";
 import { captureEnvironment } from "./environment.ts";
@@ -131,9 +131,7 @@ export interface RecacheDependencies {
 
 /** Maintained library tier; tooling integrations are never capture targets. */
 export function recacheInventory(root: string): string[] {
-  return inventory(root).filter(
-    (file) => file.startsWith("src/") || /^tests\/[^/]+\.test\.ts$/.test(file),
-  );
+  return libraryInventory(inventory(root));
 }
 
 export function selectRecacheFiles(root: string, paths: string[]): string[] {

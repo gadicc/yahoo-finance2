@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import re
+import runpy
 import shutil
 import stat
 import subprocess
@@ -55,7 +56,7 @@ def clean_environment(scratch=None):
 
 def run(command, *, cwd=None, environment=None, check=True, timeout=900):
     child = subprocess.run(list(map(str, command)), cwd=ROOT if cwd is None else cwd, env=environment or clean_environment(),
-                           text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+                           text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout, close_fds=True)
     if check and child.returncode:
         raise RuntimeError(f"Trusted CI command failed: {Path(command[0]).name}\n{child.stdout}")
     return child
@@ -237,10 +238,11 @@ def guarded(candidate, scratch, command, *, writable_modules=False, cwd=None):
     # This new launcher establishes replay-only markers in its allowlisted
     # environment; inherited capture variables are absent, not forwarded.
     environment.update(FETCH_DEVEL="", FMC_CACHE_MODE="replay")
-    arguments = ["/usr/bin/bwrap", "--die-with-parent", "--unshare-net", "--unshare-pid", "--new-session",
-                 "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc",
-                 "--ro-bind", str(ROOT), str(ROOT), "--ro-bind", str(candidate), str(candidate),
-                 "--bind", str(scratch), str(scratch)]
+    policy = runpy.run_path(str(ROOT / "scripts/testing/sandbox.py"))
+    mounts, inputs = policy["mount_arguments"](candidate, scratch, command, owner=ROOT,
+                                               tools=(bun, node))
+    environment["YF_GUARD_INPUT_ROOTS"] = inputs
+    arguments = ["/usr/bin/bwrap", "--die-with-parent", "--unshare-net", "--unshare-pid", "--new-session", *mounts]
     if writable_modules:
         modules = candidate / "src/modules"
         require(modules.resolve(strict=True) == modules and modules.is_dir(), "Module directory must be canonical")
@@ -305,6 +307,18 @@ def validate_candidate(base):
             "Candidate dependencies differ from the trusted frozen graph")
 
 
+def replay_candidate(candidate, scratch, bun):
+    # Only the already checked trusted controller runs outside the extra repair
+    # guard. Its inventory/native support imports contain no candidate code.
+    # Normal runTests establishes the complete strict child boundary before imports.
+    _, _, environment = runtimes()
+    environment.update(HOME=str(scratch), TMPDIR=str(scratch))
+    script = ("const { runTests, parseArguments } = await import(process.argv[1]);"
+              "process.exitCode = await runTests(parseArguments([]), process.argv[2]);")
+    return run([bun, "--no-env-file", "--eval", script, (ROOT / "scripts/test.ts").as_uri(), candidate],
+               cwd=ROOT, environment=environment)
+
+
 def verify(base, proposal, output):
     compatible(base)
     validate_candidate(base)
@@ -326,10 +340,11 @@ def verify(base, proposal, output):
         for command in ([bun, "--no-env-file", ROOT / "node_modules/@biomejs/biome/bin/biome", "format", "src/modules"],
                         [bun, "--no-env-file", ROOT / "node_modules/@biomejs/biome/bin/biome", "lint", "src/modules"],
                         [bun, "--no-env-file", CANDIDATE / "scripts/typecheck.ts"],
-                        [bun, "--no-env-file", CANDIDATE / "scripts/docs.ts", "lint"],
-                        [bun, "--no-env-file", CANDIDATE / "scripts/test.ts"]):
+                        [bun, "--no-env-file", CANDIDATE / "scripts/docs.ts", "lint"]):
             child = guarded(CANDIDATE, scratch, command)
             print(child.stdout, end="", flush=True)
+        replayed = replay_candidate(CANDIDATE, scratch, bun)
+        print(replayed.stdout, end="", flush=True)
         git("diff", "--check", cwd=CANDIDATE)
         bundle = scratch / "verified-repair.json"
         guarded(CANDIDATE, scratch, [bun, "--no-env-file", ROOT / "scripts/schema-repair.ts", "bundle", base, proposed, bundle])

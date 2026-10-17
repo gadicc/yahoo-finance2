@@ -6,6 +6,7 @@
     "check:toolchain": "bun scripts/check-toolchain.mjs",
     "preinstall": "bun scripts/check-toolchain.mjs",
     "test:replay": "bun scripts/test.ts",
+    "test:full": "bun scripts/test.ts --full",
     "test:focused": "bun scripts/test.ts src/modules/quote.test.ts",
     "test:coverage": "bun scripts/test.ts --coverage",
     "test:recache": "bun scripts/recache-tests.ts",

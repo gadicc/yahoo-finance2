@@ -18,6 +18,7 @@ on:
       - scripts/ci_apparmor_test.py
       - scripts/testing/ci-bwrap.apparmor
       - scripts/testing/offline.py
+      - scripts/testing/sandbox.py
       - tests/cloudflare/package-lock.json
   pull_request:
     paths:
@@ -32,6 +33,7 @@ on:
       - scripts/ci_apparmor_test.py
       - scripts/testing/ci-bwrap.apparmor
       - scripts/testing/offline.py
+      - scripts/testing/sandbox.py
       - tests/cloudflare/package-lock.json
 
 concurrency:

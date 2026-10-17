@@ -12,6 +12,7 @@ import json
 import os
 import pathlib
 import re
+import runpy
 import shutil
 import socket
 import subprocess
@@ -206,16 +207,37 @@ def main():
         "CLOUDFLARE_TELEMETRY_DISABLED": "1", "WRANGLER_SEND_METRICS": "false",
         "FETCH_DEVEL": "", "FMC_CACHE_MODE": "replay",
     }
+    try:
+        with socket.socket(socket.AF_UNIX):
+            pass
+    except OSError as error:
+        if error.errno == errno.EPERM:
+            fail("Workers cannot weaken inherited strict replay: Operation not permitted")
+        raise
     host_namespace = namespace()
     close_inherited_descriptors()
     script = str(pathlib.Path(__file__).resolve())
+    # npm may be staged separately from Node beneath /tmp. Preserve its explicit
+    # package closure, never the directory containing unrelated tool installations.
+    tool_packages = []
+    for argument in command:
+        value = pathlib.Path(argument)
+        if not value.is_absolute() or not value.is_file():
+            continue
+        for parent in value.resolve().parents:
+            metadata = parent / "package.json"
+            if metadata.is_file():
+                if json.loads(metadata.read_text()).get("name") == "npm":
+                    tool_packages.append(parent)
+                break
+    policy = runpy.run_path(str(pathlib.Path(__file__).with_name("sandbox.py")))
+    mounts, inputs = policy["mount_arguments"](root, scratch, command,
+                   owner=pathlib.Path(__file__).resolve().parents[2], tools=tool_packages)
+    environment["YF_GUARD_INPUT_ROOTS"] = inputs
     sandbox = [required["bwrap"], "--die-with-parent", "--unshare-user", "--uid", "0", "--gid", "0", "--unshare-net",
                "--unshare-pid", "--unshare-ipc", "--unshare-uts", "--new-session",
-               "--cap-add", "CAP_NET_ADMIN", "--cap-add", "CAP_SETPCAP",
-               "--ro-bind", "/", "/", "--dev", "/dev", "--proc", "/proc",
-               "--ro-bind", str(root), str(root), "--bind", str(scratch), str(scratch),
-               "--ro-bind", str(scratch / "sandbox-empty-run"), "/run", "--chdir", str(cwd),
-               sys.executable, script, "--setup", host_namespace, str(root), str(scratch), str(cwd),
+               "--cap-add", "CAP_NET_ADMIN", "--cap-add", "CAP_SETPCAP", *mounts,
+               "--chdir", str(cwd), sys.executable, script, "--setup", host_namespace, str(root), str(scratch), str(cwd),
                "--", *command]
     os.execve(required["bwrap"], sandbox, environment)
 

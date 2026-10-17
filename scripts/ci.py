@@ -104,17 +104,55 @@ def validate_lcov(root, path, required=None):
     return {"sources": len(sources), **totals, "branches": "not emitted by Bun 1.4.3"}
 
 
+def merge_lcov(root, inputs, output):
+    """Merge validated Bun records. Function hits are a lower bound, not a union."""
+    maximum = 2**53 - 1
+    merged = {}
+    for path in inputs:
+        validate_lcov(root, Path(path), set())
+        for raw in Path(path).read_text().split("end_of_record")[:-1]:
+            fields = raw.strip().splitlines()
+            name = next(field[3:] for field in fields if field.startswith("SF:"))
+            values = {field[:3]: int(field[4:]) for field in fields if field.startswith(("FNF:", "FNH:"))}
+            lines = {int(field[3:].split(",")[0]): int(field.split(",")[1]) for field in fields if field.startswith("DA:")}
+            if any(value > maximum for value in [*values.values(), *lines.values()]):
+                raise ValueError("LCOV count exceeds safe integer range")
+            previous = merged.get(name)
+            if previous is None:
+                merged[name] = (values["FNF"], values["FNH"], lines)
+                continue
+            functions, hits, totals = previous
+            if functions != values["FNF"]:
+                raise ValueError("Inconsistent function inventory between Bun coverage batches")
+            for line, count in lines.items():
+                total = totals.get(line, 0) + count
+                if total > maximum:
+                    raise ValueError("Merged LCOV count overflow")
+                totals[line] = total
+            merged[name] = (functions, max(hits, values["FNH"]), totals)
+    if not merged:
+        raise ValueError("No instrumented source coverage to merge")
+    records = []
+    for name, (functions, hits, lines) in sorted(merged.items()):
+        records.extend(["TN:", "SF:" + name, f"FNF:{functions}", f"FNH:{hits}"])
+        records.extend(f"DA:{line},{count}" for line, count in sorted(lines.items()))
+        records.extend([f"LF:{len(lines)}", f"LH:{sum(count > 0 for count in lines.values())}", "end_of_record"])
+    with Path(output).open("x") as stream:
+        stream.write("\n".join(records) + "\n")
+    validate_lcov(root, Path(output), set())
+
+
 def guard_inside(root, scratch, host_namespace):
     if os.readlink("/proc/self/ns/net") == host_namespace:
         raise ValueError("Strict replay retained host network namespace")
-    for family in (socket.AF_INET, socket.AF_INET6):
+    for family in (socket.AF_UNIX, socket.AF_INET, socket.AF_INET6, 40):
         try:
             socket.socket(family)
         except OSError as error:
             if error.errno != errno.EPERM:
                 raise
         else:
-            raise ValueError("Strict replay allowed an IP socket")
+            raise ValueError("Strict replay allowed a Unix/IP/VSOCK socket")
     lib = ctypes.CDLL(None, use_errno=True)
     # Linux io_uring_setup is syscall 425 on supported CI Linux x64.
     if lib.syscall(425, 1, 0) != -1 or ctypes.get_errno() != errno.EPERM:
@@ -187,12 +225,18 @@ def main():
     commands = parser.add_subparsers(dest="mode", required=True)
     commands.add_parser("guard")
     commands.add_parser("coverage")
+    merge = commands.add_parser("merge-coverage")
+    merge.add_argument("root", type=Path)
+    merge.add_argument("output", type=Path)
+    merge.add_argument("inputs", nargs="+", type=Path)
     worker = commands.add_parser("workers")
     for tool in ("bun", "node", "npm"):
         worker.add_argument("--" + tool, required=True)
     args = parser.parse_args()
     if args.mode == "guard":
         guard()
+    elif args.mode == "merge-coverage":
+        merge_lcov(args.root, args.inputs, args.output)
     elif args.mode == "coverage":
         print(json.dumps(validate_lcov(ROOT, ROOT / "coverage/lcov.info"), sort_keys=True))
     else:

@@ -43,6 +43,15 @@ def inside(root, scratch, host_namespace, inherited_fd):
     writable.write_text("scratch-only")
     assert writable.read_text() == "scratch-only"
     writable.unlink()
+    private_socket = pathlib.Path(scratch) / "private-worker.sock"
+    with socket.socket(socket.AF_UNIX) as listener, socket.socket(socket.AF_UNIX) as client:
+        listener.bind(str(private_socket)); listener.listen(1)
+        client.connect(str(private_socket)); client.sendall(b"private-unix")
+        with listener.accept()[0] as connection:
+            assert connection.recv(64) == b"private-unix"
+            connection.sendall(b"private-reply")
+        assert client.recv(64) == b"private-reply"
+    private_socket.unlink()
     loopbacks = []
     for family, address in ((socket.AF_INET, "127.0.0.1"), (socket.AF_INET6, "::1")):
         with socket.socket(family, socket.SOCK_STREAM) as listener:
@@ -74,7 +83,7 @@ def inside(root, scratch, host_namespace, inherited_fd):
                 raise AssertionError("External route survived namespace isolation")
     print(json.dumps({"loopbackRoundTrips": loopbacks, "externalDenied": external,
                       "readOnlyRepository": True, "scratchWrites": True,
-                      "inheritedFdClosed": True, "minimalEnvironment": True,
+                      "inheritedFdClosed": True, "minimalEnvironment": True, "privateUnixRoundTrip": True,
                       "capabilitiesZero": True, "networkReconfigurationDenied": True,
                       "state": json.loads(os.environ["YF_WORKERS_SANDBOX_STATE"])}))
 
@@ -124,27 +133,21 @@ def inode_and_ipc_controls(root, scratch, helper):
         # A private IP network namespace does not hide pathname AF_UNIX sockets
         # on the visible host filesystem. Exercise only our own disposable socket.
         socket_path = outside / "host-ipc.sock"
-        received = []
-        errors = []
         with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as listener:
             listener.bind(str(socket_path))
             listener.listen(1)
-            listener.settimeout(5)
-            def respond():
-                try:
-                    with listener.accept()[0] as connection:
-                        received.append(connection.recv(64))
-                        connection.sendall(b"host-ipc-visible")
-                except OSError as error:
-                    errors.append(str(error))
-            thread = threading.Thread(target=respond, daemon=True)
-            thread.start()
-            result = launch("import socket,sys; s=socket.socket(socket.AF_UNIX); s.settimeout(3); s.connect(sys.argv[1]); s.sendall(b'own-sentinel'); assert s.recv(64)==b'host-ipc-visible'; s.close()", socket_path)
-            thread.join(timeout=6)
-            assert result.returncode == 0 and received == [b"own-sentinel"] and not errors, (result.stderr, errors)
+            listener.settimeout(.1)
+            result = launch("import socket,sys,errno; s=socket.socket(socket.AF_UNIX);\ntry:s.connect(sys.argv[1])\nexcept OSError as e:assert e.errno==errno.ENOENT\nelse:raise AssertionError('host temporary socket visible')", socket_path)
+            assert result.returncode == 0, result.stderr
+            try:
+                listener.accept()
+            except socket.timeout:
+                pass
+            else:
+                raise AssertionError("Masked host sentinel accepted a connection")
     return {"externalHardlinkClassesRejectedBeforeWorkload": rejected,
             "outsideRegularFileUnmodified": True, "whollyInternalHardlinksWritable": True,
-            "ownHostPathnameUnixSocketReachable": True,
+            "ownHostTemporaryUnixSocketMasked": True,
             "hostIpcIsolationClaimed": False}
 
 

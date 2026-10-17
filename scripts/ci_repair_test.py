@@ -292,7 +292,7 @@ class BoundaryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as value:
             parent = Path(value); candidate = parent / "candidate"; scratch = parent / "scratch"
             (candidate / "src/modules").mkdir(parents=True); scratch.mkdir(mode=0o700)
-            with patch.object(ci, "runtimes", return_value=(Path("/trusted/bun"), Path("/trusted/node"), ci.clean_environment())), patch.object(ci, "run", return_value=subprocess.CompletedProcess([], 0, "")) as execute:
+            with patch.object(ci, "runtimes", return_value=(Path("/usr/bin/python3"), Path("/usr/bin/python3"), ci.clean_environment())), patch.object(ci, "run", return_value=subprocess.CompletedProcess([], 0, "")) as execute:
                 ci.guarded(candidate, scratch, ["/trusted/bun", "--no-env-file", "/trusted/tool.ts"], writable_modules=True)
             args = list(map(str, execute.call_args.args[0]))
             binds = [args[index + 1:index + 3] for index, value in enumerate(args) if value == "--bind"]
@@ -314,6 +314,18 @@ class BoundaryTests(unittest.TestCase):
             self.assertEqual(command[:3], [Path("/trusted/bun"), "--no-env-file", "--eval"])
             self.assertEqual(command[-2], (ci.ROOT / "scripts/docs/inputs.ts").as_uri())
             self.assertEqual(command[-1], root)
+
+    def test_replay_supervisor_imports_only_trusted_controller_before_strict_child(self):
+        with tempfile.TemporaryDirectory() as value:
+            parent=Path(value);candidate=parent/'candidate';scratch=parent/'scratch'
+            with patch.object(ci,'runtimes',return_value=(Path('/trusted/bun'),Path('/trusted/node'),ci.clean_environment())),patch.object(ci,'run',return_value=subprocess.CompletedProcess([],0,'')) as execute:
+                ci.replay_candidate(candidate,scratch,Path('/trusted/bun'))
+            command=execute.call_args.args[0]
+            self.assertEqual(command[-2],(ci.ROOT/'scripts/test.ts').as_uri())
+            self.assertEqual(command[-1],candidate)
+            self.assertIn('runTests(parseArguments([])',command[3])
+            self.assertEqual(execute.call_args.kwargs['cwd'],ci.ROOT)
+            self.assertEqual(execute.call_args.kwargs['environment']['TMPDIR'],str(scratch))
 
     def test_nonprivate_or_overlapping_guard_scratch_fails_before_command(self):
         with tempfile.TemporaryDirectory() as value:
@@ -380,7 +392,7 @@ class VerificationFailureTests(unittest.TestCase):
                     if gate == failure:
                         raise RuntimeError("controlled gate failure")
                     return subprocess.CompletedProcess([],0,json.dumps({"ready":True,"summary":"Review evidence","evidence":[]}))
-                with patch.object(ci,"compatible"),patch.object(ci,"validate_candidate"),patch.object(ci,"runtimes",return_value=(Path("/trusted/bun"),Path("/trusted/node"),ci.clean_environment())),patch.object(ci,"guarded",side_effect=guarded),patch.object(ci,"regenerate",return_value={}),patch.object(ci,"git",return_value=""),patch.dict(os.environ,{"GITHUB_OUTPUT":str(github_output)},clear=True):
+                with patch.object(ci,"compatible"),patch.object(ci,"validate_candidate"),patch.object(ci,"runtimes",return_value=(Path("/trusted/bun"),Path("/trusted/node"),ci.clean_environment())),patch.object(ci,"guarded",side_effect=guarded),patch.object(ci,"regenerate",return_value={}),patch.object(ci,"replay_candidate",side_effect=lambda candidate,scratch,bun: guarded(candidate,scratch,[bun,"--no-env-file",Path("/trusted/test.ts")])),patch.object(ci,"git",return_value=""),patch.dict(os.environ,{"GITHUB_OUTPUT":str(github_output)},clear=True):
                     with self.assertRaisesRegex(RuntimeError,"controlled gate failure"):
                         ci.verify("a"*40,'{}',output)
                 self.assertFalse(output.exists());self.assertFalse(github_output.exists())
@@ -424,7 +436,8 @@ class GuardedDocumentationIntegrationTests(unittest.TestCase):
                         "export interface Result {\n  /** Numeric count in the synthetic response. */\n  count: number;\n}\n")
             repository.put("src/modules/example.ts", original)
             repository.put("src/modules/example.schema.json", '{}\n')
-            repository.put("src/example.test.ts", 'import { test, expect } from "bun:test"; test("synthetic response", () => { expect({count:1, observedLabel:"synthetic"}.observedLabel).toBe("synthetic"); });\n')
+            probe = "import socket,errno,pathlib,sys;\nfor family in (1,2,10,40):\n try:socket.socket(family)\n except OSError as e:assert e.errno==errno.EPERM\n else:raise AssertionError('candidate top-level socket allowed')\ntry:(pathlib.Path(sys.argv[1])/'TOPLEVEL_WRITE_MUST_FAIL').write_text('bad')\nexcept OSError as e:assert e.errno==errno.EROFS\nelse:raise AssertionError('candidate top-level write allowed')\nprint('CANDIDATE_TOPLEVEL_STRICT')"
+            repository.put("src/example.test.ts", 'import { test, expect } from "bun:test"; import {spawnSync} from "node:child_process"; const probe=spawnSync("/usr/bin/python3",["-c",' + json.dumps(probe) + ',process.cwd()],{encoding:"utf8"}); if(probe.status!==0)throw Error(probe.stderr); console.log(probe.stdout); test("synthetic response", () => { expect({count:1, observedLabel:"synthetic"}.observedLabel).toBe("synthetic"); });\n')
             for name in ("yahoo-finance", "yahoo-finance-mcp"):
                 repository.put(f"bin/{name}.ts", 'export {};\n')
             base = repository.commit()
@@ -451,12 +464,18 @@ class GuardedDocumentationIntegrationTests(unittest.TestCase):
                 ci.prepare(base)
                 github_output.unlink()  # prepare's base output is distinct from readiness.
                 actual_guard = ci.guarded
+                actual_replay = ci.replay_candidate
                 calls = []
                 scratches = []
                 def observe(*args, **kwargs):
                     calls.append(list(map(str, args[2])))
                     scratches.append(args[1])
                     return actual_guard(*args, **kwargs)
+                def observe_replay(candidate, scratch, bun):
+                    calls.append([str(bun), "--no-env-file", str(trusted / "scripts/test.ts")])
+                    result = actual_replay(candidate, scratch, bun)
+                    self.assertIn("CANDIDATE_TOPLEVEL_STRICT", result.stdout)
+                    return result
                 def proposal(documented):
                     comment = "  /** Label string in the synthetic successful response. */\n" if documented else ""
                     return json.dumps({"status":"repair", "summary":"Model the label string observed in a successful synthetic response.", "evidence":["Disposable synthetic response; no Yahoo request."], "edits":[{"path":"src/modules/example.ts", "before":"  count: number;\n", "after":"  count: number;\n" + comment + "  observedLabel: string;\n"}]})
@@ -471,7 +490,20 @@ class GuardedDocumentationIntegrationTests(unittest.TestCase):
                 self.assertFalse(any("bundle" in command for command in calls))
                 ci.git("reset", "--hard", "--quiet", base, cwd=candidate)
                 calls.clear()
-                with patch.object(ci, "guarded", side_effect=observe):
+                runtime = ci.runtimes()
+                def fail_start(candidate, scratch, bun):
+                    environment = dict(runtime[2], PATH="/nonexistent")
+                    with patch.object(ci, "runtimes", return_value=(runtime[0], runtime[1], environment)):
+                        return actual_replay(candidate, scratch, bun)
+                with patch.object(ci, "guarded", side_effect=observe), patch.object(ci, "replay_candidate", side_effect=fail_start):
+                    with self.assertRaisesRegex(RuntimeError, "Trusted CI command failed") as failed_start:
+                        ci.verify(base, proposal(True), output)
+                self.assertNotIn("CANDIDATE_TOPLEVEL_STRICT", str(failed_start.exception))
+                self.assertFalse(output.exists()); self.assertFalse(github_output.exists())
+                self.assertFalse(any("bundle" in command for command in calls))
+                ci.git("reset", "--hard", "--quiet", base, cwd=candidate)
+                calls.clear()
+                with patch.object(ci, "guarded", side_effect=observe), patch.object(ci, "replay_candidate", side_effect=observe_replay):
                     ci.verify(base, proposal(True), output)
                 self.assertTrue(output.exists())
                 self.assertEqual(github_output.read_text(), "ready=true\n")
@@ -479,7 +511,9 @@ class GuardedDocumentationIntegrationTests(unittest.TestCase):
                 self.assertEqual({file["path"] for file in artifact["files"]}, {"src/modules/example.ts", "src/modules/example.schema.json"})
                 docs = next(index for index, command in enumerate(calls) if len(command) > 3 and Path(command[2]).name == "docs.ts")
                 bundle = next(index for index, command in enumerate(calls) if "bundle" in command)
-                self.assertLess(docs, bundle)
+                replay = next(index for index, command in enumerate(calls) if len(command) > 2 and Path(command[2]).name == "test.ts")
+                self.assertLess(docs, replay)
+                self.assertLess(replay, bundle)
                 self.assertTrue(scratches)
                 self.assertTrue(all(not path.exists() for path in scratches))
 

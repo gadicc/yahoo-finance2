@@ -99,3 +99,37 @@ export function nativeInventory(files: string[]): string[] {
     (file) => file.startsWith("src/") || nativePortableTests.has(file),
   );
 }
+
+/** Fast maintained library/fixture tier; explicit focused tooling paths remain supported. */
+export function libraryInventory(files: string[]): string[] {
+  return files.filter(
+    (file) => file.startsWith("src/") || /^tests\/[^/]+\.test\.ts$/.test(file),
+  );
+}
+
+/** Only these reviewed controls require pathname Unix IPC; unknown tests stay strict. */
+export const trustedIpcTests: ReadonlySet<string> = new Set([
+  "scripts/testing.test.ts",
+  "scripts/recache-broker.test.ts",
+  "scripts/recache-child.test.ts",
+  "scripts/recache-tests.test.ts",
+  "scripts/capture-get-crumb-cli.test.ts",
+]);
+
+export function testBatches(
+  files: string[],
+): { profile: "strict" | "ipc"; files: string[] }[] {
+  const strict = files.filter((file) => !trustedIpcTests.has(file));
+  const ipc = files.filter((file) => trustedIpcTests.has(file));
+  if (
+    new Set([...strict, ...ipc]).size !== files.length ||
+    strict.length + ipc.length !== files.length
+  )
+    throw new Error(
+      "Test batches must partition the selected inventory exactly",
+    );
+  return [
+    { profile: "strict" as const, files: strict },
+    { profile: "ipc" as const, files: ipc },
+  ].filter((batch) => batch.files.length);
+}

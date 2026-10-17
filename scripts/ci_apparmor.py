@@ -374,7 +374,7 @@ def controls(scratch, *, after=False):
         nested_scratch.mkdir(mode=0o700)
         leaf_scratch.mkdir(mode=0o700)
         commands.extend([
-            [sys.executable, "-I", "-B", str(ROOT / "scripts/testing/offline.py"), str(ROOT), str(nested_scratch), "--",
+            [sys.executable, "-I", "-B", str(ROOT / "scripts/testing/offline.py"), "--profile", "ipc", str(ROOT), str(nested_scratch), "--",
              sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--nested-probe", str(ROOT), str(nested_scratch), os.readlink("/proc/self/ns/net")],
             [sys.executable, "-I", "-B", str(ROOT / "scripts/testing/workers-loopback.py"), str(ROOT), str(leaf_scratch), str(leaf_scratch), "--",
              sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--workers-leaf", str(ROOT), str(leaf_scratch), os.readlink("/proc/self/ns/net")],

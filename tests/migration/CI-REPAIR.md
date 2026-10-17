@@ -58,11 +58,19 @@ read-only, closes inherited descriptors, isolates network/PID namespaces, and
 uses the existing inherited IP/io_uring seccomp filter. The only candidate write
 mount is `src/modules` during AST apply/restore; full generation writes solely
 into private scratch and trusted promotion copies only existing module schemas.
-Type/tests have no candidate write mount. The allowlisted environment excludes
+Types and test children have no candidate write mount. Replay uses the fixed
+trusted ROOT controller, a clean environment/private HOME and TMPDIR, and the
+candidate root as data. The controller imports only trusted launcher support and
+launches the normal strict child before any candidate test import; it runs from
+ROOT to avoid candidate Bun configuration discovery. This avoids redundant
+nested namespace setup under an inherited strict Unix-socket filter. The allowlisted environment excludes
 credentials, loader hooks and inherited capture controls; Bun dotenv loading is
 disabled. Git uses fixed hook/fsmonitor/config/attribute overrides. These are
 effective runtime controls, with the same trusted-base/dependency/host and
-pathname Unix-socket limitations as maintained Linux replay. They do not claim
+trusted stdio/broad-read limitations as maintained Linux replay. Strict repair
+verification denies new Unix/IP/VSOCK sockets and io_uring, masks common host
+socket directories, closes extra inherited descriptors and retains only the
+proven connected stream-pair runtime exception. They do not claim
 complete Deno permission parity or arbitrary hostile-code isolation.
 
 ## Pinned Codex action adaptation

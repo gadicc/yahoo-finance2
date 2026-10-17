@@ -49,6 +49,8 @@ export async function runCaptureChild(
     "python3",
     [
       guard,
+      "--profile",
+      "ipc",
       root,
       scratch,
       "--",

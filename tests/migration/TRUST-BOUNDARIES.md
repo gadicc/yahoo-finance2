@@ -24,22 +24,34 @@ to execute those commands during this migration.
 | --- | --- | --- | --- |
 | Environment | Ambient process environment; CLI uses HOME/profile and MCP token settings. Help/version precede cookie access. | Launcher clears live/capture controls, selects replay and scratch, and otherwise inherits the trusted launching environment. This is not environment-secret isolation. | Case-insensitive capture/live/runtime-option cleanup and replay settings. Other inherited environment remains trusted. |
 | Files | Library defaults use an in-memory jar; callers may supply stores. CLI/MCP use the private cookie path described below. Dependencies can access other files with process privileges. | Host tree is mounted read-only; scratch is writable. Fixture reads remain available. This deliberately permits broad host reads. | Read-only ReplayStore and before/after fixture inventory checks detect accidental fixture changes. They do not deny arbitrary writes by code with ordinary filesystem access. |
-| IP networking | Ordinary fetch can reach Yahoo and follow the library's consent flow. Custom fetch/query-host options are caller-controlled capabilities. MCP HTTP can listen. No runtime host allow-list is imposed by Node/Bun launchers. | New network namespace plus inherited seccomp denial of IPv4/IPv6 sockets and io_uring. No Yahoo traffic. | Preload rejects ordinary fetch; controlled stubs and cached responses are allowed. Direct sockets or replacing a stub are not denied by the OS. |
-| Unix sockets and inherited handles | Normal process capabilities. | Visible host pathname Unix sockets remain reachable; standard input/output redirections are outside fixture protection. Extra inherited descriptors are closed at the guard boundary. | Normal process capabilities; no portable handle or socket sandbox. |
+| IP networking | Ordinary fetch can reach Yahoo and follow the library's consent flow. Custom fetch/query-host options are caller-controlled capabilities. MCP HTTP can listen. No runtime host allow-list is imposed by Node/Bun launchers. | New network namespace plus inherited seccomp denial of IPv4/IPv6/VSOCK sockets and io_uring. No Yahoo traffic. | Preload rejects ordinary fetch; controlled stubs and cached responses are allowed. Direct sockets or replacing a stub are not denied by the OS. |
+| Unix sockets and inherited handles | Normal process capabilities. | New Unix sockets and retargetable datagram pairs are denied. Bun subprocesses retain proven connected stream socketpairs with NONBLOCK/CLOEXEC flags. Stdio descriptors 0/1/2 remain trusted transports; extra inherited descriptors are closed. | Normal process capabilities; no portable handle or socket sandbox. |
 | Subprocesses | No subprocess creation is part of a quote or MCP tool invocation in the reviewed entrypoint/library code. A caller or dependency retains normal process privileges. | Children inherit namespaces, read-only mounts and seccomp. Test deadlines and process-group cleanup are lifecycle controls, not a complete hostile-process containment claim. | Bun test orphan controls, POSIX groups and Windows taskkill provide bounded lifecycle handling. Exited-parent cleanup uncertainty is reported rather than claimed as a Windows tree guarantee. |
 
 The strict guard requires trusted Linux kernel/user namespaces, Bubblewrap,
 libseccomp, the launcher, compiler/runtime and frozen installed dependency graph.
 It fails closed when unavailable. It is designed for offline replay and immutable
-fixtures. Broad read access, Unix sockets, operator-owned standard I/O, a trusted
-scratch directory and trusted launcher inputs remain explicit limits. The separate
+fixtures. Broad read access, operator-owned standard I/O, a trusted scratch
+directory and trusted launcher inputs remain explicit limits. The separate
 Workers helper permits only isolated loopback IP networking for Miniflare/workerd;
 it retains read-only host/scratch policy and reachable pathname Unix sockets.
 Neither helper is a replacement for a general untrusted-code service sandbox.
-A controlled Linux audit verifies these limits with a synthetic host sentinel and
-host pathname Unix-socket service: the guarded child can read/connect, cannot
-write the host sentinel, and its subprocess cannot create an IPv4 socket. No real
-host secret or service is used by that proof.
+The guard masks `/run`, `/tmp` and `/var/tmp`, restoring exact selected roots,
+owning checkout, private scratch and explicit runtime/tool package inputs. These
+read-only closure paths are bounded canonical metadata, separate from profile
+selection; whole masked roots/ancestors and arbitrary PATH-parent restores are
+refused. Strict replay and repair controls use synthetic own sockets to verify
+Unix/IP/VSOCK denial, low-32-bit syscall comparisons, connected inherited-FD
+closure and stream-pair retargeting refusal, including subprocess inheritance.
+
+Five exact tooling files use a separate trusted Unix-IPC profile: the launcher,
+broker, child, recache runner and country CLI controls named in
+`scripts/testing/inventory.ts`. New/unknown tests remain strict. This profile and
+capture retain IP/VSOCK/io_uring denial while allowing Unix sockets. They are not
+pathname socket allowlists: other visible host socket paths and stdio remain
+trusted transport limits. Workers separately retain namespace loopback and private
+Unix IPC. Its own temporary host-socket sentinel is now masked; that does not
+establish isolation from every host service. No real privileged service is probed.
 
 Native replay is an explicit trusted development command; strict Linux remains
 the default replay/CI gate. Linux/macOS/Windows native assertions must be accepted

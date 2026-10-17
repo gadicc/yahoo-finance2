@@ -15,7 +15,13 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { test } from "../tests/migration/runner.ts";
 import { expect } from "../tests/migration/assertions.ts";
-import { inventory, select } from "./testing/inventory.ts";
+import {
+  inventory,
+  select,
+  libraryInventory,
+  testBatches,
+  trustedIpcTests,
+} from "./testing/inventory.ts";
 import { fingerprint, parseArguments } from "./test.ts";
 
 const launcher = new URL("./test.ts", import.meta.url).href;
@@ -89,6 +95,101 @@ test("inventory is recursive, sorted, and excludes Workers, generated files and 
   expect(() =>
     select(space.root, inventory(space.root), ["../escape"]),
   ).toThrow("outside");
+});
+
+test("library/full inventories and exact IPC batches preserve every focused tooling path", () => {
+  using space = workspace();
+  for (const file of [
+    "src/library.test.ts",
+    "tests/fixture.test.ts",
+    "scripts/unknown.test.ts",
+    "scripts/recache-broker.test.ts",
+    "tests/nested/tool.test.ts",
+  ])
+    space.put(file, pass);
+  const all = inventory(space.root);
+  expect(libraryInventory(all)).toEqual([
+    "src/library.test.ts",
+    "tests/fixture.test.ts",
+  ]);
+  expect(space.run(["--list"]).output).toContain("src/library.test.ts");
+  expect(space.run(["--list"]).output).not.toContain("scripts/unknown.test.ts");
+  for (const file of all)
+    expect(space.run(["--full", "--list"]).output).toContain(file);
+  expect(space.run(["scripts/unknown.test.ts"]).code).toBe(0);
+  const batches = testBatches(all);
+  expect(batches.flatMap((batch) => batch.files).sort()).toEqual(all);
+  expect(batches.find((batch) => batch.profile === "ipc")?.files).toEqual([
+    "scripts/recache-broker.test.ts",
+  ]);
+  expect(trustedIpcTests.size).toBe(5);
+});
+
+test("multi-batch filters and coverage publish only after aggregate success", () => {
+  using space = workspace();
+  space.put("src/value.ts", "export const value = () => 7;");
+  space.put(
+    "src/strict.test.ts",
+    "import {test,expect} from 'bun:test';import {value} from './value.ts';test('strict leaf',()=>expect(value()).toBe(7));",
+  );
+  space.put(
+    "scripts/recache-broker.test.ts",
+    "import {test,expect} from 'bun:test';import {value} from '../src/value.ts';test('ipc leaf',()=>expect(value()).toBe(7));",
+  );
+  for (const name of [undefined, "strict leaf", "ipc leaf"]) {
+    const args = [
+      "--full",
+      "--coverage",
+      "--serial",
+      ...(name ? ["--name", name] : []),
+    ];
+    const result = space.run(args);
+    expect(result.code, result.output).toBe(0);
+    expect(
+      readFileSync(join(space.root, "coverage/lcov.info"), "utf8"),
+    ).toContain("SF:src/value.ts");
+  }
+  space.put(
+    "scripts/fatal.test.ts",
+    "throw Error('SYNTHETIC_FILTER_IMPORT_FAILURE');",
+  );
+  const imported = space.run(["--full", "--coverage", "--name", "ipc leaf"]);
+  expect(imported.code, imported.output).toBe(1);
+  expect(() => readFileSync(join(space.root, "coverage/lcov.info"))).toThrow();
+  rmSync(join(space.root, "scripts/fatal.test.ts"));
+  space.put(
+    "scripts/recache-broker.test.ts",
+    "import {test} from 'bun:test';test('failed second batch',()=>{throw Error('controlled');});",
+  );
+  const failed = space.run(["--full", "--coverage", "--serial"]);
+  expect(failed.code, failed.output).toBe(1);
+  expect(() => readFileSync(join(space.root, "coverage/lcov.info"))).toThrow();
+  const empty = space.run([
+    "--full",
+    "--coverage",
+    "--name",
+    "globally missing",
+  ]);
+  expect(empty.code, empty.output).toBe(2);
+  expect(() => readFileSync(join(space.root, "coverage/lcov.info"))).toThrow();
+});
+
+test("one global deadline spans strict and trusted IPC batches without partial coverage", () => {
+  using space = workspace();
+  const delayed = (name: string) =>
+    `import {test} from 'bun:test';test('${name}',async()=>{await new Promise(resolve=>setTimeout(resolve,700));});`;
+  space.put("src/strict.test.ts", delayed("first"));
+  space.put("scripts/recache-broker.test.ts", delayed("second"));
+  const result = space.run([
+    "--full",
+    "--serial",
+    "--coverage",
+    "--run-timeout",
+    "1200",
+  ]);
+  expect(result.code, result.output).toBe(124);
+  expect(result.output).toContain("Batch ipc");
+  expect(() => readFileSync(join(space.root, "coverage/lcov.info"))).toThrow();
 });
 
 test("strict options reject weakening flags and invalid selections", () => {
@@ -458,6 +559,34 @@ async function observedProcess(
   }).finally(() => clearTimeout(timer));
   return { code, output };
 }
+
+test("operator cancellation in the second batch removes stale and staged coverage", async () => {
+  using space = workspace();
+  space.put("src/value.ts", "export const value = () => 7;");
+  space.put(
+    "src/strict.test.ts",
+    "import {test,expect} from 'bun:test';import {value} from './value.ts';test('first coverage',()=>expect(value()).toBe(7));",
+  );
+  space.put(
+    "scripts/recache-broker.test.ts",
+    "import {test} from 'bun:test';test('second pending',async()=>{console.log('SECOND_BATCH_READY');await new Promise(()=>{});});",
+  );
+  space.put("coverage/lcov.info", "STALE_COVERAGE");
+  let sent = false;
+  const result = await observedProcess(
+    space,
+    ["--full", "--serial", "--coverage"],
+    (output, child) => {
+      if (!sent && output.includes("SECOND_BATCH_READY")) {
+        sent = true;
+        child.kill("SIGTERM");
+      }
+    },
+  );
+  expect(sent).toBe(true);
+  expect(result.code, result.output).toBe(143);
+  expect(() => readFileSync(join(space.root, "coverage/lcov.info"))).toThrow();
+});
 
 test("signals stop a running child and return the conventional signal status", async () => {
   using space = workspace();

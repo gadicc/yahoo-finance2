@@ -81,6 +81,45 @@ class CoverageTests(unittest.TestCase):
             self.validate()
 
 
+class CoverageMergeTests(unittest.TestCase):
+    def test_union_disjoint_lines_and_conservative_function_hits(self):
+        with tempfile.TemporaryDirectory() as value:
+            root=Path(value);(root/'src').mkdir();(root/'src/a.ts').write_text('one\ntwo\n')
+            (root/'src/b.ts').write_text('three\n')
+            first=root/'first';second=root/'second';output=root/'merged'
+            first.write_text(report('src/a.ts',1,2).replace('FNF:1','FNF:2'))
+            second.write_text(report('src/a.ts',1,3).replace('FNF:1','FNF:2') + report('src/b.ts',1,4))
+            ci.merge_lcov(root,[first,second],output)
+            data=output.read_text()
+            self.assertIn('DA:1,5',data)
+            self.assertEqual(data.count('SF:src/a.ts'),1)
+            self.assertIn('FNF:2\nFNH:1',data)  # No function identity records exist to infer a union.
+            self.assertEqual(ci.validate_lcov(root,output,{'src/a.ts','src/b.ts'})['sources'],2)
+            output.unlink()
+            first.write_text(report('src/a.ts',1,0).replace('FNF:1','FNF:2').replace('FNH:1','FNH:0'))
+            second.write_text(report('src/a.ts',2,1).replace('FNF:1','FNF:2'))
+            ci.merge_lcov(root,[first,second],output)
+            self.assertIn('DA:1,0\nDA:2,1\nLF:2\nLH:1',output.read_text())
+
+    def test_invalid_partial_reports_never_produce_merged_output(self):
+        for invalid in (report()*2,report().replace('end_of_record',''),report().replace('FNH:1','FNH:2'),report().replace('DA:1,1','DA:1,1\nDA:1,2'),report('../src/a.ts'),report().replace('DA:1,1','DA:1,9007199254740992')):
+            with self.subTest(invalid=invalid),tempfile.TemporaryDirectory() as value:
+                root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
+                first=root/'first';second=root/'second';output=root/'merged'
+                first.write_text(report());second.write_text(invalid)
+                with self.assertRaises((ValueError,OSError)):ci.merge_lcov(root,[first,second],output)
+                self.assertFalse(output.exists())
+
+    def test_overflow_and_inconsistent_function_inventory_fail(self):
+        for second_report in (report(count=1),report(count=0).replace('FNF:1','FNF:2')):
+            with self.subTest(second_report=second_report),tempfile.TemporaryDirectory() as value:
+                root=Path(value);(root/'src').mkdir();(root/'src/example.ts').write_text('one\n')
+                first=root/'first';second=root/'second';output=root/'merged'
+                first.write_text(report(count=9007199254740991));second.write_text(second_report)
+                with self.assertRaises(ValueError):ci.merge_lcov(root,[first,second],output)
+                self.assertFalse(output.exists())
+
+
 class StagingTests(unittest.TestCase):
     def test_only_canonical_harness_allowlist_is_copied(self):
         with tempfile.TemporaryDirectory() as value:

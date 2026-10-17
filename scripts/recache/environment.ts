@@ -24,6 +24,8 @@ export function captureEnvironment(
     TERM: "dumb",
     NODE_ENV: "test",
   };
+  if (source.YF_GUARD_INPUT_ROOTS)
+    environment.YF_GUARD_INPUT_ROOTS = source.YF_GUARD_INPUT_ROOTS;
   if (source.YF_EXPERIMENT_NODE && isAbsolute(source.YF_EXPERIMENT_NODE)) {
     environment.YF_EXPERIMENT_NODE = source.YF_EXPERIMENT_NODE;
     environment.PATH = [
