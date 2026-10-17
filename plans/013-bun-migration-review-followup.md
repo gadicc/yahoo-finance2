@@ -330,3 +330,49 @@ model inherited null handles, because Bun's unspawned lazy getters need a spawn
 handle. Across b70c2ae and 7b7bd16, 29 focused guarded controls pass, with clean types
 and unchanged style diagnostics. Independent Sol/Astra source review has cleared
 the shutdown changes; the new final freeze still requires full composed validation.
+
+
+### 4390 validation and controlled pipe-fixture correction
+Exact 4390f69 passed all 12 local gates, 84 Python controls and 1,575 guarded
+leaves (1,507 strict, 68 IPC). Complete line-only LCOV accepted 104 sources,
+13,472 mapped lines and 9,830 hit lines. Its fresh nonpublishing publisher passed
+all 31 expected command outcomes. Sol and Astra independently verified raw logs,
+source/lock/fixture binding, all four genuine SDK negatives and actual positive
+consumer behavior. All three native hosted jobs passed 1,364 leaves in parallel,
+serial and coverage modes, fresh installs and real Node22/24/Bun package checks;
+Workers passed eight runtime controls.
+
+However, hosted run 39027969963 failed its main strict batch at the new held-pipe
+fixture: 1,506 pass, one fail; IPC was not run and Codecov was skipped. The fixture
+reported original-error identity false and stderr destroyed true. It spawned a
+writer then immediately exited the intermediate Bun parent without establishing
+writer readiness or preserving the caught error. That result could be a normal
+close followed by the fixture's own unexpected-success exception; it does not
+establish production error-identity loss. Acceptance remains open.
+
+Both reviewers recommend a narrower portable control: directly own the four-second
+writer, wait for READY after its self-exit timer is armed, inject failed Windows
+tree cleanup plus a no-op best-effort child kill, then require watchdog rejection
+with the original error, destroyed owned stderr and controller exit before two
+seconds. This removes the unrelated Bun intermediate-parent lifecycle assumption.
+Existing exited-parent, taskkill-failure and real normal-descendant controls remain.
+The assertion stays strict, budgets stay unchanged and no production change is
+authorized by this fixture failure. A counterfactual helper without pipe cleanup
+must fail the same control before the correction can be accepted.
+
+For completeness, initial e104 run 39026913830 also failed the main Linux Tests
+job: strict 1,504 passed, then IPC 67 passed/one whole-run timeout control failed
+at testing.test.ts:291 (expected 124, got 2). Codecov was skipped there too. Its raw
+log and exact workflow metadata are preserved separately from later successful
+952 evidence and the 4390 attempt. No initial failure is counted as acceptance.
+
+
+Fixture-only commit acca304 establishes READY and writerRunning before injecting
+failed cleanup. Independent Sol/Astra reviews cleared its exact behavior and raw
+counterfactual proof: a disposable helper copy removing only pipe detachment keeps
+child.unref but times out at 2.167 seconds with the original error retained and
+stderr still open. The real helper passes normal guarded and CI=true guarded
+coverage controls. All 13 native controls, types and style pass; no production
+helper, error-identity assertion or time budget changed. The counterfactual compact
+archive has SHA256 1a955a3b0f2d09d7110cfc7f99b13d5dd92031c503a2dbb68e2ec7cada969fd3.
+Fresh composed validation and all six hosted jobs remain pending on the new freeze.
