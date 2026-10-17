@@ -25,6 +25,15 @@ later follow-up updates: `CI-REPAIR.md`, `CI.md`, `RECACHE.md`, `TESTING.md` and
 701f137 retains their originals. Current operating facts are consolidated here
 and in the linked guides.
 
+## Coverage follow-up before merge
+
+The processed PR coverage checks exposed an additional pre-merge follow-up after
+13/13 acceptance below. [Plan 014](../plans/014-bun-coverage-reconciliation.md)
+tracks scope reconciliation, direct offline controls, source completeness,
+actual native controller coverage, retained global checks and scoped statuses.
+It is in progress; the earlier exact-source acceptance does not establish that
+these later changes or the processed Codecov policies pass.
+
 ## Current follow-up summary
 
 All thirteen follow-up items are complete. The recorded gates, independent

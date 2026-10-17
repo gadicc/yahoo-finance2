@@ -3,6 +3,7 @@
 import argparse
 import ctypes
 import errno
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -22,7 +23,7 @@ REQUIRED_SOURCES = {
     "scripts/workflow-policy.mjs", "src/index.ts", "src/createYahooFinance.ts",
     "src/lib/runtime-detect.ts", "src/mcp/http.ts", "src/mcp/server.ts",
     "src/modules/chart.ts", "src/modules/historical.ts", "src/modules/quote.ts",
-    "src/modules/quoteSummary.ts", "tests/common.ts",
+    "src/modules/quoteSummary.ts", "tests/common.ts", "release.config.mjs",
 }
 
 
@@ -37,13 +38,59 @@ def regular(path):
     return path
 
 
+def coverage_sources(root):
+    """Every maintained runtime source must be measured or explicitly qualified.
+
+    This inventory is independent of loaded-module coverage. In particular a new
+    unimported production file must not silently disappear from the denominator.
+    Type-only exceptions bind exact bytes; external controls retain a reason and
+    are visible in the coverage summary, never represented by fabricated hits.
+    """
+    policy = json.loads(regular(root / "scripts/coverage-policy.json").read_text())
+    if set(policy) != {"typeOnly", "externalControls"}:
+        raise ValueError("Unexpected coverage policy sections")
+    files = set()
+    def visit(directory):
+        if directory.is_symlink() or directory.resolve() != directory.absolute():
+            raise ValueError(f"Coverage source directory must not be an alias: {directory}")
+        if not directory.is_dir():
+            return
+        for path in directory.iterdir():
+            if path.is_symlink():
+                raise ValueError(f"Coverage source must not be a symlink alias: {path}")
+            if path.is_dir():
+                if path.name != "__pycache__":
+                    visit(path)
+            elif path.suffix in (".ts", ".mts", ".cts", ".tsx", ".js", ".mjs", ".cjs", ".jsx", ".py") and not path.name.endswith((".test.ts", ".d.ts", ".d.mts", ".d.cts", "_test.py")):
+                regular(path)
+                files.add(path.relative_to(root).as_posix())
+    for directory in ("src", "bin", "scripts"):
+        visit(root / directory)
+    if (root / "release.config.mjs").exists() or (root / "release.config.mjs").is_symlink():
+        regular(root / "release.config.mjs")
+        files.add("release.config.mjs")
+    exceptions = set(policy["typeOnly"]) | set(policy["externalControls"])
+    if not exceptions <= files or set(policy["typeOnly"]) & set(policy["externalControls"]):
+        raise ValueError("Coverage exceptions must be distinct maintained source paths")
+    for name, entry in policy["typeOnly"].items():
+        if (not name.startswith("src/") or set(entry) != {"sha256", "reason"}
+                or not isinstance(entry["reason"], str) or not entry["reason"].strip()
+                or hashlib.sha256((root / name).read_bytes()).hexdigest() != entry["sha256"]):
+            raise ValueError(f"Type-only coverage exception needs review: {name}")
+    for name, reason in policy["externalControls"].items():
+        if name.startswith(("src/", "bin/")) or not isinstance(reason, str) or not reason.strip():
+            raise ValueError(f"Invalid external coverage qualification: {name}")
+    return files - exceptions, policy
+
+
 def validate_lcov(root, path, required=None, *, merged_lines=False):
     root = root.resolve(strict=True)
     if required is None:
         # Pure type exports do not emit executable coverage. All runtime exports do.
         type_only = {"src/lib/moduleCommon.ts"}
         exports = json.loads((root / "deno.json").read_text())["exports"]
-        required = REQUIRED_SOURCES | {value.removeprefix("./") for value in exports.values()} - type_only
+        maintained, _ = coverage_sources(root)
+        required = maintained | REQUIRED_SOURCES | {value.removeprefix("./") for value in exports.values()} - type_only
     regular(path)
     records = path.read_text().split("end_of_record")
     if records.pop().strip():
@@ -62,7 +109,7 @@ def validate_lcov(root, path, required=None, *, merged_lines=False):
             raise ValueError(f"LCOV source is duplicate or noncanonical: {name}")
         if (parts[0] not in ("src", "scripts", "tests", "bin") and name != "release.config.mjs"
                 or any(part in ("node_modules", "fixtures", "results", "cloudflare") for part in parts)
-                or name.endswith((".test.ts", ".schema.json"))):
+                or name.endswith((".test.ts", ".spec.ts", ".schema.json"))):
             raise ValueError(f"Unexpected LCOV source: {name}")
         source_path = regular(root / name)
         lines = source_path.read_text().splitlines()
@@ -114,11 +161,11 @@ def validate_lcov(root, path, required=None, *, merged_lines=False):
     return {"sources": len(sources), **totals, "branches": "not emitted by Bun 1.4.3"}
 
 
-def merge_lcov(root, inputs, output):
+def merge_lcov(root, inputs, output, *, merged_inputs=frozenset()):
     """Merge validated Bun line records; aggregate function identity is unavailable."""
     merged = {}
     for path in inputs:
-        validate_lcov(root, Path(path), set())
+        validate_lcov(root, Path(path), set(), merged_lines=Path(path) in merged_inputs)
         for raw in Path(path).read_text().split("end_of_record")[:-1]:
             fields = raw.strip().splitlines()
             name = next(field[3:] for field in fields if field.startswith("SF:"))
@@ -139,6 +186,62 @@ def merge_lcov(root, inputs, output):
     with Path(output).open("x") as stream:
         stream.write("\n".join(records) + "\n")
     validate_lcov(root, Path(output), set(), merged_lines=True)
+
+
+def combine_coverage(root, strict, native, output, *, summary_path=None, expected_context=None):
+    """Union current strict line coverage with real Linux native driver reports.
+
+    Source provenance is the shared workflow checkout; no report is carried from
+    another commit. Native reports keep their genuine raw function-pair checks.
+    The complete strict report is mandatory, and output remains line-only.
+    """
+    if summary_path is None:
+        raise ValueError("Current native proof summary is required")
+    context = expected_context if expected_context is not None else {
+        "sha": os.environ.get("GITHUB_SHA"), "runId": os.environ.get("GITHUB_RUN_ID"),
+        "attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+    }
+    if (not isinstance(context.get("sha"), str) or not re.fullmatch(r"[0-9a-f]{40}", context["sha"])
+            or any(not isinstance(context.get(key), str) or not re.fullmatch(r"[1-9][0-9]*", context[key]) for key in ("runId", "attempt"))):
+        raise ValueError("Current GitHub checkout/run/attempt context is required")
+    summary = json.loads(regular(summary_path).read_text())
+    if (summary.get("status") != "passed" or summary.get("platform") != "linux"
+            or summary.get("bun") != (root / ".bun-version").read_text().strip()
+            or summary.get("phases") != {"install": "passed", "replay": "passed", "package": "passed"}
+            or any(summary.get("github", {}).get(key) != value for key, value in context.items())
+            or any(summary.get(key) is not True for key in ("proofSourcesUnchanged", "fixtureBytesUnchanged", "lockUnchanged", "manifestUnchanged"))
+            or summary.get("fixtureBefore") != summary.get("fixtureAfter")
+            or not isinstance(summary.get("fixtureBefore"), str)
+            or not re.fullmatch(r"[0-9a-f]{64}", summary["fixtureBefore"])):
+        raise ValueError("Native proof is incomplete, stale or from a different runtime/run")
+    for key, name in (("lockSha256", "bun.lock"), ("manifestSha256", "package.json")):
+        if summary.get(key) != hashlib.sha256(regular(root / name).read_bytes()).hexdigest():
+            raise ValueError("Native frozen metadata does not match this checkout")
+    sources = ("scripts/native-platform.ts", "scripts/testing/native.ts", "src/lib/runtime-detect.ts", "src/lib/runtimeGlobal.ts", "tests/package/native-platform.spec.ts")
+    expected_sources = {name: hashlib.sha256(regular(root / name).read_bytes()).hexdigest() for name in sources}
+    if summary.get("proofSourceSha256") != expected_sources:
+        raise ValueError("Native measured source identity does not match this checkout")
+    reports = summary.get("coverageReports")
+    if not isinstance(reports, dict) or set(reports) != {"install", "replay", "package"}:
+        raise ValueError("Every native phase needs a sealed flushed coverage report")
+    if len(native) != 3:
+        raise ValueError("Expected all three native coverage phases")
+    for phase, path in zip(("install", "replay", "package"), native):
+        data = regular(path).read_bytes()
+        expected = {"path": f"proof-{phase}/lcov.info", "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        if reports[phase] != expected:
+            raise ValueError(f"Native {phase} coverage bytes/role differ from the completed proof")
+    inputs = [strict, *native]
+    if len(native) != 3 or len(set(inputs)) != 4:
+        raise ValueError("Expected distinct strict, native install, replay and package reports")
+    validate_lcov(root, strict, merged_lines=True)
+    for path in native:
+        validate_lcov(root, path, {"scripts/native-platform.ts"})
+        measured = {line[3:] for line in path.read_text().splitlines() if line.startswith("SF:")}
+        if not measured <= set(sources) - {"tests/package/native-platform.spec.ts"}:
+            raise ValueError("Native report contains source outside its measured proof closure")
+    merge_lcov(root, inputs, output, merged_inputs={strict})
+    return validate_lcov(root, output, merged_lines=True)
 
 
 def guard_inside(root, scratch, host_namespace):
@@ -224,6 +327,11 @@ def main():
     commands = parser.add_subparsers(dest="mode", required=True)
     commands.add_parser("guard")
     commands.add_parser("coverage")
+    combine = commands.add_parser("combine-coverage")
+    combine.add_argument("--strict", type=Path, required=True)
+    combine.add_argument("--native", type=Path, nargs=3, required=True)
+    combine.add_argument("--output", type=Path, required=True)
+    combine.add_argument("--native-summary", type=Path, required=True)
     merge = commands.add_parser("merge-coverage")
     merge.add_argument("root", type=Path)
     merge.add_argument("output", type=Path)
@@ -236,8 +344,13 @@ def main():
         guard()
     elif args.mode == "merge-coverage":
         merge_lcov(args.root, args.inputs, args.output)
+    elif args.mode == "combine-coverage":
+        print(json.dumps(combine_coverage(ROOT, args.strict, args.native, args.output, summary_path=args.native_summary), sort_keys=True))
     elif args.mode == "coverage":
-        print(json.dumps(validate_lcov(ROOT, ROOT / "coverage/lcov.info", merged_lines=True), sort_keys=True))
+        summary = validate_lcov(ROOT, ROOT / "coverage/lcov.info", merged_lines=True)
+        _, policy = coverage_sources(ROOT)
+        summary["coverageQualifications"] = policy
+        print(json.dumps(summary, sort_keys=True))
     else:
         workers(args.bun, args.node, args.npm)
 

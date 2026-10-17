@@ -58,14 +58,44 @@ leaves, cancellation/deadline and cleanup checks pass. Empty/failed/timed-out or
 cancelled runs clear stale and partial artifacts. A filtered batch may have no
 instrumented coverage; available current-run records are merged without reviving
 old reports. The final required-source inventory remains mandatory. Native lines
-are not exact statement/branch execution. No new percentage threshold is invented,
-and percentages are not comparable to historical Deno/V8 engines.
+are not exact statement/branch execution, and percentages are not comparable to
+historical Deno/V8 engines. Root `codecov.yml` retains whole-report auto targets
+with zero tolerance and adds library, CLI and tooling project/patch checks. CLI
+coverage had no historical baseline; its initial 78.55% floor inherits the old
+whole-report requirement rather than the newly observed CLI percentage.
 
-Only validated LCOV becomes the seven-day `bun-lcov` artifact. Codecov runs in a
+Completeness independently walks maintained `src/`, `bin/` and `scripts/` runtime
+sources plus release configuration, rejecting file/directory aliases and omitted
+unimported sources. `scripts/coverage-policy.json` lists exact type-only byte hashes
+and external Python/entrypoint qualifications. These qualifications describe
+instrumentation limits; they do not manufacture hits or assert unrecorded tests.
+
+The strict report remains the seven-day `bun-lcov` artifact. Native install, replay and
+package proofs run once each under an explicit bounded Bun test wrapper, retaining
+separate raw controller coverage outside repository `coverage/`. The fresh normal-hook install
+commands and absent-node_modules precondition stay unchanged; the wrapper uses
+only Bun/Node built-ins before installation. Ordinary test discovery does not select the explicit native
+spec. All three OS jobs remain release gates; only current-run Linux controller
+reports contribute to the union, with raw function-pair validation. Native evidence
+is trusted execution and does not replace strict replay.
+
+A separate read-only-contents job requires the entire native matrix and strict
+job, validates strict completeness **before** the union, and checks all three native
+phases, Linux/Bun identity, frozen metadata, measured source hashes and the current
+GitHub checkout/run/attempt. Raw reports are sealed after each Bun process exits,
+with byte hashes and explicit install/replay/package roles. Missing, partial,
+stale, substituted or mismatched evidence fails. If a failed-job retry reuses
+earlier successful native artifacts, their older attempt will be rejected; use
+**Re-run all jobs** so the evidence is fresh rather than weakening this check.
+The resulting line-only `bun-complete-lcov` artifact retains the complete aggregate
+scope; strict-only and combined counts remain distinct in the report.
+
+Codecov consumes only the validated combined artifact and runs in a
 separate job with OIDC, one explicit report, search/plugins disabled and errors
 fatal. Fork/Dependabot runs keep the validated artifact while skipping OIDC.
 No dependency installation or repository script execution runs in that upload job.
-Upload acceptance/queueing does not establish later Codecov UI processing.
+Upload acceptance/queueing does not establish later Codecov UI processing or a
+passing project/patch policy. Inspect the processed checks separately.
 
 ## Ubuntu namespace exception
 

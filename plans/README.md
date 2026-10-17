@@ -31,6 +31,7 @@ Replay remains offline; fixture capture requires its explicit operational flow.
 | 011  | Country-profiled getCrumb fixture capture and replay             | P2       | M      | —                      | IN PROGRESS (VPN capture pending) |
 | 012  | Offline Deno/Bun/Vitest/node:test migration experiments          | P1       | L      | —                      | DONE |
 | 013  | Resolve adversarial Bun migration follow-up                    | P1       | M/L    | 012                    | DONE |
+| 014  | Reconcile Bun coverage before merge                           | P1       | M      | 013                    | IN PROGRESS |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).

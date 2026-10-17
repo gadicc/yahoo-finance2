@@ -50,9 +50,37 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  coverage:
+    name: Complete coverage
+    needs: [tests, native-platforms]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: bun-lcov
+          path: coverage
+      - uses: actions/download-artifact@v8
+        with:
+          name: native-proof-lcov
+          path: native-coverage
+      - name: Validate and combine current strict and native driver reports
+        run: python3 scripts/ci.py combine-coverage --strict coverage/lcov.info --native native-coverage/proof-install/lcov.info native-coverage/proof-replay/lcov.info native-coverage/proof-package/lcov.info --native-summary native-coverage/summary.json --output coverage/combined-lcov.info
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bun-complete-lcov
+          path: coverage/combined-lcov.info
+          if-no-files-found: error
+          retention-days: 7
+
   codecov:
     name: Codecov
-    needs: tests
+    needs: coverage
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     # Fork/Dependabot PRs retain the artifact but never require an OIDC upload.
@@ -67,12 +95,12 @@ jobs:
           persist-credentials: false
       - uses: actions/download-artifact@v8
         with:
-          name: bun-lcov
+          name: bun-complete-lcov
           path: coverage
       - uses: codecov/codecov-action@v7
         with:
           use_oidc: true
-          files: coverage/lcov.info
+          files: coverage/combined-lcov.info
           disable_search: true
           plugins: noop
           disable_file_fixes: true

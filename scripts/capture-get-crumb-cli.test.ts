@@ -13,6 +13,8 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { expect } from "../tests/helpers/assertions.ts";
 import { projectIt as test } from "../tests/helpers/runner.ts";
+import { main as captureCountry } from "./capture-get-crumb-fixtures.ts";
+import type { CaptureTransport } from "./recache/broker.ts";
 import { captureEnvironment } from "./recache/environment.ts";
 import { snapshotFixtures } from "./recache-fixtures.ts";
 
@@ -57,6 +59,95 @@ async function sandbox(extra = "") {
   return { root, fixtures };
 }
 
+// The same controlled routes exercise the public controller directly and across
+// a real process boundary. No transport path falls back to global fetch.
+function controlledTransport(
+  scenario: string,
+  onCall: () => void,
+): CaptureTransport {
+  let calls = 0;
+  return async (input, init) => {
+    calls++;
+    onCall();
+    const request = new Request(input, init);
+    const url = new URL(request.url);
+    if (scenario === "hang") {
+      console.log("CONTROLLED_TRANSPORT_STARTED");
+      return await new Promise((_resolve, reject) => {
+        request.signal.addEventListener(
+          "abort",
+          () => reject(Error("Controlled abort")),
+          { once: true },
+        );
+      });
+    }
+    if (scenario === "limited")
+      return new Response("PRIVATE_RATE_BODY", { status: 429 });
+    if (scenario === "server")
+      return new Response("PRIVATE_SERVER_BODY", { status: 503 });
+    if (scenario === "unknownhost" && url.pathname === "/quote/AAPL")
+      return new Response("PRIVATE_BODY", {
+        status: 302,
+        headers: {
+          "set-cookie": "A=synthetic; Domain=.yahoo.com; Path=/; Secure",
+          location: "https://evil.invalid/PRIVATE_REDIRECT",
+        },
+      });
+    const consent = scenario.startsWith("consent");
+    const cookie =
+      "A=PRIVATE_COOKIE_SENTINEL; Domain=.yahoo.com; Path=/; Secure";
+    if (url.pathname === "/quote/AAPL") {
+      if (consent && calls === 1)
+        return new Response("PRIVATE_QUOTE_BODY", {
+          status: 302,
+          headers: {
+            "set-cookie": cookie,
+            location: "https://guce.yahoo.com/consent?private=PRIVATE_QUERY",
+          },
+        });
+      return new Response("PRIVATE_QUOTE_BODY", {
+        headers: { "set-cookie": cookie, "content-type": "text/html" },
+      });
+    }
+    if (url.hostname === "guce.yahoo.com" && url.pathname === "/consent")
+      return new Response("", {
+        status: 302,
+        headers: {
+          location:
+            "https://consent.yahoo.com/v2/collectConsent?private=PRIVATE_QUERY",
+        },
+      });
+    if (url.hostname === "consent.yahoo.com" && request.method === "GET")
+      return new Response(
+        scenario === "consent-badcompact"
+          ? "PRIVATE_NO_HIDDEN_INPUTS"
+          : '<html>PRIVATE_EXTRA_HTML<input type="hidden" name="sessionId" value="PRIVATE_FORM_VALUE"></html>',
+        { headers: { "content-type": "text/html" } },
+      );
+    if (url.hostname === "consent.yahoo.com" && request.method === "POST")
+      return new Response("PRIVATE_POST_BODY", {
+        status: 302,
+        headers: {
+          "set-cookie": cookie,
+          location: "https://guce.yahoo.com/copyConsent?private=PRIVATE_QUERY",
+        },
+      });
+    if (url.pathname === "/copyConsent")
+      return new Response("", {
+        status: 302,
+        headers: {
+          "set-cookie": cookie,
+          location: "https://finance.yahoo.com/quote/AAPL",
+        },
+      });
+    if (url.pathname === "/v1/test/getcrumb")
+      return new Response("PRIVATE_CRUMB_SENTINEL", {
+        headers: { "content-type": "text/plain" },
+      });
+    throw Error("Unexpected synthetic route");
+  };
+}
+
 async function execute(
   root: string,
   scenario = "simple",
@@ -74,34 +165,7 @@ async function execute(
     let calls = 0;
     const code = await main(${JSON.stringify(args)}, {
       root: ${JSON.stringify(root)},
-      transport: async (input, init) => {
-        calls++;
-        const request = new Request(input, init);
-        const url = new URL(request.url);
-        if (${JSON.stringify(scenario)} === "hang") {
-          console.log("CONTROLLED_TRANSPORT_STARTED");
-          return await new Promise((_resolve, reject) => {
-            request.signal.addEventListener("abort", () => reject(Error("Controlled abort")), { once: true });
-          });
-        }
-        if (${JSON.stringify(scenario)} === "limited") return new Response("PRIVATE_RATE_BODY", { status: 429 });
-        if (${JSON.stringify(scenario)} === "server") return new Response("PRIVATE_SERVER_BODY", { status: 503 });
-        if (${JSON.stringify(scenario)} === "unknownhost" && url.pathname === "/quote/AAPL") return new Response("PRIVATE_BODY", { status: 302, headers: { "set-cookie": "A=synthetic; Domain=.yahoo.com; Path=/; Secure", location: "https://evil.invalid/PRIVATE_REDIRECT" } });
-        const consent = ${JSON.stringify(scenario)}.startsWith("consent");
-        const cookie = "A=PRIVATE_COOKIE_SENTINEL; Domain=.yahoo.com; Path=/; Secure";
-        if (url.pathname === "/quote/AAPL") {
-          if (consent && calls === 1) return new Response("PRIVATE_QUOTE_BODY", { status: 302, headers: { "set-cookie": cookie, location: "https://guce.yahoo.com/consent?private=PRIVATE_QUERY" } });
-          return new Response("PRIVATE_QUOTE_BODY", { headers: { "set-cookie": cookie, "content-type": "text/html" } });
-        }
-        if (url.hostname === "guce.yahoo.com" && url.pathname === "/consent") return new Response("", { status: 302, headers: { location: "https://consent.yahoo.com/v2/collectConsent?private=PRIVATE_QUERY" } });
-        if (url.hostname === "consent.yahoo.com" && request.method === "GET") return new Response(
-          ${JSON.stringify(scenario)} === "consent-badcompact" ? "PRIVATE_NO_HIDDEN_INPUTS" : '<html>PRIVATE_EXTRA_HTML<input type="hidden" name="sessionId" value="PRIVATE_FORM_VALUE"></html>',
-          { headers: { "content-type": "text/html" } });
-        if (url.hostname === "consent.yahoo.com" && request.method === "POST") return new Response("PRIVATE_POST_BODY", { status: 302, headers: { "set-cookie": cookie, location: "https://guce.yahoo.com/copyConsent?private=PRIVATE_QUERY" } });
-        if (url.pathname === "/copyConsent") return new Response("", { status: 302, headers: { "set-cookie": cookie, location: "https://finance.yahoo.com/quote/AAPL" } });
-        if (url.pathname === "/v1/test/getcrumb") return new Response("PRIVATE_CRUMB_SENTINEL", { headers: { "content-type": "text/plain" } });
-        throw Error("Unexpected synthetic route");
-      },
+      transport: (${controlledTransport.toString()})(${JSON.stringify(scenario)}, () => { calls++; }),
     });
     await writeFile(${JSON.stringify(report)}, JSON.stringify({ code, calls }), { mode: 0o600 });
     process.exitCode = code;
@@ -440,3 +504,86 @@ test("country CLI permits repeated observed fixture ids without treating transpo
     await rm(root, { recursive: true, force: true });
   }
 }, 20000);
+
+for (const scenario of [
+  "simple",
+  "consent",
+  "limited",
+  "server",
+  "consent-badcompact",
+  "unknownhost",
+]) {
+  test(`country controller directly validates ${scenario} staging, rollback and private diagnostics`, async () => {
+    const { root, fixtures } = await sandbox();
+    const before = await snapshotFixtures(fixtures);
+    const oldMode = process.env.FETCH_DEVEL;
+    const oldInterval = process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+    const signals = ["SIGINT", "SIGTERM"] as const;
+    const listeners = signals.map((signal) => process.listenerCount(signal));
+    const messages: string[] = [];
+    let calls = 0;
+    try {
+      process.env.FETCH_DEVEL = "recache";
+      process.env.FETCH_DEVEL_RECACHE_INTERVAL = "0";
+      const code = await captureCountry(
+        ["--live", "--country=GB", "--profile=" + profile],
+        {
+          root,
+          transport: controlledTransport(scenario, () => {
+            calls++;
+          }),
+          log: (message) => {
+            messages.push(message);
+          },
+        },
+      );
+      const success = scenario === "simple" || scenario === "consent";
+      expect(code, messages.join("\n")).toBe(success ? 0 : 1);
+      expect(calls).toBe(
+        success
+          ? scenario === "simple"
+            ? 2
+            : 7
+          : scenario === "consent-badcompact"
+            ? 7
+            : scenario === "unknownhost"
+              ? 2
+              : 1,
+      );
+      expect(messages.join("\n")).not.toContain("PRIVATE_");
+      const after = await snapshotFixtures(fixtures);
+      for (const [file, hash] of before) expect(after.get(file)).toBe(hash);
+      if (success) {
+        expect(after.size - before.size).toBe(calls);
+        expect(messages.join("\n")).toContain(
+          "Capture and compacted replay succeeded",
+        );
+        expect(
+          await captureCountry(
+            ["--live", "--country", "GB", "--profile", profile],
+            {
+              root,
+              log: () => {},
+              transport: async () => {
+                throw new Error("must not capture an existing profile");
+              },
+            },
+          ),
+        ).toBe(2);
+        expect(await snapshotFixtures(fixtures)).toEqual(after);
+      } else {
+        expect(after).toEqual(before);
+      }
+      expect(signals.map((signal) => process.listenerCount(signal))).toEqual(
+        listeners,
+      );
+    } finally {
+      if (oldMode === undefined) delete process.env.FETCH_DEVEL;
+      else process.env.FETCH_DEVEL = oldMode;
+      if (oldInterval === undefined)
+        delete process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+      else process.env.FETCH_DEVEL_RECACHE_INTERVAL = oldInterval;
+      await rm(root, { recursive: true, force: true });
+    }
+  }, 30000);
+}

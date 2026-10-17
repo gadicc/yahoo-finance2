@@ -14,6 +14,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
+import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import {
   Application,
@@ -33,6 +34,7 @@ import {
 } from "./docs.ts";
 import {
   diagnosticKey,
+  generateModel,
   normalizeDenoLinks,
   warningDelta,
 } from "./docs/model.ts";
@@ -692,3 +694,39 @@ test("docs fingerprint follows optional config closure, bin inputs and mutable r
     rmSync(parent, { recursive: true, force: true });
   }
 }, 15000);
+
+test("actual documentation conversion renders every public export and Deno link from the verified program", async () => {
+  const root = realpathSync(fileURLToPath(new URL("../", import.meta.url)));
+  const output = scratch();
+  try {
+    await expect(
+      generateModel(root, output, "stale-input-fingerprint"),
+    ).rejects.toThrow("inputs changed before conversion");
+    expect(readdirSync(output)).toEqual([]);
+    const report = await generateModel(root, output, inputDigest(root));
+    const metadata = JSON.parse(readFileSync(join(root, "deno.json"), "utf8"));
+    expect(report.coverage.map((row) => row.key).sort()).toEqual(
+      Object.keys(metadata.exports).sort(),
+    );
+    expect(report.coverage).toHaveLength(28);
+    for (const row of report.coverage) {
+      expect(
+        readFileSync(join(output, row.url!.split("#")[0]!), "utf8"),
+      ).toContain("<!DOCTYPE html>");
+    }
+    expect(report.normalizedLinks.length).toBeGreaterThan(0);
+    expect(report.normalizedLinks.some((link) => link.rendered)).toBe(true);
+    const stored = JSON.parse(
+      readFileSync(join(output, "documentation-report.json"), "utf8"),
+    );
+    expect(stored.inputFingerprint).toBe(report.inputFingerprint);
+    expect(stored.normalizedLinks).toEqual(report.normalizedLinks);
+    const model = JSON.parse(
+      readFileSync(join(output, "reflections.json"), "utf8"),
+    );
+    expect(model.children.length).toBeGreaterThan(0);
+    expect(report.diagnostics.some((item) => item.level === 3)).toBe(false);
+  } finally {
+    rmSync(output, { recursive: true, force: true });
+  }
+}, 60000);

@@ -293,6 +293,15 @@ export async function main(options: Options): Promise<void> {
   const before = fixtureSnapshot(repository);
   const lock = sha(join(repository, "bun.lock"));
   const manifest = sha(join(repository, "package.json"));
+  const proofSourceSha256 = Object.fromEntries(
+    [
+      "scripts/native-platform.ts",
+      "scripts/testing/native.ts",
+      "src/lib/runtime-detect.ts",
+      "src/lib/runtimeGlobal.ts",
+      "tests/package/native-platform.spec.ts",
+    ].map((name) => [name, sha(join(repository, name))]),
+  );
   const summary = existsSync(summaryFile)
     ? JSON.parse(readFileSync(summaryFile, "utf8"))
     : {
@@ -312,6 +321,7 @@ export async function main(options: Options): Promise<void> {
           imageVersion: process.env.ImageVersion,
         },
         fixtureBefore: before,
+        proofSourceSha256,
         lockSha256: lock,
         manifestSha256: manifest,
         phases: {},
@@ -319,6 +329,11 @@ export async function main(options: Options): Promise<void> {
         policy:
           "Trusted native replay; no raw-socket or arbitrary-filesystem denial. Registry installs are separate from replay/probes. Strict Linux CI is unchanged.",
       };
+  assert.deepEqual(
+    summary.proofSourceSha256,
+    proofSourceSha256,
+    "Native proof source changed between phases",
+  );
   assert.equal(summary.platform, process.platform);
   assert.equal(summary.fixtureBefore, before);
   assert.equal(summary.lockSha256, lock);
@@ -689,12 +704,16 @@ export async function main(options: Options): Promise<void> {
     summary.failure = String(error);
     throw error;
   } finally {
+    summary.proofSourcesUnchanged = Object.entries(proofSourceSha256).every(
+      ([name, hash]) => sha(join(repository, name)) === hash,
+    );
     summary.fixtureAfter = fixtureSnapshot(repository);
     summary.fixtureBytesUnchanged = summary.fixtureAfter === before;
     summary.lockUnchanged = sha(join(repository, "bun.lock")) === lock;
     summary.manifestUnchanged =
       sha(join(repository, "package.json")) === manifest;
     if (
+      !summary.proofSourcesUnchanged ||
       !summary.fixtureBytesUnchanged ||
       !summary.lockUnchanged ||
       !summary.manifestUnchanged
@@ -702,10 +721,11 @@ export async function main(options: Options): Promise<void> {
       summary.status = "failed";
     save();
     assert(
-      summary.fixtureBytesUnchanged &&
+      summary.proofSourcesUnchanged &&
+        summary.fixtureBytesUnchanged &&
         summary.lockUnchanged &&
         summary.manifestUnchanged,
-      "Fixtures or frozen metadata changed; inspect without automatic rollback",
+      "Proof source, fixtures or frozen metadata changed; inspect without automatic rollback",
     );
   }
 }

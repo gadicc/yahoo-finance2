@@ -68,11 +68,23 @@ jobs:
           bun-version-file: .bun-version
       # No dependency cache or node_modules restoration: prove a fresh graph.
       - name: Fresh normal-hook frozen installation
-        run: bun scripts/native-platform.ts install --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}"
+        run: |
+          test ! -e "$RUNNER_TEMP/yf-native-platform"
+          YF_NATIVE_PROOF_ARGS="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' install --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}")" \
+            bun --no-env-file test --no-orphans --coverage --coverage-reporter=lcov --coverage-dir "$RUNNER_TEMP/yf-native-platform/proof-install" ./tests/package/native-platform.spec.ts
+          node scripts/native-coverage.mjs install "$RUNNER_TEMP/yf-native-platform"
       - name: Native replay, serial, coverage and actual process controls
-        run: bun scripts/native-platform.ts replay --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}"
+        run: |
+          test ! -e "$RUNNER_TEMP/yf-native-platform/proof-replay"
+          YF_NATIVE_PROOF_ARGS="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' replay --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}")" \
+            bun --no-env-file test --no-orphans --coverage --coverage-reporter=lcov --coverage-dir "$RUNNER_TEMP/yf-native-platform/proof-replay" ./tests/package/native-platform.spec.ts
+          node scripts/native-coverage.mjs replay "$RUNNER_TEMP/yf-native-platform"
       - name: Build, install and probe actual package on explicit runtimes
-        run: bun scripts/native-platform.ts package --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}" --node22 "$YF_NODE22" --node24 "$YF_NODE24" --npm "$YF_NPM" --minimum-bun "$YF_MINIMUM_BUN" --minimum-version "$YF_MINIMUM_VERSION"
+        run: |
+          test ! -e "$RUNNER_TEMP/yf-native-platform/proof-package"
+          YF_NATIVE_PROOF_ARGS="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' package --results "$RUNNER_TEMP/yf-native-platform" --expected-os "${{ matrix.platform }}" --node22 "$YF_NODE22" --node24 "$YF_NODE24" --npm "$YF_NPM" --minimum-bun "$YF_MINIMUM_BUN" --minimum-version "$YF_MINIMUM_VERSION")" \
+            bun --no-env-file test --no-orphans --coverage --coverage-reporter=lcov --coverage-dir "$RUNNER_TEMP/yf-native-platform/proof-package" ./tests/package/native-platform.spec.ts
+          node scripts/native-coverage.mjs package "$RUNNER_TEMP/yf-native-platform"
       - name: Retain native evidence, including failure logs
         if: always()
         uses: actions/upload-artifact@v7
@@ -83,5 +95,18 @@ jobs:
             ${{ runner.temp }}/yf-native-platform/*.stdout
             ${{ runner.temp }}/yf-native-platform/*.stderr
             ${{ runner.temp }}/yf-native-platform/native-lcov.info
+            ${{ runner.temp }}/yf-native-platform/proof-*/lcov.info
+          if-no-files-found: error
+          retention-days: 7
+      - name: Retain successful Linux native controller coverage for union
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v7
+        with:
+          name: native-proof-lcov
+          path: |
+            ${{ runner.temp }}/yf-native-platform/summary.json
+            ${{ runner.temp }}/yf-native-platform/proof-install/lcov.info
+            ${{ runner.temp }}/yf-native-platform/proof-replay/lcov.info
+            ${{ runner.temp }}/yf-native-platform/proof-package/lcov.info
           if-no-files-found: error
           retention-days: 7

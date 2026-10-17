@@ -10,6 +10,7 @@ import { expect } from "./helpers/assertions.ts";
 import { mainCli } from "../bin/yahoo-finance.ts";
 import {
   isLocalHost,
+  mainMcp,
   parseMcpArgs,
   validateHttpOptions,
 } from "../bin/yahoo-finance-mcp.ts";
@@ -679,3 +680,93 @@ test("real MCP stdio child initializes, lists filtered tools and shuts down on E
     }
   }
 }, 25000);
+
+test("MCP controller reports help, usage and guarded startup failures without leaking tokens or listeners", async () => {
+  using space = workspace();
+  const originalEnv = { ...process.env };
+  const originalLog = console.log;
+  const originalError = console.error;
+  const output: string[] = [];
+  const errors: string[] = [];
+  const signals = ["SIGINT", "SIGTERM"] as const;
+  const listeners = signals.map((signal) => process.listenerCount(signal));
+  const token = "private-mcp-controller-token";
+  try {
+    for (const name of [
+      "HOME",
+      "USERPROFILE",
+      "HOMEDRIVE",
+      "HOMEPATH",
+      "YAHOO_FINANCE_MCP_TOKEN",
+    ])
+      delete process.env[name];
+    console.log = (...args) => {
+      output.push(args.map(String).join(" "));
+    };
+    console.error = (...args) => {
+      errors.push(args.map(String).join(" "));
+    };
+    for (const flag of ["--help", "-h"]) {
+      output.length = 0;
+      expect(await mainMcp([flag])).toBe(0);
+      expect(output.join("\n")).toContain("Available tools:");
+    }
+    for (const flag of ["--version", "-v"]) {
+      output.length = 0;
+      expect(await mainMcp([flag])).toBe(0);
+      expect(output).toEqual([pkg.version]);
+    }
+    expect(errors).toEqual([]);
+    for (const args of [
+      ["--transport", "bad"],
+      ["--transport"],
+      ["--port", "-1"],
+      ["--port", "1.5"],
+      ["--port", "65536"],
+      ["--path", "relative"],
+      ["--token"],
+      ["--unknown"],
+      ["--http", "--host", "0.0.0.0"],
+    ]) {
+      errors.length = 0;
+      expect(await mainMcp(args)).toBe(2);
+      expect(errors.join("\n")).toMatch(/^UsageError:/);
+    }
+    process.env.HOME = space.root;
+    for (const args of [
+      ["--stdio", "--tools", token],
+      [
+        "--transport",
+        "http",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "0",
+        "--path",
+        "/private-mcp",
+        "--unsafe-no-token",
+      ],
+    ]) {
+      errors.length = 0;
+      expect(await mainMcp([...args, "--token", token])).toBe(1);
+      expect(errors.join("\n")).not.toContain(token);
+      expect(errors.join("\n")).toContain(
+        args[0] === "--stdio"
+          ? "[redacted]"
+          : "Unable to start the MCP HTTP server.",
+      );
+    }
+    expect(signals.map((signal) => process.listenerCount(signal))).toEqual(
+      listeners,
+    );
+    expect(
+      fs.statSync(path.join(space.root, ".yf2-cookies.json")).mode & 0o777,
+    ).toBe(0o600);
+  } finally {
+    console.log = originalLog;
+    console.error = originalError;
+    for (const name of Object.keys(process.env))
+      if (!(name in originalEnv)) delete process.env[name];
+    Object.assign(process.env, originalEnv);
+  }
+});
