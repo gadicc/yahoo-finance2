@@ -1,6 +1,7 @@
 # Plan 013: Resolve adversarial Bun migration follow-up
 
 ## Status
+- Status: DONE; exact executed source 2e6d8a7, final metadata closure recorded below.
 - Priority: P1; effort: M/L across isolated steps; fix risk: LOW/MED.
 - Planned at: 701f137d05f861b7a046618ca08321dcbba2ce9e, 2026-10-17.
 - Depends on: completed migration source and the external-review triage.
@@ -15,7 +16,7 @@
 | B2 image/tool metadata | Complete | 41491fd; Medium execution, Sol cleared; 19 focused tests and required gates passed |
 | C guard and D test tiers | Complete | 915e558 + 22b6b81; Sol/Astra cleared; 1,572 leaves pass, validated line-only LCOV covers 104 sources |
 | D archive/docs cleanup | Complete | ef99188 relocates 16 unchanged helpers/probes; 96d4132 + 671eec8 archive/consolidate guides; Sol/Astra cleared with anchor/provenance corrections |
-| Final integration/CI/review | Pending | No final readiness claim until validation on final source |
+| Final integration/CI/review | Complete | Exact 2e6d8a7: 12 local gates, 1,575 leaves, 31 publisher outcomes, all six hosted jobs; final Sol/Astra clearance |
 
 ## Intent and boundaries
 The current six-job CI passed, but did not establish usable production recache budgets,
@@ -376,3 +377,42 @@ coverage controls. All 13 native controls, types and style pass; no production
 helper, error-identity assertion or time budget changed. The counterfactual compact
 archive has SHA256 1a955a3b0f2d09d7110cfc7f99b13d5dd92031c503a2dbb68e2ec7cada969fd3.
 Fresh composed validation and all six hosted jobs remain pending on the new freeze.
+
+
+## Final acceptance (2026-10-17)
+The exact executed source is 2e6d8a79886e59b6a0335aab092115ffa434c580. All 12
+local gates passed, including 84 Python controls and CI=true full guarded coverage:
+1,507 strict leaves plus 68 trusted IPC-control leaves, zero failures across 67
+files. Local coverage accepted 104 sources, 13,472 mapped lines and 9,830 hit lines;
+aggregate functions remain unavailable/null. Its fresh complete isolated
+nonpublishing publisher rehearsal passed 31 expected outcomes: 26 status-zero
+commands, four genuine single-TS2345 SDK negatives and one frozen-lock refusal.
+Actual Deno 2.0.0/2.6.7 source and installed npm consumers, all 28 public ESM/CJS
+exports, three bins, declarations and controlled runtime/pipe/PTY checks passed.
+
+Final hosted run https://github.com/gadicc/yahoo-finance2/actions/runs/39028645888
+passed all six jobs on that exact SHA: Tests, Workers, Codecov and native Linux,
+macOS and Windows. The main job independently passed all 1,575 leaves; each native
+OS passed 1,364 leaves in each parallel/serial/coverage mode plus normal frozen
+installation and actual Node22/24/Bun installed consumers. Workers passed 8/8.
+Hosted complete LCOV accepted the same 104 sources/13,472 mapped lines and 9,829
+hit lines; the environment-dependent hit difference is not a source inventory
+change. Codecov accepted a 135,384-byte upload and queued processing at 11:30:12
+UTC; dashboard processing is not claimed.
+
+Fresh-context Sol xhigh and Astra xhigh independently cleared the entire composed
+change and the final raw evidence. The confirmed cancellation/pipe defects and
+fixture race are resolved with genuine failing counterfactuals and subsequent
+actual checks. Astra additionally compared all 1,216 files under tests/fixtures
+and tests/http to baseline Git blobs/modes. The 1,201 HTTP cache fixtures remain
+unchanged at 0644, both authoritative locks are byte-identical to baseline and
+the tested source stayed clean. Earlier failures and the unknown initial macOS
+EPERM throwing site remain qualified historical evidence.
+
+Reviewed executable source 2e6d8a7 was fast-forwarded and pushed to
+codex/bun-migration; the destination and origin matched cleanly. Final readiness
+text is a documentation-only successor touching this plan, plans/README.md and
+docs/bun-migration.md. Closure review must confirm all other tracked bytes remain
+identical to the tested source; no claim of rerunning code on that successor is
+made. Audit archival and temporary cleanup follow verification without changing
+source or fixtures. Registry publication and release authentication are separate.

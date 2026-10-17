@@ -27,22 +27,46 @@ and in the linked guides.
 
 ## Current follow-up summary
 
-Ten of thirteen follow-up items are complete. Payload cleanup, helper/probe
-moves and consolidated documentation have independent review clearance. Final
-composed-source verification, hosted CI, final reviews and integration remain
-pending. This is not a final readiness declaration.
+All thirteen follow-up items are complete. The recorded gates, independent
+reviews and authorized source integration are summarized below. The historical
+71-item acceptance and benchmarks retain their original scope; this follow-up is
+a separate 13-item
+checklist. New full-suite elapsed times are validation observations, not repeat
+benchmarks.
 
 | Area | Status | Done/total | Recorded source |
 | --- | --- | --- | --- |
 | A. Recache and nested compiler | Complete | 2/2 | e96a3d9, 6a5baa0 |
 | B. Repair docs gate and authoritative metadata | Complete | 2/2 | 5d61fff, 41491fd |
-| C. Strict IPC, test tiers and coverage | Locally verified and reviewed | 3/3 | 915e558, 22b6b81 |
-| D. Archive, helper paths and concise docs | Complete; Sol/Astra reviewed | 3/3 | ef99188, 96d4132 and link correction |
-| Final CI, reviews and integration | Pending final source | 0/3 | Fresh composed-source gates required |
-| Overall current follow-up | In progress | 10/13 | Final readiness pending |
+| C. Strict IPC, test tiers, coverage and shutdown | Complete; Sol/Astra reviewed | 3/3 | 915e558, 22b6b81, ab0ba02, b70c2ae, 7b7bd16, acca304 |
+| D. Archive, helper paths and concise docs | Complete; Sol/Astra reviewed | 3/3 | ef99188, 96d4132, 671eec8 |
+| Final CI, reviews and integration | Complete | 3/3 | Executed 2e6d8a7; metadata successor below |
+| Overall current follow-up | Complete | 13/13 | See exact-source provenance |
 
-Only individual items below count; finalize the table from those items. A passed
-local focused check or old hosted run does not replace composed-head CI.
+### Exact-source provenance
+
+| Gate | Actual evidence |
+| --- | --- |
+| Executed composed source | `2e6d8a79886e59b6a0335aab092115ffa434c580` |
+| Ordinary local verification | All 12 gates passed, including 84 Python controls and `CI=true` full guarded coverage: 1,575 passed, zero failed across 67 files (1,507 strict, 68 IPC) |
+| Complete merged coverage | Local: 104 sources, 13,472 mapped lines, 9,830 hit lines. Hosted: the same sources and mapped lines, 9,829 hit lines. Aggregate function counts are unavailable (`null`) |
+| Isolated nonpublishing publisher | All 31 expected outcomes passed, including controlled negatives; real tarball exports/bins/declarations, JSR dry-run, and Deno 2.6.7 plus exact 2.0.0 source/installed consumers |
+| Fresh hosted matrix | [Run 39028645888](https://github.com/gadicc/yahoo-finance2/actions/runs/39028645888): all six jobs passed on exact 2e6d8a7: Tests, Workers, Codecov and native Linux/macOS/Windows |
+| Native and Workers | Each native OS passed 1,364 leaves in each parallel/serial/coverage mode, fresh normal frozen installation and installed Node22/24/Bun consumers; Workers passed 8/8 |
+| Codecov | The 135,384-byte upload was accepted and queued at 11:30:12 UTC on 2026-10-17. Dashboard processing was not verified |
+| Independent final reviews | Sol xhigh substantive review and Astra xhigh adversarial review cleared the composed source and final raw evidence; confirmed findings are resolved |
+| Integration and metadata successor | Reviewed source 2e6d8a7 was fast-forwarded and pushed to `codex/bun-migration`; destination and origin matched cleanly. This documentation-only successor is not itself executed |
+
+The verification above executed 2e6d8a79886e59b6a0335aab092115ffa434c580.
+This documentation-only successor updates this guide, plan013 and the plan index;
+all other tracked bytes match the executed source. No execution on this successor
+is claimed. The one-line local/hosted coverage-hit difference does not change the
+source inventory.
+
+All 1,201 real fixture files retain their bytes and 0644 modes; root `bun.lock`
+and the independent Workers npm lock retain their bytes. Merged multi-batch LCOV
+is line-only because Bun omits the identities needed to combine function metrics;
+strict raw Bun validation and genuine single-batch native function metrics remain.
 
 ## A. Operational corrections
 
@@ -73,9 +97,16 @@ local focused check or old hosted run does not replace composed-head CI.
   and enforce one deadline plus aggregate fresh JUnit/leaf/cancellation checks.
 - [x] C3 — Validate raw Bun function pairs, publish safely merged line-only LCOV
   without inventing aggregate function metrics, and retain the full source gate.
-  On exact 22b6b81, 1,572 guarded tests passed (1,504 strict plus 68 IPC); final
-  validation accepted 104 sources, 13,422 mapped lines and 9,786 hit lines.
-  Those local counts describe that source, not the later composed cleanup head.
+  The exact final executed source and complete-source counts are recorded above.
+
+Bounded shutdown retains the first real cleanup error: ab0ba02 prevents duplicate
+Windows tree termination, b70c2ae restores POSIX TERM-to-KILL escalation, and
+7b7bd16 closes only owned pipes on an unverified-close watchdog. Fixture-only
+acca304 directly owns a READY-confirmed bounded writer; removing only pipe
+detachment in a disposable helper retains the original error but makes the
+controller time out, proving the liveness regression control. It does not claim
+writer termination. The initial hosted macOS EPERM cause remains unknown; later
+passing runs do not establish which earlier operation produced it.
 
 ## D. Payload and operational documentation
 
@@ -90,18 +121,20 @@ local focused check or old hosted run does not replace composed-head CI.
 - [x] D3 — Eight current guides, contributor/agent policies, inbound links and
   precise upgrade notes are implemented. Independent Sol/Astra reviews cleared
   the cleanup after one anchor correction; existing release/schema-repair/
-  publisher authorities remain. Final composed-source review is separate.
+  publisher authorities remain. Final composed-source review is complete.
 
 ## Final validation and integration
 
-- [ ] F1 — Record normal frozen installation, complete local/hosted CI and all six
-  job results on the exact final source, with fixture bytes/modes unchanged.
-  Repeat isolated nonpublishing publisher compatibility checks, including the
-  minimum Deno consumer, on the composed source before claiming fresh evidence.
-- [ ] F2 — Record the required independent and adversarial final reviews; resolve
-  confirmed findings and rerun affected checks on the reviewed source.
-- [ ] F3 — Record final integration/source provenance and clean destination status
-  only after authorized integration. Publication remains separately authorized.
+- [x] F1 — All 12 local gates, complete `CI=true` guarded coverage, all six fresh
+  hosted jobs, normal frozen native installs and the complete isolated
+  nonpublishing publisher rehearsal passed on exact 2e6d8a7 as recorded above.
+- [x] F2 — Independent Sol xhigh substantive and Astra xhigh adversarial reviews
+  cleared the composed changes and final evidence. Confirmed findings are
+  resolved; affected checks and the failing counterfactual control are verified.
+- [x] F3 — Reviewed source 2e6d8a7 was fast-forwarded and pushed, with a clean
+  matching destination/origin. This documentation-only successor preserves every
+  other tracked byte; all execution evidence remains attributed to 2e6d8a7.
+  Publication remains separately authorized.
 
 Current verification must preserve root/Workers lock ownership and exact pins,
 all public entrypoints, source/runtime policies and real fixtures. No live Yahoo

@@ -30,7 +30,7 @@ Replay remains offline; fixture capture requires its explicit operational flow.
 | 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 | 011  | Country-profiled getCrumb fixture capture and replay             | P2       | M      | —                      | IN PROGRESS (VPN capture pending) |
 | 012  | Offline Deno/Bun/Vitest/node:test migration experiments          | P1       | L      | —                      | DONE |
-| 013  | Resolve adversarial Bun migration follow-up                    | P1       | M/L    | 012                    | IN PROGRESS |
+| 013  | Resolve adversarial Bun migration follow-up                    | P1       | M/L    | 012                    | DONE |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
@@ -41,7 +41,9 @@ The pre-follow-up migration and benchmark evidence is preserved at
 and the `codex/bun-migration-archive` branch. Current adversarial follow-up is
 tracked in [plan 013](013-bun-migration-review-followup.md); plan 012 retains
 its historical experiment scope and outcome. The earlier 71/71 readiness count
-is superseded pending operational fixes and fresh validation.
+is historical; all 13 review follow-up items are complete on executed source
+2e6d8a7, with fresh six-job CI and independent Sol/Astra clearance. See the
+[current migration report](../docs/bun-migration.md) for exact-source evidence.
 
 ## Dependency notes
 
