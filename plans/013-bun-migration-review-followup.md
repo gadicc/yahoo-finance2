@@ -259,3 +259,34 @@ security and publication qualifications. Both found the same removed-heading
 link in docs/validation.md; 671eec8 repairs it and clarifies exact archive versions. Focused tooling,
 types, schema, style and documentation gates passed; final composed validation
 and fresh isolated publisher rehearsal are still required.
+
+
+### Final composed validation and discovered cancellation regression
+On exact e104567, all 12 local gates passed: 84 Python controls, real strict
+preflight, types/negative/style/schema/docs/release checks, 1,572 guarded leaves
+and complete line-only LCOV. The fresh isolated nonpublishing publisher rehearsal
+also passed all 31 command records, including actual source and installed package
+consumers on Deno 2.0.0 and 2.6.7, all 28 ESM/CJS exports and three bins on Node/Bun,
+and the intentional compatibility negatives. These are observations on e104567,
+not execution on a later correction.
+
+Hosted run 39026913830 exposed a composed cancellation regression. The new whole-run
+abort timer and the helper's remaining-budget timer can both call termination.
+Sol independently reproduced two Windows cleanup calls, where the second reports
+an already-exited process and replaces a legitimate timeout with driver exit 2.
+Astra independently confirmed the path. Windows native-full failed 1,360/1;
+macOS parallel passed but serial failed two timeout controls, one surfacing EPERM
+without a throwing-site stack. Linux native and Workers passed. These failures
+remain evidence and are not counted as final acceptance. The authorized narrow
+correction latches termination once, preserves the first cleanup error and bounded
+close behavior, adds a deterministic collision control and richer synthetic driver
+diagnostics. macOS EPERM remains fatal; exact-host rerun must verify the correction
+and retained descendant-cleanup assertion before final clearance.
+
+
+The narrow correction is committed at ab0ba02. Its 11 guarded native controls,
+including both fake-Windows collision outcomes, pass; types/style pass. Sol
+independently reran the collision control and cleared the code. The first-error
+identity, bounded unverified-close failure and final POSIX SIGKILL remain intact.
+The exact-host macOS/Windows results and composed corrected-source gates remain
+pending; the initial failures are not attributed beyond the available evidence.
