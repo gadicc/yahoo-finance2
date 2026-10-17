@@ -84,7 +84,7 @@ So what can go wrong?
 - Validation errors.
 - **Delisted stocks.** If a stock gets delisted, a query that worked previously
   (for a particular symbol) will begin to throw an error. This includes
-  historical (and chart) data from _before_ the delisting occured. This is how
+  historical (and chart) data from _before_ the delisting occurred. This is how
   Yahoo treats delisted stocks and there is nothing we can do about it.
 
 The library goes to great lengths to ensure that if there are no errors, the
