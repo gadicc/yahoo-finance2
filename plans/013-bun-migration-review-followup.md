@@ -290,3 +290,43 @@ independently reran the collision control and cleared the code. The first-error
 identity, bounded unverified-close failure and final POSIX SIGKILL remain intact.
 The exact-host macOS/Windows results and composed corrected-source gates remain
 pending; the initial failures are not attributed beyond the available evidence.
+
+
+### Corrected-source evidence and bounded shutdown follow-up
+Exact 9527476 passed all 12 local commands, 84 Python controls and 1,573 guarded
+leaves (1,505 strict plus 68 IPC). LCOV accepted 104 sources, 13,427 mapped lines
+and 9,792 hit lines. Its fresh minimum-Deno publisher rehearsal passed all 31
+command records. All six hosted jobs in run 39027291740 passed. Each native OS
+passed normal-hook frozen installation, 1,362 leaves in parallel, serial and
+coverage modes, and actual installed package checks. The Codecov uploader accepted
+135,224 bytes and queued processing; this is not a claim about later dashboard
+processing. This establishes observed corrected-source behavior, without claiming
+to identify the throwing site of the initial macOS EPERM.
+
+Review also independently reproduced two bounded-shutdown defects before final
+acceptance. Baseline strict replay forced SIGKILL after one second; the shared
+helper initially waited until its 1.5-second failure watchdog before attempting
+force in finally. Sol's owned TERM-ignoring child failed at 1,522ms and closed only
+after finally-KILL at 1,524ms. Commit b70c2ae restores force before the unchanged
+watchdog, preserves actual first cleanup errors and exposes strict child output
+in timeout assertions. Sol/Astra cleared the implementation and deterministic
+TERM-close, KILL-close, KILL-error and never-close scenarios.
+
+The new piped stderr path also made child.unref alone insufficient to bound the
+controller's exit. Sol independently demonstrated an owned Bun controller that
+rejected at 70.8ms but remained alive for 2.048 seconds while its bounded writer
+held stderr. The narrow authorized correction closes only child-owned pipes on
+watchdog failure, preserving the original error and explicit unverified descendant
+cleanup. Ordinary output and process stdio remain untouched. Fresh composed-source
+gates, hosted jobs and final review remain required after this correction.
+
+
+Commit 7b7bd16 bounds held-pipe watchdog failure, with each getter/destroy operation
+inside a per-stream guard. Its portable real controller exits in about 138ms while
+the owned writer is bounded to four seconds; the original cleanup error remains
+visible. A defensive throwing-getter control proves remaining pipes still close
+without replacing that error. The fake ChildProcess stdio properties explicitly
+model inherited null handles, because Bun's unspawned lazy getters need a spawn
+handle. Across b70c2ae and 7b7bd16, 29 focused guarded controls pass, with clean types
+and unchanged style diagnostics. Independent Sol/Astra source review has cleared
+the shutdown changes; the new final freeze still requires full composed validation.
