@@ -157,7 +157,10 @@ function ownedInput(
 }
 
 /** Dependencies may use package-manager links; that exemption never covers src/. */
-function compilerHost(options: ts.CompilerOptions): ts.CompilerHost {
+export function compilerHost(options: ts.CompilerOptions): {
+  host: ts.CompilerHost;
+  audit: (program: ts.Program) => void;
+} {
   const dependencyDirectory = path.join(repository, "node_modules");
   const dependencyRoots = new Set<string>([realpathSync(dependencyDirectory)]);
   function dependencyRoot(file: string) {
@@ -188,6 +191,10 @@ function compilerHost(options: ts.CompilerOptions): ts.CompilerHost {
   host.getCurrentDirectory = () => repository;
   const read = host.readFile.bind(host);
   const realpath = host.realpath?.bind(host);
+  const fileExists = host.fileExists.bind(host);
+  const directoryExists = host.directoryExists?.bind(host);
+  const getDirectories = host.getDirectories?.bind(host);
+  const readDirectory = host.readDirectory?.bind(host);
   function validate(file: string, allowDirectory: boolean) {
     const absolute = path.resolve(repository, file);
     if (
@@ -195,25 +202,44 @@ function compilerHost(options: ts.CompilerOptions): ts.CompilerHost {
       !inside(absolute, dependencyDirectory)
     ) {
       ownedInput(absolute, allowDirectory, true);
-    } else if (
-      !inside(absolute, dependencyDirectory) &&
-      ![...dependencyRoots].some((directory) => inside(absolute, directory))
-    ) {
-      throw new Error(
-        `Build input is outside the repository and dependencies: ${absolute}`,
-      );
+      return true;
     }
+    return (
+      inside(absolute, dependencyDirectory) ||
+      [...dependencyRoots].some((directory) => inside(absolute, directory))
+    );
   }
-  host.readFile = (file) => {
-    validate(file, false);
-    return read(file);
-  };
+  // TypeScript speculatively checks ancestor package metadata during resolution.
+  // Foreign probes must look absent without authorizing foreign compiler inputs.
+  host.readFile = (file) => (validate(file, false) ? read(file) : undefined);
+  host.fileExists = (file) => validate(file, false) && fileExists(file);
+  if (directoryExists)
+    host.directoryExists = (file) =>
+      validate(file, true) && directoryExists(file);
+  if (getDirectories)
+    host.getDirectories = (file) =>
+      validate(file, true) ? getDirectories(file) : [];
+  if (readDirectory)
+    host.readDirectory = (file, ...args) =>
+      validate(file, true) ? readDirectory(file, ...args) : [];
   if (realpath)
-    host.realpath = (file) => {
-      validate(file, true);
-      return realpath(file);
-    };
-  return host;
+    // This optional canonicalization hook must return a string, even for absent
+    // paths. Keep foreign paths lexical; all existence/read gates reject them.
+    host.realpath = (file) => (validate(file, true) ? realpath(file) : file);
+  return {
+    host,
+    audit(program) {
+      for (const source of program.getSourceFiles()) {
+        for (const file of [source.fileName, realpathSync(source.fileName)]) {
+          if (!validate(file, false)) {
+            throw new Error(
+              `Build input is outside the repository and dependencies: ${file}`,
+            );
+          }
+        }
+      }
+    },
+  };
 }
 
 function moduleSpecifier(value: ts.Expression): ts.Expression {
@@ -404,11 +430,13 @@ export function buildNpm(options: BuildOptions = {}): string {
       newLine: ts.NewLineKind.LineFeed,
       ignoreDeprecations: "6.0",
     };
+    const esmInputs = compilerHost(compilerOptions);
     const program = ts.createProgram(
       [...roots, ...bins],
       compilerOptions,
-      compilerHost(compilerOptions),
+      esmInputs.host,
     );
+    esmInputs.audit(program);
     const diagnostics = ts.getPreEmitDiagnostics(program);
     if (diagnostics.length)
       throw new Error(
@@ -426,9 +454,11 @@ export function buildNpm(options: BuildOptions = {}): string {
         moduleResolution: ts.ModuleResolutionKind.Node10,
         outDir: path.join(staging, format),
       };
+      const inputs = commonJS ? compilerHost(formatOptions) : esmInputs;
       const instance = commonJS
-        ? ts.createProgram(roots, formatOptions, compilerHost(formatOptions))
+        ? ts.createProgram(roots, formatOptions, inputs.host)
         : program;
+      inputs.audit(instance);
       const result = instance.emit(undefined, undefined, undefined, undefined, {
         before: [rewriteModules(commonJS)],
         afterDeclarations: [

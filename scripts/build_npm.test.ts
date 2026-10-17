@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import {
+  cpSync,
   existsSync,
   lstatSync,
   mkdirSync,
@@ -21,6 +22,7 @@ import { projectIt as test } from "../tests/migration/runner.ts";
 import { expect } from "../tests/migration/assertions.ts";
 import {
   buildNpm,
+  compilerHost,
   parseBuildArgs,
   repository,
   rewriteModules,
@@ -330,6 +332,176 @@ void reverse;`;
   }
 }, 90000);
 
+test("compiler probes treat foreign paths as unavailable and audit actual source closure", () => {
+  const scratch = temporary();
+  try {
+    const foreign = path.join(scratch, "foreign.ts");
+    const alias = path.join(scratch, "alias.ts");
+    writeFileSync(foreign, "export const FOREIGN_SENTINEL = 1;\n");
+    symlinkSync(foreign, alias);
+    const options: ts.CompilerOptions = { noLib: true, types: [] };
+    const boundary = compilerHost(options);
+    for (const file of [foreign, alias]) {
+      expect(boundary.host.fileExists(file)).toBe(false);
+      expect(boundary.host.readFile(file)).toBeUndefined();
+      expect(
+        boundary.host.getSourceFile(file, ts.ScriptTarget.Latest),
+      ).toBeUndefined();
+      expect(boundary.host.realpath?.(file)).toBe(file);
+    }
+    expect(boundary.host.directoryExists?.(scratch)).toBe(false);
+    expect(boundary.host.getDirectories?.(scratch)).toEqual([]);
+    expect(
+      boundary.host.readDirectory?.(scratch, [".ts"], undefined, ["**/*"]),
+    ).toEqual([]);
+    const own = path.join(repository, "src/lib/runtime-detect.ts");
+    expect(boundary.host.fileExists(own)).toBe(true);
+    expect(boundary.host.readFile(own)).toContain("MIN_SUPPORTED_RUNTIMES");
+    const ownProgram = ts.createProgram([own], options, boundary.host);
+    expect(
+      ownProgram.getSourceFiles().some((source) => source.fileName === own),
+    ).toBe(true);
+    expect(() => boundary.audit(ownProgram)).not.toThrow();
+    // Use an actual separately constructed program, rather than a fake file list,
+    // to prove a foreign source cannot become an accepted emit input.
+    const foreignProgram = ts.createProgram([foreign], options);
+    expect(
+      foreignProgram
+        .getSourceFiles()
+        .some((source) => source.fileName === foreign),
+    ).toBe(true);
+    expect(() => boundary.audit(foreignProgram)).toThrow(
+      "outside the repository and dependencies",
+    );
+  } finally {
+    rmSync(scratch, { recursive: true, force: true });
+  }
+});
+
+test("nested npm checkout uses its independent graph without incorporating competing ancestor inputs", () => {
+  const scratch = temporary();
+  const clone = path.join(scratch, ".claude/worktrees/review-bun-migration");
+  const ancestorSdk = path.join(
+    scratch,
+    "node_modules/@modelcontextprotocol/sdk",
+  );
+  const report = path.join(scratch, "compiler-inputs.jsonl");
+  try {
+    mkdirSync(clone, { recursive: true });
+    for (const name of [
+      "node_modules",
+      "src",
+      "bin",
+      "skills",
+      "deno.json",
+      "package.json",
+      "README.md",
+      "LICENSE",
+    ]) {
+      cpSync(path.join(repository, name), path.join(clone, name), {
+        recursive: true,
+        dereference: true,
+      });
+    }
+    expect(lstatSync(path.join(clone, "node_modules")).isSymbolicLink()).toBe(
+      false,
+    );
+    expect(realpathSync(path.join(clone, "node_modules/typescript"))).toBe(
+      path.join(clone, "node_modules/typescript"),
+    );
+    mkdirSync(ancestorSdk, { recursive: true });
+    writeFileSync(
+      path.join(ancestorSdk, "package.json"),
+      JSON.stringify({
+        name: "@modelcontextprotocol/sdk",
+        version: "0.0.0-ANCESTOR_SENTINEL",
+        types: "wrong.d.ts",
+        exports: { "./*": { types: "./wrong.d.ts", default: "./wrong.js" } },
+      }),
+    );
+    writeFileSync(
+      path.join(ancestorSdk, "wrong.d.ts"),
+      "export declare const ANCESTOR_SENTINEL: unique symbol;\n",
+    );
+    writeFileSync(
+      path.join(ancestorSdk, "wrong.js"),
+      'throw Error("ANCESTOR_SENTINEL");\n',
+    );
+    mkdirSync(path.join(clone, "scripts"));
+    // Observe both actual compiler programs while retaining the full real graph.
+    writeFileSync(
+      path.join(clone, "scripts/typescript-probe.ts"),
+      `
+      import * as actual from "../node_modules/typescript/lib/typescript.js";
+      import { appendFileSync, realpathSync } from "node:fs";
+      export * from "../node_modules/typescript/lib/typescript.js";
+      export function createProgram(...args) {
+        const program = actual.createProgram(...args);
+        appendFileSync(${JSON.stringify(report)}, JSON.stringify({
+          module: args[1].module,
+          files: program.getSourceFiles().map(file => realpathSync(file.fileName)),
+        }) + "\\n");
+        return program;
+      }
+    `,
+    );
+    writeFileSync(
+      path.join(clone, "scripts/build_npm.ts"),
+      readFileSync(
+        path.join(repository, "scripts/build_npm.ts"),
+        "utf8",
+      ).replace('from "typescript";', 'from "./typescript-probe.ts";'),
+    );
+    const result = spawnSync(
+      process.execPath,
+      [path.join(clone, "scripts/build_npm.ts")],
+      {
+        cwd: clone,
+        encoding: "utf8",
+        timeout: 60000,
+      },
+    );
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stderr).toBe("");
+    const programs = readFileSync(report, "utf8")
+      .trim()
+      .split("\n")
+      .map((line) => JSON.parse(line) as { module: number; files: string[] });
+    expect(programs.map((program) => program.module)).toEqual([
+      ts.ModuleKind.ESNext,
+      ts.ModuleKind.CommonJS,
+    ]);
+    for (const program of programs) {
+      expect(program.files.length).toBeGreaterThan(0);
+      expect(
+        program.files.some((file) =>
+          file.startsWith(
+            path.join(clone, "node_modules/@modelcontextprotocol/sdk") +
+              path.sep,
+          ),
+        ),
+      ).toBe(true);
+      for (const file of program.files)
+        expect(file.startsWith(clone + path.sep), file).toBe(true);
+    }
+    const output = path.join(clone, "npm");
+    const pkg = JSON.parse(
+      readFileSync(path.join(output, "package.json"), "utf8"),
+    );
+    expect(Object.keys(pkg.exports)).toHaveLength(28);
+    for (const format of ["esm", "script"]) {
+      expect(
+        readFileSync(path.join(output, format, "src/mcp/server.d.ts"), "utf8"),
+      ).toContain("McpServer");
+    }
+    for (const file of files(output)) {
+      expect(readFileSync(file, "utf8")).not.toContain("ANCESTOR_SENTINEL");
+    }
+  } finally {
+    rmSync(scratch, { recursive: true, force: true });
+  }
+}, 90000);
+
 test("compiler inputs reject imported JSON/source/schema links and escapes while preserving prior output", () => {
   const scratch = temporary();
   const clone = path.join(scratch, "project");
@@ -419,7 +591,7 @@ test("compiler inputs reject imported JSON/source/schema links and escapes while
     refuses("symlink build input");
     unlinkSync(path.join(clone, "src/linked"));
     put("src/index.ts", index.replace("./payload.json", "../../external.json"));
-    refuses("outside the repository and dependencies");
+    refuses("Cannot find module '../../external.json'");
     put("src/index.ts", index);
 
     // An unimported schema is still a packaged asset; links cannot be silently skipped.
