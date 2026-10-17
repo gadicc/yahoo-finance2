@@ -286,5 +286,5 @@ Now let's test our fix.
 1. Go back to GitHub and GitHub will suggest to open a pull request.
 
 See
-[Repairing failures after recaching](../CONTRIBUTING.md#repairing-failures-after-recaching)
+[Repairing failures after recaching](./fixture-capture.md#review-response-drift-before-repair)
 for the full workflow, including the boundary for automated type/schema repairs.

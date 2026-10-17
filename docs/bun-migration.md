@@ -18,21 +18,28 @@ retains all original A–L checklists and historical scope. Old experiment comma
 require their corresponding historical checkout/graph, not current contributor
 setup. Performance measurements must not be relabeled as new full-suite timings.
 
+Of the 112 removed files, 107 retain identical bytes at 701f137. Five guides had
+later follow-up updates: `CI-REPAIR.md`, `CI.md`, `RECACHE.md`, `TESTING.md` and
+`TRUST-BOUNDARIES.md`. Their exact final pre-cleanup versions remain in
+[ef991883](https://github.com/gadicc/yahoo-finance2/tree/ef991883a050a6e9aa78d9f61f67db11e0c235bf/tests/migration);
+701f137 retains their originals. Current operating facts are consolidated here
+and in the linked guides.
+
 ## Current follow-up summary
 
-Nine of thirteen follow-up items are complete. Historical payload cleanup and
-the reviewed helper/probe moves are implemented; consolidated documentation is
-awaiting independent review. Final composed-source verification, hosted CI and
-integration remain pending. This is not a final readiness declaration.
+Ten of thirteen follow-up items are complete. Payload cleanup, helper/probe
+moves and consolidated documentation have independent review clearance. Final
+composed-source verification, hosted CI, final reviews and integration remain
+pending. This is not a final readiness declaration.
 
 | Area | Status | Done/total | Recorded source |
 | --- | --- | --- | --- |
 | A. Recache and nested compiler | Complete | 2/2 | e96a3d9, 6a5baa0 |
 | B. Repair docs gate and authoritative metadata | Complete | 2/2 | 5d61fff, 41491fd |
 | C. Strict IPC, test tiers and coverage | Locally verified and reviewed | 3/3 | 915e558, 22b6b81 |
-| D. Archive, helper paths and concise docs | Documentation review pending | 2/3 | Archive retained; moves ef99188 |
+| D. Archive, helper paths and concise docs | Complete; Sol/Astra reviewed | 3/3 | ef99188, 96d4132 and link correction |
 | Final CI, reviews and integration | Pending final source | 0/3 | Fresh composed-source gates required |
-| Overall current follow-up | In progress | 9/13 | Final readiness pending |
+| Overall current follow-up | In progress | 10/13 | Final readiness pending |
 
 Only individual items below count; finalize the table from those items. A passed
 local focused check or old hosted run does not replace composed-head CI.
@@ -73,15 +80,17 @@ local focused check or old hosted run does not replace composed-head CI.
 ## D. Payload and operational documentation
 
 - [x] D1 — Remove 78 dated receipts, nine experiment drivers, two unused compiler
-  configs and 23 superseded guides after checking every path is recoverable at
-  immutable 701f137, retained by local/origin `codex/bun-migration-archive`.
-  The historical REPORT URL remains a compatibility landing page.
+  configs and 23 superseded guides. Originals remain at immutable 701f137,
+  retained by local/origin `codex/bun-migration-archive`; the five evolved guides'
+  final pre-cleanup bytes remain at ef991883 as detailed above. The historical
+  REPORT URL remains a compatibility landing page.
 - [x] D2 — Move five maintained adapters to `tests/helpers` and eleven probes to
   `tests/package`, with imports/configs updated at ef99188 and independent Sol
   review cleared. Preserve ignored incremental caches and negative sample paths.
-- [ ] D3 — Eight current guides, contributor/agent policies, inbound links and
-  precise upgrade notes are implemented. Independent documentation/integration
-  review is pending; existing release/schema-repair/publisher authorities remain.
+- [x] D3 — Eight current guides, contributor/agent policies, inbound links and
+  precise upgrade notes are implemented. Independent Sol/Astra reviews cleared
+  the cleanup after one anchor correction; existing release/schema-repair/
+  publisher authorities remain. Final composed-source review is separate.
 
 ## Final validation and integration
 
