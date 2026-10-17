@@ -1,39 +1,20 @@
 # Agent Notes
 
 This file applies to the whole repository. Read [CONTRIBUTING.md](./CONTRIBUTING.md)
-for contributor setup and [the migration tracker](./tests/migration/REPORT.md)
-for exact acceptance evidence and outstanding work.
+for contributor setup and [current development guidance](./docs/development.md) and
+[testing policies](./docs/testing.md).
 
 ## Project Context
 
-- Development uses exact Bun 1.4.3, TypeScript 6.0.3 and Biome 2.5.15.
+- Development uses exact Bun 1.4.3; ordinary tool versions come from the root manifest.
 - Consumers require Node >=22, Bun >=1.4.3 or Deno >=2. Retain JSR distribution.
 - Source lives under `src/`, with colocated tests and `tests/fixtures/http`.
 - `npm/` is generated output; edit source and build only when needed.
 - Target the default development branch, `dev`.
 
-## Bun migration branch
-
-On `codex/bun-migration`, use
-[tests/migration/REPORT.md](./tests/migration/REPORT.md) as the staged migration
-tracker and source of acceptance counts, evidence, dependencies and next steps.
-Keep original benchmark receipts historical and update acceptance metadata
-only after the required reviews. Use GPT-6.1 Sol High for orchestration, planning
-and
-substantive implementation; Medium (or appropriate Terra/Luna) for bounded
-mechanical work; xhigh implementation only for unusually difficult debugging,
-tangled architecture or when High is demonstrably struggling. As an explicit
-review exception, obtain independent GPT-6.1 Sol xhigh review for each
-meaningful step and GPT-6 Astra xhigh adversarial review for important
-milestones/final readiness, seeking hidden defects, missed requirements, edge
-cases, regressions, security issues and test gaps. Resolve findings and commit
-meaningful isolated steps using the commit policy below. Do not change global
-model settings or schedule future work as part of this branch policy.
-
-The branch retains JSR publication and Deno >=2 consumers. Do not invoke a Deno
-binary for development, tests, builds, formatting or linting. A Deno binary may
-be used only by the isolated publishing step. Unported development tools must
-be migrated before use.
+Deno remains a consumer/publisher runtime. Do not invoke a Deno binary for
+ordinary development, tests, builds, formatting or linting; only the dedicated
+isolated publisher may execute it.
 
 ## Commands
 
@@ -43,7 +24,9 @@ owns root JavaScript dependencies. The private root manifest is not the public
 npm manifest. `tests/cloudflare/package-lock.json` belongs to the independent
 npm 10.9.9 Workers graph; never install it with Bun.
 
-- Full strict replay: `bun run test:replay`.
+- Guarded library replay: `bun run test:replay` (also `bun run test`).
+- Complete library/tooling replay: `bun run test:full`.
+- Complete CI coverage: `bun run test:coverage -- --full --run-timeout 300000`.
 - Focused replay: `bun run test:serial -- src/modules/quote.test.ts`.
 - Watch or coverage: `bun run test:watch`, `bun run test:coverage`.
 - Trusted portable library replay: `bun run test:native`, optionally with a path,
@@ -61,13 +44,13 @@ npm 10.9.9 Workers graph; never install it with Bun.
   requests and are not offline verification.
 
 Strict tests need Linux, Bubblewrap, Python 3, libseccomp and namespace support.
-They fail closed, clear capture controls, deny network and mount fixtures
-read-only for descendants. Direct `bun test` bypasses this policy. Explicit
+They fail closed, clear capture controls, deny Unix/IP/VSOCK sockets and io_uring,
+and mount fixtures read-only for descendants. Exactly five reviewed tooling
+controls use an explicit separate Unix-IPC profile; new files stay strict. Direct `bun test` bypasses this policy. Explicit
 native replay provides a narrower trusted library/portable-tooling inventory,
 a read-only FMC store and fixture-byte checks, without an OS sandbox. It never
-retries a failed strict run automatically. Read [the trust boundaries](./tests/migration/TRUST-BOUNDARIES.md),
-[TESTING](./tests/migration/TESTING.md)
-and [NATIVE-REPLAY](./tests/migration/NATIVE-REPLAY.md) before selecting a mode.
+retries a failed strict run automatically. Read [testing](./docs/testing.md) and
+[runtime security](./docs/runtime-security.md) before selecting a mode.
 
 ## Testing And Fixtures
 
@@ -77,8 +60,7 @@ ordinary live capture. Do not delete fixtures to refresh tests.
 
 Live capture needs operator authorization, `FETCH_DEVEL=recache` and explicit
 `--live`, after a successful strict replay baseline. Follow
-[RECACHE](./tests/migration/RECACHE.md) and
-[COUNTRY-CAPTURE](./tests/migration/COUNTRY-CAPTURE.md). Generic recache protects
+[fixture capture](./docs/fixture-capture.md). Generic recache protects
 static/fake/geographic profiles; country captures are append-only. Inspect
 HTTP status/payload before retaining any capture. Never replace successful
 fixtures with 429, consent, timeout or upstream 5xx responses. Verification

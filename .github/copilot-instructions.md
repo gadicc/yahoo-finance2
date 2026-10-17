@@ -1,7 +1,8 @@
 # Yahoo Finance 2 development instructions
 
 Read [AGENTS](../AGENTS.md) and [CONTRIBUTING](../CONTRIBUTING.md) first.
-Development uses exact Bun 1.4.3, TypeScript 6.0.3 and Biome 2.5.15. Consumers
+Development uses exact Bun 1.4.3; ordinary tool versions come from the root
+manifest. Consumers
 require Node >=22, Bun >=1.4.3 or Deno >=2. Preserve JSR distribution; Deno
 execution is permitted only inside the isolated publisher, never ordinary
 builds/tests/style checks.
@@ -24,17 +25,17 @@ bun run lint
 bun run docs:lint
 ```
 
-Use `bun run test:replay` for full strict replay and `bun run test:watch` for
-iteration. Strict tests need Linux/Bubblewrap/Python/libseccomp/namespaces and
+Use `bun run test:replay` for guarded library replay, `bun run test:full` for
+the complete library/tooling inventory and `bun run test:watch` for iteration. Strict tests need Linux/Bubblewrap/Python/libseccomp/namespaces and
 fail closed. Direct `bun test` bypasses the launcher. Explicit
 `bun run test:native` is narrower trusted portable library replay, with a
 read-only cache store and fixture-byte detection, without an OS sandbox or
-an automatic fallback. See [native scope](../tests/migration/NATIVE-REPLAY.md).
+an automatic fallback. See [native scope](../docs/testing.md#explicit-native-replay).
 
 `bun.lock` alone owns root JavaScript resolution. Do not use lock bypass flags,
 create another root graph, change global tools or install the independent
 Workers harness with Bun. Workers use npm 10.9.9 and Node 24.21.0; follow
-[WORKERS](../tests/migration/WORKERS.md). Runtime outputs in `npm/`, schemas,
+[platforms](../docs/platforms.md#cloudflare-workers). Runtime outputs in `npm/`, schemas,
 fixtures, coverage and generated docs are not ordinary editable source.
 
 ## Interfaces and fixtures
@@ -47,8 +48,7 @@ fixtures, coverage and generated docs are not ordinary editable source.
   live CLI/API lookups as routine verification.
 - Live capture needs operator authorization, `FETCH_DEVEL=recache`, explicit
   `--live` and a successful strict baseline. Follow the maintained
-  [capture](../tests/migration/RECACHE.md) and
-  [country](../tests/migration/COUNTRY-CAPTURE.md) policies. No transient errors
+  [fixture capture](../docs/fixture-capture.md) policy. No transient errors
   should replace successful fixtures.
 - Model new response fields as required first. Optionality needs successful
   omission evidence, including older/static/fake fixtures. Do not widen types

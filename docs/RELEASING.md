@@ -4,6 +4,8 @@ The next major requires Bun >=1.4.3 for consumers. Node >=22.0.0 and Deno >=2.0.
 remain supported, and the JSR package remains part of the release. The breaking
 runtime-floor commit supplies semantic-release's major-release signal; see the
 [upgrade guide](./UPGRADING.md#next-major-bun-development-and-consumer-floor).
+Current [development](./development.md), [CI](./ci.md) and
+[packaging](./packaging.md) guides define ordinary pre-release checks.
 
 ## Eligibility and required checks
 

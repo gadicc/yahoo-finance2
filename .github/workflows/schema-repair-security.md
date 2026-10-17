@@ -145,7 +145,7 @@ provides its exact-executable AppArmor exception instead, preserving global
 restrictions and requiring canonical distro `/usr/bin/bwrap` on PATH. Any action
 upgrade requires deliberate transformation/hash review; there is no automatic
 patching of future upstream versions. See the
-[migration automation evidence](../../tests/migration/CI-REPAIR.md).
+[current CI repair contract](../../docs/ci.md#capture-and-repair-workflows).
 
 The adapted pinned action retains `drop-sudo` and the `workspace-write` sandbox. OIDC
 request variables are explicitly cleared for that action. Codex receives a
@@ -214,10 +214,15 @@ outside `src/modules` as manual repair. Only existing permitted module schemas
 are copied back. The artifact policy remains module-only; regeneration is never
 narrowed to conceal a shared consumer change.
 
-Formatting, lint, full TypeScript checks and the full maintained replay suite
-then run before the trusted bundler sees the result. Each stage uses a Linux
-mount/network/PID namespace plus inherited AF_INET/AF_INET6 and io_uring seccomp
-denial. Host, trusted checkout, candidate Git metadata and fixtures are read-only.
+Formatting, lint, full TypeScript checks, docs lint and the complete maintained
+library replay tier then run before the trusted bundler sees the result. Candidate
+code runs in Linux mount/network/PID namespaces with inherited Unix/IP/VSOCK
+socket and io_uring denial. A fixed trusted-root controller starts in the trusted
+checkout with a clean environment and `--no-env-file`, accepts the candidate path
+only as data and establishes the normal strict child before candidate test
+imports. Its fixed empty options select all source and top-level library tests;
+it never imports a candidate script on the host. Host, trusted checkout,
+candidate Git metadata and fixtures are read-only.
 Only candidate `src/modules` during AST apply/restore, and private operator-owned
 0700 scratch, can be writable; writable source entries reject hardlink/symlink
 aliases. Type/tests use a completely read-only candidate. Guard failures fail
@@ -230,9 +235,12 @@ attributes disabled and fixed hook/fsmonitor/external-diff overrides, also for
 Git subprocesses of the trusted TS CLI. No agent job Git metadata is reused.
 Registry installation is a separate trusted network step. These controls replace
 the removed Deno CLI permissions; they do not make the entire runner isolated.
-Read-only host files and pathname Unix sockets remain visible, and approved
-maintainer base code, tool dependencies and the host remain trusted. Narrow AST
-edits cannot add executable declarations, imports or configuration. A compromised
+Common `/run`, `/tmp` and `/var/tmp` paths are masked, with exact trusted and
+candidate input/tool closures restored read-only and private scratch writable.
+Extra inherited descriptors are closed. Other read-only host files remain
+visible; standard I/O, approved maintainer base code, tool dependencies and the
+host remain trusted. Strict candidate code cannot create pathname Unix sockets.
+Narrow AST edits cannot add executable declarations, imports or configuration. A compromised
 maintainer base, dependency or host is outside this boundary.
 
 Only after those checks pass does the verifier bundle source/schema file

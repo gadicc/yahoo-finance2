@@ -244,8 +244,8 @@ the drift fixtures; no automatic dependency upgrade or unlocked bootstrap occurs
 
 Full generation checks every schema consumer. If an imported type changes a
 schema outside the module-only artifact scope, the repair needs manual work;
-the verifier does not omit that consumer. The exact action adaptation, guard
-limits, offline reproduction and pending remote proof are documented in
-[CI repair migration evidence](../tests/migration/CI-REPAIR.md). Workflow triggers,
+the verifier does not omit that consumer. The current guard, trusted replay
+supervisor, docs gate and action adaptation are described in
+[current CI repair contract](./ci.md#capture-and-repair-workflows). Workflow triggers,
 the existing daily schedule, `SCHEMA_REPAIR_ENABLED`, `auth_only` and dry-run
 publication controls retain their existing meanings.

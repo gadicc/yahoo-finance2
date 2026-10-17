@@ -205,7 +205,7 @@ types.
 1. Run focused strict replay with
    `bun run test:serial -- src/modules/<moduleName>.test.ts`. A missing cache
    fixture fails without a live fallback. Obtain any new real response only
-   through separately authorized [controlled capture](../tests/migration/RECACHE.md),
+   through separately authorized [controlled capture](./fixture-capture.md),
    then replay the failure; do not delete fixtures to force a request.
 
 1. **Inspect the error and update the typescript interface in the relevant

@@ -113,15 +113,15 @@ details.
 
 ## Contributing in this repository
 
-Read `AGENTS.md` and `CONTRIBUTING.md` first. Development uses exact Bun 1.4.3,
-TypeScript 6.0.3 and Biome 2.5.15; npm output is generated. Consumers require
+Read `AGENTS.md` and `CONTRIBUTING.md` first. Development uses exact Bun 1.4.3;
+ordinary tools derive from the root manifest. npm output is generated. Consumers require
 Node >=22, Bun >=1.4.3 or Deno >=2, with JSR retained. A Deno binary is permitted
 only inside the isolated publisher, never ordinary development or validation.
 
 Select Bun 1.4.3 on PATH, run `bun run check:toolchain`, then
 `bun install --frozen-lockfile` with normal hooks. Root dependencies use only
 `bun.lock`; the private root manifest is not the public npm manifest. Workers
-retain their independent npm 10.9.9 graph; follow `tests/migration/WORKERS.md`.
+retain their independent npm 10.9.9 graph; follow `docs/platforms.md`.
 
 Edit source files under `src/`, not generated files under `npm/`, unless the
 task explicitly asks for generated output. Preserve local `.ts` import
@@ -149,10 +149,11 @@ exposure only when the module should be user-facing there.
 
 ## Tests and fixtures
 
-Run all tests with:
+Run the maintained library tier with `bun run test:replay`. Run the complete
+library/tooling inventory with:
 
 ```bash
-bun run test:replay
+bun run test:full
 ```
 
 Run focused tests with:
@@ -167,7 +168,7 @@ compiler/package/subprocess/kernel tooling, so its timing is not the original
 libseccomp and namespace support, and fails closed. Direct `bun test` bypasses
 that boundary. Explicit `bun run test:native` offers narrower trusted portable
 replay with a read-only FMC store and fixture-byte checks, without an OS sandbox
-or automatic retry. See `tests/migration/TESTING.md` and `NATIVE-REPLAY.md`.
+or automatic retry. See `docs/testing.md`.
 
 Tests that touch Yahoo HTTP responses should call `setupCache()` from
 `tests/common.ts`. Prefer the existing pattern:
@@ -191,7 +192,7 @@ Use fixture ids that match the module and scenario. Replay misses fail; neither
 deleting a fixture nor inherited `FETCH_DEVEL` enables ordinary live capture.
 Live recache/country capture is separately authorized work with both
 `FETCH_DEVEL=recache` and explicit `--live`, after a strict baseline. Follow
-`tests/migration/RECACHE.md` and `COUNTRY-CAPTURE.md`; generic recache protects
+`docs/fixture-capture.md`; generic recache protects
 static/fake/geographic fixtures. Never retain rate limits, consent, timeout or
 upstream 5xx responses as replacements for successful fixtures.
 
@@ -221,7 +222,7 @@ bun run typecheck
 bun run typecheck:negative
 bun run schema:check
 bun run docs:lint
-bun run test:replay
+bun run test:full
 bun run build:npm
 ```
 
@@ -233,10 +234,10 @@ unless explicitly regenerating `npm/`.
 
 Commit messages should use Conventional Commits with a scope, such as
 `fix(quote): handle missing extended market fields`. Preserve the agent coauthor
-footer and independent review/model policy in `AGENTS.md`. Release/publisher work
+footer in `AGENTS.md`. Release/publisher work
 has separate authorization; follow `docs/RELEASING.md` and do not run live CLI,
 authentication or publication as routine verification. CLI/MCP trust limits are
-in `tests/migration/TRUST-BOUNDARIES.md`.
+in `docs/runtime-security.md`.
 
 ## Agent skill installation
 

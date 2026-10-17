@@ -24,7 +24,7 @@ before submitting your pull request.
       are unchanged
 - [ ] HTTP fixtures were inspected, or fixtures are unchanged
 - [ ] Documentation/JSDoc were updated and `bun run docs:lint` passes, or unchanged
-- [ ] Cloudflare tests pass with the maintained [Workers procedure](../tests/migration/WORKERS.md), or npm output and
+- [ ] Cloudflare tests pass with the maintained [Workers procedure](../docs/platforms.md#cloudflare-workers), or npm output and
       runtime behavior are unchanged
 
 ## Additional notes

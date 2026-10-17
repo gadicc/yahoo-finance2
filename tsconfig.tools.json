@@ -22,11 +22,5 @@
     "tests/package/*.mjs",
     "release.config.mjs"
   ],
-  "exclude": [
-    "tests/cloudflare",
-    "tests/fixtures",
-    "tests/migration/results",
-    "tests/migration/std-tooling.ts",
-    "tests/migration/guard-probe.mjs"
-  ]
+  "exclude": ["tests/cloudflare", "tests/fixtures"]
 }

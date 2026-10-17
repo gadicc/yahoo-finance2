@@ -18,11 +18,11 @@ apply to operating systems supported by the corresponding upstream runtime.
 The constructor retains its warning-only version check; this does not make an
 older runtime supported. Node and explicit Bun CLI/MCP execution remain available.
 Runtime support and actual platform evidence are recorded in the
-[runtime policy](../tests/migration/RUNTIMES.md).
+[runtime policy](./platforms.md).
 
 Contributors use pinned Bun 1.4.3 and Node 24.21.0 with the root private
 `package.json` and frozen `bun.lock`. Deno is confined to the isolated publisher;
-do not run the historical Deno development commands on the migration branch.
+do not run the historical Deno development commands in the current checkout.
 See [contributor setup](../CONTRIBUTING.md) and
 [release guidance](./RELEASING.md) for the new build and publisher order.
 
@@ -32,6 +32,51 @@ caret dependency constraints. These are intentional packaging policies; exact
 pins in a private consumer verification graph do not narrow npm's published
 ranges. See the [publisher contract](../scripts/publisher/README.md) for source
 and installed-consumer verification and its limits.
+
+### MCP HTTP authority and routing
+
+HTTP Host checks require one valid authority, with bracketed IPv6 where needed
+and an optional numeric port from 0 to 65535. Comma lists, malformed bracket
+suffixes, userinfo/path/query text and duplicate Node Host fields return the fixed
+403 JSON-RPC error. Reverse proxies must send one valid Host authority. Case is
+ignored; alternate numeric spellings do not gain localhost access through URL
+normalization. Node routing uses a fixed base independent of Host; malformed
+request targets return a fixed 400 error.
+
+`allowedHosts: []` still disables Host checks. Empty/missing `allowedOrigins`
+leaves Origin unchecked; absent Origin is allowed even with a list. Non-local
+executable binding still requires a token or the explicit unsafe opt-out.
+
+### Scoped executable diagnostics
+
+Cookie preparation/load/close failures and synchronous cookie-parser warnings
+use fixed diagnostics. MCP unknown-option errors omit the supplied assignment,
+configured startup tokens are redacted and HTTP listen failures use a fixed
+message. Scripts parsing the former text should use documented exit statuses and
+fixed diagnostics. General CLI parse/module errors and HTTP protocol errors may
+still carry ordinary details; this is not blanket error redaction.
+
+### Cookie hardlinks and trusted HOME
+
+CLI/MCP refuse known multiply linked cookie files, symlinks and nonregular files
+before chmod or path-based store construction. Use a regular private cookie file
+in user-controlled HOME. Existing content is preserved; new files are created
+exclusively with mode 0600 on POSIX. Only known unsupported Windows chmod errors
+are best effort; mode bits do not establish private Windows ACLs. The third-party
+store later reopens the pathname, so these checks are not race-free protection
+for attacker-controlled HOME or descriptor-only persistence.
+
+### Runtime detection and version checks
+
+Version checks require complete major.minor.patch and honor SemVer prerelease
+ordering, optional `v` and build metadata; missing/malformed versions fail.
+Workers host evidence takes precedence over Node compatibility globals.
+Incidental Bun/Deno objects cannot override a mismatching Node host, and throwing
+optional getters act as unavailable APIs. Terminal behavior uses the selected
+host's API. Detection remains a heuristic over mutable globals. The constructor
+continues warning rather than throwing for unsupported runtimes; supported floors
+are unchanged. See [runtime security](runtime-security.md) and
+[platform qualifications](platforms.md).
 
 <a name="from-v3-to-v4"></a>
 

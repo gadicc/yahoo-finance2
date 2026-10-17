@@ -40,7 +40,7 @@ bun /path/to/yahoo-finance2/bin/yahoo-finance-mcp.ts
 Use `--help` for an offline command check. Starting a server is explicit;
 Yahoo data tool calls and the client smoke examples below make live requests.
 They are not routine replay verification. Read the
-[runtime trust boundaries](../tests/migration/TRUST-BOUNDARIES.md) for transport,
+[runtime trust boundaries](./runtime-security.md) for transport,
 credential and filesystem limits.
 
 For the published package, use:

@@ -86,7 +86,7 @@ checks establishes GitHub provenance, a distribution ref/tag or publication.
 
 Consumer floors and the new-major upgrade are defined in the
 [upgrade guide](../../docs/UPGRADING.md#next-major-bun-development-and-consumer-floor)
-and [runtime policy](../../tests/migration/RUNTIMES.md). A passing publisher
+and [runtime policy](../../docs/platforms.md). A passing publisher
 fast/slow-type check does not prove a consumer with a different node_modules mode
 typechecks. Keep source and installed-consumer observations, exact runtime/mode
 records and negative controls distinct.
