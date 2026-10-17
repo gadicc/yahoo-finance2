@@ -101,7 +101,9 @@ def compatible(base, *, root=None):
     trusted = tree("HEAD", cwd=root)
     proposed = tree(base, cwd=root)
     required = {"package.json", "bun.lock", ".bun-version", "scripts/test.ts", "scripts/schema-gen.ts",
-                "scripts/typecheck.ts", "scripts/schema-repair.ts", "scripts/ci_repair.py", "scripts/testing/offline.py", "biome.json"}
+                "scripts/typecheck.ts", "scripts/schema-repair.ts", "scripts/ci_repair.py", "scripts/testing/offline.py", "biome.json",
+                "scripts/docs.ts", "scripts/docs/inputs.ts", "scripts/docs/worker.ts", "scripts/docs/model.ts",
+                "scripts/docs/diagnostics-baseline.json", "scripts/docs/parser-compatibility.json", "tsconfig.library.json"}
     left = {path: data for path, data in trusted.items() if closure(path)}
     right = {path: data for path, data in proposed.items() if closure(path)}
     require(required <= left.keys() and left == right,
@@ -111,11 +113,44 @@ def compatible(base, *, root=None):
         data = regular(root / path).read_bytes()
         observed = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
         require(observed == digest, "Trusted workflow executable/config closure has local edits")
+    # The trusted collector parses supported local JSON/JSONC extends with the
+    # same TypeScript/Node rules as docs lint. Unchanged parent configuration
+    # bytes bind the reference graph; all discovered children must match too.
+    configurations = documentation_configurations(root)
+    for path in configurations:
+        require(path in trusted and trusted[path] == proposed.get(path),
+                "Incompatible repair base documentation configuration")
+        mode, kind, digest = trusted[path]
+        require(kind == "blob" and mode in {"100644", "100755"},
+                "Documentation configuration must be a regular tracked file")
+        data = regular(root / path).read_bytes()
+        observed = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
+        require(observed == digest, "Trusted documentation configuration has local edits")
     pin = (root / ".bun-version").read_text().strip()
     manifest = json.loads((root / "package.json").read_text())
     require(re.fullmatch(r"\d+\.\d+\.\d+", pin) and manifest.get("packageManager") == f"bun@{pin}", "Invalid exact Bun metadata")
-    return len(left)
+    return len(left.keys() | set(configurations))
 
+
+
+def documentation_configurations(root):
+    """Discover configuration only through the guarded, already checked trusted tool."""
+    bun, _, _ = runtimes()
+    collector = ROOT / "scripts/docs/inputs.ts"
+    script = ("const { inputSnapshot } = await import(process.argv[1]);"
+              "console.log(JSON.stringify(inputSnapshot(process.argv[2]).inventory.configurations.map(item => item.path)));")
+    with tempfile.TemporaryDirectory(prefix="yf-repair-docs-inputs-") as value:
+        scratch = Path(value).resolve()
+        child = guarded(root, scratch, [bun, "--no-env-file", "--eval", script, collector.as_uri(), root])
+    paths = json.loads(child.stdout)
+    require(isinstance(paths, list) and paths and all(isinstance(path, str) for path in paths)
+            and len(paths) == len(set(paths)),
+            "Invalid trusted documentation configuration inventory")
+    for path in paths:
+        require(isinstance(path, str) and not Path(path).is_absolute()
+                and ".." not in Path(path).parts and Path(path).suffix in {".json", ".jsonc"},
+                "Invalid trusted documentation configuration path")
+    return paths
 
 
 def dependency_snapshot(directory, *, private=False):
@@ -291,6 +326,7 @@ def verify(base, proposal, output):
         for command in ([bun, "--no-env-file", ROOT / "node_modules/@biomejs/biome/bin/biome", "format", "src/modules"],
                         [bun, "--no-env-file", ROOT / "node_modules/@biomejs/biome/bin/biome", "lint", "src/modules"],
                         [bun, "--no-env-file", CANDIDATE / "scripts/typecheck.ts"],
+                        [bun, "--no-env-file", CANDIDATE / "scripts/docs.ts", "lint"],
                         [bun, "--no-env-file", CANDIDATE / "scripts/test.ts"]):
             child = guarded(CANDIDATE, scratch, command)
             print(child.stdout, end="", flush=True)

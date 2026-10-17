@@ -34,11 +34,21 @@ byte with internal relative links and no shared writable inodes. Borrowed SDK
 links cannot bypass the package builder's existing own-input checks.
 `ci_repair.py` checks the exact executable/config closure, recorded fixture-only
 commit ancestry and fixture equality before creating its candidate. Legacy
-Deno-only bases fail with a compatible-base diagnostic. Candidate module types
+Deno-only bases fail with a compatible-base diagnostic. After ordinary trusted
+scripts/root configuration match, the existing documentation input collector
+runs under the guard against the trusted checkout. Every supported local
+JSON/JSONC extends target must be tracked and match both revisions and trusted
+working bytes. Optional root `tsdoc.json` presence/content is compared too.
+Candidate module types
 remain subject to the existing unchanged `schema-repair.ts` AST/index/path
 policy. The verifier regenerates all schema consumers in private scratch and
 refuses non-module output drift before copying any module schemas. Guarded
-formatting, lint, full types and full replay precede the verified data bundle.
+formatting, lint, full types, candidate `scripts/docs.ts lint` and full
+replay precede the verified data bundle and the `ready=true` job output.
+Documentation uses the same no-new-diagnostics policy as ordinary CI. An
+undocumented new public field can pass AST policy and still fail verification;
+ordinary factual JSDoc can resolve it. Repair proposals cannot change diagnostic
+baselines, parser exceptions or tool/configuration inputs to hide a failure.
 The fresh publisher restores only that artifact using trusted AST code before
 its existing absent-branch/fresh-dev/draft-PR checks. It never evaluates proposed
 module source or candidate hooks.

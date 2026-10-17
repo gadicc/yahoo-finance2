@@ -114,7 +114,11 @@ lowercase hexadecimal commit SHAs; the placeholders below are not commit IDs.
    coordinator. The entire executable/config closure must match that trusted
    workflow commit exactly, including tracked paths, modes and contents for the
    Bun lockfile, scripts, adjacent tests, test support and compiler/Biome
-   configuration. Merely containing the four named files is insufficient.
+   configuration, including documentation tools and their configuration closure.
+   Supported nested local JSON/JSONC extends targets must match too; the verifier
+   discovers them using the trusted documentation collector under the guard.
+   Optional `tsdoc.json` presence and contents are included. Merely containing
+   the four named files is insufficient.
 2. Select a recorded drift commit with exactly one parent and at least one
    change, all within unprotected flat `tests/fixtures/http/*.json` paths.
    Static, fake and `getCrumb-geo-*` fixtures are excluded. The drift must be an
@@ -205,8 +209,11 @@ limits. The main boundaries are:
   (including duplicates); new values must be distinct plain string literals
   supported by successful fixtures. It rejects other alias edits, runtime/import
   changes and broad shortcuts, regenerates schemas independently, then runs
-  formatting, lint, type checks and cache-only tests. More complicated repairs
-  return a blocked result for manual work.
+  formatting, lint, type checks, `bun run docs:lint` and cache-only tests before
+  emitting a verified artifact or `ready=true`. New public fields need factual
+  ordinary JSDoc where supported; guessed semantics, schema-control tags and
+  automatic warning-baseline/configuration changes remain forbidden. More
+  complicated repairs return a blocked result for manual work.
 - The publisher restores only the verified source/schema files on another fresh
   checkout. Trusted code receives a write token only for branch/PR publication.
   It creates `codex/schema-drift-<issue>` and a draft PR targeting `dev`.

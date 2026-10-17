@@ -22,7 +22,9 @@ class Repository:
         self.git("init", "--quiet")
         self.put("deno.json", '{}\n')
         self.legacy = self.commit()
-        for name in ("scripts/test.ts", "scripts/schema-gen.ts", "scripts/typecheck.ts", "scripts/schema-repair.ts", "scripts/ci_repair.py", "scripts/testing/offline.py", "biome.json"):
+        for name in ("scripts/test.ts", "scripts/schema-gen.ts", "scripts/typecheck.ts", "scripts/schema-repair.ts", "scripts/ci_repair.py", "scripts/testing/offline.py", "biome.json",
+                     "scripts/docs.ts", "scripts/docs/inputs.ts", "scripts/docs/worker.ts", "scripts/docs/model.ts",
+                     "scripts/docs/diagnostics-baseline.json", "scripts/docs/parser-compatibility.json", "tsconfig.library.json"):
             self.put(name, "trusted input\n")
         self.put("package.json", '{"packageManager":"bun@1.4.3","scripts":{"postinstall":"touch CANDIDATE_HOOK_MUST_NOT_RUN"}}\n')
         self.put(".bun-version", "1.4.3\n")
@@ -55,6 +57,9 @@ class PreparationTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.repository = Repository(Path(temporary.name) / "trusted")
         self.root = self.repository.root
+        self.documentation_paths = []
+        discovery = patch.object(ci, "documentation_configurations", side_effect=lambda root: self.documentation_paths)
+        discovery.start(); self.addCleanup(discovery.stop)
         for name, value in (("ROOT", self.root), ("CANDIDATE", self.root / "candidate")):
             context = patch.object(ci, name, value)
             context.start(); self.addCleanup(context.stop)
@@ -77,6 +82,46 @@ class PreparationTests(unittest.TestCase):
             ci.prepare(self.repository.base)
         self.assertFalse(ci.CANDIDATE.exists())
         self.assertNotEqual(changed, self.repository.base)
+
+    def test_nested_documentation_config_blob_presence_and_local_edits_are_bound(self):
+        for name in ("config/compiler/deep.jsonc", "config/docs/base.json"):
+            self.repository.put(name, '{"compilerOptions":{}}\n')
+        self.documentation_paths[:] = ["tsconfig.library.json", "config/compiler/deep.jsonc", "config/docs/base.json"]
+        base = self.repository.commit()
+        self.assertGreater(ci.compatible(base), 0)
+        self.repository.put("config/compiler/deep.jsonc", '{"compilerOptions":{"strict":false}}\n')
+        with self.assertRaisesRegex(RuntimeError, "configuration has local edits"):
+            ci.compatible(base)
+        self.repository.commit()
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base documentation configuration"):
+            ci.compatible(base)
+        self.repository.git("reset", "--hard", "--quiet", base)
+        self.repository.put("config/docs/new.jsonc", '{}\n')
+        self.documentation_paths.append("config/docs/new.jsonc")
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base documentation configuration"):
+            ci.compatible(base)
+        self.repository.commit()
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base documentation configuration"):
+            ci.compatible(base)
+
+    def test_nested_documentation_config_modes_are_bound(self):
+        path = self.repository.put("config/compiler/base.jsonc", '{}\n')
+        self.documentation_paths[:] = ["tsconfig.library.json", "config/compiler/base.jsonc"]
+        base = self.repository.commit()
+        path.chmod(0o755)
+        self.repository.commit()
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base documentation configuration"):
+            ci.compatible(base)
+
+    def test_optional_tsdoc_presence_and_drift_are_incompatible(self):
+        self.repository.put("tsdoc.json", '{"extends":[]}\n')
+        present = self.repository.commit()
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base"):
+            ci.compatible(self.repository.base)
+        self.repository.put("tsdoc.json", '{"extends":[],"noStandardTags":true}\n')
+        self.repository.commit()
+        with self.assertRaisesRegex(RuntimeError, "Incompatible repair base"):
+            ci.compatible(present)
 
     def test_local_trusted_tool_edit_is_not_authorized_by_matching_commit(self):
         self.repository.put("scripts/schema-repair.ts", "uncommitted guard replacement\n")
@@ -257,6 +302,19 @@ class BoundaryTests(unittest.TestCase):
             self.assertEqual(execute.call_args.kwargs["environment"]["FMC_CACHE_MODE"], "replay")
             self.assertNotIn("--share-net", args)
 
+    def test_documentation_discovery_uses_only_the_guarded_trusted_collector(self):
+        with tempfile.TemporaryDirectory() as value:
+            root = Path(value)
+            paths = ["tsconfig.library.json", "config/deep.jsonc"]
+            with patch.object(ci, "runtimes", return_value=(Path("/trusted/bun"), Path("/trusted/node"), {})), patch.object(ci, "guarded", return_value=subprocess.CompletedProcess([], 0, json.dumps(paths))) as execute:
+                self.assertEqual(ci.documentation_configurations(root), paths)
+            candidate, scratch, command = execute.call_args.args
+            self.assertEqual(candidate, root)
+            self.assertFalse(scratch.exists())
+            self.assertEqual(command[:3], [Path("/trusted/bun"), "--no-env-file", "--eval"])
+            self.assertEqual(command[-2], (ci.ROOT / "scripts/docs/inputs.ts").as_uri())
+            self.assertEqual(command[-1], root)
+
     def test_nonprivate_or_overlapping_guard_scratch_fails_before_command(self):
         with tempfile.TemporaryDirectory() as value:
             candidate = Path(value); scratch = candidate / "scratch"; scratch.mkdir(mode=0o700)
@@ -312,7 +370,7 @@ class RegenerationTests(unittest.TestCase):
 
 class VerificationFailureTests(unittest.TestCase):
     def test_every_failed_gate_keeps_artifact_and_ready_output_absent_and_cleans_scratch(self):
-        gates = ("apply", "format", "lint", "typecheck.ts", "test.ts", "bundle")
+        gates = ("apply", "format", "lint", "typecheck.ts", "docs.ts", "test.ts", "bundle")
         for failure in gates:
             with self.subTest(gate=failure), tempfile.TemporaryDirectory() as value:
                 parent = Path(value); output = parent / "verified.json"; github_output = parent / "github-output"; calls = []; scratches = []
@@ -340,6 +398,90 @@ class VerificationFailureTests(unittest.TestCase):
             self.assertIn("Manual runtime repair needed",summary.read_text())
             self.assertIn("Observed non-type drift",summary.read_text())
             self.assertFalse(output.exists())
+
+
+class GuardedDocumentationIntegrationTests(unittest.TestCase):
+    def test_real_guarded_allowed_repair_needs_documentation_before_artifact_and_ready(self):
+        checkout = ci.ROOT
+        with tempfile.TemporaryDirectory(prefix="yf-repair-docs-control-") as value:
+            parent = Path(value)
+            repository = Repository(parent / "trusted")
+            trusted = repository.root
+            shutil.copytree(checkout / "scripts", trusted / "scripts", dirs_exist_ok=True,
+                            ignore=shutil.ignore_patterns("*.test.ts", "*_test.py", "__pycache__"))
+            for name in ("package.json", "bun.lock", ".bun-version", "biome.json", "tsconfig.base.json"):
+                shutil.copyfile(checkout / name, trusted / name)
+            shutil.copytree(checkout / "node_modules", trusted / "node_modules", dirs_exist_ok=True, symlinks=True)
+            metadata = json.loads((checkout / "deno.json").read_text())
+            metadata["exports"] = {".": "./src/modules/example.ts"}
+            repository.put("deno.json", json.dumps(metadata))
+            repository.put("config/compiler/base.jsonc", '// Supported nested JSONC configuration.\n{"extends":"../../tsconfig.base.json",}\n')
+            repository.put("tsconfig.library.json", json.dumps({"extends":"./config/compiler/base.jsonc", "include":["src/**/*.ts", "bin/**/*.ts"], "exclude":["src/**/*.test.ts"]}))
+            repository.put("tsconfig.tools.json", json.dumps({"extends":"./tsconfig.base.json", "compilerOptions":{"allowJs":True,"checkJs":True}, "include":["src/modules/example.ts"]}))
+            repository.put("config/docs/tags.json", '{}\n')
+            repository.put("tsdoc.json", '{"extends":["./config/docs/tags.json"]}\n')
+            original = ("// @yf-schema\n/** Fields in the synthetic successful response. */\n"
+                        "export interface Result {\n  /** Numeric count in the synthetic response. */\n  count: number;\n}\n")
+            repository.put("src/modules/example.ts", original)
+            repository.put("src/modules/example.schema.json", '{}\n')
+            repository.put("src/example.test.ts", 'import { test, expect } from "bun:test"; test("synthetic response", () => { expect({count:1, observedLabel:"synthetic"}.observedLabel).toBe("synthetic"); });\n')
+            for name in ("yahoo-finance", "yahoo-finance-mcp"):
+                repository.put(f"bin/{name}.ts", 'export {};\n')
+            base = repository.commit()
+            candidate = parent / "candidate"
+            output = parent / "verified.json"
+            github_output = parent / "github-output"
+            with patch.object(ci, "ROOT", trusted), patch.object(ci, "CANDIDATE", candidate), patch.dict(os.environ, {"GITHUB_OUTPUT":str(github_output), "GITHUB_STEP_SUMMARY":str(parent / "github-summary")}):
+                discovered = ci.documentation_configurations(trusted)
+                self.assertEqual(set(discovered), {"tsconfig.library.json", "tsconfig.base.json", "config/compiler/base.jsonc", "tsdoc.json", "config/docs/tags.json"})
+                child = trusted / "config/compiler/base.jsonc"
+                before = child.read_bytes()
+                child.write_bytes(before + b"\n// Local drift must be rejected.\n")
+                with self.assertRaisesRegex(RuntimeError, "configuration has local edits"):
+                    ci.compatible(base)
+                child.write_bytes(before)
+                # Optional TSDoc presence participates in compatibility. The
+                # ordinary passing control uses the checkout's no-tsdoc setup;
+                # TypeDoc currently rejects tsdoc block-tag override warnings.
+                (trusted / "tsdoc.json").unlink()
+                without_tsdoc = repository.commit()
+                with self.assertRaisesRegex(RuntimeError, "Incompatible repair base"):
+                    ci.compatible(base)
+                base = without_tsdoc
+                ci.prepare(base)
+                github_output.unlink()  # prepare's base output is distinct from readiness.
+                actual_guard = ci.guarded
+                calls = []
+                scratches = []
+                def observe(*args, **kwargs):
+                    calls.append(list(map(str, args[2])))
+                    scratches.append(args[1])
+                    return actual_guard(*args, **kwargs)
+                def proposal(documented):
+                    comment = "  /** Label string in the synthetic successful response. */\n" if documented else ""
+                    return json.dumps({"status":"repair", "summary":"Model the label string observed in a successful synthetic response.", "evidence":["Disposable synthetic response; no Yahoo request."], "edits":[{"path":"src/modules/example.ts", "before":"  count: number;\n", "after":"  count: number;\n" + comment + "  observedLabel: string;\n"}]})
+                with patch.object(ci, "guarded", side_effect=observe):
+                    with self.assertRaisesRegex(RuntimeError, "New documentation diagnostics") as failure:
+                        ci.verify(base, proposal(False), output)
+                self.assertIn("observedLabel", str(failure.exception))
+                self.assertIn("observedLabel: string", (candidate / "src/modules/example.ts").read_text())
+                self.assertFalse(output.exists())
+                self.assertFalse(github_output.exists())
+                self.assertTrue(any(Path(command[2]).name == "docs.ts" and command[3:] == ["lint"] for command in calls if len(command) > 3))
+                self.assertFalse(any("bundle" in command for command in calls))
+                ci.git("reset", "--hard", "--quiet", base, cwd=candidate)
+                calls.clear()
+                with patch.object(ci, "guarded", side_effect=observe):
+                    ci.verify(base, proposal(True), output)
+                self.assertTrue(output.exists())
+                self.assertEqual(github_output.read_text(), "ready=true\n")
+                artifact = json.loads(output.read_text())
+                self.assertEqual({file["path"] for file in artifact["files"]}, {"src/modules/example.ts", "src/modules/example.schema.json"})
+                docs = next(index for index, command in enumerate(calls) if len(command) > 3 and Path(command[2]).name == "docs.ts")
+                bundle = next(index for index, command in enumerate(calls) if "bundle" in command)
+                self.assertLess(docs, bundle)
+                self.assertTrue(scratches)
+                self.assertTrue(all(not path.exists() for path in scratches))
 
 
 class ActionAndWorkflowTests(unittest.TestCase):
