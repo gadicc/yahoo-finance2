@@ -444,7 +444,7 @@ export default async function chart(
     result: {
       definitions,
       schemaKey: "#/definitions/ChartResultObject",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         if (!result.chart) {
           throw new Error("Unexpected result: " + JSON.stringify(result));

@@ -1,7 +1,8 @@
-import { expect } from "@std/expect";
-import createFetchCache from "@gadicc/fetch-mock-cache/runtimes/deno.ts";
-import MemoryStore from "@gadicc/fetch-mock-cache/stores/memory.ts";
-import { FakeTime } from "@std/testing/time";
+import { test } from "./helpers/runner.ts";
+import { expect } from "./helpers/assertions.ts";
+import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
+import MemoryStore from "fetch-mock-cache/stores/memory.ts";
+import { FakeTime } from "./helpers/time.ts";
 import { createRecacheFetch } from "./recacheFetch.ts";
 
 function fakeClock() {
@@ -18,7 +19,7 @@ function fakeClock() {
   };
 }
 
-Deno.test("recache fetch serializes and spaces requests across callers", async () => {
+test("recache fetch serializes and spaces requests across callers", async () => {
   const clock = fakeClock();
   const starts: number[] = [];
   const first = Promise.withResolvers<Response>();
@@ -47,7 +48,7 @@ Deno.test("recache fetch serializes and spaces requests across callers", async (
   expect(clock.delays).toEqual([3000]);
 });
 
-Deno.test("recache pacing progresses while test debounce timers are fake", async () => {
+test("recache pacing progresses while test debounce timers are fake", async () => {
   const fakeTime = new FakeTime("2000-01-01T00:00:00Z");
   try {
     const testTime = Date.now();
@@ -65,7 +66,7 @@ Deno.test("recache pacing progresses while test debounce timers are fake", async
   }
 });
 
-Deno.test("recache reuses concurrent data requests with independent response bodies", async () => {
+test("recache reuses concurrent data requests with independent response bodies", async () => {
   const clock = fakeClock();
   let calls = 0;
   const fetch = createRecacheFetch(
@@ -95,15 +96,17 @@ Deno.test("recache reuses concurrent data requests with independent response bod
   expect(await responses[1].text()).toBe("fresh data");
   expect(calls).toBe(1);
   expect(clock.delays).toEqual([]);
-  expect(fetch.getStats()).toEqual([{
-    endpoint: "query2.finance.yahoo.com/v7/finance/quote",
-    requests: 1,
-    reused: 1,
-    statuses: { "200": 1 },
-  }]);
+  expect(fetch.getStats()).toEqual([
+    {
+      endpoint: "query2.finance.yahoo.com/v7/finance/quote",
+      requests: 1,
+      reused: 1,
+      statuses: { "200": 1 },
+    },
+  ]);
 });
 
-Deno.test("recache distinguishes query parameters, sessions, headers, and fetch options", async () => {
+test("recache distinguishes query parameters, sessions, headers, and fetch options", async () => {
   let calls = 0;
   const fetch = createRecacheFetch(
     () => Promise.resolve(new Response(String(++calls))),
@@ -115,13 +118,19 @@ Deno.test("recache distinguishes query parameters, sessions, headers, and fetch 
     [url + "?count=20&crumb=one", { headers: { cookie: "one" } }],
     [url + "?count=25&crumb=one", { headers: { cookie: "one" } }],
     [url + "?count=20&crumb=two", { headers: { cookie: "two" } }],
-    [url + "?count=20&crumb=one", {
-      headers: { cookie: "one", "x-test": "different" },
-    }],
-    [url + "?count=20&crumb=one", {
-      headers: { cookie: "one" },
-      redirect: "manual",
-    }],
+    [
+      url + "?count=20&crumb=one",
+      {
+        headers: { cookie: "one", "x-test": "different" },
+      },
+    ],
+    [
+      url + "?count=20&crumb=one",
+      {
+        headers: { cookie: "one" },
+        redirect: "manual",
+      },
+    ],
   ];
   for (const [url, init] of requests) await (await fetch(url, init)).text();
   expect(calls).toBe(requests.length);
@@ -135,7 +144,7 @@ Deno.test("recache distinguishes query parameters, sessions, headers, and fetch 
   expect(JSON.stringify(fetch.getStats())).not.toContain("cookie");
 });
 
-Deno.test("recache leaves auth flows, POST bodies, errors, and new cookies uncached", async () => {
+test("recache leaves auth flows, POST bodies, errors, and new cookies uncached", async () => {
   let calls = 0;
   const bodies: string[] = [];
   const fetch = createRecacheFetch(async (input, init) => {
@@ -152,27 +161,32 @@ Deno.test("recache leaves auth flows, POST bodies, errors, and new cookies uncac
   }, 0);
   for (let i = 0; i < 2; i++) {
     await (await fetch("https://finance.yahoo.com/quote/AAPL")).text();
-    await (await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb"))
-      .text();
-    await (await fetch(
-      new Request("https://consent.yahoo.com/v2/collectConsent", {
-        method: "POST",
-        body: "consent=yes",
-      }),
-    )).text();
-    await (await fetch(
-      "https://query2.finance.yahoo.com/v7/finance/quote?error=yes",
-    )).text();
-    await (await fetch(
-      "https://query2.finance.yahoo.com/v7/finance/quote?new-cookie=yes",
-    )).text();
+    await (
+      await fetch("https://query1.finance.yahoo.com/v1/test/getcrumb")
+    ).text();
+    await (
+      await fetch(
+        new Request("https://consent.yahoo.com/v2/collectConsent", {
+          method: "POST",
+          body: "consent=yes",
+        }),
+      )
+    ).text();
+    await (
+      await fetch("https://query2.finance.yahoo.com/v7/finance/quote?error=yes")
+    ).text();
+    await (
+      await fetch(
+        "https://query2.finance.yahoo.com/v7/finance/quote?new-cookie=yes",
+      )
+    ).text();
   }
   expect(calls).toBe(10);
   expect(bodies).toEqual(["consent=yes", "consent=yes"]);
   expect(fetch.getStats().reduce((sum, row) => sum + row.reused, 0)).toBe(0);
 });
 
-Deno.test("recache respects requests that explicitly require fresh data", async () => {
+test("recache respects requests that explicitly require fresh data", async () => {
   let calls = 0;
   const fetch = createRecacheFetch(
     () => Promise.resolve(new Response(String(++calls))),
@@ -188,7 +202,7 @@ Deno.test("recache respects requests that explicitly require fresh data", async 
   expect(fetch.getStats()[0].reused).toBe(0);
 });
 
-Deno.test("recache does not reuse data for an aborted request or after a rate limit", async () => {
+test("recache does not reuse data for an aborted request or after a rate limit", async () => {
   let calls = 0;
   const fetch = createRecacheFetch(
     () =>
@@ -214,7 +228,7 @@ Deno.test("recache does not reuse data for an aborted request or after a rate li
   expect(fetch.getStats()[0].statuses).toEqual({ "200": 1, "429": 1 });
 });
 
-Deno.test("a later failing consumer can store a capture that an earlier passing consumer declined", async () => {
+test("a later failing consumer can store a capture that an earlier passing consumer declined", async () => {
   let calls = 0;
   const cache = createFetchCache({
     Store: MemoryStore,
@@ -239,7 +253,7 @@ Deno.test("a later failing consumer can store a capture that an earlier passing 
   expect(calls).toBe(1);
 });
 
-Deno.test("replay mode rejects missing fixtures without fetching or storing them", async () => {
+test("replay mode rejects missing fixtures without fetching or storing them", async () => {
   let calls = 0;
   const cache = createFetchCache({
     Store: MemoryStore,
@@ -250,13 +264,14 @@ Deno.test("replay mode rejects missing fixtures without fetching or storing them
     },
   });
   cache.once({ id: "absent" });
-  await expect(cache("https://query2.finance.yahoo.com/v7/finance/quote", {}))
-    .rejects.toThrow("cache miss in replay mode");
+  await expect(
+    cache("https://query2.finance.yahoo.com/v7/finance/quote", {}),
+  ).rejects.toThrow("cache miss in replay mode");
   expect(calls).toBe(0);
   expect((cache._store as MemoryStore).store.size).toBe(0);
 });
 
-Deno.test("recache fetch latches rate limits before queued requests run", async () => {
+test("recache fetch latches rate limits before queued requests run", async () => {
   let calls = 0;
   const reports: Error[] = [];
   const fetch = createRecacheFetch(
@@ -284,15 +299,13 @@ Deno.test("recache fetch latches rate limits before queued requests run", async 
   expect(reports).toHaveLength(1);
 });
 
-Deno.test("rate-limit diagnostics report safe retry guidance without credentials", async () => {
-  for (
-    const [value, expected] of [
-      ["120", "120 seconds"],
-      ["Sun, 04 Oct 2026 12:00:00 GMT", "2026-10-04T12:00:00.000Z"],
-      [undefined, "not supplied"],
-      ["secret-crumb", "unrecognized value (omitted)"],
-    ]
-  ) {
+test("rate-limit diagnostics report safe retry guidance without credentials", async () => {
+  for (const [value, expected] of [
+    ["120", "120 seconds"],
+    ["Sun, 04 Oct 2026 12:00:00 GMT", "2026-10-04T12:00:00.000Z"],
+    [undefined, "not supplied"],
+    ["secret-crumb", "unrecognized value (omitted)"],
+  ]) {
     const reports: Error[] = [];
     const fetch = createRecacheFetch(
       () =>
@@ -309,10 +322,14 @@ Deno.test("rate-limit diagnostics report safe retry guidance without credentials
       fakeClock(),
       (error) => reports.push(error),
     );
-    await expect(fetch(
-      "https://query1.finance.yahoo.com/v1/test/getcrumb?crumb=secret-query",
-      { headers: { cookie: "A3=secret-cookie", "user-agent": "secret-agent" } },
-    )).rejects.toThrow("recache aborted");
+    await expect(
+      fetch(
+        "https://query1.finance.yahoo.com/v1/test/getcrumb?crumb=secret-query",
+        {
+          headers: { cookie: "A3=secret-cookie", "user-agent": "secret-agent" },
+        },
+      ),
+    ).rejects.toThrow("recache aborted");
     const message = reports[0].message;
     expect(message).toContain(
       "Endpoint: query1.finance.yahoo.com/v1/test/getcrumb",
@@ -325,7 +342,7 @@ Deno.test("rate-limit diagnostics report safe retry guidance without credentials
   }
 });
 
-Deno.test("recache fetch can continue after an ordinary network failure", async () => {
+test("recache fetch can continue after an ordinary network failure", async () => {
   let calls = 0;
   const fetch = createRecacheFetch(
     () => {
@@ -342,7 +359,7 @@ Deno.test("recache fetch can continue after an ordinary network failure", async 
   expect((await fetch("https://example.com/two")).status).toBe(200);
 });
 
-Deno.test("recache cache rejects rate limits before storing and preserves replay", async () => {
+test("recache cache rejects rate limits before storing and preserves replay", async () => {
   const clock = fakeClock();
   let calls = 0;
   const cache = createFetchCache({

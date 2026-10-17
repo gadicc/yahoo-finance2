@@ -8,6 +8,7 @@ const audience = "https://api.openai.com/v1";
 const workflow =
   "gadicc/yahoo-finance2/.github/workflows/recache-yahoo-fixtures.yaml@refs/heads/dev";
 
+/** @param {string} jwt */
 export function checkClaims(jwt, now = Date.now()) {
   const parts = jwt.split(".");
   if (parts.length !== 3) throw new Error("Invalid GitHub OIDC token");
@@ -38,6 +39,11 @@ export function checkClaims(jwt, now = Date.now()) {
   return claims;
 }
 
+/**
+ * @param {{requestURL: string, requestToken: string, identityProviderId: string, serviceAccountId: string}} config
+ * @param {typeof fetch} [fetcher]
+ * @param {() => number} [now]
+ */
 export function createTokenProvider(config, fetcher = fetch, now = Date.now) {
   const request = new URL(config.requestURL);
   if (
@@ -47,7 +53,9 @@ export function createTokenProvider(config, fetcher = fetch, now = Date.now) {
     throw new Error("Invalid GitHub OIDC endpoint");
   }
   request.searchParams.set("audience", audience);
+  /** @type {{value: string, expiresAt: number} | undefined} */
   let cached;
+  /** @type {Promise<string> | undefined} */
   let pending;
   return async function token(force = false) {
     if (!force && cached && cached.expiresAt > now() + 60_000) {
@@ -89,8 +97,10 @@ export function createTokenProvider(config, fetcher = fetch, now = Date.now) {
         claims.exp * 1000,
       );
       if (
-        typeof result.access_token !== "string" || !result.access_token ||
-        !Number.isFinite(expiresAt) || expiresAt <= now() + 60_000 ||
+        typeof result.access_token !== "string" ||
+        !result.access_token ||
+        !Number.isFinite(expiresAt) ||
+        expiresAt <= now() + 60_000 ||
         result.token_type?.toLowerCase() !== "bearer"
       ) {
         throw new Error("Invalid OpenAI access token response");
@@ -106,6 +116,11 @@ export function createTokenProvider(config, fetcher = fetch, now = Date.now) {
   };
 }
 
+/**
+ * @param {{gatewayToken: string, model: string}} config
+ * @param {(force: boolean) => Promise<string>} token
+ * @param {typeof fetch} [fetcher]
+ */
 export function createProxy(config, token, fetcher = fetch) {
   return createServer(async (req, res) => {
     if (req.url !== "/v1/responses" || req.method !== "POST") {
@@ -135,6 +150,7 @@ export function createProxy(config, token, fetcher = fetch) {
       }
       const controller = new AbortController();
       res.on("close", () => controller.abort());
+      /** @param {boolean} force */
       const send = async (force) =>
         fetcher("https://api.openai.com/v1/responses", {
           method: "POST",
@@ -151,21 +167,26 @@ export function createProxy(config, token, fetcher = fetch) {
         await response.body?.cancel();
         response = await send(true);
       }
+      /** @type {Record<string, string>} */
       const headers = {};
-      for (
-        const name of [
-          "content-type",
-          "cache-control",
-          "x-request-id",
-          "retry-after",
-        ]
-      ) {
+      for (const name of [
+        "content-type",
+        "cache-control",
+        "x-request-id",
+        "retry-after",
+      ]) {
         const value = response.headers.get(name);
         if (value) headers[name] = value;
       }
       res.writeHead(response.status, headers);
       if (response.body) {
-        const stream = Readable.fromWeb(response.body);
+        // Node and DOM describe BYOB reader generics differently in TS6;
+        // this assertion is local to Node's standard WebStream bridge.
+        const stream = Readable.fromWeb(
+          /** @type {import("node:stream/web").ReadableStream<Uint8Array>} */ (
+            response.body
+          ),
+        );
         stream.on("error", () => res.destroy());
         stream.pipe(res);
       } else res.end();
@@ -179,7 +200,8 @@ export function createProxy(config, token, fetcher = fetch) {
 }
 
 if (
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   try {
     let input = "";
@@ -190,7 +212,10 @@ if (
     const server = createProxy(config, token);
     server.listen(0, "127.0.0.1", () => {
       process.stdout.write(
-        JSON.stringify({ port: server.address().port }) + "\n",
+        JSON.stringify({
+          port: /** @type {import("node:net").AddressInfo} */ (server.address())
+            .port,
+        }) + "\n",
       );
     });
     setTimeout(() => {
@@ -198,12 +223,14 @@ if (
       server.close();
     }, 25 * 60_000).unref();
   } catch (error) {
+    const failure = /** @type {Error} */ (error);
     // Only known static diagnostics leave the credential-holding process.
     const safe =
-      /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\))$/
-        .test(error.message);
+      /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\))$/.test(
+        failure.message,
+      );
     process.stderr.write(
-      (safe ? error.message : "Federation initialization failed") + "\n",
+      (safe ? failure.message : "Federation initialization failed") + "\n",
     );
     process.exitCode = 1;
   }

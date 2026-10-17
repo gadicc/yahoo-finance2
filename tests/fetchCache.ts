@@ -1,33 +1,48 @@
 "use strict";
 
-import { spy } from "@std/testing/mock";
-import { afterAll, beforeAll } from "@std/testing/bdd";
+import { spy } from "./helpers/mock.ts";
+import { afterAll, beforeAll } from "./helpers/runner.ts";
 
-// XXX TODO npm?
-// import createFetchCache from "fetch-mock-cache/lib/runtimes/deno.ts";
-// import Store from "fetch-mock-cache/lib/stores/fs.ts";
-import createFetchCache from "@gadicc/fetch-mock-cache/runtimes/deno.ts";
-import Store from "@gadicc/fetch-mock-cache/stores/fs.ts";
+import createFetchCache from "fetch-mock-cache/runtimes/bun.ts";
+import ReplayStore from "./replayStore.ts";
+import { isNativeReplay } from "../scripts/testing/native.ts";
 import { createRecacheFetch } from "./recacheFetch.ts";
 import { RECACHE_STATS_PREFIX } from "./recacheStats.ts";
+import { captureSession } from "../scripts/recache/session.ts";
+import { captureStore } from "../scripts/recache/store.ts";
 
 const originalFetch = globalThis.fetch;
+const offlineFetch: typeof fetch = () => {
+  throw new Error("Offline replay forbids network fetch");
+};
+const session = captureSession();
+if (isNativeReplay() && session)
+  throw new Error("Native replay cannot capture fixtures");
+if (
+  !session &&
+  (process.env.FMC_CACHE_MODE !== "replay" || process.env.FETCH_DEVEL)
+) {
+  throw new Error(
+    "Runner experiments require FMC_CACHE_MODE=replay and cleared FETCH_DEVEL",
+  );
+}
 // Behavior tests may stub console. The parent must still see counters and the
 // fatal rate-limit marker, even if the current test catches the fetch error.
 const recacheLog = console.log.bind(console);
 const recacheError = console.error.bind(console);
-const recaching = Deno.env.get("FETCH_DEVEL") === "recache";
+const recaching = !!session && session.mode !== "geo-replay";
+const storage = session ? captureStore(session) : undefined;
 const recacheFetch = recaching
   ? createRecacheFetch(
-    originalFetch,
-    Number(Deno.env.get("FETCH_DEVEL_RECACHE_INTERVAL") ?? 3000),
-    undefined,
-    (error) => {
-      // Emit counters before the abort signal so SIGKILL cannot lose this file.
-      reportRecacheStats();
-      recacheError(error.message);
-    },
-  )
+      originalFetch,
+      Number(process.env["FETCH_DEVEL_RECACHE_INTERVAL"] ?? 3000),
+      undefined,
+      (error) => {
+        // Emit counters before the abort signal so SIGKILL cannot lose this file.
+        reportRecacheStats();
+        recacheError(error.message);
+      },
+    )
   : undefined;
 
 function reportRecacheStats() {
@@ -37,10 +52,10 @@ function reportRecacheStats() {
 }
 
 const fetchCache = createFetchCache({
-  Store,
+  Store: storage?.Store ?? ReplayStore,
   // Wrap the network fetch inside the cache so replay is neither delayed nor
   // aborted, and a live 429 is rejected before fetch-mock-cache can store it.
-  fetch: recacheFetch ?? originalFetch,
+  fetch: recacheFetch ?? offlineFetch,
   // Cached Set-Cookie headers rebuild the cookie jar during replay. Preserve
   // those while retaining the default redaction policy for request headers.
   redactResponseHeaders: [
@@ -55,9 +70,13 @@ function fetchCacheSetup() {
   beforeAll(() => {
     globalThis.fetch = spy(fetchCache);
   });
-  afterAll(() => {
+  afterAll(async () => {
     globalThis.fetch = originalFetch;
-    reportRecacheStats();
+    try {
+      await storage?.drain();
+    } finally {
+      reportRecacheStats();
+    }
   });
 }
 

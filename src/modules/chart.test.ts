@@ -81,8 +81,7 @@ describe("chart", () => {
         devel: {
           // Static because otherwise we get
           // Error: 1m data not available for startTime=1738368000 and endTime=1738454400. The requested range must be within the last 30 days.
-          id:
-            `chart-AAPL-2025-02-01-to-2025-02-02-includePrePost-false-interval-1m.static`,
+          id: `chart-AAPL-2025-02-01-to-2025-02-02-includePrePost-false-interval-1m.static`,
           t,
           onFinish,
         },
@@ -165,14 +164,15 @@ describe("chart", () => {
     const logger = spyLogger();
     const yf = new YahooFinance({ logger });
 
-    return expect((() => {
-      return yf
-        .chart(
+    return expect(
+      (() => {
+        return yf.chart(
           "AAPL",
           { period1: "2020-01-01" },
           { devel: { id: "weirdJsonResult.fake", t, onFinish } },
         );
-    })()).rejects.toMatchObject({ message: /Unexpected/ });
+      })(),
+    ).rejects.toMatchObject({ message: /Unexpected/ });
   });
 
   describe("query transformWith", () => {

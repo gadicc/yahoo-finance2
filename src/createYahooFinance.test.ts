@@ -1,7 +1,7 @@
 import createYahooFinance from "./createYahooFinance.ts";
-import { describe, it } from "@std/testing/bdd";
-import { expect } from "@std/expect";
-import { spy } from "@std/testing/mock";
+import { describe, it } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
+import { spy } from "../tests/helpers/mock.ts";
 import trendingSymbols from "./modules/trendingSymbols.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 
@@ -59,8 +59,8 @@ describe("createYahooFinance", () => {
     });
 
     it("can be set at instance time", () => {
-      const fetch =
-        (() => new Response("test")) as unknown as typeof globalThis.fetch;
+      const fetch = (() =>
+        new Response("test")) as unknown as typeof globalThis.fetch;
       const YahooFinance = createYahooFinance({ modules: {} });
       const yf = new YahooFinance({ fetch });
       // @ts-expect-error: yes this isn't final
@@ -112,25 +112,25 @@ describe("createYahooFinance", () => {
 
     it("will accept a per module fetch override", async () => {
       const validResult = {
-        "finance": {
-          "result": [
+        finance: {
+          result: [
             {
-              "count": 1,
-              "quotes": [
+              count: 1,
+              quotes: [
                 {
-                  "symbol": "^AORD",
+                  symbol: "^AORD",
                 },
               ],
-              "jobTimestamp": 0,
-              "startInterval": 0,
+              jobTimestamp: 0,
+              startInterval: 0,
             },
           ],
-          "error": null,
+          error: null,
         },
       };
 
       const mockFetch = spy(() =>
-        Promise.resolve(new Response(JSON.stringify(validResult)))
+        Promise.resolve(new Response(JSON.stringify(validResult))),
       );
 
       const YahooFinance = createYahooFinance({ modules: { trendingSymbols } });

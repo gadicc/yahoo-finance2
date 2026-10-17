@@ -34,8 +34,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
             t,
             onFinish,
           },
@@ -63,8 +62,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-quarterly`,
             t,
             onFinish,
           },
@@ -87,8 +85,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-quarterly`,
             t,
             onFinish,
           },
@@ -111,8 +108,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-quarterly`,
             t,
             onFinish,
           },
@@ -135,8 +131,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-quarterly`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-quarterly`,
             t,
             onFinish,
           },
@@ -159,8 +154,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-all-annual`,
             t,
             onFinish,
           },
@@ -183,8 +177,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-financials-annual`,
             t,
             onFinish,
           },
@@ -207,8 +200,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-balance-sheet-annual`,
             t,
             onFinish,
           },
@@ -231,8 +223,7 @@ describe("fundamentalsTimeSeries", () => {
         },
         {
           devel: {
-            id:
-              `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-annual`,
+            id: `fundamentalsTimeSeries-${symbol}-${period1}-${period2}-cash-flow-annual`,
             t,
             onFinish,
           },

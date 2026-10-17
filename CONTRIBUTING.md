@@ -1,345 +1,92 @@
-# Contributing to yahoo-finance2
+# Contributing
 
-Interesting in helping out? You're the best! This guide will help you get all
-set up with the correct tools and important things to know for the project.
+Target pull requests at `dev`. Use exact Bun 1.4.3 and Node 24.21.0 as the
+auxiliary tool host, selected locally on PATH:
 
-1. [Setup](#setup)
-   1. [Cloning](#cloning)
-   1. [Required Tools](#tools)
-1. [Important Things to Know](#nb)
-   1. [Schema generation](#schema)
-   1. [Testing](#testing)
-   1. [Linting and Formatting](#linting)
-   1. [Documentation](#docs)
-   1. [Committing Changes](#commits)
-1. [Other](#other)
-
-<a name="setup">
-
-## Setup
-
-<a name="cloning"></a>
-
-### Cloning the project
-
-1. Install [git](https://git-scm.com/) if you haven't already.
-1. Change to the directory where you want to keep these files.
-1. `git clone https://github.com/gadicc/yahoo-finance2.git`
-1. `cd yahoo-finance2`
-
-**Default branch: dev**
-
-All PRs should be submitted against the `dev` branch (github default).
-
-<a name="tools"></a>
-
-### Required Tools: Deno & editor plugins
-
-We use the [deno](https://deno.com/) runtime for development. It can be
-installed with a single command and replaces node, npm, eslint, prettier, tsc,
-jest; is super fast and relieves us of many pain points. The library is still
-published in npm and runs on node and other runtimes.
-
-**vscode:** Make sure you have the official
-[Deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
-installed. This includes the language server for super fast typescript, linting,
-formatting, etc, and will use the project settings in `.vscode/settings.json`.
-
-<a name="nb"></a>
-
-## Import things to know
-
-<a name="schema"></a>
-
-### Schema Generation
-
-To deliver a type-safe experience, we need to validate all input to ensure it
-conforms to what we expect. The single source of truth are the **typescript
-interfaces** in each module file. These are compiled into JSON schemas which are
-then used for runtime validation.
-
-In VSCode, this is done for you automatically. Otherwise, run `deno task schema`
-after changing a file, or `deno task schema --watch` to recompile after file
-changes. This only affects `.ts` files that contain a `@yf-schema` keyword. CI
-runs `deno task schema:check` and will fail your PR if committed `.schema.json`
-files don't match the interfaces — run `deno task schema` before committing
-interface changes.
-
-The timestamp check does not track imported type dependencies. Regenerate all
-affected files before retrying tests: explicit file arguments force
-regeneration, for example
-`deno task schema src/modules/quote.ts src/modules/options.ts` after changing
-shared quote types. Use `deno task schema --force` to regenerate all schemas
-when the dependencies are uncertain. Test consumers of shared schemas too, such
-as historical when chart's schema changes.
-
-<a name="testing"></a>
-
-### Testing
-
-See the [workflow policy](./docs/workflow-policy.md) for CI triggers, release
-branches, and scheduled fixture maintenance.
-
-`deno task test`
-
-The test task runs with the `test` Deno permission set from `deno.json`, which
-limits file access to HTTP fixtures, limits environment access to `FETCH_DEVEL*`
-controls, and limits network access to the Yahoo hosts used by the library. Run
-focused tests with `deno task test path/to/file.test.ts`. Use
-`deno task test:serial path/to/file.test.ts` when debugging or limiting live
-Yahoo request concurrency.
-
-NB: HTTP requests are cached to disk. This ensures we can re-run all tests
-quickly and consistently across repos (my dev box does 1,252 tests in 793ms). We
-use the [fetch-mock-cache](https://www.npmjs.com/package/fetch-mock-cache)
-library for this. Make sure the test `describe()` block calls `setupCache()`,
-imported from [tests/common.ts](./tests/common.ts), which may also be a useful
-read for those interested.
-
-Normal test runs use fetch-mock-cache's `auto` mode: existing fixtures are
-replayed, while a cache miss makes a live request and records a new fixture.
-This is what creates a fixture when a test is first added or after its existing
-fixture is deleted.
-
-Use `deno task test:replay` to verify a cache-only baseline. It sets
-fetch-mock-cache's native `FMC_CACHE_MODE=replay`, fails on missing fixtures,
-and denies network access and fixture writes. It clears `FETCH_DEVEL`, including
-an inherited `recache` setting. Both the local recache runner and the workflow
-run this baseline before requesting fresh responses. Normal development tests
-retain `auto` mode so new fixtures can still be recorded.
-
-Set the environment variable `FETCH_DEVEL=nocache` to force-run all network
-tests without the cache. Set `FETCH_DEVEL=recache` to do the same, but also
-rewrite the cache for any failing tests. In both cases, skipped for ids ending
-`.static` or `.fake`, which are fixtures we never want to update because they
-rely on time-sensitive data or made up data, respectively.
-
-You can also simply delete a fixture file to force its recreation on the next
-test run, just make sure not to delete `.static.json` or `.fake.json` files, and
-consider if anything actually changed that justifies committing the new file to
-the repo.
-
-#### Repairing failures after recaching
-
-Inspect the fixture's HTTP status and payload first. Separate valid response
-shape changes from rate limits, consent pages, other HTTP/API errors, changed
-assertions, and runtime behavior issues. A delisted symbol returning 404 needs a
-decision about test coverage; it is not evidence that successful response fields
-are optional.
-
-Use `FETCH_DEVEL=recache deno task test:recache` for live recaching. This runner
-first replays the selected tests with network access and fixture writes denied.
-If that baseline fails, no live recaching starts. It then processes test files
-sequentially. The cache's network fetch wrapper serializes requests across
-library instances within each file, including cookie/crumb requests, with at
-least three seconds between request starts. Set `FETCH_DEVEL_RECACHE_INTERVAL`
-in milliseconds to change the delay. Cached responses remain immediate. A live
-HTTP 429 is rejected before writing a fixture and stops the run, even if the
-current test catches the error. The workflow also checks the log and changed/new
-fixtures before staging, committing, or pushing any fixture changes. Other test
-failures continue to capture response drift.
-
-The abort diagnostics include the current test file, endpoint, observation time,
-`Retry-After` when supplied, and whether the request supplied a cookie header
-and User-Agent. They omit cookie values, crumbs, query strings, and response
-bodies. The runner does not automatically retry after a 429. Wait until any
-supplied `Retry-After` time has elapsed before considering another run; a new
-run does not reset Yahoo's limits.
-
-The runner reports fixture additions, updates, and removals since the live batch
-started. Earlier local edits are excluded from this report. It does not roll
-back fixtures after an abort: changes from earlier completed tests remain for
-review. The local runner never stages, commits, or pushes fixtures. To retain
-the complete output and preserve a failing exit status when using Bash:
-
-```bash
-set -o pipefail
-FETCH_DEVEL=recache deno task test:recache 2>&1 | tee /tmp/yahoo-recache.log
+```sh
+bun run check:toolchain
+bun install --frozen-lockfile
 ```
 
-Generic getCrumb behavior tests always replay their recorded cookie/crumb
-values, including under `FETCH_DEVEL=recache`. Live module tests obtain a fresh
-matching cookie/crumb pair using the library's normal request headers. Use the
-dedicated country-profile capture command below to intentionally record
-authentication flows. The live session is shared within a test process, but not
-across the runner's separate test-file processes.
+Keep normal lifecycle hooks. The private root `package.json` and `bun.lock` own
+root dependencies; the public npm manifest is generated. Workers retain their
+separate npm 10.9.9 graph and lock. Deno >=2 remains a consumer target and may
+execute only inside the dedicated isolated publisher. See
+[development](docs/development.md) for dependency, compiler, editor and API-doc
+policies, and [platforms](docs/platforms.md) for runtime qualifications.
 
-Within each test file, identical successful Yahoo data GET requests reuse the
-fresh response in memory. Every test still executes its own assertions and
-fixture-write decision, so a later failure can retain a capture even if an
-earlier test passed. Matching includes query parameters, headers, live cookies
-and crumbs, and fetch options. Cookie/crumb/consent flows, POSTs, HTTP errors,
-and responses setting cookies are never reused. Captures do not cross test-file
-boundaries. Requests that explicitly disable caching or require refresh are also
-fetched separately.
+## Local verification
 
-The runner reports network attempts, reused requests, and HTTP/network-error
-outcomes by endpoint family in its log and the GitHub job summary, including
-when a 429 aborts the run. Symbol paths are grouped, and query strings, cookies,
-and payloads are omitted from these counters. Counts are cumulative per file;
-only the final snapshot is added to the aggregate.
-
-To run the offline subprocess checks for replay mode, aggregate counters, and
-rate-limit termination, use
-`deno task test scripts/recache-tests.test.ts --allow-run=deno --allow-write=/tmp`.
-These checks are skipped by the normal permission set; they use temporary test
-files and synthetic responses rather than live Yahoo requests.
-
-For valid response changes, edit the TypeScript interfaces and regenerate every
-affected schema before retrying tests. Keep concrete types and observed literal
-unions. Model new fields as required first, and use `?` only when successful
-fixtures for the same response shape demonstrate omission. Check existing,
-static, and fake fixtures too; distinguish omission from `null`, empty objects,
-and empty arrays. Record representative fixture filenames in the change
-description. Add JSDoc for new fields when their meaning is clear, without
-guessing units or semantics.
-
-Agents repairing recached fixtures should automatically change only interfaces,
-additions of observed values to existing nongeneric string-literal-union
-aliases, and generated schemas. Alias names and modifiers must stay unchanged;
-retain all existing literals in order, including duplicates, and add only
-distinct new plain string literals backed by successful fixtures. Other alias
-edits need manual review. If a failure requires runtime code, test expectations,
-or fixture changes, report the evidence and proposed action and await operator
-feedback for that repair. Continue independent type/schema fixes while waiting,
-and check for feedback before finishing. Do not bypass validation to make tests
-pass.
-
-Replay focused cached tests, including affected schema consumers, then run the
-full suite. Inspect schema diffs and final Git status. Do not recache again as
-part of verifying a type/schema fix.
-
-The daily recache workflow can also prepare draft repair PRs with an isolated
-Codex job and independent type/schema verification. See
-[Automatic schema repair PRs](./docs/schema-repair.md) for federation setup,
-security boundaries, controls, and manual smoke testing.
-
-#### Country-specific getCrumb fixtures
-
-Yahoo's cookie, consent, and crumb flow can vary by request geography. We keep
-country-specific captures as dated, append-only fixture profiles so one VPN
-capture never overwrites another flow. The country code records where the
-response was observed; tests assert the captured redirect/request sequence, not
-that Yahoo always serves that sequence to everyone in that country.
-
-Connect a VPN, independently verify its exit country, and then run:
-
-```bash
-deno task fixtures:capture:getcrumb --country GB
+```sh
+bun run test:serial -- src/modules/quote.test.ts
+bun run test:replay
+bun run test:full
+bun run test:coverage -- --full --run-timeout 300000
+bun run typecheck
+bun run typecheck:negative
+bun run schema:check
+bun run format:check
+bun run lint
+bun run docs:lint
 ```
 
-The command records a new profile such as `gb-20260808`, compacts response data
-that getCrumb never consumes, and immediately replays the compacted fixtures. It
-refuses to overwrite an existing profile; use `--profile` with a dated suffix
-when two distinct flows are observed on the same day.
+Default replay is the maintained library tier, `src/**/*.test.ts` plus top-level
+`tests/*.test.ts`. `--full` adds maintained tooling/integration tests; explicit
+focused tooling paths remain supported. `--list` prints either selected tier.
+Use `bun run test:watch -- PATH` for iteration. Strict replay needs Linux,
+Bubblewrap, Python 3, libseccomp and namespaces and fails closed. Direct
+`bun test` bypasses the policy. Read [testing](docs/testing.md) for guards,
+filter/timeout/coverage semantics and the explicit trusted native option for
+Linux/macOS/Windows. [CI](docs/ci.md) owns complete validation and upload policy.
 
-Before committing, inspect every generated fixture. Do not keep rate limits,
-timeouts, upstream 5xx responses, unrelated interstitials, redirects outside the
-expected Yahoo hosts, or authenticated/user-specific cookies. Copy the profile
-entry printed by the command into `COMMITTED_PROFILES` in
-`src/lib/getCrumb.geo.test.ts`, then disconnect the VPN and run:
+## Fixtures, schemas and documentation
 
-```bash
-deno task test:serial src/lib/getCrumb.geo.test.ts
+New Yahoo-response tests call `setupCache()` from `tests/common.ts`. Missing
+fixtures fail without live fallback. Preserve fixture bytes/modes unless live
+capture is explicitly authorized. Do not delete fixtures or set nocache to refresh
+ordinary tests. Follow [fixture capture](docs/fixture-capture.md) for separately
+authorized brokered capture, HTTP/payload review and required replay baseline.
+
+Keep concrete types and observed literal unions. Model new fields as required
+first; optionality needs successful fixture evidence of omission in the same
+shape. Distinguish missing values from null, empty objects and arrays. Add factual
+JSDoc without guessing semantics. [Schema repair](docs/schema-repair.md) describes
+the restricted automatic repair policy and independent docs/types/replay gates.
+
+After interface changes, generate affected schemas from current imported types:
+
+```sh
+bun run schema src/modules/quote.ts src/modules/options.ts
+bun run test:serial -- src/modules/quote.test.ts src/modules/options.test.ts
 ```
 
-Committed geographic profiles always replay from cache, even under the generic
-`FETCH_DEVEL=recache` workflow. If a new country's normalized request sequence
-and relevant cookie/header shape are identical to an existing profile, do not
-commit duplicate fixtures solely to add another country label.
+Plain `bun run schema` regenerates all schemas; include shared-type consumers.
+Regenerate before retesting, inspect generated diffs, then run the complete gate.
+Never recache as verification. API docs use `bun run docs:gen`, `docs:lint` and
+`docs:watch`; `docs:open` explicitly invokes a platform opener. New diagnostics
+fail; do not rewrite warning baselines automatically. See
+[development](docs/development.md#api-documentation).
 
-Cloudflare Workers coverage lives in `tests/cloudflare` and tests the generated
-npm package inside Workers Vitest. Run `deno task test:cloudflare` after changes
-that affect npm output or runtime detection. If you change the Cloudflare
-harness dependencies or need to regenerate its lockfile, use
-`deno task lock:cloudflare`; it pins lockfile generation to the npm behavior CI
-expects.
+## Builds and changes
 
-### Dependency upgrades
+`bun run build:npm` creates generated `npm/`. Custom output must be a new/empty
+external directory with an existing canonical parent. Read
+[packaging](docs/packaging.md) for ownership, staging, declaration and real
+installed-consumer checks. [Runtime security](docs/runtime-security.md) records
+CLI/MCP, cookies, native replay and trusted-tool limits. CLI data commands contact
+Yahoo and are not offline verification.
 
-Baseline cached tests, open dependency PRs, and security alerts before
-upgrading. Use compatible patch and minor upgrades by default; review major
-upgrades and minor upgrades of `0.x` packages explicitly. Group packages that
-must work together, update their manifests and lockfiles in the same commit, and
-inspect transitive changes for security fixes. Keep the Node minimum supported
-by CI.
+Preserve explicit `.ts` local imports. Use Biome for maintained JS/TS/JSON/JSONC;
+Markdown and YAML need manual review. Avoid unsafe fixes, generated output and
+unrelated local work. A new module needs concrete interfaces/schema, cached or
+synthetic tests, public exports and factual API/README documentation.
 
-After upgrades, run the full cached suite, type checks, schema checks, lint and
-format checks. Changes to npm build tooling or runtime dependencies also need
-the generated npm build and Cloudflare tests. Release tooling needs
-`deno task release:check-notes`. Keep the conventional-commits preset below v10
-until the writer compatibility issue documented in `renovate.json` is resolved.
-Check CI and automatic closure of superseded dependency PRs and alerts after
-pushing; do not dismiss alerts to make the result look clean.
-
-The Cloudflare harness temporarily overrides Miniflare's Sharp and Undici
-dependencies with patched versions in the same release lines. Remove these
-overrides when the Workers pool and its pinned Miniflare versions include the
-fixes. Check `npm audit --prefix tests/cloudflare` when changing this graph.
-
-`deno audit` currently reports one unpatched advisory,
-[GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm), in
-`braces@3.0.3` through semantic-release and its commit analyzer. It affects
-deeply nested glob patterns in release tooling. Keep the advisory visible and
-recheck for an upstream fix on subsequent upgrades.
-
-<a name="linting"></a>
-
-### Linting, formatting
-
-Done automatically for you in VSCode with the official Deno extension. If you
-use a different editor, see if it also has a Deno extension, otherwise, please
-run `deno lint` and `deno fmt` before submitting pull requests.
-
-<a name="docs"></a>
-
-### Documentation
-
-We have two kinds of docs. The [explainer docs](./docs/) and
-[API docs](https://jsr.io/@gadicc/yahoo-finance2/doc). The latter are generated
-automatically on publish. However, you can build them locally too if you want to
-check their appearance before commit. `deno task docs:gen` will build the docs
-to a directory called `jsdocs`; `deno task docs:watch` will rebuild the docs on
-file changes (just make sure to reload the commmand if you change the deno.json
-`exports`), and `deno task docs:open` will open your browser to the docs on
-POSIX compliant systems.
-
-<a name="commits"></a>
-
-### Commiting Changes
-
-**Commit Messages**
-
-Commit messages should follow the
-[conventionalcommits](https://www.conventionalcommits.org/) standard (basically
-Angular). This is important as we use
-[semantic-release](https://github.com/semantic-release/semantic-release) to
-automate [release](https://github.com/gadicc/yahoo-finance2/releases) (with
-their release notes) when we merge back to release branches like `main`, `2.x`,
-`next`, `next-major`, etc. Tags like `fix`, `feat`, `BREAKING CHANGE` affect the
-resulting semver version and release channel.
-
-<a name="other"></a>
-
-### Other
-
-Let us know if anything here could have been explained better.
-
-### Adding a new module
-
-Checklist:
-
-1. **Create the module file**: Create `src/modules/myModule.ts`. Make sure to
-   mark exported interfaces for schema generation with a `// @yf-schema`
-   comment.
-2. **Generate schemas**: Run `deno task schema` to generate the matching
-   `myModule.schema.json`.
-3. **Write tests**: Test the module under `src/modules/myModule.test.ts`. Use
-   `setupCache()` from `tests/common.ts` if it touches Yahoo HTTP responses. New
-   HTTP cache fixtures will be recorded under `tests/fixtures/http`.
-4. **Wire the exports**:
-   - Export your module in `src/modules/index.ts`.
-   - Add a key/value mapping under `exports` in `deno.json`.
-5. **Document & Link**: Add JSDoc comments to the module exports (which will
-   render on JSR) and add it to the "Available modules" list in the main
-   `README.md`.
+Use scoped [Conventional Commits](https://www.conventionalcommits.org/) with
+motivation; agents retain the [required footer](AGENTS.md#commit-messages).
+Release-tooling changes need `node scripts/check-release-notes.mjs`. Follow
+[release guidance](docs/RELEASING.md), [workflow policy](docs/workflow-policy.md)
+and the [publisher contract](scripts/publisher/README.md); authentication,
+publication, tags and release writes require separate authorization.
+A semantic-release dry-run skips prepare and may still check authentication.
+The [migration follow-up](docs/bun-migration.md) records current readiness;
+archived benchmark timings do not describe the current complete suite.

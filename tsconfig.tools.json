@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "paths": {
+      "bun:test": ["./tests/helpers/bun-test-types.d.ts"]
+    },
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable",
+      "DOM.AsyncIterable",
+      "ESNext.Disposable"
+    ]
+  },
+  "include": [
+    "src/**/*.test.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mjs",
+    "tests/**/*.ts",
+    "tests/package/*.mjs",
+    "release.config.mjs"
+  ],
+  "exclude": ["tests/cloudflare", "tests/fixtures"]
+}

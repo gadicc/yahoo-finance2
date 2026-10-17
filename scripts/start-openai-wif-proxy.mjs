@@ -13,50 +13,52 @@ const config = {
 if (Object.values(config).some((value) => !value)) {
   throw new Error("Missing federation configuration");
 }
-const child = spawn("sudo", [
-  "-n",
-  "env",
-  "-i",
-  process.execPath,
-  process.argv[2],
-], {
-  detached: true,
-  stdio: ["pipe", "pipe", "pipe"],
-});
+const child = spawn(
+  "sudo",
+  ["-n", "env", "-i", process.execPath, process.argv[2]],
+  {
+    detached: true,
+    stdio: ["pipe", "pipe", "pipe"],
+  },
+);
 child.stdin.end(JSON.stringify(config));
 let output = "";
 let diagnostic = "";
 child.stderr.on(
   "data",
-  (chunk) => diagnostic += chunk.toString().slice(0, 500),
+  (chunk) => (diagnostic += chunk.toString().slice(0, 500)),
 );
-await new Promise((resolve, reject) => {
-  const timeout = setTimeout(() => {
-    child.kill();
-    reject(new Error("Federation startup timed out"));
-  }, 90_000);
-  child.on("error", () => reject(new Error("Cannot start federation proxy")));
-  child.on("exit", () => {
-    clearTimeout(timeout);
-    const safe = diagnostic.trim();
-    if (
-      /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\)|Federation initialization failed)$/
-        .test(safe)
-    ) console.error(safe);
-    reject(
-      new Error(
-        "Federation startup failed; check the provider/service-account mapping",
-      ),
-    );
-  });
-  child.stdout.on("data", (chunk) => {
-    output += chunk;
-    if (output.includes("\n")) {
+await new Promise(
+  /** @param {(value: void) => void} resolve */ (resolve, reject) => {
+    const timeout = setTimeout(() => {
+      child.kill();
+      reject(new Error("Federation startup timed out"));
+    }, 90_000);
+    child.on("error", () => reject(new Error("Cannot start federation proxy")));
+    child.on("exit", () => {
       clearTimeout(timeout);
-      resolve();
-    }
-  });
-});
+      const safe = diagnostic.trim();
+      if (
+        /^(Unexpected OIDC claim: [a-z_]+|GitHub OIDC request failed \([0-9]+\)|OpenAI token exchange failed \([0-9]+\)|Federation initialization failed)$/.test(
+          safe,
+        )
+      )
+        console.error(safe);
+      reject(
+        new Error(
+          "Federation startup failed; check the provider/service-account mapping",
+        ),
+      );
+    });
+    child.stdout.on("data", (chunk) => {
+      output += chunk;
+      if (output.includes("\n")) {
+        clearTimeout(timeout);
+        resolve();
+      }
+    });
+  },
+);
 const { port } = JSON.parse(output.trim());
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error("Invalid proxy port");
@@ -65,7 +67,7 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 // GitHub/OpenAI credentials remain in the root process's memory, not on disk.
 console.log(`::add-mask::${config.gatewayToken}`);
 appendFileSync(
-  process.env.GITHUB_OUTPUT,
+  /** @type {string} */ (process.env.GITHUB_OUTPUT),
   `endpoint=http://127.0.0.1:${port}/v1/responses\ngateway-token=${config.gatewayToken}\n`,
 );
 child.stdout.destroy();

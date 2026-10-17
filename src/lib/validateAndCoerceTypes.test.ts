@@ -1,5 +1,5 @@
 import { describe, expect, it, spyLogger } from "../../tests/common.ts";
-import { stub } from "@std/testing/mock";
+import { stub } from "../../tests/helpers/mock.ts";
 import pkg from "../../deno.json" with { type: "json" };
 import { _clearCache } from "./versions.ts";
 
@@ -13,10 +13,10 @@ const schema: JSONSchema = {
   $id: "testSchema",
   $schema: "http://json-schema.org/draft-07/schema#",
   properties: {
-    date: { "type": "string", "format": "date-time" },
+    date: { type: "string", format: "date-time" },
     dateNull: { type: ["null", "string"], format: "date-time" },
-    dateInMs: { "$ref": "#/definitions/DateInMs" },
-    twoNumberRange: { "$ref": "#/definitions/TwoNumberRange" },
+    dateInMs: { $ref: "#/definitions/DateInMs" },
+    twoNumberRange: { $ref: "#/definitions/TwoNumberRange" },
     number: { type: "number" },
     numberNull: { type: ["number", "null"] },
     requiredRequired: {
@@ -38,34 +38,31 @@ const schema: JSONSchema = {
 };
 
 const definitions: Record<string, JSONSchema> = {
-  "TwoNumberRange": {
-    "type": "object",
-    "properties": {
-      "low": {
-        "type": "number",
+  TwoNumberRange: {
+    type: "object",
+    properties: {
+      low: {
+        type: "number",
       },
-      "high": {
-        "type": "number",
-      },
-    },
-    "required": [
-      "low",
-      "high",
-    ],
-    "additionalProperties": false,
-  },
-  "DateInMs": {
-    "type": "string",
-    "format": "date-time",
-  },
-  "NoAdditional": {
-    "type": "object",
-    "properties": {
-      "known": {
-        "type": "string",
+      high: {
+        type: "number",
       },
     },
-    "additionalProperties": false,
+    required: ["low", "high"],
+    additionalProperties: false,
+  },
+  DateInMs: {
+    type: "string",
+    format: "date-time",
+  },
+  NoAdditional: {
+    type: "object",
+    properties: {
+      known: {
+        type: "string",
+      },
+    },
+    additionalProperties: false,
   },
 };
 
@@ -85,12 +82,12 @@ const defLogParams: ValidateParams = {
     logOptionsErrors: true,
   },
   logger,
-  logObj: Deno.stdout.isTerminal()
-    // deno-lint-ignore no-explicit-any
-    ? (obj: any, opts?: { depth?: number }) =>
-      logger.dir(obj, { depth: opts?.depth ?? 4, colors: true })
-    // deno-lint-ignore no-explicit-any
-    : (obj: any) => logger.info(JSON.stringify(obj, null, 2)),
+  logObj: process.stdout.isTTY
+    ? // biome-ignore lint/suspicious/noExplicitAny: Validation logging deliberately accepts the unvalidated test payload.
+      (obj: any, opts?: { depth?: number }) =>
+        logger.dir(obj, { depth: opts?.depth ?? 4, colors: true })
+    : // biome-ignore lint/suspicious/noExplicitAny: Validation logging deliberately accepts the unvalidated test payload.
+      (obj: any) => logger.info(JSON.stringify(obj, null, 2)),
   versionCheck: false,
 };
 
@@ -121,8 +118,9 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes if data is null and type IS number|null", () => {
         const object = { numberNull: null };
-        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
-          .toThrow();
+        expect(() =>
+          validateAndCoerceTypes({ ...defLogParams, object }),
+        ).not.toThrow();
       });
 
       it("fails if data is null and type IS NOT number|null", () => {
@@ -139,8 +137,9 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes and coerces {} to null if type IS number|null", () => {
         const object = { numberNull: {} };
-        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
-          .toThrow();
+        expect(() =>
+          validateAndCoerceTypes({ ...defLogParams, object }),
+        ).not.toThrow();
         expect(object.numberNull).toBe(null);
       });
 
@@ -158,20 +157,23 @@ describe("validateAndCoerceTypes", () => {
 
       it("fails if data is not a number nor object", () => {
         const object = { number: true };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/Failed Yahoo Schema/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/Failed Yahoo Schema/);
       });
 
       it("fails if data.raw is not a number", () => {
         const object = { number: { raw: "a string" } };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/Failed Yahoo Schema/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/Failed Yahoo Schema/);
       });
 
       it("fails if string returns a NaN", () => {
         const object = { number: "not-a-number" };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/Failed Yahoo Schema/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/Failed Yahoo Schema/);
       });
     });
 
@@ -203,8 +205,9 @@ describe("validateAndCoerceTypes", () => {
 
       it("throws on non-matching strings", () => {
         const object = { date: "clearly not a date" };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/Failed Yahoo Schema/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/Failed Yahoo Schema/);
       });
 
       it("passes through Date objects", () => {
@@ -216,8 +219,9 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes if data is null and type IS date|null", () => {
         const object = { dateNull: null };
-        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
-          .toThrow();
+        expect(() =>
+          validateAndCoerceTypes({ ...defLogParams, object }),
+        ).not.toThrow();
       });
 
       it("fails if data is null and type IS NOT date|null", () => {
@@ -234,8 +238,9 @@ describe("validateAndCoerceTypes", () => {
 
       it("passes and coerces {} to null if type IS Date|null", () => {
         const object = { dateNull: {} };
-        expect(() => validateAndCoerceTypes({ ...defLogParams, object })).not
-          .toThrow();
+        expect(() =>
+          validateAndCoerceTypes({ ...defLogParams, object }),
+        ).not.toThrow();
         expect(object.dateNull).toBe(null);
       });
 
@@ -272,14 +277,16 @@ describe("validateAndCoerceTypes", () => {
 
       it("throws on invalid input", () => {
         const object = { twoNumberRange: "X - 549.19" };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/^Failed Yahoo/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/^Failed Yahoo/);
       });
 
       it("throws no matching type on weird input", () => {
         const object = { twoNumberRange: 12 };
-        expect(() => validateAndCoerceTypes({ ...defNoLogParams, object }))
-          .toThrow(/^Failed Yahoo/);
+        expect(() =>
+          validateAndCoerceTypes({ ...defNoLogParams, object }),
+        ).toThrow(/^Failed Yahoo/);
       });
     });
 
@@ -300,9 +307,8 @@ describe("validateAndCoerceTypes", () => {
             },
             source: "historical-in-validate.spec",
             options: { ...defNoLogParams.options, logOptionsErrors: false },
-          })
-        )
-          .toThrow(InvalidOptionsError);
+          }),
+        ).toThrow(InvalidOptionsError);
       });
 
       it("fails on error", () => {
@@ -339,7 +345,7 @@ describe("validateAndCoerceTypes", () => {
           validateAndCoerceTypes({
             ...defNoLogParams,
             schemaOrSchemaKey: "SOME_MISSING_KEY",
-          })
+          }),
         ).toThrow(/No such schema/);
       });
 
@@ -362,7 +368,7 @@ describe("validateAndCoerceTypes", () => {
             ...defLogParams,
             object,
             logger,
-          })
+          }),
         ).toThrow("Failed Yahoo Schema validation");
 
         // expect(logger.error).toHaveBeenCalled();
@@ -374,10 +380,8 @@ describe("validateAndCoerceTypes", () => {
         async (version) => {
           const originalVersion = pkg.version;
           const logger = spyLogger();
-          using fetch = stub(
-            globalThis,
-            "fetch",
-            () => Promise.resolve(Response.json({ version: "3.1.0" })),
+          using fetch = stub(globalThis, "fetch", () =>
+            Promise.resolve(Response.json({ version: "3.1.0" })),
           );
           _clearCache();
           pkg.version = version;
@@ -390,7 +394,7 @@ describe("validateAndCoerceTypes", () => {
                 logger,
                 logObj: logger.dir,
                 versionCheck: true,
-              })
+              }),
             ).toThrow("Failed Yahoo Schema validation");
 
             // Let the asynchronous version-check logging finish.
@@ -419,7 +423,7 @@ describe("validateAndCoerceTypes", () => {
             ...defNoLogParams,
             object,
             logger,
-          })
+          }),
         ).toThrow("Failed Yahoo Schema validation");
 
         /*
@@ -464,7 +468,7 @@ describe("validateAndCoerceTypes", () => {
               ...defNoLogParams.options,
               allowAdditionalProps: true,
             },
-          })
+          }),
         ).not.toThrow();
       });
 
@@ -481,7 +485,7 @@ describe("validateAndCoerceTypes", () => {
               allowAdditionalProps: true,
               logOptionsErrors: false,
             },
-          })
+          }),
         ).toThrow(InvalidOptionsError);
       });
 
@@ -521,9 +525,7 @@ describe("validateAndCoerceTypes", () => {
         expect(error).toBeDefined();
         expect(error!.message).toMatch(/Failed Yahoo/);
 
-        let e;
-
-        e = error!.errors![0];
+        let e = error!.errors![0];
         expect(e.params).toMatchObject({
           // data: "str",
           schema: { type: "number" },

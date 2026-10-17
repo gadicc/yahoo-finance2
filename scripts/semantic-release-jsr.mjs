@@ -1,15 +1,3 @@
-import {
-  fail,
-  prepare,
-  publish,
-  success,
-  verifyConditions,
-} from "@sebbo2002/semantic-release-jsr";
-
-export default {
-  fail,
-  prepare,
-  publish,
-  success,
-  verifyConditions,
-};
+// semantic-release v25 requires a default lifecycle export. The implementation
+// routes JSR verification/versioning/publication to its isolated private stage.
+export { default } from "./publisher/jsr-hooks.mjs";

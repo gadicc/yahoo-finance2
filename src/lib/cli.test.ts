@@ -1,3 +1,4 @@
+import { test } from "../../tests/helpers/runner.ts";
 import {
   type CliClient,
   type CliLogger,
@@ -57,7 +58,7 @@ function createRunOptions(
   };
 }
 
-Deno.test("getModuleNames excludes constructor and private members", () => {
+test("getModuleNames excludes constructor and private members", () => {
   class FakeClient {
     quote() {}
     _private() {}
@@ -66,7 +67,7 @@ Deno.test("getModuleNames excludes constructor and private members", () => {
   assertEquals(getModuleNames(FakeClient.prototype).join(","), "quote");
 });
 
-Deno.test("runCli writes help to stdout and exits zero", async () => {
+test("runCli writes help to stdout and exits zero", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions(["--help"], output));
@@ -76,7 +77,7 @@ Deno.test("runCli writes help to stdout and exits zero", async () => {
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli writes version to stdout and exits zero", async () => {
+test("runCli writes version to stdout and exits zero", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions(["--version"], output));
@@ -86,7 +87,7 @@ Deno.test("runCli writes version to stdout and exits zero", async () => {
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli treats missing module as usage error on stderr", async () => {
+test("runCli treats missing module as usage error on stderr", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions([], output));
@@ -96,7 +97,7 @@ Deno.test("runCli treats missing module as usage error on stderr", async () => {
   assert(stderr.join("\n").includes("Missing module."));
 });
 
-Deno.test("runCli treats unknown module as usage error on stderr", async () => {
+test("runCli treats unknown module as usage error on stderr", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions(["notAModule"], output));
@@ -106,7 +107,7 @@ Deno.test("runCli treats unknown module as usage error on stderr", async () => {
   assert(stderr.join("\n").includes("No such module: notAModule"));
 });
 
-Deno.test("runCli handles malformed JSON without a stack trace", async () => {
+test("runCli handles malformed JSON without a stack trace", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions(["quote", "{"], output));
@@ -117,7 +118,7 @@ Deno.test("runCli handles malformed JSON without a stack trace", async () => {
   assert(!stderr.join("\n").includes("at JSON.parse"));
 });
 
-Deno.test("runCli decodes JSON array positional arguments", async () => {
+test("runCli decodes JSON array positional arguments", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -133,16 +134,12 @@ Deno.test("runCli decodes JSON array positional arguments", async () => {
   assertEquals(code, EXIT_OK);
   assertEquals(
     stdout.join("\n"),
-    JSON.stringify(
-      { args: [["AAPL", "MSFT"], { return: "object" }] },
-      null,
-      2,
-    ),
+    JSON.stringify({ args: [["AAPL", "MSFT"], { return: "object" }] }, null, 2),
   );
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli reads stdin args payload with module", async () => {
+test("runCli reads stdin args payload with module", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -169,11 +166,7 @@ Deno.test("runCli reads stdin args payload with module", async () => {
     stdout.join("\n"),
     JSON.stringify(
       {
-        args: [
-          ["AAPL", "MSFT"],
-          { return: "map" },
-          { validateOptions: false },
-        ],
+        args: [["AAPL", "MSFT"], { return: "map" }, { validateOptions: false }],
       },
       null,
       2,
@@ -182,7 +175,7 @@ Deno.test("runCli reads stdin args payload with module", async () => {
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli reads stdin convenience payload with CLI module", async () => {
+test("runCli reads stdin convenience payload with CLI module", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -208,11 +201,7 @@ Deno.test("runCli reads stdin convenience payload with CLI module", async () => 
     stdout.join("\n"),
     JSON.stringify(
       {
-        args: [
-          "AAPL",
-          null,
-          { validateOptions: false, validateResult: false },
-        ],
+        args: ["AAPL", null, { validateOptions: false, validateResult: false }],
       },
       null,
       2,
@@ -221,20 +210,15 @@ Deno.test("runCli reads stdin convenience payload with CLI module", async () => 
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli rejects stdin mixed with positional module args", async () => {
+test("runCli rejects stdin mixed with positional module args", async () => {
   const { output, stdout, stderr } = createOutput();
   let didReadStdin = false;
 
   const code = await runCli(
-    createRunOptions(
-      ["quote", "AAPL", "--stdin"],
-      output,
-      undefined,
-      () => {
-        didReadStdin = true;
-        return "{}";
-      },
-    ),
+    createRunOptions(["quote", "AAPL", "--stdin"], output, undefined, () => {
+      didReadStdin = true;
+      return "{}";
+    }),
   );
 
   assertEquals(code, EXIT_USAGE);
@@ -243,15 +227,12 @@ Deno.test("runCli rejects stdin mixed with positional module args", async () => 
   assert(stderr.join("\n").includes("--stdin cannot be combined"));
 });
 
-Deno.test("runCli rejects conflicting stdin and CLI modules", async () => {
+test("runCli rejects conflicting stdin and CLI modules", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
-    createRunOptions(
-      ["quote", "--stdin"],
-      output,
-      undefined,
-      () => JSON.stringify({ module: "search", args: ["AAPL"] }),
+    createRunOptions(["quote", "--stdin"], output, undefined, () =>
+      JSON.stringify({ module: "search", args: ["AAPL"] }),
     ),
   );
 
@@ -260,7 +241,7 @@ Deno.test("runCli rejects conflicting stdin and CLI modules", async () => {
   assert(stderr.join("\n").includes('stdin module "search" conflicts'));
 });
 
-Deno.test("runCli handles malformed stdin JSON without a stack trace", async () => {
+test("runCli handles malformed stdin JSON without a stack trace", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -273,7 +254,7 @@ Deno.test("runCli handles malformed stdin JSON without a stack trace", async () 
   assert(!stderr.join("\n").includes("at JSON.parse"));
 });
 
-Deno.test("runCli writes successful module results to stdout only", async () => {
+test("runCli writes successful module results to stdout only", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(createRunOptions(["quote", "AAPL"], output));
@@ -283,7 +264,7 @@ Deno.test("runCli writes successful module results to stdout only", async () => 
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli writes Map results as JSON objects", async () => {
+test("runCli writes Map results as JSON objects", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -311,7 +292,7 @@ Deno.test("runCli writes Map results as JSON objects", async () => {
   assertEquals(stderr.length, 0);
 });
 
-Deno.test("runCli treats circular result serialization as runtime error", async () => {
+test("runCli treats circular result serialization as runtime error", async () => {
   const { output, stdout, stderr } = createOutput();
   const circular: Record<string, unknown> = {};
   circular.self = circular;
@@ -327,7 +308,7 @@ Deno.test("runCli treats circular result serialization as runtime error", async 
   assert(stderr.join("\n").includes("Cannot serialize circular result"));
 });
 
-Deno.test("runCli routes library diagnostics to stderr", async () => {
+test("runCli routes library diagnostics to stderr", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(
@@ -355,7 +336,7 @@ Deno.test("runCli routes library diagnostics to stderr", async () => {
   assert(stderr.join("\n").includes("InvalidOptionsError"));
 });
 
-Deno.test("runCli treats runtime failures as runtime errors", async () => {
+test("runCli treats runtime failures as runtime errors", async () => {
   const { output, stdout, stderr } = createOutput();
 
   const code = await runCli(

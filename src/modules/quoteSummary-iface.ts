@@ -742,14 +742,13 @@ export interface Price {
   /**
    * The current state of the market for the security.
    */
-  marketState?:
-    /**
-     * - Pre-market before regular pre-market hours
-     * - postMarket* fields are "overnight"
-     * - e.g. "This price reflects trading activity during the overnight
-     *     session on the Blue Ocean ATS, available 8 PM to 4 AM ET,
-     *     Sunday through Thursday, when regular markets are closed."
-     */
+  marketState?: /**
+   * - Pre-market before regular pre-market hours
+   * - postMarket* fields are "overnight"
+   * - e.g. "This price reflects trading activity during the overnight
+   *     session on the Blue Ocean ATS, available 8 PM to 4 AM ET,
+   *     Sunday through Thursday, when regular markets are closed."
+   */
     | "PREPRE"
     /** Pre-market */
     | "PRE"

@@ -1,8 +1,8 @@
 interface Job {
   func: () => Promise<unknown>;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Stored callbacks preserve the existing heterogeneous job contract.
   resolve: (arg: any) => void;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Stored callbacks preserve the existing heterogeneous job contract.
   reject: (arg: any) => void;
 }
 
@@ -40,10 +40,8 @@ export default class Queue {
     this._lastRun = Date.now();
     job
       .func()
-      // deno-lint-ignore no-explicit-any
-      .then((result: any) => job.resolve(result))
-      // deno-lint-ignore no-explicit-any
-      .catch((error: any) => job.reject(error))
+      .then((result) => job.resolve(result))
+      .catch((error) => job.reject(error))
       .finally(() => {
         this._running--;
         this.checkQueue();
@@ -54,9 +52,10 @@ export default class Queue {
     if (this._running >= this.concurrency) return;
     if (!this._queue.length) return;
 
-    const delay = this.interval > 0 && this._lastRun > 0
-      ? Math.max(0, this._lastRun + this.interval - Date.now())
-      : 0;
+    const delay =
+      this.interval > 0 && this._lastRun > 0
+        ? Math.max(0, this._lastRun + this.interval - Date.now())
+        : 0;
 
     if (delay > 0) {
       if (!this._timer) {

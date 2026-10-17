@@ -36,7 +36,7 @@ export class ExtendedCookieJar extends CookieJar {
     setCookieHeader: string | Array<string>,
     url: string,
   ) {
-    let cookies;
+    let cookies: Array<Cookie | undefined> | undefined;
     // console.log("setFromSetCookieHeaders", setCookieHeader);
 
     if (typeof setCookieHeader === "undefined") {

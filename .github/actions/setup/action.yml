@@ -1,33 +1,41 @@
-name: Setup Deno && Node + npm
-description: Reusable setup for CI, Copilot, etc.
+name: Setup Bun and Node
+description: Exact Bun graph and Linux offline-test prerequisites (no Deno).
 runs:
   using: composite
   steps:
-    - uses: denoland/setup-deno@v2
-      with:
-        deno-version: v2.x
-        cache: true
-
-    - name: Install dependencies
-      run: deno install --frozen
-      shell: bash
-
-    - name: Setup Node.js
+    - name: Setup Node tool host
       uses: actions/setup-node@v7
       with:
-        node-version: 22
+        node-version: 24.21.0
         package-manager-cache: false
-        # No setup-node cache here: this Deno-first repo has no checked-in npm
-        # lockfile, and npm installs happen only in scoped workflow steps.
 
-    # Cache npm's download stores, not node_modules, so scoped npm installs
-    # still resolve against their own lockfiles while avoiding repeated downloads.
+    - name: Setup exact Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version-file: .bun-version
+
+    # Download stores only; never restore node_modules or another package graph.
     - uses: actions/cache@v6
       with:
         path: |
+          ~/.bun/install/cache
           ~/.npm/_cacache
-          ~/.npm/_npx
-        key: npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-${{ hashFiles('deno.json', 'deno.lock', 'release.config.mjs') }}
-        restore-keys: |
-          npm-cache-${{ runner.os }}-${{ runner.arch }}-node22-
-          npm-cache-${{ runner.os }}-${{ runner.arch }}-
+        key: bun-npm-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('.bun-version', 'bun.lock', 'tests/cloudflare/package-lock.json') }}
+
+    - name: Verify toolchain before resolution
+      run: bun run check:toolchain
+      shell: bash
+
+    - name: Install frozen root graph with normal lifecycle scripts
+      run: bun install --frozen-lockfile
+      shell: bash
+
+    - name: Install Linux sandbox prerequisites
+      run: |
+        test "$RUNNER_OS" = Linux
+        sudo apt-get update
+        sudo apt-get install --yes --no-install-recommends bubblewrap python3 libseccomp2 iproute2 util-linux
+        python3 -I -B -m unittest discover -s scripts -p ci_apparmor_test.py
+        python3 -I -B scripts/ci_apparmor.py
+        python3 scripts/ci.py guard
+      shell: bash

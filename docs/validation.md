@@ -199,12 +199,14 @@ types.
 1. Add the problematic symbol, depending on whether it affects just one or
    multiple modules, either to the appropriate `.test.ts` file for that module,
    or to
-   [tests/testSymbols.ts](https://github.com/gadicc/node-yahoo-finance2/blob/devel/tests/testSymbols.ts)
+   [tests/testSymbols.ts](../tests/testSymbols.ts)
    for symbols tested with all modules.
 
-1. Run `deno task test` or `deno task test src/modules/<moduleName>.test.ts`, as
-   relevant. The API call will be made and cached locally. The test will fail as
-   expected.
+1. Run focused strict replay with
+   `bun run test:serial -- src/modules/<moduleName>.test.ts`. A missing cache
+   fixture fails without a live fallback. Obtain any new real response only
+   through separately authorized [controlled capture](./fixture-capture.md),
+   then replay the failure; do not delete fixtures to force a request.
 
 1. **Inspect the error and update the typescript interface in the relevant
    module(s).**
@@ -265,24 +267,24 @@ export interface TopHoldings {
 
 Now let's test our fix.
 
-1. Run `deno task schema src/modules/quoteSummary-iface.ts` to rebuild the
+1. Run `bun run schema src/modules/quoteSummary-iface.ts` to rebuild the
    schema. Explicit filenames force regeneration. Include any files that import
-   changed types, or use `deno task schema --force`: the timestamp check does
+   changed types, or use `bun run schema --force`: the timestamp check does
    not track imported type dependencies.
 
-1. Re-run `deno task test` and make sure the test now passes.
+1. Re-run `bun run test:replay` and make sure the test now passes.
 
-1. (If noticed the issue for multiple symbols, you can test the rest of the
-   symbols more quickly via the CLI, with `deno task cli <module> <symbol>`.)
+1. Cover other affected symbols with focused cached tests. CLI data commands
+   make live requests and are not offline verification.
 
 1. Commit changes, e.g.
 
-   `git commit -am "fix(moduleName): make stockPosition optional (fixes #656)`
+   `git commit -am "fix(moduleName): make stockPosition optional (fixes #656)"`
 
 1. `git push`
 
 1. Go back to GitHub and GitHub will suggest to open a pull request.
 
 See
-[Repairing failures after recaching](../CONTRIBUTING.md#repairing-failures-after-recaching)
+[Repairing failures after recaching](./fixture-capture.md#review-response-drift-before-repair)
 for the full workflow, including the boundary for automated type/schema repairs.

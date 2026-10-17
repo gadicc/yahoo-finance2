@@ -257,7 +257,7 @@ export default function quoteSummary(
     "incomeStatementHistoryQuarterly",
   ];
   const usedFinanceModules = financeModules.filter((m) =>
-    queryOptionsOverrides?.modules?.includes(m)
+    queryOptionsOverrides?.modules?.includes(m),
   );
   if (usedFinanceModules.length) {
     // TODO https://github.com/gadicc/yahoo-finance2/issues/950
@@ -292,7 +292,7 @@ export default function quoteSummary(
     result: {
       definitions: resultsDefinitions,
       schemaKey: "#/definitions/QuoteSummaryResult",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         if (!result.quoteSummary) {
           throw new Error("Unexpected result: " + JSON.stringify(result));

@@ -1,11 +1,14 @@
-import { describe, it } from "@std/testing/bdd";
-import { expect } from "@std/expect";
+import { describe, it } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import {
   compactFixture,
+  parseCountryArguments,
+  main as captureCountry,
   defaultProfileId,
   geoFixtureId,
   normalizeCountryCode,
   validateProfileId,
+  validateTrace,
 } from "./capture-get-crumb-fixtures.ts";
 
 function fixture(bodyText: string) {
@@ -50,15 +53,13 @@ describe("getCrumb fixture capture helpers", () => {
       "gb-20260808-consent",
     );
 
-    for (
-      const invalid of [
-        "../gb-20260808",
-        "GB-20260808",
-        "gbr-20260808",
-        "gb-20260230",
-        "gb-202608",
-      ]
-    ) {
+    for (const invalid of [
+      "../gb-20260808",
+      "GB-20260808",
+      "gbr-20260808",
+      "gb-20260230",
+      "gb-202608",
+    ]) {
       expect(() => validateProfileId(invalid)).toThrow();
     }
     expect(() => validateProfileId("gb-20260808", "DE")).toThrow();
@@ -121,16 +122,13 @@ describe("getCrumb fixture capture helpers", () => {
 
   it("rejects unusable crumb and consent bodies", () => {
     expect(() =>
-      compactFixture(
-        "getCrumb-geo-gb-20260808-getcrumb.json",
-        fixture(""),
-      )
+      compactFixture("getCrumb-geo-gb-20260808-getcrumb.json", fixture("")),
     ).toThrow(/empty body/);
     expect(() =>
       compactFixture(
         "getCrumb-geo-gb-20260808-quote-AAPL-collectConsent.html.json",
         fixture("<html>no form</html>"),
-      )
+      ),
     ).toThrow(/no hidden inputs/);
   });
 
@@ -140,5 +138,122 @@ describe("getCrumb fixture capture helpers", () => {
       fixture("<html>large and irrelevant</html>"),
     );
     expect(compacted.response.bodyText).toBe("");
+  });
+});
+
+describe("country capture trace boundary", () => {
+  it("accepts only the finite getCrumb method, host and path tuples without query data", () => {
+    const valid = [
+      { method: "GET", host: "finance.yahoo.com", path: "/quote/AAPL" },
+      {
+        method: "GET",
+        host: "query1.finance.yahoo.com",
+        path: "/v1/test/getcrumb",
+      },
+    ];
+    expect(validateTrace(valid)).toEqual(valid);
+    for (const entry of [
+      { ...valid[0], method: "POST" },
+      { ...valid[0], host: "evil.invalid" },
+      { ...valid[0], host: "finance.yahoo.com:443" },
+      { ...valid[0], path: "/quote/AAPL?session=private" },
+      { ...valid[0], path: "/unknown" },
+      { ...valid[0], cookie: "private" },
+      { method: 3, host: "finance.yahoo.com", path: "/quote/AAPL" },
+    ])
+      expect(() => validateTrace([entry, valid[1]])).toThrow();
+    for (const value of [null, [], [valid[0]], Array(65).fill(valid[0])]) {
+      expect(() => validateTrace(value)).toThrow();
+    }
+  });
+});
+
+describe("country capture command preflight", () => {
+  it("parses bounded timing and explicit country/profile arguments without transport", () => {
+    const interval = process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+    try {
+      process.env.FETCH_DEVEL_RECACHE_INTERVAL = "0";
+      expect(
+        parseCountryArguments([
+          "--live",
+          "--country",
+          "gb",
+          "--profile=gb-20261017-control",
+          "--run-timeout",
+          "2147483647",
+        ]),
+      ).toMatchObject({
+        live: true,
+        country: "GB",
+        profile: "gb-20261017-control",
+        interval: 0,
+        runTimeout: 2147483647,
+      });
+      for (const args of [
+        [],
+        ["--country"],
+        ["--country=G"],
+        ["--country", "GB", "--profile", "de-20261017"],
+        ["--country=GB", "--country=GB"],
+        ["--help=true"],
+        ["--country=GB", "--unknown"],
+        ["--country=GB", "--profile"],
+        ["--country=GB", "--run-timeout=0"],
+        ["--country=GB", "--run-timeout=2147483648"],
+        ["--country=GB", "--run-timeout=1.5"],
+        ["--country=GB", "--run-timeout=NaN"],
+      ])
+        expect(() => parseCountryArguments(args)).toThrow();
+      for (const value of ["-1", "NaN", "Infinity", "2147483648"]) {
+        process.env.FETCH_DEVEL_RECACHE_INTERVAL = value;
+        expect(() => parseCountryArguments(["--country=GB"])).toThrow(
+          "bounded nonnegative",
+        );
+      }
+    } finally {
+      if (interval === undefined)
+        delete process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+      else process.env.FETCH_DEVEL_RECACHE_INTERVAL = interval;
+    }
+  });
+
+  it("help, invalid arguments and missing opt-in never resolve a capture root or call transport", async () => {
+    const oldMode = process.env.FETCH_DEVEL;
+    const oldInterval = process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+    const messages: string[] = [];
+    const signals = ["SIGINT", "SIGTERM"] as const;
+    const listeners = signals.map((signal) => process.listenerCount(signal));
+    let calls = 0;
+    const dependencies = {
+      root: "/not-an-existing-capture-root",
+      log: (message: string) => {
+        messages.push(message);
+      },
+      transport: async () => {
+        calls++;
+        throw Error("must never capture");
+      },
+    };
+    try {
+      process.env.FETCH_DEVEL = "";
+      process.env.FETCH_DEVEL_RECACHE_INTERVAL = "0";
+      for (const flag of ["--help", "-h"])
+        expect(await captureCountry([flag], dependencies)).toBe(0);
+      expect(await captureCountry(["--country"], dependencies)).toBe(2);
+      expect(
+        await captureCountry(["--country=GB", "--live"], dependencies),
+      ).toBe(2);
+      expect(messages.join("\n")).toContain("explicit --live opt-in");
+      expect(calls).toBe(0);
+      expect(signals.map((signal) => process.listenerCount(signal))).toEqual(
+        listeners,
+      );
+    } finally {
+      if (oldMode === undefined) delete process.env.FETCH_DEVEL;
+      else process.env.FETCH_DEVEL = oldMode;
+      if (oldInterval === undefined)
+        delete process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+      else process.env.FETCH_DEVEL_RECACHE_INTERVAL = oldInterval;
+    }
   });
 });

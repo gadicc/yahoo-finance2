@@ -1,5 +1,5 @@
-import { describe, it } from "@std/testing/bdd";
-import { expect } from "@std/expect";
+import { describe, it } from "../tests/helpers/runner.ts";
+import { expect } from "../tests/helpers/assertions.ts";
 import YahooFinance from "./index.ts";
 
 describe("YahooFinanceFetch", () => {

@@ -36,15 +36,12 @@ describe("getCrumb", () => {
       expect(crumb).toBe("haT3oykhHqZ");
     });
 
-    it(
-      "ditto with shared cookie jar (don't use it for other tests)",
-      async (t, onFinish) => {
-        const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
+    it("ditto with shared cookie jar (don't use it for other tests)", async (t, onFinish) => {
+      const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
 
-        const crumb = await _getCrumb(cookieJar, fetch, { devel }, logger);
-        expect(crumb).toBe("haT3oykhHqZ");
-      },
-    );
+      const crumb = await _getCrumb(cookieJar, fetch, { devel }, logger);
+      expect(crumb).toBe("haT3oykhHqZ");
+    });
 
     it("re-uses cookie", async (t, onFinish) => {
       const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
@@ -84,9 +81,11 @@ describe("getCrumb", () => {
         calls.push({
           url,
           cookie: new Headers(init?.headers).get("cookie"),
-          fixtureId: (init as RequestInit & {
-            devel?: { id?: string };
-          })?.devel?.id,
+          fixtureId: (
+            init as RequestInit & {
+              devel?: { id?: string };
+            }
+          )?.devel?.id,
         });
 
         if (url === "https://finance.yahoo.com/quote/AAPL") {
@@ -420,26 +419,23 @@ describe("getCrumb", () => {
       expect(_getCrumb.calls).toHaveLength(2);
     });
 
-    it(
-      "throws if depth exceeds MAX_CONSENT_REDIRECT_DEPTH",
-      async (t, onFinish) => {
-        const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
-        const jar = new ExtendedCookieJar();
-        await getCrumbClear(jar);
+    it("throws if depth exceeds MAX_CONSENT_REDIRECT_DEPTH", async (t, onFinish) => {
+      const devel = { id: "getCrumb-quote-AAPL", t, onFinish };
+      const jar = new ExtendedCookieJar();
+      await getCrumbClear(jar);
 
-        await expect(
-          _getCrumb(
-            jar,
-            fetch,
-            { devel },
-            logger,
-            "https://finance.yahoo.com/quote/TSLA",
-            devel,
-            false,
-            6,
-          ),
-        ).rejects.toThrow(/Too many consent redirects/);
-      },
-    );
+      await expect(
+        _getCrumb(
+          jar,
+          fetch,
+          { devel },
+          logger,
+          "https://finance.yahoo.com/quote/TSLA",
+          devel,
+          false,
+          6,
+        ),
+      ).rejects.toThrow(/Too many consent redirects/);
+    });
   });
 });

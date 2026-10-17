@@ -1,36 +1,36 @@
-import { parseArgs } from "@std/cli/parse-args";
+/** Compatibility entrypoint for release callers; rebuilding injects all versions. */
+import { buildNpm, parseBuildArgs } from "./build_npm.ts";
+import { realpathSync } from "node:fs";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const args = parseArgs(Deno.args, {
-  string: ["version"],
-});
-
-const version = args.version;
-
-if (!version) {
-  throw new Error("--version is required");
+export function fixVersions(args: string[]): string {
+  const options = parseBuildArgs(args);
+  if (!options.version) throw new Error("--version is required");
+  return buildNpm(options);
 }
 
-console.log("Building version", version);
-
-function updateFile(filePath: string, updateFn: (text: string) => string) {
-  const text = Deno.readTextFileSync(filePath);
-  const updatedText = updateFn(text);
-  Deno.writeTextFileSync(filePath, updatedText);
-}
-
-for (
-  const denoJs of [
-    "npm/src/deno.js",
-    "npm/esm/deno.js",
-    "npm/script/deno.js",
-  ]
-) {
-  updateFile(denoJs, (text) => {
-    // A little brittle but works for now.
-    // TODO, make sure we're inside an "export default {...}" block.
-    return text.replace(
-      /^(\s+)"version":\s*".*",$/m,
-      `$1"version": "${version}",`,
+function isMain(): boolean {
+  if (!process.argv[1]) return false;
+  try {
+    return (
+      realpathSync(resolve(process.argv[1])) ===
+      realpathSync(fileURLToPath(import.meta.url))
     );
-  });
+  } catch {
+    return false;
+  }
+}
+
+if (isMain()) {
+  try {
+    console.log(
+      `Built versioned package at ${fixVersions(process.argv.slice(2))}`,
+    );
+  } catch (error) {
+    console.error(
+      error instanceof Error ? error.message : "Version build failed",
+    );
+    process.exitCode = 1;
+  }
 }

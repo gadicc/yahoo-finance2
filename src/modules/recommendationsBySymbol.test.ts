@@ -35,13 +35,10 @@ describe("recommendationsBySymbol", () => {
   });
 
   // make sure it passes validation for multiple symbols
-  it(
-    `passes validation for multiple symbols ("AAPL" and "BMW.DE")`,
-    async (t, onFinish) => {
-      const devel = { id: `recommendationsBySymbol-AAPL-BMW.DE`, t, onFinish };
-      await yf.recommendationsBySymbol(["AAPL", "BMW.DE"], {}, { devel });
-    },
-  );
+  it(`passes validation for multiple symbols ("AAPL" and "BMW.DE")`, async (t, onFinish) => {
+    const devel = { id: `recommendationsBySymbol-AAPL-BMW.DE`, t, onFinish };
+    await yf.recommendationsBySymbol(["AAPL", "BMW.DE"], {}, { devel });
+  });
 
   it("returns an array for an array", async (t, onFinish) => {
     const devel = { id: "recommendationsBySymbol-AAPL-BMW.DE", t, onFinish };

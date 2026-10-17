@@ -340,14 +340,12 @@ export interface FundamentalsTimeSeriesFinancialsResult {
   serviceChargeOnDepositorAccounts?: number;
   totalPremiumsEarned?: number;
   otherInterestExpense?: number;
-  interestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?:
-    number;
+  interestExpenseForFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?: number;
   interestExpenseForLongTermDebtAndCapitalSecurities?: number;
   interestExpenseForShortTermDebt?: number;
   interestExpenseForDeposit?: number;
   otherInterestIncome?: number;
-  interestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?:
-    number;
+  interestIncomeFromFederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell?: number;
   interestIncomeFromDeposits?: number;
   interestIncomeFromSecurities?: number;
   interestIncomeFromLoansAndLease?: number;
@@ -784,8 +782,7 @@ export interface FundamentalsTimeSeriesCashFlowResult {
   proceedsPaymentInInterestBearingDepositsInBank?: number;
   increaseinInterestBearingDepositsinBank?: number;
   decreaseinInterestBearingDepositsinBank?: number;
-  proceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell?:
-    number;
+  proceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell?: number;
   changeInLoans?: number;
   changeInDeferredCharges?: number;
   provisionForLoanLeaseAndOtherLosses?: number;
@@ -804,11 +801,12 @@ export interface FundamentalsTimeSeriesCashFlowResult {
   AmortizationAmortizationCashFlow?: number;
 }
 
-export type FundamentalsTimeSeriesAllResult =
-  & Omit<FundamentalsTimeSeriesFinancialsResult, "TYPE">
-  & Omit<FundamentalsTimeSeriesBalanceSheetResult, "TYPE">
-  & Omit<FundamentalsTimeSeriesCashFlowResult, "TYPE">
-  & { TYPE: "ALL" };
+export type FundamentalsTimeSeriesAllResult = Omit<
+  FundamentalsTimeSeriesFinancialsResult,
+  "TYPE"
+> &
+  Omit<FundamentalsTimeSeriesBalanceSheetResult, "TYPE"> &
+  Omit<FundamentalsTimeSeriesCashFlowResult, "TYPE"> & { TYPE: "ALL" };
 
 export type FundamentalsTimeSeriesResult =
   | FundamentalsTimeSeriesBalanceSheetResult
@@ -859,7 +857,7 @@ export default function fundamentalsTimeSeries(
   symbol: string,
   queryOptionsOverrides: FundamentalsTimeSeriesOptions,
   moduleOptions?: ModuleOptionsWithValidateFalse,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Disabling result validation preserves the existing unvalidated return contract.
 ): Promise<any>;
 
 export default function fundamentalsTimeSeries(
@@ -867,15 +865,14 @@ export default function fundamentalsTimeSeries(
   symbol: string,
   queryOptionsOverrides: FundamentalsTimeSeriesOptions,
   moduleOptions?: ModuleOptions,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The implementation unifies the existing validated and unvalidated overloads.
 ): Promise<any> {
   return this._moduleExec({
     moduleName: "options",
 
     query: {
       assertSymbol: symbol,
-      url:
-        `https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/${symbol}`,
+      url: `https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/${symbol}`,
       needsCrumb: false,
       definitions,
       schemaKey: "#/definitions/FundamentalsTimeSeriesOptions",
@@ -887,7 +884,7 @@ export default function fundamentalsTimeSeries(
     result: {
       definitions,
       schemaKey: "#/definitions/FundamentalsTimeSeriesResults",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(response: any) {
         if (!response || !response.timeseries) {
           throw new Error(`Unexpected result: ${JSON.stringify(response)}`);
@@ -961,9 +958,9 @@ const processQuery = function (
   // Join the keys for the module into query types.
   const keys = Object.entries(Timeseries_Keys).reduce(
     (previous: Array<string>, [module, keys]) => {
-      if (queryOptions.module == "all") {
+      if (queryOptions.module === "all") {
         return previous.concat(keys);
-      } else if (module == queryOptions.module) {
+      } else if (module === queryOptions.module) {
         return previous.concat(keys);
       } else return previous;
     },
@@ -991,12 +988,12 @@ type TYPES = "BALANCE_SHEET" | "CASH_FLOW" | "FINANCIALS" | "ALL" | "UNKNOWN";
  * @returns Formatted response.
  */
 const processResponse = function (
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Yahoo financial statement keys are normalized before result schema validation.
   response: any,
   requestModule: string,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The transformed statement shape is checked by the selected result schema.
 ): any {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Statement data has dynamic Yahoo keys until result schema validation.
   const keyedByTimestamp: Record<string, any> = {};
   const replace = new RegExp(FundamentalsTimeSeries_Types.join("|"));
 
@@ -1022,16 +1019,19 @@ const processResponse = function (
       }
 
       const short = dataKey.replace(replace, "");
-      const key = short == short.toUpperCase()
-        ? short
-        : short[0].toLowerCase() + short.slice(1);
+      const key =
+        short === short.toUpperCase()
+          ? short
+          : short[0].toLowerCase() + short.slice(1);
       keyedByTimestamp[timestamp][key] = result[dataKey][ct].reportedValue.raw;
 
       const thisPeriodType = result[dataKey][ct].periodType;
       if (thisPeriodType) {
         if (periodType !== "UNKNOWN" && periodType !== thisPeriodType) {
           throw new Error(
-            "periodType mismatch - please report " + periodType + " " +
+            "periodType mismatch - please report " +
+              periodType +
+              " " +
               thisPeriodType,
           );
         }
@@ -1043,12 +1043,13 @@ const processResponse = function (
     }
   }
 
-  return Object.values(keyedByTimestamp).filter((entry) =>
-    Object.keys(entry).length > 1
-  ).map((entry) => ({
-    TYPE: requestModule === "all"
-      ? "ALL"
-      : requestModule.toUpperCase().replace("-", "_") as TYPES,
-    ...entry,
-  }));
+  return Object.values(keyedByTimestamp)
+    .filter((entry) => Object.keys(entry).length > 1)
+    .map((entry) => ({
+      TYPE:
+        requestModule === "all"
+          ? "ALL"
+          : (requestModule.toUpperCase().replace("-", "_") as TYPES),
+      ...entry,
+    }));
 };

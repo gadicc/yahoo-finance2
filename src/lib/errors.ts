@@ -23,13 +23,13 @@ export class NoEnvironmentError extends Error {
 
 export class FailedYahooValidationError extends Error {
   override name = "FailedYahooValidationError";
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Validation failures preserve the original unvalidated result in the public error contract.
   result: any;
   errors?: null | ValidationError[];
 
   constructor(
     message: string,
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Validation failures preserve the original unvalidated result in the public error contract.
     { result, errors }: { result: any; errors?: null | ValidationError[] },
   ) {
     super(message);
@@ -40,7 +40,7 @@ export class FailedYahooValidationError extends Error {
 
 // Index necessary to allow things like: const ErrorClass = errors[errorName];
 type ErrorsIndex = {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Dynamic error-name lookup retains the existing constructor dispatch contract.
   [key: string]: any;
 };
 

@@ -1,55 +1,77 @@
 # Agent Notes
 
-This file applies to the whole repository. For fuller contributor guidance, read
-[CONTRIBUTING.md](./CONTRIBUTING.md); this file repeats the essentials agents
-are most likely to need during edits.
+This file applies to the whole repository. Read [CONTRIBUTING.md](./CONTRIBUTING.md)
+for contributor setup and [current development guidance](./docs/development.md) and
+[testing policies](./docs/testing.md).
 
 ## Project Context
 
-- This is a Deno-first TypeScript library that is published to npm via generated
-  output.
-- Source code lives under `src/`. Tests usually sit beside the module they cover
-  and use fixtures from `tests/fixtures/http`.
-- The `npm/` directory is generated package output. Prefer editing source files
-  under `src/` and regenerate npm output only when the task explicitly calls for
-  it.
-- The default development branch is `dev`.
+- Development uses exact Bun 1.4.3; ordinary tool versions come from the root manifest.
+- Consumers require Node >=22, Bun >=1.4.3 or Deno >=2. Retain JSR distribution.
+- Source lives under `src/`, with colocated tests and `tests/fixtures/http`.
+- `npm/` is generated output; edit source and build only when needed.
+- Target the default development branch, `dev`.
+
+Deno remains a consumer/publisher runtime. Do not invoke a Deno binary for
+ordinary development, tests, builds, formatting or linting; only the dedicated
+isolated publisher may execute it.
 
 ## Commands
 
-- Run the full test suite with `deno task test`.
-- Run `deno task test:replay` for a cache-only baseline that fails on missing
-  fixtures and denies live network requests and fixture writes.
-- Run `FETCH_DEVEL=recache deno task test:recache` for a paced live batch after
-  an automatic replay-only baseline. It aborts on 429 without rolling back
-  earlier captures; generic getCrumb behavior tests remain replay-only.
-- Run a targeted test with `deno task test path/to/file.test.ts`.
-- Run serial tests with `deno task test:serial path/to/file.test.ts` when
-  debugging or limiting live Yahoo request concurrency.
-- Run schema generation with `deno task schema` after changing exported
-  interfaces marked with `@yf-schema`.
-- Use `deno fmt` and `deno lint` for formatting and linting.
-- Build npm output with `deno task build:npm` when generated npm artifacts are
-  required.
+Select Bun 1.4.3 on PATH, run `bun run check:toolchain`, then
+`bun install --frozen-lockfile` with normal lifecycle scripts. `bun.lock` alone
+owns root JavaScript dependencies. The private root manifest is not the public
+npm manifest. `tests/cloudflare/package-lock.json` belongs to the independent
+npm 10.9.9 Workers graph; never install it with Bun.
+
+- Guarded library replay: `bun run test:replay` (also `bun run test`).
+- Complete library/tooling replay: `bun run test:full`.
+- Complete CI coverage: `bun run test:coverage -- --full --run-timeout 300000`.
+- Focused replay: `bun run test:serial -- src/modules/quote.test.ts`.
+- Watch or coverage: `bun run test:watch`, `bun run test:coverage`.
+- Trusted portable library replay: `bun run test:native`, optionally with a path,
+  `--serial`, `--watch` or `--coverage`.
+- Types: `bun run typecheck`, `bun run typecheck:negative`; use
+  `bun run typecheck:incremental` for local iteration.
+- Schemas: `bun run schema`, `bun run schema:check` (no-write stale gate).
+- Style: `bun run format`, `bun run format:check`, `bun run lint`.
+- API docs: `bun run docs:gen`, `bun run docs:lint`, `bun run docs:watch`;
+  `bun run docs:open` is an explicit platform opener.
+- npm output: `bun run build:npm`; optional `--out-dir` selects a new/empty
+  external output with an existing canonical parent. Only default `npm/` may
+  replace recognized nonempty output carrying the builder's ownership marker.
+- CLI help only: `bun bin/yahoo-finance.ts --help`; data commands make live
+  requests and are not offline verification.
+
+Strict tests need Linux, Bubblewrap, Python 3, libseccomp and namespace support.
+They fail closed, clear capture controls, deny Unix/IP/VSOCK sockets and io_uring,
+and mount fixtures read-only for descendants. Exactly five reviewed tooling
+controls use an explicit separate Unix-IPC profile; new files stay strict. Direct `bun test` bypasses this policy. Explicit
+native replay provides a narrower trusted library/portable-tooling inventory,
+a read-only FMC store and fixture-byte checks, without an OS sandbox. It never
+retries a failed strict run automatically. Read [testing](./docs/testing.md) and
+[runtime security](./docs/runtime-security.md) before selecting a mode.
 
 ## Testing And Fixtures
 
-- Tests use `fetch-mock-cache` and cached HTTP fixtures for repeatability.
-- New module tests should call `setupCache()` from `tests/common.ts` when they
-  touch Yahoo HTTP responses.
-- `FETCH_DEVEL=nocache` forces live network tests without cache.
-- `FETCH_DEVEL=recache` updates cache for failing tests. Be careful with fixture
-  churn, and do not recache files ending in `.static.json` or `.fake.json`.
-- Before committing recached fixtures, inspect their HTTP status and payload. Do
-  not commit transient failures such as rate limits, consent interstitials,
-  timeouts, or upstream 5xx responses as replacements for successful fixtures.
+Tests use `setupCache()` from `tests/common.ts` and `fetch-mock-cache` replay.
+A cache miss fails; deleting a fixture or setting `FETCH_DEVEL` does not enable
+ordinary live capture. Do not delete fixtures to refresh tests.
+
+Live capture needs operator authorization, `FETCH_DEVEL=recache` and explicit
+`--live`, after a successful strict replay baseline. Follow
+[fixture capture](./docs/fixture-capture.md). Generic recache protects
+static/fake/geographic profiles; country captures are append-only. Inspect
+HTTP status/payload before retaining any capture. Never replace successful
+fixtures with 429, consent, timeout or upstream 5xx responses. Verification
+must not recache. Preserve fixture bytes and modes unless capture is authorized.
 
 ## Schema And Validation
 
 - TypeScript interfaces in module files are the source of truth for runtime
   validation schemas.
 - If a module file has `@yf-schema`, keep the generated `.schema.json` file in
-  sync with `deno task schema`.
+  sync with `bun run schema`.
 - Prefer updating typed interfaces and validation schemas together with focused
   tests that cover the Yahoo response shape involved.
 - When Yahoo adds a response field, model it as required first. Make it optional
@@ -67,11 +89,12 @@ are most likely to need during edits.
   older, static, and fake fixtures as well as the newly recached fixtures, and
   record representative filenames in the change description.
 - Edit TypeScript interfaces, then regenerate every affected schema **before**
-  retrying tests. The generator's timestamp check does not track imported type
-  dependencies. Explicit file arguments force regeneration, e.g.
-  `deno task schema src/modules/quote.ts src/modules/options.ts`; alternatively
-  run `deno task schema --force` to regenerate all schemas. Also test consumers
-  of shared schemas, such as historical after chart changes.
+  retrying tests. Every selected generation run compiles current imported types;
+  there is no source/output timestamp shortcut. Explicit file arguments select
+  consumers, e.g. `bun run schema src/modules/quote.ts src/modules/options.ts`;
+  plain `bun run schema` regenerates all schemas. `--force` remains accepted for
+  command compatibility. Also test consumers of shared schemas, such as
+  historical after chart changes.
 - Automated fixture repair is limited to interfaces, additions of observed
   strings to existing nongeneric string-literal-union aliases, and generated
   schemas. Alias edits must preserve names, modifiers, all existing literals in
@@ -88,8 +111,8 @@ are most likely to need during edits.
 
 ## Editing Guidelines
 
-- Preserve existing Deno import style, including `.ts` extensions for local
-  imports.
+- Preserve `.ts` extensions for local imports and the retained consumer runtime
+  contracts.
 - Avoid editing generated directories, dependency directories, coverage output,
   or docs output unless the task explicitly requires it.
 - Check `git status` before and after changes, and do not overwrite unrelated

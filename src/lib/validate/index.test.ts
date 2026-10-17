@@ -1,5 +1,5 @@
-import { describe, test as it } from "@std/testing/bdd";
-import { expect } from "@std/expect";
+import { describe, test as it } from "../../../tests/helpers/runner.ts";
+import { expect } from "../../../tests/helpers/assertions.ts";
 
 import validateAndCoerce, { type JSONSchema } from "./index.ts";
 const definitions = {};
@@ -8,11 +8,11 @@ function voc(
   input: Parameters<typeof validateAndCoerce>[0],
   schema: Parameters<typeof validateAndCoerce>[1],
 ) {
-  return validateAndCoerce(
-    input,
-    schema,
-    { definitions, logger: console, logObj: console.dir },
-  );
+  return validateAndCoerce(input, schema, {
+    definitions,
+    logger: console,
+    logObj: console.dir,
+  });
 }
 
 describe("validateAndCoerce", () => {

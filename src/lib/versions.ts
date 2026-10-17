@@ -29,11 +29,12 @@ export async function versionCheck() {
 
   const latestVersion = await getLatestVersion();
 
-  return (versionCheckResult = {
+  versionCheckResult = {
     current: pkg.version,
     latest: latestVersion,
     isLatest: latestVersion === pkg.version,
-  });
+  };
+  return versionCheckResult;
 }
 
 export function _clearCache() {

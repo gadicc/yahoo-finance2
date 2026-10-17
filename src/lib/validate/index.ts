@@ -168,8 +168,8 @@ export default function validateAndCoerce(
     const serializedInput = JSON.stringify(input);
     let i = 0;
     for (const subSchema of schema.anyOf as JSONSchema[]) {
-      const subSchemaPath = subSchema.$ref ||
-        schemaPath + "/anyOf/" + (i++).toString();
+      const subSchemaPath =
+        subSchema.$ref || schemaPath + "/anyOf/" + (i++).toString();
 
       _errors = [];
       validateAndCoerce(
@@ -186,9 +186,10 @@ export default function validateAndCoerce(
       // allErrors.push(subSchema);
       allErrors.push(..._errors);
       if (dataCtx?.parentData) {
-        input = serializedInput === undefined
-          ? undefined
-          : JSON.parse(serializedInput);
+        input =
+          serializedInput === undefined
+            ? undefined
+            : JSON.parse(serializedInput);
         // @ts-ignore: it's ok
         dataCtx.parentData[dataCtx.parentDataProperty] = input;
       }
@@ -231,12 +232,14 @@ export default function validateAndCoerce(
     const serializedInput = JSON.stringify(input);
     let i = 0;
     for (const subSchema of schema.oneOf as JSONSchema[]) {
-      const subSchemaPath = subSchema.$ref ||
-        schemaPath + "/oneOf/" + (i++).toString();
+      const subSchemaPath =
+        subSchema.$ref || schemaPath + "/oneOf/" + (i++).toString();
 
       _errors = [];
-      const _subSchema =
-        schemaFromSchemaOrSchemaKey(subSchema, ctx.definitions)[0];
+      const _subSchema = schemaFromSchemaOrSchemaKey(
+        subSchema,
+        ctx.definitions,
+      )[0];
 
       if (_subSchema.properties?.hasOwnProperty(discriminator)) {
         validateAndCoerce(
@@ -261,7 +264,6 @@ export default function validateAndCoerce(
       if (_errors.some((error) => error.instancePath === "/" + discriminator)) {
         // For now, let's exclude these errors
         // allErrors.push(..._errors);
-
         // It would be better to handle this at a later stage, but for now, the main
         // reason we're doing this is to make the errors easier to read so all we
         // really care about is not pushing superfluous errors. XXX
@@ -270,9 +272,10 @@ export default function validateAndCoerce(
       }
 
       if (dataCtx?.parentData) {
-        input = serializedInput === undefined
-          ? undefined
-          : JSON.parse(serializedInput);
+        input =
+          serializedInput === undefined
+            ? undefined
+            : JSON.parse(serializedInput);
         // @ts-ignore: it's ok
         dataCtx.parentData[dataCtx.parentDataProperty] = input;
       }
@@ -339,9 +342,9 @@ export default function validateAndCoerce(
       const validator = byType[schema.type];
       if (!validator) {
         throw new Error(
-          `No validator for type ${
-            JSON.stringify(schema.type)
-          } in ${instancePath}`,
+          `No validator for type ${JSON.stringify(
+            schema.type,
+          )} in ${instancePath}`,
         );
       }
       validator(

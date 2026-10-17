@@ -15,15 +15,16 @@ before submitting your pull request.
 
 ## Verification
 
-- [ ] `deno fmt --check`
-- [ ] `deno lint`
-- [ ] `deno task check`
-- [ ] Relevant tests pass with `deno task test [path/to/test.ts]`
-- [ ] Schemas were regenerated with `deno task schema`, or exported interfaces
+- [ ] `bun run format:check`
+- [ ] `bun run lint`
+- [ ] `bun run typecheck` and `bun run typecheck:negative`
+- [ ] Relevant strict replay tests pass with `bun run test:serial -- path/to/file.test.ts`
+      (or the explicitly disclosed trusted native scope)
+- [ ] Schemas were regenerated with `bun run schema` and checked with `bun run schema:check`, or exported interfaces
       are unchanged
 - [ ] HTTP fixtures were inspected, or fixtures are unchanged
-- [ ] Documentation and JSDoc were updated, or documentation is unchanged
-- [ ] Cloudflare tests pass with `deno task test:cloudflare`, or npm output and
+- [ ] Documentation/JSDoc were updated and `bun run docs:lint` passes, or unchanged
+- [ ] Cloudflare tests pass with the maintained [Workers procedure](../docs/platforms.md#cloudflare-workers), or npm output and
       runtime behavior are unchanged
 
 ## Additional notes

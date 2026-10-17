@@ -1,3 +1,4 @@
+import { test } from "../../tests/helpers/runner.ts";
 import options, { type OptionsResult } from "./options.ts";
 import type { ModuleThis } from "../lib/moduleCommon.ts";
 
@@ -22,4 +23,4 @@ function characterizeOptionsOverloads() {
 
 void characterizeOptionsOverloads;
 
-Deno.test("options overloads discriminate on validateResult", () => {});
+test("options overloads discriminate on validateResult", () => {});

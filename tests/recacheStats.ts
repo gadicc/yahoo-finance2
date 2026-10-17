@@ -32,17 +32,23 @@ export function parseRecacheStats(
     typeof value === "number" && Number.isSafeInteger(value) && value >= 0;
   if (
     Array.isArray(data) &&
-    data.every((item) =>
-      item !== null && typeof item === "object" &&
-      typeof item.endpoint === "string" && count(item.requests) &&
-      count(item.reused) &&
-      item.statuses !== null && typeof item.statuses === "object" &&
-      !Array.isArray(item.statuses) &&
-      Object.entries(item.statuses).every(([status, value]) =>
-        /^(?:\d{3}|networkError)$/.test(status) && count(value)
-      )
+    data.every(
+      (item) =>
+        item !== null &&
+        typeof item === "object" &&
+        typeof item.endpoint === "string" &&
+        count(item.requests) &&
+        count(item.reused) &&
+        item.statuses !== null &&
+        typeof item.statuses === "object" &&
+        !Array.isArray(item.statuses) &&
+        Object.entries(item.statuses).every(
+          ([status, value]) =>
+            /^(?:\d{3}|networkError)$/.test(status) && count(value),
+        ),
     )
-  ) return data;
+  )
+    return data;
 }
 
 /** Add the final cumulative snapshot from each file, avoiding repeated-hook counts. */
@@ -70,7 +76,7 @@ export function mergeRecacheStats(
     }
   }
   return [...totals.values()].sort((a, b) =>
-    a.endpoint.localeCompare(b.endpoint)
+    a.endpoint.localeCompare(b.endpoint),
   );
 }
 
@@ -85,9 +91,10 @@ export function formatRecacheStats(rows: RecacheEndpointStats[]): string {
     "| --- | ---: | ---: | --- |",
   );
   for (const row of rows) {
-    const outcomes = Object.entries(row.statuses).sort().map((
-      [status, count],
-    ) => `${status}: ${count}`).join(", ");
+    const outcomes = Object.entries(row.statuses)
+      .sort()
+      .map(([status, count]) => `${status}: ${count}`)
+      .join(", ");
     lines.push(
       `| ${row.endpoint} | ${row.requests} | ${row.reused} | ${outcomes} |`,
     );

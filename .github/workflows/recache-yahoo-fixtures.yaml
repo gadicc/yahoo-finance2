@@ -62,7 +62,7 @@ permissions:
 jobs:
   branch-policy:
     name: Validate recache branch
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -77,7 +77,7 @@ jobs:
     needs: branch-policy
     if: ${{ !inputs.repair_only }}
     name: Re-cache Yahoo fixtures
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       issues: write
@@ -118,7 +118,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          deno task test:replay 2>&1 | tee "$RUNNER_TEMP/baseline-test.log"
+          bun run test:replay 2>&1 | tee "$RUNNER_TEMP/baseline-test.log"
           status=${PIPESTATUS[0]}
           set -e
 
@@ -157,7 +157,7 @@ jobs:
           # tests/common.ts rewrites only the cache files for tests that fail
           # against fresh Yahoo responses.
           set +e
-          deno task test:recache 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
+          bun --no-env-file scripts/recache-tests.ts --live 2>&1 | tee "$RUNNER_TEMP/recache-test.log"
           status=${PIPESTATUS[0]}
           set -e
 
@@ -168,7 +168,7 @@ jobs:
           if [[ "$SIMULATE_DRIFT" == "true" ]]; then
             fixture=""
             while IFS= read -r candidate; do
-              if [[ ! "$candidate" =~ \.(static|fake)\.json$ ]]; then
+              if [[ ! "$candidate" =~ \.(static|fake)\.json$ && ! "$candidate" =~ ^tests/fixtures/http/getCrumb-geo- ]]; then
                 fixture="$candidate"
                 break
               fi
@@ -192,11 +192,10 @@ jobs:
         run: |
           # Check both logs and changed/new fixtures: a failed request may not
           # have been written to cache, or its status may be absent from logs.
-          mapfile -d '' -t fixtures < <(
-            git ls-files -z --modified --others --exclude-standard -- 'tests/fixtures/http/*.json'
-          )
-          if ! deno run --allow-read="$RUNNER_TEMP/recache-test.log,tests/fixtures/http" \
-            scripts/check-recache-rate-limits.ts "$RUNNER_TEMP/recache-test.log" "${fixtures[@]}"; then
+          # Check every status and both move endpoints before content checks.
+          python3 -I -B scripts/ci_repair.py inventory-fixtures > "$RUNNER_TEMP/recache-validation-fixtures.zlist"
+          mapfile -d '' -t fixtures < "$RUNNER_TEMP/recache-validation-fixtures.zlist"
+          if ! python3 -I -B scripts/ci_repair.py validate-recache "$RUNNER_TEMP/recache-test.log" "${fixtures[@]}"; then
             echo "::error::Recache validation failed; no fixtures will be committed or pushed."
             {
               echo "## Yahoo fixture recache aborted"
@@ -213,7 +212,8 @@ jobs:
         shell: bash
         run: |
           recache_status="${{ steps.recache.outputs.status }}"
-          mapfile -t changed_files < <(git status --porcelain=v1 | sed -E 's/^.. //; s/^.* -> //')
+          python3 -I -B scripts/ci_repair.py inventory-fixtures > "$RUNNER_TEMP/recache-inspected-fixtures.zlist"
+          mapfile -d '' -t changed_files < "$RUNNER_TEMP/recache-inspected-fixtures.zlist"
 
           if [[ "${#changed_files[@]}" -eq 0 ]]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -243,7 +243,7 @@ jobs:
           allowed_files=()
           disallowed_files=()
           for file in "${changed_files[@]}"; do
-            if [[ "$file" =~ ^tests/fixtures/http/.*\.json$ && ! "$file" =~ \.(static|fake)\.json$ ]]; then
+            if [[ "$file" =~ ^tests/fixtures/http/[A-Za-z0-9_.^=-]+\.json$ && ! "$file" =~ \.(static|fake)\.json$ && ! "$file" =~ ^tests/fixtures/http/getCrumb-geo- ]]; then
               allowed_files+=("$file")
             else
               disallowed_files+=("$file")
@@ -305,8 +305,12 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         shell: bash
         run: |
-          mapfile -t changed_fixtures < "$RUNNER_TEMP/changed-fixtures.txt"
+          python3 -I -B scripts/ci_repair.py inventory-fixtures > "$RUNNER_TEMP/recache-stage-fixtures.zlist"
+          cmp -- "$RUNNER_TEMP/recache-inspected-fixtures.zlist" "$RUNNER_TEMP/recache-stage-fixtures.zlist"
+          mapfile -d '' -t changed_fixtures < "$RUNNER_TEMP/recache-stage-fixtures.zlist"
           git add -- "${changed_fixtures[@]}"
+          python3 -I -B scripts/ci_repair.py check-staged-fixtures
+          python3 -I -B scripts/ci_repair.py validate-recache "$RUNNER_TEMP/recache-test.log" "${changed_fixtures[@]}"
           git diff --cached --stat > "$RUNNER_TEMP/fixture-diff-stat.txt"
           git diff --cached --name-only > "$RUNNER_TEMP/staged-fixtures.txt"
 
@@ -444,7 +448,7 @@ jobs:
       always() && !cancelled() && needs.branch-policy.result == 'success' && github.ref == 'refs/heads/dev' &&
       ((vars.SCHEMA_REPAIR_ENABLED == 'true' && needs.recache.result == 'success' && needs.recache.outputs.drift_sha != '') ||
        (github.event_name == 'workflow_dispatch' && inputs.repair_only))
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     environment: schema-repair
     permissions:
@@ -466,41 +470,25 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
-        with:
-          deno-version: 2.9.7
-          cache: false
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
-        with:
-          node-version: 22
-          package-manager-cache: false
+      - uses: ./.github/actions/setup-repair
 
       - name: Validate trusted inputs and prepare isolated checkout
         id: prepare
         shell: bash
         run: |
-          [[ "$REPAIR_BASE" =~ ^[0-9a-f]{40}$ ]]
-          [[ "$REPAIR_DRIFT" =~ ^[0-9a-f]{40}$ ]]
-          [[ "$REPAIR_ISSUE" =~ ^[1-9][0-9]*$ ]]
-          git merge-base --is-ancestor "$REPAIR_BASE" origin/dev
-          git merge-base --is-ancestor "$REPAIR_DRIFT" "$REPAIR_BASE"
-          # Accept only a recorded fixture-drift commit, never a fork or arbitrary code.
-          git diff-tree --no-commit-id --name-only -r "$REPAIR_DRIFT" > "$RUNNER_TEMP/drift-files.txt"
-          [[ -s "$RUNNER_TEMP/drift-files.txt" ]]
-          while IFS= read -r file; do
-            [[ "$file" =~ ^tests/fixtures/http/[A-Za-z0-9_.^=-]+\.json$ ]]
-            [[ ! "$file" =~ \.(static|fake)\.json$ ]]
-          done < "$RUNNER_TEMP/drift-files.txt"
-          # Retry on newer trusted dev code without changing the captured evidence.
-          git diff --quiet "$REPAIR_DRIFT" "$REPAIR_BASE" -- tests/fixtures/http || {
-            echo '::error::Repair base fixtures differ from the recorded drift; select the matching drift commit.'
-            exit 1
-          }
-          git worktree add --detach candidate "$REPAIR_BASE"
-          deno install --frozen
-          (cd candidate && deno install --frozen)
-          echo "base=$REPAIR_BASE" >> "$GITHUB_OUTPUT"
-          echo "issue=$REPAIR_ISSUE" >> "$GITHUB_OUTPUT"
+          python3 -I -B scripts/ci_repair.py prepare "$REPAIR_BASE" "$REPAIR_DRIFT" "$REPAIR_ISSUE"
+
+      - name: Checkout the pinned official Codex action outside the candidate
+        if: ${{ !inputs.auth_only }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: openai/codex-action
+          ref: bdf19a4a223ec2549a3e2274a0cf61556bc07675
+          path: .trusted-codex-action
+          persist-credentials: false
+      - name: Apply the reviewed one-step action adaptation
+        if: ${{ !inputs.auth_only }}
+        run: python3 -I -B scripts/ci_repair.py adapt-codex
 
       - name: Start credential-renewing federation proxy
         id: federation
@@ -519,7 +507,7 @@ jobs:
       - name: Repair with Codex
         id: codex
         if: ${{ !inputs.auth_only }}
-        uses: openai/codex-action@bdf19a4a223ec2549a3e2274a0cf61556bc07675 # v1
+        uses: ./.trusted-codex-action
         timeout-minutes: 20
         env:
           ACTIONS_ID_TOKEN_REQUEST_TOKEN: ""
@@ -528,7 +516,7 @@ jobs:
           codex-version: 0.162.1
           openai-api-key: ${{ steps.federation.outputs.gateway-token }}
           responses-api-endpoint: ${{ steps.federation.outputs.endpoint }}
-          working-directory: candidate
+          working-directory: ${{ github.workspace }}-schema-repair-candidate
           prompt-file: .github/codex/schema-repair.md
           output-schema-file: .github/codex/schema-repair-output.json
           model: ${{ env.SCHEMA_REPAIR_MODEL }}
@@ -542,7 +530,7 @@ jobs:
     # repair_only intentionally skips recache; override the implicit success()
     # check across ancestors, while still requiring a successful proposal job.
     if: ${{ !cancelled() && needs.repair.result == 'success' && needs.repair.outputs.proposal != '' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
@@ -556,40 +544,14 @@ jobs:
           ref: ${{ github.workflow_sha }}
           fetch-depth: 0
           persist-credentials: false
-      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
-        with:
-          deno-version: 2.9.7
-          cache: false
-      - name: Prepare verifier
-        run: |
-          deno install --frozen
-          git worktree add --detach candidate "$REPAIR_BASE"
-          (cd candidate && deno install --frozen)
-      - name: Check and apply schema type proposal
+      - uses: ./.github/actions/setup-repair
+      - name: Prepare compatible candidate without lifecycle execution
+        run: python3 -I -B scripts/ci_repair.py prepare "$REPAIR_BASE"
+      - name: Independently apply, regenerate, check and bundle
         id: apply
         env:
           PROPOSAL: ${{ needs.repair.outputs.proposal }}
-        run: |
-          printf '%s' "$PROPOSAL" > "$RUNNER_TEMP/proposal.json"
-          cd candidate
-          deno run --no-prompt -P=test --deny-net --allow-read --allow-write=src/modules --allow-run=git \
-            --config=../deno.json ../scripts/schema-repair.ts apply "$REPAIR_BASE" "$RUNNER_TEMP/proposal.json" \
-            > "$RUNNER_TEMP/repair-result.json"
-          echo "ready=$(jq -r .ready "$RUNNER_TEMP/repair-result.json")" >> "$GITHUB_OUTPUT"
-          jq -r '.summary, "", (.evidence[] | "- " + .)' "$RUNNER_TEMP/repair-result.json" >> "$GITHUB_STEP_SUMMARY"
-          [[ "$(jq -r .ready "$RUNNER_TEMP/repair-result.json")" == 'true' ]] || { echo '::error::Schema drift needs manual repair; see the summary.'; exit 1; }
-      - name: Independently regenerate and verify
-        if: steps.apply.outputs.ready == 'true'
-        working-directory: candidate
-        run: |
-          deno task schema --force
-          deno fmt --check src/modules
-          deno lint src/modules
-          deno task check
-          deno task test:replay
-          git diff --check
-          deno run --no-prompt -P=test --deny-net --allow-read --allow-write="$RUNNER_TEMP/verified-repair.json" --allow-run=git \
-            --config=../deno.json ../scripts/schema-repair.ts bundle "$REPAIR_BASE" "$RUNNER_TEMP/proposal.json" "$RUNNER_TEMP/verified-repair.json"
+        run: python3 -I -B scripts/ci_repair.py verify "$REPAIR_BASE" "$RUNNER_TEMP/verified-repair.json"
       - name: Upload verified files only
         if: steps.apply.outputs.ready == 'true'
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
@@ -603,7 +565,7 @@ jobs:
     name: Open draft schema repair PR
     needs: [repair, verify-repair]
     if: ${{ !cancelled() && needs.repair.result == 'success' && needs.verify-repair.result == 'success' && needs.verify-repair.outputs.ready == 'true' && !inputs.dry_run }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: write
@@ -617,23 +579,17 @@ jobs:
           ref: ${{ github.workflow_sha }}
           fetch-depth: 0
           persist-credentials: false
-      - uses: denoland/setup-deno@22d081ff2d3a40755e97629de92e3bcbfa7cf2ed # v2
-        with:
-          deno-version: 2.9.7
-          cache: false
+      - uses: ./.github/actions/setup-repair
       - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
         with:
           name: verified-schema-repair
           path: ${{ runner.temp }}/verified-repair
       - name: Restore verified data on a clean checkout
         run: |
-          deno install --frozen
-          git worktree add --detach candidate "$REPAIR_BASE"
-          cd candidate
-          deno run --no-prompt -P=test --deny-net --allow-read --allow-write=src/modules --allow-run=git \
-            --config=../deno.json ../scripts/schema-repair.ts restore "$REPAIR_BASE" "$RUNNER_TEMP/verified-repair/verified-repair.json"
+          python3 -I -B scripts/ci_repair.py prepare "$REPAIR_BASE"
+          python3 -I -B scripts/ci_repair.py restore "$REPAIR_BASE" "$RUNNER_TEMP/verified-repair/verified-repair.json"
       - name: Publish with trusted code only
-        working-directory: candidate
+        working-directory: ${{ github.workspace }}-schema-repair-candidate
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

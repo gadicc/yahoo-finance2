@@ -729,9 +729,10 @@ export default function screener(
   moduleOptions?: ModuleOptions,
 ): Promise<unknown> {
   // Accept ("scrId"), ("scrId", {opts}) and { scrIds: scrId, ...opts }
-  queryOptionsOverrides = typeof scrIdOrOverrides === "string"
-    ? { scrIds: scrIdOrOverrides, ...queryOptionsOverrides }
-    : scrIdOrOverrides;
+  queryOptionsOverrides =
+    typeof scrIdOrOverrides === "string"
+      ? { scrIds: scrIdOrOverrides, ...queryOptionsOverrides }
+      : scrIdOrOverrides;
 
   return this._moduleExec({
     moduleName: "screener",
@@ -746,7 +747,7 @@ export default function screener(
     result: {
       definitions,
       schemaKey: "#/definitions/ScreenerResult",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         // console.log(result);
         if (!result.finance) {

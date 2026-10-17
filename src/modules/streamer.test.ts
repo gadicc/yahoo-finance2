@@ -7,12 +7,10 @@ describe("streamer", () => {
 
   describe("pricing", () => {
     it("basic", () => {
-      const result = decodeTypedMarketMessage(
-        {
-          "type": "pricing",
-          "message": "CgRBQVBMFUjhmEMY4Jbi68lnKgNOTVMwCDgARTxEgT5lACBFP9gBBA==",
-        },
-      );
+      const result = decodeTypedMarketMessage({
+        type: "pricing",
+        message: "CgRBQVBMFUjhmEMY4Jbi68lnKgNOTVMwCDgARTxEgT5lACBFP9gBBA==",
+      });
       expect(result).toEqual({
         change: 0.77001953125,
         changePercent: 0.25247371196746826,

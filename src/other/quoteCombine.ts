@@ -58,7 +58,7 @@ import validateAndCoerceTypes from "../lib/validateAndCoerceTypes.ts";
 import schema from "../modules/quote.schema.json" with { type: "json" };
 const definitions = getTypedDefinitions(schema);
 
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: The cache preserves the existing heterogeneous quote-combination result contract.
 const slugMaps = new WeakMap<object, Map<string, any>>();
 
 /**
@@ -129,14 +129,16 @@ export default function quoteCombine(
   }
 
   if (
-    _queryOptionsOverrides.return && _queryOptionsOverrides.return !== "array"
+    _queryOptionsOverrides.return &&
+    _queryOptionsOverrides.return !== "array"
   ) {
     throw new Error("Can't specify other return types using quoteCombine()");
   }
   const queryOptionsOverrides =
     _queryOptionsOverrides as QuoteOptionsWithReturnArray;
 
-  const validateOptions = !moduleOptions ||
+  const validateOptions =
+    !moduleOptions ||
     moduleOptions.validateOptions === undefined ||
     moduleOptions.validateOptions === true;
 
@@ -175,9 +177,11 @@ export default function quoteCombine(
     slugMap.set(_slug, entry);
   }
 
-  let i = 1, slug = _slug;
+  let i = 1,
+    slug = _slug;
   while (
-    entry && entry.symbols.size >= this._opts.quoteCombine!.maxSymbolsPerRequest
+    entry &&
+    entry.symbols.size >= this._opts.quoteCombine!.maxSymbolsPerRequest
   ) {
     slug = `${_slug}-${i++}`;
     entry = slugMap.get(slug);
@@ -217,30 +221,32 @@ export default function quoteCombine(
       thisQuote(symbols, queryOptionsOverrides, {
         ...moduleOptions,
         validateResult: true,
-      }).then((results) => {
-        for (const result of results) {
-          const promises = entry.symbols.get(result.symbol);
-          if (!promises) continue; // symbol normalized/renamed by Yahoo; requester resolves undefined below (#150 loop)
-          for (const promise of promises) {
-            promise.resolve(result);
-            promise.resolved = true;
-          }
-        }
-
-        // Check for symbols we asked for and didn't get back,
-        // e.g. non-existant symbols (#150)
-        for (const [_symbol, promises] of entry.symbols) {
-          for (const promise of promises) {
-            if (!promise.resolved) {
-              promise.resolve(undefined);
+      })
+        .then((results) => {
+          for (const result of results) {
+            const promises = entry.symbols.get(result.symbol);
+            if (!promises) continue; // symbol normalized/renamed by Yahoo; requester resolves undefined below (#150 loop)
+            for (const promise of promises) {
+              promise.resolve(result);
+              promise.resolved = true;
             }
           }
-        }
-      }).catch((error) => {
-        for (const symbolPromiseCallbacks of entry.symbols.values()) {
-          for (const promise of symbolPromiseCallbacks) promise.reject(error);
-        }
-      });
+
+          // Check for symbols we asked for and didn't get back,
+          // e.g. non-existant symbols (#150)
+          for (const [_symbol, promises] of entry.symbols) {
+            for (const promise of promises) {
+              if (!promise.resolved) {
+                promise.resolve(undefined);
+              }
+            }
+          }
+        })
+        .catch((error) => {
+          for (const symbolPromiseCallbacks of entry.symbols.values()) {
+            for (const promise of symbolPromiseCallbacks) promise.reject(error);
+          }
+        });
     }, this._opts.quoteCombine!.debounceTime);
   });
 }

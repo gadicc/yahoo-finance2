@@ -1,15 +1,12 @@
-declare const global: Record<string, unknown> | undefined;
-
+/** The host global is shared by Node, Bun, Deno and Workers. */
 export function getRuntimeGlobal(): Record<string, unknown> {
-  if (typeof self === "object") {
-    return self as unknown as Record<string, unknown>;
-  }
-
-  if (typeof global === "object") return global;
-
-  return {};
+  return globalThis as unknown as Record<string, unknown>;
 }
-
 export function getGlobalValue(name: string): unknown {
-  return getRuntimeGlobal()[name];
+  try {
+    return getRuntimeGlobal()[name];
+  } catch {
+    // Optional compatibility globals may be accessors that are unavailable here.
+    return undefined;
+  }
 }

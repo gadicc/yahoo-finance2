@@ -5,12 +5,15 @@
 | [Tests](../.github/workflows/tests.yaml)                                   | All PRs, including drafts and bot PRs, on `opened`, `synchronize`, `reopened`, and `ready_for_review`; pushes to `dev` | Manual on any ref; reusable call from Release                                            |
 | [Release](../.github/workflows/release.yaml)                               | Pushes to configured release branches                                                                                  | Manual on an eligible release branch                                                     |
 | [Recache Yahoo fixtures](../.github/workflows/recache-yahoo-fixtures.yaml) | Daily at 03:37 UTC on `dev`                                                                                            | Manual on `dev`; repair follows detected drift or an explicit repair-only retry on `dev` |
-| [Copilot Setup Steps](../.github/workflows/copilot-setup-steps.yml)        | PRs and `dev` pushes that change its workflow, shared setup action, `deno.json`, `deno.lock`, or `release.config.mjs`  | Manual validation remains available                                                      |
+| [Copilot Setup Steps](../.github/workflows/copilot-setup-steps.yml)        | PRs and `dev` pushes that change its workflow, shared setup, Bun pins/lock/manifest, strict guard/AppArmor helpers, or Workers lock  | Manual validation remains available                                                      |
 
 Tests do not automatically run on feature-branch pushes. Opening or updating a
 PR supplies that coverage, including for existing dependency PRs. Ordinary core
 CI tests produce coverage in replay-only mode: they make no live Yahoo requests
-and cannot write fixtures. Cloudflare Workers tests use mocked HTTP responses.
+and cannot write fixtures. Cloudflare Workers tests use mocked HTTP responses. The Tests workflow also runs
+the API documentation warning gate and calls the same-commit native platform
+matrix. Native replay is an explicit trusted scope; it does not replace strict
+Linux CI.
 
 Push triggers use the workflow files on the branch being pushed. Existing
 branches pick up this policy when they merge or rebase onto the updated `dev`;
@@ -32,6 +35,19 @@ Release calls reusable Tests once before publishing. Release-branch pushes do
 not also start standalone Tests. Keep the Release trigger filters and the guard
 in [scripts/workflow-policy.mjs](../scripts/workflow-policy.mjs) aligned with
 the release configuration whenever this policy changes.
+
+Release uses the pinned Node controller and Bun frozen setup on `ubuntu-24.04`.
+It builds public npm metadata before publisher verification, validates the locked
+publisher inputs and absence of checkout-local/worktree credential keys, including
+conditional includes evaluated against merged configuration before filtering
+NUL-paired scope/key records. Read-only key queries ignore Git redirection environment and
+bind the canonical checkout; they do not audit arbitrary global credentials.
+Then semantic-release prepares the selected version. Publisher checkout explicitly
+disables credential persistence; its final release step receives `GITHUB_TOKEN`.
+`NPM_CONFIG_PROVENANCE=true` explicitly requests npm provenance; registry trust
+settings and successful OIDC exchange remain external release prerequisites.
+The private root manifest is preserved. See [release guidance](./RELEASING.md)
+for the isolated JSR boundary and the limits of local nonpublishing proof.
 
 ## Fixture maintenance and bot runs
 

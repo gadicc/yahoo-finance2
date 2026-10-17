@@ -9,8 +9,6 @@ describe("dayLosers", () => {
   });
 
   it("dailyLosers error suggests screener migration", () => {
-    expect(() => dailyLosers()).toThrow(
-      "screener({ scrIds: 'day_losers' })",
-    );
+    expect(() => dailyLosers()).toThrow("screener({ scrIds: 'day_losers' })");
   });
 });

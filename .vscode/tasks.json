@@ -3,12 +3,34 @@
   "tasks": [
     {
       "label": "schema watch",
-      "command": "deno",
-      "args": ["task", "schema", "--watch"],
+      "command": "bun",
+      "args": ["run", "schema", "--watch"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "isBackground": true,
-      "type": "shell",
+      "type": "process",
       "runOptions": {
         "runOn": "folderOpen"
+      },
+      "problemMatcher": {
+        "owner": "schema",
+        "pattern": {
+          "regexp": "^(?:\\* .*?: |Error: )?([^\\s].*?)[(:](\\d+)[,:](\\d+)(?:\\):\\s+|\\s+-\\s+)(error|warning|info)\\s+TS(\\d+)\\s*:\\s*(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 5,
+          "message": 6
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^Schema scan started\\.$",
+          "endsPattern": "^Schema (?:scan complete; watching\\.|generation failed; still watching(?:\\.|:.*))$"
+        },
+        "source": "schema",
+        "fileLocation": ["relative", "${workspaceFolder}"]
       },
       "presentation": {
         "echo": true,

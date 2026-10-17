@@ -6,9 +6,9 @@ import {
   it,
   setupCache,
 } from "../../tests/common.ts";
-import { spy } from "@std/testing/mock";
-import { afterEach, beforeEach } from "@std/testing/bdd";
-import { FakeTime } from "@std/testing/time";
+import { spy } from "../../tests/helpers/mock.ts";
+import { afterEach, beforeEach } from "../../tests/helpers/runner.ts";
+import { FakeTime } from "../../tests/helpers/time.ts";
 
 import Queue from "./queue.ts";
 import _yahooFinanceFetch, {
@@ -39,7 +39,6 @@ describe("yahooFinanceFetch", () => {
 
     // @ts-expect-error: test stubs
     beforeEach(() => (globalThis.console = fakeConsole));
-    // @ts-expect-error: actually i don't know why this is an error `:)
     afterEach(() => (globalThis.console = origConsole));
   }
 
@@ -48,9 +47,13 @@ describe("yahooFinanceFetch", () => {
     const url = "https://query2.finance.yahoo.com/v1/finance/search";
 
     return expect(
-      yahooFinance._fetch(url, {}, {
-        devel: { id: "search-noOpts", t, onFinish },
-      }),
+      yahooFinance._fetch(
+        url,
+        {},
+        {
+          devel: { id: "search-noOpts", t, onFinish },
+        },
+      ),
     ).rejects.toBeInstanceOf(errors.BadRequestError);
   });
 
@@ -63,33 +66,27 @@ describe("yahooFinanceFetch", () => {
     );
   });
 
-  it(
-    "throws HTTPError if !res.ok and no error in json result",
-    (t, onFinish) => {
-      const yahooFinance = new YahooFinance();
-      return expect(
-        yahooFinance._fetch(
-          "https://query2.finance.yahoo.com/nonExistingURL-CACHED",
-          {},
-          { devel: { id: "pageWith404andJson.fake", t, onFinish } },
-        ),
-      ).rejects.toBeInstanceOf(errors.HTTPError);
-    },
-  );
+  it("throws HTTPError if !res.ok and no error in json result", (t, onFinish) => {
+    const yahooFinance = new YahooFinance();
+    return expect(
+      yahooFinance._fetch(
+        "https://query2.finance.yahoo.com/nonExistingURL-CACHED",
+        {},
+        { devel: { id: "pageWith404andJson.fake", t, onFinish } },
+      ),
+    ).rejects.toBeInstanceOf(errors.HTTPError);
+  });
 
-  it(
-    "throws Error if we receive unknown error from json result",
-    (t, onFinish) => {
-      const yahooFinance = new YahooFinance();
-      return expect(
-        yahooFinance._fetch(
-          "https://query2.finance.yahoo.com/nonExistingURL-CACHED",
-          {},
-          { devel: { id: "pageWithUnknownError", t, onFinish } },
-        ),
-      ).rejects.toBeInstanceOf(Error);
-    },
-  );
+  it("throws Error if we receive unknown error from json result", (t, onFinish) => {
+    const yahooFinance = new YahooFinance();
+    return expect(
+      yahooFinance._fetch(
+        "https://query2.finance.yahoo.com/nonExistingURL-CACHED",
+        {},
+        { devel: { id: "pageWithUnknownError", t, onFinish } },
+      ),
+    ).rejects.toBeInstanceOf(Error);
+  });
 
   describe("concurrency", () => {
     /*

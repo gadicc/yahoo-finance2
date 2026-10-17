@@ -17,28 +17,28 @@
  * });
  */
 export interface Logger {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   info: (...args: any[]) => void;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   warn: (...args: any[]) => void;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   error: (...args: any[]) => void;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   debug: (...args: any[]) => void;
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   dir: (...args: any[]) => void;
 }
 
 export const defaultOptions: Logger = {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   info: (...args: any[]) => console.log(...args),
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   warn: (...args: any[]) => console.warn(...args),
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   error: (...args: any[]) => console.error(...args),
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   dir: (...args: any[]) => console.dir(...args),
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Logger callbacks forward arbitrary console-compatible argument lists.
   debug: (..._args: any[]) => {
     // XXX TODO ability to easily toggle this.
     // console.log(...args)

@@ -30,12 +30,18 @@ Contents:
 
 ## Quick Start
 
-For local development from this repository, replace the `npx` command in the
-examples below with:
+For local development, first follow the pinned Bun 1.4.3 setup in
+[CONTRIBUTING](../CONTRIBUTING.md), then replace the `npx` command below with:
 
 ```bash
-deno run -A /path/to/yahoo-finance2/bin/yahoo-finance-mcp.ts
+bun /path/to/yahoo-finance2/bin/yahoo-finance-mcp.ts
 ```
+
+Use `--help` for an offline command check. Starting a server is explicit;
+Yahoo data tool calls and the client smoke examples below make live requests.
+They are not routine replay verification. Read the
+[runtime trust boundaries](./runtime-security.md) for transport,
+credential and filesystem limits.
 
 For the published package, use:
 

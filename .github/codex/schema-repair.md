@@ -25,9 +25,20 @@ broaden types merely to make tests pass. Required fields come first; optionality
 needs successful fixture evidence of omission, including the recorded drift
 commit's parent fixtures. Explain that evidence using filenames.
 
-Regenerate all affected schemas before replaying tests. Explicit schema file
-arguments or --force are required for shared dependencies. Replay focused tests
-and then the full cached suite with deno task test:replay. No network requests,
+Include ordinary factual JSDoc for new or changed public data fields when the
+meaning is supported by the response and existing documentation. Describe only
+what is established; do not guess units, business meaning or optionality. Plain
+JSDoc prose is permitted within the interface repair. Schema-control tags and
+alias JSDoc changes remain forbidden. Run `bun run docs:lint` as well as types,
+style and replay checks: the independent verifier runs this same documentation
+gate before creating a verified artifact or reporting ready. An AST-allowed
+change alone is insufficient. Fix new diagnostics in the permitted source
+comments; never edit documentation warning baselines, parser compatibility
+exceptions or configuration to suppress them. If a permitted factual comment
+cannot resolve a diagnostic, return blocked with evidence for manual review.
+
+Regenerate all affected schemas before replaying tests. Use `bun run schema --force` to regenerate every shared consumer. Replay focused tests
+and then the full cached suite with bun run test:replay. No network requests,
 recaching, commits, pushes, or package publication are authorized.
 
 Return JSON matching the supplied output schema. For a successful repair, status

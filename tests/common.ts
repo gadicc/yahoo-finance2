@@ -1,146 +1,52 @@
-import { sprintf } from "@std/fmt/printf";
-import { describe, it as _it } from "@std/testing/bdd";
-export { afterAll, afterEach, beforeAll, beforeEach } from "@std/testing/bdd";
-import { type Async, expect as _expect, type Expected } from "@std/expect";
+import { describe, projectIt as it } from "./helpers/runner.ts";
+export {
+  afterAll,
+  afterEach,
+  beforeAll,
+  beforeEach,
+} from "./helpers/runner.ts";
+import { expect as _expect } from "./helpers/assertions.ts";
 import { getType } from "jest-get-type";
 import fetchCache, { fetchCacheSetup } from "./fetchCache.ts";
-import { spy } from "@std/testing/mock";
+import { spy } from "./helpers/mock.ts";
 
 import testSymbols from "./testSymbols.ts";
 import createYahooFinance from "../src/createYahooFinance.ts";
 
-const FETCH_DEVEL_NOCACHE = Deno.env.get("FETCH_DEVEL") === "nocache";
-const FETCH_DEVEL_RECACHE = Deno.env.get("FETCH_DEVEL") === "recache";
+const FETCH_DEVEL_NOCACHE = process.env["FETCH_DEVEL"] === "nocache";
+const FETCH_DEVEL_RECACHE = process.env["FETCH_DEVEL"] === "recache";
 const FETCH_DEVEL_RECACHE_CONCURRENCY = Number(
-  Deno.env.get("FETCH_DEVEL_RECACHE_CONCURRENCY") ?? 1,
+  process.env["FETCH_DEVEL_RECACHE_CONCURRENCY"] ?? 1,
 );
 
 function spyLogger(shouldLog = false) {
   return {
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     info: spy((...args: any[]) => shouldLog && console.log(...args)),
-    // deno-lint-ignore no-explicit-any
-    warn: spy((...args: any[]) =>
-      shouldLog && console.warn(555, shouldLog, ...args)
+    warn: spy(
+      // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
+      (...args: any[]) => shouldLog && console.warn(555, shouldLog, ...args),
     ),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     error: spy((...args: any[]) => shouldLog && console.error(...args)),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     dir: spy((...args: any[]) => shouldLog && console.dir(...args)),
-    // deno-lint-ignore no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: Test loggers preserve the existing console-compatible argument contract.
     debug: spy((..._args: any[]) => shouldLog && console.debug(..._args)),
     // _setShouldLog: (value: boolean) => shouldLog = value,
   };
 }
 
-type EachTable = ReadonlyArray<unknown | ReadonlyArray<unknown>>;
-// Deliberately permissive: table rows determine the callback arguments at runtime.
-// deno-lint-ignore no-explicit-any
-type EachTestFn = (...args: any[]) => void | Promise<void>;
-
-function each(table: EachTable) {
-  const _table = table.map((item) => Array.isArray(item) ? item : [item]);
-
-  return function (
-    name: string,
-    fn: EachTestFn,
-    timeout?: number,
-  ) {
-    if (timeout) throw new Error("timeout not implemented yet");
-
-    for (const row of _table) {
-      const _name = sprintf(name, ...row);
-      wrappedIt(_name, (...args) => fn(...[...row, ...args]));
-    }
-  };
-}
-
-/**
- * Wraps test functions to allow an optional callback that will be called after the test.
- * If the test passed, it will be called without any arguments.
- * If the test failed, it will be passed the `error` object as the first paramater.
- * @param suite The name of the test suite.
- * @param fn The test function.
- * @returns A wrapped test function.
- *
- * For yf2 specifically, we use this together with some fetch-mock-cache options to allow
- * us, when FETCH_DEVEL=recache, to only rewrite the cache file for failing tests.
- */
-function wrappedIt(
-  suite: string,
-  fn: (
-    t: Deno.TestContext,
-    onFinish: (cb: (error?: unknown) => void | Promise<void>) => void,
-  ) => void | Promise<void>,
-) {
-  const finishCallbacks = [] as Array<(error?: unknown) => void>;
-
-  const onFinish = (cb: (error?: unknown) => void) => {
-    finishCallbacks.push(cb);
-  };
-
-  const finish = (error?: unknown) => {
-    for (const cb of finishCallbacks) {
-      cb(error);
-    }
-  };
-
-  const wrappedFn = (t: Deno.TestContext) => {
-    let result: ReturnType<typeof fn>;
-    try {
-      result = fn(t, onFinish);
-    } catch (error) {
-      finish(error);
-      throw error;
-    }
-
-    if (result === undefined) {
-      finish();
-      return undefined;
-    }
-
-    if (result instanceof Promise) {
-      return result.then(finish).catch((error) => {
-        finish(error);
-        throw error;
-      });
-    }
-
-    throw new Error(
-      `Test "${name}" failed with unexpected result: ${result}`,
-    );
-  };
-
-  _it(suite, wrappedFn);
-}
-
-const it = wrappedIt as typeof wrappedIt & { each: typeof each };
-Object.assign(it, { each });
-
-interface ExtendedExpected<IsAsync = false> extends Expected<IsAsync> {
-  toBeType: (type: ReturnType<typeof getType>) => unknown;
-  not: IsAsync extends true ? Async<ExtendedExpected<true>>
-    : ExtendedExpected<false>;
-  resolves: Async<ExtendedExpected<true>>;
-  rejects: Async<ExtendedExpected<true>>;
-}
-
 _expect.extend({
-  toBeType(
-    context,
-    expected: ReturnType<typeof getType>,
-  ) {
-    const type = getType(context.value);
-    const pass = type === expected;
-    const toBe = context.isNot ? "to NOT be" : "to be";
+  toBeType(value: unknown, expected: ReturnType<typeof getType>) {
+    const type = getType(value);
     return {
-      pass: context.isNot ? !pass : pass,
-      message: () => `Expected "${type}" ${toBe} "${expected}"`,
+      pass: type === expected,
+      message: () => `Expected "${type}" to be "${expected}"`,
     };
   },
 });
-
-const expect = _expect<ExtendedExpected>;
+const expect = _expect;
 
 const setupCache = fetchCacheSetup;
 
@@ -164,13 +70,23 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
     const { devel, ..._init } = init || {};
     // console.log({ devel });
     if (typeof devel === "string") {
-      const id = options.idTransform?.(devel.replace(/\.json$/, "")) ??
+      const id =
+        options.idTransform?.(devel.replace(/\.json$/, "")) ??
         devel.replace(/\.json$/, "");
-      fetchCache.once({ id, ...(options.mode ? { mode: options.mode } : {}) });
+      fetchCache.once({
+        id,
+        ...(/\.(?:static|fake)$/.test(id)
+          ? { mode: "replay" as const }
+          : options.mode
+            ? { mode: options.mode }
+            : {}),
+      });
     } else if (typeof devel === "object" && "id" in devel) {
       const id = options.idTransform?.(devel.id) ?? devel.id;
       const isStatic = !!devel.id.match(/\.(static|fake)$/);
-      if (options.mode) {
+      if (isStatic) {
+        fetchCache.once({ id, mode: "replay" });
+      } else if (options.mode) {
         fetchCache.once({ id, mode: options.mode });
       } else if (FETCH_DEVEL_NOCACHE && !isStatic) {
         fetchCache.once({
@@ -199,9 +115,8 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
           // getCrumb as part of other tests, we don't want to require
           // onFinish to be set.
         } else {
-          console.trace(
-            "FETCH_DEVEL_RECACHE is set but no onFinish callback provided for test:",
-            devel,
+          console.warn(
+            "Capture request has no onFinish callback; scheduling capture",
           );
           setTimeout(() => resolve(true), 0);
         }
@@ -211,9 +126,7 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
         fetchCache.once({ id });
       }
     } else {
-      throw new Error(
-        "unexpected fetchDevel value: " + JSON.stringify(devel),
-      );
+      throw new Error("unexpected fetchDevel value: " + JSON.stringify(devel));
     }
 
     return fetch(input, init);
@@ -229,17 +142,15 @@ export function fetchDevel(options: FetchDevelOptions = {}) {
  */
 export function createTestYahooFinance<
   T extends Parameters<typeof createYahooFinance>[0],
->(
-  opts: T,
-): ReturnType<typeof createYahooFinance<T>> {
+>(opts: T): ReturnType<typeof createYahooFinance<T>> {
   const recacheQueue = FETCH_DEVEL_RECACHE
     ? {
-      queue: {
-        concurrency: FETCH_DEVEL_RECACHE_CONCURRENCY,
-        // Pace actual network fetches in fetchCache, so replay remains fast.
-        interval: 0,
-      },
-    }
+        queue: {
+          concurrency: FETCH_DEVEL_RECACHE_CONCURRENCY,
+          // Pace actual network fetches in fetchCache, so replay remains fast.
+          interval: 0,
+        },
+      }
     : {};
 
   return createYahooFinance({

@@ -54,7 +54,8 @@ export const object: Validator = function object(
           instancePath,
           schemaPath,
 
-          message: "yahooFinanceType: Number.parseFloat returned NaN: [" +
+          message:
+            "yahooFinanceType: Number.parseFloat returned NaN: [" +
             parts.join(",") +
             "]",
           // params: { schema, data },

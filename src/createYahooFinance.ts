@@ -9,33 +9,13 @@ import {
 import yahooFinanceFetch from "./lib/yahooFinanceFetch.ts";
 import moduleExec from "./lib/moduleExec.ts";
 import Notices from "./lib/notices.ts";
-import { assertSupported } from "./lib/runtime-detect.ts";
+import {
+  assertSupported,
+  MIN_SUPPORTED_RUNTIMES,
+  stdoutIsTerminal,
+} from "./lib/runtime-detect.ts";
 import defaultOptions from "./lib/options/defaults.ts";
 import { deepMerge } from "./lib/deepmerge.ts";
-import { getGlobalValue } from "./lib/runtimeGlobal.ts";
-
-const MIN_SUPPORTED_RUNTIMES: Parameters<typeof assertSupported>[0] = {
-  node: "22.0.0",
-  deno: "2.0.0",
-  bun: "1.0.0",
-  cloudflare: {
-    requireFeatures: [],
-  },
-};
-
-function stdoutIsTerminal() {
-  const deno = getGlobalValue("Deno") as
-    | { stdout?: { isTerminal?: () => boolean } }
-    | undefined;
-  if (typeof deno?.stdout?.isTerminal === "function") {
-    return deno.stdout.isTerminal();
-  }
-
-  const process = getGlobalValue("process") as
-    | { stdout?: { isTTY?: boolean } }
-    | undefined;
-  return !!process?.stdout?.isTTY;
-}
 
 /**
  * Instantiate a new YahooFinance client.
@@ -104,11 +84,11 @@ export class YahooFinance {
     // deno-coverage-ignore-start
     // @ts-ignore: relevant for ts-json-schema-generator
     this._logObj = stdoutIsTerminal()
-      // deno-lint-ignore no-explicit-any
-      ? (obj: any, opts?: { depth?: number }) =>
-        this._opts.logger!.dir(obj, { depth: opts?.depth ?? 4, colors: true })
-      // deno-lint-ignore no-explicit-any
-      : (obj: any) => this._opts.logger!.info(JSON.stringify(obj, null, 2));
+      ? // biome-ignore lint/suspicious/noExplicitAny: The internal logger accepts the existing unvalidated payload contract.
+        (obj: any, opts?: { depth?: number }) =>
+          this._opts.logger!.dir(obj, { depth: opts?.depth ?? 4, colors: true })
+      : // biome-ignore lint/suspicious/noExplicitAny: The internal logger accepts the existing unvalidated payload contract.
+        (obj: any) => this._opts.logger!.info(JSON.stringify(obj, null, 2));
     // deno-coverage-ignore-stop
 
     // Validate options after setting up logger, etc.
@@ -129,7 +109,7 @@ export class YahooFinance {
   }
 }
 
-// deno-lint-ignore no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: Custom modules retain their individual argument and return types through the factory generic.
 type ModuleMethod = (...args: any[]) => any;
 
 interface CreateYahooFinanceOptions {
@@ -139,43 +119,41 @@ interface CreateYahooFinanceOptions {
   _opts?: YahooFinanceOptions;
 }
 
-export type YahooFinanceWithModules<T extends CreateYahooFinanceOptions> =
-  & {
-    new (options?: YahooFinanceOptions):
-      & YahooFinance
-      & {
-        [K in keyof T["modules"]]: T["modules"][K];
-      };
-  }
-  & {
-    // [K in keyof T["modules"]]: T["modules"][K];
-    /** @deprecated Use `const yf = new YahooFinance(); yf.chart(...)` instead. */
-    chart(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.dailyGainers(...)` instead. */
-    dailyGainers(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.dailyLosers(...)` instead. */
-    dailyLosers(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.fundamentalsTimeSeries(...)` instead. */
-    fundamentalsTimeSeries(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.historical(...)` instead. */
-    historical(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.insights(...)` instead. */
-    insights(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.options(...)` instead. */
-    options(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.quote(...)` instead. */
-    quote(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.quoteSummary(...)` instead. */
-    quoteSummary(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.recommendationsBySymbol(...)` instead. */
-    recommendationsBySymbol(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.screener(...)` instead. */
-    screener(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.search(...)` instead. */
-    search(..._args: unknown[]): never;
-    /** @deprecated Use `const yf = new YahooFinance(); yf.trendingSymbols(...)` instead. */
-    trendingSymbols(..._args: unknown[]): never;
+export type YahooFinanceWithModules<T extends CreateYahooFinanceOptions> = {
+  new (
+    options?: YahooFinanceOptions,
+  ): YahooFinance & {
+    [K in keyof T["modules"]]: T["modules"][K];
   };
+} & {
+  // [K in keyof T["modules"]]: T["modules"][K];
+  /** @deprecated Use `const yf = new YahooFinance(); yf.chart(...)` instead. */
+  chart(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.dailyGainers(...)` instead. */
+  dailyGainers(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.dailyLosers(...)` instead. */
+  dailyLosers(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.fundamentalsTimeSeries(...)` instead. */
+  fundamentalsTimeSeries(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.historical(...)` instead. */
+  historical(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.insights(...)` instead. */
+  insights(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.options(...)` instead. */
+  options(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.quote(...)` instead. */
+  quote(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.quoteSummary(...)` instead. */
+  quoteSummary(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.recommendationsBySymbol(...)` instead. */
+  recommendationsBySymbol(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.screener(...)` instead. */
+  screener(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.search(...)` instead. */
+  search(..._args: unknown[]): never;
+  /** @deprecated Use `const yf = new YahooFinance(); yf.trendingSymbols(...)` instead. */
+  trendingSymbols(..._args: unknown[]): never;
+};
 
 /**
  * Create a new YahooFinance **class** with the given options (usually a list of modules,
@@ -208,12 +186,15 @@ export default function createYahooFinance<T extends CreateYahooFinanceOptions>(
   Object.assign(
     YahooFinance,
     Object.fromEntries(
-      Object.keys(modules).map((key) => [key, function () {
-        throw new Error(
-          "Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See " +
-            "https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.",
-        );
-      }]),
+      Object.keys(modules).map((key) => [
+        key,
+        function () {
+          throw new Error(
+            "Call `const yahooFinance = new YahooFinance()` first.  Upgrading from v2?  See " +
+              "https://github.com/gadicc/yahoo-finance2/blob/dev/docs/UPGRADING.md.",
+          );
+        },
+      ]),
     ),
   );
   return YahooFinance as YahooFinanceWithModules<T> & {

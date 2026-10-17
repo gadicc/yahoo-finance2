@@ -1,5 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
+// @deno-types="@modelcontextprotocol/sdk/server/streamableHttp"
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+// @deno-types="@modelcontextprotocol/sdk/server/webStandardStreamableHttp"
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 
 import {
@@ -19,9 +21,7 @@ export interface YahooFinanceMcpHttpOptions
   bearerToken?: string;
 }
 
-export type YahooFinanceMcpWebHandler = (
-  request: Request,
-) => Promise<Response>;
+export type YahooFinanceMcpWebHandler = (request: Request) => Promise<Response>;
 
 export type YahooFinanceMcpNodeHandler = (
   req: IncomingMessage,
@@ -41,27 +41,29 @@ function jsonRpcError(status: number, code: number, message: string) {
   };
 }
 
-function writeJsonResponse(
-  res: ServerResponse,
-  status: number,
-  body: unknown,
-) {
+function writeJsonResponse(res: ServerResponse, status: number, body: unknown) {
   res.writeHead(status, { "content-type": "application/json" });
   res.end(JSON.stringify(body));
 }
 
 function getHostName(hostHeader: string | null | undefined) {
-  const host = hostHeader?.split(",")[0]?.trim();
-  if (!host) return undefined;
-
-  if (host.startsWith("[")) {
-    const end = host.indexOf("]");
-    return end === -1 ? host : host.slice(1, end);
+  const host = hostHeader?.trim();
+  if (!host || /[\s,/@\\?#]/.test(host)) return undefined;
+  // A Host field is one authority, not a list. IPv6 literals require brackets.
+  const match = host.startsWith("[")
+    ? /^\[([^\]]+)\](?::([0-9]+))?$/.exec(host)
+    : /^([^:]+)(?::([0-9]+))?$/.exec(host);
+  if (!match || (match[2] !== undefined && Number(match[2]) > 65535)) {
+    return undefined;
   }
-
-  const colonCount = host.split(":").length - 1;
-  if (colonCount === 1) return host.split(":")[0];
-  return host;
+  try {
+    // Validate DNS/IPv4/IPv6 syntax without normalizing alternate host spellings
+    // into an allowed value (for example 127.1 into 127.0.0.1).
+    new URL(`http://${host}`);
+    return match[1].toLowerCase();
+  } catch {
+    return undefined;
+  }
 }
 
 function validateHost(
@@ -71,13 +73,14 @@ function validateHost(
   if (allowedHosts.length === 0) return undefined;
 
   const hostname = getHostName(hostHeader);
-  if (hostname && allowedHosts.includes(hostname)) return undefined;
+  if (
+    hostname &&
+    allowedHosts.some((host) => host.toLowerCase() === hostname)
+  ) {
+    return undefined;
+  }
 
-  return jsonRpcError(
-    403,
-    -32000,
-    `Invalid Host header: ${hostHeader ?? "(missing)"}`,
-  );
+  return jsonRpcError(403, -32000, "Invalid Host header.");
 }
 
 function validateOrigin(
@@ -87,7 +90,7 @@ function validateOrigin(
   if (!origin || allowedOrigins.length === 0) return undefined;
   if (allowedOrigins.includes(origin)) return undefined;
 
-  return jsonRpcError(403, -32000, `Invalid Origin header: ${origin}`);
+  return jsonRpcError(403, -32000, "Invalid Origin header.");
 }
 
 function timingSafeStringEqual(a: string, b: string): boolean {
@@ -122,9 +125,11 @@ function validateRequestHeaders(
   options: YahooFinanceMcpHttpOptions,
 ) {
   const allowedHosts = options.allowedHosts ?? DEFAULT_ALLOWED_HOSTS;
-  return validateHost(headers.get("host"), allowedHosts) ??
+  return (
+    validateHost(headers.get("host"), allowedHosts) ??
     validateOrigin(headers.get("origin"), options.allowedOrigins ?? []) ??
-    validateBearerToken(headers.get("authorization"), options.bearerToken);
+    validateBearerToken(headers.get("authorization"), options.bearerToken)
+  );
 }
 
 function validateNodeRequestHeaders(
@@ -137,9 +142,20 @@ function validateNodeRequestHeaders(
     return Array.isArray(value) ? value[0] : value;
   };
 
-  return validateHost(header("host"), allowedHosts) ??
+  // IncomingMessage.headers discards duplicate Host fields by default. Inspect
+  // rawHeaders as well, before a permitted first value can hide another field.
+  const hostCount = req.rawHeaders.filter(
+    (_, index) =>
+      index % 2 === 0 && req.rawHeaders[index].toLowerCase() === "host",
+  ).length;
+  const host = req.headers.host;
+  const ambiguousHost =
+    hostCount > 1 || (Array.isArray(host) && host.length > 1);
+  return (
+    validateHost(ambiguousHost ? undefined : header("host"), allowedHosts) ??
     validateOrigin(header("origin"), options.allowedOrigins ?? []) ??
-    validateBearerToken(header("authorization"), options.bearerToken);
+    validateBearerToken(header("authorization"), options.bearerToken)
+  );
 }
 
 async function closeServer(server: { close: () => Promise<void> | void }) {
@@ -199,10 +215,16 @@ export function createYahooFinanceMcpNodeHandler(
     req: IncomingMessage,
     res: ServerResponse,
   ) {
-    const host = Array.isArray(req.headers.host)
-      ? req.headers.host[0]
-      : req.headers.host ?? "127.0.0.1";
-    const url = new URL(req.url ?? "/", `http://${host}`);
+    let url: URL;
+    try {
+      // Routing does not depend on an untrusted Host field, even when the
+      // caller deliberately disables Host validation with allowedHosts: [].
+      url = new URL(req.url ?? "/", "http://127.0.0.1");
+    } catch {
+      const error = jsonRpcError(400, -32600, "Invalid request target.");
+      writeJsonResponse(res, error.status, error.body);
+      return;
+    }
 
     if (url.pathname !== path) {
       res.writeHead(404, { "content-type": "text/plain" });

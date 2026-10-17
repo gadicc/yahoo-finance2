@@ -1,0 +1,33 @@
+{
+  "typeOnly": {
+    "src/lib/commonTypes.ts": {
+      "sha256": "63dbe7bc18a38c657ef607cbe17928268593db21a396c4eb8f6da1b3af6534f9",
+      "reason": "Pure TypeScript declarations; no runtime emission. Hash binds this exception to reviewed source bytes."
+    },
+    "src/lib/moduleCommon.ts": {
+      "sha256": "452836819306616c8ecafb327ae72800661f14ba5563859b6c080618ccb64e55",
+      "reason": "Pure TypeScript declarations; no runtime emission. Hash binds this exception to reviewed source bytes."
+    }
+  },
+  "externalControls": {
+    "scripts/check-release-notes.mjs": "Executed by its explicit Node gate; validates semantic-release rendering rather than exporting an import-safe API.",
+    "scripts/check-toolchain.mjs": "Executed by normal install hooks and explicit toolchain controls; deliberately exits on incompatible runtimes.",
+    "scripts/ci.py": "Python LCOV/Workers/kernel controls are validated by Python tests and actual guard/Workers jobs; Bun does not instrument Python.",
+    "scripts/ci_apparmor.py": "Privileged disposable-runner provisioner; Python counterfactuals and actual hosted preflight are separate evidence.",
+    "scripts/ci_repair.py": "Python trusted repair orchestration and security controls have separate Python tests; Bun cannot instrument Python.",
+    "scripts/docs/worker.ts": "Worker entrypoint is exercised across the actual child boundary; direct generateModel controls instrument its implementation.",
+    "scripts/native-platform-bootstrap.mjs": "Fresh native installation entrypoint runs before dependencies exist; actual native matrix retains process logs.",
+    "scripts/native-platform-process.ts": "Executed as a private native child driver; actual cross-platform process controls and framing tests retain evidence.",
+    "scripts/publisher/check-policy.mjs": "Standalone isolated publisher policy command; ordinary replay does not execute this entrypoint or Deno. Dedicated publisher evidence is separate from Bun line coverage.",
+    "scripts/publisher/observe-pty.py": "Isolated publisher PTY observations execute separately; Bun cannot instrument Python.",
+    "scripts/recache/preload.ts": "Capture-only child preload runs in brokered synthetic integration controls; never imported into the replay parent.",
+    "scripts/semantic-release-jsr.mjs": "Lifecycle entrypoint routes isolated publisher hooks; modeled hook controls and publisher rehearsal cover the implementation.",
+    "scripts/start-openai-wif-proxy.mjs": "Privileged workflow-only launcher; implementation has separate controls, but launcher startup is not instrumented or established by those unit tests.",
+    "scripts/testing/native-platform-preload.mjs": "Native control preload binds test environment before imports; exercised by the actual native matrix.",
+    "scripts/testing/native-preload.ts": "Explicit native replay preload installs the read-only fixture store before imports; actual native matrix verifies it.",
+    "scripts/testing/offline.py": "Actual strict seccomp/mount/namespace preflight plus Python controls; Bun cannot instrument Python.",
+    "scripts/testing/sandbox.py": "Capture child sandbox executes under brokered synthetic integration controls; Bun cannot instrument Python.",
+    "scripts/testing/workers-loopback-probe.py": "Actual Workers kernel/network-boundary probe; Bun cannot instrument Python.",
+    "scripts/testing/workers-loopback.py": "Actual bounded Workers supervisor; Bun cannot instrument Python."
+  }
+}

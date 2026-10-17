@@ -1,0 +1,52 @@
+# Preserve the original whole-report gates while exposing each production area.
+# Ratios are Bun line coverage, not equivalent Deno statement/branch coverage.
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 0
+        informational: false
+        if_not_found: failure
+      library:
+        target: auto
+        threshold: 0
+        if_not_found: failure
+        paths: ["src/**"]
+      cli:
+        # The Deno baseline did not measure bin/. Inherit its existing global
+        # requirement rather than choosing a target from today's CLI result.
+        # Bootstrap: Codecov lacks bin/ on the base. This also permits missing
+        # head in this service only; mandatory CI independently requires every
+        # CLI source and the exact 78.55% head floor before artifact/upload.
+        # Restore failure once dev has a measured CLI baseline.
+        target: 78.55%
+        threshold: 0
+        if_not_found: success
+        paths: ["bin/**"]
+      tooling:
+        target: auto
+        threshold: 0
+        if_not_found: failure
+        paths: ["scripts/**", "release.config.mjs"]
+    patch:
+      default:
+        target: auto
+        threshold: 0
+        informational: false
+        if_not_found: failure
+      library:
+        target: auto
+        threshold: 0
+        if_not_found: failure
+        paths: ["src/**"]
+      cli:
+        target: 78.55%
+        threshold: 0
+        if_not_found: failure
+        paths: ["bin/**"]
+      tooling:
+        target: auto
+        threshold: 0
+        if_not_found: failure
+        paths: ["scripts/**", "release.config.mjs"]

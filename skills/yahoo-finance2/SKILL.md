@@ -13,7 +13,7 @@ Use this skill when a task involves `yahoo-finance2`, including:
 - Choosing between `quote`, `chart`, `historical`, `quoteSummary`,
   `fundamentalsTimeSeries`, `screener`, `options`, or other modules.
 - Using the package CLI or bundled MCP server.
-- Modifying this repository's Deno source, tests, generated schemas, docs, or
+- Modifying this repository's TypeScript source, tests, generated schemas, docs, or
   npm output build.
 
 This is an unofficial Yahoo Finance client. Do not describe it as a supported
@@ -113,8 +113,15 @@ details.
 
 ## Contributing in this repository
 
-Read `AGENTS.md` and `CONTRIBUTING.md` first. This repo is Deno-first
-TypeScript; npm output is generated.
+Read `AGENTS.md` and `CONTRIBUTING.md` first. Development uses exact Bun 1.4.3;
+ordinary tools derive from the root manifest. npm output is generated. Consumers require
+Node >=22, Bun >=1.4.3 or Deno >=2, with JSR retained. A Deno binary is permitted
+only inside the isolated publisher, never ordinary development or validation.
+
+Select Bun 1.4.3 on PATH, run `bun run check:toolchain`, then
+`bun install --frozen-lockfile` with normal hooks. Root dependencies use only
+`bun.lock`; the private root manifest is not the public npm manifest. Workers
+retain their independent npm 10.9.9 graph; follow `docs/platforms.md`.
 
 Edit source files under `src/`, not generated files under `npm/`, unless the
 task explicitly asks for generated output. Preserve local `.ts` import
@@ -133,7 +140,7 @@ Public module files usually follow this pattern:
 When changing an exported interface in a file marked `@yf-schema`, run:
 
 ```bash
-deno task schema
+bun run schema
 ```
 
 If adding a module, wire it through `src/modules/index.ts`, `deno.json` exports,
@@ -142,20 +149,26 @@ exposure only when the module should be user-facing there.
 
 ## Tests and fixtures
 
-Run all tests with:
+Run the maintained library tier with `bun run test:replay`. Run the complete
+library/tooling inventory with:
 
 ```bash
-deno task test
+bun run test:full
 ```
 
 Run focused tests with:
 
 ```bash
-deno task test src/modules/quote.test.ts
+bun run test:serial -- src/modules/quote.test.ts
 ```
 
-Use `deno task test:serial src/modules/quote.test.ts` when debugging or limiting
-live Yahoo request concurrency.
+Use focused/serial replay for iteration. Full strict validation also covers
+compiler/package/subprocess/kernel tooling, so its timing is not the original
+1,319-test/43-file benchmark. Strict replay requires Linux, Bubblewrap, Python 3,
+libseccomp and namespace support, and fails closed. Direct `bun test` bypasses
+that boundary. Explicit `bun run test:native` offers narrower trusted portable
+replay with a read-only FMC store and fixture-byte checks, without an OS sandbox
+or automatic retry. See `docs/testing.md`.
 
 Tests that touch Yahoo HTTP responses should call `setupCache()` from
 `tests/common.ts`. Prefer the existing pattern:
@@ -175,32 +188,56 @@ describe("quote", () => {
 });
 ```
 
-Use fixture ids that match the module and scenario. `FETCH_DEVEL=nocache` forces
-live network calls. `FETCH_DEVEL=recache` refreshes cache files for failing
-tests. Do not recache fixtures ending in `.static.json` or `.fake.json`; they
-are intentionally stable or synthetic.
+Use fixture ids that match the module and scenario. Replay misses fail; neither
+deleting a fixture nor inherited `FETCH_DEVEL` enables ordinary live capture.
+Live recache/country capture is separately authorized work with both
+`FETCH_DEVEL=recache` and explicit `--live`, after a strict baseline. Follow
+`docs/fixture-capture.md`; generic recache protects
+static/fake/geographic fixtures. Never retain rate limits, consent, timeout or
+upstream 5xx responses as replacements for successful fixtures.
 
-When fixing validation failures, inspect the validation error path and cached
-Yahoo response, update the TypeScript interface first, run schema generation,
-then run the focused test.
+Inspect successful response evidence before changing interfaces. Model new fields
+as required first; optionality needs successful omission evidence in the same
+shape, including older/static/fake fixtures. Distinguish absence from null or
+empty containers. Automated repairs only change interfaces, add distinct observed
+plain strings to existing nongeneric string-literal-union aliases, and regenerate
+schemas. Preserve alias names/modifiers and every old literal in order, including
+duplicates. Other edits need manual review; if runtime/assertion/fixture changes
+are required, report evidence and await operator feedback for that repair while
+continuing independent type/schema work. Never disable validation to pass tests.
+
+Regenerate all affected schemas before replay, including imported-type consumers:
+use explicit `bun run schema` paths or `bun run schema --force`. Replay focused
+cached tests, then the full suite; inspect generated diffs and Git status without
+recaching during verification.
 
 ## Build, lint, and release surface
 
 Use these checks as appropriate:
 
 ```bash
-deno fmt
-deno lint
-deno task test
-deno task build:npm
+bun run format:check
+bun run lint
+bun run typecheck
+bun run typecheck:negative
+bun run schema:check
+bun run docs:lint
+bun run test:full
+bun run build:npm
 ```
 
 `scripts/build_npm.ts` controls the generated npm package metadata, binaries,
-dependencies, copied files, and package keywords. Keep npm-package changes there
+dependencies, copied files, and package keywords. `bun run format` writes style
+changes. New/empty outside build outputs need an existing canonical parent;
+nonempty default output requires the builder ownership marker. Keep package changes there
 unless explicitly regenerating `npm/`.
 
 Commit messages should use Conventional Commits with a scope, such as
-`fix(quote): handle missing extended market fields`.
+`fix(quote): handle missing extended market fields`. Preserve the agent coauthor
+footer in `AGENTS.md`. Release/publisher work
+has separate authorization; follow `docs/RELEASING.md` and do not run live CLI,
+authentication or publication as routine verification. CLI/MCP trust limits are
+in `docs/runtime-security.md`.
 
 ## Agent skill installation
 

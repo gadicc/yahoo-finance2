@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.tools.json",
+  "include": [
+    "src/**/*.ts",
+    "bin/**/*.ts",
+    "scripts/**/*.ts",
+    "scripts/**/*.mjs",
+    "tests/**/*.ts",
+    "tests/package/*.mjs",
+    "release.config.mjs"
+  ]
+}

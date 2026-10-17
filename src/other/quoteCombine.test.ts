@@ -1,5 +1,5 @@
-import { afterAll } from "@std/testing/bdd";
-import { FakeTime } from "@std/testing/time";
+import { afterAll } from "../../tests/helpers/runner.ts";
+import { FakeTime } from "../../tests/helpers/time.ts";
 import {
   createTestYahooFinance,
   describe,
@@ -24,7 +24,8 @@ describe("quoteCombine", () => {
   it("works with a single result", (t, onFinish) => {
     const devel = { id: "quoteCombine-AAPL", t, onFinish };
 
-    const promise = yf.quoteCombine("AAPL", undefined, { devel })
+    const promise = yf
+      .quoteCombine("AAPL", undefined, { devel })
       .then((result) => {
         expect(result.symbol).toBe("AAPL");
       });
@@ -56,17 +57,21 @@ describe("quoteCombine", () => {
     });
 
     const promise = Promise.all([
-      yf.quoteCombine("AAPL", undefined, {
-        devel: { id: "quoteCombine-AAPL", t, onFinish },
-      }).then((result) => {
-        expect(result.symbol).toBe("AAPL");
-      }),
+      yf
+        .quoteCombine("AAPL", undefined, {
+          devel: { id: "quoteCombine-AAPL", t, onFinish },
+        })
+        .then((result) => {
+          expect(result.symbol).toBe("AAPL");
+        }),
 
-      yf.quoteCombine("TSLA", undefined, {
-        devel: { id: "quoteCombine-TSLA", t, onFinish },
-      }).then((result) => {
-        expect(result.symbol).toBe("TSLA");
-      }),
+      yf
+        .quoteCombine("TSLA", undefined, {
+          devel: { id: "quoteCombine-TSLA", t, onFinish },
+        })
+        .then((result) => {
+          expect(result.symbol).toBe("TSLA");
+        }),
     ]).then(() => {});
 
     fakeTime.runAll();
@@ -75,7 +80,8 @@ describe("quoteCombine", () => {
 
   it("resolves undefined for single missing symbol", (t, onFinish) => {
     const devel = { id: "quoteCombine-NONEXIST", t, onFinish };
-    const promise = yf.quoteCombine("NONEXIST", undefined, { devel })
+    const promise = yf
+      .quoteCombine("NONEXIST", undefined, { devel })
       .then((result) => {
         expect(result).toBe(undefined);
       });
@@ -83,66 +89,56 @@ describe("quoteCombine", () => {
     return promise;
   });
 
-  it(
-    "resolves undefined for missing symbols + resolves found",
-    (t, onFinish) => {
-      const opts = { devel: { id: "quoteCombine-AAPL-NONEXIST", t, onFinish } };
-      const promise = Promise.all([
-        yf.quoteCombine("AAPL", undefined, opts).then((result) => {
-          expect(result.symbol).toBe("AAPL");
-        }),
+  it("resolves undefined for missing symbols + resolves found", (t, onFinish) => {
+    const opts = { devel: { id: "quoteCombine-AAPL-NONEXIST", t, onFinish } };
+    const promise = Promise.all([
+      yf.quoteCombine("AAPL", undefined, opts).then((result) => {
+        expect(result.symbol).toBe("AAPL");
+      }),
 
-        yf.quoteCombine("NONEXIST", undefined, opts).then((result) => {
-          expect(result).toBe(undefined);
-        }),
-      ]).then(() => {});
+      yf.quoteCombine("NONEXIST", undefined, opts).then((result) => {
+        expect(result).toBe(undefined);
+      }),
+    ]).then(() => {});
 
-      fakeTime.runAll();
-      return promise;
-    },
-  );
+    fakeTime.runAll();
+    return promise;
+  });
 
   it("throws if symbol arg is not a single string", () => {
     // @ts-expect-error: testing invalid runtime value
     expect(() => yf.quoteCombine([])).toThrow(/string/);
   });
 
-  it(
-    "handles unmatched/normalized symbol from Yahoo without throwing and resolves undefined",
-    (t, onFinish) => {
-      const opts = {
-        devel: { id: "quoteCombine-normalized-symbol.fake", t, onFinish },
-      };
-      const promise = yf.quoteCombine("aapl", undefined, opts)
-        .then((result) => {
-          expect(result).toBe(undefined);
-        });
+  it("handles unmatched/normalized symbol from Yahoo without throwing and resolves undefined", (t, onFinish) => {
+    const opts = {
+      devel: { id: "quoteCombine-normalized-symbol.fake", t, onFinish },
+    };
+    const promise = yf.quoteCombine("aapl", undefined, opts).then((result) => {
+      expect(result).toBe(undefined);
+    });
 
-      fakeTime.runAll();
-      return promise;
-    },
-  );
+    fakeTime.runAll();
+    return promise;
+  });
 
-  it(
-    "scopes quoteCombine debounce map to the instance",
-    async (t, onFinish) => {
-      const yf1 = new YahooFinance();
-      const yf2 = new YahooFinance();
+  it("scopes quoteCombine debounce map to the instance", async (t, onFinish) => {
+    const yf1 = new YahooFinance();
+    const yf2 = new YahooFinance();
 
-      const opts1 = { devel: { id: "quoteCombine-AAPL", t, onFinish } };
-      const opts2 = { devel: { id: "quoteCombine-TSLA", t, onFinish } };
+    const opts1 = { devel: { id: "quoteCombine-AAPL", t, onFinish } };
+    const opts2 = { devel: { id: "quoteCombine-TSLA", t, onFinish } };
 
-      const p1 = yf1.quoteCombine("AAPL", undefined, opts1).then((res) => {
-        expect(res.symbol).toBe("AAPL");
-      });
-      const p2 = yf2.quoteCombine("TSLA", undefined, opts2).then((res) => {
-        expect(res.symbol).toBe("TSLA");
-      });
+    const p1 = yf1.quoteCombine("AAPL", undefined, opts1).then((res) => {
+      expect(res.symbol).toBe("AAPL");
+    });
+    const p2 = yf2.quoteCombine("TSLA", undefined, opts2).then((res) => {
+      expect(res.symbol).toBe("TSLA");
+    });
 
-      fakeTime.runAll();
-      await Promise.all([p1, p2]);
-    },
-  );
+    fakeTime.runAll();
+    await Promise.all([p1, p2]);
+  });
 
   it("throws on quote() error", (t, onFinish) => {
     const opts = { devel: { id: "weirdJsonResult.fake", t, onFinish } };

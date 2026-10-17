@@ -269,7 +269,8 @@ export default function recommendationsBySymbol(
     moduleName: "recommendationsBySymbol",
 
     query: {
-      url: "https://${YF_QUERY_HOST}/v6/finance/recommendationsbysymbol/" +
+      url:
+        "https://${YF_QUERY_HOST}/v6/finance/recommendationsbysymbol/" +
         symbols,
       definitions,
       schemaKey: "#/definitions/RecommendationsBySymbolOptions",
@@ -280,7 +281,7 @@ export default function recommendationsBySymbol(
     result: {
       definitions,
       schemaKey: "#/definitions/RecommendationsBySymbolResponseArray",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(result: any) {
         if (!result.finance) {
           throw new Error("Unexpected result: " + JSON.stringify(result));

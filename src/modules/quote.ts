@@ -67,7 +67,7 @@ const definitions = getTypedDefinitions(schema);
  * including stocks, ETFs, options, cryptocurrencies, etc.
  */
 export interface QuoteBase {
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The existing public quote base permits extra Yahoo fields across asset classes.
   [key: string]: any;
 
   /** Language code for the quote data, e.g., "en-US" */
@@ -808,7 +808,7 @@ export default function quote(
   query: string | string[],
   queryOptionsOverrides?: QuoteOptions,
   moduleOptions?: ModuleOptionsWithValidateFalse,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: Disabling result validation preserves the existing unvalidated return contract.
 ): Promise<any>;
 
 /**
@@ -886,7 +886,7 @@ export default async function quote(
   query: string | string[],
   queryOptionsOverrides?: QuoteOptions,
   moduleOptions?: ModuleOptions,
-  // deno-lint-ignore no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: The implementation unifies the existing validated and unvalidated overloads.
 ): Promise<any> {
   const symbols = typeof query === "string" ? query : query.join(",");
   const returnAs = queryOptionsOverrides && queryOptionsOverrides.return;
@@ -916,7 +916,7 @@ export default async function quote(
     result: {
       definitions,
       schemaKey: "#/definitions/QuoteResponseArray",
-      // deno-lint-ignore no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: The raw Yahoo envelope is normalized before result schema validation.
       transformWith(rawResult: any) {
         let results = rawResult?.quoteResponse?.result;
 
@@ -926,7 +926,7 @@ export default async function quote(
 
         // Filter out quoteType==='NONE'
         // So that delisted stocks will be undefined just like symbol-not-found
-        // deno-lint-ignore no-explicit-any
+        // biome-ignore lint/suspicious/noExplicitAny: Delisted raw entries are filtered before result schema validation.
         results = results.filter((quote: any) => quote?.quoteType !== "NONE");
 
         return results;
@@ -941,7 +941,7 @@ export default async function quote(
       case "array":
         return results as Quote[];
       case "object": {
-        // deno-lint-ignore no-explicit-any
+        // biome-ignore lint/suspicious/noExplicitAny: The symbol-keyed result preserves the existing public object-return contract.
         const object = {} as any;
         for (const result of results) object[result.symbol] = result;
         return object; // TODO: type
