@@ -22,7 +22,7 @@ import {
   testBatches,
   trustedIpcTests,
 } from "./testing/inventory.ts";
-import { fingerprint, parseArguments } from "./test.ts";
+import { fingerprint, parseArguments, main as testMain } from "./test.ts";
 
 const launcher = new URL("./test.ts", import.meta.url).href;
 const guard = fileURLToPath(new URL("./testing/offline.py", import.meta.url));
@@ -712,3 +712,52 @@ test("watch reruns after config, executable and root policy changes", async () =
   expect(result.output).toContain("ROOT_VALUE_policy-one");
   expect(result.output).toContain("ROOT_VALUE_policy-two");
 });
+
+test("direct launcher publishes only successful aggregate coverage and restores its signal handlers", async () => {
+  using space = workspace();
+  space.put("src/value.ts", "export const value = () => 7;");
+  space.put(
+    "src/strict.test.ts",
+    "import {test,expect} from 'bun:test';import {value} from './value.ts';test('strict direct leaf',()=>expect(value()).toBe(7));",
+  );
+  space.put(
+    "scripts/recache-broker.test.ts",
+    "import {test,expect} from 'bun:test';import {value} from '../src/value.ts';test('ipc direct leaf',()=>expect(value()).toBe(7));",
+  );
+  const originalError = console.error;
+  const diagnostics: string[] = [];
+  const signals = ["SIGINT", "SIGTERM"] as const;
+  const listeners = signals.map((signal) => process.listenerCount(signal));
+  const coverage = join(space.root, "coverage/lcov.info");
+  try {
+    console.error = (...args) => {
+      diagnostics.push(args.map(String).join(" "));
+    };
+    expect(
+      await testMain(["--full", "--coverage", "--serial"], space.root),
+    ).toBe(0);
+    const valid = readFileSync(coverage, "utf8");
+    expect(valid).toContain("SF:src/value.ts");
+    expect(valid).toContain("DA:");
+    expect(valid).not.toMatch(/^FN/m);
+    space.put(
+      "scripts/recache-broker.test.ts",
+      "import {test} from 'bun:test';test('intentional failing leaf',()=>{throw Error('CONTROLLED_DIRECT_FAILURE');});",
+    );
+    expect(await testMain(["--full", "--coverage"], space.root)).toBe(1);
+    expect(() => readFileSync(coverage)).toThrow();
+    expect(
+      await testMain(
+        ["--coverage", "--filter", "no-such-test-file"],
+        space.root,
+      ),
+    ).toBe(2);
+    expect(diagnostics.join("\n")).toContain("No test files selected");
+    expect(() => readFileSync(coverage)).toThrow();
+    expect(signals.map((signal) => process.listenerCount(signal))).toEqual(
+      listeners,
+    );
+  } finally {
+    console.error = originalError;
+  }
+}, 30000);

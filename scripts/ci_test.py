@@ -261,7 +261,7 @@ class CoverageCombineTests(unittest.TestCase):
         self.strict = self.root / "strict"
         self.native = [self.root / ("proof-" + phase) / "lcov.info" for phase in ("install", "replay", "package")]
         self.output = self.root / "combined"
-        self.strict_data = "".join(report(name, count=0).replace("FNF:1\nFNH:1\n", "") for name in sorted(self.names))
+        self.strict_data = "".join(report(name, count=int(name.startswith("bin/"))).replace("FNF:1\nFNH:1\n", "") for name in sorted(self.names))
         self.strict.write_text(self.strict_data)
         for index, path in enumerate(self.native):
             path.parent.mkdir()
@@ -300,7 +300,7 @@ class CoverageCombineTests(unittest.TestCase):
     def test_real_raw_and_merged_inputs_union_lines_without_invented_functions(self):
         result = self.combine()
         self.assertEqual(result["sources"], len(self.names))
-        self.assertEqual(result["linesHit"], 2)
+        self.assertEqual(result["linesHit"], 4)
         self.assertIsNone(result["functions"])
         self.assertNotIn("FN", self.output.read_text())
         self.assertIn("SF:src/lib/runtime-detect.ts\nDA:1,3", self.output.read_text())
@@ -377,6 +377,74 @@ class CoverageCombineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "outside its measured proof closure"):
             self.combine()
         self.assertFalse(self.output.exists())
+
+
+
+class CoverageFloorAndDiffTests(unittest.TestCase):
+    def test_cli_exact_floor_one_below_and_empty_scope(self):
+        for sources, lines, hits, valid in ((2, 10000, 7855, True), (2, 10000, 7854, False), (0, 0, 0, False), (2, 0, 0, False)):
+            summary = {"areas": {"cli": {"sources": sources, "lines": lines, "linesHit": hits}}}
+            with self.subTest(summary=summary):
+                if valid:
+                    self.assertEqual(ci.require_cli_floor(summary)["cliFloorPercent"], "78.55")
+                else:
+                    with self.assertRaises(ValueError):
+                        ci.require_cli_floor(summary)
+
+    def test_hunk_omitted_count_deletion_and_context(self):
+        self.assertEqual(ci.added_lines("@@ -1 +2 @@\n+x\n@@ -4,2 +5,0 @@\n-y\n@@ -7,0 +8,3 @@ context\n+a\n+b\n+c\n"), {2, 8, 9, 10})
+
+    def test_context_does_not_inflate_changed_lines(self):
+        diff = "@@ -1,5 +1,5 @@\n-old\n+new\n covered\n covered\n-old\n+new\n covered\n"
+        self.assertEqual(ci.added_lines(diff), {1, 4})
+
+    def test_complete_git_diff_spaced_addition_rename_deletion_and_missing_base(self):
+        with tempfile.TemporaryDirectory() as value, patch.object(ci, "REQUIRED_SOURCES", set()):
+            root = Path(value)
+            def git(*args):
+                return subprocess.check_output(["git", "-c", "core.hooksPath=/dev/null", "-c", "user.name=Coverage control", "-c", "user.email=coverage@example.invalid", *args], cwd=root, text=True, stderr=subprocess.DEVNULL).strip()
+            git("init", "-q")
+            git("config", "diff.interHunkContext", "100")
+            for directory in ("src", "scripts", "bin"):
+                (root / directory).mkdir()
+            (root / "deno.json").write_text('{"exports":{}}')
+            (root / ".gitattributes").write_text("src/binary.ts -diff\n")
+            (root / "scripts/coverage-policy.json").write_text('{"typeOnly":{},"externalControls":{}}')
+            (root / "src/old.ts").write_text("one\ntwo\nthree\n")
+            (root / "src/?.ts").write_text("unchanged\n")
+            (root / "src/a.ts").write_text("before\n")
+            (root / "src/deleted.ts").write_text("one\ntwo\n")
+            (root / "bin/cli.ts").write_text("one\n")
+            git("add", ".")
+            git("commit", "-qm", "base")
+            base = git("rev-parse", "HEAD")
+            (root / "src/old.ts").rename(root / "src/new name.ts")
+            (root / "src/a.ts").write_text("after\n")
+            (root / "src/added name.ts").write_text("one\ntwo\n")
+            (root / "src/[x].ts").write_text("one\n")
+            (root / "src/binary.ts").write_text("one\n")
+            (root / "src/deleted.ts").write_text("one\n")
+            git("add", ".")
+            git("commit", "-qm", "head")
+            path = root / "lcov.info"
+            path.write_text("".join(report(name).replace("FNF:1\nFNH:1\n", "") for name in ("bin/cli.ts", "src/added name.ts", "src/new name.ts", "src/deleted.ts", "src/[x].ts", "src/binary.ts", "src/?.ts", "src/a.ts")))
+            with patch.dict(ci.os.environ, {"GIT_DIFF_OPTS": "--unified=100"}):
+                result = ci.coverage_diff(root, path, base)
+            self.assertEqual(result["mappedChangedLines"], 5)
+            self.assertEqual(result["hit"], 5)
+            self.assertTrue(result["passed"])
+            self.assertNotIn("src/deleted.ts", result["sources"])
+            self.assertNotIn("src/?.ts", result["sources"])
+            self.assertEqual(result["sources"]["src/new name.ts"]["unmappedAddedLines"], 2)
+            self.assertEqual(result["head"], git("rev-parse", "HEAD"))
+            path.write_text(path.read_text().replace("SF:src/new name.ts\nDA:1,1", "SF:src/new name.ts\nDA:1,0").replace("SF:src/new name.ts\nDA:1,0\nLF:1\nLH:1", "SF:src/new name.ts\nDA:1,0\nLF:1\nLH:0"))
+            path.write_text(path.read_text().replace("SF:src/binary.ts\nDA:1,1\nLF:1\nLH:1", "SF:src/binary.ts\nDA:1,0\nLF:1\nLH:0"))
+            self.assertFalse(ci.coverage_diff(root, path, base)["passed"])
+            with self.assertRaises(subprocess.CalledProcessError):
+                ci.coverage_diff(root, path, "missing-base")
+            path.write_text(path.read_text().replace(report("bin/cli.ts").replace("FNF:1\nFNH:1\n", ""), ""))
+            with self.assertRaisesRegex(ValueError, "bin/cli"):
+                ci.coverage_diff(root, path, base)
 
 
 class StagingTests(unittest.TestCase):

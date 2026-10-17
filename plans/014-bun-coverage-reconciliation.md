@@ -14,7 +14,7 @@ publication or merging is authorized by this follow-up.
 | Baseline/head scope and instrumentation | Collected | 1/1 |
 | Meaningful direct offline controls | Focused and full pass | 1/1 |
 | Independent source completeness | Implemented; counterfactuals | 1/1 |
-| Native controller coverage/provenance | Implemented; checking | 0/1 |
+| Native controller coverage/provenance | All three hosted OS jobs passed | 1/1 |
 | Global and scoped Codecov policies | Official YAML validator passes | 1/1 |
 | Composed validation and hosted processing | Pending | 0/1 |
 | Independent Sol/Astra reviews and closure | In progress | 0/1 |
@@ -26,7 +26,7 @@ publication or merging is authorized by this follow-up.
   country capture/rollback controls while retaining subprocess controls.
 - [x] Require all maintained production/tooling sources or explicit reviewed
   qualifications, with hash-bound type-only exceptions; reject source aliases.
-- [ ] Collect existing actual native install/replay/package controller execution with Bun
+- [x] Collect existing actual native install/replay/package controller execution with Bun
   coverage, retain distinct raw phase outputs and bind their provenance.
 - [x] Keep global checks and add library/CLI/tooling statuses; validate YAML with
   Codecov. The initial CLI floor inherits the old global 78.55% requirement.
@@ -73,3 +73,38 @@ all were corrected with counterfactuals/accurate qualifications.
 The first parallel Python/full run hit the operator's /tmp quota while copying
 repair controls. Repeating gates with private scratch on the workspace filesystem
 passed; guard policy was unchanged. Record final counts after composed validation.
+
+
+## Complete diff and CLI bootstrap
+
+The first exact hosted run at cb8fb90 passed all seven workflow jobs, with
+81.16% overall line coverage. Codecov's CLI project check could not find a base
+report because Deno never instrumented `bin/`. CI now independently enforces the
+inherited 78.55% CLI floor before strict artifact retention and after the native
+union, with exact integer arithmetic and required-source completeness. The
+service's temporary missing-report success applies to both base and head; CI is
+the fail-closed boundary. Restore the service setting once dev has CLI baseline
+data; do not manufacture one or relax the CLI floor.
+
+The GitHub compare API also returned empty patch data for changed files late in
+this large diff. Codecov's green patch check alone cannot prove full patch
+acceptance. A new full-history local Git diff check reports exact base/head,
+per-file mapped changed lines and misses; its independent floor remains 78.55%.
+Direct launcher coverage executes real strict/IPC children, verifies the merged
+artifact, and checks failed-child and invalid-argument stale-output cleanup.
+Capture argument/preflight controls exercise failure/help without transport use.
+
+
+Local closure passed 1,589 leaves (1,514 strict +75 IPC) across 68 files, zero
+failures/skips. The strict-only report validates 105 sources, 13,577 mapped lines,
+11,032 hits and CLI 396/427. Ordinary format/lint/type/negative-type/schema/docs
+and release-note gates passed. The official Codecov YAML validator accepts the
+configuration. Final exact-source hosted acceptance remains pending below.
+
+Sol xhigh and Astra xhigh independently cleared this follow-up. Confirmed review
+findings were fixed: literal Git paths prevent sibling hunk attribution, forced
+text preserves binary-attributed sources, and counting actual added lines prevents
+inherited context settings from inflating coverage. Regression controls exercise
+these cases, real Git renames/spaced paths/deletions, floor boundaries, missing
+CLI sources, failed launcher children and preflight transport denial. Failed diff
+JSON is retained separately; failing coverage cannot publish the combined artifact.

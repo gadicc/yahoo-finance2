@@ -61,6 +61,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/download-artifact@v8
         with:
           name: bun-lcov
@@ -71,10 +72,24 @@ jobs:
           path: native-coverage
       - name: Validate and combine current strict and native driver reports
         run: python3 scripts/ci.py combine-coverage --strict coverage/lcov.info --native native-coverage/proof-install/lcov.info native-coverage/proof-replay/lcov.info native-coverage/proof-package/lcov.info --native-summary native-coverage/summary.json --output coverage/combined-lcov.info
+      - name: Require complete local Git diff mapped-line coverage
+        env:
+          YF_COVERAGE_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: python3 scripts/ci.py coverage-diff --base "$YF_COVERAGE_BASE" --report coverage/combined-lcov.info --output coverage/diff-summary.json
+      - name: Retain diff diagnostics even when the floor fails
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bun-coverage-diff
+          path: coverage/diff-summary.json
+          if-no-files-found: ignore
+          retention-days: 7
       - uses: actions/upload-artifact@v7
         with:
           name: bun-complete-lcov
-          path: coverage/combined-lcov.info
+          path: |
+            coverage/combined-lcov.info
+            coverage/diff-summary.json
           if-no-files-found: error
           retention-days: 7
 

@@ -63,6 +63,28 @@ historical Deno/V8 engines. Root `codecov.yml` retains whole-report auto targets
 with zero tolerance and adds library, CLI and tooling project/patch checks. CLI
 coverage had no historical baseline; its initial 78.55% floor inherits the old
 whole-report requirement rather than the newly observed CLI percentage.
+The CLI project check temporarily uses Codecov `if_not_found: success` because
+Deno never measured `bin/` on the base. This service setting also permits missing
+head data; it is **not** the CLI enforcement boundary. Before retaining strict
+coverage and again after combining it, CI independently requires every maintained
+CLI source, positive mapped scope and `hits × 10000 >= mapped × 7855`, without
+rounding. Restore the service's missing-report failure once `dev` has a measured
+CLI baseline. CLI patch and all global targets/missing-report rules remain intact.
+
+For this large migration GitHub's compare API omitted patch data for changed
+files, including `scripts/test.ts` and `scripts/schema-repair.ts`; Codecov's patch
+percentage therefore covers only part of the diff. The complete coverage job also
+requires `ci.py coverage-diff`: a full-history, clean exact checkout, the event's
+base SHA and per-source local Git hunks, intersected with validated LCOV line
+mappings. It retains exact base/head identities and per-file uncovered mapped
+lines in `diff-summary.json` (also retained as a separate failure diagnostic), enforcing the inherited 78.55% floor independently
+of Codecov. Renames count as whole additions. Unmapped/deleted lines and the
+explicit type-only/external qualifications are not measured. This is **mapped
+changed-line coverage**, not statement or branch coverage. Empty mapped changes
+are reported as not applicable; complete head-source and CLI checks still apply.
+PR events use the exact event base SHA. Runs without a base (manual/reusable or
+new-branch events) explicitly report a previous-commit fallback; those are not
+full-PR comparison evidence. The report records how its base was selected.
 
 Completeness independently walks maintained `src/`, `bin/` and `scripts/` runtime
 sources plus release configuration, rejecting file/directory aliases and omitted

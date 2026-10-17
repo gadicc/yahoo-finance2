@@ -2,6 +2,8 @@ import { describe, it } from "../tests/helpers/runner.ts";
 import { expect } from "../tests/helpers/assertions.ts";
 import {
   compactFixture,
+  parseCountryArguments,
+  main as captureCountry,
   defaultProfileId,
   geoFixtureId,
   normalizeCountryCode,
@@ -162,6 +164,96 @@ describe("country capture trace boundary", () => {
       expect(() => validateTrace([entry, valid[1]])).toThrow();
     for (const value of [null, [], [valid[0]], Array(65).fill(valid[0])]) {
       expect(() => validateTrace(value)).toThrow();
+    }
+  });
+});
+
+describe("country capture command preflight", () => {
+  it("parses bounded timing and explicit country/profile arguments without transport", () => {
+    const interval = process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+    try {
+      process.env.FETCH_DEVEL_RECACHE_INTERVAL = "0";
+      expect(
+        parseCountryArguments([
+          "--live",
+          "--country",
+          "gb",
+          "--profile=gb-20261017-control",
+          "--run-timeout",
+          "2147483647",
+        ]),
+      ).toMatchObject({
+        live: true,
+        country: "GB",
+        profile: "gb-20261017-control",
+        interval: 0,
+        runTimeout: 2147483647,
+      });
+      for (const args of [
+        [],
+        ["--country"],
+        ["--country=G"],
+        ["--country", "GB", "--profile", "de-20261017"],
+        ["--country=GB", "--country=GB"],
+        ["--help=true"],
+        ["--country=GB", "--unknown"],
+        ["--country=GB", "--profile"],
+        ["--country=GB", "--run-timeout=0"],
+        ["--country=GB", "--run-timeout=2147483648"],
+        ["--country=GB", "--run-timeout=1.5"],
+        ["--country=GB", "--run-timeout=NaN"],
+      ])
+        expect(() => parseCountryArguments(args)).toThrow();
+      for (const value of ["-1", "NaN", "Infinity", "2147483648"]) {
+        process.env.FETCH_DEVEL_RECACHE_INTERVAL = value;
+        expect(() => parseCountryArguments(["--country=GB"])).toThrow(
+          "bounded nonnegative",
+        );
+      }
+    } finally {
+      if (interval === undefined)
+        delete process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+      else process.env.FETCH_DEVEL_RECACHE_INTERVAL = interval;
+    }
+  });
+
+  it("help, invalid arguments and missing opt-in never resolve a capture root or call transport", async () => {
+    const oldMode = process.env.FETCH_DEVEL;
+    const oldInterval = process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+    const messages: string[] = [];
+    const signals = ["SIGINT", "SIGTERM"] as const;
+    const listeners = signals.map((signal) => process.listenerCount(signal));
+    let calls = 0;
+    const dependencies = {
+      root: "/not-an-existing-capture-root",
+      log: (message: string) => {
+        messages.push(message);
+      },
+      transport: async () => {
+        calls++;
+        throw Error("must never capture");
+      },
+    };
+    try {
+      process.env.FETCH_DEVEL = "";
+      process.env.FETCH_DEVEL_RECACHE_INTERVAL = "0";
+      for (const flag of ["--help", "-h"])
+        expect(await captureCountry([flag], dependencies)).toBe(0);
+      expect(await captureCountry(["--country"], dependencies)).toBe(2);
+      expect(
+        await captureCountry(["--country=GB", "--live"], dependencies),
+      ).toBe(2);
+      expect(messages.join("\n")).toContain("explicit --live opt-in");
+      expect(calls).toBe(0);
+      expect(signals.map((signal) => process.listenerCount(signal))).toEqual(
+        listeners,
+      );
+    } finally {
+      if (oldMode === undefined) delete process.env.FETCH_DEVEL;
+      else process.env.FETCH_DEVEL = oldMode;
+      if (oldInterval === undefined)
+        delete process.env.FETCH_DEVEL_RECACHE_INTERVAL;
+      else process.env.FETCH_DEVEL_RECACHE_INTERVAL = oldInterval;
     }
   });
 });

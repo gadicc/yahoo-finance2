@@ -16,6 +16,7 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 MAX_COUNT = 2**53 - 1
+COVERAGE_FLOOR = 7855  # hundredths of a percent; inherited pre-migration global target
 HARNESS = (".npmrc", "package.json", "package-lock.json", "tsconfig.json", "vitest.config.ts", "worker.ts", "worker.test.ts")
 REQUIRED_SOURCES = {
     "bin/yahoo-finance.ts", "bin/yahoo-finance-mcp.ts", "scripts/test.ts",
@@ -96,6 +97,7 @@ def validate_lcov(root, path, required=None, *, merged_lines=False):
     if records.pop().strip():
         raise ValueError("LCOV has an unterminated record")
     sources = set()
+    areas = {name: {"sources": 0, "lines": 0, "linesHit": 0} for name in ("library", "cli", "tooling", "helpers")}
     totals = {"lines": 0, "linesHit": 0, "functions": 0, "functionsHit": 0}
     for record in records:
         fields = record.strip().splitlines()
@@ -152,13 +154,88 @@ def validate_lcov(root, path, required=None, *, merged_lines=False):
             totals["functionsHit"] += functions["FNH"]
         if any(count > MAX_COUNT for count in totals.values()):
             raise ValueError("LCOV total exceeds safe integer range")
+        area = areas["library" if name.startswith("src/") else "cli" if name.startswith("bin/") else "helpers" if name.startswith("tests/") else "tooling"]
+        area["sources"] += 1
+        area["lines"] += len(seen_lines)
+        area["linesHit"] += hits
         sources.add(name)
     if not sources or not required <= sources:
         raise ValueError(f"Incomplete full-suite coverage, missing: {sorted(required - sources)}")
     if merged_lines:
         totals.update(functions=None, functionsHit=None,
                       functionsUnavailable="Bun batch function identities are unavailable; aggregate function coverage cannot be reconstructed")
-    return {"sources": len(sources), **totals, "branches": "not emitted by Bun 1.4.3"}
+    return {"sources": len(sources), **totals, "areas": areas, "branches": "not emitted by Bun 1.4.3"}
+
+
+
+def require_cli_floor(summary):
+    """Mandatory complete-head floor, independent of Codecov's missing base."""
+    cli = summary["areas"]["cli"]
+    if not cli["sources"] or not cli["lines"] or cli["linesHit"] * 10000 < cli["lines"] * COVERAGE_FLOOR:
+        raise ValueError(f"CLI coverage below required 78.55% or missing: {cli}")
+    summary["cliFloorPercent"] = "78.55"
+    return summary
+
+
+def added_lines(diff):
+    """Only actual new-side additions count, even if Git supplies hunk context."""
+    lines = set()
+    current = None
+    for line in diff.splitlines():
+        header = re.match(r"^@@ -[0-9]+(?:,[0-9]+)? \+([0-9]+)(?:,[0-9]+)? @@", line)
+        if header:
+            current = int(header[1])
+        elif current is not None:
+            if line.startswith("+"):
+                lines.add(current)
+                current += 1
+            elif line.startswith(" "):
+                current += 1
+            elif line.startswith("diff --git "):
+                current = None
+    return lines
+
+
+def coverage_diff(root, path, base):
+    """Complete local Git diff intersected with validated mapped LCOV lines.
+
+    Per-source diffs avoid GitHub's large-comparison truncation and quoted path
+    parsing. Renames are conservatively treated as a deletion plus whole addition.
+    The report describes mapped lines only, never statement or branch coverage.
+    """
+    require_cli_floor(validate_lcov(root, path, merged_lines=True))
+    def git(*args):
+        return subprocess.check_output(["git", "--no-pager", "--literal-pathspecs", *args], cwd=root, text=True)
+    base_selection = "event-or-explicit-base"
+    if not base or re.fullmatch(r"0+", base):
+        base = "HEAD^"
+        base_selection = "previous-commit-fallback (not full PR scope)"
+    base_sha = git("rev-parse", "--verify", "--end-of-options", base + "^{commit}").strip()
+    head_sha = git("rev-parse", "--verify", "HEAD^{commit}").strip()
+    if git("status", "--porcelain", "--untracked-files=no").strip():
+        raise ValueError("Mapped changed-line coverage requires a clean tracked checkout")
+    sources = {}
+    hits = mapped = 0
+    for record in path.read_text().split("end_of_record")[:-1]:
+        fields = record.strip().splitlines()
+        name = next(field[3:] for field in fields if field.startswith("SF:"))
+        diff = git("diff", "--text", "--no-ext-diff", "--no-textconv", "--no-color", "--no-renames", "--unified=0", "--inter-hunk-context=0", base_sha, head_sha, "--", name)
+        changed = added_lines(diff)
+        data = {int(field[3:].split(",")[0]): int(field.split(",")[1]) for field in fields if field.startswith("DA:")}
+        measured = changed & data.keys()
+        covered = sum(data[line] > 0 for line in measured)
+        if changed:
+            sources[name] = {"mapped": len(measured), "hit": covered, "unmappedAddedLines": len(changed - data.keys()),
+                             "uncoveredMappedLines": sorted(line for line in measured if not data[line])}
+        mapped += len(measured)
+        hits += covered
+    _, qualifications = coverage_sources(root)
+    result = {"base": base_sha, "head": head_sha, "baseSelection": base_selection, "mappedChangedLines": mapped, "hit": hits,
+              "percent": 100 * hits / mapped if mapped else None, "floorPercent": "78.55",
+              "passed": not mapped or hits * 10000 >= mapped * COVERAGE_FLOOR,
+              "sources": sources, "coverageQualifications": qualifications,
+              "scope": "Mapped new-side lines in complete local Git diff; renames are whole additions. Unmapped/deleted lines, qualified external controls and type-only sources are not measured. Bun emits no branch coverage."}
+    return result
 
 
 def merge_lcov(root, inputs, output, *, merged_inputs=frozenset()):
@@ -234,14 +311,14 @@ def combine_coverage(root, strict, native, output, *, summary_path=None, expecte
     inputs = [strict, *native]
     if len(native) != 3 or len(set(inputs)) != 4:
         raise ValueError("Expected distinct strict, native install, replay and package reports")
-    validate_lcov(root, strict, merged_lines=True)
+    require_cli_floor(validate_lcov(root, strict, merged_lines=True))
     for path in native:
         validate_lcov(root, path, {"scripts/native-platform.ts"})
         measured = {line[3:] for line in path.read_text().splitlines() if line.startswith("SF:")}
         if not measured <= set(sources) - {"tests/package/native-platform.spec.ts"}:
             raise ValueError("Native report contains source outside its measured proof closure")
     merge_lcov(root, inputs, output, merged_inputs={strict})
-    return validate_lcov(root, output, merged_lines=True)
+    return require_cli_floor(validate_lcov(root, output, merged_lines=True))
 
 
 def guard_inside(root, scratch, host_namespace):
@@ -327,6 +404,10 @@ def main():
     commands = parser.add_subparsers(dest="mode", required=True)
     commands.add_parser("guard")
     commands.add_parser("coverage")
+    diff = commands.add_parser("coverage-diff")
+    diff.add_argument("--base", required=True)
+    diff.add_argument("--report", type=Path, required=True)
+    diff.add_argument("--output", type=Path, required=True)
     combine = commands.add_parser("combine-coverage")
     combine.add_argument("--strict", type=Path, required=True)
     combine.add_argument("--native", type=Path, nargs=3, required=True)
@@ -346,8 +427,15 @@ def main():
         merge_lcov(args.root, args.inputs, args.output)
     elif args.mode == "combine-coverage":
         print(json.dumps(combine_coverage(ROOT, args.strict, args.native, args.output, summary_path=args.native_summary), sort_keys=True))
+    elif args.mode == "coverage-diff":
+        summary = coverage_diff(ROOT, args.report, args.base)
+        with args.output.open("x") as stream:
+            stream.write(json.dumps(summary, indent=2, sort_keys=True) + "\n")
+        print(json.dumps(summary, sort_keys=True))
+        if not summary["passed"]:
+            raise ValueError("Complete mapped changed-line coverage below required 78.55%")
     elif args.mode == "coverage":
-        summary = validate_lcov(ROOT, ROOT / "coverage/lcov.info", merged_lines=True)
+        summary = require_cli_floor(validate_lcov(ROOT, ROOT / "coverage/lcov.info", merged_lines=True))
         _, policy = coverage_sources(ROOT)
         summary["coverageQualifications"] = policy
         print(json.dumps(summary, sort_keys=True))
