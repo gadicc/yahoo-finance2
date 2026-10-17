@@ -467,16 +467,22 @@ test("unverified close destroys only owned pipes and bounds a held-stderr contro
 
   using space = workspace();
   const helper = new URL("./testing/native.ts", import.meta.url).href;
-  const parent =
-    "import{spawn}from'node:child_process';spawn(process.execPath,['--no-env-file','--eval','setTimeout(()=>{},4000)'],{stdio:['ignore','ignore','inherit']});process.exit(0);";
+  // Keep an owned writer alive after both injected cleanup attempts fail. Its
+  // private stderr must not retain the controller until the 4s self-exit.
+  const writer =
+    "import{writeSync}from'node:fs';setTimeout(()=>{},4000);writeSync(2,'OWNED_WRITER_READY\\n');";
   const driver = space.put(
     "held-stderr.mjs",
     `import{spawn}from'node:child_process';import{waitNativeChild}from${JSON.stringify(helper)};
-const child=spawn(process.execPath,['--no-env-file','--eval',${JSON.stringify(parent)}],{stdio:['ignore','ignore','pipe']});
-child.stderr.on('data',()=>{});await new Promise(resolve=>child.once('exit',resolve));
-const original=new Error('OWNED_TREE_UNVERIFIED');
+const child=spawn(process.execPath,['--no-env-file','--eval',${JSON.stringify(writer)}],{stdio:['ignore','ignore','pipe']});
+let childStderr='';const ready=new Promise(resolve=>{
+const timer=setTimeout(()=>resolve(false),1000);timer.unref();
+child.stderr.on('data',data=>{childStderr+=data;if(childStderr.includes('OWNED_WRITER_READY\\n')){clearTimeout(timer);resolve(true)}});
+});
+const writerReady=await ready;const writerRunning=child.exitCode===null&&child.signalCode===null;
+child.kill=()=>false;const original=new Error('OWNED_TREE_UNVERIFIED');
 try{await waitNativeChild(child,new AbortController().signal,10,{platform:'win32',closeTimeout:60,terminateWindows:()=>{throw original}});throw Error('unexpected success')}
-catch(error){console.log(JSON.stringify({original:error===original,stderrDestroyed:child.stderr.destroyed}));process.exitCode=2}`,
+catch(error){console.log(JSON.stringify({original:error===original,stderrDestroyed:child.stderr.destroyed,writerReady,writerRunning,childStderr,caughtError:error instanceof Error?error.stack:String(error)}));process.exitCode=2}`,
   );
   const held = spawnSync(process.execPath, ["--no-env-file", driver], {
     encoding: "utf8",
@@ -485,8 +491,9 @@ catch(error){console.log(JSON.stringify({original:error===original,stderrDestroy
   const output = held.stdout + held.stderr;
   expect(held.error, output).toBeUndefined();
   expect(held.status, output).toBe(2);
-  expect(JSON.parse(held.stdout.trim())).toEqual({
-    original: true,
-    stderrDestroyed: true,
-  });
+  const result = JSON.parse(held.stdout.trim());
+  expect(result.writerReady, output).toBe(true);
+  expect(result.writerRunning, output).toBe(true);
+  expect(result.original, output).toBe(true);
+  expect(result.stderrDestroyed, output).toBe(true);
 });
