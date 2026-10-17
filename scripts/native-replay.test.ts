@@ -35,7 +35,7 @@ function workspace() {
     "driver.mjs",
     `import{existsSync}from'node:fs';import{join}from'node:path';import{runTests,parseArguments}from${JSON.stringify(launcher)};
 const root=process.argv[2];const controller=new AbortController();const timer=setInterval(()=>{if(existsSync(join(root,'.stop')))controller.abort('SIGTERM')},20);timer.unref();
-try{process.exitCode=await runTests(parseArguments(process.argv.slice(3)),root,controller.signal)}catch(e){console.error(String(e));process.exitCode=2}finally{clearInterval(timer)}`,
+try{process.exitCode=await runTests(parseArguments(process.argv.slice(3)),root,controller.signal)}catch(e){console.error(e instanceof Error?e.stack:String(e));process.exitCode=2}finally{clearInterval(timer)}`,
   );
   return {
     root,
@@ -159,15 +159,14 @@ test("native empty/all-skipped/name-miss/failure and timeout exits remain failur
     "import{test}from'bun:test';test('wait',()=>new Promise(()=>{}));",
   );
   expect(space.run(["src/wait.test.ts", "--timeout", "20"]).code).toBe(1);
-  expect(
-    space.run([
-      "src/wait.test.ts",
-      "--timeout",
-      "10000",
-      "--run-timeout",
-      "100",
-    ]).code,
-  ).toBe(124);
+  const deadline = space.run([
+    "src/wait.test.ts",
+    "--timeout",
+    "10000",
+    "--run-timeout",
+    "100",
+  ]);
+  expect(deadline.code, deadline.output).toBe(124);
 });
 
 test("native fixture snapshot detects writes but does not pretend to deny arbitrary filesystem access", () => {
@@ -330,5 +329,37 @@ test("Windows cleanup failures and exited-parent held-stdio cannot leave complet
     );
     expect(Date.now() - started).toBeLessThan(1000);
     expect(unref).toBe(scenario !== "close-race");
+  }
+});
+
+test("Windows abort and local deadline attempt tree cleanup once and preserve its first error", async () => {
+  for (const fails of [false, true]) {
+    const child = new ChildProcess();
+    Object.defineProperty(child, "pid", { value: 123 });
+    child.kill = () => true;
+    child.unref = () => {};
+    const controller = new AbortController();
+    const original = new Error("FIRST_TREE_CLEANUP_FAILED");
+    let calls = 0;
+    const abort = setTimeout(() => controller.abort("deadline"), 10);
+    try {
+      const result = waitNativeChild(child, controller.signal, 10, {
+        platform: "win32",
+        closeTimeout: 200,
+        terminateWindows: () => {
+          calls++;
+          if (calls > 1) throw new Error("SECOND_TASKKILL_ALREADY_EXITED");
+          // Both cancellation sources run before delayed close, without any
+          // real Windows process or taskkill. Failure must retain its identity.
+          setTimeout(() => child.emit("close", null, "SIGTERM"), 50);
+          if (fails) throw original;
+        },
+      });
+      if (fails) await expect(result).rejects.toBe(original);
+      else await expect(result).resolves.toEqual({ code: 143, timeout: true });
+      expect(calls).toBe(1);
+    } finally {
+      clearTimeout(abort);
+    }
   }
 });

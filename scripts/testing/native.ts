@@ -158,9 +158,14 @@ export async function waitNativeChild(
   const group = controls.signalGroup ?? signalNativeGroup;
   let timeout = false;
   let cleanupError: unknown;
+  let terminating = false;
   let closing: ReturnType<typeof setTimeout> | undefined;
   let settle: (code: number) => void = () => {};
   const terminate = () => {
+    // The supervisor abort and local deadline can arrive together. Attempt tree
+    // cleanup once: a second taskkill could report an already-exited PID.
+    if (terminating) return;
+    terminating = true;
     closing ??= setTimeout(() => {
       cleanupError ??= new Error(
         "Native process did not close after cancellation; descendant cleanup is unverified",
@@ -172,7 +177,7 @@ export async function waitNativeChild(
       if (platform === "win32") windows(child);
       else if (child.pid) group(child.pid, "SIGTERM");
     } catch (error) {
-      cleanupError = error;
+      cleanupError ??= error;
       if (child.exitCode === null && child.signalCode === null)
         child.kill("SIGKILL");
     }
