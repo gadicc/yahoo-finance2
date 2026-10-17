@@ -18,7 +18,50 @@ import {
   portableRelative,
   resultsOutsideCheckout,
   validateNativeCoverage,
+  verificationToolVersions,
 } from "./native-platform.ts";
+
+test("verification tools follow exact root pins and reject floating or missing versions", () => {
+  const root = mkdtempSync(join(tmpdir(), "yf-tool-pins-"));
+  const devDependencies = {
+    "@biomejs/biome": "3.1.2",
+    typescript: "7.2.3",
+    "@types/node": "26.3.4",
+  };
+  const write = (dependencies: object) =>
+    writeFileSync(
+      join(root, "package.json"),
+      JSON.stringify({ devDependencies: dependencies }),
+    );
+  try {
+    write(devDependencies);
+    expect(verificationToolVersions(root)).toEqual({
+      biome: "3.1.2",
+      typescript: "7.2.3",
+      nodeTypes: "26.3.4",
+    });
+    for (const name of Object.keys(devDependencies)) {
+      for (const version of [
+        "^1.2.3",
+        "~1.2.3",
+        "latest",
+        "1.2.3-beta.1",
+        "01.2.3",
+        "1.2",
+        123,
+        null,
+        undefined,
+      ]) {
+        write({ ...devDependencies, [name]: version });
+        expect(() => verificationToolVersions(root)).toThrow(
+          `Root devDependency ${name} must be an exact stable version`,
+        );
+      }
+    }
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
 
 test("native platform options require explicit phases, paths and actual OS", () => {
   expect(() => parseOptions([])).toThrow("Usage");

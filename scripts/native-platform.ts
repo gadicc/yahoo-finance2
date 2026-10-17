@@ -247,12 +247,32 @@ function packageInventory(
   return packages;
 }
 
+/** Ordinary verification tools follow the root graph, with exact stable pins. */
+export function verificationToolVersions(root = repository) {
+  const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+  const pin = (name: string): string => {
+    const version: unknown = manifest.devDependencies?.[name];
+    assert(
+      typeof version === "string" &&
+        /^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)$/.test(version),
+      `Root devDependency ${name} must be an exact stable version`,
+    );
+    return version;
+  };
+  return {
+    biome: pin("@biomejs/biome"),
+    typescript: pin("typescript"),
+    nodeTypes: pin("@types/node"),
+  };
+}
+
 export async function main(options: Options): Promise<void> {
   assert.equal(
     process.versions.bun,
     "1.4.3",
     "Proof driver requires development Bun 1.4.3",
   );
+  const tools = verificationToolVersions();
   const results = resolve(options.results);
   assert(
     resultsOutsideCheckout(repository, results),
@@ -382,7 +402,7 @@ export async function main(options: Options): Promise<void> {
           "node_modules/@biomejs/biome/bin/biome",
           "--version",
         ]).trim(),
-        "Version: 2.5.15",
+        `Version: ${tools.biome}`,
       );
       const installed = packageInventory(join(repository, "node_modules"));
       writeFileSync(
@@ -550,8 +570,8 @@ export async function main(options: Options): Promise<void> {
           "--cache",
           join(results, "consumer-npm-cache"),
           tarball,
-          "typescript@6.0.3",
-          "@types/node@24.10.1",
+          `typescript@${tools.typescript}`,
+          `@types/node@${tools.nodeTypes}`,
         ],
         consumer,
       );

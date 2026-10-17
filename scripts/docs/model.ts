@@ -378,7 +378,7 @@ export async function generateModel(
   const model = app.serializer.projectToObject(project, normalizePath(root));
   writeFileSync(resolve(output, "reflections.json"), JSON.stringify(model));
   const report = {
-    tool: "typedoc@0.28.20",
+    tool: `typedoc@${Application.VERSION}`,
     sourceProvenance: provenance,
     inputFingerprint,
     inputInventory: inputs.inventory,

@@ -62,7 +62,7 @@ permissions:
 jobs:
   branch-policy:
     name: Validate recache branch
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
@@ -77,7 +77,7 @@ jobs:
     needs: branch-policy
     if: ${{ !inputs.repair_only }}
     name: Re-cache Yahoo fixtures
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
       issues: write
@@ -448,7 +448,7 @@ jobs:
       always() && !cancelled() && needs.branch-policy.result == 'success' && github.ref == 'refs/heads/dev' &&
       ((vars.SCHEMA_REPAIR_ENABLED == 'true' && needs.recache.result == 'success' && needs.recache.outputs.drift_sha != '') ||
        (github.event_name == 'workflow_dispatch' && inputs.repair_only))
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     environment: schema-repair
     permissions:
@@ -530,7 +530,7 @@ jobs:
     # repair_only intentionally skips recache; override the implicit success()
     # check across ancestors, while still requiring a successful proposal job.
     if: ${{ !cancelled() && needs.repair.result == 'success' && needs.repair.outputs.proposal != '' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
       contents: read
@@ -565,7 +565,7 @@ jobs:
     name: Open draft schema repair PR
     needs: [repair, verify-repair]
     if: ${{ !cancelled() && needs.repair.result == 'success' && needs.verify-repair.result == 'success' && needs.verify-repair.outputs.ready == 'true' && !inputs.dry_run }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
       contents: write

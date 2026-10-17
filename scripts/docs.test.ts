@@ -15,7 +15,12 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { Comment, DeclarationReflection, ReflectionKind } from "typedoc";
+import {
+  Application,
+  Comment,
+  DeclarationReflection,
+  ReflectionKind,
+} from "typedoc";
 import { projectIt as test } from "../tests/migration/runner.ts";
 import { expect } from "../tests/migration/assertions.ts";
 import {
@@ -522,6 +527,10 @@ test("docs reject real TypeDoc bootstrap/conversion errors and preserve the prev
     writeFileSync(join(root, "scripts/docs/diagnostics-baseline.json"), "[]");
     writeFileSync(join(root, "scripts/docs/parser-compatibility.json"), "[]");
     await buildDocs(root, output, false);
+    const report = JSON.parse(
+      readFileSync(join(output, "documentation-report.json"), "utf8"),
+    );
+    expect(report.tool).toBe(`typedoc@${Application.VERSION}`);
     const priorHtml = readFileSync(join(output, "index.html"), "utf8");
     const priorModel = readFileSync(join(output, "reflections.json"), "utf8");
     writeFileSync(
