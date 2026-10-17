@@ -1,6 +1,6 @@
 # 014 — Reconcile Bun coverage before merging
 
-Status: IN PROGRESS. Parent: [013](013-bun-migration-review-followup.md).
+Status: COMPLETE. Parent: [013](013-bun-migration-review-followup.md).
 Branch: `codex/bun-migration`; [PR #1037](https://github.com/gadicc/yahoo-finance2/pull/1037), refs #1029.
 
 The user requested the coverage follow-up recorded in the existing PR body.
@@ -16,8 +16,8 @@ publication or merging is authorized by this follow-up.
 | Independent source completeness | Implemented; counterfactuals | 1/1 |
 | Native controller coverage/provenance | All three hosted OS jobs passed | 1/1 |
 | Global and scoped Codecov policies | Official YAML validator passes | 1/1 |
-| Composed validation and hosted processing | Pending | 0/1 |
-| Independent Sol/Astra reviews and closure | In progress | 0/1 |
+| Composed validation and hosted processing | Seven jobs + eight Codecov checks passed | 1/1 |
+| Independent Sol/Astra reviews and closure | Cleared; findings fixed | 1/1 |
 
 ## Checklist
 
@@ -30,9 +30,9 @@ publication or merging is authorized by this follow-up.
   coverage, retain distinct raw phase outputs and bind their provenance.
 - [x] Keep global checks and add library/CLI/tooling statuses; validate YAML with
   Codecov. The initial CLI floor inherits the old global 78.55% requirement.
-- [ ] Validate all local gates and exact-source hosted jobs, inspect processed
+- [x] Validate all local gates and exact-source hosted jobs, inspect processed
   project **and** patch checks, and address remaining actual gaps.
-- [ ] Independent GPT-6.1 Sol xhigh and final/adversarial Astra xhigh reviews;
+- [x] Independent GPT-6.1 Sol xhigh and final/adversarial Astra xhigh reviews;
   commit/push isolated work and update report/PR with measured acceptance.
 
 ## Original evidence
@@ -108,3 +108,30 @@ inherited context settings from inflating coverage. Regression controls exercise
 these cases, real Git renames/spaced paths/deletions, floor boundaries, missing
 CLI sources, failed launcher children and preflight transport denial. Failed diff
 JSON is retained separately; failing coverage cannot publish the combined artifact.
+
+
+## Final acceptance — 2026-10-17
+
+All seven sections above are complete. Executed source
+`009cdab4853579dc11f6c8a15c67dff8fc28c727`; GitHub synthetic merge
+`420786a9adcb5506eeaa4a21b444c67d6db581cd` against exact event base
+`756f3f4f6a5138fea448307c6413952a21190515`.
+[Run 39034285021](https://github.com/gadicc/yahoo-finance2/actions/runs/39034285021)
+passed all seven jobs. All eight processed Codecov project/patch checks passed.
+Full local/hosted replay passed 1,589 leaves, plus 99 Python controls. Each native
+OS passed 1,364 leaves in each mode; Workers passed 8/8. Hosted strict coverage:
+105 sources, 13,577 mapped lines, 11,039 hits; union: 105 /13,600 /11,389 (83.74%).
+Complete Git mapped changed lines: 7,062/8,701 (81.16308%), exceeding 78.55%.
+Independent recombination reproduced hosted bytes.
+
+The official Codecov validator accepted the configuration. CLI 396/427 (92.74%)
+is independently enforced despite missing-base service bootstrap. Codecov's
+92.38% patch uses a truncated GitHub comparison and is qualified accordingly.
+Reviewers cleared the source and confirmed fixes; the report retains precise
+scope, manual base fallback and instrumentation qualifications. All 1,201 fixtures
+retain bytes and 0644 modes; both locks are unchanged. The closure successor changes
+only this plan, its index and the main report, with no execution on those later bytes claimed.
+
+Follow the long-lived PR's existing merge plan when ready. Restore CLI service
+missing-report failure once dev has CLI baseline coverage; retain independent
+CLI and complete-diff floors. No merge or publication occurred.
