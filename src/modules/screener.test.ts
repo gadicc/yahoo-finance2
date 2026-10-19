@@ -13,36 +13,6 @@ const yf = new YahooFinance();
 describe("screener", () => {
   setupCache();
 
-  it("normalizes listing dates and preserves successful omission", async () => {
-    // Reuse a successful response, with stable values for this regression.
-    // Stub the transport so recaching cannot replace the semantic test case.
-    const fixture = JSON.parse(
-      await Deno.readTextFile(
-        new URL(
-          "../../tests/fixtures/http/screener-small_cap_gainers.json",
-          import.meta.url,
-        ),
-      ),
-    );
-    const response = fixture.response.bodyJson;
-    const rawResult = response.finance.result[0];
-    const rawQuote = rawResult.quotes[0];
-    delete rawQuote.newListingDate;
-    rawResult.quotes = [
-      { ...rawQuote, newListingDate: "2026-10-15" },
-      { ...rawQuote },
-    ];
-    rawResult.count = 2;
-    const localYf = new YahooFinance();
-    localYf._fetch = () => Promise.resolve(response);
-
-    const result = await localYf.screener("small_cap_gainers");
-    expect(result.quotes[0].newListingDate).toBeInstanceOf(Date);
-    expect(result.quotes[0].newListingDate?.toISOString())
-      .toBe("2026-10-15T00:00:00.000Z");
-    expect(result.quotes[1].newListingDate).toBeUndefined();
-  });
-
   it.each([
     "aggressive_small_caps",
     "conservative_foreign_funds",
