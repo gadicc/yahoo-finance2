@@ -626,6 +626,8 @@ export interface ScreenerQuote {
   trailingPE?: number;
   prevName?: string;
   nameChangeDate?: number;
+  /** New listing date reported by Yahoo, as a YYYY-MM-DD string. */
+  newListingDate?: string;
   ipoExpectedDate?: number;
   dividendYield?: number;
   dividendRate?: number;
