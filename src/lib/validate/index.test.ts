@@ -95,11 +95,12 @@ describe("validateAndCoerce", () => {
       });
 
       describe("strings", () => {
-        it("coerces a date string", () => {
+        it("coerces a date-only string to UTC midnight", () => {
           const data = { date: "2020-01-01" };
           const errors = voc(data, schema);
           expect(errors).toHaveLength(0);
           expect(data.date).toBeInstanceOf(Date);
+          expect(data.date).toEqual(new Date("2020-01-01T00:00:00.000Z"));
         });
 
         it("fails on invalid string string", () => {
