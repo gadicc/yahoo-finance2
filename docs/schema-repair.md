@@ -4,6 +4,15 @@ The daily recache workflow can propose a draft repair PR after it records
 response drift and opens a tracking issue. Repairs target `dev`. Publication and
 merging remain separate manual decisions.
 
+Result declarations follow the normalized consumer
+[date contract](../CONTRIBUTING.md#dates-in-result-interfaces), even when Yahoo
+sends strings or numbers. Schema generation and the trusted verifier share the
+date checker. Its permanent semantic exceptions and temporary published-contract
+exceptions are separate; temporary debt is tracked in the
+[next-major checklist](./next-major.md) and
+[issue #1040](https://github.com/gadicc/yahoo-finance2/issues/1040). Repair
+proposals cannot edit the checker or grant themselves exceptions.
+
 Each repair PR includes concise maintainer advice with a bold recommended
 action. Newly added fields accepted by default validation can wait for the next
 planned release; repairs to failures affecting default validation recommend

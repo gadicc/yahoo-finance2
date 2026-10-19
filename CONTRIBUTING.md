@@ -73,6 +73,40 @@ shared quote types. Use `deno task schema --force` to regenerate all schemas
 when the dependencies are uncertain. Test consumers of shared schemas too, such
 as historical when chart's schema changes.
 
+#### Dates in result interfaces
+
+Result interfaces describe **normalized values returned to consumers**, which
+can differ from Yahoo's JSON representation. Model calendar dates and timestamps
+as `Date`, even when a successful fixture contains a `YYYY-MM-DD`/ISO string, a
+Unix timestamp in seconds, or a numeric `{ raw, fmt }` wrapper. For numeric
+timestamps in milliseconds, use the existing `DateInMs` alias imported from
+`src/lib/commonTypes.ts`; ordinary `Date` coercion treats numbers as seconds.
+Compare equivalent fields in other modules before adding a new declaration.
+
+Schema generation emits the date-time marker that activates runtime conversion.
+Regenerate every affected schema after changing a declaration. Do not introduce
+a separate converter when the existing coercion handles the observed format.
+Preserve evidence-backed optionality and nullability. Test the returned Date
+instance **and its exact value**: successful validation alone can miss a date
+string incorrectly coerced to a number.
+
+The shared [date contract checker](./scripts/date-contracts.ts) runs before
+schema generation (even when timestamps would skip regeneration) and in trusted
+automatic repair verification. Properties ending in `Date` must be date-valued,
+including arrays, local date aliases, and nullable/optional dates. Exceptions
+are exact file/interface/property/type entries in trusted tooling, with reasons:
+`semantic` exceptions cover values such as `currentQuarterEstimateDate: "2Q"`,
+which is a quarter label; `next-major` entries freeze known published mistakes
+until their migration. New raw date declarations must not copy those mistakes.
+Changing an exception's recorded type or removing its field fails the check
+until its entry is explicitly reviewed and updated/removed. Candidate comments
+cannot grant exceptions. Lowercase chart labels/years and user-input date unions
+are outside the suffix rule.
+
+Changing a published primitive/Date contract normally requires a major release,
+even when correcting an original mistake. Review the
+[next-major checklist](./docs/next-major.md) when preparing a major release.
+
 <a name="testing"></a>
 
 ### Testing

@@ -3,6 +3,11 @@
 Please read this guide when upgrading MAJOR VERSIONS of the package, list the
 BREAKING CHANGES and required changes you'll need to make to your code.
 
+Maintainers preparing v5: review the [next-major checklist](./next-major.md) and
+[milestone issue #1040](https://github.com/gadicc/yahoo-finance2/issues/1040).
+The listed date/share-count corrections are planned breaking changes, not
+changes already included in v4.
+
 - [From v3 to v4](#from-v3-to-v4) (2026)
 - [From v2 to v3](#from-v2-to-v3) (2025)
 - [From v1 to v2](#from-v1-to-v2) (2021)

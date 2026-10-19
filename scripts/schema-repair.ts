@@ -1,5 +1,6 @@
 // Trusted verifier/publisher code. Never import or evaluate proposed source.
 import { ts } from "ts-json-schema-generator";
+import { assertDateContracts } from "./date-contracts.ts";
 
 export interface RepairProposal {
   status: "repair" | "blocked";
@@ -264,13 +265,18 @@ function assertStringUnionAdditions(
   );
 }
 
-export function assertSchemaOnly(before: string, after: string) {
+export function assertSchemaOnly(
+  before: string,
+  after: string,
+  path: string,
+) {
   requireCondition(
     before.includes("@yf-schema"),
     "Source must already participate in schema generation",
   );
   const oldSource = parseSource(before);
   const newSource = parseSource(after);
+  assertDateContracts(path, after);
   requireCondition(
     before.match(/^#![^\n]*/)?.[0] === after.match(/^#![^\n]*/)?.[0],
     "Shebang changes are forbidden",
@@ -395,7 +401,7 @@ export function proposedSources(
     );
   }
   for (const [path, after] of sources) {
-    assertSchemaOnly(originals.get(path)!, after);
+    assertSchemaOnly(originals.get(path)!, after, path);
   }
   return sources;
 }
@@ -446,7 +452,7 @@ function changedFiles(base: string) {
   for (const path of paths) {
     const old = trackedSource(base, path);
     if (sourcePath.test(path)) {
-      assertSchemaOnly(old, Deno.readTextFileSync(path));
+      assertSchemaOnly(old, Deno.readTextFileSync(path), path);
     } else {
       JSON.parse(Deno.readTextFileSync(path));
       requireCondition(
@@ -516,8 +522,9 @@ if (import.meta.main) {
       );
       paths.add(file.path);
       const old = trackedSource(base, file.path);
-      if (sourcePath.test(file.path)) assertSchemaOnly(old, file.content);
-      else JSON.parse(file.content);
+      if (sourcePath.test(file.path)) {
+        assertSchemaOnly(old, file.content, file.path);
+      } else JSON.parse(file.content);
     }
     for (const file of bundle.files) {
       Deno.writeTextFileSync(file.path, file.content);

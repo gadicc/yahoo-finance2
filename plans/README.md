@@ -27,6 +27,7 @@ fixture-backed, ~1s), `deno lint`, `deno fmt --check`, `deno task check`
 | 009  | zod v3-compat subpath → zod@^4                                   | P3       | S–M    | 001                    | DONE   |
 | 010  | Streamer module direction spike (report only)                    | P3       | M      | —                      | TODO   |
 | 011  | Country-profiled getCrumb fixture capture and replay             | P2       | M      | —                      | IN PROGRESS (VPN capture pending) |
+| 012  | Preserve and enforce consumer date contracts                    | P1       | M      | —                      | IN PROGRESS (checker/guidance implemented; migration tracked in #1040 for v5) |
 
 Status values: TODO | IN PROGRESS | DONE | BLOCKED (with one-line reason) |
 REJECTED (with one-line rationale).
@@ -47,6 +48,10 @@ REJECTED (with one-line rationale).
 - **011 is independent of production plans**: it changes only test tooling,
   docs, and new fixture profiles. Its committed geo tests must force replay so
   the generic recache workflow cannot replace them from the runner's country.
+- **012 has separate release boundaries**: correct unmerged PR #1039 and add
+  guidance/checks independently; migrate published primitive/Date contracts in
+  a major release. The audit and concrete handoff are in
+  [012-consumer-date-contracts.md](./012-consumer-date-contracts.md).
 
 ## Findings considered and rejected (do not re-audit)
 

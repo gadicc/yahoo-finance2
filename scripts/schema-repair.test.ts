@@ -1,9 +1,12 @@
 import { expect } from "@std/expect";
 import {
-  assertSchemaOnly,
+  assertSchemaOnly as assertSchemaOnlyForPath,
   parseProposal,
   proposedSources,
 } from "./schema-repair.ts";
+
+const assertSchemaOnly = (before: string, after: string) =>
+  assertSchemaOnlyForPath(before, after, "src/modules/example.ts");
 
 const original = `// @yf-schema
 import schema from "./example.schema.json" with { type: "json" };
@@ -27,6 +30,30 @@ function proposal(
     edits: [{ path: "src/modules/example.ts", before, after }],
   }));
 }
+
+Deno.test("schema repair enforces normalized dates through the trusted checker", () => {
+  for (const type of ["string", "number", "Date | string"]) {
+    const p = proposal(
+      "  count: number;",
+      `  count: number; newListingDate?: ${type};`,
+    );
+    expect(() => proposedSources(p, () => original)).toThrow(/Date contract/);
+  }
+  const p = proposal(
+    "  count: number;",
+    "  count: number; newListingDate?: Date;",
+  );
+  expect(proposedSources(p, () => original).get("src/modules/example.ts"))
+    .toContain("newListingDate?: Date");
+  const before = original.replace("count: number;", "eventDate: Date;");
+  expect(() =>
+    assertSchemaOnly(
+      before,
+      before.replace("eventDate: Date", "eventDate: string"),
+    )
+  )
+    .toThrow(/Date contract/);
+});
 
 Deno.test("schema repair accepts literal fields and new named data interfaces", () => {
   const repaired = original.replace(

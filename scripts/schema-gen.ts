@@ -16,6 +16,7 @@ import {
 // import yfNumberTypeFormatter from "./schema/TypeFormatter/yfNumberTypeFormatter.ts";
 // import yfReferenceTypeFormatter from "./schema/TypeFormatter/yfReferenceTypeFormatter.ts";
 import createSchemaGenerator from "./schema/createGenerator.ts";
+import { assertDateContracts } from "./date-contracts.ts";
 
 // TODO, we should also lstat this file and all it's imports!
 
@@ -210,6 +211,13 @@ function depsCheck() {
 async function check(path: string, force = false, verbose = false) {
   const file = await Deno.readTextFile(path);
   if (relevant.test(file)) {
+    // Run even when the schema's timestamp would otherwise skip generation.
+    try {
+      assertDateContracts(path, file);
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : error);
+      return false;
+    }
     return createSchema(path, force, verbose);
   }
   return true;

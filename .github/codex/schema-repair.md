@@ -25,6 +25,17 @@ broaden types merely to make tests pass. Required fields come first; optionality
 needs successful fixture evidence of omission, including the recorded drift
 commit's parent fixtures. Explain that evidence using filenames.
 
+Result interfaces describe normalized consumer values, not just raw JSON.
+Calendar dates and numeric second timestamps use Date; numeric millisecond
+timestamps use the existing DateInMs alias. ISO date strings should normally
+produce Date values. Compare equivalent fields in other modules and follow
+CONTRIBUTING.md's Dates in result interfaces guidance. A shared trusted checker
+enforces *Date properties and exact exceptions. Do not copy published mistakes
+listed in docs/next-major.md, add exceptions, or use comments to bypass the
+checker. Quarter labels such as currentQuarterEstimateDate are semantic
+exceptions, not dates. If a repair requires a new import, runtime converter,
+test, or migration of a published contract, report the required manual action.
+
 Regenerate all affected schemas before replaying tests. Explicit schema file
 arguments or --force are required for shared dependencies. Replay focused tests
 and then the full cached suite with deno task test:replay. No network requests,
