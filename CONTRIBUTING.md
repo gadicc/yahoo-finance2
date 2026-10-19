@@ -86,9 +86,13 @@ Compare equivalent fields in other modules before adding a new declaration.
 Schema generation emits the date-time marker that activates runtime conversion.
 Regenerate every affected schema after changing a declaration. Do not introduce
 a separate converter when the existing coercion handles the observed format.
-Preserve evidence-backed optionality and nullability. Test the returned Date
-instance **and its exact value**: successful validation alone can miss a date
-string incorrectly coerced to a number.
+Preserve evidence-backed optionality and nullability. Ordinary date-field
+declarations rely on the date checker, schema synchronization, and shared
+coercion tests; they do not each need a dedicated module test. Add targeted
+tests for new formats, ambiguous units, or module-specific transformations that
+existing coverage does not exercise. When testing conversion behavior, assert
+the returned Date instance **and its exact value**: successful validation alone
+can miss a date string incorrectly coerced to a number.
 
 The shared [date contract checker](./scripts/date-contracts.ts) runs before
 schema generation (even when timestamps would skip regeneration) and in trusted

@@ -102,13 +102,12 @@ Generate with `deno task schema src/modules/screener.ts`. The new property
 must have `type: "string"` AND `format: "date-time"` in the generated schema.
 No runtime converter is necessary.
 
-The bot workflow forbids test edits. Treat the conversion assertion as a
-manual follow-up on the PR or a companion change, rather than relaxing that
-workflow boundary. Add a regression using the recorded IAM quote and assert
-both `instanceof Date` and exact `toISOString()` above. Cover successful
-omission too; an isolated in-memory schema test is useful but does not replace
-checking the consumer-facing screener result. Match `setupCache()` and devel
-IDs in `src/modules/screener.test.ts`; do not recache Yahoo fixtures.
+The bot workflow forbids test edits. Keep that boundary intact. The approved
+manual follow-up strengthens the existing shared date-only coercion test in
+`src/lib/validate/index.test.ts` with an exact UTC-midnight assertion. Do not
+add a bespoke screener test for this ordinary declaration: the date checker,
+schema synchronization, and shared coercion coverage protect it. Reserve module
+tests for uncovered formats, units, or transformations. Do not recache fixtures.
 
 Update the PR description to say Date normalization rather than preserving an
 ISO string. The existing `fix(schema):` treatment is reasonable for correcting
@@ -117,7 +116,7 @@ patch-safe justification for changing already published declared fields.
 
 Verify with focused replay, then full replay, `deno task check`, `deno lint`,
 `deno fmt --check`, and `git diff --check`. Only the intended source, schema,
-manual regression test, and PR description should differ.
+shared coercion test, and PR description should differ.
 
 ## Step 2: Codify the contributor and agent rule
 
@@ -135,9 +134,10 @@ text, ready to adapt to local formatting:
 >
 > A `*Date` result property should normally be date-valued, but inspect its
 > meaning before changing it. Quarter labels and years are not instants.
-> Preserve evidence-backed optionality and nullability. For new or corrected
-> date contracts, test the returned Date instance AND its exact value; a test
-> that only passes validation can miss destructive coercion. Changes to a
+> Preserve evidence-backed optionality and nullability. Reuse shared coercion
+> coverage for ordinary declarations; add dedicated tests for uncovered formats,
+> units, or module-specific transformations. Conversion tests should check the
+> returned Date instance AND its exact value. Changes to a
 > published result's primitive/Date contract require compatibility review and
 > normally a major release, even when correcting an original mistake.
 
@@ -241,8 +241,8 @@ This matches https://semver.org/spec/v2.0.0.html, clauses 6 and 8.
 
 ## Done criteria and stop conditions
 
-- PR #1039 declares optional Date, generates date-time format, and has an
-  exact-value consumer regression assertion in a manual/companion change.
+- PR #1039 declares optional Date, generates date-time format, and strengthens
+  the shared date-only coercion test with an exact UTC-midnight assertion.
 - Canonical guidance and agent/repair summaries agree on output semantics.
 - Ordinary schema CI and trusted repair verification reject new raw date
   declarations using the same checker and exact, documented exceptions.

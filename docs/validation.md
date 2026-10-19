@@ -196,10 +196,12 @@ types.
 When changing date fields, follow
 [Dates in result interfaces](../CONTRIBUTING.md#dates-in-result-interfaces).
 Interfaces describe normalized consumer values; schema-driven conversion can
-turn Yahoo's strings/numbers into Dates. Assert exact values as well as types:
-validation can otherwise pass while an incorrect numeric declaration truncates
-an ISO date to its year. Published exceptions awaiting migration are listed in
-the [next-major checklist](./next-major.md).
+turn Yahoo's strings/numbers into Dates. Reuse the date checker, schema checks,
+and shared coercion tests for ordinary declarations. Add dedicated tests for
+uncovered formats, units, or module-specific transformations, checking exact
+values as well as types: validation can otherwise pass while an incorrect
+numeric declaration truncates an ISO date to its year. Published exceptions
+awaiting migration are listed in the [next-major checklist](./next-major.md).
 
 1. Fork the repo, clone locally and setup dev environment. See
    [CONTRIBUTING](../CONTRIBUTING.md).

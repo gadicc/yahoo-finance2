@@ -50,8 +50,10 @@ are most likely to need during edits.
   second timestamps use `Date`; numeric millisecond timestamps use `DateInMs`. A
   raw ISO string in a fixture is not a reason to declare an output `string`.
   Follow
-  [Dates in result interfaces](./CONTRIBUTING.md#dates-in-result-interfaces) and
-  assert both returned types and exact values.
+  [Dates in result interfaces](./CONTRIBUTING.md#dates-in-result-interfaces).
+  Reuse shared coercion coverage for ordinary date fields. Add dedicated tests
+  for uncovered formats, units, or module-specific transformations; conversion
+  assertions should check both returned types and exact values.
 - The shared date checker enforces `*Date` declarations and exact documented
   exceptions during schema generation and trusted repair verification. Do not
   copy temporary legacy exceptions into new fields. Before preparing any major
