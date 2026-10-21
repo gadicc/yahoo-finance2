@@ -107,7 +107,7 @@ export interface TrendingSymbolsResult {
   /** Start interval for the trending period */
   startInterval: number;
 
-  keyVersion?: "v2";
+  keyVersion?: "v2" | "v3";
 }
 
 /**

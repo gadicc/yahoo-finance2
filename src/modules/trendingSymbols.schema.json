@@ -34,7 +34,10 @@
         },
         "keyVersion": {
           "type": "string",
-          "const": "v2"
+          "enum": [
+            "v2",
+            "v3"
+          ]
         }
       },
       "required": [
