@@ -12,35 +12,44 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=300, stale-while-revalidate=30",
-      "content-length": "131",
+      "content-length": "186",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 14 Oct 2026 09:56:37 GMT",
+      "date": "Wed, 21 Oct 2026 09:48:52 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-user-analytics-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "57",
+      "x-envoy-upstream-service-time": "48",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "2mrho4tlcukel"
+      "y-rid": "6odot8lldh2k5"
     },
     "bodyJson": {
       "finance": {
         "result": [
           {
-            "count": 1,
+            "count": 4,
             "quotes": [
               {
-                "symbol": "NVDA"
+                "symbol": "SPCX"
+              },
+              {
+                "symbol": "EL.PA"
+              },
+              {
+                "symbol": "NFLX"
+              },
+              {
+                "symbol": "TSLA"
               }
             ],
             "jobTimestamp": 0,
             "startInterval": 0,
-            "keyVersion": "v2"
+            "keyVersion": "v3"
           }
         ],
         "error": null

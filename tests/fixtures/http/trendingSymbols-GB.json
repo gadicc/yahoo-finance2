@@ -12,35 +12,47 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "0",
+      "age": "1",
       "cache-control": "public, max-age=300, stale-while-revalidate=30",
-      "content-length": "132",
+      "content-length": "226",
       "content-type": "application/json;charset=utf-8",
-      "date": "Wed, 14 Oct 2026 09:56:34 GMT",
+      "date": "Wed, 21 Oct 2026 09:48:49 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
       "x-envoy-decorator-operation": "finance-user-analytics-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "48",
+      "x-envoy-upstream-service-time": "5",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "5hjroctlcukei"
+      "y-rid": "4kurct1ldh2k2"
     },
     "bodyJson": {
       "finance": {
         "result": [
           {
-            "count": 1,
+            "count": 5,
             "quotes": [
               {
-                "symbol": "^FTSE"
+                "symbol": "SPCX"
+              },
+              {
+                "symbol": "SMCI"
+              },
+              {
+                "symbol": "NFLX"
+              },
+              {
+                "symbol": "TSLA"
+              },
+              {
+                "symbol": "MSTR"
               }
             ],
-            "jobTimestamp": 0,
-            "startInterval": 0,
-            "keyVersion": "v2"
+            "jobTimestamp": 1792573514944,
+            "startInterval": 202610210800,
+            "keyVersion": "v3"
           }
         ],
         "error": null
