@@ -592,7 +592,7 @@ jobs:
             --config=../deno.json ../scripts/schema-repair.ts bundle "$REPAIR_BASE" "$RUNNER_TEMP/proposal.json" "$RUNNER_TEMP/verified-repair.json"
       - name: Upload verified files only
         if: steps.apply.outputs.ready == 'true'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: verified-schema-repair
           path: ${{ runner.temp }}/verified-repair.json
@@ -621,7 +621,7 @@ jobs:
         with:
           deno-version: v2.9.8
           cache: false
-      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         with:
           name: verified-schema-repair
           path: ${{ runner.temp }}/verified-repair
