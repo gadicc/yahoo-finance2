@@ -621,6 +621,10 @@ export interface ScreenerQuote {
   averageAnalystRating?: string;
   regularMarketChangePercent: number;
   symbol: string;
+  /** Previous ticker symbol reported by Yahoo. */
+  prevTicker?: string;
+  /** Ticker symbol change date, normalized to a Date. */
+  tickerChangeDate?: Date;
   dividendDate?: number;
   displayName?: string;
   trailingPE?: number;
