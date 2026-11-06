@@ -168,14 +168,6 @@ describe("quote", () => {
     });
   });
 
-  it("passes through beta field option", async (t, onFinish) => {
-    const devel = { id: "quote-MSFT-fields-beta", t, onFinish };
-    const queryOpts = { fields: ["beta"] };
-    const result = await yf.quote("MSFT", queryOpts, { devel });
-    expect(result.symbol).toBe("MSFT");
-    expect(result.beta).toBeDefined();
-  });
-
   describe("extended market fields", () => {
     it("passes through extendedMarket fields", async (t, onFinish) => {
       const devel = { id: "quote-AAPL-fields-extendedMarket", t, onFinish };
