@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/AZT.OL?formatted=false&modules=earnings&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/AZT.OL?formatted=false&modules=earnings&crumb=ifnkJx1Aadp",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -14,19 +14,19 @@
     "headers": {
       "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "2000",
+      "content-length": "1914",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:29:40 GMT",
+      "date": "Sat, 07 Nov 2026 11:00:20 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "7",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-canary-production-usw2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "2",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "61vbl6pl1iqkk"
+      "y-rid": "5fnu4illeu164"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -36,28 +36,6 @@
               "maxAge": 86400,
               "earningsChart": {
                 "quarterly": [
-                  {
-                    "date": "2Q2025",
-                    "actual": 0.0705,
-                    "estimate": 0.02142,
-                    "fiscalQuarter": "2Q2025",
-                    "calendarQuarter": "2Q2025",
-                    "difference": "0.05",
-                    "surprisePct": "229.13",
-                    "periodEndDate": 1751241600,
-                    "reportedDate": 1755147600
-                  },
-                  {
-                    "date": "3Q2025",
-                    "actual": 0.06,
-                    "estimate": 0.03792,
-                    "fiscalQuarter": "3Q2025",
-                    "calendarQuarter": "3Q2025",
-                    "difference": "0.02",
-                    "surprisePct": "58.23",
-                    "periodEndDate": 1759190400,
-                    "reportedDate": 1762441847
-                  },
                   {
                     "date": "4Q2025",
                     "actual": 0.13,
@@ -79,14 +57,32 @@
                     "surprisePct": "-49.85",
                     "periodEndDate": 1774915200,
                     "reportedDate": 1778142648
+                  },
+                  {
+                    "date": "2Q2026",
+                    "actual": 0.1,
+                    "estimate": 0.10993,
+                    "fiscalQuarter": "2Q2026",
+                    "calendarQuarter": "2Q2026",
+                    "difference": "-0.01",
+                    "surprisePct": "-9.03",
+                    "periodEndDate": 1782777600,
+                    "reportedDate": 1786697474
+                  },
+                  {
+                    "date": "3Q2026",
+                    "estimate": 0.07305,
+                    "fiscalQuarter": "3Q2026",
+                    "calendarQuarter": "3Q2026",
+                    "periodEndDate": 1790726400
                   }
                 ],
-                "currentQuarterEstimate": 0.11496,
-                "currentQuarterEstimateDate": "2Q",
-                "currentCalendarQuarter": "2Q2026",
+                "currentQuarterEstimate": 0.11928,
+                "currentQuarterEstimateDate": "4Q",
+                "currentCalendarQuarter": "4Q2026",
                 "currentQuarterEstimateYear": 2026,
-                "currentFiscalQuarter": "2Q2026",
-                "currentPeriodEndDate": 1782777600,
+                "currentFiscalQuarter": "4Q2026",
+                "currentPeriodEndDate": 1798675200,
                 "earningsDate": [],
                 "isEarningsDateEstimate": false
               },
@@ -113,25 +109,11 @@
                   {
                     "date": 2025,
                     "revenue": 118200000,
-                    "earnings": 10448700,
-                    "profitMargin": 0.08839848
+                    "earnings": 9881000,
+                    "profitMargin": 0.0835956
                   }
                 ],
                 "quarterly": [
-                  {
-                    "date": "2Q2025",
-                    "fiscalQuarter": "2Q2025",
-                    "revenue": 28906000,
-                    "earnings": 3857530,
-                    "profitMargin": 0.13345084
-                  },
-                  {
-                    "date": "3Q2025",
-                    "fiscalQuarter": "3Q2025",
-                    "revenue": 29765000,
-                    "earnings": 3297000,
-                    "profitMargin": 0.11076768
-                  },
                   {
                     "date": "4Q2025",
                     "fiscalQuarter": "4Q2025",
@@ -145,6 +127,20 @@
                     "revenue": 35045000,
                     "earnings": 585000,
                     "profitMargin": 0.016692823
+                  },
+                  {
+                    "date": "2Q2026",
+                    "fiscalQuarter": "2Q2026",
+                    "revenue": 33941000,
+                    "earnings": 5250000,
+                    "profitMargin": 0.15468018
+                  },
+                  {
+                    "date": "3Q2026",
+                    "fiscalQuarter": "3Q2026",
+                    "revenue": 33057000,
+                    "earnings": 1366000,
+                    "profitMargin": 0.041322563
                   }
                 ]
               },

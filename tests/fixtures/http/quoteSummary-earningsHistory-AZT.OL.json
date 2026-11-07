@@ -1,9 +1,9 @@
 {
   "request": {
-    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/AZT.OL?formatted=false&modules=earningsHistory&crumb=%2FkAbfoDQF.8",
+    "url": "https://query2.finance.yahoo.com/v10/finance/quoteSummary/AZT.OL?formatted=false&modules=earningsHistory&crumb=ifnkJx1Aadp",
     "method": "GET",
     "headers": {
-      "cookie": "GUCS=AU5jo7xn; A1=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; GUC=AQABCAFqGrRqSUIfigS1&s=AQAAAFdkQd4p&g=ahlqhA; A3=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; A1S=d=AQABBHpqGWoCEI9Uu_HQAe2RUkxa1gJMWKMFEgABCAG0GmpJavZ0rXYB9qMCAAcIeWoZak8Gzz4&S=AQAAAp87fNy5Q9NE8NqDqi_YP9c; EuConsent=CQk-GYAQk-GYAAOACBENCfFoAP_gAEPgACiQMHtB9G7eTWFjeTJ2YLskOYwH0VBJ4MAwBgCAAEABzBIUIBwGRmARJAyIICACGAIAIGBBIABlGBBAQEAAIIAFAABIAEkAIBAAICAAAAAIAABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAggAAAQAAAAAEAIABAASAAAAAQAAACAAAACgAggAAAAAAAAAEAFAIAAAAIAECAgskdAAQAAAAAAgIAAYAAEABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACC_YAJBoVEERYEAgQCAhBAgAEFAQAUCAIAAAgAAAAEwQECAMAFRgEgBACAAAAAAAAAAAAQAAAQAIQABAAACAEAAACAAIACAAAAAgAAAAAEAAAAAAAAAAAAAAAAAABCAAIIAAAAQQAEFAABAAIAAAAAAAAACIAAgAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAAACBEAACAAAAKAxBYAEAAAAAAAAAAAAAhAAQAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAACAAA.IMHtB9G7eTXFneTJ2YLskOYwX0VBJ4MAwBgCAAEABzBIUIBwGVmATJEyIICACGAIAIGBBIABtGBhAQEAAIIAVAABIAEkAIBAAIGAAACAIQABACAAAAAAAEAAQgEAXIAQgmAYEBFoIQUhAkgAgAQAAAAAEAIgBCASAEAAAQAAACAAAgCgAggAAAAAAAAAEAFAIEQAAIAECAovkdgAQAAAAAAgIAAYACEABAAAAAIAAAgCAAAAAAAAAAAAAAAAAAABAAIAACA",
+      "cookie": "[REDACTED]",
       "user-agent": "Mozilla/5.0 (compatible; yahoo-finance2/0.0.1)"
     }
   },
@@ -12,21 +12,21 @@
     "status": 200,
     "statusText": "OK",
     "headers": {
-      "age": "1",
+      "age": "0",
       "cache-control": "public, max-age=1, stale-while-revalidate=9",
-      "content-length": "1189",
+      "content-length": "1064",
       "content-type": "application/json;charset=utf-8",
-      "date": "Fri, 29 May 2026 10:29:43 GMT",
+      "date": "Sat, 07 Nov 2026 11:01:44 GMT",
       "referrer-policy": "no-referrer-when-downgrade",
       "server": "ATS",
       "strict-transport-security": "max-age=31536000",
       "vary": "Origin,Accept-Encoding",
       "x-content-type-options": "nosniff",
-      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-use1.finance-k8s:4080/*",
-      "x-envoy-upstream-service-time": "6",
+      "x-envoy-decorator-operation": "finance-company-fundamentals-api--mtls-production-usw2.finance-k8s:4080/*",
+      "x-envoy-upstream-service-time": "4",
       "x-frame-options": "SAMEORIGIN",
       "x-xss-protection": "1; mode=block",
-      "y-rid": "046uo7hl1iqko"
+      "y-rid": "55jcsshleu18o"
     },
     "bodyJson": {
       "quoteSummary": {
@@ -34,56 +34,6 @@
           {
             "earningsHistory": {
               "history": [
-                {
-                  "maxAge": 1,
-                  "epsActual": {
-                    "raw": 0.0705,
-                    "fmt": "0.07"
-                  },
-                  "epsEstimate": {
-                    "raw": 0.02142,
-                    "fmt": "0.02"
-                  },
-                  "epsDifference": {
-                    "raw": 0.05,
-                    "fmt": "0.05"
-                  },
-                  "surprisePercent": {
-                    "raw": 2.2913,
-                    "fmt": "229.13%"
-                  },
-                  "quarter": {
-                    "raw": 1751241600,
-                    "fmt": "2025-06-30"
-                  },
-                  "currency": "NOK",
-                  "period": "-4q"
-                },
-                {
-                  "maxAge": 1,
-                  "epsActual": {
-                    "raw": 0.06,
-                    "fmt": "0.06"
-                  },
-                  "epsEstimate": {
-                    "raw": 0.03792,
-                    "fmt": "0.04"
-                  },
-                  "epsDifference": {
-                    "raw": 0.02,
-                    "fmt": "0.02"
-                  },
-                  "surprisePercent": {
-                    "raw": 0.5823,
-                    "fmt": "58.23%"
-                  },
-                  "quarter": {
-                    "raw": 1759190400,
-                    "fmt": "2025-09-30"
-                  },
-                  "currency": "NOK",
-                  "period": "-3q"
-                },
                 {
                   "maxAge": 1,
                   "epsActual": {
@@ -107,7 +57,7 @@
                     "fmt": "2025-12-31"
                   },
                   "currency": "NOK",
-                  "period": "-2q"
+                  "period": "-4q"
                 },
                 {
                   "maxAge": 1,
@@ -130,6 +80,44 @@
                   "quarter": {
                     "raw": 1774915200,
                     "fmt": "2026-03-31"
+                  },
+                  "currency": "NOK",
+                  "period": "-3q"
+                },
+                {
+                  "maxAge": 1,
+                  "epsActual": {
+                    "raw": 0.1,
+                    "fmt": "0.1"
+                  },
+                  "epsEstimate": {
+                    "raw": 0.10993,
+                    "fmt": "0.11"
+                  },
+                  "epsDifference": {
+                    "raw": -0.01,
+                    "fmt": "-0.01"
+                  },
+                  "surprisePercent": {
+                    "raw": -0.090299994,
+                    "fmt": "-9.03%"
+                  },
+                  "quarter": {
+                    "raw": 1782777600,
+                    "fmt": "2026-06-30"
+                  },
+                  "currency": "NOK",
+                  "period": "-2q"
+                },
+                {
+                  "maxAge": 1,
+                  "epsEstimate": {
+                    "raw": 0.07305,
+                    "fmt": "0.07"
+                  },
+                  "quarter": {
+                    "raw": 1790726400,
+                    "fmt": "2026-09-30"
                   },
                   "currency": "NOK",
                   "period": "-1q"
