@@ -444,7 +444,8 @@ jobs:
       always() && !cancelled() && needs.branch-policy.result == 'success' && github.ref == 'refs/heads/dev' &&
       ((vars.SCHEMA_REPAIR_ENABLED == 'true' && needs.recache.result == 'success' && needs.recache.outputs.drift_sha != '') ||
        (github.event_name == 'workflow_dispatch' && inputs.repair_only))
-    runs-on: ubuntu-latest
+    # Work around Ubuntu 26.04 socket ACL checks until codex-action#188 is fixed.
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     environment: schema-repair
     permissions:

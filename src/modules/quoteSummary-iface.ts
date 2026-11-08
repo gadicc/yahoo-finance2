@@ -237,10 +237,10 @@ export interface EarningsChartQuarterly {
   estimate: number;
   fiscalQuarter: string; // "3Q2025",
   calendarQuarter: string; // "3Q2025",
-  difference: string; // "0.39",
-  surprisePct: string; // "25.2",
+  difference?: string; // "0.39",
+  surprisePct?: string; // "25.2",
   periodEndDate: Date; // 1759190400,
-  reportedDate: Date; // 1761854460
+  reportedDate?: Date; // 1761854460
 }
 
 export interface FinancialsChart {
@@ -276,10 +276,10 @@ export interface EarningsHistory {
 export interface EarningsHistoryHistory {
   [key: string]: unknown;
   maxAge: number;
-  epsActual: number | null;
+  epsActual?: number | null;
   epsEstimate: number | null;
-  epsDifference: number | null;
-  surprisePercent: number | null;
+  epsDifference?: number | null;
+  surprisePercent?: number | null;
   quarter: Date | null;
   period: string;
   currency?: string;
