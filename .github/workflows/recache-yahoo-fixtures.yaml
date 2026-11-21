@@ -520,7 +520,7 @@ jobs:
       - name: Repair with Codex
         id: codex
         if: ${{ !inputs.auth_only }}
-        uses: openai/codex-action@bdf19a4a223ec2549a3e2274a0cf61556bc07675 # v1
+        uses: openai/codex-action@306c6a196a99dcc6582530c396a19d2672d5e9ec # v1
         timeout-minutes: 20
         env:
           ACTIONS_ID_TOKEN_REQUEST_TOKEN: ""
