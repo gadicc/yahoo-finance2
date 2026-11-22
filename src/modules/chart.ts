@@ -185,7 +185,7 @@ export interface ChartResultArrayQuote {
 
 export interface ChartMeta {
   [key: string]: unknown;
-  currency: string; // "USD"
+  currency?: string | null; // "USD" or null
   symbol: string; // "AAPL",
   exchangeName: string; // "NMS",
   instrumentType: string; // "EQUITY",
