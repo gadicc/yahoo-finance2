@@ -3,7 +3,7 @@
   "specifiers": {
     "jsr:@david/code-block-writer@^13.0.3": "13.0.3",
     "jsr:@deno/dnt@0.44": "0.44.0",
-    "jsr:@gadicc/fetch-mock-cache@^3.1.0": "3.1.0",
+    "jsr:@gadicc/fetch-mock-cache@4": "4.0.0",
     "jsr:@std/assert@^1.0.19": "1.0.19",
     "jsr:@std/async@^1.5.1": "1.5.1",
     "jsr:@std/cli@^1.0.32": "1.0.32",
@@ -20,7 +20,7 @@
     "jsr:@std/path@^1.1.6": "1.1.6",
     "jsr:@std/testing@^1.0.21": "1.0.21",
     "jsr:@ts-morph/bootstrap@0.29": "0.29.0",
-    "jsr:@ts-morph/common@0.29": "0.29.0",
+    "jsr:@ts-morph/common@0.29": "0.29.1",
     "npm:@modelcontextprotocol/sdk@^1.32.0": "1.32.0_zod@4.6.5",
     "npm:@sebbo2002/semantic-release-jsr@^4.0.2": "4.0.2",
     "npm:@semantic-release/exec@^7.1.0": "7.1.0_semantic-release@25.0.9",
@@ -53,8 +53,8 @@
         "jsr:@ts-morph/bootstrap"
       ]
     },
-    "@gadicc/fetch-mock-cache@3.1.0": {
-      "integrity": "5fdf804a8524521c49817beaa8c35246b86f5f74489546472ca4ecf11b02ffa0",
+    "@gadicc/fetch-mock-cache@4.0.0": {
+      "integrity": "5accc01c514cea4a51a8027d6617512be195644138e0290efd86d6fa43d8e643",
       "dependencies": [
         "jsr:@std/path@^1.1.6",
         "npm:@types/debug",
@@ -128,8 +128,8 @@
         "jsr:@ts-morph/common"
       ]
     },
-    "@ts-morph/common@0.29.0": {
-      "integrity": "14e8f44c5e4297628cf756aed071787dc026c493e36c1cc29ce49dc95e493f8f",
+    "@ts-morph/common@0.29.1": {
+      "integrity": "b46478d7908609729d6fb2c02f016d65169987606e7283ef6b7db24c30d6564f",
       "dependencies": [
         "jsr:@std/fs@1",
         "jsr:@std/path@1"
@@ -2345,7 +2345,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@deno/dnt@0.44",
-      "jsr:@gadicc/fetch-mock-cache@^3.1.0",
+      "jsr:@gadicc/fetch-mock-cache@4",
       "jsr:@std/async@^1.5.1",
       "jsr:@std/cli@^1.0.32",
       "jsr:@std/expect@^1.0.20",
