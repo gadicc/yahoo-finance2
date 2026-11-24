@@ -106,6 +106,9 @@ export interface QuoteBase {
   /** Whether cryptocurrency trading is available for this symbol */
   cryptoTradeable?: boolean; // false
 
+  /** Whether Yahoo identifies the instrument as a CME future. */
+  isCMEFuture?: boolean;
+
   /** Corporate actions data (structure TBD) */
   corporateActions?: unknown[]; // [],  XXX TODO
 

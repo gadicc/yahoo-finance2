@@ -610,6 +610,8 @@ export interface ScreenerQuote {
   esgPopulated: boolean;
   tradeable: boolean;
   cryptoTradeable: boolean;
+  /** Whether Yahoo identifies the instrument as a CME future. */
+  isCMEFuture?: boolean;
   exchange: string;
   /** Previous exchange identifier reported by Yahoo. */
   prevExchange?: string;
